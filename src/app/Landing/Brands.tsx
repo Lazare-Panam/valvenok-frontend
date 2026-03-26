@@ -85,7 +85,6 @@ export default function Brands() {
                 bgcolor: 'background.paper',
                 border: '1.5px solid',
                 borderColor: 'divider',
-                borderRadius: '0px',
                 fontFamily: '"Barlow Condensed", sans-serif',
                 fontSize: '18px',
                 fontWeight: 800,

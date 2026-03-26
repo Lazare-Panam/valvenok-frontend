@@ -146,7 +146,6 @@ export default function AboutContact() {
                 fontSize: '15px',
                 letterSpacing: '0.06em',
                 textTransform: 'uppercase',
-                borderRadius: '0px',
                 px: 3.5,
                 py: 1.5,
                 boxShadow: 'none',
@@ -161,7 +160,6 @@ export default function AboutContact() {
           <Box
             sx={{
               bgcolor: 'primary.main',
-              borderRadius: '0px',
               p: { xs: 4, md: '36px 36px' },
               color: '#fff',
             }}
@@ -187,7 +185,6 @@ export default function AboutContact() {
                 width: 40,
                 height: 3,
                 bgcolor: 'rgba(255,255,255,0.35)',
-                borderRadius: '0px',
                 mb: 3,
               }}
             />
@@ -220,7 +217,6 @@ export default function AboutContact() {
                     height: 44,
                     bgcolor: 'rgba(255,255,255,0.12)',
                     border: '1px solid rgba(255,255,255,0.2)',
-                    borderRadius: '0px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',

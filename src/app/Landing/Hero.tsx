@@ -100,7 +100,6 @@ export default function Hero() {
                   py: 0.75,
                   mb: 2.5,
                   bgcolor: (theme) => alpha(theme.palette.primary.main, 0.1),
-                  borderRadius: '0px',
                   border: '1px solid',
                   borderColor: (theme) => alpha(theme.palette.primary.main, 0.35),
                   '&::before': {
@@ -178,7 +177,6 @@ export default function Hero() {
                     fontSize: '16px',
                     letterSpacing: '0.06em',
                     textTransform: 'uppercase',
-                    borderRadius: '0px',
                   }}
                 >
                   Shop All Products
@@ -196,7 +194,6 @@ export default function Hero() {
                     fontSize: '16px',
                     letterSpacing: '0.06em',
                     textTransform: 'uppercase',
-                    borderRadius: '0px',
                     borderWidth: '2px',
                     '&:hover': { borderWidth: '2px' },
                   }}
@@ -218,7 +215,6 @@ export default function Hero() {
                         textAlign: 'center',
                         border: '1.5px solid',
                         borderColor: 'divider',
-                        borderRadius: 0,
                         bgcolor: 'background.paper',
                         boxShadow: '0 2px 8px rgba(45,92,34,0.06)',
                         transition: 'border-color 0.2s, box-shadow 0.2s',

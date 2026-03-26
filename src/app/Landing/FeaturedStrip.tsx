@@ -114,7 +114,6 @@ export default function FeaturedStrip() {
                 fontSize: '15px',
                 letterSpacing: '0.06em',
                 textTransform: 'uppercase',
-                borderRadius: '0px',
                 px: 3,
                 py: 1.5,
                 boxShadow: 'none',
@@ -142,7 +141,6 @@ export default function FeaturedStrip() {
                 sx={{
                   bgcolor: 'rgba(255,255,255,0.06)',
                   border: '1px solid rgba(255,255,255,0.12)',
-                  borderRadius: '0px',
                   p: '20px 14px',
                   textAlign: 'center',
                   cursor: 'pointer',
@@ -164,7 +162,7 @@ export default function FeaturedStrip() {
                     width: 60,
                     height: 60,
                     bgcolor: 'rgba(255,255,255,0.1)',
-                    borderRadius: '0px',
+
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',

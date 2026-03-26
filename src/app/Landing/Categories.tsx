@@ -139,7 +139,7 @@ export default function Categories() {
                   bgcolor: 'background.paper',
                   display: 'flex',
                   flexDirection: 'column',
-                  borderRadius: '0px', // Rounded corners for a modern look
+    
                   border: '1px solid',
                   borderColor: isOpen ? 'primary.main' : 'divider',
                   overflow: 'hidden',
@@ -172,7 +172,7 @@ export default function Categories() {
                       width: 200, // Bigger image size
                       height: 180,
                       flexShrink: 0,
-                      borderRadius: '0',
+
                       overflow: 'hidden',
                       display: 'flex',
                       alignItems: 'center',
@@ -263,7 +263,6 @@ export default function Categories() {
                           fontSize: '14px',
                           color: 'text.secondary',
                           textDecoration: 'none',
-                          borderRadius: '60px',
                           transition: 'all 0.2s',
                           '&:hover': {
                             bgcolor: 'primary.main',
