@@ -1,0 +1,280 @@
+'use client';
+
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import { alpha } from '@mui/material/styles';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import CheckIcon from '@mui/icons-material/Check';
+import VerifiedIcon from '@mui/icons-material/Verified';
+
+const PILLS = [
+  'Swagelok Compatible',
+  'Parker Compatible',
+  'H2 Certified',
+  'SS316 / Duplex / Hastelloy',
+];
+
+const SPECS = [
+  { key: 'Max Pressure',  val: '6,000 PSI'                  },
+  { key: 'Materials',     val: 'SS316 · Duplex · Hastelloy'  },
+  { key: 'Connections',   val: 'BSP · NPT · Double Ferrule'  },
+  { key: 'H2 Certified',  val: 'Compliant'                   },
+  { key: 'Lead Time',     val: 'UK Stock · 48hr Dispatch'    },
+];
+
+export default function PanamBanner() {
+  return (
+    <Box
+      component="section"
+      sx={{
+        bgcolor: 'background.paper',
+        py: { xs: 7, md: 9 },
+        position: 'relative',
+        overflow: 'hidden',
+        borderTop: '1px solid',
+        borderColor: 'divider',
+        // Watermark
+        '&::before': {
+          content: '"PANAM"',
+          position: 'absolute',
+          right: '-20px',
+          top: '50%',
+          transform: 'translateY(-50%)',
+          fontFamily: '"Barlow Condensed", sans-serif',
+          fontSize: 'clamp(100px, 14vw, 180px)',
+          fontWeight: 900,
+          color: (theme) => alpha(theme.palette.primary.main, 0.06),
+          letterSpacing: '-8px',
+          pointerEvents: 'none',
+          userSelect: 'none',
+          lineHeight: 1,
+        },
+      }}
+    >
+      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
+        <Box
+          sx={{
+            display: 'grid',
+            gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
+            gap: { xs: 5, md: 8 },
+            alignItems: 'center',
+          }}
+        >
+
+          {/* ── LEFT: Content ── */}
+          <Box>
+            {/* Label */}
+            <Typography
+              sx={{
+                fontFamily: '"Barlow Condensed", sans-serif',
+                fontSize: '11px',
+                fontWeight: 800,
+                letterSpacing: '0.18em',
+                textTransform: 'uppercase',
+                color: 'primary.main',
+                mb: 1.5,
+              }}
+            >
+              Featured Industrial Brand
+            </Typography>
+
+            {/* Heading */}
+            <Typography
+              component="h2"
+              sx={{
+                fontFamily: '"Barlow Condensed", sans-serif',
+                fontSize: { xs: '2.4rem', md: 'clamp(28px, 3.5vw, 50px)' },
+                fontWeight: 900,
+                textTransform: 'uppercase',
+                color: 'text.primary',
+                lineHeight: 1.04,
+                mb: 2.5,
+              }}
+            >
+              PANAM Valves —{' '}
+              <Box component="br" />
+              The{' '}
+              <Box component="em" sx={{ color: 'primary.main', fontStyle: 'normal' }}>
+                Smarter Alternative
+              </Box>
+              <Box component="br" />
+              to Swagelok &amp; Parker
+            </Typography>
+
+            {/* Body */}
+            <Typography
+              sx={{
+                fontSize: '15px',
+                color: 'text.secondary',
+                lineHeight: 1.75,
+                mb: 3,
+              }}
+            >
+              100% compatible with Swagelok and Parker specifications, but at a price that makes
+              sense. PANAM delivers the same high-pressure, high-purity performance for oil &amp;
+              gas, hydrogen and instrumentation applications — without the premium price tag.
+            </Typography>
+
+            {/* Pills */}
+            <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', mb: 4 }}>
+              {PILLS.map((pill) => (
+                <Box
+                  key={pill}
+                  sx={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 0.75,
+                    bgcolor: (theme) => alpha(theme.palette.primary.main, 0.08),
+                    border: '1px solid',
+                    borderColor: (theme) => alpha(theme.palette.primary.main, 0.25),
+                    color: 'primary.main',
+                    px: 1.75,
+                    py: 0.75,
+                    borderRadius: '20px',
+                    fontFamily: '"Barlow Condensed", sans-serif',
+                    fontSize: '11px',
+                    fontWeight: 700,
+                    letterSpacing: '0.06em',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  <CheckIcon sx={{ fontSize: 12 }} />
+                  {pill}
+                </Box>
+              ))}
+            </Box>
+
+            {/* CTA */}
+            <Button
+              variant="contained"
+              color="primary"
+              href="https://panamvalve.com/"
+              target="_blank"
+              rel="noopener"
+              endIcon={<ArrowForwardIcon />}
+              sx={{
+                fontFamily: '"Barlow Condensed", sans-serif',
+                fontWeight: 800,
+                fontSize: '15px',
+                letterSpacing: '0.06em',
+                textTransform: 'uppercase',
+                borderRadius: '3px',
+                px: 3.5,
+                py: 1.5,
+                boxShadow: 'none',
+                '&:hover': { boxShadow: 'none' },
+              }}
+            >
+              Explore PANAM Range
+            </Button>
+          </Box>
+
+          {/* ── RIGHT: Spec Card ── */}
+          <Box
+            sx={{
+              background: (theme) =>
+                `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.08)} 0%, ${alpha(theme.palette.primary.main, 0.16)} 100%)`,
+              border: '1.5px solid',
+              borderColor: (theme) => alpha(theme.palette.primary.main, 0.25),
+              borderRadius: '12px',
+              p: { xs: 4, md: '48px 40px' },
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 2,
+            }}
+          >
+            {/* Card label */}
+            <Typography
+              sx={{
+                fontFamily: '"Barlow Condensed", sans-serif',
+                fontSize: '11px',
+                fontWeight: 800,
+                letterSpacing: '0.15em',
+                textTransform: 'uppercase',
+                color: 'primary.main',
+                opacity: 0.7,
+              }}
+            >
+              Engineering Specs
+            </Typography>
+
+            {/* Card title */}
+            <Typography
+              sx={{
+                fontFamily: '"Barlow Condensed", sans-serif',
+                fontSize: '28px',
+                fontWeight: 900,
+                textTransform: 'uppercase',
+                color: 'primary.main',
+                lineHeight: 1.1,
+              }}
+            >
+              PANAM Precision Series
+            </Typography>
+
+            {/* Spec rows */}
+            <Box sx={{ mt: 1 }}>
+              {SPECS.map((spec, i) => (
+                <Box
+                  key={spec.key}
+                  sx={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    py: 1.25,
+                    borderBottom: i < SPECS.length - 1 ? '1px solid' : 'none',
+                    borderColor: (theme) => alpha(theme.palette.primary.main, 0.15),
+                  }}
+                >
+                  <Typography
+                    sx={{ fontSize: '13px', color: 'text.secondary', fontWeight: 500 }}
+                  >
+                    {spec.key}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: '"Barlow Condensed", sans-serif',
+                      fontSize: '14px',
+                      fontWeight: 800,
+                      color: 'primary.main',
+                      letterSpacing: '0.04em',
+                    }}
+                  >
+                    {spec.val}
+                  </Typography>
+                </Box>
+              ))}
+            </Box>
+
+            {/* ISO Badge */}
+            <Box
+              sx={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 1,
+                alignSelf: 'flex-start',
+                mt: 1,
+                bgcolor: 'primary.main',
+                color: '#fff',
+                px: 2,
+                py: 0.75,
+                borderRadius: '4px',
+                fontFamily: '"Barlow Condensed", sans-serif',
+                fontSize: '12px',
+                fontWeight: 800,
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+              }}
+            >
+              <VerifiedIcon sx={{ fontSize: 16 }} />
+              ISO 9001 Certified
+            </Box>
+          </Box>
+
+        </Box>
+      </Container>
+    </Box>
+  );
+}
