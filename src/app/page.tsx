@@ -1,4 +1,4 @@
-import Navbar from "./Common/NavBar";
+import Navbar from "./Common/Navbar/Navbar";
 import AboutContact from "./Landing/AboutContact";
 import Brands from "./Landing/Brands";
 import Categories from "./Landing/Categories";
