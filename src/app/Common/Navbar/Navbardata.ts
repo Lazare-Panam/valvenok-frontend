@@ -1,10 +1,15 @@
 import React from "react";
-import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
+// Navigation Specific Icons
 import StorefrontOutlinedIcon from "@mui/icons-material/StorefrontOutlined";
-import PublicOutlinedIcon from "@mui/icons-material/PublicOutlined";
+import ArticleOutlinedIcon from "@mui/icons-material/ArticleOutlined"; // For News
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined"; // For About
+import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined"; // For Account
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined"; // For Contact
+
+// Product Specific Icons
+import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import BuildOutlinedIcon from "@mui/icons-material/BuildOutlined";
-import DirectionsCarOutlinedIcon from "@mui/icons-material/DirectionsCarOutlined";
 import WaterDropOutlinedIcon from "@mui/icons-material/WaterDropOutlined";
 import AirOutlinedIcon from "@mui/icons-material/AirOutlined";
 import FactoryOutlinedIcon from "@mui/icons-material/FactoryOutlined";
@@ -37,11 +42,31 @@ export interface NavLink {
 // ── Nav links ─────────────────────────────────────────────────────────────────
 
 export const NAV_LINKS: NavLink[] = [
-  { label: "DICSA",            href: "/dicsa",             icon: React.createElement(PublicOutlinedIcon,          { sx: { fontSize: 18 } }) },
-  { label: "Brands",           href: "/brands",            icon: React.createElement(StorefrontOutlinedIcon,      { sx: { fontSize: 18 } }) },
-  { label: "Power Packs",      href: "/power-packs",       icon: React.createElement(LockOutlinedIcon,            { sx: { fontSize: 18 } }) },
-  { label: "Hose Builder",     href: "/hose-builder",      icon: React.createElement(BuildOutlinedIcon,           { sx: { fontSize: 18 } }) },
-  { label: "Mobile Workshops", href: "/mobile-workshops",  icon: React.createElement(DirectionsCarOutlinedIcon,   { sx: { fontSize: 18 } }) },
+  { 
+    label: "Home", 
+    href: "/", 
+    icon: React.createElement(StorefrontOutlinedIcon, { sx: { fontSize: 18 } }) 
+  },
+  { 
+    label: "News & Blog", 
+    href: "/news", 
+    icon: React.createElement(ArticleOutlinedIcon, { sx: { fontSize: 18 } }) 
+  },
+  { 
+    label: "About us", 
+    href: "/about", 
+    icon: React.createElement(InfoOutlinedIcon, { sx: { fontSize: 18 } }) 
+  },
+  { 
+    label: "My Account", 
+    href: "/account", 
+    icon: React.createElement(PersonOutlineOutlinedIcon, { sx: { fontSize: 18 } }) 
+  },
+  { 
+    label: "Contact Us", 
+    href: "/contact", 
+    icon: React.createElement(EmailOutlinedIcon, { sx: { fontSize: 18 } }) 
+  },
 ];
 
 // ── Categories ────────────────────────────────────────────────────────────────

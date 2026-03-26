@@ -9,7 +9,7 @@ import NavShopButton from "./NavShopButton";
 import NavLinks from "./NavLinks";
 import MegaMenu from "./MegaMenu";
 
-const BAR_HEIGHT = 112;
+const BAR_HEIGHT = 100;
 
 export default function Navbar() {
   const [open, setOpen] = React.useState(false);
