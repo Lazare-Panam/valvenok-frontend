@@ -65,7 +65,7 @@ export default function DeliveryBanner() {
               py: 0.75,
               bgcolor: 'rgba(255,255,255,0.12)',
               border: '1px solid rgba(255,255,255,0.25)',
-              borderRadius: '4px',
+              borderRadius: '0px',
               color: '#fff',
               cursor: 'default',
               transition: 'bgcolor 0.2s, border-color 0.2s',

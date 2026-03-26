@@ -13,7 +13,6 @@ const PILLS = [
   'Swagelok Compatible',
   'Parker Compatible',
   'H2 Certified',
-  'SS316 / Duplex / Hastelloy',
 ];
 
 const SPECS = [
@@ -132,7 +131,7 @@ export default function PanamBanner() {
                     color: 'primary.main',
                     px: 1.75,
                     py: 0.75,
-                    borderRadius: '20px',
+                    borderRadius: '0px',
                     fontFamily: '"Barlow Condensed", sans-serif',
                     fontSize: '11px',
                     fontWeight: 700,
@@ -160,7 +159,7 @@ export default function PanamBanner() {
                 fontSize: '15px',
                 letterSpacing: '0.06em',
                 textTransform: 'uppercase',
-                borderRadius: '3px',
+                borderRadius: '0px',
                 px: 3.5,
                 py: 1.5,
                 boxShadow: 'none',
@@ -178,7 +177,7 @@ export default function PanamBanner() {
                 `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.08)} 0%, ${alpha(theme.palette.primary.main, 0.16)} 100%)`,
               border: '1.5px solid',
               borderColor: (theme) => alpha(theme.palette.primary.main, 0.25),
-              borderRadius: '12px',
+              borderRadius: '0px',
               p: { xs: 4, md: '48px 40px' },
               display: 'flex',
               flexDirection: 'column',
@@ -260,7 +259,7 @@ export default function PanamBanner() {
                 color: '#fff',
                 px: 2,
                 py: 0.75,
-                borderRadius: '4px',
+                borderRadius: '0px',
                 fontFamily: '"Barlow Condensed", sans-serif',
                 fontSize: '12px',
                 fontWeight: 800,
