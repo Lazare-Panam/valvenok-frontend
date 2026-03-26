@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Barlow_Condensed, Barlow } from "next/font/google";
 import "./globals.css";
 import ThemeRegistry from "../theme/ThemeRegistry";
+import Navbar from "./Common/Navbar/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,7 +42,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${barlowCondensed.variable} ${barlow.variable}`}
     >
       <body>
-        <ThemeRegistry>{children}</ThemeRegistry>
+        <ThemeRegistry>  <Navbar />{children}</ThemeRegistry>
       </body>
     </html>
   );
