@@ -23,7 +23,7 @@ export default function NavShopButton({ open, onClick, barHeight }: Props) {
         height: barHeight,
         px: 3,
         border: "none",
-
+        borderRadius:"0px",
         bgcolor: "primary.main",
         color: "#fff",
         fontFamily: '"Barlow Condensed", sans-serif',
