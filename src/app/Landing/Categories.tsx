@@ -37,7 +37,7 @@ const CATEGORIES = [
     ],
   },
   {
-    name: 'Batu Valves',
+    name: 'Valves',
     img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774523763/steel-ball-valve_mqpk70.jpg",
     href: '/collections/batu-valve',
     subs: [
@@ -46,7 +46,7 @@ const CATEGORIES = [
     ],
   },
   {
-    name: 'Tormac Pumps',
+    name: 'Pumps',
     img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774524120/08-TEP-Peripheral-pumps-1-259x300_fstbrp.png",
     href: '/collections/tormac-pumps',
     subs: [

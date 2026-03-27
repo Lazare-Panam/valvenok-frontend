@@ -30,7 +30,7 @@ export const CATEGORY_METADATA = [
   },
   {
     id: 'batu',
-    title: 'Batu Valves',
+    title: ' Valves',
     count: 120,
     description: 'Industrial-grade ball, gate, and globe valves for steam and high-temperature process lines.',
     image: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1774523763/steel-ball-valve_mqpk70.jpg',
@@ -39,7 +39,7 @@ export const CATEGORY_METADATA = [
   },
   {
     id: 'tormac',
-    title: 'Tormac Pumps',
+    title: 'Pumps',
     count: 64,
     description: 'High-efficiency centrifugal and submersible pumps for agricultural and chemical transfer.',
     image: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1774524120/08-TEP-Peripheral-pumps-1-259x300_fstbrp.png',
