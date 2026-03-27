@@ -1,0 +1,58 @@
+
+
+export const CATEGORY_METADATA = [
+  {
+    id: 'fittings',
+    title: 'Fittings & Tubings',
+    count: 142,
+    description: 'Precision-engineered compression and instrumentation fittings for high-pressure systems.',
+    image: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1771948480/reducing-hex-couplings-npt_i2twbq.png',
+    href: '/categories/instrumentation-fittings',
+    tags: ['SS316', 'High-Pressure', 'NPT/BSP'],
+  },
+  {
+    id: 'pneumatics',
+    title: 'Pneumatic Systems',
+    count: 85,
+    description: 'Complete air preparation units, solenoid valves, and high-cycle pneumatic cylinders.',
+    image: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1774007615/DSC_7050_ESNC-100x100_jjj5g6-removebg-preview_apf6ug.png',
+    href: '/collections/pneumatics',
+    tags: ['ISO Certified', 'Automation', 'FRL'],
+  },
+  {
+    id: 'hydrogen',
+    title: 'Hydrogen Application',
+    count: 42,
+    description: 'Specialized valves and tubings rated for H2 service with low-permeability seals.',
+    image: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1768569088/HP_Ball_Valve_2_aybek4.webp',
+    href: '/collections/hydrogen-application',
+    tags: ['H2 Rated', 'Zero Leakage', 'Clean Energy'],
+  },
+  {
+    id: 'batu',
+    title: 'Batu Valves',
+    count: 120,
+    description: 'Industrial-grade ball, gate, and globe valves for steam and high-temperature process lines.',
+    image: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1774523763/steel-ball-valve_mqpk70.jpg',
+    href: '/collections/batu-valve',
+    tags: ['Forged Steel', 'Steam Rated', 'API 607'],
+  },
+  {
+    id: 'tormac',
+    title: 'Tormac Pumps',
+    count: 64,
+    description: 'High-efficiency centrifugal and submersible pumps for agricultural and chemical transfer.',
+    image: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1774524120/08-TEP-Peripheral-pumps-1-259x300_fstbrp.png',
+    href: '/collections/tormac-pumps',
+    tags: ['Self-Priming', 'Chemical Resistant'],
+  },
+  {
+    id: 'manifolds',
+    title: 'Instrument Manifolds',
+    count: 38,
+    description: '2, 3, and 5-valve manifolds for pressure transmitters and gauge isolation.',
+    image: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1768296193/5VM-SS-H_-_JPG_qrcujq.jpg',
+    href: '/collections/manifolds',
+    tags: ['Direct Mount', 'Remote Mount'],
+  },
+];

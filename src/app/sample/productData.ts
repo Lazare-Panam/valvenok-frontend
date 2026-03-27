@@ -1,10 +1,23 @@
 
 export const PRODUCT_DATA = {
+  id:"PANAM_MALE CONNECTOR_SAE_070102_(37°JIC_X_NPT)",
   metadata: {
     category: "Instrumentation Fittings",
     subCategory: "JIC to NPT Male Connectors",
     brand: "Valvenok Engineering",
     description: "Industrial-grade PMC series male connectors designed for high-pressure hydraulic transitions. CNC machined from 316 Stainless Steel for maximum corrosion resistance.",
+    attributeLabels: {
+      tubeOD: "Tube OD (Fractional)",
+      tubeOD_mm: "Tube OD (Metric)",
+      jic: "JIC Size",
+      npt: "NPT Thread"
+    },
+    attributeTooltips: {
+      tubeOD: "The outside diameter of the tubing being connected.",
+      tubeOD_mm: "The metric equivalent of the tube diameter.",
+      jic: "Joint Industry Council 37-degree flare fitting size.",
+      npt: "National Pipe Taper thread standard for pressure-tight seals."
+    },
     commonFeatures: [
       { label: "Material", value: "316 Stainless Steel (ASTM A479)" },
       { label: "Pressure", value: "6,000 PSI (413 bar)" },
@@ -30,10 +43,15 @@ export const PRODUCT_DATA = {
     { partNumber: "PMC-4J-8N-SS", tubeOD: "1/4", tubeOD_mm: 6, jic: "7/16-20", npt: "1/2", price: 8.10 },
     { partNumber: "PMC-5J-2N-SS", tubeOD: "5/16", tubeOD_mm: 8, jic: "1/2-20", npt: "1/8", price: 3.96 },
     { partNumber: "PMC-5J-4N-SS", tubeOD: "5/16", tubeOD_mm: 8, jic: "1/2-20", npt: "1/4", price: 4.17 },
+
+
     { partNumber: "PMC-6J-2N-SS", tubeOD: "3/8", tubeOD_mm: 10, jic: "9/16-18", npt: "1/8", price: 4.14 },
     { partNumber: "PMC-6J-4N-SS", tubeOD: "3/8", tubeOD_mm: 10, jic: "9/16-18", npt: "1/4", price: 5.42 },
     { partNumber: "PMC-6J-6N-SS", tubeOD: "3/8", tubeOD_mm: 10, jic: "9/16-18", npt: "3/8", price: 5.93 },
     { partNumber: "PMC-6J-8N-SS", tubeOD: "3/8", tubeOD_mm: 10, jic: "9/16-18", npt: "1/2", price: 8.10 },
+
+
+
     { partNumber: "PMC-8J-4N-SS", tubeOD: "1/2", tubeOD_mm: 12, jic: "3/4-16", npt: "1/4", price: 6.12 },
     { partNumber: "PMC-8J-6N-SS", tubeOD: "1/2", tubeOD_mm: 12, jic: "3/4-16", npt: "3/8", price: 6.18 },
     { partNumber: "PMC-8J-8N-SS", tubeOD: "1/2", tubeOD_mm: 12, jic: "3/4-16", npt: "1/2", price: 8.10 },
