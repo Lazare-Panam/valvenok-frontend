@@ -10,11 +10,17 @@ const CATEGORIES = [
   {
     name: 'Fittings & Tubings',
     img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1771948480/reducing-hex-couplings-npt_i2twbq.png", // replace with Cloudinary URL
-    href: '/collections/fittings-tubings',
+    href: '/categories/instrumentation-fittings',
     subs: [
-      'Compression Fittings', 'Instrumentation Fittings', 'Stainless Tube Fittings',
-      'Bulkhead Fittings', 'Push-to-Connect', 'Straight Union',
-      'Elbow & Tee Fittings', 'Stainless Tubing', 'Plastic Tubing',
+      'Instrumentation Fittings'
+    ],
+  },
+   {
+    name: 'Actutors',
+    img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774870846/WhatsApp_Image_2026-03-30_at_11.18.12_AM_ngx1e8.jpg",
+    href: '/categories/actuators',
+    subs: [
+      'Pnumatic Actuators'
     ],
   },
   {
@@ -22,9 +28,7 @@ const CATEGORIES = [
     img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774007615/DSC_7050_ESNC-100x100_jjj5g6-removebg-preview_apf6ug.png",
     href: '/collections/pneumatics',
     subs: [
-      'Pneumatic Cylinders', 'Solenoid Valves', 'FRL Units',
-      'Air Preparation', 'Pneumatic Hose', 'Quick Couplings',
-      'Pressure Switches', 'Flow Controls', 'Mufflers',
+      
     ],
   },
   {
@@ -32,8 +36,7 @@ const CATEGORIES = [
     img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768569088/HP_Ball_Valve_2_aybek4.webp",
     href: '/collections/hydrogen-application',
     subs: [
-      'H₂ Rated Valves', 'H₂ Regulators', 'Hydrogen Tubing',
-      'High-Purity Fittings', 'Stainless Steel Valves', 'Check Valves', 'Relief Valves',
+      
     ],
   },
   {
@@ -41,8 +44,7 @@ const CATEGORIES = [
     img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774523763/steel-ball-valve_mqpk70.jpg",
     href: '/collections/batu-valve',
     subs: [
-      'Ball Valves', 'Gate Valves', 'Globe Valves', 'Check Valves',
-      'Butterfly Valves', 'Steam Rated Valves', 'High-Temp Valves', 'Forged Steel Valves',
+      
     ],
   },
   {
@@ -50,8 +52,7 @@ const CATEGORIES = [
     img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774524120/08-TEP-Peripheral-pumps-1-259x300_fstbrp.png",
     href: '/collections/tormac-pumps',
     subs: [
-      'Centrifugal Pumps', 'Self-Priming Pumps', 'Chemical Pumps',
-      'Agricultural Pumps', 'Booster Pumps', 'Submersible Pumps', 'Pump Accessories',
+      
     ],
   },
   {
@@ -59,19 +60,10 @@ const CATEGORIES = [
     img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768296193/5VM-SS-H_-_JPG_qrcujq.jpg",
     href: '/collections/manifolds',
     subs: [
-      'Instrument Manifolds', 'Distribution Blocks', '2-Valve Manifolds',
-      '3-Valve Manifolds', '5-Valve Manifolds', 'Hydraulic Manifolds', 'Pneumatic Manifolds',
+     
     ],
   },
-  {
-    name: 'Pipe & Weld Fittings',
-    img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774524013/male-street-tee_orc5ck.png",
-    href: '/collections/pipe-fittings',
-    subs: [
-      'NPT Fittings', 'BSP Fittings', 'Socket Weld Fittings',
-      'Butt Weld Fittings', 'Flanges', 'Elbows & Tees', 'Reducers', 'Caps & Plugs',
-    ],
-  },
+ 
   {
     name: 'Browse All Products',
     img: null,
