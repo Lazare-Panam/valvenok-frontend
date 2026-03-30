@@ -11,13 +11,13 @@ export const CATEGORY_METADATA = [
     tags: ['SS316', 'High-Pressure', 'NPT/BSP'],
   },
   {
-    id: 'pneumatics',
-    title: 'Pneumatic Systems',
+    id: 'actuators',
+    title: 'Actuator Systems',
     count: 85,
-    description: 'Complete air preparation units, solenoid valves, and high-cycle pneumatic cylinders.',
+   description: 'Precision linear and rotary actuators, including electric drive cylinders and high-torque motion controllers.',
     image: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1774007615/DSC_7050_ESNC-100x100_jjj5g6-removebg-preview_apf6ug.png',
-    href: '/collections/pneumatics',
-    tags: ['ISO Certified', 'Automation', 'FRL'],
+   href: '/categories/actuators', 
+    tags: ['Linear Motion', 'High Precision', 'Electric Drives'],
   },
   {
     id: 'hydrogen',

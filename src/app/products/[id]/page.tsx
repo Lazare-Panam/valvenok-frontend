@@ -79,7 +79,7 @@ function ProductSelector({ data: PRODUCT_DATA }: { data: any }) {
               variant="h1"
               sx={{ fontFamily: "Barlow Condensed", fontWeight: 900, fontSize: "3.5rem", mb: 1 }}
             >
-              {match ? match.partNumber : "PMC SERIES"}
+              {match ? match.partNumber : "Product Series"}
             </Typography>
 
             <Typography sx={{ color: "text.secondary", fontWeight: 500, fontSize: "1.2rem", mb: 5 }}>
