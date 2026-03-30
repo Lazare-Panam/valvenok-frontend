@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import {
   Box,
   Container,
@@ -11,56 +11,56 @@ import {
   Button,
   CircularProgress,
 } from "@mui/material";
-import Grid from "@mui/material/Grid"; // Use Grid2 for the size prop
-import { useParams } from "next/navigation"; // Correct import for App Router
+import Grid from "@mui/material/Grid";
+import { useParams } from "next/navigation";
 import { fetchProductDetail } from "@/src/api/productApi";
 import { useQuery } from "@tanstack/react-query";
 
-// Custom Logic/Components
 import { useProductFilter } from "../../sample/hooks/useproductFilter";
 import { ImageGallery } from "../../sample/ImageGallery";
 import { FilterSection } from "../../sample/FilterSelection";
 import FAQSection from "../../sample/FAQSection";
 import TechnicalSpecs from "../../sample/TechnicalSpecs";
 
-export default function ProductSelector() {
+// ── Outer: just fetches, renders nothing until data is ready ──
+export default function ProductPage() {
   const { id } = useParams();
-  const [activeImg, setActiveImg] = useState(0);
 
-  // 1. PULL DATA
-  const { data: PRODUCT_DATA, isLoading, isError } = useQuery({
+  const { data, isLoading, isError } = useQuery({
     queryKey: ["product", id],
     queryFn: () => fetchProductDetail(id as string),
     enabled: !!id,
   });
 
-  // 2. Wrap hook logic so it doesn't crash while data is undefined
-  const filterKeys = useMemo(() => {
-    if (!PRODUCT_DATA?.metadata?.attributeTooltips) return [];
-    return Object.keys(PRODUCT_DATA.metadata.attributeTooltips);
-  }, [PRODUCT_DATA]);
-
-  const { selected, match, availableOptions, toggleFilter } = useProductFilter(
-    PRODUCT_DATA?.products || [], // Fallback to empty array
-    filterKeys
-  );
-
-  // 3. Early returns for Loading and Error
   if (isLoading) {
     return (
-      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '80vh' }}>
+      <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "80vh" }}>
         <CircularProgress color="primary" />
       </Box>
     );
   }
 
-  if (isError || !PRODUCT_DATA) {
+  if (isError || !data) {
     return (
       <Container sx={{ mt: 10 }}>
         <Typography variant="h5" color="error">Product not found.</Typography>
       </Container>
     );
   }
+
+  return <ProductSelector data={data} />;
+}
+
+// ── Inner: always receives real data, hook initialises correctly ──
+function ProductSelector({ data: PRODUCT_DATA }: { data: any }) {
+  const filterKeys = Object.keys(PRODUCT_DATA.metadata.attributeTooltips);
+
+  const { selected, match, availableOptions, toggleFilter } = useProductFilter(
+    PRODUCT_DATA.products,
+    filterKeys
+  );
+
+  const [activeImg, setActiveImg] = useState(0);
 
   return (
     <Box component="main" sx={{ bgcolor: "#fcfcfc", minHeight: "100vh", pb: 10 }}>
