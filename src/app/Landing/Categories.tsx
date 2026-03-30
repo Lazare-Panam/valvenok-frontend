@@ -20,7 +20,7 @@ const CATEGORIES = [
     img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774870846/WhatsApp_Image_2026-03-30_at_11.18.12_AM_ngx1e8.jpg",
     href: '/categories/actuators',
     subs: [
-      'Pnumatic Actuators'
+      'Pneumatic Actuators'
     ],
   },
   {
