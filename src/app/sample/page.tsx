@@ -35,6 +35,7 @@ export default function ProductSelector() {
 
   const [activeImg, setActiveImg] = useState(0);
 
+  
   return (
     <Box
       component="main"

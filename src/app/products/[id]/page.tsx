@@ -95,7 +95,7 @@ function ProductSelector({ data: PRODUCT_DATA }: { data: any }) {
                   key={key}
                   label={(PRODUCT_DATA.metadata.attributeLabels as any)[key] || key}
                   // To this:
-options={Array.from(new Set(PRODUCT_DATA.products.map((p: any) => p[key]))).filter(Boolean)}
+              options={Array.from(new Set(PRODUCT_DATA.products.map((p: any) => p.attributes?.[key]))).filter(Boolean)}
                   selectedValue={selected[key]}
                   available={availableOptions[key]}
                   onSelect={(val: any) => toggleFilter(key, val)}

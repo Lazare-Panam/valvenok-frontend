@@ -6,7 +6,7 @@ export function useProductFilter(products: any[], filterKeys: string[]) {
   );
 
   const match = useMemo(() => {
-    return products.find(p => filterKeys.every(k => p[k] === selected[k]));
+    return products.find(p => filterKeys.every(k => p.attributes?.[k] === selected[k]));
   }, [selected, products, filterKeys]);
 
   const availableOptions = useMemo(() => {
@@ -16,17 +16,15 @@ export function useProductFilter(products: any[], filterKeys: string[]) {
         for (const otherKey of filterKeys) {
           if (otherKey === currentKey) continue;
           if (selected[otherKey] === null) continue;
-          if (product[otherKey] !== selected[otherKey]) return false;
+          if (product.attributes?.[otherKey] !== selected[otherKey]) return false;
         }
         return true;
       });
-      const possibleValues = validProducts.map((p) => p[currentKey]);
-      available[currentKey] = new Set(possibleValues);
+      available[currentKey] = new Set(validProducts.map((p) => p.attributes?.[currentKey]));
     }
     return available;
   }, [selected, products, filterKeys]);
 
-  // 4. Update state when a button is clicked
   const toggleFilter = (key: string, value: any) => {
     setSelected((prev) => ({
       ...prev,
