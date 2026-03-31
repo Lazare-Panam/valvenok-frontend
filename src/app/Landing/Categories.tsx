@@ -5,22 +5,24 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Collapse from '@mui/material/Collapse';
+import Link from 'next/link'; // Recommended for Next.js navigation
 
 const CATEGORIES = [
   {
     name: 'Fittings & Tubings',
-    img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1771948480/reducing-hex-couplings-npt_i2twbq.png", // replace with Cloudinary URL
+    img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1771948480/reducing-hex-couplings-npt_i2twbq.png",
     href: '/categories/instrumentation-fittings',
     subs: [
-      'Instrumentation Fittings'
+      { name: 'JIC Fittings', href: '/categories/instrumentation-fittings' },
+
     ],
   },
-   {
+  {
     name: 'Actuators',
     img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774870846/WhatsApp_Image_2026-03-30_at_11.18.12_AM_ngx1e8.jpg",
     href: '/categories/actuators',
     subs: [
-      'Pneumatic Actuators'
+      { name: 'Pneumatic Actuators', href: '/categories/actuators' },
     ],
   },
   {
@@ -36,15 +38,15 @@ const CATEGORIES = [
     img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768569088/HP_Ball_Valve_2_aybek4.webp",
     href: '/collections/hydrogen-application',
     subs: [
-      
+     
     ],
   },
   {
     name: 'Valves',
     img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774523763/steel-ball-valve_mqpk70.jpg",
-    href: '/collections/batu-valve',
+    href: '/categories/ball-valves',
     subs: [
-      
+      { name: '400 Series Ball Valves', href: '/categories/ball-valves' },
     ],
   },
   {
@@ -52,7 +54,7 @@ const CATEGORIES = [
     img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774524120/08-TEP-Peripheral-pumps-1-259x300_fstbrp.png",
     href: '/collections/tormac-pumps',
     subs: [
-      
+    
     ],
   },
   {
@@ -60,15 +62,16 @@ const CATEGORIES = [
     img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768296193/5VM-SS-H_-_JPG_qrcujq.jpg",
     href: '/collections/manifolds',
     subs: [
-     
+      
     ],
   },
- 
   {
     name: 'Browse All Products',
     img: null,
     href: '/collections',
-    subs: ['View All Categories', 'New Arrivals', 'Featured Products', 'Clearance Items'],
+    subs: [
+      
+    ],
   },
 ];
 
@@ -80,7 +83,6 @@ export default function Categories() {
   return (
     <Box component="section" sx={{ py: { xs: 6, md: 10 }, bgcolor: 'grey.50' }}>
       <Container maxWidth="lg">
-
         {/* Section Header */}
         <Box sx={{ textAlign: 'center', mb: 6 }}>
           <Typography
@@ -116,9 +118,7 @@ export default function Categories() {
         <Box
           sx={{
             display: 'grid',
-            // Changed to 1 column on mobile, 2 on small tablets, 4 on desktop
             gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' },
-            // Added significant spacing between cards
             gap: { xs: 2, md: 3 },
           }}
         >
@@ -126,19 +126,16 @@ export default function Categories() {
             const isOpen = openIndex === i;
             return (
               <Box
-                key={cat.href}
+                key={cat.name}
                 sx={{
                   bgcolor: 'background.paper',
                   display: 'flex',
                   flexDirection: 'column',
-    
                   border: '1px solid',
                   borderColor: isOpen ? 'primary.main' : 'divider',
                   overflow: 'hidden',
                   transition: 'all 0.3s ease-in-out',
-                  // Card-like shadow and lift effect on hover
                   '&:hover': { 
-                    bgcolor: 'background.paper',
                     boxShadow: '0 10px 30px rgba(0,0,0,0.08)',
                     transform: 'translateY(-5px)',
                     borderColor: 'primary.main'
@@ -150,51 +147,32 @@ export default function Categories() {
                   onClick={() => toggle(i)}
                   sx={{
                     display: 'flex',
-                    flexDirection: 'column', // Stacked image and text for more "size"
+                    flexDirection: 'column',
                     alignItems: 'center',
                     textAlign: 'center',
                     gap: 2,
-                    p: 4, // Increased padding to make the card feel larger
+                    p: 4,
                     cursor: 'pointer',
                   }}
                 >
-                  {/* Image / Placeholder */}
-                  <Box
-                    sx={{
-                      width: 200, // Bigger image size
-                      height: 180,
-                      flexShrink: 0,
-
-                      overflow: 'hidden',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}
-                  >
+                  <Box sx={{ width: 200, height: 180, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     {cat.img ? (
                       <Box
                         component="img"
                         src={cat.img}
                         alt={cat.name}
-                        sx={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        sx={{ width: '100%', height: '100%', objectFit: 'contain' }}
                       />
                     ) : (
-                      <Box
-                        sx={{
-                          width: '100%',
-                          height: '100%',
-                          bgcolor: 'grey.200',
-                        }}
-                      />
+                      <Box sx={{ width: '100%', height: '100%', bgcolor: 'grey.200' }} />
                     )}
                   </Box>
 
-                  {/* Name + Toggle Text */}
                   <Box sx={{ width: '100%' }}>
                     <Typography
                       sx={{
                         fontFamily: '"Barlow Condensed", sans-serif',
-                        fontSize: '1.25rem', // Larger font
+                        fontSize: '1.25rem',
                         fontWeight: 800,
                         textTransform: 'uppercase',
                         letterSpacing: '0.02em',
@@ -234,20 +212,12 @@ export default function Categories() {
 
                 {/* Subcategory Dropdown */}
                 <Collapse in={isOpen}>
-                  <Box
-                    sx={{
-                      bgcolor: 'grey.50',
-                      borderTop: '1px solid',
-                      borderColor: 'divider',
-                      py: 2,
-                      px: 1,
-                    }}
-                  >
+                  <Box sx={{ bgcolor: 'grey.50', borderTop: '1px solid', borderColor: 'divider', py: 2, px: 1 }}>
                     {cat.subs.map((sub) => (
                       <Box
-                        key={sub}
-                        component="a"
-                        href={cat.href}
+                        key={sub.name}
+                        component={Link} // Use Next.js Link for better performance
+                        href={sub.href}
                         sx={{
                           display: 'block',
                           px: 2,
@@ -259,11 +229,11 @@ export default function Categories() {
                           '&:hover': {
                             bgcolor: 'primary.main',
                             color: 'white',
-                            pl: 3, // Slight indent on hover
+                            pl: 3,
                           },
                         }}
                       >
-                        {sub}
+                        {sub.name}
                       </Box>
                     ))}
                   </Box>
@@ -272,7 +242,6 @@ export default function Categories() {
             );
           })}
         </Box>
-
       </Container>
     </Box>
   );

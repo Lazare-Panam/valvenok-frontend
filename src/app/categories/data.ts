@@ -28,6 +28,15 @@ export const CATEGORY_METADATA = [
     href: '/categories/pneumatics',
     tags: ['H2 Rated', 'Zero Leakage', 'Clean Energy'],
   },
+  {
+  id: 'ball-valves',
+  title: 'Ball Valves',
+  count: 2,
+  description: 'High-performance instrumentation ball valves designed for precise flow control and shut-off in critical applications.',
+  image: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1774963288/BALL-VALVES-TP-SERIES-PNG-removebg-preview.png',
+  href: '/categories/ball-valves',
+  tags: ['Quarter-Turn', 'Stainless Steel', 'High Pressure'],
+},
   // {
   //   id: 'batu',
   //   title: ' Valves',
