@@ -17,14 +17,7 @@ const CATEGORIES = [
 
     ],
   },
-  {
-    name: 'Actuators',
-    img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774870846/WhatsApp_Image_2026-03-30_at_11.18.12_AM_ngx1e8.jpg",
-    href: '/categories/actuators',
-    subs: [
-      { name: 'Pneumatic Actuators', href: '/categories/actuators' },
-    ],
-  },
+  
   {
     name: 'Pneumatic Systems',
     img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774007615/DSC_7050_ESNC-100x100_jjj5g6-removebg-preview_apf6ug.png",
@@ -33,20 +26,36 @@ const CATEGORIES = [
       
     ],
   },
-  {
-    name: 'Hydrogen Application',
-    img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768569088/HP_Ball_Valve_2_aybek4.webp",
-    href: '/collections/hydrogen-application',
+   {
+    name: 'Sight Glass',
+    img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774966701/shopping-removebg-preview_ccornj.png",
+    href: '/collections/pneumatics',
     subs: [
-     
+      
     ],
   },
+  // {
+  //   name: 'Hydrogen Application',
+  //   img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768569088/HP_Ball_Valve_2_aybek4.webp",
+  //   href: '/collections/hydrogen-application',
+  //   subs: [
+     
+  //   ],
+  // },
   {
     name: 'Valves',
     img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774523763/steel-ball-valve_mqpk70.jpg",
     href: '/categories/ball-valves',
     subs: [
       { name: '400 Series Ball Valves', href: '/categories/ball-valves' },
+    ],
+  },
+  {
+    name: 'Actuators',
+    img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774870846/WhatsApp_Image_2026-03-30_at_11.18.12_AM_ngx1e8.jpg",
+    href: '/categories/actuators',
+    subs: [
+      { name: 'Pneumatic Actuators', href: '/categories/actuators' },
     ],
   },
   {
@@ -57,22 +66,22 @@ const CATEGORIES = [
     
     ],
   },
-  {
-    name: 'Manifolds',
-    img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768296193/5VM-SS-H_-_JPG_qrcujq.jpg",
-    href: '/collections/manifolds',
-    subs: [
+  // {
+  //   name: 'Manifolds',
+  //   img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768296193/5VM-SS-H_-_JPG_qrcujq.jpg",
+  //   href: '/collections/manifolds',
+  //   subs: [
       
-    ],
-  },
-  {
-    name: 'Browse All Products',
-    img: null,
-    href: '/collections',
-    subs: [
+  //   ],
+  // },
+  // {
+  //   name: 'Browse All Products',
+  //   img: null,
+  //   href: '/collections',
+  //   subs: [
       
-    ],
-  },
+  //   ],
+  // },
 ];
 
 export default function Categories() {
@@ -118,7 +127,11 @@ export default function Categories() {
         <Box
           sx={{
             display: 'grid',
-            gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' },
+            gridTemplateColumns: { 
+      xs: '1fr', 
+      sm: 'repeat(2, 1fr)', 
+      md: 'repeat(3, 1fr)' 
+    },
             gap: { xs: 2, md: 3 },
           }}
         >
