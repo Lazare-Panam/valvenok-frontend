@@ -39,7 +39,7 @@ export default function NavShopButton({ open, onClick, barHeight }: Props) {
       }}
     >
       <StorefrontOutlinedIcon sx={{ fontSize: 20 }} />
-      Shop All Products
+      Categories
       <KeyboardArrowDownIcon
         sx={{
           fontSize: 20,
