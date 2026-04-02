@@ -22,7 +22,7 @@ export default function Navbar() {
         <Box
           sx={{
             bgcolor: "#ffffff",
-            borderBottom: "1px solid",
+           
             borderColor: "divider",
             width: "100%",
           }}

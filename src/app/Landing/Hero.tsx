@@ -12,13 +12,21 @@ import { alpha } from '@mui/material/styles';
 
 // ── DELIVERY BANNER ──────────────────────────────────────────────────────────
 function DeliveryBanner() {
+  // CONFIGURABLE COLOURS
+  const BG_COLOR = '#686a6d';     // Deep Navy (Industrial Contrast)
+  const TEXT_COLOR = '#FFFFFF';   // Pure White
+  const DIVIDER_COLOR = '#61D649'; // Your Main Green (for the "|" separators)
+
   return (
     <Box
       sx={{
-        bgcolor: 'primary.main',
-        py: '11px',
+        bgcolor: BG_COLOR,
+        py: '12px',
         px: 3,
         textAlign: 'center',
+        marginTop:'1px'
+        //  borderTop: `2px solid ${DIVIDER_COLOR}`,
+        // borderBottom: `2px solid ${DIVIDER_COLOR}`, // Subtle green accent line
       }}
     >
       <Typography
@@ -27,15 +35,33 @@ function DeliveryBanner() {
           fontSize: '13px',
           fontWeight: 700,
           textTransform: 'uppercase',
-          letterSpacing: '0.08em',
-          color: '#fff',
+          letterSpacing: '0.1em',
+          color: TEXT_COLOR,
           lineHeight: 1.4,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: 1.5
         }}
       >
-         Free UK Delivery on Orders Over £150
-        <Box component="span" sx={{ opacity: 0.55, mx: '10px' }}>|</Box>
+        Free UK Delivery on Orders Over £150
+        
+        <Box 
+          component="span" 
+          sx={{ color: DIVIDER_COLOR, fontWeight: 900, opacity: 0.8 }}
+        >
+          |
+        </Box>
+        
         2–3 Day Dispatch on All Stocked Items
-        <Box component="span" sx={{ opacity: 0.55, mx: '10px' }}>|</Box>
+        
+        <Box 
+          component="span" 
+          sx={{ color: DIVIDER_COLOR, fontWeight: 900, opacity: 0.8 }}
+        >
+          |
+        </Box>
+        
         JOSCAR Registered Supplier
       </Typography>
     </Box>
@@ -205,60 +231,62 @@ export default function Hero() {
 
             {/* ── RIGHT: Stats grid ── */}
             <Grid size={{ xs: 12, md: 6 }}>
-              <Grid container spacing={1.25}>
-                {STATS.map((stat, i) => (
-                  <Grid size={{ xs: 4 }} key={i}>
-                    <Paper
-                      elevation={0}
-                      sx={{
-                        p: { xs: 2, md: 2.5 },
-                        textAlign: 'center',
-                        border: '1.5px solid',
-                        borderColor: 'divider',
-                        bgcolor: 'background.paper',
-                        boxShadow: '0 2px 8px rgba(45,92,34,0.06)',
-                        transition: 'border-color 0.2s, box-shadow 0.2s',
-                        '&:hover': {
-                          borderColor: 'primary.main',
-                          boxShadow: (theme) =>
-                            `0 4px 16px ${alpha(theme.palette.primary.main, 0.18)}`,
-                        },
-                      }}
-                    >
-                      <Typography
-                        sx={{
-                          fontFamily: '"Barlow Condensed", sans-serif',
-                          fontSize: { xs: '1.6rem', md: '2rem' },
-                          fontWeight: 900,
-                          color: 'primary.main',
-                          lineHeight: 1,
-                          mb: 0.75,
-                        }}
-                      >
-                        {stat.num}
-                        {stat.suffix && (
-                          <Box component="span" sx={{ color: 'primary.main' }}>
-                            {stat.suffix}
-                          </Box>
-                        )}
-                      </Typography>
-                      <Typography
-                        sx={{
-                          fontFamily: '"Barlow Condensed", sans-serif',
-                          fontSize: '11px',
-                          fontWeight: 600,
-                          color: 'text.secondary',
-                          textTransform: 'uppercase',
-                          letterSpacing: '0.08em',
-                        }}
-                      >
-                        {stat.label}
-                      </Typography>
-                    </Paper>
-                  </Grid>
-                ))}
-              </Grid>
-            </Grid>
+  <Grid container spacing={1.25}>
+    {STATS.map((stat, i) => (
+      <Grid size={{ xs: 4 }} key={i}>
+        <Paper
+          elevation={0}
+          sx={{
+            p: { xs: 2, md: 2.5 },
+            textAlign: 'center',
+            border: '1.5px solid',
+            borderRadius:0,
+            borderColor: '#E0E0E0', // Light grey border for neutral look
+            bgcolor: '#FFFFFF',
+            transition: 'all 0.2s ease-in-out',
+            '&:hover': {
+              borderColor: '#000000', // Black border on hover
+              boxShadow: '0 4px 16px rgba(0,0,0,0.1)',
+            },
+          }}
+        >
+          {/* Main Number */}
+          <Typography
+            sx={{
+              fontFamily: '"Barlow Condensed", sans-serif',
+              fontSize: { xs: '1.6rem', md: '2rem' },
+              fontWeight: 900,
+              color: '#000000', // STRICT BLACK
+              lineHeight: 1,
+              mb: 0.75,
+            }}
+          >
+            {stat.num}
+            {stat.suffix && (
+              <Box component="span" sx={{ color: '#000000' }}>
+                {stat.suffix}
+              </Box>
+            )}
+          </Typography>
+
+          {/* Label Text */}
+          <Typography
+            sx={{
+              fontFamily: '"Barlow Condensed", sans-serif',
+              fontSize: '11px',
+              fontWeight: 600,
+              color: '#000000', // STRICT BLACK
+              textTransform: 'uppercase',
+              letterSpacing: '0.08em',
+            }}
+          >
+            {stat.label}
+          </Typography>
+        </Paper>
+      </Grid>
+    ))}
+  </Grid>
+</Grid>
 
           </Grid>
         </Container>
