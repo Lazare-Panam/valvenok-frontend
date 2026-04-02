@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Barlow_Condensed, Barlow } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import ThemeRegistry from "../theme/ThemeRegistry";
 import Navbar from "./Common/Navbar/Navbar";
@@ -47,6 +48,11 @@ export default function RootLayout({
             <Navbar />
             {children}
           </Providers></ThemeRegistry>
+          <Script
+          id="hs-script-loader"
+          src="//js-eu1.hs-scripts.com/147618935.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
