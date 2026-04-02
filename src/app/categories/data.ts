@@ -55,6 +55,16 @@ export const CATEGORY_METADATA = [
     href: '/categories/sight-glass',
     tags: ['Visual Inspection', 'Borosilicate Glass', 'Double Window'],
   },
+  {
+    id: 'check-valves',
+    title: 'Check Valves',
+    count: 1, // Adjust count as needed
+    description: 'High-integrity non-return valves designed to prevent backflow and protect sensitive instrumentation from process reversals.',
+    image: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1775131062/PCV-S-06-OD-PNG_zyci6t-removebg-preview_ejhfdo.png', // Placeholder URL following your Cloudinary pattern
+    href: '/categories/check-valves',
+    tags: ['Non-Return', 'Backflow Prevention', 'Cracking Pressure'],
+  },
+  
   // {
   //   id: 'batu',
   //   title: ' Valves',
