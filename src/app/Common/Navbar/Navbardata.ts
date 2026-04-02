@@ -54,7 +54,7 @@ export const NAV_LINKS: NavLink[] = [
   },
   { 
     label: "Brands", 
-    href: "/categories", 
+    href: "/brands", 
     icon: React.createElement(InfoOutlinedIcon, { sx: { fontSize: 18 } }) 
   },
   { 
