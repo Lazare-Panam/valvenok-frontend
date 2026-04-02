@@ -5,6 +5,7 @@ import "./globals.css";
 import ThemeRegistry from "../theme/ThemeRegistry";
 import Navbar from "./Common/Navbar/Navbar";
 import Providers from "./providers";
+import { NotificationProvider } from "../components/NotificationProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,6 +46,7 @@ export default function RootLayout({
     >
       <body>
         <ThemeRegistry> <Providers>
+          <NotificationProvider />
             <Navbar />
             {children}
           </Providers></ThemeRegistry>

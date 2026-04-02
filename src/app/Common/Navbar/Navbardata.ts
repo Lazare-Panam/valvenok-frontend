@@ -73,12 +73,13 @@ export const NAV_LINKS: NavLink[] = [
 
 export const CATEGORIES: Category[] = [
   {
-    id: "hydraulic",
-    label: "Fittings",
+    id: "fittings",
+    label: "Fittings & Valves",
     color: "#1c6e2e",
     textColor: "#fff",
     products: [
       { label: "Instrumentation Fittings",                    icon: React.createElement(LocalShippingOutlinedIcon), href: "/categories/instrumentation-fittings" },
+      { label: "Instrumentation Valves",                    icon: React.createElement(LocalShippingOutlinedIcon), href: "/valves" },
       // { label: "Adaptors",                           icon: React.createElement(SettingsOutlinedIcon),      href: "/hydraulic/adaptors" },
       // { label: "Quick Release Couplings",            icon: React.createElement(BuildOutlinedIcon),         href: "/hydraulic/quick-release" },
       // { label: "Steel Tube & Compression Fittings",  icon: React.createElement(FactoryOutlinedIcon),       href: "/hydraulic/steel-tube" },
@@ -90,6 +91,44 @@ export const CATEGORIES: Category[] = [
       // { label: "Test Equipment",                     icon: React.createElement(SpeedOutlinedIcon),         href: "/hydraulic/test-equipment" },
       // { label: "Accumulators",                       icon: React.createElement(WaterDropOutlinedIcon),     href: "/hydraulic/accumulators" },
       // { label: "Filtration",                         icon: React.createElement(ShieldOutlinedIcon),        href: "/hydraulic/filtration" },
+    ],
+  },
+
+  {
+    id: "pneumatic",
+    label: "Pneumatic",
+    color: "#2e7d32",
+    textColor: "#fff",
+    products: [
+      { label: "Pneumatic Cylinder",                icon: React.createElement(BuildOutlinedIcon),     href: "/categories/pneumatics" },
+      // { label: "Camozzi Push Fittings",       icon: React.createElement(SettingsOutlinedIcon),  href: "/pneumatic/push-fittings" },
+      // { label: "CDC Plastic Push-in Fittings",icon: React.createElement(SettingsOutlinedIcon),  href: "/pneumatic/cdc-fittings" },
+      // { label: "Transair",                    icon: React.createElement(AirOutlinedIcon),        href: "/pneumatic/transair" },
+      // { label: "Pneumatic Cylinders",         icon: React.createElement(SpeedOutlinedIcon),      href: "/pneumatic/cylinders" },
+      // { label: "Rotary Cylinders",            icon: React.createElement(SettingsOutlinedIcon),   href: "/pneumatic/rotary-cylinders" },
+      // { label: "Pneumatic Valves",            icon: React.createElement(BuildOutlinedIcon),      href: "/pneumatic/valves" },
+      // { label: "Air Reservoirs",              icon: React.createElement(WaterDropOutlinedIcon),  href: "/pneumatic/air-reservoirs" },
+      // { label: "Soft Start Valves",           icon: React.createElement(ShieldOutlinedIcon),     href: "/pneumatic/soft-start" },
+      // { label: "Air Treatment",              icon: React.createElement(AirOutlinedIcon),         href: "/pneumatic/air-treatment" },
+    ],
+  },
+
+  {
+    id: "sight-glass",
+    label: "Sight Glass",
+    color: "#2e7d32",
+    textColor: "#fff",
+    products: [
+      { label: "Sight Glass",                icon: React.createElement(BuildOutlinedIcon),     href: "/sight-glass" },
+      // { label: "Camozzi Push Fittings",       icon: React.createElement(SettingsOutlinedIcon),  href: "/pneumatic/push-fittings" },
+      // { label: "CDC Plastic Push-in Fittings",icon: React.createElement(SettingsOutlinedIcon),  href: "/pneumatic/cdc-fittings" },
+      // { label: "Transair",                    icon: React.createElement(AirOutlinedIcon),        href: "/pneumatic/transair" },
+      // { label: "Pneumatic Cylinders",         icon: React.createElement(SpeedOutlinedIcon),      href: "/pneumatic/cylinders" },
+      // { label: "Rotary Cylinders",            icon: React.createElement(SettingsOutlinedIcon),   href: "/pneumatic/rotary-cylinders" },
+      // { label: "Pneumatic Valves",            icon: React.createElement(BuildOutlinedIcon),      href: "/pneumatic/valves" },
+      // { label: "Air Reservoirs",              icon: React.createElement(WaterDropOutlinedIcon),  href: "/pneumatic/air-reservoirs" },
+      // { label: "Soft Start Valves",           icon: React.createElement(ShieldOutlinedIcon),     href: "/pneumatic/soft-start" },
+      // { label: "Air Treatment",              icon: React.createElement(AirOutlinedIcon),         href: "/pneumatic/air-treatment" },
     ],
   },
   {
@@ -111,50 +150,12 @@ export const CATEGORIES: Category[] = [
     ],
   },
   {
-    id: "pneumatic",
-    label: "Pneumatic",
-    color: "#2e7d32",
-    textColor: "#fff",
-    products: [
-      { label: "Pneumatic Cylinder",                icon: React.createElement(BuildOutlinedIcon),     href: "/categories/actuators" },
-      // { label: "Camozzi Push Fittings",       icon: React.createElement(SettingsOutlinedIcon),  href: "/pneumatic/push-fittings" },
-      // { label: "CDC Plastic Push-in Fittings",icon: React.createElement(SettingsOutlinedIcon),  href: "/pneumatic/cdc-fittings" },
-      // { label: "Transair",                    icon: React.createElement(AirOutlinedIcon),        href: "/pneumatic/transair" },
-      // { label: "Pneumatic Cylinders",         icon: React.createElement(SpeedOutlinedIcon),      href: "/pneumatic/cylinders" },
-      // { label: "Rotary Cylinders",            icon: React.createElement(SettingsOutlinedIcon),   href: "/pneumatic/rotary-cylinders" },
-      // { label: "Pneumatic Valves",            icon: React.createElement(BuildOutlinedIcon),      href: "/pneumatic/valves" },
-      // { label: "Air Reservoirs",              icon: React.createElement(WaterDropOutlinedIcon),  href: "/pneumatic/air-reservoirs" },
-      // { label: "Soft Start Valves",           icon: React.createElement(ShieldOutlinedIcon),     href: "/pneumatic/soft-start" },
-      // { label: "Air Treatment",              icon: React.createElement(AirOutlinedIcon),         href: "/pneumatic/air-treatment" },
-    ],
-  },
-
-  {
-    id: "sight-glass",
-    label: "Sight Glass",
-    color: "#2e7d32",
-    textColor: "#fff",
-    products: [
-      { label: "Sight Glass",                icon: React.createElement(BuildOutlinedIcon),     href: "/categories/actuators" },
-      // { label: "Camozzi Push Fittings",       icon: React.createElement(SettingsOutlinedIcon),  href: "/pneumatic/push-fittings" },
-      // { label: "CDC Plastic Push-in Fittings",icon: React.createElement(SettingsOutlinedIcon),  href: "/pneumatic/cdc-fittings" },
-      // { label: "Transair",                    icon: React.createElement(AirOutlinedIcon),        href: "/pneumatic/transair" },
-      // { label: "Pneumatic Cylinders",         icon: React.createElement(SpeedOutlinedIcon),      href: "/pneumatic/cylinders" },
-      // { label: "Rotary Cylinders",            icon: React.createElement(SettingsOutlinedIcon),   href: "/pneumatic/rotary-cylinders" },
-      // { label: "Pneumatic Valves",            icon: React.createElement(BuildOutlinedIcon),      href: "/pneumatic/valves" },
-      // { label: "Air Reservoirs",              icon: React.createElement(WaterDropOutlinedIcon),  href: "/pneumatic/air-reservoirs" },
-      // { label: "Soft Start Valves",           icon: React.createElement(ShieldOutlinedIcon),     href: "/pneumatic/soft-start" },
-      // { label: "Air Treatment",              icon: React.createElement(AirOutlinedIcon),         href: "/pneumatic/air-treatment" },
-    ],
-  },
-
-  {
     id: "valves",
-    label: "Valves",
+    label: "Indsutrial Valves",
     color: "#2e7d32",
     textColor: "#fff",
     products: [
-      { label: "Ball Valves",                icon: React.createElement(BuildOutlinedIcon),     href: "/categories/actuators" },
+      { label: "Industrial Valves",                icon: React.createElement(BuildOutlinedIcon),     href: "/atam-valves" },
       // { label: "Camozzi Push Fittings",       icon: React.createElement(SettingsOutlinedIcon),  href: "/pneumatic/push-fittings" },
       // { label: "CDC Plastic Push-in Fittings",icon: React.createElement(SettingsOutlinedIcon),  href: "/pneumatic/cdc-fittings" },
       // { label: "Transair",                    icon: React.createElement(AirOutlinedIcon),        href: "/pneumatic/transair" },
@@ -173,7 +174,7 @@ export const CATEGORIES: Category[] = [
     color: "#2e7d32",
     textColor: "#fff",
     products: [
-      { label: "Sight Glass",                icon: React.createElement(BuildOutlinedIcon),     href: "/categories/actuators" },
+      { label: "Pumps",                icon: React.createElement(BuildOutlinedIcon),     href: "/pumps" },
       // { label: "Camozzi Push Fittings",       icon: React.createElement(SettingsOutlinedIcon),  href: "/pneumatic/push-fittings" },
       // { label: "CDC Plastic Push-in Fittings",icon: React.createElement(SettingsOutlinedIcon),  href: "/pneumatic/cdc-fittings" },
       // { label: "Transair",                    icon: React.createElement(AirOutlinedIcon),        href: "/pneumatic/transair" },
