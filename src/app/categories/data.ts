@@ -46,6 +46,15 @@ export const CATEGORY_METADATA = [
     href: '/categories/needle-valves',
     tags: ['Flow Metering', 'Hard Seat', 'Micro-Adjustment'],
   },
+{
+    id: 'sight-glass',
+    title: 'Sight Glass',
+    count: 1, 
+    description: 'High-visibility flow indicators for real-time visual monitoring of fluid levels, color, and clarity within a process line.',
+    image: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1774966701/shopping-removebg-preview_ccornj.png', // Replace with sight glass image when ready
+    href: '/categories/sight-glass',
+    tags: ['Visual Inspection', 'Borosilicate Glass', 'Double Window'],
+  },
   // {
   //   id: 'batu',
   //   title: ' Valves',
