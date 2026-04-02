@@ -64,6 +64,15 @@ export const CATEGORY_METADATA = [
     href: '/categories/check-valves',
     tags: ['Non-Return', 'Backflow Prevention', 'Cracking Pressure'],
   },
+{
+    id: 'relief-valves',
+    title: 'Relief Valves',
+    count: 1, // Adjust count as needed
+    description: 'Safety-critical pressure relief devices designed to protect instrumentation circuits and process vessels from overpressure conditions.',
+    image: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1775134117/PRVH-SS-04-FF-G_eroray.png', // Placeholder URL following your Cloudinary pattern
+    href: '/categories/relief-valves',
+    tags: ['Overpressure Protection', 'Set Pressure', 'Safety Critical'],
+  },
   
   // {
   //   id: 'batu',
