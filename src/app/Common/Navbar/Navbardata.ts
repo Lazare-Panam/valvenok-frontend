@@ -120,6 +120,7 @@ export const CATEGORIES: Category[] = [
     textColor: "#fff",
     products: [
       { label: "Sight Glass",                icon: React.createElement(BuildOutlinedIcon),     href: "/sight-glass" },
+       { label: "Filtration",                icon: React.createElement(BuildOutlinedIcon),     href: "/categories/filtration" },
       // { label: "Camozzi Push Fittings",       icon: React.createElement(SettingsOutlinedIcon),  href: "/pneumatic/push-fittings" },
       // { label: "CDC Plastic Push-in Fittings",icon: React.createElement(SettingsOutlinedIcon),  href: "/pneumatic/cdc-fittings" },
       // { label: "Transair",                    icon: React.createElement(AirOutlinedIcon),        href: "/pneumatic/transair" },

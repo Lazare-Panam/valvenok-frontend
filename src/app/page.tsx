@@ -10,9 +10,8 @@ import PanamBanner from "./Landing/PanamBanner";
 export default function Home() {
   return (
     <>
-
       <Hero/>
-          <DeliveryBanner/>
+      <DeliveryBanner/>
       <Categories/>
       <FeaturedStrip/>
       <PanamBanner/>
