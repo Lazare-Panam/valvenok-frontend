@@ -51,10 +51,10 @@ export default function RootLayout({
             {children}
           </Providers></ThemeRegistry>
           <Script
-          id="hs-script-loader"
-          src="//js-eu1.hs-scripts.com/147618935.js"
-          strategy="afterInteractive"
-        />
+            id="hs-script-loader"
+            src="//js-eu1.hs-scripts.com/147618935.js"
+            strategy="afterInteractive"
+          />
       </body>
     </html>
   );

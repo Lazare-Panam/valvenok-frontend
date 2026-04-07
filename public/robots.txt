@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.valvenok.com
+
+# Sitemaps
+Sitemap: https://www.valvenok.com/sitemap.xml
