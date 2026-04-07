@@ -114,8 +114,8 @@ export const CATEGORIES: Category[] = [
   },
 
   {
-    id: "sight-glass",
-    label: "Sight Glass",
+    id: "filters",
+    label: "Filters",
     color: "#2e7d32",
     textColor: "#fff",
     products: [
@@ -170,11 +170,12 @@ export const CATEGORIES: Category[] = [
 
   {
     id: "pumps",
-    label: "Pumps",
+    label: "Pumps & Seals",
     color: "#2e7d32",
     textColor: "#fff",
     products: [
       { label: "Pumps",                icon: React.createElement(BuildOutlinedIcon),     href: "/pumps" },
+      { label: "Mechanical Seals",                icon: React.createElement(BuildOutlinedIcon),     href: "/categories/mechanical-seals" },
       // { label: "Camozzi Push Fittings",       icon: React.createElement(SettingsOutlinedIcon),  href: "/pneumatic/push-fittings" },
       // { label: "CDC Plastic Push-in Fittings",icon: React.createElement(SettingsOutlinedIcon),  href: "/pneumatic/cdc-fittings" },
       // { label: "Transair",                    icon: React.createElement(AirOutlinedIcon),        href: "/pneumatic/transair" },
