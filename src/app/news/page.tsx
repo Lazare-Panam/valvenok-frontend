@@ -25,7 +25,16 @@ const POSTS = [
     date: "April 4, 2026",
     category: "Engineering",
     link: "/news/mechanical-seals-guide"
-  }
+  },
+  {
+  title: "Ball Valve vs Gate Valve: Technical Guide to Key Differences & How to Choose",
+  desc: "A technical breakdown of ball valves and gate valves — covering sealing performance, pressure ratings, industry applications, and a clear decision framework for engineers and procurement teams.",
+  thumbnail: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1775652608/batu-43_xwieor.jpg", // add your image here
+  author: "Kanchan Rajput",
+  date: "April 8, 2026",
+  category: "Technical Guide",
+  link: "/news/ball-valve-vs-gate-valve"
+}
 ];
 
 export default function BlogPage() {
