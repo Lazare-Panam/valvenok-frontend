@@ -2,7 +2,7 @@
 import { Snackbar, Alert, Typography, Box, Slide, SlideProps } from "@mui/material"
 import { useNotificationStore } from "../store/useNotificationStore"
 
-const BRAND_BLUE = "#01B0F0"
+
 
 function SlideLeft(props: SlideProps) {
   return <Slide {...props} direction="left" />
@@ -14,7 +14,7 @@ export const NotificationProvider = () => {
   return (
     <Snackbar
       open={open}
-      autoHideDuration={2500}
+      autoHideDuration={4000}
       onClose={hideNotification}
       anchorOrigin={{ vertical: "top", horizontal: "right" }}
       // Replace TransitionComponent with slots
@@ -27,7 +27,7 @@ export const NotificationProvider = () => {
         variant="filled"
         sx={{
           width: "100%",
-          bgcolor: severity === "success" ? BRAND_BLUE : "#ef4444",
+          bgcolor: severity === "success" ? "primary.main" : "error.main",
           borderRadius: 0, // Industrial look
           boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
           px: 3,

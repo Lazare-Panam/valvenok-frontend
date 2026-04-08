@@ -21,6 +21,8 @@ const BRANDS = [
   { name: 'Emerson', logo: 'https://www.emerson.com/resource/blob/emerson-logo-compressed--data-5970556.png', link: '#', desc: 'Process automation and instrumentation engineering.' },
   { name: 'Siemens', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1774531009/download_1_lwfn54.png', link: '#', desc: 'Power generation and industrial control technology.' },
   { name: 'Endress Hausser', logo: 'https://www.uk.endress.com/images/logo/EH_Logo-d9672165.svg', link: '#', desc: 'Laboratory and process automation instrumentation.' },
+   { name: 'Steed Hydraulic Technology', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1775661498/logo_dhaesw.png', link: '#', desc: 'Indsutrial Grade Filters.' },
+   { name: 'Sealflex', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1775661498/logo_dhaesw.png', link: '#', desc: 'Indsutrial Grade Mechanical Seals.' },
 ];
 
 export default function BrandsPage() {

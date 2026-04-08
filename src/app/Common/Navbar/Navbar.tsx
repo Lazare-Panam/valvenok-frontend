@@ -8,10 +8,12 @@ import NavLogo from "./Navlogo";
 import NavShopButton from "./NavShopButton";
 import NavLinks from "./NavLinks";
 import MegaMenu from "./MegaMenu";
+import NavUserActions from "./NavUserActions";
 
 const BAR_HEIGHT = 100;
 
 export default function Navbar() {
+
   const [open, setOpen] = React.useState(false);
 
   return (
@@ -36,6 +38,7 @@ export default function Navbar() {
                 barHeight={BAR_HEIGHT}
               />
               <NavLinks barHeight={BAR_HEIGHT} />
+              <NavUserActions barHeight={BAR_HEIGHT} />
             </Box>
           </Container>
         </Box>
