@@ -11,6 +11,7 @@ import {
   Button,
   CircularProgress,
   IconButton,
+  InputBase,
 } from "@mui/material";
 import Grid from "@mui/material/Grid"; // Use Grid2
 import { useParams } from "next/navigation";
@@ -39,7 +40,14 @@ export default function ProductPage() {
 
   if (isLoading) {
     return (
-      <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "80vh" }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          minHeight: "80vh",
+        }}
+      >
         <CircularProgress color="primary" thickness={5} />
       </Box>
     );
@@ -48,7 +56,9 @@ export default function ProductPage() {
   if (isError || !data) {
     return (
       <Container sx={{ mt: 10 }}>
-        <Typography variant="h5" color="error" sx={{ fontWeight: 900 }}>Product not found.</Typography>
+        <Typography variant="h5" color="error" sx={{ fontWeight: 900 }}>
+          Product not found.
+        </Typography>
       </Container>
     );
   }
@@ -60,48 +70,61 @@ function ProductSelector({ data: PRODUCT_DATA }: { data: any }) {
   const filterKeys = Object.keys(PRODUCT_DATA.metadata.attributeTooltips);
   const { selected, match, availableOptions, toggleFilter } = useProductFilter(
     PRODUCT_DATA.products,
-    filterKeys
+    filterKeys,
   );
 
   const [activeImg, setActiveImg] = useState(0);
   const [quantity, setQuantity] = useState(1);
 
   const addItem = useCartStore((state) => state.addItem);
-  const showNotification = useNotificationStore((state) => state.showNotification);
+  const showNotification = useNotificationStore(
+    (state) => state.showNotification,
+  );
+  const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = parseInt(e.target.value);
+    if (isNaN(value) || value < 1) {
+      setQuantity(1); // Default to 1 if input is cleared or invalid
+    } else {
+      setQuantity(value);
+    }
+  };
+  const handleAddToCart = () => {
+    if (!match) return;
 
- const handleAddToCart = () => {
-  if (!match) return;
+    // 1. Build the technical description from selected filters
+    const techDescription = Object.entries(selected)
+      .filter(([_, val]) => val !== null)
+      .map(([key, val]) => {
+        const label =
+          (PRODUCT_DATA.metadata.attributeLabels as any)[key] || key;
+        return `${label}: ${val}`;
+      })
+      .join(", ");
+    const cloudinaryId = PRODUCT_DATA.metadata.images[0].url;
 
-  // 1. Build the technical description from selected filters
-  const techDescription = Object.entries(selected)
-    .filter(([_, val]) => val !== null)
-    .map(([key, val]) => {
-      const label = (PRODUCT_DATA.metadata.attributeLabels as any)[key] || key;
-      return `${label}: ${val}`;
-    })
-    .join(", ");
-const cloudinaryId = PRODUCT_DATA.metadata.images[0].url;
+    // 3. Add to Zustand Store
+    addItem({
+      id: match.partNumber, // Unique ID for the cart
+      name: PRODUCT_DATA.metadata.category,
+      partNumber: match.partNumber,
+      price: match.price,
+      quantity: quantity,
+      cloudinaryId: cloudinaryId, // This is now guaranteed to be the first or active image ID
+      description: techDescription,
+    });
 
-  // 3. Add to Zustand Store
-  addItem({
-    id: match.partNumber, // Unique ID for the cart
-    name: PRODUCT_DATA.metadata.category, 
-    partNumber: match.partNumber,
-    price: match.price,
-    quantity: quantity,
-    cloudinaryId: cloudinaryId, // This is now guaranteed to be the first or active image ID
-    notes: techDescription, 
-  });
-
-  // 4. Feedback
-  showNotification({ 
-    message: `Added ${match.partNumber} to procurement list`, 
-    severity: "success" 
-  });
-};
+    // 4. Feedback
+    showNotification({
+      message: `Added ${match.partNumber} to procurement list`,
+      severity: "success",
+    });
+  };
 
   return (
-    <Box component="main" sx={{ bgcolor: "#fcfcfc", minHeight: "100vh", pb: 10 }}>
+    <Box
+      component="main"
+      sx={{ bgcolor: "#fcfcfc", minHeight: "100vh", pb: 10 }}
+    >
       <Container maxWidth="lg" sx={{ mt: 5 }}>
         <Grid container spacing={6}>
           {/* Image Gallery Column */}
@@ -117,59 +140,135 @@ const cloudinaryId = PRODUCT_DATA.metadata.images[0].url;
           <Grid size={{ xs: 12, md: 7 }}>
             <Typography
               variant="h1"
-              sx={{ fontFamily: "Barlow Condensed", fontWeight: 900, fontSize: "3.5rem", mb: 1, textTransform: 'uppercase' }}
+              sx={{
+                fontFamily: "Barlow Condensed",
+                fontWeight: 900,
+                fontSize: "3.5rem",
+                mb: 1,
+                textTransform: "uppercase",
+              }}
             >
               {match ? match.partNumber : "Series Configuration"}
             </Typography>
 
-            <Typography sx={{ color: "text.secondary", fontWeight: 700, fontSize: "1.2rem", mb: 5, textTransform: 'uppercase' }}>
+            <Typography
+              sx={{
+                color: "text.secondary",
+                fontWeight: 700,
+                fontSize: "1.2rem",
+                mb: 5,
+                textTransform: "uppercase",
+              }}
+            >
               {PRODUCT_DATA.metadata.subCategory}
             </Typography>
 
             <Paper
               variant="outlined"
-              sx={{ p: 4, borderRadius: 0, borderTop: "6px solid", borderTopColor: "primary.main" }}
+              sx={{
+                p: 4,
+                borderRadius: 0,
+                borderTop: "6px solid",
+                borderTopColor: "primary.main",
+              }}
             >
               {filterKeys.map((key) => (
                 <FilterSection
                   key={key}
-                  label={(PRODUCT_DATA.metadata.attributeLabels as any)[key] || key}
-                  options={Array.from(new Set(PRODUCT_DATA.products.map((p: any) => p.attributes?.[key]))).filter(Boolean)}
+                  label={
+                    (PRODUCT_DATA.metadata.attributeLabels as any)[key] || key
+                  }
+                  options={Array.from(
+                    new Set(
+                      PRODUCT_DATA.products.map(
+                        (p: any) => p.attributes?.[key],
+                      ),
+                    ),
+                  ).filter(Boolean)}
                   selectedValue={selected[key]}
                   available={availableOptions[key]}
                   onSelect={(val: any) => toggleFilter(key, val)}
-                  tooltipText={(PRODUCT_DATA.metadata.attributeTooltips as any)[key]}
+                  tooltipText={
+                    (PRODUCT_DATA.metadata.attributeTooltips as any)[key]
+                  }
                 />
               ))}
 
               <Divider sx={{ my: 4 }} />
 
-              <Stack direction="row" justifyContent="space-between" alignItems="center" spacing={2}>
+              <Stack
+                direction="row"
+                justifyContent="space-between"
+                alignItems="center"
+                spacing={2}
+              >
                 <Box>
-                  <Typography sx={{ fontFamily: "Barlow Condensed", fontSize: "2.8rem", fontWeight: 900, lineHeight: 1 }}>
+                  <Typography
+                    sx={{
+                      fontFamily: "Barlow Condensed",
+                      fontSize: "2.8rem",
+                      fontWeight: 900,
+                      lineHeight: 1,
+                    }}
+                  >
                     {match ? `£${(match.price * quantity).toFixed(2)}` : "—"}
                   </Typography>
-                  <Typography variant="caption" sx={{ color: "text.disabled", fontWeight: 900 }}>
+                  <Typography
+                    variant="caption"
+                    sx={{ color: "text.disabled", fontWeight: 900 }}
+                  >
                     TOTAL EX. VAT & SHIPPING
                   </Typography>
                 </Box>
 
                 <Stack direction="row" spacing={2} alignItems="center">
                   {/* Quantity Selector */}
-                  <Box sx={{ display: 'flex', alignItems: 'center', border: '1px solid', borderColor: 'divider', height: '48px' }}>
-                    <IconButton 
-                      size="small" 
-                      onClick={() => setQuantity(q => Math.max(1, q - 1))}
-                      sx={{ borderRadius: 0 }}
-                      disabled={!match}
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      border: "1px solid",
+                      borderColor: "divider",
+                      height: "48px",
+                      bgcolor: "white",
+                    }}
+                  >
+                    <IconButton
+                      size="small"
+                      onClick={() => setQuantity((q) => Math.max(1, q - 1))}
+                      sx={{ borderRadius: 0, height: "100%" }}
+                      disabled={!match || quantity <= 1}
                     >
                       <RemoveIcon />
                     </IconButton>
-                    <Typography sx={{ width: 40, textAlign: 'center', fontWeight: 900 }}>{quantity}</Typography>
-                    <IconButton 
-                      size="small" 
-                      onClick={() => setQuantity(q => q + 1)}
-                      sx={{ borderRadius: 0 }}
+
+                    <InputBase
+                      value={quantity}
+                      onChange={handleQuantityChange}
+                      disabled={!match}
+                      inputProps={{
+                        type: "number",
+                        min: 1,
+                        style: {
+                          textAlign: "center",
+                          fontWeight: 900,
+                          width: "40px",
+                          padding: 0,
+                        },
+                      }}
+                      sx={{
+                        "& input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button":
+                          {
+                            display: "none", // Hides the default browser arrows
+                          },
+                        "& input": { appearance: "textfield" }, // Hides arrows in Firefox
+                      }}
+                    />
+
+                    <IconButton
+                      size="small"
+                      onClick={() => setQuantity((q) => q + 1)}
+                      sx={{ borderRadius: 0, height: "100%" }}
                       disabled={!match}
                     >
                       <AddIcon />
@@ -181,9 +280,15 @@ const cloudinaryId = PRODUCT_DATA.metadata.images[0].url;
                     disabled={!match}
                     size="large"
                     onClick={handleAddToCart}
-                    sx={{ borderRadius: 0, px: 4, py: 1.5, fontWeight: 900, height: '48px' }}
+                    sx={{
+                      borderRadius: 0,
+                      px: 4,
+                      py: 1.5,
+                      fontWeight: 900,
+                      height: "48px",
+                    }}
                   >
-                    ADD TO QUOTE
+                    ADD TO Cart
                   </Button>
                 </Stack>
               </Stack>

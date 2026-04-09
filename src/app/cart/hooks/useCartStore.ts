@@ -2,13 +2,13 @@ import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 
 export interface CartItem {
-  id: string;          // Database ID
-  name: string;        // Product Name
-  partNumber: string;  // SKU / Product Code
-  price: number;       // Unit Price
+  id: string;           // Database ID
+  name: string;         // Internal Name
+  description: string;  // Product Description (Replaced notes)
+  partNumber: string;   // SKU / Product Code
+  price: number;        // Unit Price
   quantity: number;
   cloudinaryId: string; // The specific image ID for Cloudinary
-  notes?: string;      // User notes for the configuration
 }
 
 interface CartState {
@@ -16,7 +16,6 @@ interface CartState {
   addItem: (item: CartItem) => void;
   removeItem: (id: string) => void;
   updateQuantity: (id: string, quantity: number) => void;
-  updateNotes: (id: string, notes: string) => void; // New: handle notes update
   clearCart: () => void;
   getTotalItems: () => number;
 }
@@ -51,15 +50,6 @@ export const useCartStore = create<CartState>()(
         set({
           items: get().items.map((item) =>
             item.id === id ? { ...item, quantity: Math.max(1, quantity) } : item
-          ),
-        });
-      },
-
-      // Update specific item notes (for the cart page inputs)
-      updateNotes: (id, notes) => {
-        set({
-          items: get().items.map((item) =>
-            item.id === id ? { ...item, notes } : item
           ),
         });
       },

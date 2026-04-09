@@ -12,10 +12,9 @@ interface Props {
   item: CartItemType;
   onUpdateQuantity: (id: string, qty: number) => void;
   onRemove: (id: string) => void;
-  onUpdateNotes: (id: string, notes: string) => void;
 }
 
-export default function CartItem({ item, onUpdateQuantity, onRemove, onUpdateNotes }: Props) {
+export default function CartItem({ item, onUpdateQuantity, onRemove }: Props) {
   const imageUrl = item.cloudinaryId;
   const subtotal = item.price * item.quantity;
 
@@ -31,7 +30,7 @@ export default function CartItem({ item, onUpdateQuantity, onRemove, onUpdateNot
     >
       <Grid container spacing={3} alignItems="center">
 
-        {/* ── IMAGE & SPECS ── */}
+        {/* ── IMAGE & DESCRIPTION ── */}
         <Grid size={{ xs: 12, md: 5 }}>
           <Stack direction="row" spacing={3} alignItems="flex-start">
             <Avatar
@@ -47,34 +46,35 @@ export default function CartItem({ item, onUpdateQuantity, onRemove, onUpdateNot
               }}
             />
             <Box sx={{ flex: 1 }}>
-              <Typography variant="caption" sx={{ color: 'primary.main', fontWeight: 900, letterSpacing: 1 }}>
+              <Typography 
+                variant="caption" 
+                sx={{ 
+                  color: 'primary.main', 
+                  fontWeight: 900, 
+                  letterSpacing: 1,
+                  display: 'block',
+                  mb: 0.5 
+                }}
+              >
                 SKU: {item.partNumber}
               </Typography>
-              <Typography
-                variant="h6"
-                sx={{ fontWeight: 900, textTransform: 'uppercase', mb: 1, lineHeight: 1.2, fontFamily: '"Barlow Condensed"' }}
+              
+              {/* Product Description replacing the old notes section */}
+              <Typography 
+                variant="body1" 
+                sx={{ 
+                  fontWeight: 700, 
+                  lineHeight: 1.3,
+                  color: 'text.primary',
+                  // Ensures long descriptions don't break the layout
+                  display: '-webkit-box',
+                  WebkitLineClamp: 3,
+                  WebkitBoxOrient: 'vertical',
+                  overflow: 'hidden',
+                }}
               >
-                {item.name}
+                {item.description}
               </Typography>
-
-              {/* READ-ONLY notes */}
-              {item.notes && (
-                <Typography
-                  variant="caption"
-                  sx={{
-                    display: 'block',
-                    fontFamily: 'monospace',
-                    fontSize: '0.7rem',
-                    color: 'text.secondary',
-                    bgcolor: '#fafafa',
-                    border: '1px solid',
-                    borderColor: 'divider',
-                    p: 1,
-                  }}
-                >
-                  {item.notes}
-                </Typography>
-              )}
             </Box>
           </Stack>
         </Grid>
