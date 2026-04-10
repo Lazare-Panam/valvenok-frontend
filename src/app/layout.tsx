@@ -48,6 +48,14 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${barlowCondensed.variable} ${barlow.variable}`}
     >
+      <head>
+        {/* This script will be placed before the closing </head> tag */}
+        <script 
+          data-cfasync="false" 
+          type="text/javascript" 
+          src="https://cdn.seoplatform.io/injector.js?websiteId=28058"
+        />
+      </head>
       <body>
         <ThemeRegistry> <Providers>
           <NotificationProvider />
