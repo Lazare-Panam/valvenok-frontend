@@ -26,3 +26,15 @@ export const loginUser = async (data: LoginRequestDto) => {
 export const logoutUser = async (): Promise<void> => {
   await axiosClient.post('api/user/logout');
 };
+export interface EnquiryDto {
+  customerName: string;
+  customerEmail: string;
+  subject: string;
+  message: string;
+}
+
+export const sendEnquiry = async (data: EnquiryDto) => {
+  // Routes to api/User/enquiry
+  const response = await axiosClient.post("api/User/enquiry", data);
+  return response.data;
+};

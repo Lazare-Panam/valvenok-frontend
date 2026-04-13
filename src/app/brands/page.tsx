@@ -14,15 +14,23 @@ import Grid from '@mui/material/Grid';
 import LaunchIcon from '@mui/icons-material/Launch';
 
 const BRANDS = [
-  { name: 'PANAM', logo: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769097040/1_jdvwbk.png", link: 'https://www.panamvalve.com/', desc: 'Instrumentation valves and fittings for global process industries.' },
-  { name: 'Batu', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1774530741/logo_i2lhxi.png', link: 'https://www.batuvalve.com/', desc: 'Specialized flow control and boiler valve solutions.' },
-  { name: 'Spac', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1774530706/SPAC-Without-Baseline-Logo-1-2_ii1dai_wsutjm.webp', link: 'https://spacpneumatic.co.uk/', desc: 'Pneumatic components and industrial automation systems.' },
+  { name: 'PANAM Vavlves', logo: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769097040/1_jdvwbk.png", link: 'https://www.panamvalve.com/', desc: 'Instrumentation valves and fittings for global process industries.' },
+ { name: 'Cameron ', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776069575/brand_ky2qty.png', link: '#', desc: 'Indsutrial Grade Mechanical Seals.' },
+     { name: 'Baker Hughes ', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776069683/f64364c8-1094-47f2-882a-5cedb56a389c.png', link: 'https://www.bakerhughes.com/', desc: 'Indsutrial Grade Mechanical Seals.' },
+      { name: 'Taylor Valve Technology', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776069906/0dbb9e92-bdb4-4710-a165-11cedaafd289.png', link: 'https://taylorvalve.com/', desc: 'Indsutrial Grade Mechanical Seals.' },
+       { name: 'Leser', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776070047/a5b90b35-03ff-45d2-be3f-14df926dab87.png', link: 'https://www.leser.com/en/products/', desc: 'Indsutrial Grade Mechanical Seals.' },
+       { name: 'Mercer Valves', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776070145/68b0296b-8db9-4351-8706-b8d6e3a1223c.png', link: 'https://www.mercervalve.net/', desc: 'Indsutrial Grade Mechanical Seals.' },
+       { name: 'Aquatrol', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776070644/23b997aa-777a-4b3a-a817-b5b76d9135c8.png', link: 'https://www.aquatrol.com/index.htm', desc: 'Indsutrial Grade Mechanical Seals.' },
+       { name: 'Fisher', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776071072/f6b8803c-7833-40b1-9311-228c31e14a92.png', link: 'https://www.fisher-valves.co.uk/index.shtml', desc: 'Indsutrial Grade Mechanical Seals.' },
+  { name: 'Batu Valves', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1774530741/logo_i2lhxi.png', link: 'https://www.batuvalve.com/', desc: 'Specialized flow control and boiler valve solutions.' },
+  { name: 'Spac Pneumatic', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1774530706/SPAC-Without-Baseline-Logo-1-2_ii1dai_wsutjm.webp', link: 'https://spacpneumatic.co.uk/', desc: 'Pneumatic components and industrial automation systems.' },
   { name: 'Tormac', logo: 'https://tormacpumps.com/wp-content/uploads/2025/06/tormac_logo.svg', link: 'https://tormacpumps.com/', desc: 'High-efficiency submersible and peripheral pumping systems.' },
   { name: 'Emerson', logo: 'https://www.emerson.com/resource/blob/emerson-logo-compressed--data-5970556.png', link: '#', desc: 'Process automation and instrumentation engineering.' },
   { name: 'Siemens', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1774531009/download_1_lwfn54.png', link: '#', desc: 'Power generation and industrial control technology.' },
   { name: 'Endress Hausser', logo: 'https://www.uk.endress.com/images/logo/EH_Logo-d9672165.svg', link: '#', desc: 'Laboratory and process automation instrumentation.' },
    { name: 'Steed Hydraulic Technology', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1775661498/logo_dhaesw.png', link: '#', desc: 'Indsutrial Grade Filters.' },
-   { name: 'Sealflex', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1775661498/logo_dhaesw.png', link: '#', desc: 'Indsutrial Grade Mechanical Seals.' },
+   { name: 'Sealflex', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776071201/3eb77c1e-2f02-42cd-bf3b-6120163749de.png', link: '#', desc: 'Indsutrial Grade Mechanical Seals.' },
+    
 ];
 
 export default function BrandsPage() {
