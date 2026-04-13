@@ -1,0 +1,10 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Authorized Partners & Brands", // Becomes "Authorized Partners & Brands | Valvenok"
+  description: "Official distributor for PANAM, Emerson, and 40+ global brands.",
+};
+
+export default function BrandsLayout({ children }: { children: React.ReactNode }) {
+  return <>{children}</>; 
+}
