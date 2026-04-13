@@ -443,7 +443,7 @@ export default function BallValveVsGateValvePage() {
               { label: 'Arranps — Ball vs Gate Valves: Which Should You Choose?', href: 'https://arranps.co.uk/ball-vs-gate-valves-which-should-you-choose' },
               { label: 'Flowmag — Which One Is Right for Your System?', href: 'https://flowmag.co.uk/ball-valves-or-gate-valves-which-one-is-right-for-your-system/' },
               { label: 'Flowflex — Gate Valves vs Ball Valves', href: 'https://flowflex.com/en/knowledge-base/gate-valves-vs-ball-valves' },
-              { label: 'Process Industry Forum — Ball Valve vs Gate Valve', href: 'https://www.processindustryforum.com/article/ball-valve-vs-gate-valve' },
+             
             ].map((ref, i) => (
               <Typography key={i} variant="body2" sx={{ color: 'text.secondary', fontSize: '0.88rem' }}>
                 •{' '}
