@@ -101,6 +101,7 @@ export const CATEGORIES: Category[] = [
     textColor: "#fff",
     products: [
       { label: "Pneumatic Cylinder",                icon: React.createElement(BuildOutlinedIcon),     href: "/categories/pneumatics" },
+      { label: "FRL Units",                icon: React.createElement(BuildOutlinedIcon),     href: "/categories/frl" },
       // { label: "Camozzi Push Fittings",       icon: React.createElement(SettingsOutlinedIcon),  href: "/pneumatic/push-fittings" },
       // { label: "CDC Plastic Push-in Fittings",icon: React.createElement(SettingsOutlinedIcon),  href: "/pneumatic/cdc-fittings" },
       // { label: "Transair",                    icon: React.createElement(AirOutlinedIcon),        href: "/pneumatic/transair" },
