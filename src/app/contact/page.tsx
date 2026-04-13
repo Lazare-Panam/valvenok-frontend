@@ -58,6 +58,7 @@ const { showNotification } = useNotificationStore();
         }}
       >
         <Typography 
+        component="h1"
           variant="h3" 
           sx={{ 
             fontWeight: 900, 

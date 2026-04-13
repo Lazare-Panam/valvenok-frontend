@@ -43,6 +43,7 @@ console.log(categoryId)
       <Box sx={{ bgcolor: 'text.primary', color: 'white', py: 6, mb: 6 }}>
         <Container maxWidth="lg">
           <Typography 
+           component="h1"
             variant="h2" 
             sx={{ 
               fontFamily: '"Barlow Condensed"', 

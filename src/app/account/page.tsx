@@ -61,7 +61,7 @@ export default function AccountPage() {
       <Box sx={{ maxWidth: 800 }}>
 
         {/* ── PAGE TITLE ── */}
-        <Typography variant="h4" sx={{ fontWeight: 900, mb: 1, textTransform: 'uppercase', letterSpacing: 1 }}>
+        <Typography  component="h1" variant="h4" sx={{ fontWeight: 900, mb: 1, textTransform: 'uppercase', letterSpacing: 1 }}>
           My Account
         </Typography>
         <Typography variant="body1" sx={{ color: 'text.secondary', mb: 4 }}>
