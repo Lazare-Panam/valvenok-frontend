@@ -121,7 +121,7 @@ export default function OrderCart() {
                 fullWidth
                 variant="contained"
                 color="primary"
-                href="/checkout"
+                href="/cart"
                 sx={{ fontFamily: '"Barlow Condensed", sans-serif', fontWeight: 800, fontSize: '14px', textTransform: 'uppercase', letterSpacing: '0.08em', py: 1.5, boxShadow: 'none', borderRadius: '3px', '&:hover': { boxShadow: 'none' } }}
               >
                 Go to Cart and Checkout
