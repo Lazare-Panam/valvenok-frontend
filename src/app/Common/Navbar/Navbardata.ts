@@ -123,7 +123,7 @@ export const CATEGORIES: Category[] = [
     color: "#2e7d32",
     textColor: "#fff",
     products: [
-      { label: "Industrial Valves", icon: React.createElement(FactoryOutlinedIcon), href: "/atam-valves" },
+      { label: "Industrial Valves", icon: React.createElement(FactoryOutlinedIcon), href: "/industrial-valves" },
     ],
   },
 
