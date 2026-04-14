@@ -124,25 +124,13 @@ export default function OrderCart() {
                 href="/checkout"
                 sx={{ fontFamily: '"Barlow Condensed", sans-serif', fontWeight: 800, fontSize: '14px', textTransform: 'uppercase', letterSpacing: '0.08em', py: 1.5, boxShadow: 'none', borderRadius: '3px', '&:hover': { boxShadow: 'none' } }}
               >
-                Proceed to Checkout
+                Go to Cart and Checkout
               </Button>
 
-              <Button
-                fullWidth
-                variant="text"
-                href="mailto:sales@valvenok.co.uk"
-                sx={{ mt: 1, fontFamily: '"Barlow Condensed", sans-serif', fontWeight: 600, fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'text.secondary', '&:hover': { bgcolor: 'transparent', color: 'text.primary' } }}
-              >
-                Send as Enquiry Instead
-              </Button>
+             
             </Box>
 
-            <Box sx={{ px: 2.5, py: 1.5, bgcolor: (t) => alpha(t.palette.primary.main, 0.05), borderTop: '1px solid', borderColor: (t) => alpha(t.palette.primary.main, 0.15), display: 'flex', alignItems: 'center', gap: 1 }}>
-              <CheckIcon sx={{ fontSize: 12, color: 'primary.main', flexShrink: 0 }} />
-              <Typography sx={{ fontFamily: '"Barlow Condensed", sans-serif', fontSize: '10px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.07em', color: 'text.secondary' }}>
-                JOSCAR registered — all stock UK held
-              </Typography>
-            </Box>
+           
           </>
         )}
       </Box>
