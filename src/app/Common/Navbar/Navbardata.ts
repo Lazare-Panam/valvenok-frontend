@@ -1,21 +1,25 @@
+'use client';
+
 import React from "react";
 // Navigation Specific Icons
 import StorefrontOutlinedIcon from "@mui/icons-material/StorefrontOutlined";
-import ArticleOutlinedIcon from "@mui/icons-material/ArticleOutlined"; // For News
-import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined"; // For About
-import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined"; // For Account
-import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined"; // For Contact
+import ArticleOutlinedIcon from "@mui/icons-material/ArticleOutlined"; 
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined"; 
+import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined"; 
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined"; 
 
 // Product Specific Icons
-import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import BuildOutlinedIcon from "@mui/icons-material/BuildOutlined";
-import WaterDropOutlinedIcon from "@mui/icons-material/WaterDropOutlined";
+
 import AirOutlinedIcon from "@mui/icons-material/AirOutlined";
 import FactoryOutlinedIcon from "@mui/icons-material/FactoryOutlined";
 import ShieldOutlinedIcon from "@mui/icons-material/ShieldOutlined";
 import SpeedOutlinedIcon from "@mui/icons-material/SpeedOutlined";
-import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
+import PrecisionManufacturingOutlinedIcon from '@mui/icons-material/PrecisionManufacturingOutlined';
+import PropaneTankOutlinedIcon from '@mui/icons-material/PropaneTankOutlined';
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
+import FilterAltOutlinedIcon from '@mui/icons-material/FilterAltOutlined';
+import SettingsInputComponentOutlinedIcon from '@mui/icons-material/SettingsInputComponentOutlined';
+import ConstructionOutlinedIcon from '@mui/icons-material/ConstructionOutlined';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -78,19 +82,8 @@ export const CATEGORIES: Category[] = [
     color: "#1c6e2e",
     textColor: "#fff",
     products: [
-      { label: "Instrumentation Fittings",                    icon: React.createElement(LocalShippingOutlinedIcon), href: "/categories/instrumentation-fittings" },
-      { label: "Instrumentation Valves",                    icon: React.createElement(LocalShippingOutlinedIcon), href: "/valves" },
-      // { label: "Adaptors",                           icon: React.createElement(SettingsOutlinedIcon),      href: "/hydraulic/adaptors" },
-      // { label: "Quick Release Couplings",            icon: React.createElement(BuildOutlinedIcon),         href: "/hydraulic/quick-release" },
-      // { label: "Steel Tube & Compression Fittings",  icon: React.createElement(FactoryOutlinedIcon),       href: "/hydraulic/steel-tube" },
-      // { label: "Swaging Machines",                   icon: React.createElement(SettingsOutlinedIcon),      href: "/hydraulic/swaging" },
-      // { label: "Cylinders",                          icon: React.createElement(SpeedOutlinedIcon),         href: "/hydraulic/cylinders" },
-      // { label: "Oil Coolers",                        icon: React.createElement(AirOutlinedIcon),           href: "/hydraulic/oil-coolers" },
-      // { label: "Pumps & Motors",                     icon: React.createElement(SettingsOutlinedIcon),      href: "/hydraulic/pumps-motors" },
-      // { label: "Power Packs & Accessories",          icon: React.createElement(LockOutlinedIcon),          href: "/hydraulic/power-packs" },
-      // { label: "Test Equipment",                     icon: React.createElement(SpeedOutlinedIcon),         href: "/hydraulic/test-equipment" },
-      // { label: "Accumulators",                       icon: React.createElement(WaterDropOutlinedIcon),     href: "/hydraulic/accumulators" },
-      // { label: "Filtration",                         icon: React.createElement(ShieldOutlinedIcon),        href: "/hydraulic/filtration" },
+      { label: "Instrumentation Fittings", icon: React.createElement(PrecisionManufacturingOutlinedIcon), href: "/categories/instrumentation-fittings" },
+      { label: "Instrumentation Valves", icon: React.createElement(SettingsInputComponentOutlinedIcon), href: "/valves" },
     ],
   },
 
@@ -100,17 +93,8 @@ export const CATEGORIES: Category[] = [
     color: "#2e7d32",
     textColor: "#fff",
     products: [
-      { label: "Pneumatic Cylinder",                icon: React.createElement(BuildOutlinedIcon),     href: "/categories/pneumatics" },
-      { label: "FRL Units",                icon: React.createElement(BuildOutlinedIcon),     href: "/categories/frl" },
-      // { label: "Camozzi Push Fittings",       icon: React.createElement(SettingsOutlinedIcon),  href: "/pneumatic/push-fittings" },
-      // { label: "CDC Plastic Push-in Fittings",icon: React.createElement(SettingsOutlinedIcon),  href: "/pneumatic/cdc-fittings" },
-      // { label: "Transair",                    icon: React.createElement(AirOutlinedIcon),        href: "/pneumatic/transair" },
-      // { label: "Pneumatic Cylinders",         icon: React.createElement(SpeedOutlinedIcon),      href: "/pneumatic/cylinders" },
-      // { label: "Rotary Cylinders",            icon: React.createElement(SettingsOutlinedIcon),   href: "/pneumatic/rotary-cylinders" },
-      // { label: "Pneumatic Valves",            icon: React.createElement(BuildOutlinedIcon),      href: "/pneumatic/valves" },
-      // { label: "Air Reservoirs",              icon: React.createElement(WaterDropOutlinedIcon),  href: "/pneumatic/air-reservoirs" },
-      // { label: "Soft Start Valves",           icon: React.createElement(ShieldOutlinedIcon),     href: "/pneumatic/soft-start" },
-      // { label: "Air Treatment",              icon: React.createElement(AirOutlinedIcon),         href: "/pneumatic/air-treatment" },
+      { label: "Pneumatic Cylinder", icon: React.createElement(AirOutlinedIcon), href: "/categories/pneumatics" },
+      { label: "FRL Units", icon: React.createElement(PropaneTankOutlinedIcon), href: "/categories/frl" },
     ],
   },
 
@@ -120,17 +104,8 @@ export const CATEGORIES: Category[] = [
     color: "#2e7d32",
     textColor: "#fff",
     products: [
-      { label: "Sight Glass",                icon: React.createElement(BuildOutlinedIcon),     href: "/sight-glass" },
-       { label: "Filtration",                icon: React.createElement(BuildOutlinedIcon),     href: "/categories/filtration" },
-      // { label: "Camozzi Push Fittings",       icon: React.createElement(SettingsOutlinedIcon),  href: "/pneumatic/push-fittings" },
-      // { label: "CDC Plastic Push-in Fittings",icon: React.createElement(SettingsOutlinedIcon),  href: "/pneumatic/cdc-fittings" },
-      // { label: "Transair",                    icon: React.createElement(AirOutlinedIcon),        href: "/pneumatic/transair" },
-      // { label: "Pneumatic Cylinders",         icon: React.createElement(SpeedOutlinedIcon),      href: "/pneumatic/cylinders" },
-      // { label: "Rotary Cylinders",            icon: React.createElement(SettingsOutlinedIcon),   href: "/pneumatic/rotary-cylinders" },
-      // { label: "Pneumatic Valves",            icon: React.createElement(BuildOutlinedIcon),      href: "/pneumatic/valves" },
-      // { label: "Air Reservoirs",              icon: React.createElement(WaterDropOutlinedIcon),  href: "/pneumatic/air-reservoirs" },
-      // { label: "Soft Start Valves",           icon: React.createElement(ShieldOutlinedIcon),     href: "/pneumatic/soft-start" },
-      // { label: "Air Treatment",              icon: React.createElement(AirOutlinedIcon),         href: "/pneumatic/air-treatment" },
+      { label: "Sight Glass", icon: React.createElement(VisibilityOutlinedIcon), href: "/categories/sight-glass" },
+      { label: "Filtration", icon: React.createElement(FilterAltOutlinedIcon), href: "/categories/filtration" },
     ],
   },
   {
@@ -139,16 +114,7 @@ export const CATEGORIES: Category[] = [
     color: "#2e7d32",
     textColor: "#fff",
     products: [
-      { label: "Pneumatic Actuators",                icon: React.createElement(BuildOutlinedIcon),     href: "/categories/actuators" },
-      // { label: "Camozzi Push Fittings",       icon: React.createElement(SettingsOutlinedIcon),  href: "/pneumatic/push-fittings" },
-      // { label: "CDC Plastic Push-in Fittings",icon: React.createElement(SettingsOutlinedIcon),  href: "/pneumatic/cdc-fittings" },
-      // { label: "Transair",                    icon: React.createElement(AirOutlinedIcon),        href: "/pneumatic/transair" },
-      // { label: "Pneumatic Cylinders",         icon: React.createElement(SpeedOutlinedIcon),      href: "/pneumatic/cylinders" },
-      // { label: "Rotary Cylinders",            icon: React.createElement(SettingsOutlinedIcon),   href: "/pneumatic/rotary-cylinders" },
-      // { label: "Pneumatic Valves",            icon: React.createElement(BuildOutlinedIcon),      href: "/pneumatic/valves" },
-      // { label: "Air Reservoirs",              icon: React.createElement(WaterDropOutlinedIcon),  href: "/pneumatic/air-reservoirs" },
-      // { label: "Soft Start Valves",           icon: React.createElement(ShieldOutlinedIcon),     href: "/pneumatic/soft-start" },
-      // { label: "Air Treatment",              icon: React.createElement(AirOutlinedIcon),         href: "/pneumatic/air-treatment" },
+      { label: "Pneumatic Actuators", icon: React.createElement(ConstructionOutlinedIcon), href: "/categories/actuators" },
     ],
   },
   {
@@ -157,16 +123,7 @@ export const CATEGORIES: Category[] = [
     color: "#2e7d32",
     textColor: "#fff",
     products: [
-      { label: "Industrial Valves",                icon: React.createElement(BuildOutlinedIcon),     href: "/atam-valves" },
-      // { label: "Camozzi Push Fittings",       icon: React.createElement(SettingsOutlinedIcon),  href: "/pneumatic/push-fittings" },
-      // { label: "CDC Plastic Push-in Fittings",icon: React.createElement(SettingsOutlinedIcon),  href: "/pneumatic/cdc-fittings" },
-      // { label: "Transair",                    icon: React.createElement(AirOutlinedIcon),        href: "/pneumatic/transair" },
-      // { label: "Pneumatic Cylinders",         icon: React.createElement(SpeedOutlinedIcon),      href: "/pneumatic/cylinders" },
-      // { label: "Rotary Cylinders",            icon: React.createElement(SettingsOutlinedIcon),   href: "/pneumatic/rotary-cylinders" },
-      // { label: "Pneumatic Valves",            icon: React.createElement(BuildOutlinedIcon),      href: "/pneumatic/valves" },
-      // { label: "Air Reservoirs",              icon: React.createElement(WaterDropOutlinedIcon),  href: "/pneumatic/air-reservoirs" },
-      // { label: "Soft Start Valves",           icon: React.createElement(ShieldOutlinedIcon),     href: "/pneumatic/soft-start" },
-      // { label: "Air Treatment",              icon: React.createElement(AirOutlinedIcon),         href: "/pneumatic/air-treatment" },
+      { label: "Industrial Valves", icon: React.createElement(FactoryOutlinedIcon), href: "/atam-valves" },
     ],
   },
 
@@ -176,74 +133,8 @@ export const CATEGORIES: Category[] = [
     color: "#2e7d32",
     textColor: "#fff",
     products: [
-      { label: "Pumps",                icon: React.createElement(BuildOutlinedIcon),     href: "/pumps" },
-      { label: "Mechanical Seals",                icon: React.createElement(BuildOutlinedIcon),     href: "/categories/mechanical-seals" },
-      // { label: "Camozzi Push Fittings",       icon: React.createElement(SettingsOutlinedIcon),  href: "/pneumatic/push-fittings" },
-      // { label: "CDC Plastic Push-in Fittings",icon: React.createElement(SettingsOutlinedIcon),  href: "/pneumatic/cdc-fittings" },
-      // { label: "Transair",                    icon: React.createElement(AirOutlinedIcon),        href: "/pneumatic/transair" },
-      // { label: "Pneumatic Cylinders",         icon: React.createElement(SpeedOutlinedIcon),      href: "/pneumatic/cylinders" },
-      // { label: "Rotary Cylinders",            icon: React.createElement(SettingsOutlinedIcon),   href: "/pneumatic/rotary-cylinders" },
-      // { label: "Pneumatic Valves",            icon: React.createElement(BuildOutlinedIcon),      href: "/pneumatic/valves" },
-      // { label: "Air Reservoirs",              icon: React.createElement(WaterDropOutlinedIcon),  href: "/pneumatic/air-reservoirs" },
-      // { label: "Soft Start Valves",           icon: React.createElement(ShieldOutlinedIcon),     href: "/pneumatic/soft-start" },
-      // { label: "Air Treatment",              icon: React.createElement(AirOutlinedIcon),         href: "/pneumatic/air-treatment" },
+      { label: "Pumps", icon: React.createElement(SpeedOutlinedIcon), href: "/pumps" },
+      { label: "Mechanical Seals", icon: React.createElement(ShieldOutlinedIcon), href: "/categories/mechanical-seals" },
     ],
   },
-  // {
-  //   id: "industrial",
-  //   label: "Industrial",
-  //   color: "#388e3c",
-  //   textColor: "#fff",
-  //   products: [
-  //     { label: "Industrial Hose",          icon: React.createElement(BuildOutlinedIcon),      href: "/industrial/hose" },
-  //     { label: "Air Conditioning Hose",    icon: React.createElement(AirOutlinedIcon),         href: "/industrial/ac-hose" },
-  //     { label: "Stainless Steel Fittings", icon: React.createElement(FactoryOutlinedIcon),     href: "/industrial/stainless" },
-  //     { label: "Maclock Couplings",        icon: React.createElement(SettingsOutlinedIcon),    href: "/industrial/couplings" },
-  //     { label: "Grease Guns",              icon: React.createElement(BuildOutlinedIcon),       href: "/industrial/grease-guns" },
-  //     { label: "Industrial Valves",        icon: React.createElement(ShieldOutlinedIcon),      href: "/industrial/valves" },
-  //     { label: "Camlock Fittings",         icon: React.createElement(SettingsOutlinedIcon),    href: "/industrial/camlock" },
-  //     { label: "Electric Motors",          icon: React.createElement(SpeedOutlinedIcon),       href: "/industrial/motors" },
-  //     { label: "Flexible Connectors",      icon: React.createElement(BuildOutlinedIcon),       href: "/industrial/flexible" },
-  //     { label: "Hose Reels",               icon: React.createElement(LocalShippingOutlinedIcon), href: "/industrial/hose-reels" },
-  //   ],
-  // },
-  // {
-  //   id: "seals",
-  //   label: "Seals",
-  //   color: "#43a047",
-  //   textColor: "#fff",
-  //   products: [
-  //     { label: "O-Rings",          icon: React.createElement(ShieldOutlinedIcon),     href: "/seals/o-rings" },
-  //     { label: "Hydraulic Seals",  icon: React.createElement(WaterDropOutlinedIcon),  href: "/seals/hydraulic" },
-  //     { label: "Mechanical Seals", icon: React.createElement(SettingsOutlinedIcon),   href: "/seals/mechanical" },
-  //     { label: "Rotary Seals",     icon: React.createElement(SpeedOutlinedIcon),      href: "/seals/rotary" },
-  //     { label: "Gaskets",          icon: React.createElement(ShieldOutlinedIcon),     href: "/seals/gaskets" },
-  //   ],
-  // },
-  // {
-  //   id: "instrumentation",
-  //   label: "Instrumentation",
-  //   color: "#4caf50",
-  //   textColor: "#fff",
-  //   products: [
-  //     { label: "Pressure Gauges",    icon: React.createElement(SpeedOutlinedIcon),      href: "/instrumentation/gauges" },
-  //     { label: "Transmitters",       icon: React.createElement(SettingsOutlinedIcon),   href: "/instrumentation/transmitters" },
-  //     { label: "Flow Meters",        icon: React.createElement(WaterDropOutlinedIcon),  href: "/instrumentation/flow-meters" },
-  //     { label: "Temp Sensors",       icon: React.createElement(SpeedOutlinedIcon),      href: "/instrumentation/temp-sensors" },
-  //     { label: "Pressure Switches",  icon: React.createElement(ShieldOutlinedIcon),     href: "/instrumentation/pressure-switches" },
-  //   ],
-  // },
-  // {
-  //   id: "ancillary",
-  //   label: "Ancillary",
-  //   color: "#1c2e1a",
-  //   textColor: "#fff",
-  //   products: [
-  //     { label: "Adhesives",           icon: React.createElement(BuildOutlinedIcon),      href: "/ancillary/adhesives" },
-  //     { label: "Spill Kits",          icon: React.createElement(ShieldOutlinedIcon),     href: "/ancillary/spill-kits" },
-  //     { label: "Flexible Connectors", icon: React.createElement(SettingsOutlinedIcon),   href: "/ancillary/flexible" },
-  //     { label: "Wash Down",           icon: React.createElement(WaterDropOutlinedIcon),  href: "/ancillary/wash-down" },
-  //     { label: "Ring Main Systems",   icon: React.createElement(FactoryOutlinedIcon),    href: "/ancillary/ring-main" },
-  //   ],
-  // },
 ];

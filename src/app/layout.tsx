@@ -6,6 +6,7 @@ import ThemeRegistry from "../theme/ThemeRegistry";
 import Navbar from "./Common/Navbar/Navbar";
 import Providers from "./providers";
 import { NotificationProvider } from "../components/NotificationProvider";
+import Footer from "./Common/Footer/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -65,6 +66,7 @@ export default function RootLayout({
             <Navbar />
             {children}
           </Providers></ThemeRegistry>
+          <Footer/>
           <Script
             id="hs-script-loader"
             src="//js-eu1.hs-scripts.com/147618935.js"

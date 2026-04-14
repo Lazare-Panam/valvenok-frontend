@@ -1,87 +1,65 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import Collapse from '@mui/material/Collapse';
-import Link from 'next/link'; // Recommended for Next.js navigation
+import { useState } from "react";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import Collapse from "@mui/material/Collapse";
+import Link from "next/link"; // Recommended for Next.js navigation
 
 const CATEGORIES = [
   {
-    name: 'Fittings & Tubings',
+    name: "Fittings & Tubings",
     img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1771948480/reducing-hex-couplings-npt_i2twbq.png",
-    href: '/categories/instrumentation-fittings',
+    href: "/categories/instrumentation-fittings",
     subs: [
-      { name: 'JIC Fittings', href: '/categories/instrumentation-fittings' },
+      {
+        name: "Instrumentation Fittings",
+        href: "/categories/instrumentation-fittings",
+      },
+      { name: "Instrumentation Valves", href: "/valves" },
+    ],
+  },
 
-    ],
-  },
-  
   {
-    name: 'Pneumatic Systems',
+    name: "Pneumatic Systems",
     img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774007615/DSC_7050_ESNC-100x100_jjj5g6-removebg-preview_apf6ug.png",
-    href: '/collections/pneumatics',
+    href: "/collections/pneumatics",
     subs: [
-      
+      { name: "Pnuematic Cylinders", href: "/categories/pneumatics" },
+      { name: "FRL Units", href: "/categories/frl" },
     ],
   },
-   {
-    name: 'Sight Glass',
+  {
+    name: "Filters",
     img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774966701/shopping-removebg-preview_ccornj.png",
-    href: '/collections/pneumatics',
+    href: "/collections/pneumatics",
     subs: [
-      
+      { name: "Sight Glass", href: "/categories/sight-glass" },
+      { name: "Filtration", href: "/categories/filtration" },
     ],
   },
-  // {
-  //   name: 'Hydrogen Application',
-  //   img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768569088/HP_Ball_Valve_2_aybek4.webp",
-  //   href: '/collections/hydrogen-application',
-  //   subs: [
-     
-  //   ],
-  // },
   {
-    name: 'Valves',
+    name: "Valves",
     img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774523763/steel-ball-valve_mqpk70.jpg",
-    href: '/categories/ball-valves',
-    subs: [
-      { name: '400 Series Ball Valves', href: '/categories/ball-valves' },
-    ],
+    href: "/categories/ball-valves",
+    subs: [{ name: "Industrial Valves", href: "/atam-valves" }],
   },
   {
-    name: 'Actuators',
+    name: "Actuators",
     img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774870846/WhatsApp_Image_2026-03-30_at_11.18.12_AM_ngx1e8.jpg",
-    href: '/categories/actuators',
-    subs: [
-      { name: 'Pneumatic Actuators', href: '/categories/actuators' },
-    ],
+    href: "/categories/actuators",
+    subs: [{ name: "Pneumatic Actuators", href: "/categories/actuators" }],
   },
   {
-    name: 'Pumps & Mechanical Seal',
+    name: "Pumps & Mechanical Seal",
     img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774524120/08-TEP-Peripheral-pumps-1-259x300_fstbrp.png",
-    href: '/collections/tormac-pumps',
+    href: "/collections/tormac-pumps",
     subs: [
-    
+      { name: "Industrial Pumps", href: "/pumps" },
+      { name: "Mechanical Seals", href: "/categories/mechanical-seals" },
     ],
   },
-  // {
-  //   name: 'Manifolds',
-  //   img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1768296193/5VM-SS-H_-_JPG_qrcujq.jpg",
-  //   href: '/collections/manifolds',
-  //   subs: [
-      
-  //   ],
-  // },
-  // {
-  //   name: 'Browse All Products',
-  //   img: null,
-  //   href: '/collections',
-  //   subs: [
-      
-  //   ],
-  // },
 ];
 
 export default function Categories() {
@@ -90,18 +68,18 @@ export default function Categories() {
   const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
 
   return (
-    <Box component="section" sx={{ py: { xs: 6, md: 10 }, bgcolor: 'grey.50' }}>
+    <Box component="section" sx={{ py: { xs: 6, md: 10 }, bgcolor: "grey.50" }}>
       <Container maxWidth="lg">
         {/* Section Header */}
-        <Box sx={{ textAlign: 'center', mb: 6 }}>
+        <Box sx={{ textAlign: "center", mb: 6 }}>
           <Typography
             sx={{
               fontFamily: '"Barlow Condensed", sans-serif',
-              fontSize: '12px',
+              fontSize: "12px",
               fontWeight: 800,
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
-              color: 'primary.main',
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+              color: "primary.main",
               mb: 1,
             }}
           >
@@ -111,11 +89,11 @@ export default function Categories() {
             component="h2"
             sx={{
               fontFamily: '"Barlow Condensed", sans-serif',
-              fontSize: { xs: '2.8rem', md: '4rem' },
+              fontSize: { xs: "2.8rem", md: "4rem" },
               fontWeight: 900,
-              textTransform: 'uppercase',
-              color: 'text.primary',
-              letterSpacing: '0.02em',
+              textTransform: "uppercase",
+              color: "text.primary",
+              letterSpacing: "0.02em",
               lineHeight: 1,
             }}
           >
@@ -126,12 +104,12 @@ export default function Categories() {
         {/* Category Grid */}
         <Box
           sx={{
-            display: 'grid',
-            gridTemplateColumns: { 
-      xs: '1fr', 
-      sm: 'repeat(2, 1fr)', 
-      md: 'repeat(3, 1fr)' 
-    },
+            display: "grid",
+            gridTemplateColumns: {
+              xs: "1fr",
+              sm: "repeat(2, 1fr)",
+              md: "repeat(3, 1fr)",
+            },
             gap: { xs: 2, md: 3 },
           }}
         >
@@ -141,17 +119,17 @@ export default function Categories() {
               <Box
                 key={cat.name}
                 sx={{
-                  bgcolor: 'background.paper',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  border: '1px solid',
-                  borderColor: isOpen ? 'primary.main' : 'divider',
-                  overflow: 'hidden',
-                  transition: 'all 0.3s ease-in-out',
-                  '&:hover': { 
-                    boxShadow: '0 10px 30px rgba(0,0,0,0.08)',
-                    transform: 'translateY(-5px)',
-                    borderColor: 'primary.main'
+                  bgcolor: "background.paper",
+                  display: "flex",
+                  flexDirection: "column",
+                  border: "1px solid",
+                  borderColor: isOpen ? "primary.main" : "divider",
+                  overflow: "hidden",
+                  transition: "all 0.3s ease-in-out",
+                  "&:hover": {
+                    boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
+                    transform: "translateY(-5px)",
+                    borderColor: "primary.main",
                   },
                 }}
               >
@@ -159,62 +137,80 @@ export default function Categories() {
                 <Box
                   onClick={() => toggle(i)}
                   sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    textAlign: 'center',
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    textAlign: "center",
                     gap: 2,
                     p: 4,
-                    cursor: 'pointer',
+                    cursor: "pointer",
                   }}
                 >
-                  <Box sx={{ width: 200, height: 180, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <Box
+                    sx={{
+                      width: 200,
+                      height: 180,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
                     {cat.img ? (
                       <Box
                         component="img"
                         src={cat.img}
                         alt={cat.name}
-                        sx={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                        sx={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "contain",
+                        }}
                       />
                     ) : (
-                      <Box sx={{ width: '100%', height: '100%', bgcolor: 'grey.200' }} />
+                      <Box
+                        sx={{
+                          width: "100%",
+                          height: "100%",
+                          bgcolor: "grey.200",
+                        }}
+                      />
                     )}
                   </Box>
 
-                  <Box sx={{ width: '100%' }}>
+                  <Box sx={{ width: "100%" }}>
                     <Typography
                       sx={{
                         fontFamily: '"Barlow Condensed", sans-serif',
-                        fontSize: '1.25rem',
+                        fontSize: "1.25rem",
                         fontWeight: 800,
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.02em',
-                        color: 'text.primary',
+                        textTransform: "uppercase",
+                        letterSpacing: "0.02em",
+                        color: "text.primary",
                         lineHeight: 1.2,
-                        mb: 1
+                        mb: 1,
                       }}
                     >
                       {cat.name}
                     </Typography>
                     <Typography
                       sx={{
-                        fontSize: '13px',
-                        color: 'primary.main',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        gap: '6px',
+                        fontSize: "13px",
+                        color: "primary.main",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: "6px",
                         fontWeight: 600,
                       }}
                     >
-                      {isOpen ? 'Hide' : 'View'} {cat.subs.length} Items
+                      {isOpen ? "Hide" : "View"} {cat.subs.length} Items
                       <Box
                         component="span"
                         sx={{
-                          display: 'inline-block',
-                          fontSize: '10px',
-                          transition: 'transform 0.3s',
-                          transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                          display: "inline-block",
+                          fontSize: "10px",
+                          transition: "transform 0.3s",
+                          transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
                         }}
                       >
                         ▼
@@ -225,23 +221,31 @@ export default function Categories() {
 
                 {/* Subcategory Dropdown */}
                 <Collapse in={isOpen}>
-                  <Box sx={{ bgcolor: 'grey.50', borderTop: '1px solid', borderColor: 'divider', py: 2, px: 1 }}>
+                  <Box
+                    sx={{
+                      bgcolor: "grey.50",
+                      borderTop: "1px solid",
+                      borderColor: "divider",
+                      py: 2,
+                      px: 1,
+                    }}
+                  >
                     {cat.subs.map((sub) => (
                       <Box
                         key={sub.name}
                         component={Link} // Use Next.js Link for better performance
                         href={sub.href}
                         sx={{
-                          display: 'block',
+                          display: "block",
                           px: 2,
                           py: 1,
-                          fontSize: '14px',
-                          color: 'text.secondary',
-                          textDecoration: 'none',
-                          transition: 'all 0.2s',
-                          '&:hover': {
-                            bgcolor: 'primary.main',
-                            color: 'white',
+                          fontSize: "14px",
+                          color: "text.secondary",
+                          textDecoration: "none",
+                          transition: "all 0.2s",
+                          "&:hover": {
+                            bgcolor: "primary.main",
+                            color: "white",
                             pl: 3,
                           },
                         }}

@@ -165,7 +165,7 @@ export default function Hero() {
                   mb: 2.5,
                 }}
               >
-                Industrial Valves &amp; Fittings,{' '}
+                Industrial pump suppliers and valves and controls,
                 <Box component="br" />
                 <Box component="em" sx={{ color: 'primary.main', fontStyle: 'normal' }}>
                   Delivered Fast

@@ -5,14 +5,12 @@ import Typography from '@mui/material/Typography';
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
 import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
 import VerifiedOutlinedIcon from '@mui/icons-material/VerifiedOutlined';
-
-const BASE_GREEN = '#61D649';
-const DARK_NAVY = '#686a6d'; // New complementary color
+import { alpha } from '@mui/material/styles';
 
 const ITEMS = [
-  { icon: <LocalShippingOutlinedIcon sx={{ fontSize: 16, mr: 1, color: BASE_GREEN }} />, text: 'Free UK Delivery on Orders Over £150' },
-  { icon: <InventoryOutlinedIcon sx={{ fontSize: 16, mr: 1, color: BASE_GREEN }} />, text: '2–3 Day Dispatch on All Stocked Items' },
-  { icon: <VerifiedOutlinedIcon sx={{ fontSize: 16, mr: 1, color: BASE_GREEN }} />, text: 'JOSCAR Registered Supplier' },
+  { icon: LocalShippingOutlinedIcon, text: 'Free UK Delivery on Orders Over £150' },
+  { icon: InventoryOutlinedIcon,     text: '2–3 Day Dispatch on All Stocked Items' },
+  { icon: VerifiedOutlinedIcon,      text: 'JOSCAR Registered Supplier' },
 ];
 
 const TRACK = [...ITEMS, ...ITEMS, ...ITEMS];
@@ -21,11 +19,12 @@ export default function DeliveryBanner() {
   return (
     <Box
       sx={{
-        bgcolor: DARK_NAVY, // Using the new Navy for contrast
+        bgcolor: 'text.primary',
         py: '12px',
         overflow: 'hidden',
         position: 'relative',
-        borderBottom: `2px solid ${BASE_GREEN}`,
+        borderBottom: '2px solid',
+        borderColor: 'primary.main',
         '&::before, &::after': {
           content: '""',
           position: 'absolute',
@@ -37,11 +36,11 @@ export default function DeliveryBanner() {
         },
         '&::before': {
           left: 0,
-          background: `linear-gradient(to right, ${DARK_NAVY} 20%, transparent 100%)`,
+          background: (t) => `linear-gradient(to right, ${t.palette.text.primary} 20%, transparent 100%)`,
         },
         '&::after': {
           right: 0,
-          background: `linear-gradient(to left, ${DARK_NAVY} 20%, transparent 100%)`,
+          background: (t) => `linear-gradient(to left, ${t.palette.text.primary} 20%, transparent 100%)`,
         },
         '@keyframes marquee': {
           '0%':   { transform: 'translateX(0)' },
@@ -57,7 +56,7 @@ export default function DeliveryBanner() {
           '&:hover': { animationPlayState: 'paused' },
         }}
       >
-        {TRACK.map((item, i) => (
+        {TRACK.map(({ icon: Icon, text }, i) => (
           <Box
             key={i}
             sx={{
@@ -67,18 +66,18 @@ export default function DeliveryBanner() {
               mx: 1.5,
               px: 3,
               py: 0.5,
-              bgcolor: 'rgba(255,255,255,0.03)',
-              border: '1px solid rgba(255,255,255,0.1)',
-              borderRadius: '4px', // Slightly rounded for a modern feel
-              color: '#fff',
+              bgcolor: (t) => alpha(t.palette.common.white, 0.03),
+              border: '1px solid',
+              borderColor: (t) => alpha(t.palette.common.white, 0.1),
+              borderRadius: '4px',
               transition: 'all 0.3s ease',
               '&:hover': {
-                bgcolor: 'rgba(255,255,255,0.08)',
-                borderColor: BASE_GREEN,
+                bgcolor: (t) => alpha(t.palette.common.white, 0.08),
+                borderColor: 'primary.main',
               },
             }}
           >
-            {item.icon}
+            <Icon sx={{ fontSize: 16, mr: 1, color: 'primary.main' }} />
             <Typography
               sx={{
                 fontFamily: '"Barlow Condensed", sans-serif',
@@ -86,10 +85,10 @@ export default function DeliveryBanner() {
                 fontWeight: 700,
                 textTransform: 'uppercase',
                 letterSpacing: '0.05em',
-                color: '#FFFFFF',
+                color: (t) => alpha(t.palette.common.white, 0.9),
               }}
             >
-              {item.text}
+              {text}
             </Typography>
           </Box>
         ))}

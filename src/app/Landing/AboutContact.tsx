@@ -141,6 +141,7 @@ export default function AboutContact() {
               href="/contact"
               endIcon={<ArrowForwardIcon />}
               sx={{
+                borderRadius:"0px",
                 fontFamily: '"Barlow Condensed", sans-serif',
                 fontWeight: 800,
                 fontSize: '15px',
