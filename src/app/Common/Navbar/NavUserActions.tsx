@@ -13,6 +13,7 @@ import {
   alpha,
   useTheme,
 } from "@mui/material";
+import BoltIcon from "@mui/icons-material/Bolt";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCartOutlined";
 import PersonIcon from "@mui/icons-material/PersonOutline";
 import LogoutIcon from "@mui/icons-material/Logout";
@@ -72,6 +73,17 @@ export default function NavUserActions({ barHeight }: Props) {
 
   return (
     <Box sx={{ display: "flex", alignItems: "center", ml: "auto" }}>
+{/* ── QUICK ORDER ── */}
+
+<Box
+  sx={{ ...navItemStyle, gap: 1.5,color: 'primary.main'  }}
+  onClick={() => router.push("/quick-order")}
+  
+>
+  <BoltIcon sx={{ ...iconStyle, color: 'primary.main' }} />
+  QUICK ORDER
+</Box>
+
       {/* ── CART ── */}
       <Box
         sx={{ ...navItemStyle, gap: 1.5 }}
