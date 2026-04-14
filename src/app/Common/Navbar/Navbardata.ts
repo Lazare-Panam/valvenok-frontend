@@ -20,7 +20,7 @@ import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import FilterAltOutlinedIcon from '@mui/icons-material/FilterAltOutlined';
 import SettingsInputComponentOutlinedIcon from '@mui/icons-material/SettingsInputComponentOutlined';
 import ConstructionOutlinedIcon from '@mui/icons-material/ConstructionOutlined';
-
+import DirectionsBoatFilledOutlinedIcon from '@mui/icons-material/DirectionsBoatFilledOutlined';
 // ── Types ─────────────────────────────────────────────────────────────────────
 
 export interface Product {
@@ -124,6 +124,11 @@ export const CATEGORIES: Category[] = [
     textColor: "#fff",
     products: [
       { label: "Industrial Valves", icon: React.createElement(FactoryOutlinedIcon), href: "/industrial-valves" },
+      { 
+        label: "Marine Valves", 
+        icon: React.createElement(DirectionsBoatFilledOutlinedIcon), // Or DirectionsBoatOutlinedIcon
+        href: "/marine-valves" 
+      },
     ],
   },
 

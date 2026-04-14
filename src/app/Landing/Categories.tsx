@@ -43,7 +43,9 @@ const CATEGORIES = [
     name: "Valves",
     img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774523763/steel-ball-valve_mqpk70.jpg",
     href: "/categories/ball-valves",
-    subs: [{ name: "Industrial Valves", href: "/industrial-valves" }],
+    subs: [{ name: "Industrial Valves", href: "/industrial-valves" },
+      { name: "Marine Valves", href: "/marine-valves" }
+    ],
   },
   {
     name: "Actuators",
