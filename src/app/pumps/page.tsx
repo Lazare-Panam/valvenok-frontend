@@ -9,7 +9,7 @@ import RequestForQuoteCard, { ProductForRFQ } from '../Common/RFQCard/RequestFor
 // Updated Payload: Focused on RFQ (No pricing object)
 const DUMMY_RFQ_PRODUCTS: ProductForRFQ[] = [
   {
-    _id: "72de4d5d4ef79728b980c32a",
+  
     id: "PERIPHERAL_PUMP_SERIES", 
     name: "TEP Series Peripheral Pump", 
     brand: "Atam Pumps",

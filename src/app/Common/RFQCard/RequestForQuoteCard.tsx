@@ -4,7 +4,6 @@ import { Box, Typography, Card, CardContent, Button, useTheme, alpha } from '@mu
 import Link from 'next/link';
 import ContactSupportIcon from '@mui/icons-material/ContactSupport';
 export interface ProductForRFQ {
-  _id: string;
   id: string;
   name: string;
   brand: string;

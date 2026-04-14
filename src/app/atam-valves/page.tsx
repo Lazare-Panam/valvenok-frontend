@@ -7,7 +7,6 @@ import RequestForQuoteCard, { ProductForRFQ } from '../Common/RFQCard/RequestFor
 // Updated Payload using the RFQ Interface (No pricing)
 const DUMMY_RFQ_PRODUCTS: ProductForRFQ[] = [
   {
-    _id: "69ce4d5d4ef79728b980b21b",
     id: "INDUSTRIAL_VALVES",
     name: "Atam High-Pressure Valves",
     brand: "Atam Valves",
