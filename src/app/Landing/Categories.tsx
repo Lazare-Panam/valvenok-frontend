@@ -32,7 +32,7 @@ const CATEGORIES = [
   },
   {
     name: "Filters",
-    img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774966701/shopping-removebg-preview_ccornj.png",
+    img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776161440/image-removebg-preview_12_nlw5if.png",
     href: "/collections/pneumatics",
     subs: [
       { name: "Sight Glass", href: "/categories/sight-glass" },
