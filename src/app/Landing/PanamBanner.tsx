@@ -106,7 +106,7 @@ export default function PanamBanner() {
             <Typography
               sx={{
                 fontSize: '15px',
-                color: 'text.secondary',
+                color: 'text.primary',
                 lineHeight: 1.75,
                 mb: 3,
               }}
@@ -225,7 +225,7 @@ export default function PanamBanner() {
                   }}
                 >
                   <Typography
-                    sx={{ fontSize: '13px', color: 'text.secondary', fontWeight: 500 }}
+                    sx={{ fontSize: '13px', color: 'text.primary', fontWeight: 500 }}
                   >
                     {spec.key}
                   </Typography>

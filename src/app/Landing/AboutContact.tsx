@@ -7,10 +7,6 @@ import Button from "@mui/material/Button";
 import { alpha } from "@mui/material/styles";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import VerifiedIcon from "@mui/icons-material/Verified";
-import SecurityIcon from "@mui/icons-material/Security";
-import HandshakeIcon from "@mui/icons-material/Handshake";
-import FlightIcon from "@mui/icons-material/Flight";
 
 const JOSCAR_POINTS = [
   "Pre-qualified supplier recognised across the UK defence & aerospace sector",
@@ -20,8 +16,6 @@ const JOSCAR_POINTS = [
   "Covers financial health, quality management, legal & ethical trading standards",
   "Annual audit process ensures ongoing compliance — not a one-time tick-box",
 ];
-
-
 
 export default function AboutContact() {
   return (
@@ -71,7 +65,12 @@ export default function AboutContact() {
             </Typography>
 
             <Typography
-              sx={{ color: "text.primary", lineHeight: 1.8, mb: 2,fontWeight: 600 }}
+              sx={{
+                color: "text.primary",
+                lineHeight: 1.8,
+                mb: 2,
+                fontWeight: 600,
+              }}
             >
               JOSCAR — the Joint Supply Chain Accreditation Register — is the
               defence and aerospace industry's single pre-qualification
@@ -79,7 +78,12 @@ export default function AboutContact() {
               due diligence processes for every supplier they work with.
             </Typography>
             <Typography
-              sx={{ color: "text.primary", lineHeight: 1.8, mb: 3, fontWeight: 600 }}
+              sx={{
+                color: "text.primary",
+                lineHeight: 1.8,
+                mb: 3,
+                fontWeight: 600,
+              }}
             >
               By sourcing from a JOSCAR-registered supplier like Valvenok, your
               procurement team can move faster, reduce audit overhead, and
@@ -157,19 +161,17 @@ export default function AboutContact() {
               }}
             >
               <img
-  src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1776264427/JOSCAR_VALVENOK_CERTIFICATE_MOCKUP_1_inv1bc.png"
-  alt="Valvenok JOSCAR Accreditation Certificate"
-  style={{
-    width: "100%",
-    height: "100%",
-    objectFit: "contain",
-    display: "block",
-    transform: "scale(1.55)", 
-  }}
-/>
+                src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1776264427/JOSCAR_VALVENOK_CERTIFICATE_MOCKUP_1_inv1bc.png"
+                alt="Valvenok JOSCAR Accreditation Certificate"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "contain",
+                  display: "block",
+                  transform: "scale(1.55)",
+                }}
+              />
             </Box>
-
-           
           </Box>
         </Box>
       </Container>
