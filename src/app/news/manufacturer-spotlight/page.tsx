@@ -15,7 +15,7 @@ import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
 const manufacturers = [
-  { initials: 'FE',  name: 'Fisher / Emerson',      img: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776071072/f6b8803c-7833-40b1-9311-228c31e14a92.png', spec: 'Control valves, regulators. Global benchmark for precision process control.' },
+  { initials: 'FE',  name: 'Fisher / Emerson',      img: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776071072/f6b8803c-7833-40b1-9311-228c31e14a92.png', spec: 'Control valves, regulators. Global Benchmark for precision process control.' },
   { initials: 'CAM', name: 'Cameron (SLB)',           img: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776251705/eb9a9389-dd35-478e-b4d7-fc7d905ebfcd.png', spec: 'Gate, ball, check valves. API 6D certified. Upstream Oil & Gas standard.' },
   { initials: 'AG',  name: 'Anderson Greenwood',      img: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776251732/21571155-0d7a-46b0-b79f-854a7bbedee8.png', spec: 'Pilot-operated relief valves. API 520/521. Refining & petrochemical.' },
   { initials: 'BH',  name: 'Baker Hughes',            img: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776069683/f64364c8-1094-47f2-882a-5cedb56a389c.png', spec: 'Subsea and surface valve systems. HPHT applications globally.' },
@@ -93,7 +93,7 @@ export default function ManufacturerSpotlightPage() {
               When you source through Valvenok, you're not choosing from one catalogue — you're accessing 16 of the world's most trusted manufacturers simultaneously.
             </Typography>
             <Typography sx={{ color: 'text.secondary', lineHeight: 1.8, mb: 2, fontSize: '1.05rem' }}>
-              Each manufacturer in our network was selected on engineering pedigree, global certification credentials, and performance reliability in critical applications. Below are all 16, with a technical profile of each.
+              Each manufacturer in our network was selected on engineering pedigree, Global Certification credentials, and performance reliability in critical applications. Below are all 16, with a technical profile of each.
             </Typography>
 
             <Divider sx={{ my: 5 }} />

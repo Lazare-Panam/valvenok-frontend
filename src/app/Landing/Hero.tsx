@@ -123,7 +123,7 @@ export default function Hero() {
                   lineHeight: 1.75,
                 }}
               >
-                Hydraulic, pneumatic, instrumentation and hydrogen-ready components — all in one
+                Hydraulic, Pneumatic, Instrumentation and Hydrogen-ready components — all in one
                 place. Trusted by engineers and procurement teams across the UK and worldwide.
               </Typography>
 

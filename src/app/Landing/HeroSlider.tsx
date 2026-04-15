@@ -37,7 +37,7 @@ const SLIDES = [
     tag: "UK Industrial Supplier",
     title: "Precision Pumps & Valves",
     accent: "Sourced & Supplied",
-    description: "High-performance hydraulic and pneumatic solutions. We leverage a global network to source and supply specialist instrumentation components for your specific requirements.",
+    description: "High-performance Hydraulic and Pneumatic solutions. We leverage a Global Network to source and supply specialist instrumentation components for your specific requirements.",
     href: "/categories/mechanical-seals",
     btnText: "View Pumps",
     alt: "Industrial precision pump assembly"

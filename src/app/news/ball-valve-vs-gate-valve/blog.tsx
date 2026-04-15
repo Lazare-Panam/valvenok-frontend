@@ -314,7 +314,7 @@ export default function BallValveVsGateValvePage() {
           </Typography>
           {[
             { bold: 'Bubble-tight sealing', text: ' — PTFE seats achieve ANSI Class VI (zero detectable leakage under test conditions), making them suitable for gas and hazardous fluid isolation' },
-            { bold: 'Fast operation', text: ' — quarter-turn manual or automated operation; compatible with pneumatic, hydraulic, and electric actuators without modification' },
+            { bold: 'Fast operation', text: ' — quarter-turn manual or automated operation; compatible with Pneumatic, Hydraulic, and electric actuators without modification' },
             { bold: 'Self-cleaning', text: ' — the rotation of the ball wipes the seat surface on every cycle, reducing particle build-up and maintaining sealing performance over time' },
             { bold: 'Low torque requirement', text: ' — especially in full-bore designs, operating torque is low, reducing actuator sizing and cost' },
             { bold: 'Compact and lightweight', text: ' — compared to gate valves of equivalent rating, ball valves are significantly shorter face-to-face and lighter — important in offshore and elevated piping' },

@@ -97,8 +97,8 @@ export default function AboutContact() {
             </Typography>
 
             <Typography sx={{ color: 'text.secondary', lineHeight: 1.8, mb: 2 }}>
-              We're a UK-based supplier of hydraulic, pneumatic, instrumentation and
-              hydrogen-ready components — built for engineers who need the right part, fast.
+              We're a UK-based supplier of Hydraulic, Pneumatic, Instrumentation and
+              Hydrogen-ready components — built for engineers who need the right part, fast.
             </Typography>
             <Typography sx={{ color: 'text.secondary', lineHeight: 1.8, mb: 3 }}>
               Whether you're speccing a new system or sourcing a replacement under pressure,

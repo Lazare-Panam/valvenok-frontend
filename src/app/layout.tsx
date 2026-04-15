@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     default: "Valvenok | Industrial Valves, Fittings & Instrumentation UK",
     template: "%s | Valvenok" 
   },
-  description: "UK's leading supplier of high-pressure valves, SS316 fittings, and hydrogen-ready components. Official distributor for PANAM and 40+ global engineering brands.",
+  description: "UK's Leading Supplier of High-Pressure Valves, SS316 Fittings, and Hydrogen-ready components. Official distributor for PANAM and 40+ Global Engineering Brands.",
   icons: {
     icon: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774526040/Untitled_design-6_nleu85.avif",
   },

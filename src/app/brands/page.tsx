@@ -271,7 +271,7 @@ export default function BrandsPage() {
             LOOKING FOR A SPECIFIC MANUFACTURER?
           </Typography>
           <Typography sx={{ color: "text.secondary", mb: 3 }}>
-            We have access to an extensive global supply chain beyond what is
+            We have access to an extensive Global Supply Chain beyond what is
             listed here.
           </Typography>
           <Typography

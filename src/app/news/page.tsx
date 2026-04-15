@@ -121,7 +121,7 @@ export default function BlogPage() {
             We regularly share updates on new product developments,
             partnerships, and expansion initiatives as we continue to strengthen
             our position within the UK and international markets. Our commitment
-            to quality and customer satisfaction drives us to deliver dependable
+            to Quality and customer satisfaction drives us to deliver dependable
             solutions tailored to the needs of industries such as oil & gas,
             manufacturing, and water treatment.
             <br />
