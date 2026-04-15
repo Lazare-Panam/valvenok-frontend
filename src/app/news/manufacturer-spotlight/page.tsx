@@ -183,17 +183,7 @@ export default function ManufacturerSpotlightPage() {
           <Grid size={{ xs: 12, md: 4 }}>
             <Box sx={{ position: 'sticky', top: 88 }}>
 
-              <Box sx={{ bgcolor: 'text.primary', p: 3, mb: 2, textAlign: 'center' }}>
-                <Typography variant="h6" sx={{ fontFamily: '"Barlow Condensed"', fontWeight: 800, textTransform: 'uppercase', color: 'white', mb: 1, letterSpacing: '0.05em' }}>
-                  Need a Quote?
-                </Typography>
-                <Typography variant="caption" sx={{ color: '#666', display: 'block', mb: 2, lineHeight: 1.6 }}>
-                  Send your data sheet and we'll return options from all 16 brands.
-                </Typography>
-                <Box component="a" href="mailto:sales@valvenok.com" sx={{ display: 'block', bgcolor: 'primary.main', color: 'white', textDecoration: 'none', p: 1.25, fontSize: '0.8rem', fontWeight: 700, fontFamily: '"Barlow Condensed"', textTransform: 'uppercase', letterSpacing: '0.08em', transition: 'opacity .2s', '&:hover': { opacity: 0.85 } }}>
-                  Request a Quote ↗
-                </Box>
-              </Box>
+             
 
               <Paper elevation={0} sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 0, overflow: 'hidden' }}>
                 <Box sx={{ px: 2, py: 1.5, borderBottom: '1px solid', borderColor: 'divider', bgcolor: 'grey.50' }}>

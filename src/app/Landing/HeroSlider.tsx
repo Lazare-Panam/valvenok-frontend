@@ -22,7 +22,7 @@ const SLIDES = [
     image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776243427/david-birozy-O01Y_baYOfo-unsplash_lbvtz9.jpg",
     upperTag: "AUTHORIZED DISTRIBUTOR",
     tag: "JUST ANNOUNCED",
-    title: "16 NEW PUMP & VALVES",
+    title: "32 NEW PUMP & VALVES",
     accent: "FROM LEADING MANUFACTURERS",
     description: "We're proud to announce that Valvenok has partnered with 16 world-class valve and process equipment manufacturers. From safety relief to control valves, subsea systems to nuclear-grade components — these brands bring the depth, certifications, and engineering pedigree our clients demand. All now available through a single, trusted source.",
     href: "/brands",
