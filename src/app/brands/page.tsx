@@ -114,43 +114,82 @@ const BRANDS = [
 
 export default function BrandsPage() {
   return (
-    <Box sx={{ bgcolor: "background.default", minHeight: "100vh" }}>
+    <Box sx={{ bgcolor: "background.default", minHeight: "70vh" }}>
       {/* --- HERO SECTION --- */}
-      <Box sx={{ bgcolor: "primary.main", color: "white", pt: 15, pb: 10 }}>
-        <Container maxWidth="lg">
-          <Typography
-            variant="overline"
-            sx={{
-              fontFamily: '"Barlow Condensed"',
-              fontWeight: 800,
-              letterSpacing: "0.4em",
-              opacity: 0.8,
-            }}
-          >
-            Our Ecosystem
-          </Typography>
-          <Typography
-            variant="h1"
-            sx={{
-              fontFamily: '"Barlow Condensed"',
-              fontSize: { xs: "3.5rem", md: "5.5rem" },
-              fontWeight: 900,
-              textTransform: "uppercase",
-              lineHeight: 0.9,
-              mt: 1,
-            }}
-          >
-            Authorized <br /> Partners
-          </Typography>
-          <Typography
-            sx={{ mt: 3, maxWidth: 600, fontSize: "1.2rem", opacity: 0.9 }}
-          >
-            We distribute high-performance components from the world's most
-            trusted engineering brands, ensuring reliability in every
-            installation.
-          </Typography>
-        </Container>
-      </Box>
+{/* --- UPDATED HERO SECTION --- */}
+<Box sx={{ bgcolor: "primary.main", color: "white", pt: 15, pb: 10 }}>
+  <Container maxWidth="lg">
+    <Typography
+      variant="overline"
+      sx={{
+        fontFamily: '"Barlow Condensed"',
+        fontWeight: 800,
+        letterSpacing: "0.4em",
+        opacity: 0.8,
+      }}
+    >
+      Our Ecosystem
+    </Typography>
+    <Typography
+      variant="h1"
+      sx={{
+        fontFamily: '"Barlow Condensed"',
+        fontSize: { xs: "3.5rem", md: "5.5rem" },
+        fontWeight: 900,
+        textTransform: "uppercase",
+        lineHeight: 0.9,
+        mt: 1,
+        mb: 4, // Added space before the body text
+      }}
+    >
+      Authorized Partners
+    </Typography>
+
+    <Box sx={{ maxWidth: "700px" }}> {/* Constrains the text width for better UX */}
+      <Typography
+        variant="body1"
+        sx={{
+          fontSize: "1.1rem",
+          opacity: 0.9,
+          lineHeight: 1.7,
+          mb: 3, // Space between paragraphs
+        }}
+      >
+        Valvenok Ltd partners with a carefully selected range of leading global
+        manufacturers to supply high-quality valves, actuators, and fluid control
+        components to customers across the UK and beyond. Our brands page
+        showcases trusted engineering names known for reliability and innovation.
+      </Typography>
+
+      <Typography
+        variant="body1"
+        sx={{
+          fontSize: "1.1rem",
+          opacity: 0.9,
+          lineHeight: 1.7,
+          mb: 3,
+        }}
+      >
+        By collaborating with recognized industry brands, we offer a comprehensive
+        product range—from precision-engineered ball valves to advanced actuation
+        technologies. We ensure every product meets strict quality standards for 
+        demanding environments like oil & gas and process engineering.
+      </Typography>
+
+      <Typography
+        variant="body1"
+        sx={{
+          fontSize: "1rem", // Slightly smaller for the final "CTA" feel
+          fontWeight: 600,
+          opacity: 0.8,
+          fontStyle: "italic",
+        }}
+      >
+        Explore our brand partners below or contact our team for tailored advice.
+      </Typography>
+    </Box>
+  </Container>
+</Box>
 
       {/* --- BRANDS GRID --- */}
       <Container maxWidth="lg" sx={{ py: 12 }}>

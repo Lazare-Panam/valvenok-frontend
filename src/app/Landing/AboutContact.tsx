@@ -1,134 +1,118 @@
-'use client';
+"use client";
 
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import { alpha } from '@mui/material/styles';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import PhoneInTalkIcon from '@mui/icons-material/PhoneInTalk';
-import EmailIcon from '@mui/icons-material/Email';
-import LocalShippingIcon from '@mui/icons-material/LocalShipping';
-import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import { alpha } from "@mui/material/styles";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import VerifiedIcon from "@mui/icons-material/Verified";
+import SecurityIcon from "@mui/icons-material/Security";
+import HandshakeIcon from "@mui/icons-material/Handshake";
+import FlightIcon from "@mui/icons-material/Flight";
 
-const CHECKLIST = [
-  'JOSCAR Registered — approved for defence & aerospace procurement',
-  '2–3 day UK dispatch on all stocked items',
-  'Hydrogen-ready components for emerging energy applications',
-  'PANAM Valves — exclusive UK distributor',
-  'SS316, Duplex, Monel & Hastelloy material options',
-  'Export documentation available for international orders',
+const JOSCAR_POINTS = [
+  "Pre-qualified supplier recognised across the UK defence & aerospace sector",
+  "Reduces procurement risk for Tier 1 contractors and MoD supply chains",
+  "Demonstrates compliance with industry-standard due diligence requirements",
+  "Accepted by BAE Systems, Rolls-Royce, Airbus, Leonardo and hundreds more",
+  "Covers financial health, quality management, legal & ethical trading standards",
+  "Annual audit process ensures ongoing compliance — not a one-time tick-box",
 ];
 
-const CONTACT_ITEMS = [
-  {
-    Icon: PhoneInTalkIcon,
-    label: 'Call Us',
-    value: '+44 7369 243459',
-    href: 'tel:+447369243459',
-  },
-  {
-    Icon: EmailIcon,
-    label: 'Email Us',
-    value: 'sales@valvenok.com',
-    href: 'mailto:sales@valvenok.com',
-  },
-  {
-    Icon: LocalShippingIcon,
-    label: 'UK Delivery',
-    value: '2–3 days · Free over £150',
-    href: null,
-  },
-  {
-    Icon: MilitaryTechIcon,
-    label: 'JOSCAR Registered',
-    value: 'Defence & Aerospace Approved',
-    href: null,
-  },
-];
+
 
 export default function AboutContact() {
   return (
     <Box
       component="section"
-      sx={{ py: { xs: 7, md: 10 }, bgcolor: 'background.paper' }}
+      sx={{ py: { xs: 7, md: 10 }, bgcolor: "background.paper" }}
     >
       <Container maxWidth="lg">
         <Box
           sx={{
-            display: 'grid',
-            gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
+            display: "grid",
+            gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
             gap: { xs: 6, md: 8 },
-            alignItems: 'center',
+            alignItems: "center",
           }}
         >
-
-          {/* ── LEFT: About Text ── */}
+          {/* ── LEFT: JOSCAR Text ── */}
           <Box>
             <Typography
               sx={{
                 fontFamily: '"Barlow Condensed", sans-serif',
-                fontSize: '11px',
+                fontSize: "11px",
                 fontWeight: 800,
-                letterSpacing: '0.18em',
-                textTransform: 'uppercase',
-                color: 'primary.main',
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                color: "primary.main",
                 mb: 1,
               }}
             >
-              About Valvenok
+              JOSCAR Registered
             </Typography>
 
             <Typography
               component="h2"
               sx={{
                 fontFamily: '"Barlow Condensed", sans-serif',
-                fontSize: { xs: '2rem', md: 'clamp(28px, 3vw, 42px)' },
+                fontSize: { xs: "2rem", md: "clamp(28px, 3vw, 42px)" },
                 fontWeight: 900,
-                textTransform: 'uppercase',
-                color: 'text.primary',
-                letterSpacing: '0.02em',
+                textTransform: "uppercase",
+                color: "text.primary",
+                letterSpacing: "0.02em",
                 lineHeight: 1.08,
                 mb: 2.5,
               }}
             >
-              Your UK Partner for Industrial Flow Control
+              Why JOSCAR Matters for Your Supply Chain ?
             </Typography>
 
-            <Typography sx={{ color: 'text.secondary', lineHeight: 1.8, mb: 2 }}>
-              We're a UK-based supplier of Hydraulic, Pneumatic, Instrumentation and
-              Hydrogen-ready components — built for engineers who need the right part, fast.
-            </Typography>
-            <Typography sx={{ color: 'text.secondary', lineHeight: 1.8, mb: 3 }}>
-              Whether you're speccing a new system or sourcing a replacement under pressure,
-              our team knows the products and can help you find exactly what you need.
-            </Typography>
-
-            {/* Checklist */}
-            <Box
-              component="ul"
-              sx={{ listStyle: 'none', p: 0, m: 0, mb: 4 }}
+            <Typography
+              sx={{ color: "text.primary", lineHeight: 1.8, mb: 2,fontWeight: 600 }}
             >
-              {CHECKLIST.map((item) => (
+              JOSCAR — the Joint Supply Chain Accreditation Register — is the
+              defence and aerospace industry's single pre-qualification
+              standard. It exists so that contractors don't have to run separate
+              due diligence processes for every supplier they work with.
+            </Typography>
+            <Typography
+              sx={{ color: "text.primary", lineHeight: 1.8, mb: 3, fontWeight: 600 }}
+            >
+              By sourcing from a JOSCAR-registered supplier like Valvenok, your
+              procurement team can move faster, reduce audit overhead, and
+              demonstrate compliance throughout your supply chain — from frame
+              contracts to urgent spares.
+            </Typography>
+
+            {/* Points */}
+            <Box component="ul" sx={{ listStyle: "none", p: 0, m: 0, mb: 4 }}>
+              {JOSCAR_POINTS.map((item) => (
                 <Box
                   key={item}
                   component="li"
                   sx={{
-                    display: 'flex',
-                    alignItems: 'center',
+                    display: "flex",
+                    alignItems: "flex-start",
                     gap: 1.5,
                     py: 1.1,
-                    borderBottom: '1px solid',
-                    borderColor: 'divider',
-                    fontSize: '15px',
+                    borderBottom: "1px solid",
+                    borderColor: "divider",
+                    fontSize: "15px",
                     fontWeight: 500,
-                    color: 'text.primary',
-                    '&:last-child': { borderBottom: 'none' },
+                    color: "text.primary",
+                    "&:last-child": { borderBottom: "none" },
                   }}
                 >
                   <CheckCircleIcon
-                    sx={{ fontSize: 20, color: 'primary.main', flexShrink: 0 }}
+                    sx={{
+                      fontSize: 20,
+                      color: "primary.main",
+                      flexShrink: 0,
+                      mt: "2px",
+                    }}
                   />
                   {item}
                 </Box>
@@ -141,122 +125,52 @@ export default function AboutContact() {
               href="/contact"
               endIcon={<ArrowForwardIcon />}
               sx={{
-                borderRadius:"0px",
+                borderRadius: "0px",
                 fontFamily: '"Barlow Condensed", sans-serif',
                 fontWeight: 800,
-                fontSize: '15px',
-                letterSpacing: '0.06em',
-                textTransform: 'uppercase',
+                fontSize: "15px",
+                letterSpacing: "0.06em",
+                textTransform: "uppercase",
                 px: 3.5,
                 py: 1.5,
-                boxShadow: 'none',
-                '&:hover': { boxShadow: 'none' },
+                boxShadow: "none",
+                "&:hover": { boxShadow: "none" },
               }}
             >
-              Get in Touch
+              Request JOSCAR Documentation
             </Button>
           </Box>
 
-          {/* ── RIGHT: Contact Card ── */}
-          <Box
-            sx={{
-              bgcolor: 'primary.main',
-              p: { xs: 4, md: '36px 36px' },
-              color: '#fff',
-            }}
-          >
-            <Typography
-              component="h3"
-              sx={{
-                fontFamily: '"Barlow Condensed", sans-serif',
-                fontSize: '28px',
-                fontWeight: 900,
-                textTransform: 'uppercase',
-                letterSpacing: '0.04em',
-                color: '#fff',
-                mb: 1,
-              }}
-            >
-              Get in Touch
-            </Typography>
-
-            {/* Divider */}
+          {/* ── RIGHT: JOSCAR Certificate Card ── */}
+          <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
+            {/* Certificate visual */}
+            {/* Certificate Image */}
             <Box
               sx={{
-                width: 40,
-                height: 3,
-                bgcolor: 'rgba(255,255,255,0.35)',
-                mb: 3,
+                overflow: "hidden",
+                position: "relative",
+                bgcolor: (t) => alpha(t.palette.primary.main, 0.03),
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                minHeight: 800,
               }}
-            />
+            >
+              <img
+  src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1776264427/JOSCAR_VALVENOK_CERTIFICATE_MOCKUP_1_inv1bc.png"
+  alt="Valvenok JOSCAR Accreditation Certificate"
+  style={{
+    width: "100%",
+    height: "100%",
+    objectFit: "contain",
+    display: "block",
+    transform: "scale(1.55)", 
+  }}
+/>
+            </Box>
 
-            {/* Contact Items */}
-            {CONTACT_ITEMS.map(({ Icon, label, value, href }) => (
-              <Box
-                key={label}
-                component={href ? 'a' : 'div'}
-                href={href || undefined}
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 1.75,
-                  py: 1.75,
-                  borderBottom: '1px solid rgba(255,255,255,0.08)',
-                  textDecoration: 'none',
-                  '&:last-child': { borderBottom: 'none' },
-                  ...(href && {
-                    cursor: 'pointer',
-                    transition: 'opacity 0.2s',
-                    '&:hover': { opacity: 0.85 },
-                  }),
-                }}
-              >
-                {/* Icon box */}
-                <Box
-                  sx={{
-                    width: 44,
-                    height: 44,
-                    bgcolor: 'rgba(255,255,255,0.12)',
-                    border: '1px solid rgba(255,255,255,0.2)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0,
-                  }}
-                >
-                  <Icon sx={{ fontSize: 22, color: '#fff' }} />
-                </Box>
-
-                {/* Text */}
-                <Box>
-                  <Typography
-                    sx={{
-                      fontSize: '10px',
-                      fontWeight: 700,
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.1em',
-                      color: 'rgba(255,255,255,0.6)',
-                      lineHeight: 1,
-                      mb: '4px',
-                    }}
-                  >
-                    {label}
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontSize: '15px',
-                      fontWeight: 500,
-                      color: '#fff',
-                      lineHeight: 1.3,
-                    }}
-                  >
-                    {value}
-                  </Typography>
-                </Box>
-              </Box>
-            ))}
+           
           </Box>
-
         </Box>
       </Container>
     </Box>

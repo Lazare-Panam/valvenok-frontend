@@ -92,7 +92,7 @@ export default function FeaturedStrip() {
             Engineered Components
           </Typography>
           <Typography variant="body1" sx={{ maxWidth: '600px', mx: 'auto', opacity: 0.9 }}>
-            Discover our range of high-performance instrumentation and hydraulic solutions.
+            Discover our range of High-Performance Instrumentation and Hydraulic Solutions.
           </Typography>
         </Box>
 
