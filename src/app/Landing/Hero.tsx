@@ -81,9 +81,6 @@ const STATS = [
 // ── HERO ─────────────────────────────────────────────────────────────────────
 export default function Hero() {
   return (
-    <>
-      <DeliveryBanner />
-
       <Box
         component="section"
         sx={{
@@ -291,6 +288,6 @@ export default function Hero() {
           </Grid>
         </Container>
       </Box>
-    </>
+    
   );
 }
