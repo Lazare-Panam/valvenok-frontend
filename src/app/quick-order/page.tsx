@@ -21,7 +21,7 @@ export default function QuickOrderPage() {
         </Container>
       </Box>
 
-      <Container maxWidth="lg" sx={{ py: { xs: 4, md: 6 } }}>
+      <Container maxWidth="xl" sx={{ py: { xs: 4, md: 6 } }}>
         <Box sx={{ display: 'flex', gap: 4, alignItems: 'flex-start' }}>
           <ProductTable />
           <OrderCart />

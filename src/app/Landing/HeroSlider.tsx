@@ -16,7 +16,6 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // ── CONFIGURATION (Updated with custom btnText) ──────────────────────────────
 const SLIDES = [
-  
   {
     id: 1,
     duration: 12000,
