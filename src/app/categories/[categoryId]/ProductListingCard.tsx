@@ -33,17 +33,6 @@ export default function ProductListingCard({ product }: { product: any }) {
       </Box>
       
       <CardContent sx={{ p: 3, flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-        <Typography 
-          variant="caption" 
-          sx={{ 
-            fontWeight: 900, 
-            color: 'primary.main', // Uses the theme primary automatically
-            letterSpacing: '0.1em', 
-            textTransform: 'uppercase' 
-          }}
-        >
-          {product.brand}
-        </Typography>
         
         <Typography 
           variant="h6" 
