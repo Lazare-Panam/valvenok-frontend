@@ -38,6 +38,15 @@ const POSTS = [
     category: "Technical Guide",
     link: "/news/ball-valve-vs-gate-valve",
   },
+  {
+  title: "The World's Best Valve Manufacturers, In One Place",
+  desc: "Valvenok partners directly with 16 of the world's leading valve and flow control manufacturers — bringing their full product range to engineers and procurement teams across 6 continents.",
+  thumbnail: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776252213/charles-forerunner-3fPXt37X6UQ-unsplash_vxudye.jpg", // add your image here
+  author: "Kanchan Rajput",
+  date: "April 2026",
+  category: "Manufacturer Profiles",
+  link: "/news/manufacturer-spotlight",
+},
 ];
 
 export default function BlogPage() {

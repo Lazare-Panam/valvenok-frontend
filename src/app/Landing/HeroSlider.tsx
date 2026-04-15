@@ -16,33 +16,36 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // ── CONFIGURATION (Updated with custom btnText) ──────────────────────────────
 const SLIDES = [
+  
   {
     id: 1,
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776242864/the-blowup-qafbp6O0Rr0-unsplash_chxm7c.jpg",
-    upperTag: "ESTABLISHED 1998",
-    tag: "UK Industrial Supplier",
-    title: "Precision Pumps & Valves",
-    accent: "Sourced & Supplied",
-    // Updated description to remove "in stock" claim
-    description: "High-performance hydraulic and pneumatic solutions. We leverage a global network to source and supply specialist instrumentation components for your specific requirements.",
-    href: "/categories/mechanical-seals",
-    btnText: "View Pumps",
-    alt: "Industrial precision pump assembly" // Added for SEO context
-  },
-  {
-    id: 2,
+    duration: 12000,
     image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776243427/david-birozy-O01Y_baYOfo-unsplash_lbvtz9.jpg",
     upperTag: "AUTHORIZED DISTRIBUTOR",
-    tag: "STRATEGIC PARTNERSHIPS",
-    title: "Leading Global Brands",
-    accent: "Quality You Can Trust",
-    description: "We partner with the world’s most respected engineering manufacturers to provide our clients with certified, high-spec components and full technical backing.",
+    tag: "JUST ANNOUNCED",
+    title: "16 NEW MANUFACTURERS",
+    accent: "NOW WITH VALVENOK",
+    description: "We're proud to announce that Valvenok has partnered with 16 world-class valve and process equipment manufacturers. From safety relief to control valves, subsea systems to nuclear-grade components — these brands bring the depth, certifications, and engineering pedigree our clients demand. All now available through a single, trusted source.",
     href: "/brands",
     btnText: "View Our Brands",
     alt: "Global engineering brand logos and components"
   },
   {
+    id: 2,
+    duration: 8000,
+    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776242864/the-blowup-qafbp6O0Rr0-unsplash_chxm7c.jpg",
+    upperTag: "ESTABLISHED 1998",
+    tag: "UK Industrial Supplier",
+    title: "Precision Pumps & Valves",
+    accent: "Sourced & Supplied",
+    description: "High-performance hydraulic and pneumatic solutions. We leverage a global network to source and supply specialist instrumentation components for your specific requirements.",
+    href: "/categories/mechanical-seals",
+    btnText: "View Pumps",
+    alt: "Industrial precision pump assembly"
+  },
+  {
     id: 3,
+    duration: 8000,
     image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776242606/camara-negra-gdeNXROgblU-unsplash_xp501w.jpg",
     upperTag: "OFFSHORE SOLUTIONS",
     tag: "JOSCAR REGISTERED",
@@ -66,10 +69,10 @@ export default function HeroSlider() {
     setIndex((prev) => (prev - 1 + SLIDES.length) % SLIDES.length);
   }, []);
 
-  useEffect(() => {
-    const timer = setInterval(nextSlide, 8000);
-    return () => clearInterval(timer);
-  }, [nextSlide]);
+useEffect(() => {
+  const timer = setInterval(nextSlide, SLIDES[index].duration);
+  return () => clearInterval(timer);
+}, [nextSlide, index]);
 
   return (
     <Box
