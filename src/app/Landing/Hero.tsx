@@ -10,63 +10,6 @@ import Stack from '@mui/material/Stack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { alpha } from '@mui/material/styles';
 
-// ── DELIVERY BANNER ──────────────────────────────────────────────────────────
-function DeliveryBanner() {
-  // CONFIGURABLE COLOURS
-  const BG_COLOR = '#686a6d';     // Deep Navy (Industrial Contrast)
-  const TEXT_COLOR = '#FFFFFF';   // Pure White
-  const DIVIDER_COLOR = '#61D649'; // Your Main Green (for the "|" separators)
-
-  return (
-    <Box
-      sx={{
-        bgcolor: BG_COLOR,
-        py: '12px',
-        px: 3,
-        textAlign: 'center',
-        marginTop:'1px'
-        //  borderTop: `2px solid ${DIVIDER_COLOR}`,
-        // borderBottom: `2px solid ${DIVIDER_COLOR}`, // Subtle green accent line
-      }}
-    >
-      <Typography
-        sx={{
-          fontFamily: '"Barlow Condensed", sans-serif',
-          fontSize: '13px',
-          fontWeight: 700,
-          textTransform: 'uppercase',
-          letterSpacing: '0.1em',
-          color: TEXT_COLOR,
-          lineHeight: 1.4,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: 1.5
-        }}
-      >
-        Free UK Delivery on Orders Over £150
-        
-        <Box 
-          component="span" 
-          sx={{ color: DIVIDER_COLOR, fontWeight: 900, opacity: 0.8 }}
-        >
-          |
-        </Box>
-        
-        2–3 Day Dispatch on All Stocked Items
-        
-        <Box 
-          component="span" 
-          sx={{ color: DIVIDER_COLOR, fontWeight: 900, opacity: 0.8 }}
-        >
-          |
-        </Box>
-        
-        JOSCAR Registered Supplier
-      </Typography>
-    </Box>
-  );
-}
 
 // ── HERO STATS ───────────────────────────────────────────────────────────────
 const STATS = [

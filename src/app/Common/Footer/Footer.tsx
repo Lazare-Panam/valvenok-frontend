@@ -85,7 +85,7 @@ export default function Footer() {
               variant="body2"
               sx={{ color: alpha("#fff", 0.7), mb: 4, lineHeight: 1.8 }}
             >
-              Leading UK supplier of hydraulic, pneumatic, and instrumentation
+              Leading UK supplier of Hydraulic, Pneumatic, and Instrumentation
               components. Engineering excellence delivered fast to global
               procurement teams.
             </Typography>
@@ -156,7 +156,7 @@ export default function Footer() {
               <Stack direction="row" spacing={1.5} alignItems="center">
                 <PhoneIcon sx={{ fontSize: 18, color: BRAND_GREEN }} />
                 <Typography variant="body2" sx={{ color: alpha("#fff", 0.8) }}>
-                  +44 (0) 123 456 789
+                  +44 7368557896
                 </Typography>
               </Stack>
               <Stack direction="row" spacing={1.5} alignItems="center">

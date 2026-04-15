@@ -1,4 +1,5 @@
 export const FEATURED_PRODUCTS = [
+//1 PANAM_MALE_CONNECTOR_SAE_070102_37_JIC_X_NPT
 {
   "id": "PANAM_MALE_CONNECTOR_SAE_070102_37_JIC_X_NPT",
   "name": "PMC Male Connector SAE 070102 (37° JIC x NPT)",
@@ -32,10 +33,8 @@ export const FEATURED_PRODUCTS = [
     "sizeRange": "1/8\" to 2\""
   }
 },
+//2 PANAM_HB_SERIES_NEEDLE_VALVES
 {
-  "_id": {
-    "$oid": "69ce4d5d4ef79728b980b21b"
-  },
   "id": "PANAM_HB_SERIES_NEEDLE_VALVES",
   "name": "PANAM HB Series Needle Valves",
   "brand": "Panam Valves",
@@ -72,8 +71,8 @@ export const FEATURED_PRODUCTS = [
     "sizeRange": "1/8\" to 1\""
   }
 },
+//3 PANAM_MALE_CONNECTOR_SAE_070102_37_JIC_X_BSPT
 {
-
   "id": "PANAM_MALE_CONNECTOR_SAE_070102_37_JIC_X_BSPT",
   "name": "PMC Male Connector SAE 070102 (37° JIC x BSPT)",
   "brand": "Panam Valves",
@@ -106,6 +105,7 @@ export const FEATURED_PRODUCTS = [
     "sizeRange": "1/8\" to 2\""
   }
 },
+//4 PANAM_400_SERIES_BALL_VALVES
 {
   "id": "PANAM_400_SERIES_BALL_VALVES",
   "name": "PANAM-400 Series Ball Valves",
@@ -139,6 +139,7 @@ export const FEATURED_PRODUCTS = [
     "sizeRange": "1/4\" to 1\""
   }
 },
+//5 PANAM_300_SERIES_BALL_VALVES
 {
   "id": "PANAM_300_SERIES_BALL_VALVES",
   "name": "PANAM-300 Series Ball Valves",
@@ -180,6 +181,7 @@ export const FEATURED_PRODUCTS = [
     "sizeRange": "1/16\" to 1\" / 3mm to 18mm"
   }
 },
+//6 PANAM_HB_SERIES_BALL_VALVES
 {
   "id": "PANAM_HB_SERIES_BALL_VALVES",
   "name": "PANAM HB Series Ball Valves",
@@ -217,6 +219,7 @@ export const FEATURED_PRODUCTS = [
     "sizeRange": "1/4\" to 1\" / 6mm to 25mm"
   }
 },
+//7 PANAM_IB_SERIES_NEEDLE_VALVES
 {
   "id": "PANAM_IB_SERIES_NEEDLE_VALVES",
   "name": "PANAM IB Series Needle Valves",
@@ -253,5 +256,125 @@ export const FEATURED_PRODUCTS = [
     "count": 100,
     "sizeRange": "1/8\" to 3/4\" / 3mm to 18mm"
   }
+},
+//8 PANAM_SB_SERIES_NEEDLE_VALVES
+{
+  "id": "PANAM_SB_SERIES_NEEDLE_VALVES",
+  "name": "PANAM SB Series Needle Valves",
+  "brand": "Panam Valves",
+  "category": "Needle Valves",
+  "categoryId": "needle-valves",
+  "subCategory": "SB Series Needle Valves",
+  "thumbnail": "https://res.cloudinary.com/dm9rmmemx/image/upload/v1775128459/final-SB-MF_c0faeg.png",
+  "description": "The PANAM SB Series includes needle valves and block & bleed valves in FF and MF end connections across 6000 PSI and 10000 PSI pressure ratings.",
+  "keySpecs": [
+    {
+      "label": "Material",
+      "value": "316 Stainless Steel"
+    },
+    {
+      "label": "Pressure Options",
+      "value": "6000 PSI / 10000 PSI"
+    },
+    {
+      "label": "Valve Types",
+      "value": "Needle Valve / Block & Bleed Valve"
+    },
+    {
+      "label": "Connection Types",
+      "value": "FF / MF"
+    },
+    {
+      "label": "Size Range",
+      "value": "1/8\" to 1\""
+    }
+  ],
+  "pricing": {
+    "min": 24.08,
+    "max": 125.1,
+    "currency": "GBP"
+  },
+  "variantInfo": {
+    "count": 28,
+    "sizeRange": "1/8\" to 1\""
+  }
+},
+//9 PANAM_RELIEF_VALVES
+{
+  "id": "PANAM_RELIEF_VALVES",
+  "name": "PANAM Relief Valves",
+  "brand": "Panam Valves",
+  "category": "Relief Valves",
+  "categoryId": "relief-valves",
+  "subCategory": "Relief Valves",
+  "thumbnail": "https://res.cloudinary.com/dm9rmmemx/image/upload/v1775134115/PRVH-SS-04-MOD-G_ny3dis.png",
+  "description": "The PANAM Relief Valve range includes low pressure (PRVL, 300 PSI) and high pressure (PRVH, up to 15000 PSI) variants across OD, FF, MF, and MOD end connections. Available in multiple spring ranges and Nace MR0175 options.",
+  "keySpecs": [
+    {
+      "label": "Material",
+      "value": "316 Stainless Steel"
+    },
+    {
+      "label": "Pressure Options",
+      "value": "300 PSI / 6000 PSI / 10000 PSI / 15000 PSI"
+    },
+    {
+      "label": "Connection Types",
+      "value": "OD / FF / MF / MOD"
+    },
+    {
+      "label": "Size Range",
+      "value": "1/4\" to 1/2\" / 6mm to 12mm"
+    }
+  ],
+  "pricing": {
+    "min": 97.5,
+    "max": 382.5,
+    "currency": "GBP"
+  },
+  "variantInfo": {
+    "count": 68,
+    "sizeRange": "1/4\" to 1/2\" / 6mm to 12mm"
+  }
+},
+//10 BATU_VALVE_FLANGED_SIGHT_GLASS
+{
+  "id": "BATU_VALVE_FLANGED_SIGHT_GLASS",
+  "name": "Flanged Sight Glass PN25 Sphero & PN40 Carbon Steel",
+  "brand": "Batu Valve",
+  "category": "Sight Glass",
+  "categoryId": "sight-glass",
+  "subCategory": "Flanged Sight Glass",
+  "thumbnail": "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776161440/image-removebg-preview_12_nlw5if.png",
+  "description": "Batu Valve Flanged Sight Glass available in PN25 Sphero (spheroidal graphite iron) and PN40 Carbon Steel variants. Size range DN15 to DN150, suitable for industrial pipeline applications.",
+  "keySpecs": [
+    {
+      "label": "Connection",
+      "value": "Flanged"
+    },
+    {
+      "label": "Pressure Ratings",
+      "value": "PN25 / PN40"
+    },
+    {
+      "label": "Materials",
+      "value": "Sphero / Carbon Steel"
+    },
+    {
+      "label": "Size Range",
+      "value": "DN15 to DN150"
+    }
+  ],
+  "pricing": {
+    "min": 87.32,
+    "max": 2311.04,
+    "currency": "GBP"
+  },
+  "variantInfo": {
+    "count": 22,
+    "sizeRange": "DN15 to DN150"
+  }
 }
+
+
 ];
