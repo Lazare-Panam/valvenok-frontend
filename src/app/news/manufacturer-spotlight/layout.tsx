@@ -8,7 +8,7 @@ export const metadata = {
   openGraph: {
     title: 'The World\'s Best Valve Manufacturers | Valvenok',
     description: '16 leading manufacturers. 6 continents. One procurement relationship.',
-    url: 'https://www.valvenok.com/blog/manufacturer-spotlight',
+    url: 'https://www.valvenok.com/news/manufacturer-spotlight',
     siteName: 'Valvenok',
     images: [
       {
@@ -26,7 +26,7 @@ export const metadata = {
     description: '16 leading manufacturers. 6 continents. One procurement relationship.',
   },
   alternates: {
-    canonical: 'https://www.valvenok.com/blog/manufacturer-spotlight',
+    canonical: 'https://www.valvenok.com/news/manufacturer-spotlight',
   }
 };
 

@@ -113,7 +113,7 @@ const DUMMY_RFQ_PRODUCTS: ProductForRFQ[] = [
     category: "Valves",
     categoryId: "valves",
     subCategory: "Pipeline Maintenance Series",
-    thumbnail: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776165709/cc0288f6-f2bf-4d50-b803-22688e590137.png",
+    thumbnail: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776437357/download_gpukuc.jpg",
     description: "A specialized system for launching and receiving pipeline pigs used in cleaning, inspection, and fluid separation. Provides a compact, safe alternative to traditional pigging systems with full API 6D compliance.",
     keySpecs: [
       { label: "Standard", value: "API 6D Certified" },
