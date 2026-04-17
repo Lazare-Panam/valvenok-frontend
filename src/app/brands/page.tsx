@@ -178,7 +178,7 @@ export default function BrandsPage() {
         mb: 4, // Added space before the body text
       }}
     >
-      Authorized Partners
+      Partners
     </Typography>
 
     <Box sx={{ maxWidth: "700px" }}> {/* Constrains the text width for better UX */}
