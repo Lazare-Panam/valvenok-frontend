@@ -1,13 +1,15 @@
-import { useMemo, useState, useCallback, useRef } from 'react'
+import { useMemo, useState, useCallback } from 'react'
 import { AgGridReact } from 'ag-grid-react'
-import { ColDef, ICellRendererParams, IsFullWidthRowParams, FullWidthCellKeyDownEvent } from 'ag-grid-community'
-import { Box, Stack, Typography, Divider, Chip } from '@mui/material'
+import { ColDef, ICellRendererParams, IsFullWidthRowParams } from 'ag-grid-community'
+import { Box, Stack, Typography, Divider, Chip, Button } from '@mui/material'
 import { alpha, useTheme } from '@mui/material/styles'
 import AddIcon from '@mui/icons-material/Add'
 import RemoveIcon from '@mui/icons-material/Remove'
 import 'ag-grid-community/styles/ag-grid.css'
 import 'ag-grid-community/styles/ag-theme-alpine.css'
 import { SubmersibleModelDTO } from '@/src/api/pumpsApi'
+import RFQModal from '@/src/app/Common/RFQCard/RFQModal'
+import { ProductForRFQ } from '@/src/app/Common/RFQCard/RequestForQuoteCard'
 
 function Spec({ label, value, mono }: { label: string; value: string; mono?: boolean }) {
   return (
@@ -24,7 +26,7 @@ function Spec({ label, value, mono }: { label: string; value: string; mono?: boo
   )
 }
 
-function DetailPanelRenderer({ data, context }: ICellRendererParams) {
+function DetailPanelRenderer({ data }: ICellRendererParams) {
   const theme = useTheme()
   const model: SubmersibleModelDTO = data
 
@@ -114,9 +116,35 @@ function ExpandCellRenderer({ data, context }: ICellRendererParams) {
   )
 }
 
+function QuoteCellRenderer({ data, context }: ICellRendererParams) {
+  if (data?._isDetail) return null
+
+  return (
+    <Button
+      size="small"
+      variant="contained"
+      onClick={(e) => {
+        e.stopPropagation()
+        context?.openQuote({
+          id: data?.modelCode,
+          name: `${data?.modelCode} — ${data?.diameterInches} Submersible Pump`
+        })
+      }}
+      sx={{
+        fontSize: '0.7rem', fontWeight: 700,
+        py: 0.5, px: 1.5, borderRadius: '0px',
+        textTransform: 'none', whiteSpace: 'nowrap'
+      }}
+    >
+      Request Quote
+    </Button>
+  )
+}
+
 export default function SubmersibleTable({ models }: { models: SubmersibleModelDTO[] }) {
   const theme = useTheme()
   const [openRows, setOpenRows] = useState<Set<string>>(new Set())
+  const [quoteProduct, setQuoteProduct] = useState<ProductForRFQ | null>(null)
 
   const toggleRow = useCallback((rowId: string) => {
     setOpenRows(prev => {
@@ -126,7 +154,10 @@ export default function SubmersibleTable({ models }: { models: SubmersibleModelD
     })
   }, [])
 
-  // Build flat row data — for each model, insert a detail row after it if open
+  const openQuote = useCallback((product: ProductForRFQ) => {
+    setQuoteProduct(product)
+  }, [])
+
   const rowData = useMemo(() => {
     const rows: any[] = []
     models.forEach((m, i) => {
@@ -139,7 +170,7 @@ export default function SubmersibleTable({ models }: { models: SubmersibleModelD
     return rows
   }, [models, openRows])
 
-const colDefs: ColDef[] = useMemo(() => [
+  const colDefs: ColDef[] = useMemo(() => [
     {
       headerName: '',
       width: 48,
@@ -172,6 +203,14 @@ const colDefs: ColDef[] = useMemo(() => [
       valueFormatter: (p: any) => p.value ? `${p.value}"` : '—'
     },
     { field: 'material', headerName: 'Material', width: 180 },
+    {
+      headerName: 'Quote',
+      width: 150,
+      sortable: false,
+      pinned: 'right' as const,
+      cellRenderer: 'quoteCellRenderer',
+      cellStyle: { display: 'flex', alignItems: 'center', justifyContent: 'center' } as any
+    }
   ], [theme])
 
   const defaultColDef: ColDef = useMemo(() => ({
@@ -183,50 +222,77 @@ const colDefs: ColDef[] = useMemo(() => [
   const isFullWidthRow = useCallback((params: IsFullWidthRowParams) => {
     return params.rowNode.data?._isDetail === true
   }, [])
-  const gridContext = useMemo(() => ({ openRows, toggleRow }), [openRows, toggleRow])
+
+  const gridContext = useMemo(() => ({
+    openRows, toggleRow, openQuote
+  }), [openRows, toggleRow, openQuote])
 
   return (
-    <Box
-      className="ag-theme-alpine"
-      sx={{
-        width: '100%',
-        '& .ag-root-wrapper': { border: `1px solid ${theme.palette.divider}`, borderRadius: '8px' },
-        '& .ag-header': {
-          bgcolor: alpha(theme.palette.primary.main, 0.04),
-          borderBottom: `2px solid ${theme.palette.primary.main}`,
-        },
-        '& .ag-header-cell-text': {
-          fontSize: '0.72rem', fontWeight: 700,
-          textTransform: 'uppercase', letterSpacing: '0.05em'
-        },
-        '& .ag-row': { borderBottom: `1px solid ${theme.palette.divider}` },
-        '& .ag-row:hover': { bgcolor: `${alpha(theme.palette.primary.main, 0.03)} !important` },
-        '& .ag-row-even': { bgcolor: 'background.paper' },
-        '& .ag-row-odd': { bgcolor: alpha(theme.palette.primary.main, 0.01) },
-        '& .ag-cell': { fontSize: '0.82rem' },
-        '& .ag-paging-panel': {
-          borderTop: `1px solid ${theme.palette.divider}`,
-          fontSize: '0.8rem'
-        },
-        '& .ag-full-width-row': { bgcolor: 'transparent !important' },
-      }}
-    >
-      <AgGridReact
-        rowData={rowData}
-        columnDefs={colDefs}
-        defaultColDef={defaultColDef}
-        components={{
-          expandCellRenderer: ExpandCellRenderer,
-          detailPanelRenderer: DetailPanelRenderer,
+    <>
+      <Box
+        className="ag-theme-alpine"
+        sx={{
+          width: '100%',
+          '& .ag-root-wrapper': { border: `1px solid ${theme.palette.divider}`, borderRadius: '8px' },
+          '& .ag-header': {
+            bgcolor: alpha(theme.palette.primary.main, 0.04),
+            borderBottom: `2px solid ${theme.palette.primary.main}`,
+          },
+          '& .ag-header-cell-text': {
+            fontSize: '0.72rem', fontWeight: 700,
+            textTransform: 'uppercase', letterSpacing: '0.05em'
+          },
+          '& .ag-row': { borderBottom: `1px solid ${theme.palette.divider}` },
+          '& .ag-row:hover': { bgcolor: `${alpha(theme.palette.primary.main, 0.03)} !important` },
+          '& .ag-row-even': { bgcolor: 'background.paper' },
+          '& .ag-row-odd': { bgcolor: alpha(theme.palette.primary.main, 0.01) },
+          '& .ag-cell': { fontSize: '0.82rem' },
+          '& .ag-paging-panel': {
+            borderTop: `1px solid ${theme.palette.divider}`,
+            fontSize: '0.8rem'
+          },
+          '& .ag-full-width-row': { bgcolor: 'transparent !important' },
         }}
-        context={gridContext}
-        isFullWidthRow={isFullWidthRow}
-        fullWidthCellRenderer="detailPanelRenderer"
-        getRowHeight={(params) => params.data?._isDetail ? 220 : 44}
-        pagination
-        paginationPageSize={50}
-        domLayout="autoHeight"
-      />
-    </Box>
+      >
+        <AgGridReact
+          rowData={rowData}
+          columnDefs={colDefs}
+          defaultColDef={defaultColDef}
+          components={{
+            expandCellRenderer: ExpandCellRenderer,
+            detailPanelRenderer: DetailPanelRenderer,
+            quoteCellRenderer: QuoteCellRenderer,
+          }}
+          context={gridContext}
+          isFullWidthRow={isFullWidthRow}
+          fullWidthCellRenderer="detailPanelRenderer"
+          getRowHeight={(params) => params.data?._isDetail ? 220 : 44}
+          pagination
+          paginationPageSize={50}
+          domLayout="autoHeight"
+        />
+        <Box sx={{
+          px: 2, py: 1.5,
+          border: `1px solid ${theme.palette.divider}`,
+          borderTop: 'none',
+          borderRadius: '0 0 8px 8px',
+          bgcolor: alpha(theme.palette.primary.main, 0.02)
+        }}>
+          <Typography variant="caption" color="text.primary">
+            * For AISI 316 replace TS with TN — Performance Data remains same.
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+            * For AISI 904L replace TS with TL — Performance Data remains same.
+          </Typography>
+        </Box>
+      </Box>
+
+      {quoteProduct && (
+        <RFQModal
+          open={!!quoteProduct}
+          onClose={() => setQuoteProduct(null)}
+          product={quoteProduct}
+        />
+      )}
+    </>
   )
 }

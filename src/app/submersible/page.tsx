@@ -77,7 +77,6 @@ export default function SubmersiblePumpsPage() {
         <Container maxWidth="lg">
           <Stack direction={{ xs: 'column', md: 'row' }} spacing={6} alignItems="center">
             <Box sx={{ flex: 1 }}>
-              <Chip label="Tormac Pumps" size="small" color="primary" variant="outlined" sx={{ mb: 2 }} />
               <Typography variant="h3" fontWeight={800}
                 sx={{ mb: 2, letterSpacing: '-0.02em', lineHeight: 1.2 }}>
                 Stainless Steel{' '}
