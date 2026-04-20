@@ -85,7 +85,7 @@ export const CATEGORIES: Category[] = [
     items: [
       {
         label: "Submersible Pumps",
-        href: "/categories/pumps/submersible",
+        href: "/submersible",
         children: [
           {
             label: "Borewell Submersible",
