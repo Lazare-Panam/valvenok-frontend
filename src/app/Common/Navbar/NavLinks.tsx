@@ -21,7 +21,6 @@ export default function NavLinks({ barHeight }: Props) {
           sx={{
             display: "flex",
             alignItems: "center",
-            gap: 0.75,
             height: barHeight,
             px: 2,
             color: "text.primary",
@@ -39,7 +38,6 @@ export default function NavLinks({ barHeight }: Props) {
             },
           }}
         >
-          {link.icon}
           {link.label}
         </Box>
       ))}

@@ -2,13 +2,15 @@
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactNode, useState } from 'react';
+import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community';
+
+ModuleRegistry.registerModules([AllCommunityModule]);
 
 export default function Providers({ children }: { children: ReactNode }) {
-  // We use useState to ensure the QueryClient is only created once
   const [queryClient] = useState(() => new QueryClient({
     defaultOptions: {
       queries: {
-        staleTime: 60 * 1000, // 1 minute cache
+        staleTime: 60 * 1000,
         retry: 1,
       },
     },

@@ -7,6 +7,8 @@ import Navbar from "./Common/Navbar/Navbar";
 import Providers from "./providers";
 import { NotificationProvider } from "../components/NotificationProvider";
 import Footer from "./Common/Footer/Footer";
+import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community'
+ModuleRegistry.registerModules([AllCommunityModule])
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
