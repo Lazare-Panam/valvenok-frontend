@@ -36,3 +36,22 @@ export const fetchProductDetail = async (id: string) => {
   const { data } = await axiosClient.get(`/api/product/${id}`)
   return data;
 };
+
+export interface RfqProductCardData {
+  productId: string;
+  name: string;
+  manufacturer: string;
+  categoryId: string;
+  imageUrl: string;
+  description: string;
+}
+
+export const fetchRfqProductsByCategory = async (categoryId: string): Promise<RfqProductCardData[]> => {
+  const { data } = await axiosClient.get<RfqProductCardData[]>(`/api/product/rfqcollection/${categoryId}`);
+  return data;
+};
+
+export const fetchRfqProductDetail = async (productId: string) => {
+  const { data } = await axiosClient.get(`/api/product/rfqProduct/${productId}`);
+  return data;
+};

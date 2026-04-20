@@ -138,7 +138,7 @@ export const CATEGORIES: Category[] = [
     color: "#2e7d32",
     textColor: "#fff",
     products: [
-      { label: "Pumps", icon: React.createElement(SpeedOutlinedIcon), href: "/pumps" },
+      { label: "Pumps", icon: React.createElement(SpeedOutlinedIcon), href: "/categories/rfq/pumps" },
       { label: "Mechanical Seals", icon: React.createElement(ShieldOutlinedIcon), href: "/categories/mechanical-seals" },
     ],
   },
