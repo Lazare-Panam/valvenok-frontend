@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 export interface NavItem {
   label: string;
@@ -34,7 +34,10 @@ export const CATEGORIES: Category[] = [
     color: "#1c6e2e",
     textColor: "#fff",
     items: [
-      { label: "Instrumentation Fittings", href: "/categories/instrumentation-fittings" },
+      {
+        label: "Instrumentation Fittings",
+        href: "/categories/instrumentation-fittings",
+      },
       { label: "Instrumentation Valves", href: "/valves" },
     ],
   },
@@ -63,9 +66,7 @@ export const CATEGORIES: Category[] = [
     label: "Actuators",
     color: "#2e7d32",
     textColor: "#fff",
-    items: [
-      { label: "Pneumatic Actuators", href: "/categories/actuators" },
-    ],
+    items: [{ label: "Pneumatic Actuators", href: "/categories/actuators" }],
   },
   {
     id: "valves",
@@ -90,7 +91,56 @@ export const CATEGORIES: Category[] = [
           {
             label: "Borewell Submersible",
             href: "/submersible/borewell",
-            
+          },
+          {
+            label: "Openwell Submersible",
+            href: "/submersible/borewell",
+            children: [
+              { label: "Horizontal Pumps", href: "/submersible/borewell" },
+              { label: "Vertical Pumps", href: "/submersible/borewell" },
+            ],
+          },
+          {
+            label: "WasterWater Submersible",
+            href: "/submersible/borewell",
+            children: [
+              { label: "Sewage Pumps", href: "/submersible/borewell" },
+            ],
+          },
+          {
+            label: "Surface Pumps",
+            href: "/submersible/borewell",
+            children: [
+              { label: "Peripheral Pumps", href: "/submersible/borewell" },
+              {
+                label: "Centrifugal Monoblock Pumps",
+                href: "/submersible/borewell",
+              },
+              { label: "Close Coupled Pumps", href: "/submersible/borewell" },
+              { label: "End Suction Pumps", href: "/submersible/borewell" },
+              {
+                label: "Horizontal Split Case Pumps",
+                href: "/submersible/borewell",
+              },
+              {
+                label: "Horizontal Multistage Pumps",
+                href: "/submersible/borewell",
+              },
+              {
+                label: "Vertical Multistage Pumps",
+                href: "/submersible/borewell",
+              },
+              {
+                label: "Pressure Boosting Systems",
+                href: "/submersible/borewell",
+              },
+              { label: "Induction Motors", href: "/submersible/borewell" },
+              { label: "Dewatering Pumps", href: "/submersible/borewell" },
+              {
+                label: "Vertical Turbine Pumps",
+                href: "/submersible/borewell",
+              },
+            ],
           },
         ],
       },
