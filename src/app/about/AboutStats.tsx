@@ -19,7 +19,7 @@ export default function AboutStats() {
   return (
     <Box
       sx={{
-        bgcolor: 'text.primary',
+        bgcolor: 'text.secondary',
         borderBottom: '1px solid',
         borderColor: (t) => alpha(t.palette.primary.main, 0.15),
       }}

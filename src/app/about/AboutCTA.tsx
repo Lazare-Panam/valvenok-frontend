@@ -12,7 +12,7 @@ export default function AboutCTA() {
   return (
     <Box
       sx={{
-        bgcolor: 'text.primary',
+        bgcolor: 'text.secondary',
         py: { xs: 8, md: 12 },
         position: 'relative',
         overflow: 'hidden',

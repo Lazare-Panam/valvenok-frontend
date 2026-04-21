@@ -9,7 +9,7 @@ export default function AboutHero() {
   return (
     <Box
       sx={{
-        bgcolor: 'text.primary',
+        bgcolor: 'text.secondary',
         py: { xs: 8, md: 12 },
         borderBottom: '3px solid',
         borderColor: 'primary.main',
