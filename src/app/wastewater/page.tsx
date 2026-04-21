@@ -12,6 +12,7 @@ import { AllPumpsSidebar } from './components/AllPumpsSide'
 import { AllPumpsActiveFilters } from './components/AllPumpsActiveFilters'
 import AllPumpsTable from './components/AllPumpsTable'
 import { Filters, EMPTY_FILTERS, POWER_RANGES } from './components/types'
+
 export default function AllPumpsPage() {
   const theme = useTheme()
   const isMobile = useMediaQuery('(max-width:1200px)')
@@ -20,13 +21,18 @@ export default function AllPumpsPage() {
 
   const { data: allPumps = [], isLoading } = useAllPumps()
 
-  // Cascading filter pipeline
+  // Step 1: pump type
+  const afterPumpType = useMemo(() => allPumps.filter(p =>
+    !filters.pumpType || p.pumpType === filters.pumpType
+  ), [allPumps, filters.pumpType])
+
+  // Step 2: power range
   const selectedRange = POWER_RANGES.find(r => r.label === filters.powerRange)
-
-  const afterPower = useMemo(() => allPumps.filter(p =>
+  const afterPower = useMemo(() => afterPumpType.filter(p =>
     !selectedRange || (p.p2Kw >= selectedRange.min && p.p2Kw < selectedRange.max)
-  ), [allPumps, selectedRange])
+  ), [afterPumpType, selectedRange])
 
+  // Step 3: available voltages + filter
   const availableVoltages = useMemo(() =>
     [...new Set(afterPower.map(p => p.voltage).filter(v => v != null))].sort((a, b) => a! - b!) as number[]
   , [afterPower])
@@ -35,6 +41,7 @@ export default function AllPumpsPage() {
     filters.voltage.length === 0 || (p.voltage != null && filters.voltage.includes(p.voltage))
   ), [afterPower, filters.voltage])
 
+  // Step 4: available RPMs + filter
   const availableRpms = useMemo(() =>
     [...new Set(afterVoltage.map(p => p.rpm).filter(v => v != null))].sort((a, b) => a! - b!) as number[]
   , [afterVoltage])
@@ -43,6 +50,7 @@ export default function AllPumpsPage() {
     filters.rpm.length === 0 || (p.rpm != null && filters.rpm.includes(p.rpm))
   ), [afterVoltage, filters.rpm])
 
+  // Step 5: available delivery sizes + filter
   const availableDeliverySizes = useMemo(() =>
     [...new Set(afterRpm.map(p => p.deliverySizeMm).filter(v => v != null))].sort((a, b) => a! - b!) as number[]
   , [afterRpm])
@@ -51,6 +59,7 @@ export default function AllPumpsPage() {
     filters.deliverySizeMm.length === 0 || (p.deliverySizeMm != null && filters.deliverySizeMm.includes(p.deliverySizeMm))
   ), [afterRpm, filters.deliverySizeMm])
 
+  // Step 6: available max solid sizes + filter
   const availableMaxSolidSizes = useMemo(() =>
     [...new Set(afterDelivery.map(p => p.maxSolidSizeMm).filter(v => v != null))].sort((a, b) => a! - b!) as number[]
   , [afterDelivery])
@@ -60,6 +69,7 @@ export default function AllPumpsPage() {
   ), [afterDelivery, filters.maxSolidSizeMm])
 
   const activeCount =
+    (filters.pumpType ? 1 : 0) +
     (filters.powerRange ? 1 : 0) +
     filters.voltage.length + filters.rpm.length +
     filters.deliverySizeMm.length + filters.maxSolidSizeMm.length
@@ -77,7 +87,7 @@ export default function AllPumpsPage() {
   )
 
   return (
-    <Box sx={{ display: 'flex', minHeight: '100vh', bgcolor: '#f8f9fa'}}>
+    <Box sx={{ display: 'flex', alignItems: 'flex-start', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
       {!isMobile && sidebar}
       <Drawer open={mobileOpen} onClose={() => setMobileOpen(false)}>{sidebar}</Drawer>
 
@@ -88,7 +98,7 @@ export default function AllPumpsPage() {
             <Box component="span" sx={{ color: 'text.primary', fontWeight: 400 }}>— All Models</Box>
           </Typography>
           <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 700 }}>
-            Browse the complete Panam Valves pump range. Start by selecting a power range,
+            Browse the complete Panam Valves pump range. Start by selecting a pump type and power range,
             then narrow down by voltage, RPM, and delivery size — filters update automatically
             based on what's available.
           </Typography>

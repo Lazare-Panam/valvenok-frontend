@@ -82,22 +82,14 @@ export function AllPumpsSidebar({
   }
 
   return (
- <Box sx={{
-  width: 280,
-  minHeight: '100vh',        // ← minHeight not height
-  p: 3,
-  borderRight: '1px solid',
-  borderColor: 'divider',
-  bgcolor: 'background.paper',
-  position: 'sticky',
-  top: 0,
-  alignSelf: 'flex-start',   // ← key: sticks to top without stretching
-  maxHeight: '100vh',        // ← caps it at viewport
-  overflowY: 'auto',
-  overflowX: 'hidden',
-  flexShrink: 0,
-  boxSizing: 'border-box',
-}}>
+    <Box sx={{
+      width: 280, minHeight: '100vh', p: 3,
+      borderRight: '1px solid', borderColor: 'divider',
+      bgcolor: 'background.paper', position: 'sticky', top: 0,
+      alignSelf: 'flex-start', maxHeight: '100vh',
+      overflowY: 'auto', overflowX: 'hidden',
+      flexShrink: 0, boxSizing: 'border-box',
+    }}>
       <Stack direction="row" justifyContent="space-between" alignItems="center" mb={3}>
         <Typography variant="caption" fontWeight={900} letterSpacing={1} color="text.secondary">
           FIND YOUR PUMP
@@ -110,6 +102,27 @@ export function AllPumpsSidebar({
         )}
       </Stack>
 
+      {/* Pump Type dropdown — first filter, resets everything below */}
+      <Box sx={{ mb: 2 }}>
+        <Typography variant="caption" fontWeight={700} color="text.primary" display="block" mb={1}>
+          PUMP TYPE
+        </Typography>
+        <FormControl fullWidth size="small">
+          <InputLabel>Select pump type</InputLabel>
+          <Select
+            value={filters.pumpType}
+            label="Select pump type"
+            onChange={e => setFilters({ ...EMPTY_FILTERS, pumpType: e.target.value })}
+          >
+            <MenuItem value=""><em>All types</em></MenuItem>
+            <MenuItem value="Submersible">Submersible</MenuItem>
+            <MenuItem value="Wastewater">Wastewater</MenuItem>
+          </Select>
+        </FormControl>
+      </Box>
+      <Divider sx={{ my: 1 }} />
+
+      {/* Power Range dropdown — second filter, preserves pumpType */}
       <Box sx={{ mb: 2 }}>
         <Typography variant="caption" fontWeight={700} color="text.primary" display="block" mb={1}>
           POWER REQUIREMENT
@@ -119,7 +132,7 @@ export function AllPumpsSidebar({
           <Select
             value={filters.powerRange}
             label="Select power range"
-            onChange={e => setFilters({ ...EMPTY_FILTERS, powerRange: e.target.value })}
+            onChange={e => setFilters({ ...EMPTY_FILTERS, pumpType: filters.pumpType, powerRange: e.target.value })}
           >
             <MenuItem value=""><em>Any power</em></MenuItem>
             {POWER_RANGES.map(r => (

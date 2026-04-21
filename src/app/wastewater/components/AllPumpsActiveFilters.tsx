@@ -9,6 +9,7 @@ interface Props {
 export function AllPumpsActiveFilters({ filters, setFilters }: Props) {
   const chips: { key: keyof Filters; label: string; value: any }[] = []
 
+  if (filters.pumpType) chips.push({ key: 'pumpType', label: `Type: ${filters.pumpType}`, value: filters.pumpType })
   if (filters.powerRange) chips.push({ key: 'powerRange', label: `Power: ${filters.powerRange}`, value: filters.powerRange })
   filters.voltage.forEach(v => chips.push({ key: 'voltage', label: `${v}V`, value: v }))
   filters.rpm.forEach(v => chips.push({ key: 'rpm', label: `${v} rpm`, value: v }))
@@ -21,7 +22,7 @@ export function AllPumpsActiveFilters({ filters, setFilters }: Props) {
     setFilters(prev => {
       const current = prev[key]
       if (Array.isArray(current)) return { ...prev, [key]: current.filter(v => v !== value) }
-      return { ...prev, [key]: key === 'powerRange' ? '' : undefined }
+      return { ...prev, [key]: '' }
     })
   }
 

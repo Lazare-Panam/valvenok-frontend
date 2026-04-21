@@ -1,5 +1,5 @@
 import { useMemo, useState, useCallback } from 'react'
-import { Box, Stack, Typography,  Button } from '@mui/material'
+import { Box, Stack, Typography, Button, Chip } from '@mui/material'
 import { alpha, useTheme } from '@mui/material/styles'
 import AddIcon from '@mui/icons-material/Add'
 import RemoveIcon from '@mui/icons-material/Remove'
@@ -10,6 +10,22 @@ import 'ag-grid-community/styles/ag-theme-alpine.css'
 import { NormalizedPump } from '../useAllPumps'
 import RFQModal from '@/src/app/Common/RFQCard/RFQModal'
 import { ProductForRFQ } from '@/src/app/Common/RFQCard/RequestForQuoteCard'
+
+const PUMP_TYPE_COLORS: Record<string, 'primary' | 'success'> = {
+  Submersible: 'primary',
+  Wastewater: 'success',
+}
+
+function PumpTypeCellRenderer({ data }: ICellRendererParams) {
+  if (data?._isDetail) return null
+  const type = data?.pumpType
+  return (
+    <Chip label={type} size="small"
+      color={PUMP_TYPE_COLORS[type] ?? 'default'}
+      sx={{ fontSize: '0.7rem', fontWeight: 700 }}
+    />
+  )
+}
 
 function Spec({ label, value }: { label: string; value: string }) {
   return (
@@ -45,10 +61,15 @@ function DetailPanelRenderer({ data }: ICellRendererParams) {
             sx={{ width: '100%', height: '100%', objectFit: 'contain' }} />
         </Box>
         <Box sx={{ flex: 1 }}>
-          <Typography variant="caption" fontWeight={900} color="primary"
-            sx={{ display: 'block', mb: 2, letterSpacing: 1 }}>
-            TECHNICAL SPECIFICATIONS
-          </Typography>
+          <Stack direction="row" alignItems="center" spacing={1} mb={2}>
+            <Typography variant="caption" fontWeight={900} color="primary" sx={{ letterSpacing: 1 }}>
+              TECHNICAL SPECIFICATIONS
+            </Typography>
+            <Chip label={pump.pumpType} size="small"
+              color={PUMP_TYPE_COLORS[pump.pumpType] ?? 'default'}
+              sx={{ fontSize: '0.7rem', fontWeight: 700 }}
+            />
+          </Stack>
           <Stack direction="row" flexWrap="wrap" gap={3}>
             <Spec label="Model Code" value={pump.modelCode} />
             <Spec label="P2" value={`${pump.p2Kw} kW`} />
@@ -90,7 +111,7 @@ function QuoteCellRenderer({ data, context }: ICellRendererParams) {
     <Button size="small" variant="contained"
       onClick={(e) => {
         e.stopPropagation()
-        context?.openQuote({ id: data?.modelCode, name: `${data?.modelCode} — Pump` })
+        context?.openQuote({ id: data?.modelCode, name: `${data?.modelCode} — ${data?.pumpType} Pump` })
       }}
       sx={{
         fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5,
@@ -127,30 +148,35 @@ export default function AllPumpsTable({ models }: { models: NormalizedPump[] }) 
     return rows
   }, [models, openRows])
 
-  const colDefs: ColDef[] = useMemo(() => [
-    {
-      headerName: '', width: 48, pinned: 'left' as const, sortable: false,
-      cellRenderer: 'expandCellRenderer',
-      cellStyle: { display: 'flex', alignItems: 'center', justifyContent: 'center' } as any
-    },
-    {
-      field: 'modelCode', headerName: 'Model Code', width: 180, pinned: 'left' as const,
-      cellStyle: { fontFamily: 'monospace', fontWeight: '700', color: theme.palette.primary.main, fontSize: '0.8rem' } as any
-    },
-    { field: 'p2Kw', headerName: 'P2 (kW)', width: 100, type: 'numericColumn' },
-    { field: 'voltage', headerName: 'Voltage (V)', width: 160, type: 'numericColumn', valueFormatter: (p: any) => p.value ?? '—' },
-    { field: 'rpm', headerName: 'RPM', width: 150, type: 'numericColumn', valueFormatter: (p: any) => p.value ?? '—' },
-    { field: 'deliverySizeMm', headerName: 'Delivery (mm)', width: 180, type: 'numericColumn', valueFormatter: (p: any) => p.value ? `${p.value}mm` : '—' },
-    { field: 'maxSolidSizeMm', headerName: 'Max Solid (mm)', width: 160, type: 'numericColumn', valueFormatter: (p: any) => p.value ? `${p.value}mm` : '—' },
-    { field: 'weightKg', headerName: 'Weight (kg)', width: 150, type: 'numericColumn', valueFormatter: (p: any) => p.value ? `${p.value}kg` : '—' },
-    { field: 'outletSize', headerName: 'Outlet', width: 150, valueFormatter: (p: any) => p.value ?? '—' },
-    { field: 'inbuiltTop', headerName: 'Inbuilt TOP',  flex: 1, valueFormatter: (p: any) => p.value === null || p.value === undefined ? '—' : p.value ? 'Yes' : 'No' },
-    {
-      headerName: 'Quote', width: 150, sortable: false, pinned: 'right' as const,
-      cellRenderer: 'quoteCellRenderer',
-      cellStyle: { display: 'flex', alignItems: 'center', justifyContent: 'center' } as any
-    }
-  ], [theme])
+const colDefs: ColDef[] = useMemo(() => [
+  {
+    headerName: '', width: 40, pinned: 'left' as const, sortable: false,
+    cellRenderer: 'expandCellRenderer',
+    cellStyle: { display: 'flex', alignItems: 'center', justifyContent: 'center' } as any
+  },
+  {
+    field: 'pumpType', headerName: 'Type', width: 120, pinned: 'left' as const,
+    cellRenderer: 'pumpTypeCellRenderer',
+    cellStyle: { display: 'flex', alignItems: 'center' } as any
+  },
+  {
+    field: 'modelCode', headerName: 'Model Code', width: 170, pinned: 'left' as const,
+    cellStyle: { fontFamily: 'monospace', fontWeight: '700', color: theme.palette.primary.main, fontSize: '0.8rem' } as any
+  },
+  { field: 'p2Kw', headerName: 'P2 (kW)', width: 130, type: 'numericColumn' },
+  { field: 'voltage', headerName: 'Voltage (V)', width: 150, type: 'numericColumn', valueFormatter: (p: any) => p.value ?? '—' },
+  { field: 'rpm', headerName: 'RPM', width: 120, type: 'numericColumn', valueFormatter: (p: any) => p.value ?? '—' },
+  { field: 'deliverySizeMm', headerName: 'Delivery (mm)', width: 120, type: 'numericColumn', valueFormatter: (p: any) => p.value ? `${p.value}mm` : '—' },
+  { field: 'maxSolidSizeMm', headerName: 'Max Solid (mm)', width: 125, type: 'numericColumn', valueFormatter: (p: any) => p.value ? `${p.value}mm` : '—' },
+  { field: 'weightKg', headerName: 'Weight (kg)', width: 120, type: 'numericColumn', valueFormatter: (p: any) => p.value ? `${p.value}kg` : '—' },
+  { field: 'outletSize', headerName: 'Outlet', width: 240, valueFormatter: (p: any) => p.value ?? '—' },
+  { field: 'inbuiltTop', headerName: 'Inbuilt TOP', width: 110, valueFormatter: (p: any) => p.value === null || p.value === undefined ? '—' : p.value ? 'Yes' : 'No' },
+  {
+    headerName: 'Quote', width: 140, sortable: false, pinned: 'right' as const,
+    cellRenderer: 'quoteCellRenderer',
+    cellStyle: { display: 'flex', alignItems: 'center', justifyContent: 'center' } as any
+  }
+], [theme])
 
   const defaultColDef: ColDef = useMemo(() => ({ sortable: true, resizable: true, filter: false }), [])
   const isFullWidthRow = useCallback((params: IsFullWidthRowParams) => params.rowNode.data?._isDetail === true, [])
@@ -175,16 +201,18 @@ export default function AllPumpsTable({ models }: { models: NormalizedPump[] }) 
           rowData={rowData}
           columnDefs={colDefs}
           defaultColDef={defaultColDef}
-          suppressColumnVirtualisation 
+          suppressColumnVirtualisation
+           getRowHeight={(params) => params.data?._isDetail ? 200 : 44}
           components={{
             expandCellRenderer: ExpandCellRenderer,
             detailPanelRenderer: DetailPanelRenderer,
             quoteCellRenderer: QuoteCellRenderer,
+            pumpTypeCellRenderer: PumpTypeCellRenderer,
           }}
           context={gridContext}
           isFullWidthRow={isFullWidthRow}
           fullWidthCellRenderer="detailPanelRenderer"
-          getRowHeight={(params) => params.data?._isDetail ? 200 : 44}
+
           pagination
           paginationPageSize={20}
           domLayout="autoHeight"
