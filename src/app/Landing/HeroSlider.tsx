@@ -24,7 +24,7 @@ const SLIDES = [
     tag: "JUST ANNOUNCED",
     title: "32 NEW PUMP & VALVES",
     accent: "FROM LEADING MANUFACTURERS",
-    description: "We're proud to announce that Valvenok has partnered with 16 world-class valve and process equipment manufacturers. From safety relief to control valves, subsea systems to nuclear-grade components — these brands bring the depth, certifications, and engineering pedigree our clients demand. All now available through a single, trusted source.",
+    description: "We're proud to announce that Valvenok has partnered with 32 world-class valve and process equipment manufacturers. From safety relief to control valves, subsea systems to nuclear-grade components — these brands bring the depth, certifications, and engineering pedigree our clients demand. All now available through a single, trusted source.",
     href: "/brands",
     btnText: "View Our Brands",
     alt: "Global engineering brand logos and components"

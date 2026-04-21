@@ -106,7 +106,10 @@ export function SubmersibleSidebar({ filters, setFilters, filterOptions, loading
             options={filterOptions?.diametersMm ?? []}
             selected={filters.diameterMm}
             onChange={v => toggle('diameterMm', v)}
-            labelFn={v => `${filterOptions?.diametersInches[filterOptions.diametersMm.indexOf(v)] ?? ''} (${v}mm)`}
+            labelFn={v => {
+            const map: Record<number, string> = { 100: '4"', 150: '6"', 200: '8"', 250: '10"' }
+            return `${map[v] ?? v + 'mm'} (${v}mm)`
+          }}
           />
         }
       </FilterGroup>
