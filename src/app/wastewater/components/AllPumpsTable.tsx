@@ -134,16 +134,16 @@ export default function AllPumpsTable({ models }: { models: NormalizedPump[] }) 
       cellStyle: { display: 'flex', alignItems: 'center', justifyContent: 'center' } as any
     },
     {
-      field: 'modelCode', headerName: 'Model Code', width: 200, pinned: 'left' as const,
+      field: 'modelCode', headerName: 'Model Code', width: 180, pinned: 'left' as const,
       cellStyle: { fontFamily: 'monospace', fontWeight: '700', color: theme.palette.primary.main, fontSize: '0.8rem' } as any
     },
     { field: 'p2Kw', headerName: 'P2 (kW)', width: 100, type: 'numericColumn' },
-    { field: 'voltage', headerName: 'Voltage (V)', width: 120, type: 'numericColumn', valueFormatter: (p: any) => p.value ?? '—' },
-    { field: 'rpm', headerName: 'RPM', width: 100, type: 'numericColumn', valueFormatter: (p: any) => p.value ?? '—' },
-    { field: 'deliverySizeMm', headerName: 'Delivery (mm)', width: 130, type: 'numericColumn', valueFormatter: (p: any) => p.value ? `${p.value}mm` : '—' },
-    { field: 'maxSolidSizeMm', headerName: 'Max Solid (mm)', width: 140, type: 'numericColumn', valueFormatter: (p: any) => p.value ? `${p.value}mm` : '—' },
-    { field: 'weightKg', headerName: 'Weight (kg)', width: 120, type: 'numericColumn', valueFormatter: (p: any) => p.value ? `${p.value}kg` : '—' },
-    { field: 'outletSize', headerName: 'Outlet', width: 180, valueFormatter: (p: any) => p.value ?? '—' },
+    { field: 'voltage', headerName: 'Voltage (V)', width: 160, type: 'numericColumn', valueFormatter: (p: any) => p.value ?? '—' },
+    { field: 'rpm', headerName: 'RPM', width: 150, type: 'numericColumn', valueFormatter: (p: any) => p.value ?? '—' },
+    { field: 'deliverySizeMm', headerName: 'Delivery (mm)', width: 180, type: 'numericColumn', valueFormatter: (p: any) => p.value ? `${p.value}mm` : '—' },
+    { field: 'maxSolidSizeMm', headerName: 'Max Solid (mm)', width: 160, type: 'numericColumn', valueFormatter: (p: any) => p.value ? `${p.value}mm` : '—' },
+    { field: 'weightKg', headerName: 'Weight (kg)', width: 150, type: 'numericColumn', valueFormatter: (p: any) => p.value ? `${p.value}kg` : '—' },
+    { field: 'outletSize', headerName: 'Outlet', width: 150, valueFormatter: (p: any) => p.value ?? '—' },
     { field: 'inbuiltTop', headerName: 'Inbuilt TOP',  flex: 1, valueFormatter: (p: any) => p.value === null || p.value === undefined ? '—' : p.value ? 'Yes' : 'No' },
     {
       headerName: 'Quote', width: 150, sortable: false, pinned: 'right' as const,
@@ -186,7 +186,7 @@ export default function AllPumpsTable({ models }: { models: NormalizedPump[] }) 
           fullWidthCellRenderer="detailPanelRenderer"
           getRowHeight={(params) => params.data?._isDetail ? 200 : 44}
           pagination
-          paginationPageSize={50}
+          paginationPageSize={20}
           domLayout="autoHeight"
         />
       </Box>

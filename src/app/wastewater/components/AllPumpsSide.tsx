@@ -82,12 +82,22 @@ export function AllPumpsSidebar({
   }
 
   return (
-    <Box sx={{
-      width: 280, height: '100vh', p: 3,
-      borderRight: '1px solid', borderColor: 'divider',
-      bgcolor: 'background.paper', position: 'sticky', top: 0,
-      overflowY: 'auto', flexShrink: 0
-    }}>
+ <Box sx={{
+  width: 280,
+  minHeight: '100vh',        // ← minHeight not height
+  p: 3,
+  borderRight: '1px solid',
+  borderColor: 'divider',
+  bgcolor: 'background.paper',
+  position: 'sticky',
+  top: 0,
+  alignSelf: 'flex-start',   // ← key: sticks to top without stretching
+  maxHeight: '100vh',        // ← caps it at viewport
+  overflowY: 'auto',
+  overflowX: 'hidden',
+  flexShrink: 0,
+  boxSizing: 'border-box',
+}}>
       <Stack direction="row" justifyContent="space-between" alignItems="center" mb={3}>
         <Typography variant="caption" fontWeight={900} letterSpacing={1} color="text.secondary">
           FIND YOUR PUMP
