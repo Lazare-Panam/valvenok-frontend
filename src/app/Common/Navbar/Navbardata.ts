@@ -38,7 +38,7 @@ export const CATEGORIES: Category[] = [
     items: [
       {
         label: "Instrumentation Fittings",
-        href: "/categories/instrumentation-fittings",
+        href: "/fittings/jic",
       },
       { label: "Instrumentation Valves", href: "/valves" },
     ],

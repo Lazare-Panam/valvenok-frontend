@@ -11,11 +11,11 @@ const CATEGORIES = [
   {
     name: "Fittings & Tubings",
     img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1771948480/reducing-hex-couplings-npt_i2twbq.png",
-    href: "/categories/instrumentation-fittings",
+    href: "/fittings/jic",
     subs: [
       {
         name: "Instrumentation Fittings",
-        href: "/categories/instrumentation-fittings",
+        href: "/fittings/jic",
       },
       { name: "Instrumentation Valves", href: "/valves" },
     ],

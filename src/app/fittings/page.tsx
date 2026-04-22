@@ -197,7 +197,7 @@ export default function HighPressureValvesPage() {
                 Available solutions
               </Typography>
               {[
-                "High-pressure ball valves — 2-way and 3-way",
+                "High-Pressure Ball valves — 2-way and 3-way",
                 "Needle valves including block & bleed",
                 "SS316 fittings for corrosive and hydrogen service",
                 "Relief valves for overpressure protection",
@@ -259,7 +259,7 @@ export default function HighPressureValvesPage() {
     },
   }}
 >
-  High-pressure ball valves
+  High-Pressure Ball Valves
 </Typography>
 
             <Typography
@@ -371,7 +371,7 @@ export default function HighPressureValvesPage() {
     },
   }}
 >
-  Needle valves & block and bleed
+  Needle Valves & Block and Bleed
 </Typography>
     
     <Typography sx={{ color: 'text.secondary', lineHeight: 1.8, fontSize: '0.95rem' }}>
@@ -401,7 +401,7 @@ export default function HighPressureValvesPage() {
     <Typography
   variant="h3"
   component="a" // Makes it a clickable link
-  href="/categories/instrumentation-fittings" // Replace with your target URL
+  href="/fittings/jic" // Replace with your target URL
   sx={{
     fontSize: { xs: 24, md: 32 },
     fontWeight: 700,
