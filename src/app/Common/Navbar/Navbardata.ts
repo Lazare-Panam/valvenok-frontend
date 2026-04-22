@@ -150,7 +150,7 @@ export const CATEGORIES: Category[] = [
       },
       {
         label: "Mechanical Seals",
-        href: "/categories/mechanical-seals",
+        href: "/seals",
       },
     ],
   },

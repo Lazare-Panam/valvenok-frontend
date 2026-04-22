@@ -59,7 +59,7 @@ const CATEGORIES = [
     href: "/collections/tormac-pumps",
     subs: [
       { name: "Industrial Pumps", href: "/pumps" },
-      { name: "Mechanical Seals", href: "/categories/mechanical-seals" },
+      { name: "Mechanical Seals", href: "/seals" },
       { name: "Submersible  Pumps", href: "/wastewater" },
     ],
   },
