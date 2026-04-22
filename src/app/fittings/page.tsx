@@ -561,6 +561,7 @@ export default function HighPressureValvesPage() {
             <Button
               variant="outlined"
               size="large"
+              href="/quick-order"
               sx={{
                 borderColor: "divider",
                 color: "text.primary",
