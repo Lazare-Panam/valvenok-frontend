@@ -60,6 +60,7 @@ const CATEGORIES = [
     subs: [
       { name: "Industrial Pumps", href: "/pumps" },
       { name: "Mechanical Seals", href: "/categories/mechanical-seals" },
+      { name: "Submersible  Pumps", href: "/wastewater" },
     ],
   },
 ];
