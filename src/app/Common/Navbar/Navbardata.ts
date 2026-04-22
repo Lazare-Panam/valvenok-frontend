@@ -9,6 +9,7 @@ export interface NavItem {
 export interface Category {
   id: string;
   label: string;
+  href?: string;
   color: string;
   textColor: string;
   items: NavItem[];
@@ -31,6 +32,7 @@ export const CATEGORIES: Category[] = [
   {
     id: "fittings",
     label: "Fittings & Valves",
+    href: "/fittings",
     color: "#1c6e2e",
     textColor: "#fff",
     items: [

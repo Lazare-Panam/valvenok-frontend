@@ -125,30 +125,41 @@ export default function MegaMenu({ onClose }: Props) {
           <Grid container sx={{ minHeight: 500 }}>
 
             {/* SIDEBAR */}
-            <Grid size={{ md: 3 }} sx={{ borderRight: "1px solid #F0F0F0", py: 4, bgcolor: "#FAFAFA" }}>
-              {CATEGORIES.map((cat) => (
-                <Box
-                  key={cat.id}
-                  onMouseEnter={() => setActiveCategory(cat)}
-                  onClick={() => onClose()}
-                  sx={{
-                    px: 4,
-                    py: 1.5,
-                    cursor: "pointer",
-                    transition: "0.2s",
-                    fontSize: "0.875rem",
-                    fontWeight: activeCategory?.id === cat.id ? 700 : 500,
-                    color: activeCategory?.id === cat.id ? BRAND_GREEN : "#4A4A4A",
-                    bgcolor: activeCategory?.id === cat.id ? "#F2F8F3" : "transparent",
-                    borderLeft: `4px solid ${activeCategory?.id === cat.id ? BRAND_GREEN : "transparent"}`,
-                    "&:hover": { color: BRAND_GREEN, bgcolor: "#F2F8F3" },
-                  }}
-                >
-                  {cat.label}
-                </Box>
-              ))}
-            </Grid>
-
+           {/* SIDEBAR */}
+<Grid size={{ md: 3 }} sx={{ borderRight: "1px solid #F0F0F0", py: 4, bgcolor: "#FAFAFA" }}>
+  {CATEGORIES.map((cat) => (
+    <Box
+      key={cat.id}
+      component="a"           // 1. Make it an anchor tag
+      href={cat.href || "#"}   // 2. Pass the href from your data
+      onMouseEnter={() => setActiveCategory(cat)}
+      onClick={(e) => {
+        // If there's no link, just prevent default so it doesn't jump to top of page
+        if (!cat.href) e.preventDefault(); 
+        onClose();
+      }}
+      sx={{
+        display: "block",      // 3. Ensure it behaves like a block for full-width clicking
+        textDecoration: "none", // 4. Remove default link underlining
+        px: 4,
+        py: 1.5,
+        cursor: "pointer",
+        transition: "0.2s",
+        fontSize: "0.875rem",
+        fontWeight: activeCategory?.id === cat.id ? 700 : 500,
+        color: activeCategory?.id === cat.id ? BRAND_GREEN : "#4A4A4A",
+        bgcolor: activeCategory?.id === cat.id ? "#F2F8F3" : "transparent",
+        borderLeft: `4px solid ${activeCategory?.id === cat.id ? BRAND_GREEN : "transparent"}`,
+        "&:hover": { 
+          color: BRAND_GREEN, 
+          bgcolor: "#F2F8F3" 
+        },
+      }}
+    >
+      {cat.label}
+    </Box>
+  ))}
+</Grid>
             {/* CONTENT */}
             <Grid size={{ md: 9 }} sx={{ p: 6 }}>
               <Typography
