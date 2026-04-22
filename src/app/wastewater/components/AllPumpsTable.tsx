@@ -58,6 +58,7 @@ function DetailPanelRenderer({ data }: ICellRendererParams) {
     <Box
       sx={{
         p: 3,
+         minHeight: 300,
         bgcolor: alpha(theme.palette.primary.main, 0.02),
         borderLeft: `4px solid ${theme.palette.primary.main}`,
         borderBottom: `1px solid ${theme.palette.divider}`,
@@ -65,27 +66,27 @@ function DetailPanelRenderer({ data }: ICellRendererParams) {
       }}
     >
       <Stack direction={{ xs: "column", md: "row" }} spacing={4}>
-        <Box
-          sx={{
-            width: 140,
-            height: 140,
-            flexShrink: 0,
-            border: `1px solid ${theme.palette.divider}`,
-            borderRadius: 1,
-            bgcolor: "#fff",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            p: 1,
-          }}
-        >
-          <Box
-            component="img"
-            src={pump.imageUrl}
-            alt={pump.modelCode}
-            sx={{ width: "100%", height: "100%", objectFit: "contain" }}
-          />
-        </Box>
+       <Box sx={{
+  width: 250,        // ← was 140
+  height: 250,       // ← was 140
+  flexShrink: 0,
+  border: `1px solid ${theme.palette.divider}`,
+  borderRadius: 2,   // ← slightly more rounded
+  bgcolor: '#fff',
+  display: 'flex', alignItems: 'center', justifyContent: 'center',
+  p: 2    ,
+  overflow: 'visible',          // ← was 1
+}}>
+<Box component="img" src={pump.imageUrl} alt={pump.modelCode}
+  sx={{ 
+    width: '100%', 
+    height: '100%', 
+    objectFit: 'contain',
+    transform: 'scale(1.25)',   // ← 125%
+    transformOrigin: 'center',
+  }} 
+/>
+</Box>
         <Box sx={{ flex: 1 }}>
           <Stack direction="row" alignItems="center" spacing={1} mb={2}>
             <Typography
@@ -450,7 +451,14 @@ export default function AllPumpsTable({
               borderTop: `1px solid ${theme.palette.divider}`,
               fontSize: "0.8rem",
             },
-            "& .ag-full-width-row": { bgcolor: "transparent !important" },
+           
+            "& .ag-full-width-row": { 
+  bgcolor: "transparent !important",
+  overflow: "visible !important",  // ← ADD
+},
+"& .ag-full-width-container": {
+  overflow: "visible !important",  // ← ADD
+},
           }}
         >
           <AgGridReact
@@ -467,7 +475,7 @@ export default function AllPumpsTable({
             context={gridContext}
             isFullWidthRow={isFullWidthRow}
             fullWidthCellRenderer="detailPanelRenderer"
-            getRowHeight={(params) => (params.data?._isDetail ? 200 : 44)}
+            getRowHeight={(params) => (params.data?._isDetail ? 500 : 44)}
             pagination
             paginationPageSize={20}
             domLayout="autoHeight"

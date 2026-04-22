@@ -102,7 +102,7 @@ export const CATEGORIES: Category[] = [
           },
           {
             label: "WasterWater Submersible",
-            href: "/submersible/borewell",
+            href: "/wastewater",
             children: [
               { label: "TDL Pumps", href: "/submersible/tdl" },
               { label: "TSL Pumps", href: "/submersible/tsl" },
