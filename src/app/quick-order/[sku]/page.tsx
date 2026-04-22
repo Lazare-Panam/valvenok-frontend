@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: { params: Promise<{ sku: stri
   const product = PRODUCTS.find((p) => p.sku === sku);
   if (!product) return {};
   return {
-    title: `${product.sku} — ${product.name} | Valvenok`,
+    title: `${product.meta} | Valvenok`,
     description: `${product.name}. SS316 stainless steel. In stock. Fast UK dispatch.`,
   };
 }
