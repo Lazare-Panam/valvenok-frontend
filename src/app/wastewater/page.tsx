@@ -1,17 +1,18 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import {
   Box, Typography, CircularProgress,
   useMediaQuery, Drawer, IconButton
 } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 import FilterListIcon from '@mui/icons-material/FilterList'
-import { useAllPumps } from './useAllPumps'
+import { usePumpsGridFilters, usePumpsGridItems } from './usePumpGrid'
+
 import { AllPumpsSidebar } from './components/AllPumpsSide'
 import { AllPumpsActiveFilters } from './components/AllPumpsActiveFilters'
 import AllPumpsTable from './components/AllPumpsTable'
-import { Filters, EMPTY_FILTERS, POWER_RANGES } from './components/types'
+import { Filters, EMPTY_FILTERS } from './components/types'
 
 export default function AllPumpsPage() {
   const theme = useTheme()
@@ -19,69 +20,19 @@ export default function AllPumpsPage() {
   const [filters, setFilters] = useState<Filters>(EMPTY_FILTERS)
   const [mobileOpen, setMobileOpen] = useState(false)
 
-  const { data: allPumps = [], isLoading } = useAllPumps()
+  const { data: filterOptions, isLoading: filtersLoading } = usePumpsGridFilters()
+  const { data: models = [], isLoading, isFetching } = usePumpsGridItems(filters)
 
-  // Step 1: pump type
-  const afterPumpType = useMemo(() => allPumps.filter(p =>
-    !filters.pumpType || p.pumpType === filters.pumpType
-  ), [allPumps, filters.pumpType])
-
-  // Step 2: power range
-  const selectedRange = POWER_RANGES.find(r => r.label === filters.powerRange)
-  const afterPower = useMemo(() => afterPumpType.filter(p =>
-    !selectedRange || (p.p2Kw >= selectedRange.min && p.p2Kw < selectedRange.max)
-  ), [afterPumpType, selectedRange])
-
-  // Step 3: available voltages + filter
-  const availableVoltages = useMemo(() =>
-    [...new Set(afterPower.map(p => p.voltage).filter(v => v != null))].sort((a, b) => a! - b!) as number[]
-  , [afterPower])
-
-  const afterVoltage = useMemo(() => afterPower.filter(p =>
-    filters.voltage.length === 0 || (p.voltage != null && filters.voltage.includes(p.voltage))
-  ), [afterPower, filters.voltage])
-
-  // Step 4: available RPMs + filter
-  const availableRpms = useMemo(() =>
-    [...new Set(afterVoltage.map(p => p.rpm).filter(v => v != null))].sort((a, b) => a! - b!) as number[]
-  , [afterVoltage])
-
-  const afterRpm = useMemo(() => afterVoltage.filter(p =>
-    filters.rpm.length === 0 || (p.rpm != null && filters.rpm.includes(p.rpm))
-  ), [afterVoltage, filters.rpm])
-
-  // Step 5: available delivery sizes + filter
-  const availableDeliverySizes = useMemo(() =>
-    [...new Set(afterRpm.map(p => p.deliverySizeMm).filter(v => v != null))].sort((a, b) => a! - b!) as number[]
-  , [afterRpm])
-
-  const afterDelivery = useMemo(() => afterRpm.filter(p =>
-    filters.deliverySizeMm.length === 0 || (p.deliverySizeMm != null && filters.deliverySizeMm.includes(p.deliverySizeMm))
-  ), [afterRpm, filters.deliverySizeMm])
-
-  // Step 6: available max solid sizes + filter
-  const availableMaxSolidSizes = useMemo(() =>
-    [...new Set(afterDelivery.map(p => p.maxSolidSizeMm).filter(v => v != null))].sort((a, b) => a! - b!) as number[]
-  , [afterDelivery])
-
-  const filtered = useMemo(() => afterDelivery.filter(p =>
-    filters.maxSolidSizeMm.length === 0 || (p.maxSolidSizeMm != null && filters.maxSolidSizeMm.includes(p.maxSolidSizeMm))
-  ), [afterDelivery, filters.maxSolidSizeMm])
-
-  const activeCount =
-    (filters.pumpType ? 1 : 0) +
-    (filters.powerRange ? 1 : 0) +
-    filters.voltage.length + filters.rpm.length +
-    filters.deliverySizeMm.length + filters.maxSolidSizeMm.length
+  const activeCount = Object.entries(filters).filter(([_, v]) =>
+    v !== undefined && (!Array.isArray(v) || v.length > 0)
+  ).length
 
   const sidebar = (
     <AllPumpsSidebar
       filters={filters}
       setFilters={setFilters}
-      availableVoltages={availableVoltages}
-      availableRpms={availableRpms}
-      availableDeliverySizes={availableDeliverySizes}
-      availableMaxSolidSizes={availableMaxSolidSizes}
+      filterOptions={filterOptions}
+      filtersLoading={filtersLoading}
       activeCount={activeCount}
     />
   )
@@ -98,9 +49,8 @@ export default function AllPumpsPage() {
             <Box component="span" sx={{ color: 'text.primary', fontWeight: 400 }}>— All Models</Box>
           </Typography>
           <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 700 }}>
-            Browse the complete Panam Valves pump range. Start by selecting a pump type and power range,
-            then narrow down by voltage, RPM, and delivery size — filters update automatically
-            based on what's available.
+            Browse the complete Panam Valves pump range. Filter by any combination of specs —
+            results update automatically.
           </Typography>
         </Box>
 
@@ -111,10 +61,14 @@ export default function AllPumpsPage() {
             </IconButton>
           )}
 
-          <AllPumpsActiveFilters filters={filters} setFilters={setFilters} />
+          <AllPumpsActiveFilters
+            filters={filters}
+            setFilters={setFilters}
+            filterOptions={filterOptions}
+          />
 
           <Typography variant="caption" fontWeight={700} color="text.disabled" sx={{ display: 'block', mb: 2 }}>
-            {isLoading ? 'LOADING...' : `${filtered.length} MODELS`}
+            {isFetching && !isLoading ? 'UPDATING...' : isLoading ? 'LOADING...' : `${models.length} MODELS`}
           </Typography>
 
           {isLoading ? (
@@ -122,7 +76,7 @@ export default function AllPumpsPage() {
               <CircularProgress />
             </Box>
           ) : (
-            <AllPumpsTable models={filtered} />
+            <AllPumpsTable models={models} isFetching={isFetching} />
           )}
         </Box>
       </Box>

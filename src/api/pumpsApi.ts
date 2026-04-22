@@ -328,3 +328,86 @@ export const getTMCFilters = async () => {
   const response = await axiosClient.get("/api/pumps/tmc/filters");
   return response.data as TMCFilterOptions;
 };
+// Add to pumpsApi.ts
+
+export interface PumpsItemDTO {
+  id: number;
+  modelCode: string;
+  productFamily: string;
+  productFamilyId: number;
+  p2Kw: number;
+  voltage: number | null;
+  rpm: number | null;
+  deliverySizeMm: number | null;
+  maxSolidSizeMm: number | null;
+  weightKg: number | null;
+  outletType: string | null;
+  phase: string | null;
+  autoCouplingCode: string | null;
+  version: string | null;
+  diameterMm: number | null;
+  pumpType: string | null;
+  impellerType: string | null;
+  inbuiltTop: boolean | null;
+  moistureSensor: boolean | null;
+  hasCapacitor: boolean | null;
+  imageUrl: string;
+}
+
+export interface PumpsFilterOptions {
+  p2Kws: number[];
+  voltages: number[];
+  rpms: number[];
+  deliverySizes: number[];
+  maxSolidSizes: number[];
+  phases: string[];
+  autoCouplingCodes: string[];
+  versions: string[];
+  diametersMm: number[];
+  diametersInches: string[];
+  pumpTypes: string[];
+  impellerTypes: string[];
+  productFamilies: {
+    id: number;
+    name: string;
+    slug: string;
+    parentId: number | null;
+  }[];
+}
+
+export interface PumpsGridFilterParams {
+  productFamilyIds?: number[];
+  p2Kws?: number[];
+  voltages?: number[];
+  rpms?: number[];
+  deliverySizes?: number[];
+  maxSolidSizes?: number[];
+  outletTypes?: string[];
+  phases?: string[];
+  autoCouplingCodes?: string[];
+  versions?: string[];
+  diametersMm?: number[];
+  pumpTypes?: string[];
+  impellerTypes?: string[];
+  inbuiltTop?: boolean;
+  moistureSensor?: boolean;
+  hasCapacitor?: boolean;
+}
+
+export const getPumpsGridItems = async (filters: PumpsGridFilterParams) => {
+  const params = new URLSearchParams();
+  Object.entries(filters).forEach(([key, value]) => {
+    if (Array.isArray(value)) {
+      value.forEach((v) => params.append(key, String(v)));
+    } else if (value !== undefined) {
+      params.append(key, String(value));
+    }
+  });
+  const response = await axiosClient.get("/api/pumps/grid", { params });
+  return response.data as PumpsItemDTO[];
+};
+
+export const getPumpsGridFilters = async () => {
+  const response = await axiosClient.get("/api/pumps/grid/filters");
+  return response.data as PumpsFilterOptions;
+};
