@@ -8,6 +8,7 @@ import { AgGridReact } from 'ag-grid-react'
 import { ColDef, ICellRendererParams, IsFullWidthRowParams } from 'ag-grid-community'
 import 'ag-grid-community/styles/ag-grid.css'
 import 'ag-grid-community/styles/ag-theme-alpine.css'
+import { useRouter } from 'next/navigation'
 import { MechanicalSealDTO } from '@/src/api/sealApi'
 import { useCartStore } from '../../cart/hooks/useCartStore'
 import { useNotificationStore } from '@/src/store/useNotificationStore'
@@ -43,8 +44,20 @@ function DetailPanelRenderer({ data, context }: ICellRendererParams) {
           borderRadius: 2, bgcolor: '#fff',
           display: 'flex', alignItems: 'center', justifyContent: 'center', p: 2
         }}>
-          <Box component="img" src={seal.imageUrl} alt={seal.partNumber}
-            sx={{ width: 180, height: 180, objectFit: 'contain' }} />
+          <Box
+            component="img"
+            src={seal.imageUrl}
+            alt={seal.partNumber}
+            onClick={() => {
+              sessionStorage.setItem('seal-detail', JSON.stringify(seal))
+              context?.router.push(`/seals/${seal.partNumber}`)
+            }}
+            sx={{
+              width: 180, height: 180, objectFit: 'contain',
+              cursor: 'pointer',
+              '&:hover': { opacity: 0.8, transform: 'scale(1.02)', transition: 'all 0.2s' }
+            }}
+          />
         </Box>
         <Box sx={{ flex: 1 }}>
           <Typography variant="caption" fontWeight={900} color="primary"
@@ -108,6 +121,7 @@ function AddToCartCellRenderer({ data, context }: ICellRendererParams) {
 
 export default function MechanicalSealsTable({ models, isFetching }: { models: MechanicalSealDTO[], isFetching: boolean }) {
   const theme = useTheme()
+  const router = useRouter()
   const [openRows, setOpenRows] = useState<Set<string>>(new Set())
   const addItem = useCartStore(s => s.addItem)
   const showNotification = useNotificationStore(s => s.showNotification)
@@ -155,14 +169,32 @@ export default function MechanicalSealsTable({ models, isFetching }: { models: M
     },
     {
       field: 'partNumber', headerName: 'Part Number', width: 250, pinned: 'left' as const,
-      cellStyle: { fontFamily: 'monospace', fontWeight: '700',color: theme.palette.primary.main, fontSize: '0.8rem' } as any
+      cellRenderer: (p: any) => {
+        if (p.data?._isDetail) return null
+        return (
+          <Box
+            component="span"
+            onClick={() => {
+              sessionStorage.setItem('seal-detail', JSON.stringify(p.data))
+              p.context?.router.push(`/seals/${p.data.partNumber}`)
+            }}
+            sx={{
+              fontFamily: 'monospace', fontWeight: 700,
+              color: theme.palette.primary.main, fontSize: '0.8rem',
+              cursor: 'pointer', textDecoration: 'underline',
+              '&:hover': { opacity: 0.75 }
+            }}
+          >
+            {p.value}
+          </Box>
+        )
+      }
     },
-
     { field: 'shaftSizeMm', headerName: 'Shaft Size', width: 300, valueFormatter: (p: any) => p.value ?? '—' },
     { field: 'sealSizeMm', headerName: 'Seal Size (MM)', width: 300, valueFormatter: (p: any) => p.value ?? '—' },
     { field: 'sealSizeInch', headerName: 'Seal Size (Inch)', width: 360, valueFormatter: (p: any) => p.value ?? '—' },
     {
-      field: 'price', headerName: 'Price', width: 160,  valueFormatter: (p: any) => `£${p.value.toFixed(2)}`
+      field: 'price', headerName: 'Price', width: 160, valueFormatter: (p: any) => `£${p.value.toFixed(2)}`
     },
     {
       headerName: 'Cart', width: 150, sortable: false, pinned: 'right' as const,
@@ -173,7 +205,7 @@ export default function MechanicalSealsTable({ models, isFetching }: { models: M
 
   const defaultColDef: ColDef = useMemo(() => ({ sortable: true, resizable: true, filter: false }), [])
   const isFullWidthRow = useCallback((params: IsFullWidthRowParams) => params.rowNode.data?._isDetail === true, [])
-  const gridContext = useMemo(() => ({ openRows, toggleRow, addToCart }), [openRows, toggleRow, addToCart])
+  const gridContext = useMemo(() => ({ openRows, toggleRow, addToCart, router }), [openRows, toggleRow, addToCart, router])
 
   return (
     <Box sx={{ position: 'relative' }}>

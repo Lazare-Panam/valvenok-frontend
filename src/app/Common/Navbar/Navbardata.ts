@@ -108,11 +108,11 @@ export const CATEGORIES: Category[] = [
             label: "WasterWater Submersible",
             href: "/wastewater",
             children: [
-              { label: "TDL Pumps", href: "/submersible/tdl" },
-              { label: "TSL Pumps", href: "/submersible/tsl" },
-               { label: "TGT Pumps", href: "/submersible/tgt" },
-                { label: "TGA Pumps", href: "/submersible/tga" },
-                { label: "TMC Pumps", href: "/submersible/tmc" },
+              { label: "Light Drainage Pumps", href: "/submersible/tdl" },
+              { label: "Light Sewage Pumps", href: "/submersible/tsl" },
+               { label: "Heavy Sewage Pumps", href: "/submersible/tgt" },
+                { label: " Submersible Sewage Pumps", href: "/submersible/tga" },
+                { label: "Heavy Duty Sewage Submersible Pumps", href: "/submersible/tmc" },
             ],
           },
           {
