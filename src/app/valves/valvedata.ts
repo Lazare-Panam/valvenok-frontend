@@ -8,7 +8,7 @@ export const VALVE_DATA = [
   count: 6,
   description: 'High-performance instrumentation ball valves designed for precise flow control and shut-off in critical applications.',
   image: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1774963288/BALL-VALVES-TP-SERIES-PNG-removebg-preview.png',
-  href: '/categories/ball-valves',
+  href: '/ball-valves',
   tags: ['Quarter-Turn', 'Stainless Steel', 'High Pressure'],
 },
 {

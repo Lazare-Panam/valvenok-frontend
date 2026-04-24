@@ -244,7 +244,7 @@ export default function HighPressureValvesPage() {
             <Typography
   variant="h3"
   component="a" // Makes the underlying HTML an <a> tag
-  href="/categories/ball-valves" // Replace with your destination
+  href="/ball-valves" // Replace with your destination
   sx={{
     fontSize: { xs: 24, md: 32 },
     fontWeight: 700,

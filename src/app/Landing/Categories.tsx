@@ -42,7 +42,7 @@ const CATEGORIES = [
   {
     name: "Valves",
     img: "",
-    href: "/categories/ball-valves",
+    href: "/ball-valves",
     subs: [{ name: "Industrial Valves", href: "/industrial-valves" },
       { name: "Marine Valves", href: "/marine-valves" }
     ],
