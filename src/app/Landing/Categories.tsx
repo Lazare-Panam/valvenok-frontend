@@ -41,7 +41,7 @@ const CATEGORIES = [
   },
   {
     name: "Valves",
-    img: "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/apollo-valves-88a10a01.webp",
+    img: "",
     href: "/categories/ball-valves",
     subs: [{ name: "Industrial Valves", href: "/industrial-valves" },
       { name: "Marine Valves", href: "/marine-valves" }
@@ -49,7 +49,7 @@ const CATEGORIES = [
   },
   {
     name: "Actuators",
-    img: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/download.webp",
+    img: "",
     href: "/categories/actuators",
     subs: [{ name: "Pneumatic Actuators", href: "/categories/actuators" }],
   },
