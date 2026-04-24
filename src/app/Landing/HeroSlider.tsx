@@ -19,7 +19,7 @@ const SLIDES = [
   {
     id: 1,
     duration: 12000,
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776243427/david-birozy-O01Y_baYOfo-unsplash_lbvtz9.jpg",
+    image: "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/david-birozy-O01Y_baYOfo-unsplash.jpg",
     upperTag: "AUTHORIZED DISTRIBUTOR",
     tag: "JUST ANNOUNCED",
     title: "32 NEW PUMP & VALVES",
@@ -32,7 +32,7 @@ const SLIDES = [
   {
     id: 2,
     duration: 8000,
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776242864/the-blowup-qafbp6O0Rr0-unsplash_chxm7c.jpg",
+    image: "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/dave-meckler-sIfOwIa8Lq0-unsplash.jpg",
     upperTag: "ESTABLISHED 1998",
     tag: "UK Industrial Supplier",
     title: "Precision Pumps & Valves",
@@ -45,7 +45,7 @@ const SLIDES = [
   {
     id: 3,
     duration: 8000,
-    image: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776242606/camara-negra-gdeNXROgblU-unsplash_xp501w.jpg",
+    image: "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/camara-negra-gdeNXROgblU-unsplash.jpg",
     upperTag: "OFFSHORE SOLUTIONS",
     tag: "JOSCAR REGISTERED",
     title: "Marine Valves & Controls",
@@ -244,78 +244,7 @@ useEffect(() => {
       </AnimatePresence>
 
 
-{/* 7. HIGH-VISIBILITY JOSCAR BADGE (TOP RIGHT) */}
-<Box
-  component={motion.a}
-  href="https://res.cloudinary.com/dm9rmmemx/image/upload/v1776244520/65058387-e24c-4e34-8fab-26245a2e0d2a_wdr0o5.jpg"
-  target="_blank"
-  rel="noopener noreferrer"
-  initial={{ y: -20, opacity: 0 }}
-  animate={{ y: 0, opacity: 1 }}
-  transition={{ delay: 1.2 }}
-  sx={{
-    position: "absolute",
-    top: 40, 
-    right: 80, // Tucked away from the center but clearly visible
-    zIndex: 100,
-    display: "flex",
-    alignItems: "center",
-    bgcolor: "rgba(0,0,0,0.8)",
-    backdropFilter: "blur(10px)",
-    borderLeft: "4px solid #61D649", // Accent bar instead of full border
-    p: "12px 20px",
-    textDecoration: "none",
-    transition: "all 0.3s ease",
-    "&:hover": {
-      bgcolor: "rgba(0,0,0,1)",
-      "& .logo-box": { transform: "scale(1.1)" }
-    },
-  }}
->
-  <Stack direction="row" spacing={2} alignItems="center">
-    <Box 
-      className="logo-box"
-      sx={{ 
-        height: 50, 
-        width: 50, 
-        bgcolor: "#fff", 
-        p: 0.5, 
-        transition: "transform 0.3s ease" 
-      }}
-    >
-      <Box 
-        component="img" 
-        src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1776244520/65058387-e24c-4e34-8fab-26245a2e0d2a_wdr0o5.jpg" 
-        alt="JOSCAR"
-        sx={{ width: "100%", height: "100%", objectFit: "contain" }}
-      />
-    </Box>
-    <Box>
-      <Typography
-        sx={{
-          color: "#61D649",
-          fontSize: "0.75rem",
-          fontWeight: 900,
-          letterSpacing: "0.2em",
-          lineHeight: 1,
-          fontFamily: '"Barlow Condensed", sans-serif',
-        }}
-      >
-        ACTIVE REGISTRATION
-      </Typography>
-      <Typography
-        sx={{
-          color: "#fff",
-          fontSize: "1.1rem",
-          fontWeight: 700,
-          fontFamily: '"Barlow Condensed", sans-serif',
-        }}
-      >
-        JOSCAR REGISTERED
-      </Typography>
-    </Box>
-  </Stack>
-</Box>
+
 
       {/* 5. NAVIGATION CONTROLS */}
       <Stack

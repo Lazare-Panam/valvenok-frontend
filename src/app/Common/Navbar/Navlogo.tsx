@@ -5,7 +5,7 @@ import Link from "@mui/material/Link";
 import NextLink from "next/link";
 
 const LOGO_URL =
-  "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774526040/Untitled_design-6_nleu85.avif";
+  "https://pblol2.blob.core.windows.net/valvenok-images/logo/Valvenok_logo.jpeg";
 
 export default function NavLogo() {
   return (

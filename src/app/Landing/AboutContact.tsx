@@ -161,7 +161,7 @@ export default function AboutContact() {
               }}
             >
               <img
-                src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1776264427/JOSCAR_VALVENOK_CERTIFICATE_MOCKUP_1_inv1bc.png"
+                src="https://pblol2.blob.core.windows.net/valvenok-images/certfiicates/Joscar_Cert"
                 alt="Valvenok JOSCAR Accreditation Certificate"
                 style={{
                   width: "100%",

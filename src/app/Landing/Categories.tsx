@@ -10,11 +10,11 @@ import Link from "next/link"; // Recommended for Next.js navigation
 const CATEGORIES = [
   {
     name: "Fittings & Tubings",
-    img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1771948480/reducing-hex-couplings-npt_i2twbq.png",
+    img: "https://pblol2.blob.core.windows.net/valvenok-images/products/fittings/hex_couplings.png",
     href: "/fittings/jic",
     subs: [
       {
-        name: "Instrumentation Fittings",
+        name: "Flare Fittings",
         href: "/fittings/jic",
       },
       { name: "Instrumentation Valves", href: "/valves" },
@@ -23,7 +23,7 @@ const CATEGORIES = [
 
   {
     name: "Pneumatic Systems",
-    img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774007615/DSC_7050_ESNC-100x100_jjj5g6-removebg-preview_apf6ug.png",
+    img: "https://pblol2.blob.core.windows.net/valvenok-images/products/pneumatic-cylinder/DSC_7050_ESNC-100x100.png",
     href: "/collections/pneumatics",
     subs: [
       { name: "Pnuematic Cylinders", href: "/categories/pneumatics" },
@@ -32,7 +32,7 @@ const CATEGORIES = [
   },
   {
     name: "Filters",
-    img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776161440/image-removebg-preview_12_nlw5if.png",
+    img: "https://pblol2.blob.core.windows.net/valvenok-images/products/filters/DFM_Mega_Flow_Rate_Filter.png",
     href: "/collections/pneumatics",
     subs: [
       { name: "Sight Glass", href: "/categories/sight-glass" },
@@ -41,7 +41,7 @@ const CATEGORIES = [
   },
   {
     name: "Valves",
-    img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774523763/steel-ball-valve_mqpk70.jpg",
+    img: "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/apollo-valves-88a10a01.webp",
     href: "/categories/ball-valves",
     subs: [{ name: "Industrial Valves", href: "/industrial-valves" },
       { name: "Marine Valves", href: "/marine-valves" }
@@ -49,13 +49,13 @@ const CATEGORIES = [
   },
   {
     name: "Actuators",
-    img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774870846/WhatsApp_Image_2026-03-30_at_11.18.12_AM_ngx1e8.jpg",
+    img: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/download.webp",
     href: "/categories/actuators",
     subs: [{ name: "Pneumatic Actuators", href: "/categories/actuators" }],
   },
   {
     name: "Pumps & Mechanical Seal",
-    img: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774524120/08-TEP-Peripheral-pumps-1-259x300_fstbrp.png",
+    img: "https://pblol2.blob.core.windows.net/valvenok-images/products/seals/Seals.jpg",
     href: "/collections/tormac-pumps",
     subs: [
       { name: "Industrial Pumps", href: "/pumps" },
