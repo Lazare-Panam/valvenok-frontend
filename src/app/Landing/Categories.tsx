@@ -18,6 +18,7 @@ const CATEGORIES = [
         href: "/fittings/jic",
       },
       { name: "Instrumentation Valves", href: "/valves" },
+      { name: "Pipe Fittings", href: "/pipe-fittings" },
     ],
   },
 
@@ -43,8 +44,9 @@ const CATEGORIES = [
     name: "Valves",
     img: "",
     href: "/ball-valves",
-    subs: [{ name: "Industrial Valves", href: "/industrial-valves" },
-      { name: "Marine Valves", href: "/marine-valves" }
+    subs: [
+      { name: "Industrial Valves", href: "/industrial-valves" },
+      { name: "Marine Valves", href: "/marine-valves" },
     ],
   },
   {

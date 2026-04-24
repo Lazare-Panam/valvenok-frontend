@@ -37,10 +37,11 @@ export const CATEGORIES: Category[] = [
     textColor: "#fff",
     items: [
       {
-        label: "Instrumentation Fittings",
+        label: "Flare Fittings",
         href: "/fittings/jic",
       },
       { label: "Instrumentation Valves", href: "/valves" },
+      { label: "Pipe Fittings", href: "/pipe-fittings" },
     ],
   },
   {
