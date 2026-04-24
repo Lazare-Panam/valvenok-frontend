@@ -22,7 +22,7 @@ export default function HighPressureValvesPage() {
     alignItems: 'center',
     overflow: 'hidden',
     // Background Logic
-    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://res.cloudinary.com/dm9rmmemx/image/upload/v1776867715/shail-sharma-Dh3EHnVJuR4-unsplash_u780ko.jpg")`,
+    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://pblol2.blob.core.windows.net/valvenok-images/banner-images/shail-sharma-Dh3EHnVJuR4-unsplash.jpg")`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     py: { xs: 8, md: 12 }
@@ -70,25 +70,7 @@ export default function HighPressureValvesPage() {
       pneumatic and instrumentation systems. Rated to 6,000 PSI across
       core ranges, with selected series reaching 10,000 PSI.
     </Typography>
-    
-    <Button
-      variant="contained"
-      size="large"
-      href="mailto:sales@valvenok.com"
-      sx={{
-        bgcolor: "#61D649", // Using your bright green for the CTA
-        color: "#000",
-        borderRadius: 1,
-        px: 5,
-        py: 2,
-        fontSize: '1rem',
-        fontWeight: 700,
-        textTransform: 'none',
-        "&:hover": { bgcolor: "#fff", color: "#000" },
-      }}
-    >
-      Request a Quote
-    </Button>
+   
   </Container>
 </Box>
 
@@ -297,7 +279,7 @@ export default function HighPressureValvesPage() {
       }}
     >
       <img 
-        src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1772472898/BALL-VALVES_kyxk6n.jpg" 
+        src="https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PBV-2-S-04-FF-1.png" 
         alt="High-pressure fittings" 
         style={{ 
           width: '70%', 
@@ -331,7 +313,7 @@ export default function HighPressureValvesPage() {
       }}
     >
       <img 
-        src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1768296756/11111_e7ywry.webp" // Paste your Cloudinary link here
+        src="https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PNV-IB-S-02-OD.png" // Paste your Cloudinary link here
         alt="Needle valves & block and bleed" 
         style={{ 
           width: '50%', 
@@ -448,7 +430,7 @@ export default function HighPressureValvesPage() {
       }}
     >
       <img 
-        src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1771948480/reducing-hex-couplings-npt_i2twbq.png" 
+        src="https://pblol2.blob.core.windows.net/panam-images/products/high-pressure/adapters_-_npt_x_npt_-_jpg-removebg-preview.png" 
         alt="High-pressure fittings" 
         style={{ 
           width: '50%', 

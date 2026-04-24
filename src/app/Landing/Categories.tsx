@@ -42,7 +42,7 @@ const CATEGORIES = [
   },
   {
     name: "Valves",
-    img: "",
+    img: "https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PNV-IB-S-02-OD.png",
     href: "/ball-valves",
     subs: [
       { name: "Industrial Valves", href: "/industrial-valves" },
