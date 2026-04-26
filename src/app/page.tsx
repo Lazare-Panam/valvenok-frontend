@@ -19,7 +19,7 @@ export const metadata = {
     siteName: 'Valvenok',
     images: [
       {
-        url: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1774526040/Untitled_design-6_nleu85.avif', 
+        url: 'https://pblol2.blob.core.windows.net/valvenok-images/logo/Valvenok_logo.jpeg', 
         width: 1200,
         height: 630,
       },
