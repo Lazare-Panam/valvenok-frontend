@@ -74,6 +74,22 @@ export default function RootLayout({
             src="//js-eu1.hs-scripts.com/147618935.js"
             strategy="afterInteractive"
           />
+          <Script
+    src="https://www.googletagmanager.com/gtag/js?id=G-NRCXYNLX5K"
+    strategy="afterInteractive"
+  />
+  <Script
+    id="gtag-init"
+    strategy="afterInteractive"
+    dangerouslySetInnerHTML={{
+      __html: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-NRCXYNLX5K');
+      `,
+    }}
+  />
       </body>
     </html>
   );
