@@ -53,7 +53,7 @@ export default function PneumaticSystemsPage() {
           {[1, 2].map((iteration) => (
             <Box key={iteration} sx={{ display: "flex", gap: 6, pr: 6 }}>
               {["ISO 15552 & VDMA Standards", "High-speed 24h Dispatch", "Energy-efficient Air Prep", "NPT & BSPP Thread Standards"].map((item) => (
-                <Typography key={item} sx={{ fontSize: 13, fontWeight: 500, color: "text.secondary", display: "flex", alignItems: "center", gap: 1.5 }}>
+                <Typography key={item} sx={{ fontSize: 19, fontWeight: 500, color: "text.secondary", display: "flex", alignItems: "center", gap: 1.5 }}>
                   <Box component="span" sx={{ width: 6, height: 6, borderRadius: "50%", bgcolor: "#61D649" }} />
                   {item}
                 </Typography>

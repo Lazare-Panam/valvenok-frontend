@@ -50,6 +50,9 @@ export default function ProductPageClient({ product }: Props) {
                 <Typography sx={{ fontFamily: '"Barlow Condensed", sans-serif', fontSize: '22px', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'primary.main' }}>
                   {product.sku}
                 </Typography>
+                  <Typography sx={{ fontFamily: '"Barlow Condensed", sans-serif', fontSize: '22px', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'text.secondary' }}>
+                  PANAM {product.name}
+                </Typography>
               </Box>
               <Box sx={{ textAlign: { xs: 'left', sm: 'right' } }}>
                 <Typography sx={{ fontFamily: '"Barlow Condensed", sans-serif', fontSize: '10px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'text.secondary', mb: 0.5 }}>

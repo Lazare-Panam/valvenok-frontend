@@ -118,7 +118,7 @@ export default function HighPressureValvesPage() {
           <Typography
             key={item}
             sx={{
-              fontSize: 13,
+              fontSize: 19,
               fontWeight: 500,
               color: "text.secondary",
               display: "flex",

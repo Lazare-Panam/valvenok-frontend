@@ -6,28 +6,26 @@ import Typography from '@mui/material/Typography';
 
 // 1. Updated Data Structure
 const BRANDS = [
-  { name: 'PANAM', logo: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1769097040/1_jdvwbk.png", link: 'https://www.panamvalve.com/' },
-  { name: 'Batu', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1774530741/logo_i2lhxi.png', link: 'https://www.batuvalve.com/' },
-  { name: 'Spac', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1774530706/SPAC-Without-Baseline-Logo-1-2_ii1dai_wsutjm.webp', link: 'https://spacpneumatic.co.uk/' },
+  { name: 'PANAM', logo: "https://pblol2.blob.core.windows.net/panam-images/panam-resize_smallest.jpg", link: 'https://www.panamvalve.com/' },
+  { name: 'Batu', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/batu-logo.png', link: 'https://www.batuvalve.com/' },
+  { name: 'Spac', logo: 'https://pblol2.blob.core.windows.net/spac-images/spac-logo.webp', link: 'https://spacpneumatic.co.uk/' },
   { name: 'Tormac', logo: 'https://tormacpumps.com/wp-content/uploads/2025/06/tormac_logo.svg', link: 'https://tormacpumps.com/' },
   { name: 'Emerson', logo: 'https://www.emerson.com/resource/blob/emerson-logo-compressed--data-5970556.png' },
-  { name: 'Siemens', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1774531009/download_1_lwfn54.png'},
-  { name: 'Crosby', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776252037/8b4d3f3f-7e9d-4266-a753-5ccf4206d714.png' },
-  { name: 'Atam Valves', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776252030/9cb32873-71eb-4bee-a40c-d253a2d1ef5b.png' },
-  { name: 'Leser', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776251966/247a1fc2-d1ed-4fa3-859f-451c1d2e2959.png' },
-  { name: 'Knuckle Valves', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776251856/e4f2f974-6400-4a0c-9166-484edab335ea.png' },
-  { name: 'Bettis', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776251807/09d61023-3bd5-47c3-a85c-8682746457a0.png' },
-  { name: 'Anderson Greenwood', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776251732/21571155-0d7a-46b0-b79f-854a7bbedee8.png' },
-  { name: 'Cameron', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776251705/eb9a9389-dd35-478e-b4d7-fc7d905ebfcd.png' },
-  { name: 'Sealflex', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776071228/18f148ae-5aea-4172-a68f-ebb97f38a621.png' },
-  { name: 'Fisher', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776071072/f6b8803c-7833-40b1-9311-228c31e14a92.png' },
-  { name: 'Aquatrol', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776070644/23b997aa-777a-4b3a-a817-b5b76d9135c8.png' },
-  { name: 'Mercer', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776070145/68b0296b-8db9-4351-8706-b8d6e3a1223c.png' },
-  { name: 'Curtis Wright', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776069969/a725d89f-6c4a-41dc-9151-7a5d37ac0c0d.png' },
-  { name: 'Baker Hughes', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776069683/f64364c8-1094-47f2-882a-5cedb56a389c.png' },
-  { name: 'FHT Valves', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776252496/51f84bd6-aa49-4920-a1ef-9f5957c5f015.png' },
- 
-
+  { name: 'Siemens', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/siemens-logo.png'},
+  { name: 'Crosby', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/crosby_logo.png' },
+  { name: 'Atam Valves', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/atamvalves_logo.jpg' },
+  { name: 'Leser', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/LESER-logo.png' },
+  { name: 'Knuckle Valves', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/knuckle-valve-logo.png' },
+  { name: 'Bettis', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/bettis-logo.png' },
+  { name: 'Anderson Greenwood', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/anderson-greewood-logo.jpg' },
+  { name: 'Cameron', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/cameron-logo.png' },
+  //{ name: 'Sealflex', logo: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776071228/18f148ae-5aea-4172-a68f-ebb97f38a621.png' },
+  { name: 'Fisher', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/cameron-logo.png' },
+  { name: 'Aquatrol', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/aquatrol-logo.png' },
+  { name: 'Mercer', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/mercer-logo.jpg' },
+  { name: 'Curtis Wright', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/curtis-wright-logo.jpg' },
+  { name: 'Baker Hughes', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/baker-hughes-logo.png' },
+  { name: 'FHT Valves', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/fht-valves-logo.png' },
 
 ];
 
