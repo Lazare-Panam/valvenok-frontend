@@ -51,8 +51,11 @@ export const CATEGORIES: Category[] = [
     color: "#2e7d32",
     textColor: "#fff",
     items: [
-      { label: "Pneumatic Cylinder", href: "/categories/pneumatics" },
-      { label: "FRL Units", href: "/categories/frl" },
+      { label: "Pneumatic Cylinder", href: "/pneumatic/cylinders" },
+      { label: "Pneumatic Fittings", href: "/pneumatic/apfittings" },
+      { label: "Pneumatic Tubing", href: "/pneumatic/tubing" },
+      { label: "Air Gun", href: "/pneumatic/air-gun" },
+
     ],
   },
   {

@@ -34,7 +34,7 @@ function RightPanel({ items, onClose }: { items: NavItem[]; onClose: () => void 
       display: "flex",
       alignItems: "center",
       justifyContent: "space-between",
-      fontSize: "0.875rem",
+      fontSize: "1.25 rem",
       fontWeight: 600,
       color: isActive ? BRAND_GREEN : "#333",
       textDecoration: "none",
@@ -57,7 +57,7 @@ function RightPanel({ items, onClose }: { items: NavItem[]; onClose: () => void 
                   onMouseEnter={() => setHoveredLabel(null)}
                   sx={{
                     display: "block",
-                    fontSize: "0.875rem",
+                    fontSize: "1.25 rem",
                     color: "#555",
                     textDecoration: "none",
                     py: 0.75,
@@ -145,7 +145,7 @@ export default function MegaMenu({ onClose }: Props) {
         py: 1.5,
         cursor: "pointer",
         transition: "0.2s",
-        fontSize: "0.875rem",
+        fontSize: "1.25 rem",
         fontWeight: activeCategory?.id === cat.id ? 700 : 500,
         color: activeCategory?.id === cat.id ? BRAND_GREEN : "#4A4A4A",
         bgcolor: activeCategory?.id === cat.id ? "#F2F8F3" : "transparent",

@@ -27,8 +27,10 @@ const CATEGORIES = [
     img: "https://pblol2.blob.core.windows.net/valvenok-images/products/pneumatic-cylinder/DSC_7050_ESNC-100x100.png",
     href: "/collections/pneumatics",
     subs: [
-      { name: "Pnuematic Cylinders", href: "/categories/pneumatics" },
-      { name: "FRL Units", href: "/categories/frl" },
+      { name: "Pnuematic Cylinders", href: "/pneumatic/cylinders" },
+      { name: "Pnuematic Fitting", href: "/pneumatic/apfittings" },
+       { name: "Pnuematic Tubing", href: "/pneumatic/tubing" },
+        { name: "Air Gun", href: "/pneumatic/air-gun" },
     ],
   },
   {
