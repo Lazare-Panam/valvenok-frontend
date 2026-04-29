@@ -53,7 +53,7 @@ const CATEGORIES = [
   },
   {
     name: "Actuators",
-    img: "",
+    img: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/actuator_no-bg.png",
     href: "/categories/actuators",
     subs: [{ name: "Pneumatic Actuators", href: "/categories/actuators" }],
   },
