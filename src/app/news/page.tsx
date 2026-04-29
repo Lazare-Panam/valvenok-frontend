@@ -47,6 +47,15 @@ const POSTS = [
   category: "Manufacturer Profiles",
   link: "/news/manufacturer-spotlight",
 },
+ {
+  title: "Instrumentation Fittings for Hydrogen: Leak-Tight Thread Practices",
+  desc: "Learn how to select and assemble instrumentation fittings for hydrogen with correct thread ID, sealants, and ferrule design to avoid leaks and delays.",
+  thumbnail: "https://pblol2.blob.core.windows.net/valvenok-images/blogs/blog4.jpg", // add your image here
+  author: "Steven Kassi",
+  date: "April 2026",
+  category: "Manufacturer Profiles",
+  link: "/news/instrumentation-fittings-hydrogen-leak-tight-threads",
+},
 ];
 
 export default function BlogPage() {
