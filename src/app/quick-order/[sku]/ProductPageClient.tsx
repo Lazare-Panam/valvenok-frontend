@@ -42,27 +42,31 @@ export default function ProductPageClient({ product }: Props) {
           <Box sx={{ flex: 1, minWidth: 0 }}>
 
             {/* SKU + Price */}
-            <Box sx={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', mb: 3, flexWrap: 'wrap', gap: 2 }}>
-              <Box>
-                <Typography sx={{ fontFamily: '"Barlow Condensed", sans-serif', fontSize: '10px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'text.secondary', mb: 0.5 }}>
-                  Part Number
-                </Typography>
-                <Typography sx={{ fontFamily: '"Barlow Condensed", sans-serif', fontSize: '22px', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'primary.main' }}>
-                  {product.sku}
-                </Typography>
-                  <Typography variant='h1' sx={{ fontFamily: '"Barlow Condensed", sans-serif', fontSize: '22px', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'text.secondary' }}>
-                  PANAM {product.name}
-                </Typography>
-              </Box>
-              <Box sx={{ textAlign: { xs: 'left', sm: 'right' } }}>
-                <Typography sx={{ fontFamily: '"Barlow Condensed", sans-serif', fontSize: '10px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'text.secondary', mb: 0.5 }}>
-                  Unit Price (ex VAT)
-                </Typography>
-                <Typography sx={{ fontFamily: '"Barlow Condensed", sans-serif', fontSize: '28px', fontWeight: 900, color: 'text.primary' }}>
-                  {`£${product.price.toFixed(2)}`}
-                </Typography>
-              </Box>
-            </Box>
+            <Box>
+  <Typography sx={{ 
+    fontFamily: '"Barlow Condensed", sans-serif', 
+    fontSize: '26px',  // bumped up
+    fontWeight: 900, 
+    textTransform: 'uppercase', 
+    letterSpacing: '0.05em', 
+    color: 'text.primary',  // more prominent
+    mb: 0.5 
+  }}>
+    PANAM {product.name}
+  </Typography>
+  <Typography sx={{ 
+    fontFamily: '"Barlow Condensed", sans-serif', 
+    fontSize: '15x', 
+    fontWeight: 700, 
+    letterSpacing: '0.12em', 
+    textTransform: 'uppercase', 
+    color: 'primary.main', 
+    mb: 0.5 
+  }}>
+    Part Number : {product.sku}
+  </Typography>
+  
+</Box>
 
             <Divider sx={{ mb: 3 }} />
 
