@@ -29,21 +29,27 @@ export const NAV_LINKS: NavLink[] = [
 ];
 
 export const CATEGORIES: Category[] = [
-  {
-    id: "fittings",
-    label: "Fittings & Valves",
-    href: "/fittings",
-    color: "#1c6e2e",
-    textColor: "#fff",
-    items: [
-      {
-        label: "Flare Fittings",
-        href: "/fittings/jic",
-      },
-      { label: "Instrumentation Valves", href: "/valves" },
-      { label: "Pipe Fittings", href: "/pipe-fittings" },
-    ],
-  },
+{
+  id: "fittings",
+  label: "Fittings & Valves",
+  href: "/fittings",
+  color: "#1c6e2e",
+  textColor: "#fff",
+  items: [
+    {
+      label: "Instrumentation Fittings",
+      children: [
+        { label: "Connectors & Elbows", href: "/fittings/connectors" },
+        { label: "Unions", href: "/fittings/unions" },
+        { label: "Reducers", href: "/fittings/reducer" },
+   
+      ],
+    },
+    { label: "Flare Fittings", href: "/fittings/jic" },
+    { label: "Instrumentation Valves", href: "/valves" },
+    { label: "Pipe Fittings", href: "/pipe-fittings" },
+  ],
+},
   {
     id: "pneumatic",
      href: "/pneumatic",
