@@ -43,6 +43,9 @@ export const CATEGORIES: Category[] = [
         { label: "Unions", href: "/fittings/unions" },
         { label: "Reducers", href: "/fittings/reducer" },
          { label: "Adapters", href: "/fittings/adapters" },
+         { label: "Port Connectors", href: "/fittings/port-connectors" },
+          { label: "Weld Gauge", href: "/fittings/weld-gauge" },
+           { label: "Accessories", href: "/fittings/accessories" },
    
       ],
     },
