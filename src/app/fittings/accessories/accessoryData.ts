@@ -74,7 +74,6 @@ export const ACCESSORY_DATA: AccessoryItem[] = [
   { id: 50, partNumber: "PTC-M15-SS", fittingType: "Tube Cap", tubeOD: "15", tubeODUnit: "Metric", imageUrl: IMAGES["Tube Cap"] },
   { id: 51, partNumber: "PTC-M16-SS", fittingType: "Tube Cap", tubeOD: "16", tubeODUnit: "Metric", imageUrl: IMAGES["Tube Cap"] },
   { id: 52, partNumber: "PTC-M18-SS", fittingType: "Tube Cap", tubeOD: "18", tubeODUnit: "Metric", imageUrl: IMAGES["Tube Cap"] },
-  { id: 53, partNumber: "PTC-M19-SS", fittingType: "Tube Cap", tubeOD: "19", tubeODUnit: "Metric", imageUrl: IMAGES["Tube Cap"] },
   { id: 54, partNumber: "PTC-M20-SS", fittingType: "Tube Cap", tubeOD: "20", tubeODUnit: "Metric", imageUrl: IMAGES["Tube Cap"] },
   { id: 55, partNumber: "PTC-M22-SS", fittingType: "Tube Cap", tubeOD: "22", tubeODUnit: "Metric", imageUrl: IMAGES["Tube Cap"] },
   { id: 56, partNumber: "PTC-M25-SS", fittingType: "Tube Cap", tubeOD: "25", tubeODUnit: "Metric", imageUrl: IMAGES["Tube Cap"] },
