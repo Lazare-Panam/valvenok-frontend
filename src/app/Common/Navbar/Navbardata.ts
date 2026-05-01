@@ -42,6 +42,7 @@ export const CATEGORIES: Category[] = [
         { label: "Connectors & Elbows", href: "/fittings/connectors" },
         { label: "Unions", href: "/fittings/unions" },
         { label: "Reducers", href: "/fittings/reducer" },
+         { label: "Adapters", href: "/fittings/adapters" },
    
       ],
     },

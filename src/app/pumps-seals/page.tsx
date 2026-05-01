@@ -21,7 +21,7 @@ export default function PumpsAndSealsPage() {
           display: 'flex',
           alignItems: 'center',
           overflow: 'hidden',
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("https://res.cloudinary.com/dm9rmmemx/image/upload/v1776870331/francesco-giacomini-cakgzoWWFec-unsplash_fnuknb.jpg")`, 
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("https://pblol2.blob.core.windows.net/valvenok-images/banner-images/pumps-banner.jpg")`, 
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           py: { xs: 8, md: 12 }
@@ -231,7 +231,7 @@ export default function PumpsAndSealsPage() {
           <Grid size={{ xs: 12, md: 6 }}>
             <Box sx={{ borderRadius: 2, p: 4, textAlign: 'center', bgcolor: '#fbfbfb' }}>
               <img 
-                src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1776783644/a30a791c-2549-42c7-b2ca-73e435c3427b.png" 
+                src="https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/02-TSL.png" 
                 alt="Industrial Submersible Pump" 
                 style={{ width: '60%', height: 'auto', mixBlendMode: 'multiply' }} 
               />
@@ -246,7 +246,7 @@ export default function PumpsAndSealsPage() {
           <Grid size={{ xs: 12, md: 6 }} sx={{ order: { xs: 2, md: 1 } }}>
             <Box sx={{ borderRadius: 2, p: 4, textAlign: 'center', bgcolor: '#fbfbfb' }}>
               <img 
-                src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1775566104/ea2a7d16-ebdd-40e4-946e-1f4b0d72ff9b.png" 
+                src="https://pblol2.blob.core.windows.net/valvenok-images/products/seals/Seals.jpg" 
                 alt="Mechanical Seal Assembly" 
                 style={{ width: '60%', height: 'auto', mixBlendMode: 'multiply' }} 
               />
