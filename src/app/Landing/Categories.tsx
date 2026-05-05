@@ -5,38 +5,49 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Collapse from "@mui/material/Collapse";
-import Link from "next/link"; // Recommended for Next.js navigation
+import Link from "next/link";
+
+const ACCENT_COLORS = [
+  { bg: "#c2410c", text: "#fff", border: "#c2410c" }, // orange  — Fittings
+  { bg: "#1d4ed8", text: "#fff", border: "#1d4ed8" }, // blue    — Pneumatics
+  { bg: "#6d28d9", text: "#fff", border: "#6d28d9" }, // purple  — Filters
+  { bg: "#166534", text: "#fff", border: "#166534" }, // green   — Industrial Valves
+  { bg: "#0e7490", text: "#fff", border: "#0e7490" }, // teal    — Actuators
+  { bg: "#9f1239", text: "#fff", border: "#9f1239" }, // crimson — Pumps
+];
 
 const CATEGORIES = [
   {
     name: "Fittings & Instrumentation Valves",
     img: "https://pblol2.blob.core.windows.net/valvenok-images/products/fittings/hex_couplings.png",
     href: "/fittings/jic",
+    tag: "Most Popular",
+    count: "450+",
     subs: [
-      {
-        name: "Flare Fittings",
-        href: "/fittings/jic",
-      },
+      { name: "Flare Fittings", href: "/fittings/jic" },
       { name: "Instrumentation Valves", href: "/valves" },
       { name: "Pipe Fittings", href: "/pipe-fittings" },
     ],
   },
-
   {
     name: "Pneumatic Systems",
     img: "https://pblol2.blob.core.windows.net/valvenok-images/products/pneumatic-cylinder/DSC_7050_ESNC-100x100.png",
     href: "/collections/pneumatics",
+    tag: "Best Sellers",
+    count: "200+",
     subs: [
-      { name: "Pnuematic Cylinders", href: "/pneumatic/cylinders" },
-      { name: "Pnuematic Fitting", href: "/pneumatic/apfittings" },
-       { name: "Pnuematic Tubing", href: "/pneumatic/tubing" },
-        { name: "Air Gun", href: "/pneumatic/air-gun" },
+      { name: "Pneumatic Cylinders", href: "/pneumatic/cylinders" },
+      { name: "Pneumatic Fittings", href: "/pneumatic/apfittings" },
+      { name: "Pneumatic Tubing", href: "/pneumatic/tubing" },
+      { name: "Air Gun", href: "/pneumatic/air-gun" },
     ],
   },
   {
     name: "Filters",
     img: "https://pblol2.blob.core.windows.net/valvenok-images/products/filters/DFM_Mega_Flow_Rate_Filter.png",
     href: "/collections/pneumatics",
+    tag: "Industrial",
+    count: "80+",
     subs: [
       { name: "Sight Glass", href: "/categories/sight-glass" },
       { name: "Filtration", href: "/categories/filtration" },
@@ -46,6 +57,8 @@ const CATEGORIES = [
     name: "Industrial Valves",
     img: "https://pblol2.blob.core.windows.net/valvenok-images/products/industrial-valves/industrial-valves.jpg",
     href: "/ball-valves",
+    tag: "Heavy Duty",
+    count: "280+",
     subs: [
       { name: "Industrial Valves", href: "/industrial-valves" },
       { name: "Marine Valves", href: "/marine-valves" },
@@ -55,27 +68,30 @@ const CATEGORIES = [
     name: "Actuators",
     img: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/actuator_no-bg.png",
     href: "/categories/actuators",
+    tag: "Precision",
+    count: "50+",
     subs: [{ name: "Pneumatic Actuators", href: "/categories/actuators" }],
   },
   {
     name: "Pumps & Mechanical Seal",
     img: "https://pblol2.blob.core.windows.net/valvenok-images/products/seals/Seals.jpg",
     href: "/collections/tormac-pumps",
+    tag: "Fluid Control",
+    count: "180+",
     subs: [
       { name: "Industrial Pumps", href: "/pumps" },
       { name: "Mechanical Seals", href: "/seals" },
-      { name: "Submersible  Pumps", href: "/wastewater" },
+      { name: "Submersible Pumps", href: "/wastewater" },
     ],
   },
 ];
 
 export default function Categories() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-
   const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
 
   return (
-    <Box component="section" sx={{ py: { xs: 6, md: 10 }, bgcolor: "grey.50" }}>
+    <Box component="section" sx={{ py: { xs: 4, md: 8 }, bgcolor: "grey.50" }}>
       <Container maxWidth="lg">
         {/* Section Header */}
         <Box sx={{ textAlign: "center", mb: 6 }}>
@@ -115,108 +131,157 @@ export default function Categories() {
             gridTemplateColumns: {
               xs: "1fr",
               sm: "repeat(2, 1fr)",
-              md: "repeat(3, 1fr)",
+              md: "repeat(4, 1fr)",
             },
-            gap: { xs: 2, md: 3 },
+            gap: 2,
           }}
         >
           {CATEGORIES.map((cat, i) => {
             const isOpen = openIndex === i;
+            const isFeatured = i === 0;
+            const accent = ACCENT_COLORS[i];
+
             return (
               <Box
                 key={cat.name}
+                onClick={() => toggle(i)}
                 sx={{
-                  bgcolor: "background.paper",
-                  display: "flex",
-                  flexDirection: "column",
+                  gridColumn: { md: isFeatured ? "span 3" : "span 1" },
+                  position: "relative",
+                  bgcolor: "white",
                   border: "1px solid",
-                  borderColor: isOpen ? "primary.main" : "divider",
+                  borderColor: isOpen ? accent.border : "divider",
+                  display: "flex",
+                  flexDirection: isFeatured
+                    ? { xs: "column", sm: "row" }
+                    : "column",
+                  minHeight: "280px",
                   overflow: "hidden",
-                  transition: "all 0.3s ease-in-out",
+                  transition: "all 0.3s ease",
+                  cursor: "pointer",
                   "&:hover": {
-                    boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
-                    transform: "translateY(-5px)",
-                    borderColor: "primary.main",
+                    borderColor: accent.border,
+                    boxShadow: `0 10px 25px ${accent.border}22`,
+                    "& .bg-img": { transform: "scale(1.05)" },
+                    "& .explore-label": { color: accent.border },
                   },
                 }}
               >
-                {/* Card Header (Clickable Area) */}
-                <Box
-                  onClick={() => toggle(i)}
+                {/* Product Count Badge */}
+                <Typography
                   sx={{
+                    position: "absolute",
+                    top: 15,
+                    right: 15,
+                    fontSize: "10px",
+                    fontWeight: 700,
+                    color: "text.disabled",
+                    zIndex: 3,
+                  }}
+                >
+                  {cat.count} Products
+                </Typography>
+
+                {/* Image Container */}
+                <Box
+                  sx={{
+                    flex: isFeatured ? { sm: "1 1 60%" } : "none",
+                    order: isFeatured ? 2 : 1,
+                    position: isFeatured ? "relative" : "absolute",
+                    top: isFeatured ? 0 : "10%",
+                    left: isFeatured ? 0 : "5%",
+                    right: isFeatured ? 0 : "5%",
+                    bottom: isFeatured ? 0 : isOpen ? "45%" : "35%",
+                    height: isFeatured ? "100%" : "auto",
                     display: "flex",
-                    flexDirection: "column",
                     alignItems: "center",
-                    textAlign: "center",
-                    gap: 2,
-                    p: 4,
-                    cursor: "pointer",
+                    justifyContent: "center",
+                    p: isFeatured ? 4 : 0,
                   }}
                 >
                   <Box
+                    className="bg-img"
                     sx={{
-                      width: 200,
-                      height: 180,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
+                      width: "100%",
+                      height: "100%",
+                      backgroundImage: `url(${cat.img})`,
+                      backgroundSize: "contain",
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "center",
+                      transition: "transform 0.4s ease",
                     }}
-                  >
-                    {cat.img ? (
-                      <Box
-                        component="img"
-                        src={cat.img}
-                        alt={cat.name}
-                        sx={{
-                          width: "100%",
-                          height: "100%",
-                          objectFit: "contain",
-                        }}
-                      />
-                    ) : (
-                      <Box
-                        sx={{
-                          width: "100%",
-                          height: "100%",
-                          bgcolor: "grey.200",
-                        }}
-                      />
-                    )}
-                  </Box>
+                  />
+                </Box>
 
-                  <Box sx={{ width: "100%" }}>
+                {/* Content Area */}
+                <Box
+                  sx={{
+                    flex: isFeatured ? { sm: "1 1 40%" } : "none",
+                    order: isFeatured ? 1 : 2,
+                    mt: isFeatured ? 0 : "auto",
+                    zIndex: 2,
+                    p: 2.5,
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    background: isFeatured
+                      ? "white"
+                      : "linear-gradient(to top, white 80%, rgba(255,255,255,0) 100%)",
+                  }}
+                >
+                  <Box>
+                    {/* Tag — each category's own colour */}
                     <Typography
                       sx={{
-                        fontFamily: '"Barlow Condensed", sans-serif',
-                        fontSize: "1.25rem",
+                        display: "inline-block",
+                        bgcolor: accent.bg,
+                        color: accent.text,
+                        px: 1,
+                        py: 0.2,
+                        fontSize: "9px",
                         fontWeight: 800,
                         textTransform: "uppercase",
-                        letterSpacing: "0.02em",
+                        mb: 0.5,
+                      }}
+                    >
+                      {cat.tag}
+                    </Typography>
+
+                    <Typography
+                      variant="h3"
+                      sx={{
+                        fontFamily: '"Barlow Condensed", sans-serif',
+                        fontSize: isFeatured ? "1.8rem" : "1.2rem",
+                        fontWeight: 900,
+                        textTransform: "uppercase",
                         color: "text.primary",
-                        lineHeight: 1.2,
-                        mb: 1,
+                        lineHeight: 1.1,
+                        mb: 0.5,
                       }}
                     >
                       {cat.name}
                     </Typography>
+
+                    {/* Explore label — picks up hover colour via class */}
                     <Typography
+                      className="explore-label"
                       sx={{
-                        fontSize: "13px",
-                        color: "primary.main",
                         display: "flex",
                         alignItems: "center",
-                        justifyContent: "center",
-                        gap: "6px",
-                        fontWeight: 600,
+                        gap: 0.5,
+                        fontSize: "10px",
+                        fontWeight: 800,
+                        color: isOpen ? accent.border : "text.secondary",
+                        letterSpacing: "0.05em",
+                        transition: "color 0.2s",
                       }}
                     >
-                      {isOpen ? "Hide" : "View"} {cat.subs.length} Items
+                      {isOpen ? "CLOSE" : "EXPLORE"}
                       <Box
                         component="span"
                         sx={{
-                          display: "inline-block",
-                          fontSize: "10px",
-                          transition: "transform 0.3s",
+                          transition: "0.3s",
+                          fontSize: "8px",
                           transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
                         }}
                       >
@@ -224,44 +289,41 @@ export default function Categories() {
                       </Box>
                     </Typography>
                   </Box>
-                </Box>
 
-                {/* Subcategory Dropdown */}
-                <Collapse in={isOpen}>
-                  <Box
-                    sx={{
-                      bgcolor: "grey.50",
-                      borderTop: "1px solid",
-                      borderColor: "divider",
-                      py: 2,
-                      px: 1,
-                    }}
-                  >
-                    {cat.subs.map((sub) => (
-                      <Box
-                        key={sub.name}
-                        component={Link} // Use Next.js Link for better performance
-                        href={sub.href}
-                        sx={{
-                          display: "block",
-                          px: 2,
-                          py: 1,
-                          fontSize: "14px",
-                          color: "text.secondary",
-                          textDecoration: "none",
-                          transition: "all 0.2s",
-                          "&:hover": {
-                            bgcolor: "primary.main",
-                            color: "white",
-                            pl: 3,
-                          },
-                        }}
-                      >
-                        {sub.name}
-                      </Box>
-                    ))}
-                  </Box>
-                </Collapse>
+                  <Collapse in={isOpen}>
+                    <Box
+                      sx={{
+                        mt: 1.5,
+                        pt: 1.5,
+                        borderTop: "1px solid",
+                        borderColor: "divider",
+                      }}
+                    >
+                      {cat.subs.map((sub) => (
+                        <Box
+                          key={sub.name}
+                          component={Link}
+                          href={sub.href}
+                          onClick={(e) => e.stopPropagation()}
+                          sx={{
+                            display: "block",
+                            py: 0.4,
+                            fontSize: "12px",
+                            color: "text.secondary",
+                            textDecoration: "none",
+                            "&:hover": {
+                              color: accent.border,
+                              pl: 0.5,
+                              transition: "0.2s",
+                            },
+                          }}
+                        >
+                          • {sub.name}
+                        </Box>
+                      ))}
+                    </Box>
+                  </Collapse>
+                </Box>
               </Box>
             );
           })}
