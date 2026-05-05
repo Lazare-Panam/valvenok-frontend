@@ -3,7 +3,7 @@
 export const CATEGORY_METADATA = [
   {
     id: 'fittings',
-    title: 'Fittings & Tubings',
+    title: 'Fittings & Instrumentation Valves',
     count: 1,
     description: 'Precision-engineered compression and instrumentation fittings for high-pressure systems.',
     image: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1771948480/reducing-hex-couplings-npt_i2twbq.png',

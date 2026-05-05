@@ -9,7 +9,7 @@ import Link from "next/link"; // Recommended for Next.js navigation
 
 const CATEGORIES = [
   {
-    name: "Fittings & Tubings",
+    name: "Fittings & Instrumentation Valves",
     img: "https://pblol2.blob.core.windows.net/valvenok-images/products/fittings/hex_couplings.png",
     href: "/fittings/jic",
     subs: [
@@ -43,8 +43,8 @@ const CATEGORIES = [
     ],
   },
   {
-    name: "Valves",
-    img: "https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PNV-IB-S-02-OD.png",
+    name: "Industrial Valves",
+    img: "https://pblol2.blob.core.windows.net/valvenok-images/products/industrial-valves/industrial-valves.jpg",
     href: "/ball-valves",
     subs: [
       { name: "Industrial Valves", href: "/industrial-valves" },
