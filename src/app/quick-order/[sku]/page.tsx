@@ -10,9 +10,12 @@ export async function generateMetadata({ params }: { params: Promise<{ sku: stri
   const { sku } = await params;
   const product = PRODUCTS.find((p) => p.sku === sku);
   if (!product) return {};
-  return {
+return {
     title: `PANAM ${product.name} | Valvenok`,
-    description: `${product.name}. SS316 stainless steel. In stock. Fast UK dispatch.`,
+    description: `${product.meta}. SS316 stainless steel. In stock. Fast UK dispatch.`,
+    alternates: {
+      canonical: `https://www.valvenok.com/quick-order/${sku}`,
+    },
   };
 }
 
