@@ -17,7 +17,7 @@ export const VALVE_DATA = [
     count: 1, // Adjust count as needed
     description: 'Precision flow control valves featuring fine-threaded stems for accurate metering in instrumentation systems.',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/needle-valves/hp-no-bg.png',
-    href: '/categories/needle-valves',
+    href: '/needle-valves',
     tags: ['Flow Metering', 'Hard Seat', 'Micro-Adjustment'],
   },
 

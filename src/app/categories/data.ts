@@ -43,7 +43,7 @@ export const CATEGORY_METADATA = [
     count: 1, // Adjust count as needed
     description: 'Precision flow control valves featuring fine-threaded stems for accurate metering in instrumentation systems.',
     image: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1775124948/PNV-IB-S-02-OD_d8cb2n.png',
-    href: '/categories/needle-valves',
+    href: '/needle-valves',
     tags: ['Flow Metering', 'Hard Seat', 'Micro-Adjustment'],
   },
 {
