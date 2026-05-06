@@ -1,269 +1,255 @@
 'use client'
-import { useMemo, useState, useCallback } from 'react'
-import { Box, Stack, Typography, Button, Chip } from '@mui/material'
+import { useState } from 'react'
+import {
+  Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
+  TablePagination, TableSortLabel, Collapse, Chip, Typography, Stack,
+  IconButton, Button, useMediaQuery, Drawer
+} from '@mui/material'
 import { alpha, useTheme } from '@mui/material/styles'
-import AddIcon from '@mui/icons-material/Add'
-import RemoveIcon from '@mui/icons-material/Remove'
-import { AgGridReact } from 'ag-grid-react'
-import { type ColDef, type ICellRendererParams, type IsFullWidthRowParams } from 'ag-grid-community'
-import 'ag-grid-community/styles/ag-grid.css'
-import 'ag-grid-community/styles/ag-theme-alpine.css'
-import { type BallValveDTO } from '../../../api/ballValveApi'
-import { SERIES_LABELS, BODY_MATERIAL_LABELS } from './types'
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
+import FilterListIcon from '@mui/icons-material/FilterList'
+import { type BallValveDTO, type BallValveFilterOptions } from '../../../api/ballValveApi'
+import { SERIES_LABELS, BODY_MATERIAL_LABELS, type BallValveFilters } from './types'
+import { BallValveSidebar } from './BallValveSidebar'
+import RFQModal from '@/src/app/Common/RFQCard/RFQModal'
+import { type ProductForRFQ } from '@/src/app/Common/RFQCard/RequestForQuoteCard'
 
-function Spec({ label, value }: { label: string; value: string }) {
+function Spec({ label, value }: { label: string; value?: string | null }) {
+  if (!value) return null
   return (
     <Box>
       <Typography variant="caption" color="text.disabled" fontWeight={700}
-        sx={{ display: 'block', textTransform: 'uppercase', mb: 0.25 }}>
-        {label}
-      </Typography>
-      <Typography variant="body2" fontWeight={600}>{value ?? '—'}</Typography>
+        sx={{ display: 'block', textTransform: 'uppercase', mb: 0.25 }}>{label}</Typography>
+      <Typography variant="body2" fontWeight={600}>{value}</Typography>
     </Box>
   )
 }
 
-function DetailPanelRenderer({ data }: ICellRendererParams) {
+function Row({ model }: { model: BallValveDTO }) {
+  const [open, setOpen] = useState(false)
+  const [quoteProduct, setQuoteProduct] = useState<ProductForRFQ | null>(null)
   const theme = useTheme()
-  const valve: BallValveDTO = data
+
+  const openQuote = () => setQuoteProduct({
+    id: model.partNumber,
+    name: `${SERIES_LABELS[model.series] ?? model.series} Ball Valve — ${model.partNumber}`,
+  } as unknown as ProductForRFQ)
+
   return (
-    <Box sx={{
-      p: 3, minHeight: 200,
-      bgcolor: alpha(theme.palette.primary.main, 0.02),
-      borderLeft: `4px solid ${theme.palette.primary.main}`,
-      borderBottom: '1px solid rgba(0,0,0,0.08)',
-      width: '100%'
-    }}>
-      <Stack direction={{ xs: 'column', md: 'row' }} spacing={4} alignItems="flex-start">
-        {valve.imageUrl && (
-          <Box sx={{
-            width: 140, height: 140, flexShrink: 0,
-            border: '1px solid rgba(0,0,0,0.08)', borderRadius: '8px',
-            overflow: 'hidden', bgcolor: '#fff',
-            display: 'flex', alignItems: 'center', justifyContent: 'center'
-          }}>
-            <img src={valve.imageUrl} alt={valve.partNumber}
-              style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
-          </Box>
-        )}
-        <Box sx={{ flex: 1 }}>
-          <Typography variant="caption" fontWeight={900}
-            sx={{ letterSpacing: 1, display: 'block', mb: 2, color: theme.palette.primary.main }}>
-            SPECIFICATIONS
-          </Typography>
-          <Stack direction="row" flexWrap="wrap" gap={3} mb={3}>
-            <Spec label="Part Number" value={valve.partNumber} />
-            <Spec label="Series" value={SERIES_LABELS[valve.series] ?? valve.series} />
-            <Spec label="Body Material" value={BODY_MATERIAL_LABELS[valve.bodyMaterial] ?? valve.bodyMaterial} />
-            <Spec label="Thread Type" value={valve.threadType} />
-            <Spec label="End Connection" value={valve.endConnectionType} />
-            <Spec label="Connection Size" value={valve.connectionSize} />
-            <Spec label="Configuration" value={valve.configuration} />
-            <Spec label="Seat Material" value={valve.seatMaterial} />
-            <Spec label="Handle" value={valve.handle} />
-            {valve.pressureRating && <Spec label="Pressure Rating" value={valve.pressureRating} />}
-            <Spec label="Options" value={valve.options} />
-          </Stack>
-          <Button variant="contained" color="primary"
-            sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px' }}>
+    <>
+      <TableRow hover onClick={() => setOpen(o => !o)} sx={{
+        cursor: 'pointer',
+        bgcolor: open ? alpha(theme.palette.primary.main, 0.04) : 'inherit',
+        '&:hover': { bgcolor: `${alpha(theme.palette.primary.main, 0.03)} !important` },
+      }}>
+        <TableCell sx={{ width: 40, py: 1 }}>
+          <IconButton size="small" onClick={e => { e.stopPropagation(); setOpen(o => !o) }}>
+            {open ? <KeyboardArrowUpIcon fontSize="small" /> : <KeyboardArrowDownIcon fontSize="small" />}
+          </IconButton>
+        </TableCell>
+        <TableCell sx={{ fontFamily: 'monospace', fontWeight: 700, color: theme.palette.primary.main, fontSize: '0.8rem', py: 1 }}>
+          {model.partNumber}
+        </TableCell>
+        <TableCell sx={{ py: 1 }}>
+          <Chip label={SERIES_LABELS[model.series] ?? model.series} size="small"
+            sx={{ fontSize: '0.65rem', fontWeight: 700, bgcolor: alpha(theme.palette.primary.main, 0.12), color: theme.palette.primary.dark }} />
+        </TableCell>
+        <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{BODY_MATERIAL_LABELS[model.bodyMaterial] ?? model.bodyMaterial}</TableCell>
+        <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{model.threadType}</TableCell>
+        <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{model.endConnectionType}</TableCell>
+        <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{model.connectionSize}</TableCell>
+        <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{model.configuration}</TableCell>
+        <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{model.seatMaterial}</TableCell>
+        <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{model.handle}</TableCell>
+        <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{model.pressureRating ?? '—'}</TableCell>
+        <TableCell sx={{ py: 1 }}>
+          <Button size="small" variant="contained"
+            onClick={e => { e.stopPropagation(); openQuote() }}
+            sx={{ fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px', textTransform: 'none', whiteSpace: 'nowrap', boxShadow: 'none', '&:hover': { boxShadow: 'none' } }}>
             Request Quote
           </Button>
-        </Box>
-      </Stack>
-    </Box>
+        </TableCell>
+      </TableRow>
+
+      {open && (
+        <TableRow>
+          <TableCell colSpan={12} sx={{ p: 0, borderBottom: 'none' }}>
+            <Collapse in unmountOnExit>
+              <Box sx={{ p: 3, bgcolor: alpha(theme.palette.primary.main, 0.02), borderLeft: `4px solid ${theme.palette.primary.main}`, borderBottom: `1px solid ${theme.palette.divider}` }}>
+                <Stack direction={{ xs: 'column', md: 'row' }} spacing={4} alignItems="flex-start">
+                  {model.imageUrl && (
+                    <Box sx={{ width: 140, height: 140, flexShrink: 0, border: `1px solid ${theme.palette.divider}`, borderRadius: 1, bgcolor: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', p: 1 }}>
+                      <Box component="img" src={model.imageUrl} alt={model.partNumber}
+                        sx={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                    </Box>
+                  )}
+                  <Box sx={{ flex: 1 }}>
+                    <Typography variant="caption" fontWeight={900} color="primary"
+                      sx={{ display: 'block', mb: 2, letterSpacing: 1 }}>SPECIFICATIONS</Typography>
+                    <Stack direction="row" flexWrap="wrap" gap={3} mb={3}>
+                      <Spec label="Part Number" value={model.partNumber} />
+                      <Spec label="Series" value={SERIES_LABELS[model.series] ?? model.series} />
+                      <Spec label="Body Material" value={BODY_MATERIAL_LABELS[model.bodyMaterial] ?? model.bodyMaterial} />
+                      <Spec label="Thread Type" value={model.threadType} />
+                      <Spec label="End Connection" value={model.endConnectionType} />
+                      <Spec label="Connection Size" value={model.connectionSize} />
+                      <Spec label="Configuration" value={model.configuration} />
+                      <Spec label="Seat Material" value={model.seatMaterial} />
+                      <Spec label="Handle" value={model.handle} />
+                      {model.pressureRating && <Spec label="Pressure Rating" value={model.pressureRating} />}
+                      {model.options && <Spec label="Options" value={model.options} />}
+                    </Stack>
+                    <Button variant="contained" onClick={openQuote}
+                      sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px' }}>
+                      Request Quote
+                    </Button>
+                  </Box>
+                </Stack>
+              </Box>
+            </Collapse>
+          </TableCell>
+        </TableRow>
+      )}
+
+      {quoteProduct && (
+        <RFQModal open={!!quoteProduct} onClose={() => setQuoteProduct(null)} product={quoteProduct} />
+      )}
+    </>
   )
 }
 
-function ExpandCellRenderer({ data, context }: ICellRendererParams) {
-  const theme = useTheme()
-  if (data?._isDetail) return null
-  const isOpen = context?.openRows?.has(data?._rowId)
-  return (
-    <Box onClick={(e) => { e.stopPropagation(); context?.toggleRow(data?._rowId) }}
-      sx={{
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        width: 24, height: 24, cursor: 'pointer',
-        border: `1px solid ${isOpen ? theme.palette.primary.main : 'rgba(0,0,0,0.2)'}`,
-        borderRadius: '4px',
-        color: isOpen ? theme.palette.primary.main : 'text.disabled',
-        '&:hover': { borderColor: theme.palette.primary.main, color: theme.palette.primary.main }
-      }}>
-      {isOpen ? <RemoveIcon sx={{ fontSize: 12 }} /> : <AddIcon sx={{ fontSize: 12 }} />}
-    </Box>
-  )
-}
-
-function QuoteCellRenderer({ data, context }: ICellRendererParams) {
-  if (data?._isDetail) return null
-  return (
-    <Button size="small" variant="contained" color="primary"
-      onClick={(e) => { e.stopPropagation(); context?.onQuote(data) }}
-      sx={{
-        fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5,
-        borderRadius: '4px', textTransform: 'none', whiteSpace: 'nowrap',
-        boxShadow: 'none', '&:hover': { boxShadow: 'none' }
-      }}>
-      Request Quote
-    </Button>
-  )
-}
-
-function SeriesCellRenderer({ data }: ICellRendererParams) {
-  const theme = useTheme()
-  if (data?._isDetail) return null
-  return (
-    <Chip
-      label={SERIES_LABELS[data?.series] ?? data?.series}
-      size="small"
-      sx={{
-        fontSize: '0.65rem', fontWeight: 700,
-        bgcolor: alpha(theme.palette.primary.main, 0.12),
-        color: theme.palette.primary.dark
-      }}
-    />
-  )
-}
-
-function PressureCellRenderer({ data }: ICellRendererParams) {
-  const theme = useTheme()
-  if (data?._isDetail) return null
-  if (!data?.pressureRating) return <Typography variant="caption" color="text.disabled">—</Typography>
-  return (
-    <Chip label={data.pressureRating} size="small"
-      sx={{
-        fontSize: '0.65rem', fontWeight: 700,
-        bgcolor: alpha(theme.palette.primary.main, 0.2),
-        color: theme.palette.primary.dark
-      }} />
-  )
-}
+type SortKey = 'partNumber' | 'series' | 'bodyMaterial' | 'threadType' | 'endConnectionType' | 'connectionSize' | 'configuration' | 'seatMaterial' | 'handle' | 'pressureRating'
 
 export default function BallValveTable({
   models,
   isFetching,
+  filters,
+  setFilters,
+  filterOptions,
+  filtersLoading,
+  activeCount,
 }: {
   models: BallValveDTO[]
   isFetching?: boolean
+  filters: BallValveFilters
+  setFilters: React.Dispatch<React.SetStateAction<BallValveFilters>>
+  filterOptions?: BallValveFilterOptions
+  filtersLoading: boolean
+  activeCount: number
 }) {
   const theme = useTheme()
-  const [openRows, setOpenRows] = useState<Set<string>>(new Set())
+  const isMobile = useMediaQuery('(max-width:1200px)')
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const [page, setPage] = useState(0)
+  const [rowsPerPage, setRowsPerPage] = useState(25)
+  const [sortKey, setSortKey] = useState<SortKey>('partNumber')
+  const [sortDir, setSortDir] = useState<'asc' | 'desc'>('asc')
 
-  const toggleRow = useCallback((rowId: string) => {
-    setOpenRows(prev => {
-      const next = new Set(prev)
-      next.has(rowId) ? next.delete(rowId) : next.add(rowId)
-      return next
-    })
-  }, [])
+  const handleSort = (key: SortKey) => {
+    if (sortKey === key) setSortDir(d => d === 'asc' ? 'desc' : 'asc')
+    else { setSortKey(key); setSortDir('asc') }
+  }
 
-  const onQuote = useCallback((data: BallValveDTO) => {
-    console.log('Quote requested:', data.partNumber)
-  }, [])
+  const sorted = [...models].sort((a, b) => {
+    const av = (a[sortKey] ?? '') as string
+    const bv = (b[sortKey] ?? '') as string
+    if (av < bv) return sortDir === 'asc' ? -1 : 1
+    if (av > bv) return sortDir === 'asc' ? 1 : -1
+    return 0
+  })
 
-  const rowData = useMemo(() => {
-    const rows: any[] = []
-    models.forEach((p, i) => {
-      const rowId = `${p.partNumber}-${i}`
-      rows.push({ ...p, _rowId: rowId, _isDetail: false })
-      if (openRows.has(rowId)) rows.push({ ...p, _rowId: rowId, _isDetail: true })
-    })
-    return rows
-  }, [models, openRows])
+  const paginated = sorted.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
 
-  const colDefs: ColDef[] = useMemo(() => [
-    {
-      headerName: '', width: 40, pinned: 'left' as const, sortable: false,
-      cellRenderer: 'expandCellRenderer',
-      cellStyle: { display: 'flex', alignItems: 'center', justifyContent: 'center' } as any
-    },
-    {
-      field: 'partNumber', headerName: 'Part Number', width: 220, pinned: 'left' as const,
-      cellStyle: { fontFamily: 'monospace', fontWeight: '700', color: theme.palette.primary.main, fontSize: '0.8rem' } as any
-    },
-    {
-      field: 'series', headerName: 'Series', width: 120,
-      cellRenderer: 'seriesCellRenderer',
-      cellStyle: { display: 'flex', alignItems: 'center' } as any
-    },
-    { field: 'threadType', headerName: 'Thread Type', width: 160 },
-    { field: 'endConnectionType', headerName: 'End Connection', width: 150 },
-    { field: 'connectionSize', headerName: 'Size', width: 100 },
-    { field: 'configuration', headerName: 'Config', width: 110 },
-    { field: 'seatMaterial', headerName: 'Seat', width: 100 },
-    { field: 'handle', headerName: 'Handle', width: 100 },
-    {
-      field: 'pressureRating', headerName: 'Pressure', width: 110,
-      cellRenderer: 'pressureCellRenderer',
-      cellStyle: { display: 'flex', alignItems: 'center' } as any
-    },
-    {
-      headerName: 'Quote', width: 150, sortable: false, pinned: 'right' as const,
-      cellRenderer: 'quoteCellRenderer',
-      cellStyle: { display: 'flex', alignItems: 'center', justifyContent: 'center' } as any
-    }
-  ], [theme])
+  const headerSx = {
+    bgcolor: alpha(theme.palette.primary.main, 0.04),
+    borderBottom: `2px solid ${theme.palette.primary.main}`,
+    fontWeight: 700, fontSize: '0.72rem',
+    textTransform: 'uppercase' as const,
+    letterSpacing: '0.05em',
+  }
 
-  const defaultColDef: ColDef = useMemo(() => ({ sortable: true, resizable: true, filter: false }), [])
-  const isFullWidthRow = useCallback((params: IsFullWidthRowParams) => params.rowNode.data?._isDetail === true, [])
-  const gridContext = useMemo(() => ({ openRows, toggleRow, onQuote }), [openRows, toggleRow, onQuote])
+  const sidebar = (
+    <BallValveSidebar
+      filters={filters}
+      setFilters={setFilters}
+      filterOptions={filterOptions}
+      filtersLoading={filtersLoading}
+      activeCount={activeCount}
+    />
+  )
 
   return (
-    <Box sx={{ position: 'relative' }}>
-      {isFetching && (
-        <Box sx={{
-          position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
-          backdropFilter: 'blur(2px)', bgcolor: 'rgba(255,255,255,0.4)',
-          zIndex: 10, display: 'flex', alignItems: 'center', justifyContent: 'center',
-          borderRadius: '8px'
-        }}>
-          <Box sx={{
-            bgcolor: 'background.paper', px: 3, py: 1.5, borderRadius: '20px', boxShadow: 2,
-            display: 'flex', alignItems: 'center', gap: 1
-          }}>
-            <Box sx={{
-              width: 8, height: 8, borderRadius: '50%', bgcolor: theme.palette.primary.main,
-              animation: 'pulse 1s ease-in-out infinite',
-              '@keyframes pulse': { '0%, 100%': { opacity: 1 }, '50%': { opacity: 0.3 } }
-            }} />
-            <Typography variant="caption" fontWeight={700} sx={{ color: theme.palette.primary.main }}>UPDATING</Typography>
-          </Box>
-        </Box>
-      )}
+    <Box sx={{
+      display: 'flex', alignItems: 'flex-start',
+      border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}`,
+      borderRadius: '8px', bgcolor: 'background.paper',
+    }}>
+      {!isMobile && sidebar}
+      <Drawer open={mobileOpen} onClose={() => setMobileOpen(false)}>{sidebar}</Drawer>
 
-      <Box className="ag-theme-alpine" sx={{
-        width: '100%',
-        opacity: isFetching ? 0.6 : 1,
-        transition: 'opacity 0.2s ease',
-        '& .ag-root-wrapper': { border: `1px solid ${alpha(theme.palette.primary.main, 0.3)}`, borderRadius: '8px' },
-        '& .ag-header': { bgcolor: alpha(theme.palette.primary.main, 0.04), borderBottom: `2px solid ${theme.palette.primary.main}` },
-        '& .ag-header-cell-text': { fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' },
-        '& .ag-row': { borderBottom: '1px solid rgba(0,0,0,0.06)' },
-        '& .ag-row:hover': { bgcolor: `${alpha(theme.palette.primary.main, 0.03)} !important` },
-        '& .ag-row-even': { bgcolor: 'background.paper' },
-        '& .ag-row-odd': { bgcolor: alpha(theme.palette.primary.main, 0.01) },
-        '& .ag-cell': { fontSize: '0.82rem' },
-        '& .ag-paging-panel': { borderTop: '1px solid rgba(0,0,0,0.06)', fontSize: '0.8rem' },
-        '& .ag-full-width-row': { bgcolor: 'transparent !important' },
-      }}>
-        <AgGridReact
-          rowData={rowData}
-          columnDefs={colDefs}
-          defaultColDef={defaultColDef}
-          suppressColumnVirtualisation
-          components={{
-            expandCellRenderer: ExpandCellRenderer,
-            detailPanelRenderer: DetailPanelRenderer,
-            quoteCellRenderer: QuoteCellRenderer,
-            seriesCellRenderer: SeriesCellRenderer,
-            pressureCellRenderer: PressureCellRenderer,
-          }}
-          context={gridContext}
-          isFullWidthRow={isFullWidthRow}
-          fullWidthCellRenderer="detailPanelRenderer"
-          getRowHeight={(params) => params.data?._isDetail ? 260 : 44}
-          pagination
-          paginationPageSize={20}
-          domLayout="autoHeight"
+      <Box sx={{ position: 'relative', flex: 1, minWidth: 0 }}>
+        {isMobile && (
+          <Box sx={{ p: 1, borderBottom: `1px solid ${theme.palette.divider}` }}>
+            <IconButton onClick={() => setMobileOpen(true)}><FilterListIcon /></IconButton>
+          </Box>
+        )}
+        {isFetching && (
+          <Box sx={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backdropFilter: 'blur(2px)', bgcolor: 'rgba(255,255,255,0.4)', zIndex: 10, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Box sx={{ bgcolor: 'background.paper', px: 3, py: 1.5, borderRadius: '20px', boxShadow: 2, display: 'flex', alignItems: 'center', gap: 1 }}>
+              <Box sx={{ width: 8, height: 8, borderRadius: '50%', bgcolor: theme.palette.primary.main, animation: 'pulse 1s ease-in-out infinite', '@keyframes pulse': { '0%, 100%': { opacity: 1 }, '50%': { opacity: 0.3 } } }} />
+              <Typography variant="caption" fontWeight={700} color="primary">UPDATING</Typography>
+            </Box>
+          </Box>
+        )}
+        <TableContainer sx={{ opacity: isFetching ? 0.6 : 1, transition: 'opacity 0.2s ease' }}>
+          <Table size="small" stickyHeader>
+            <TableHead>
+              <TableRow>
+                <TableCell sx={{ ...headerSx, width: 40 }} />
+                {([
+                  { key: 'partNumber' as SortKey,       label: 'Part Number' },
+                  { key: 'series' as SortKey,            label: 'Series' },
+                  { key: 'bodyMaterial' as SortKey,      label: 'Material' },
+                  { key: 'threadType' as SortKey,        label: 'Thread' },
+                  { key: 'endConnectionType' as SortKey, label: 'End Connection' },
+                  { key: 'connectionSize' as SortKey,    label: 'Size' },
+                  { key: 'configuration' as SortKey,     label: 'Config' },
+                  { key: 'seatMaterial' as SortKey,      label: 'Seat' },
+                  { key: 'handle' as SortKey,            label: 'Handle' },
+                  { key: 'pressureRating' as SortKey,    label: 'Pressure' },
+                  { key: null,                            label: 'Quote' },
+                ]).map((h, i) => (
+                  <TableCell key={i} sx={headerSx}>
+                    {h.key ? (
+                      <TableSortLabel active={sortKey === h.key} direction={sortKey === h.key ? sortDir : 'asc'} onClick={() => handleSort(h.key!)}>
+                        {h.label}
+                      </TableSortLabel>
+                    ) : h.label}
+                  </TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {paginated.length === 0 ? (
+                <TableRow>
+                  <TableCell colSpan={12} align="center" sx={{ py: 6 }}>
+                    <Typography variant="body2" color="text.secondary">No valves found.</Typography>
+                  </TableCell>
+                </TableRow>
+              ) : paginated.map((model, i) => <Row key={`${model.partNumber}-${i}`} model={model} />)}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <TablePagination
+          component="div"
+          count={sorted.length}
+          page={page}
+          rowsPerPage={rowsPerPage}
+          onPageChange={(_, p) => setPage(p)}
+          onRowsPerPageChange={e => { setRowsPerPage(parseInt(e.target.value)); setPage(0) }}
+          rowsPerPageOptions={[25, 50, 100]}
+          sx={{ borderTop: `1px solid ${theme.palette.divider}`, fontSize: '0.8rem' }}
         />
       </Box>
     </Box>
