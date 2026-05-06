@@ -79,7 +79,16 @@ export const CATEGORIES: Category[] = [
           { label: "Relief Valves", href: "/valves/relief" },
         ],
       },
-      { label: "Flare Fittings", href: "/fittings/jic" },
+      {
+  label: "Flare Fittings",
+  href: "/jic-fittings",
+  children: [
+    { label: "All JIC Fittings", href: "/jic-fittings/all" },
+    { label: "Connectors", href: "/jic-fittings/connectors" },
+    { label: "Unions & Swivel", href: "/jic-fittings/unions-swivel" },
+    { label: "Adapters & Reducers", href: "/jic-fittings/adapters-reducers" },
+  ],
+},
     ],
   },
   {
