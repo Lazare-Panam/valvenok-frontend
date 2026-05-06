@@ -56,6 +56,16 @@ const POSTS = [
   category: "Manufacturer Profiles",
   link: "/news/instrumentation-fittings-hydrogen-leak-tight-threads",
 },
+{
+    title:
+      "Single Agitator Mechanical Seals: Design, Working Principle & Industrial Applications",
+    desc: "A complete engineering guide to one of the workhorses of the process industry — how it is built, how it keeps your reactor leak-free, and where it fits among the seal types you might be considering.",
+    thumbnail: "/images/seals-blog-thumbnail.jpg",
+    author: "Seal Raina",
+    date: "May 2026",
+    category: "Engineering",
+    link: "/news/seals-blog",
+  },
 ];
 
 export default function BlogPage() {
