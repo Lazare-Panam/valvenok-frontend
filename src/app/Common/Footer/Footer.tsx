@@ -3,7 +3,7 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid"; // Using Grid2 for the 'size' prop
+import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
@@ -11,11 +11,10 @@ import IconButton from "@mui/material/IconButton";
 import Divider from "@mui/material/Divider";
 import { alpha } from "@mui/material/styles";
 
-// Icons
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import TwitterIcon from "@mui/icons-material/Twitter";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 
 const BRAND_GREEN = "#61D649";
 const DARK_BG = "#1c2e1a";
@@ -59,12 +58,12 @@ export default function Footer() {
         color: "white",
         pt: 14,
         pb: 6,
-        borderTop: `6px solid ${BRAND_GREEN}`, // Fixed the blue border
+        borderTop: `6px solid ${BRAND_GREEN}`,
       }}
     >
       <Container maxWidth="xl">
         <Grid container spacing={6}>
-          {/* ── COLUMN 1: BRAND & NEWSLETTER ── */}
+          {/* ── COLUMN 1: BRAND ── */}
           <Grid size={{ xs: 12, md: 4 }}>
             <Typography
               variant="h5"
@@ -89,18 +88,6 @@ export default function Footer() {
               components. Engineering excellence delivered fast to Global
               Procurement Teams.
             </Typography>
-
-            <Typography
-              variant="subtitle2"
-              sx={{
-                mb: 2,
-                fontWeight: 700,
-                textTransform: "uppercase",
-                letterSpacing: "0.1em",
-              }}
-            >
-              Stay Updated
-            </Typography>
           </Grid>
 
           {/* ── COLUMNS 2-4: LINKS ── */}
@@ -113,7 +100,7 @@ export default function Footer() {
                   mb: 3,
                   letterSpacing: "0.1em",
                   fontSize: "14px",
-                  color: BRAND_GREEN, // Fixed blue titles
+                  color: BRAND_GREEN,
                 }}
               >
                 {section.title}
@@ -153,18 +140,42 @@ export default function Footer() {
               Contact
             </Typography>
             <Stack spacing={2}>
+              {/* Address */}
+              <Stack direction="row" spacing={1.5} alignItems="flex-start">
+                <LocationOnIcon sx={{ fontSize: 18, color: BRAND_GREEN, mt: 0.3 }} />
+                <Box>
+                  <Typography variant="body2" sx={{ color: "white", fontWeight: 700 }}>
+                    Valvenok Ltd.
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: alpha("#fff", 0.7) }}>
+                    St. Edburgs Hall, Priory Rd
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: alpha("#fff", 0.7) }}>
+                    Bicester, OX26 6BL
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: alpha("#fff", 0.7) }}>
+                    United Kingdom
+                  </Typography>
+                </Box>
+              </Stack>
+
+              {/* Phone */}
               <Stack direction="row" spacing={1.5} alignItems="center">
                 <PhoneIcon sx={{ fontSize: 18, color: BRAND_GREEN }} />
                 <Typography variant="body2" sx={{ color: alpha("#fff", 0.8) }}>
                   +44 7368557896
                 </Typography>
               </Stack>
+
+              {/* Email */}
               <Stack direction="row" spacing={1.5} alignItems="center">
                 <EmailIcon sx={{ fontSize: 18, color: BRAND_GREEN }} />
                 <Typography variant="body2" sx={{ color: alpha("#fff", 0.8) }}>
                   sales@valvenok.com
                 </Typography>
               </Stack>
+
+              {/* LinkedIn */}
               <Stack direction="row" spacing={1.5} sx={{ mt: 1 }}>
                 <IconButton
                   size="small"
