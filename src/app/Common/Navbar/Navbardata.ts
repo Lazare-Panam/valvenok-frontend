@@ -37,7 +37,7 @@ export const CATEGORIES: Category[] = [
     textColor: "#fff",
     items: [
       {
-        label: "Instrumentation Fittings",
+        label: "Tube Fittings",
         children: [
           { label: "Connectors & Elbows", href: "/fittings/connectors" },
           { label: "Unions", href: "/fittings/unions" },
@@ -87,6 +87,9 @@ export const CATEGORIES: Category[] = [
     { label: "Connectors", href: "/jic-fittings/connectors" },
     { label: "Unions & Swivel", href: "/jic-fittings/unions-swivel" },
     { label: "Adapters & Reducers", href: "/jic-fittings/adapters-reducers" },
+        { label: "Elbows", href: "/jic-fittings/elbows" },
+    { label: "Tees", href: "/jic-fittings/tees" },
+    { label: "Plugs, Caps & Nuts", href: "/jic-fittings/plugs" },
   ],
 },
     ],

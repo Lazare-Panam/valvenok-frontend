@@ -32,6 +32,33 @@ const CATEGORIES = [
     href: '/jic-fittings/adapters-reducers',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/jic/flare/reducing-adaptors.jpg',
   },
+   {
+    code: 'ME/FE',
+    title: 'Elbows',
+    subtitle: 'Male, 45°, Female, Union & Swivel Elbows',
+    description: 'Male elbows, 45° male elbows, female elbows, union elbows, swivel union elbows and adjustable male elbows in 37° JIC flare. Available in JIC x NPT, BSPT, BSPP, SAE/MS and JIC Swivel.',
+    specs: ['SS316', '37° JIC Flare', 'NPT / BSPT / SAE/MS', 'Swivel / Union'],
+    href: '/jic-fittings/elbows',
+    image: 'https://pblol2.blob.core.windows.net/panam-images/products/jic/flare/male-elbow.jpg',
+  },
+  {
+    code: 'MBT/FBT',
+    title: 'Tees',
+    subtitle: 'Male, Female, Union, Swivel & Run Tees',
+    description: 'Male branch tees, female branch tees, female run tees, union tees, swivel union tees, swivel run tees, swivel branch tees and union cross in 37° JIC flare.',
+    specs: ['SS316', '37° JIC Flare', 'Branch / Run / Union', 'Swivel / Cross'],
+    href: '/jic-fittings/tees',
+    image: 'https://pblol2.blob.core.windows.net/panam-images/products/jic/flare/male-branch-tees.jpg',
+  },
+  {
+    code: 'N/TC/TP',
+    title: 'Plugs, Caps & Nuts',
+    subtitle: 'Nuts, Tube Caps, Cap Assembly & Plugs',
+    description: 'Nuts, tube caps, tube cap assemblies and tube plugs in 37° JIC flare. Used for terminating and capping tube end connections across a full size range.',
+    specs: ['SS316', '37° JIC Flare', 'Nuts / Caps / Plugs', '1/8" – 2"'],
+    href: '/jic-fittings/plugs',
+    image: 'https://pblol2.blob.core.windows.net/panam-images/products/jic/flare/tube-plug.jpg',
+  },
 ]
 
 export default function JICFittingsPage() {
