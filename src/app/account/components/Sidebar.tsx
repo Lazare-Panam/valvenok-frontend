@@ -19,6 +19,7 @@ import { useRouter, usePathname } from "next/navigation";
 import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
 
 const SIDEBAR_WIDTH = 280;
+import InventoryIcon from "@mui/icons-material/Inventory";
 
 const NAV_ITEMS = [
   { label: "Account Details", icon: <PersonIcon />, href: "/account" },
@@ -28,8 +29,12 @@ const NAV_ITEMS = [
     icon: <ReceiptLongIcon />,
     href: "/account/orders",
   },
+  {
+    label: "Orders & Quotes",
+    icon: <InventoryIcon />,
+    href: "/account/quotes",
+  },
 ];
-
 export default function DashboardLayout({
   children,
 }: {
