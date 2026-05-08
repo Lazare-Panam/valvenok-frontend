@@ -27,6 +27,7 @@ const CATEGORIES = [
       { name: "Flare Fittings", href: "/jic-fittings/" },
       { name: "Instrumentation Valves", href: "/valves" },
       { name: "Pipe Fittings", href: "/pipe-fittings" },
+       { name: "Weld Fittings", href: "/weld" },
     ],
   },
   {

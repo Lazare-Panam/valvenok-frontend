@@ -92,6 +92,14 @@ export const CATEGORIES: Category[] = [
     { label: "Plugs, Caps & Nuts", href: "/jic-fittings/plugs" },
   ],
 },
+ {
+        label: "Weld Fittings",
+        href: "/weld",
+        children: [
+          { label: "Elbows", href: "/weld/elbows" },
+          { label: "Connectors", href: "/weld/connectors" },
+        ],
+      },
     ],
   },
   {
