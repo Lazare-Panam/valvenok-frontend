@@ -84,7 +84,7 @@ export default function FeaturedValves() {
           sx={{
             display: 'flex',
             gap: 2,
-            overflowX: 'auto',
+            overflowX: 'visible',
             overflowY: 'visible',
             scrollSnapType: 'x mandatory',
             px: { xs: 2, md: '80px' },
