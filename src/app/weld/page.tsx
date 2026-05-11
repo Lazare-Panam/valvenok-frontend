@@ -30,6 +30,16 @@ const CATEGORIES: Category[] = [
     href: '/weld/connectors',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/weld-fittings/connector-weld.jpg',
   },
+  {
+  code: 'WT',
+  title: 'Tees',
+  subtitle: 'WT · Male Run · Male Branch',
+  description: 'Male run and branch tees in tube socket weld configuration for permanent three-way connections in instrumentation and process piping. Available across NPT thread standards from 1/8" to 2".',
+  specs: ['SS316', 'Tube Socket Weld', '1/8" – 2" OD'],
+  applications: 'Oil & Gas, Petrochemical, Power Generation',
+  href: '/weld/tees',
+  image: 'https://pblol2.blob.core.windows.net/panam-images/products/weld-fittings/male-run-tee-weld.jpg',
+},
 ]
 
 const INTRO = `Valvenok supplies SS316 instrumentation weld fittings for permanent, high-integrity connections 
