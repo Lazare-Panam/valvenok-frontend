@@ -25,7 +25,7 @@ export default function NavLinks({ barHeight }: Props) {
             px: 2,
             color: "text.primary",
             fontFamily: '"Barlow Condensed", sans-serif',
-            fontSize: "17px",
+            fontSize: "12px",
             fontWeight: 700,
             letterSpacing: "0.08em",
             textTransform: "uppercase",
