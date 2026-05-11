@@ -38,38 +38,15 @@ export const CATEGORIES: Category[] = [
     textColor: "#fff",
     items: [
       {
-        label: "Tube Fittings",
+        label: "Instrumentation Fittings",
+        href: "/instrumentation-fittings",
         children: [
-          { label: "Connectors & Elbows", href: "/fittings/connectors" },
-          { label: "Unions", href: "/fittings/unions" },
-          { label: "Reducers", href: "/fittings/reducer" },
-          { label: "Adapters", href: "/fittings/adapters" },
-          { label: "Port Connectors", href: "/fittings/port-connectors" },
-          { label: "Weld Gauge", href: "/fittings/weld-gauge" },
-          { label: "Accessories", href: "/fittings/accessories" },
-          { label: "Die-Electrics & Gaskets", href: "/fittings/die-electric" },
+          { label: "Tube Fittings", href: "/fittings" },
+          { label: "Pipe Fittings", href: "/pipe-fittings" },
+          { label: "Flare Fittings", href: "/jic-fittings" },
+          { label: "Weld Fittings", href: "/weld" },
         ],
       },
-
-      {
-        label: "Pipe Fittings",
-        href: "/pipe-fittings",
-        children: [
-          { label: "All Fittings", href: "/pipe-fittings/all" },
-          {
-            label: "Nipples & Couplings",
-            href: "/pipe-fittings/nipples-couplings",
-          },
-          { label: "Adapters & Plugs", href: "/pipe-fittings/adapters-plugs" },
-          { label: "Elbows", href: "/pipe-fittings/elbows" },
-          {
-            label: "Unions & Connectors",
-            href: "/pipe-fittings/unions-connectors",
-          },
-          { label: "Tees & Cross", href: "/pipe-fittings/tees-cross" },
-        ],
-      },
-      
       {
         label: "Instrumentation Valves",
         href: "/valves",
@@ -78,27 +55,6 @@ export const CATEGORIES: Category[] = [
           { label: "Needle Valves", href: "/needle-valves" },
           { label: "Check Valves", href: "/valves/pcv" },
           { label: "Relief Valves", href: "/valves/relief" },
-        ],
-      },
-      {
-  label: "Flare Fittings",
-  href: "/jic-fittings",
-  children: [
-    { label: "All JIC Fittings", href: "/jic-fittings/all" },
-    { label: "Connectors", href: "/jic-fittings/connectors" },
-    { label: "Unions & Swivel", href: "/jic-fittings/unions-swivel" },
-    { label: "Adapters & Reducers", href: "/jic-fittings/adapters-reducers" },
-        { label: "Elbows", href: "/jic-fittings/elbows" },
-    { label: "Tees", href: "/jic-fittings/tees" },
-    { label: "Plugs, Caps & Nuts", href: "/jic-fittings/plugs" },
-  ],
-},
- {
-        label: "Weld Fittings",
-        href: "/weld",
-        children: [
-          { label: "Elbows", href: "/weld/elbows" },
-          { label: "Connectors", href: "/weld/connectors" },
         ],
       },
     ],

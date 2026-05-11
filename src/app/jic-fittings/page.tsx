@@ -1,16 +1,22 @@
-'use client'
-import { Box, Typography, Card, CardContent, CardActionArea } from '@mui/material'
-import Grid from '@mui/material/Grid'
-import { alpha, useTheme } from '@mui/material/styles'
-import { useRouter } from 'next/navigation'
+import type { Metadata } from 'next'
+import ProductHero from '../Common/Products_Page/ProductHero'
+import ProductGrid from '../Common/Products_Page/ProductGrid'
+import TrustStrip from '../Common/Products_Page/TrustStrip'
+import { Category } from '../Common/Products_Page/ProductCard'
 
-const CATEGORIES = [
+export const metadata: Metadata = {
+  title: 'JIC Fittings | 37° Flare SS316 Fittings | Valvenok',
+  description: 'Valvenok supplies SS316 37° JIC flare fittings for hydraulic and instrumentation systems. Connectors, unions, elbows, tees and adapters across NPT, BSPT, BSPP and SAE/MS thread standards.',
+}
+
+const CATEGORIES: Category[] = [
   {
     code: 'MC/FC',
     title: 'Connectors',
     subtitle: 'Male & Female Connectors',
-    description: 'Male and female connectors in 37° JIC flare. Available in JIC x NPT, BSPT, BSPP, SAE/MS and JIC Swivel configurations across a full size range.',
+    description: 'Male and female connectors in 37° JIC flare for reliable tube-to-thread connections. Available in JIC x NPT, BSPT, BSPP, SAE/MS and swivel configurations.',
     specs: ['SS316', '37° JIC Flare', 'NPT / BSPT / BSPP', 'SAE/MS / Swivel'],
+    applications: 'Hydraulics, Oil & Gas, Heavy Equipment',
     href: '/jic-fittings/connectors',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/jic/flare/male-connector-jic.jpg',
   },
@@ -18,8 +24,9 @@ const CATEGORIES = [
     code: 'U/SU',
     title: 'Unions & Swivel',
     subtitle: 'Unions, Large Hex, Swivel & Bulkhead',
-    description: 'Standard unions, large hex unions, swivel unions, bulkhead unions and bulkhead lock nuts in 37° JIC flare.',
+    description: 'Standard, large hex, swivel and bulkhead unions in 37° JIC flare. Designed for maintainable connections in hydraulic and process lines.',
     specs: ['SS316', '37° JIC Flare', 'Union / Bulkhead / Swivel', '1/8" – 2"'],
+    applications: 'Hydraulic Systems, Process Piping, Marine',
     href: '/jic-fittings/unions-swivel',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/jic/flare/Union.jpg',
   },
@@ -29,15 +36,17 @@ const CATEGORIES = [
     subtitle: 'Reducing Adapters & Sleeves',
     description: 'Reducing adapters and sleeves for transitioning between tube OD sizes in 37° JIC flare. Full range of size combinations in fractional and metric.',
     specs: ['SS316', '37° JIC Flare', 'Reducing / Sleeves', '1/4" – 2"'],
+    applications: 'Size Transitions, Instrumentation, Offshore',
     href: '/jic-fittings/adapters-reducers',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/jic/flare/reducing-adaptors.jpg',
   },
-   {
+  {
     code: 'ME/FE',
     title: 'Elbows',
     subtitle: 'Male, 45°, Female, Union & Swivel Elbows',
-    description: 'Male elbows, 45° male elbows, female elbows, union elbows, swivel union elbows and adjustable male elbows in 37° JIC flare. Available in JIC x NPT, BSPT, BSPP, SAE/MS and JIC Swivel.',
+    description: 'Male, female, 45°, union and swivel elbows in 37° JIC flare for directional routing in tight spaces. Available across NPT, BSPT, BSPP and SAE/MS.',
     specs: ['SS316', '37° JIC Flare', 'NPT / BSPT / SAE/MS', 'Swivel / Union'],
+    applications: 'Hydraulic Lines, Heavy Machinery, Petrochemical',
     href: '/jic-fittings/elbows',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/jic/flare/male-elbow.jpg',
   },
@@ -45,8 +54,9 @@ const CATEGORIES = [
     code: 'MBT/FBT',
     title: 'Tees',
     subtitle: 'Male, Female, Union, Swivel & Run Tees',
-    description: 'Male branch tees, female branch tees, female run tees, union tees, swivel union tees, swivel run tees, swivel branch tees and union cross in 37° JIC flare.',
+    description: 'Branch, run and union tees plus swivel variants and crosses in 37° JIC flare for multi-directional flow distribution in hydraulic and process systems.',
     specs: ['SS316', '37° JIC Flare', 'Branch / Run / Union', 'Swivel / Cross'],
+    applications: 'Flow Distribution, Offshore, Power Generation',
     href: '/jic-fittings/tees',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/jic/flare/male-branch-tees.jpg',
   },
@@ -54,103 +64,39 @@ const CATEGORIES = [
     code: 'N/TC/TP',
     title: 'Plugs, Caps & Nuts',
     subtitle: 'Nuts, Tube Caps, Cap Assembly & Plugs',
-    description: 'Nuts, tube caps, tube cap assemblies and tube plugs in 37° JIC flare. Used for terminating and capping tube end connections across a full size range.',
+    description: 'Nuts, tube caps and plugs in 37° JIC flare for terminating and capping tube end connections. Essential components for system maintenance and pressure testing.',
     specs: ['SS316', '37° JIC Flare', 'Nuts / Caps / Plugs', '1/8" – 2"'],
+    applications: 'Line Termination, Pressure Testing, Maintenance',
     href: '/jic-fittings/plugs',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/jic/flare/tube-plug.jpg',
   },
 ]
 
+const INTRO = `Valvenok supplies a complete range of SS316 37° JIC flare fittings for hydraulic and instrumentation systems. 
+Engineered for high-pressure performance in oil & gas, heavy equipment, marine and petrochemical applications. 
+Available across NPT, BSPT, BSPP, SAE/MS and metric thread standards with fast dispatch from stock.`
+
+const TRUST_POINTS = [
+  { value: 'SS316', label: 'Material Standard' },
+  { value: '37° JIC Flare', label: 'Fitting Standard' },
+  { value: 'NPT / BSPT / BSPP', label: 'Thread Standards' },
+  { value: 'SAE/MS', label: 'Also Available' },
+  { value: 'Fast Dispatch', label: 'Availability' },
+]
+
 export default function JICFittingsPage() {
-  const theme = useTheme()
-  const router = useRouter()
-
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
-      <Box sx={{ p: 4, borderBottom: `1px solid ${theme.palette.divider}`, bgcolor: 'background.paper' }}>
-        <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: theme.palette.primary.main }}>
-          37° Flared JIC Fittings
-        </Typography>
-        <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 700 }}>
-          Male and female connectors, unions, elbows, tees and adapters in 37° JIC flare.
-          Available across NPT, BSPT, BSPP, SAE/MS and Metric thread standards in SS316.
-        </Typography>
-      </Box>
-
-      <Box sx={{ p: { xs: 2, md: 4 }, flex: 1 }}>
-        <Grid container spacing={3}>
-          {CATEGORIES.map(s => (
-            <Grid size={{ xs: 12, sm: 6, lg: 4 }} key={s.code}>
-              <Card elevation={0} sx={{
-                height: '100%',
-                border: `1px solid ${theme.palette.divider}`,
-                borderRadius: 0,
-                transition: 'all 0.2s ease',
-                '&:hover': {
-                  borderColor: theme.palette.primary.main,
-                  boxShadow: `0 4px 20px ${alpha(theme.palette.primary.main, 0.15)}`,
-                  transform: 'translateY(-2px)',
-                },
-              }}>
-                <CardActionArea onClick={() => router.push(s.href)} sx={{ height: '100%', alignItems: 'flex-start', p: 0 }}>
-                  <Box sx={{
-                    width: '100%', height: 180, overflow: 'hidden',
-                    bgcolor: 'white',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  }}>
-                    <Box
-                      component="img"
-                      src={s.image}
-                      alt={s.title}
-                      sx={{ width: '100%', height: '100%', objectFit: 'contain', p: 2 }}
-                    />
-                  </Box>
-                  <CardContent sx={{ p: 3, display: 'flex', flexDirection: 'column' }}>
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 1.5 }}>
-                      <Box sx={{
-                        width: 40, height: 40, borderRadius: 0, flexShrink: 0,
-                        bgcolor: alpha(theme.palette.primary.main, 0.1),
-                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      }}>
-                        <Typography fontWeight={900} fontSize="0.7rem" sx={{ color: theme.palette.primary.main }}>
-                          {s.code}
-                        </Typography>
-                      </Box>
-                      <Box>
-                        <Typography fontWeight={800} fontSize="1rem">{s.title}</Typography>
-                        <Typography variant="caption" color="text.secondary" fontWeight={600}>{s.subtitle}</Typography>
-                      </Box>
-                    </Box>
-
-                    <Typography variant="body2" color="text.secondary" mb={2} sx={{ lineHeight: 1.6 }}>
-                      {s.description}
-                    </Typography>
-
-                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.75, mb: 2 }}>
-                      {s.specs.map(spec => (
-                        <Box key={spec} sx={{
-                          px: 1, py: 0.25, borderRadius: 0, fontSize: '0.7rem', fontWeight: 600,
-                          bgcolor: alpha(theme.palette.primary.main, 0.07),
-                          color: theme.palette.primary.dark,
-                          border: `1px solid ${alpha(theme.palette.primary.main, 0.15)}`,
-                        }}>
-                          {spec}
-                        </Box>
-                      ))}
-                    </Box>
-
-                    <Box sx={{ mt: 'auto', pt: 2, borderTop: `1px solid ${theme.palette.divider}`, display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                      <Typography variant="caption" fontWeight={700} sx={{ color: theme.palette.primary.main }}>
-                        View Range →
-                      </Typography>
-                    </Box>
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
-    </Box>
+    <>
+      <ProductHero
+        title="JIC Fittings"
+        subtitle="37° Flare Fittings for Hydraulic & Instrumentation Systems"
+        description="A complete range of SS316 37° JIC flare fittings built for high-pressure hydraulic and process applications. NPT, BSPT, BSPP and SAE/MS thread standards across connectors, unions, elbows, tees and more."
+        imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/banner-images/ben-kupke-ew-p24CVLR0-unsplash.jpg"
+        imageAlt="Valvenok SS316 JIC Flare Fittings"
+        breadcrumb="Products / JIC Fittings"
+      />
+      <ProductGrid categories={CATEGORIES} intro={INTRO} />
+      <TrustStrip points={TRUST_POINTS} />
+    </>
   )
 }
