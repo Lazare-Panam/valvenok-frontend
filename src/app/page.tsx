@@ -5,6 +5,7 @@ import Brands from "./Landing/Brands";
 import Categories from "./Landing/Categories";
 import DeliveryBanner from "./Landing/DeliveryBanner";
 import FeaturedStrip from "./Landing/FeaturedStrip";
+import FeaturedValves from "./Landing/FeaturedValves";
 import HeroSlider from "./Landing/HeroSlider";
 import PanamBanner from "./Landing/PanamBanner";
 // For Next.js App Router (metadata object)
@@ -32,6 +33,7 @@ export default function Home() {
     <>
       <HeroSlider/>
       <DeliveryBanner/>
+      <FeaturedValves/>
       <Categories/>
       <FeaturedStrip/>
       <PanamBanner/>
