@@ -12,7 +12,7 @@ export const metadata = {
     siteName: 'Valvenok',
     images: [
       {
-        url: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776071072/f6b8803c-7833-40b1-9311-228c31e14a92.png',
+        url: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/batu-logo.png',
         width: 1200,
         height: 630,
         alt: 'Valvenok Manufacturer Network',

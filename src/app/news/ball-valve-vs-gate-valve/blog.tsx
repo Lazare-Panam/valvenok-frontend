@@ -92,7 +92,7 @@ export default function BallValveVsGateValvePage() {
           <Box sx={{ my: 5, textAlign: 'center' }}>
   <Box
     component="img"
-    src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1775652300/5e1c4cbe-9070-4c28-814a-69277d237550.png"
+    src="https://pblol2.blob.core.windows.net/valvenok-images/products/valves/apollo-valves-88a10a01.webp"
     alt="Quarter-turn operation: 90° rotation moves from full open to full closed"
     sx={{ width: '100%', maxWidth: 700, border: '1px solid', borderColor: 'divider' }}
   />
@@ -172,7 +172,7 @@ export default function BallValveVsGateValvePage() {
   <Box sx={{ flex: 1, textAlign: 'center' }}>
     <Box
       component="img"
-      src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1775652498/e0530a76-5e4f-4662-aa85-ccb785847916.png"
+      src="https://pblol2.blob.core.windows.net/valvenok-images/products/valves/apollo-valves-88a10a01.webp"
       alt="Gate Valve"
       sx={{ width: '100%', border: '1px solid', borderColor: 'divider' }}
     />
@@ -183,7 +183,7 @@ export default function BallValveVsGateValvePage() {
   <Box sx={{ flex: 1, textAlign: 'center' }}>
     <Box
       component="img"
-      src="https://res.cloudinary.com/dm9rmmemx/image/upload/v1775652505/89730343-f46f-4cc6-9930-56ce4981ae6b.png"
+      src="https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PBV-2-S-04-FF-1.png"
       alt="Ball Valve"
       sx={{ width: '100%', border: '1px solid', borderColor: 'divider' }}
     />

@@ -21,7 +21,7 @@ const POSTS = [
     title: "Industrial Mechanical Seals Guide: Engineering Specs & Selection",
     desc: "A comprehensive engineer's guide to Valvenok mechanical seals. Learn about material selection, API flush plans, and performance specs for high-pressure industrial systems",
     thumbnail:
-      "https://res.cloudinary.com/dm9rmmemx/image/upload/v1775564688/28788ab3-a6d7-4876-b8a3-8e4afd5ac9da_dyi0qw.jpg",
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/seals/Seals.jpg",
     author: "Sejal Raina",
     date: "April 4, 2026",
     category: "Engineering",
@@ -32,7 +32,7 @@ const POSTS = [
       "Ball Valve vs Gate Valve: Technical Guide to Key Differences & How to Choose",
     desc: "A technical breakdown of ball valves and gate valves — covering sealing performance, pressure ratings, industry applications, and a clear decision framework for engineers and procurement teams.",
     thumbnail:
-      "https://res.cloudinary.com/dm9rmmemx/image/upload/v1775652608/batu-43_xwieor.jpg", // add your image here
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/apollo-valves-88a10a01.webp", // add your image here
     author: "Kanchan Rajput",
     date: "April 8, 2026",
     category: "Technical Guide",
@@ -41,7 +41,7 @@ const POSTS = [
   {
   title: "The World's Best Valve Manufacturers, In One Place",
   desc: "Valvenok partners directly with 16 of the world's leading valve and flow control manufacturers — bringing their full product range to engineers and procurement teams across 6 continents.",
-  thumbnail: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1776268383/WhatsApp_Image_2026-04-15_at_2.09.48_PM_cxhmxb.jpg", // add your image here
+  thumbnail: "https://pblol2.blob.core.windows.net/valvenok-images/brands/batu-logo.png", // add your image here
   author: "Kanchan Rajput",
   date: "April 2026",
   category: "Manufacturer Profiles",
@@ -60,7 +60,7 @@ const POSTS = [
     title:
       "Single Agitator Mechanical Seals: Design, Working Principle & Industrial Applications",
     desc: "A complete engineering guide to one of the workhorses of the process industry — how it is built, how it keeps your reactor leak-free, and where it fits among the seal types you might be considering.",
-    thumbnail: "/images/seals-blog-thumbnail.jpg",
+    thumbnail: "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/ben-kupke-ew-p24CVLR0-unsplash.jpg",
     author: "Seal Raina",
     date: "May 2026",
     category: "Engineering",

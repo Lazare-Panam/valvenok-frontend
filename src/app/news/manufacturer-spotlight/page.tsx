@@ -15,22 +15,22 @@ import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
 const manufacturers = [
-  { initials: 'FE',  name: 'Fisher / Emerson',      img: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776071072/f6b8803c-7833-40b1-9311-228c31e14a92.png', spec: 'Control valves, regulators. Global Benchmark for precision process control.' },
-  { initials: 'CAM', name: 'Cameron (SLB)',           img: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776251705/eb9a9389-dd35-478e-b4d7-fc7d905ebfcd.png', spec: 'Gate, ball, check valves. API 6D certified. Upstream Oil & Gas standard.' },
-  { initials: 'AG',  name: 'Anderson Greenwood',      img: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776251732/21571155-0d7a-46b0-b79f-854a7bbedee8.png', spec: 'Pilot-operated relief valves. API 520/521. Refining & petrochemical.' },
-  { initials: 'BH',  name: 'Baker Hughes',            img: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776069683/f64364c8-1094-47f2-882a-5cedb56a389c.png', spec: 'Subsea and surface valve systems. HPHT applications globally.' },
-  { initials: 'BET', name: 'Bettis',                  img: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776251807/09d61023-3bd5-47c3-a85c-8682746457a0.png', spec: 'Actuators for quarter-turn and multi-turn valve automation.' },
-  { initials: 'KUN', name: 'Kunkle Valve',            img: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776251856/e4f2f974-6400-4a0c-9166-484edab335ea.png', spec: 'ASME & NB certified safety relief. 2–6,000 PSI range.' },
-  { initials: 'HYD', name: 'Hydroseal Valve Co.',     img: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776251883/f778d9b5-dcbb-4123-a3ca-8ce24bd1ecc8.png', spec: 'Gate, globe, check, ball for industrial and utility service.' },
-  { initials: 'AQU', name: 'Aquatrol',                img: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776070644/23b997aa-777a-4b3a-a817-b5b76d9135c8.png', spec: 'Relief valves for water treatment, boilers, steam utility.' },
-  { initials: 'TVT', name: 'Taylor Valve Tech',       img: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776069906/0dbb9e92-bdb4-4710-a165-11cedaafd289.png', spec: 'Fire-safe ball valves. API 607 & 6FA. Energy and pipeline sector.' },
-  { initials: 'CW',  name: 'Curtiss-Wright',          img: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776069969/a725d89f-6c4a-41dc-9151-7a5d37ac0c0d.png', spec: 'Nuclear and defense-grade. ASME N-stamp. Extreme service.' },
+  { initials: 'FE',  name: 'Fisher / Emerson',      img: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/fisher-logo.jpg', spec: 'Control valves, regulators. Global Benchmark for precision process control.' },
+  { initials: 'CAM', name: 'Cameron (SLB)',           img: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/cameron-logo.png', spec: 'Gate, ball, check valves. API 6D certified. Upstream Oil & Gas standard.' },
+  { initials: 'AG',  name: 'Anderson Greenwood',      img: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/anderson-greewood-logo.jpg', spec: 'Pilot-operated relief valves. API 520/521. Refining & petrochemical.' },
+  { initials: 'BH',  name: 'Baker Hughes',            img: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/baker-hughes-logo.png', spec: 'Subsea and surface valve systems. HPHT applications globally.' },
+  { initials: 'BET', name: 'Bettis',                  img: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/bettis-logo.png', spec: 'Actuators for quarter-turn and multi-turn valve automation.' },
+  { initials: 'KUN', name: 'Kunkle Valve',            img: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/knuckle-valve-logo.png', spec: 'ASME & NB certified safety relief. 2–6,000 PSI range.' },
+  { initials: 'HYD', name: 'Hydroseal Valve Co.',     img: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/hydroseal-logo.png', spec: 'Gate, globe, check, ball for industrial and utility service.' },
+  { initials: 'AQU', name: 'Aquatrol',                img: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/aquatrol-logo.png', spec: 'Relief valves for water treatment, boilers, steam utility.' },
+  { initials: 'TVT', name: 'Taylor Valve Tech',       img: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/taylor-valve-logo.png', spec: 'Fire-safe ball valves. API 607 & 6FA. Energy and pipeline sector.' },
+  { initials: 'CW',  name: 'Curtiss-Wright',          img: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/curtis-wright-logo.jpg', spec: 'Nuclear and defense-grade. ASME N-stamp. Extreme service.' },
   { initials: 'LES', name: 'Leser',                   img: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776251966/247a1fc2-d1ed-4fa3-859f-451c1d2e2959.png', spec: 'European safety valve authority. PED, TÜV, AD2000 certified.' },
-  { initials: 'FHT', name: 'FHT Valves',              img: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776252496/51f84bd6-aa49-4920-a1ef-9f5957c5f015.png', spec: 'Industrial valve range for MRO and project procurement.' },
-  { initials: 'MER', name: 'Mercer Valve Co.',        img: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776070145/68b0296b-8db9-4351-8706-b8d6e3a1223c.png', spec: 'Auto-seat technology. Safety & relief for industrial gas service.' },
-  { initials: 'BAT', name: 'Batu Valve',              img: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1774530741/logo_i2lhxi.png', spec: 'Gate, globe, check, ball for oil & gas, water, and process.' },
-  { initials: 'ATM', name: 'ATAM Valve',              img: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776252030/9cb32873-71eb-4bee-a40c-d253a2d1ef5b.png', spec: 'Valves, fittings, and boiler mountings for process & utilities.' },
-  { initials: 'CRO', name: 'Crosby Valves',           img: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1776252037/8b4d3f3f-7e9d-4266-a753-5ccf4206d714.png', spec: '150+ years of safety relief heritage. Global API RP 520 authority.' },
+  { initials: 'FHT', name: 'FHT Valves',              img: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/fht-valves-logo.png', spec: 'Industrial valve range for MRO and project procurement.' },
+  { initials: 'MER', name: 'Mercer Valve Co.',        img: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/mercer-logo.jpg', spec: 'Auto-seat technology. Safety & relief for industrial gas service.' },
+  { initials: 'BAT', name: 'Batu Valve',              img: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/batu-logo.png', spec: 'Gate, globe, check, ball for oil & gas, water, and process.' },
+  { initials: 'ATM', name: 'ATAM Valve',              img: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/atamvalves_logo.jpg', spec: 'Valves, fittings, and boiler mountings for process & utilities.' },
+  { initials: 'CRO', name: 'Crosby Valves',           img: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/crosby_logo.png', spec: '150+ years of safety relief heritage. Global API RP 520 authority.' },
 ];
 
 const categories = ['Control','Oil & Gas','Relief','Subsea','Actuation','Safety','Industrial','Utility','Ball','Nuclear','Safety','MRO','Gas','Gate/Globe','Fittings','Safety'];
