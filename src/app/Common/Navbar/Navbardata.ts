@@ -84,10 +84,11 @@ export const CATEGORIES: Category[] = [
   },
   {
     id: "actuators",
+     href: "/actuators",
     label: "Actuators",
     color: "#2e7d32",
     textColor: "#fff",
-    items: [{ label: "Pneumatic Actuators", href: "/pneumatic/actuators" }],
+    items: [{ label: "Pneumatic Actuators", href: "/actuators" }],
   },
   {
     id: "valves",
