@@ -93,7 +93,7 @@ export default function RequestForQuoteCard({ product }: { product: ProductForRF
               }
             }}
           >
-            Request for Quote
+            Request for Quote/Lead time
           </Button>
         </CardContent>
       </Card>

@@ -68,10 +68,10 @@ const CATEGORIES = [
   {
     name: "Actuators",
     img: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/actuator_no-bg.png",
-    href: "/categories/actuators",
+    href: "/pneumatic/actuators",
     tag: "Precision",
     count: "50+",
-    subs: [{ name: "Pneumatic Actuators", href: "/categories/actuators" }],
+    subs: [{ name: "Pneumatic Actuators", href: "/pneumatic/actuators" }],
   },
   {
     name: "Pumps & Mechanical Seal",

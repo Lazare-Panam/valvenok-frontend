@@ -16,7 +16,7 @@ export const CATEGORY_METADATA = [
     count: 3,
    description: 'Precision linear and rotary actuators, including electric drive cylinders and high-torque motion controllers.',
     image: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1774880477/WhatsApp_Image_2026-03-30_at_1.28.06_PM_y1dc6u.jpg',
-   href: '/categories/actuators', 
+   href: '/pneumatic/actuators', 
     tags: ['Linear Motion', 'High Precision', 'Electric Drives'],
   },
   {

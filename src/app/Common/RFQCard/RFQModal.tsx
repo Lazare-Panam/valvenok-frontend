@@ -56,7 +56,7 @@ export default function RFQModal({ open, onClose, product }: RFQModalProps) {
         <Box display="flex" justifyContent="space-between" alignItems="flex-start">
           <Box>
             <Typography variant="h5" sx={{ fontWeight: 900, textTransform: 'uppercase', letterSpacing: '1px', color: 'primary.main', fontFamily: '"Barlow Condensed"' }}>
-              Request a Quote
+              Request a Quote/Lead Time
             </Typography>
             <Typography variant="body2" sx={{ color: 'text.secondary', mt: 0.5 }}>
               {product.name}
