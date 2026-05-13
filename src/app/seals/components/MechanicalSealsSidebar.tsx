@@ -18,7 +18,7 @@ interface Props {
 
 function FilterGroup({ title, count, children }: { title: string; count?: number; children: React.ReactNode }) {
   return (
-    <Accordion defaultExpanded disableGutters elevation={0}
+    <Accordion  disableGutters elevation={0}
       sx={{ bgcolor: 'transparent', '&:before': { display: 'none' }, mb: 1 }}>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon sx={{ fontSize: 16 }} />}

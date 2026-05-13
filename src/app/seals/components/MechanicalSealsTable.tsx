@@ -1,19 +1,44 @@
-import { useMemo, useState, useCallback } from 'react'
-import { Box, Stack, Typography, Button } from '@mui/material'
+'use client'
+import { useState, useMemo } from 'react'
+import {
+  Box, Typography, Table, TableBody, TableCell, TableContainer,
+  TableHead, TableRow, TablePagination, TableSortLabel, Collapse,
+  Chip, Stack, IconButton, Button,
+  Accordion, AccordionSummary, AccordionDetails,
+  FormGroup, FormControlLabel, Checkbox, Divider
+} from '@mui/material'
 import { alpha, useTheme } from '@mui/material/styles'
-import AddIcon from '@mui/icons-material/Add'
-import RemoveIcon from '@mui/icons-material/Remove'
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
-import { AgGridReact } from 'ag-grid-react'
-import { ColDef, ICellRendererParams, IsFullWidthRowParams } from 'ag-grid-community'
-import 'ag-grid-community/styles/ag-grid.css'
-import 'ag-grid-community/styles/ag-theme-alpine.css'
-import { useRouter } from 'next/navigation'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
+import { useMediaQuery, Drawer } from '@mui/material'
+import FilterListIcon from '@mui/icons-material/FilterList'
 import { MechanicalSealDTO } from '@/src/api/sealApi'
-import { useCartStore } from '../../cart/hooks/useCartStore'
-import { useNotificationStore } from '@/src/store/useNotificationStore'
+import RFQModal from '@/src/app/Common/RFQCard/RFQModal'
+import { type ProductForRFQ } from '@/src/app/Common/RFQCard/RequestForQuoteCard'
+import { SealFilters, EMPTY_SEAL_FILTERS } from '../hooks/types'
 
-function Spec({ label, value }: { label: string; value: string }) {
+function toProductForRFQ(seal: MechanicalSealDTO): ProductForRFQ {
+  return {
+    id: seal.partNumber,
+    name: `Mechanical Seal — ${seal.partNumber}`,
+    brand: 'Valvenok',
+    category: 'Mechanical Seals',
+    categoryId: 'mechanical-seals',
+    thumbnail: seal.imageUrl,
+    description: `Mechanical seal ${seal.sealSizeMm ? `${seal.sealSizeMm}mm` : ''} ${seal.sealSizeInch ? `(${seal.sealSizeInch}")` : ''}`.trim(),
+    keySpecs: [
+      ...(seal.shaftSizeMm ? [{ label: 'Shaft Size', value: seal.shaftSizeMm }] : []),
+      ...(seal.sealSizeMm ? [{ label: 'Seal Size (MM)', value: seal.sealSizeMm }] : []),
+      ...(seal.sealSizeInch ? [{ label: 'Seal Size (Inch)', value: seal.sealSizeInch }] : []),
+      { label: 'Price', value: `£${seal.price.toFixed(2)}` },
+    ],
+    variantInfo: { count: 1, sizeRange: seal.sealSizeMm ?? seal.shaftSizeMm ?? '' },
+  }
+}
+
+function Spec({ label, value }: { label: string; value?: string | null }) {
+  if (!value) return null
   return (
     <Box>
       <Typography variant="caption" color="text.disabled" fontWeight={700}
@@ -25,245 +50,268 @@ function Spec({ label, value }: { label: string; value: string }) {
   )
 }
 
-function DetailPanelRenderer({ data, context }: ICellRendererParams) {
+function FilterGroup({ title, count, children }: { title: string; count?: number; children: React.ReactNode }) {
   const theme = useTheme()
-  const seal: MechanicalSealDTO = data
+  return (
+    <Accordion  disableGutters elevation={0} sx={{ bgcolor: 'transparent', '&:before': { display: 'none' }, mb: 0.5 }}>
+      <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ fontSize: 16 }} />} sx={{ px: 0, minHeight: 36, '& .MuiAccordionSummary-content': { my: 0.5 } }}>
+        <Stack direction="row" alignItems="center" spacing={1}>
+          <Typography variant="caption" fontWeight={700} color="text.primary">{title}</Typography>
+          {count ? <Chip label={count} size="small" sx={{ height: 16, fontSize: '0.65rem', bgcolor: theme.palette.primary.main, color: '#fff' }} /> : null}
+        </Stack>
+      </AccordionSummary>
+      <AccordionDetails sx={{ px: 0, pt: 0 }}>
+        <FormGroup>{children}</FormGroup>
+      </AccordionDetails>
+    </Accordion>
+  )
+}
+
+function Sidebar({ filters, setFilters, filterOptions, filtersLoading, activeCount }: {
+  filters: SealFilters
+  setFilters: React.Dispatch<React.SetStateAction<SealFilters>>
+  filterOptions: any
+  filtersLoading: boolean
+  activeCount: number
+}) {
+  const theme = useTheme()
+  const [sizeUnit, setSizeUnit] = useState<'mm' | 'inch'>('mm')
+
+  const toggle = (key: keyof SealFilters, val: string) =>
+    setFilters(prev => {
+      const current = prev[key] as string[]
+      const updated = current.includes(val) ? current.filter(v => v !== val) : [...current, val]
+      return { ...prev, [key]: updated }
+    })
 
   return (
-    <Box sx={{
-      p: 3, minHeight: 220,
-      bgcolor: alpha(theme.palette.primary.main, 0.02),
-      borderLeft: `4px solid ${theme.palette.primary.main}`,
-      borderBottom: `1px solid ${theme.palette.divider}`,
-      width: '100%'
-    }}>
-      <Stack direction={{ xs: 'column', md: 'row' }} spacing={4}>
-        <Box sx={{
-          flexShrink: 0, width: 180, height: 180,
-          border: `1px solid ${theme.palette.divider}`,
-          borderRadius: 2, bgcolor: '#fff',
-          display: 'flex', alignItems: 'center', justifyContent: 'center', p: 2
-        }}>
-          <Box
-            component="img"
-            src={seal.imageUrl}
-            alt={seal.partNumber}
-            onClick={() => {
-              sessionStorage.setItem('seal-detail', JSON.stringify(seal))
-              context?.router.push(`/seals/${seal.partNumber}`)
-            }}
-            sx={{
-              width: 180, height: 180, objectFit: 'contain',
-              cursor: 'pointer',
-              '&:hover': { opacity: 0.8, transform: 'scale(1.02)', transition: 'all 0.2s' }
-            }}
-          />
-        </Box>
-        <Box sx={{ flex: 1 }}>
-          <Typography variant="caption" fontWeight={900} color="primary"
-            sx={{ letterSpacing: 1, display: 'block', mb: 2 }}>
-            SPECIFICATIONS
+    <Box sx={{ width: 240, flexShrink: 0, p: 2, borderRight: '1px solid', borderColor: 'divider', bgcolor: 'background.paper', overflowY: 'auto' }}>
+      <Stack direction="row" justifyContent="space-between" alignItems="center" mb={2}>
+        <Typography variant="caption" fontWeight={900} letterSpacing={1} color="text.secondary">FILTER</Typography>
+        {activeCount > 0 && (
+          <Typography variant="caption" fontWeight={700} sx={{ cursor: 'pointer', color: theme.palette.primary.main }} onClick={() => setFilters(EMPTY_SEAL_FILTERS)}>
+            Clear all
           </Typography>
-          <Stack direction="row" flexWrap="wrap" gap={3} mb={3}>
-            <Spec label="Part Number" value={seal.partNumber} />
-            <Spec label="Price" value={`£${seal.price.toFixed(2)}`} />
-            {seal.sealSizeMm && <Spec label="Seal Size (MM)" value={seal.sealSizeMm} />}
-            {seal.sealSizeInch && <Spec label="Seal Size (Inch)" value={seal.sealSizeInch} />}
-            {seal.shaftSizeMm && <Spec label="Shaft Size" value={seal.shaftSizeMm} />}
-          </Stack>
-          <Button
-            variant="contained"
-            startIcon={<ShoppingCartIcon />}
-            onClick={() => context?.addToCart(seal)}
-            sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px' }}
-          >
-            Add to Cart
-          </Button>
-        </Box>
+        )}
       </Stack>
+      <FilterGroup title="SHAFT SIZE" count={filters.shaftSizes.length || undefined}>
+        {filtersLoading
+          ? <Typography variant="caption" color="text.disabled" sx={{ pl: 1 }}>Loading...</Typography>
+          : (filterOptions?.shaftSizes ?? []).map((opt: string) => (
+            <FormControlLabel key={opt}
+              control={<Checkbox size="small" checked={filters.shaftSizes.includes(opt)} onChange={() => toggle('shaftSizes', opt)} sx={{ py: 0.25, '&.Mui-checked': { color: theme.palette.primary.main } }} />}
+              label={<Typography variant="body2" fontSize="0.78rem">{opt}</Typography>}
+            />
+          ))
+        }
+      </FilterGroup>
+      <Divider sx={{ my: 0.5 }} />
+      <FilterGroup title="SEAL SIZE" count={(filters.sealSizesMm.length + filters.sealSizesInch.length) || undefined}>
+        <Stack direction="row" gap={0.5} mb={1.5}>
+          {(['mm', 'inch'] as const).map(unit => (
+            <Box key={unit} onClick={() => setSizeUnit(unit)} sx={{
+              px: 1.5, py: 0.25, borderRadius: '4px', cursor: 'pointer', fontSize: '0.65rem',
+              fontWeight: 700, textTransform: 'uppercase',
+              bgcolor: sizeUnit === unit ? theme.palette.primary.main : 'transparent',
+              color: sizeUnit === unit ? '#fff' : theme.palette.primary.main,
+              border: `1px solid ${theme.palette.primary.main}`,
+            }}>
+              {unit}
+            </Box>
+          ))}
+        </Stack>
+        {filtersLoading
+          ? <Typography variant="caption" color="text.disabled" sx={{ pl: 1 }}>Loading...</Typography>
+          : (sizeUnit === 'mm' ? (filterOptions?.sealSizesMm ?? []) : (filterOptions?.sealSizesInch ?? [])).map((opt: string) => (
+            <FormControlLabel key={opt}
+              control={<Checkbox size="small"
+                checked={sizeUnit === 'mm' ? filters.sealSizesMm.includes(opt) : filters.sealSizesInch.includes(opt)}
+                onChange={() => toggle(sizeUnit === 'mm' ? 'sealSizesMm' : 'sealSizesInch', opt)}
+                sx={{ py: 0.25, '&.Mui-checked': { color: theme.palette.primary.main } }} />}
+              label={<Typography variant="body2" fontSize="0.78rem">{opt}</Typography>}
+            />
+          ))
+        }
+      </FilterGroup>
     </Box>
   )
 }
 
-function ExpandCellRenderer({ data, context }: ICellRendererParams) {
+function SealRow({ seal }: { seal: MechanicalSealDTO }) {
+  const [open, setOpen] = useState(false)
+  const [quoteProduct, setQuoteProduct] = useState<ProductForRFQ | null>(null)
   const theme = useTheme()
-  if (data?._isDetail) return null
-  const isOpen = context?.openRows?.has(data?._rowId)
-  return (
-    <Box onClick={(e) => { e.stopPropagation(); context?.toggleRow(data?._rowId) }}
-      sx={{
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        width: 24, height: 24, cursor: 'pointer',
-        border: `1px solid ${isOpen ? theme.palette.primary.main : theme.palette.divider}`,
-        borderRadius: '4px', color: isOpen ? 'primary.main' : 'text.disabled',
-        '&:hover': { borderColor: 'primary.main', color: 'primary.main' }
-      }}>
-      {isOpen ? <RemoveIcon sx={{ fontSize: 12 }} /> : <AddIcon sx={{ fontSize: 12 }} />}
-    </Box>
-  )
-}
-
-function AddToCartCellRenderer({ data, context }: ICellRendererParams) {
-  if (data?._isDetail) return null
-  return (
-    <Button size="small" variant="contained"
-      startIcon={<ShoppingCartIcon sx={{ fontSize: 14 }} />}
-      onClick={(e) => { e.stopPropagation(); context?.addToCart(data) }}
-      sx={{
-        fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5,
-        borderRadius: '4px', textTransform: 'none', whiteSpace: 'nowrap',
-        boxShadow: 'none', '&:hover': { boxShadow: 'none' }
-      }}>
-      Add to Cart
-    </Button>
-  )
-}
-
-export default function MechanicalSealsTable({ models, isFetching }: { models: MechanicalSealDTO[], isFetching: boolean }) {
-  const theme = useTheme()
-  const router = useRouter()
-  const [openRows, setOpenRows] = useState<Set<string>>(new Set())
-  const addItem = useCartStore(s => s.addItem)
-  const showNotification = useNotificationStore(s => s.showNotification)
-
-  const toggleRow = useCallback((rowId: string) => {
-    setOpenRows(prev => {
-      const next = new Set(prev)
-      next.has(rowId) ? next.delete(rowId) : next.add(rowId)
-      return next
-    })
-  }, [])
-
-  const addToCart = useCallback((data: MechanicalSealDTO) => {
-    addItem({
-      id: String(data.id),
-      name: data.partNumber,
-      description: `Mechanical Seal — ${data.sealSizeMm ?? data.shaftSizeMm ?? ''}`,
-      partNumber: data.partNumber,
-      price: data.price,
-      quantity: 1,
-      cloudinaryId: data.imageUrl,
-    })
-    showNotification({
-      message: 'Added to cart',
-      severity: 'success',
-      partNumber: data.partNumber,
-    })
-  }, [addItem, showNotification])
-
-  const rowData = useMemo(() => {
-    const rows: any[] = []
-    models.forEach((p, i) => {
-      const rowId = `${p.partNumber}-${i}`
-      rows.push({ ...p, _rowId: rowId, _isDetail: false })
-      if (openRows.has(rowId)) rows.push({ ...p, _rowId: rowId, _isDetail: true })
-    })
-    return rows
-  }, [models, openRows])
-
-  const colDefs: ColDef[] = useMemo(() => [
-    {
-      headerName: '', width: 40, pinned: 'left' as const, sortable: false,
-      cellRenderer: 'expandCellRenderer',
-      cellStyle: { display: 'flex', alignItems: 'center', justifyContent: 'center' } as any
-    },
-    {
-      field: 'partNumber', headerName: 'Part Number', width: 250, pinned: 'left' as const,
-      cellRenderer: (p: any) => {
-        if (p.data?._isDetail) return null
-        return (
-          <Box
-            component="span"
-            onClick={() => {
-              sessionStorage.setItem('seal-detail', JSON.stringify(p.data))
-              p.context?.router.push(`/seals/${p.data.partNumber}`)
-            }}
-            sx={{
-              fontFamily: 'monospace', fontWeight: 700,
-              color: theme.palette.primary.main, fontSize: '0.8rem',
-              cursor: 'pointer', textDecoration: 'underline',
-              '&:hover': { opacity: 0.75 }
-            }}
-          >
-            {p.value}
-          </Box>
-        )
-      }
-    },
-    { field: 'shaftSizeMm', headerName: 'Shaft Size', width: 300, valueFormatter: (p: any) => p.value ?? '—' },
-    { field: 'sealSizeMm', headerName: 'Seal Size (MM)', width: 300, valueFormatter: (p: any) => p.value ?? '—' },
-    { field: 'sealSizeInch', headerName: 'Seal Size (Inch)', width: 360, valueFormatter: (p: any) => p.value ?? '—' },
-    {
-      field: 'price', headerName: 'Price', width: 160, valueFormatter: (p: any) => `£${p.value.toFixed(2)}`
-    },
-    {
-      headerName: 'Cart', width: 150, sortable: false, pinned: 'right' as const,
-      cellRenderer: 'addToCartCellRenderer',
-      cellStyle: { display: 'flex', alignItems: 'center', justifyContent: 'center' } as any
-    }
-  ], [theme])
-
-  const defaultColDef: ColDef = useMemo(() => ({ sortable: true, resizable: true, filter: false }), [])
-  const isFullWidthRow = useCallback((params: IsFullWidthRowParams) => params.rowNode.data?._isDetail === true, [])
-  const gridContext = useMemo(() => ({ openRows, toggleRow, addToCart, router }), [openRows, toggleRow, addToCart, router])
 
   return (
-    <Box sx={{ position: 'relative' }}>
-      {isFetching && (
-        <Box sx={{
-          position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
-          backdropFilter: 'blur(2px)', bgcolor: 'rgba(255,255,255,0.4)',
-          zIndex: 10, display: 'flex', alignItems: 'center', justifyContent: 'center',
-          borderRadius: '8px'
-        }}>
-          <Box sx={{
-            bgcolor: 'background.paper', px: 3, py: 1.5, borderRadius: '20px', boxShadow: 2,
-            display: 'flex', alignItems: 'center', gap: 1
-          }}>
-            <Box sx={{
-              width: 8, height: 8, borderRadius: '50%', bgcolor: 'primary.main',
-              animation: 'pulse 1s ease-in-out infinite',
-              '@keyframes pulse': { '0%, 100%': { opacity: 1 }, '50%': { opacity: 0.3 } }
-            }} />
-            <Typography variant="caption" fontWeight={700} color="primary.main">UPDATING</Typography>
-          </Box>
-        </Box>
+    <>
+      <TableRow hover onClick={() => setOpen(o => !o)}
+        sx={{ cursor: 'pointer', bgcolor: open ? alpha(theme.palette.primary.main, 0.04) : 'inherit', '&:hover': { bgcolor: `${alpha(theme.palette.primary.main, 0.03)} !important` } }}>
+        <TableCell sx={{ width: 40, py: 1 }}>
+          <IconButton size="small" onClick={e => { e.stopPropagation(); setOpen(o => !o) }}>
+            {open ? <KeyboardArrowUpIcon fontSize="small" /> : <KeyboardArrowDownIcon fontSize="small" />}
+          </IconButton>
+        </TableCell>
+        <TableCell sx={{ fontFamily: 'monospace', fontWeight: 700, color: theme.palette.primary.main, fontSize: '0.8rem', py: 1 }}>
+          {seal.partNumber}
+        </TableCell>
+        <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{seal.shaftSizeMm ?? '—'}</TableCell>
+        <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{seal.sealSizeMm ?? '—'}</TableCell>
+        <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{seal.sealSizeInch ?? '—'}</TableCell>
+        <TableCell sx={{ py: 1, fontSize: '0.82rem', fontFamily: 'monospace', fontWeight: 700, color: theme.palette.primary.dark }}>
+          £{seal.price.toFixed(2)}
+        </TableCell>
+        <TableCell sx={{ py: 1 }}>
+          <Button size="small" variant="contained"
+            onClick={e => { e.stopPropagation(); setQuoteProduct(toProductForRFQ(seal)) }}
+            sx={{ fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px', textTransform: 'none', whiteSpace: 'nowrap', boxShadow: 'none', '&:hover': { boxShadow: 'none' } }}>
+            Request Quote
+          </Button>
+        </TableCell>
+      </TableRow>
+
+      {open && (
+        <TableRow>
+          <TableCell colSpan={7} sx={{ p: 0, borderBottom: 'none' }}>
+            <Collapse in unmountOnExit>
+              <Box sx={{ p: 3, bgcolor: alpha(theme.palette.primary.main, 0.02), borderLeft: `4px solid ${theme.palette.primary.main}`, borderBottom: `1px solid ${theme.palette.divider}` }}>
+                <Stack direction={{ xs: 'column', md: 'row' }} spacing={4} alignItems="flex-start">
+                  <Box sx={{ width: 140, height: 140, flexShrink: 0, border: `1px solid ${theme.palette.divider}`, borderRadius: 1, bgcolor: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', p: 1 }}>
+                    <Box component="img" src={seal.imageUrl} alt={seal.partNumber} sx={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                  </Box>
+                  <Box sx={{ flex: 1 }}>
+                    <Typography variant="caption" fontWeight={900} color="primary" sx={{ display: 'block', mb: 2, letterSpacing: 1 }}>SPECIFICATIONS</Typography>
+                    <Stack direction="row" flexWrap="wrap" gap={3} mb={3}>
+                      <Spec label="Part Number" value={seal.partNumber} />
+                      <Spec label="Shaft Size" value={seal.shaftSizeMm} />
+                      <Spec label="Seal Size (MM)" value={seal.sealSizeMm} />
+                      <Spec label="Seal Size (Inch)" value={seal.sealSizeInch} />
+                      <Spec label="Price" value={`£${seal.price.toFixed(2)}`} />
+                    </Stack>
+                    <Button variant="contained" onClick={() => setQuoteProduct(toProductForRFQ(seal))}
+                      sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', boxShadow: 'none', '&:hover': { boxShadow: 'none' } }}>
+                      Request Quote
+                    </Button>
+                  </Box>
+                </Stack>
+              </Box>
+            </Collapse>
+          </TableCell>
+        </TableRow>
       )}
 
-      <Box className="ag-theme-alpine" sx={{
-        width: '100%',
-        opacity: isFetching ? 0.6 : 1,
-        transition: 'opacity 0.2s ease',
-        '& .ag-root-wrapper': { border: `1px solid ${theme.palette.divider}`, borderRadius: '8px' },
-        '& .ag-header': { bgcolor: alpha(theme.palette.primary.main, 0.04), borderBottom: `2px solid ${theme.palette.primary.main}` },
-        '& .ag-header-cell-text': { fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' },
-        '& .ag-row': { borderBottom: `1px solid ${theme.palette.divider}` },
-        '& .ag-row:hover': { bgcolor: `${alpha(theme.palette.primary.main, 0.03)} !important` },
-        '& .ag-row-even': { bgcolor: 'background.paper' },
-        '& .ag-row-odd': { bgcolor: alpha(theme.palette.primary.main, 0.01) },
-        '& .ag-cell': { fontSize: '0.82rem' },
-        '& .ag-paging-panel': { borderTop: `1px solid ${theme.palette.divider}`, fontSize: '0.8rem' },
-        '& .ag-full-width-row': { bgcolor: 'transparent !important' },
-      }}>
-        <AgGridReact
-          rowData={rowData}
-          columnDefs={colDefs}
-          defaultColDef={defaultColDef}
-          suppressColumnVirtualisation
-          components={{
-            expandCellRenderer: ExpandCellRenderer,
-            detailPanelRenderer: DetailPanelRenderer,
-            addToCartCellRenderer: AddToCartCellRenderer,
-          }}
-          context={gridContext}
-          isFullWidthRow={isFullWidthRow}
-          fullWidthCellRenderer="detailPanelRenderer"
-          getRowHeight={(params) => params.data?._isDetail ? 280 : 44}
-          pagination
-          paginationPageSize={20}
-          domLayout="autoHeight"
-        />
+      {quoteProduct && (
+        <RFQModal open={!!quoteProduct} onClose={() => setQuoteProduct(null)} product={quoteProduct} />
+      )}
+    </>
+  )
+}
+
+type SortKey = 'partNumber' | 'shaftSizeMm' | 'sealSizeMm' | 'sealSizeInch' | 'price'
+
+export default function MechanicalSealsTable({
+  models, isFetching, filters, setFilters, filterOptions, filtersLoading, activeCount, mobileOpen, setMobileOpen
+}: {
+  models: MechanicalSealDTO[]
+  isFetching: boolean
+  filters: SealFilters
+  setFilters: React.Dispatch<React.SetStateAction<SealFilters>>
+  filterOptions: any
+  filtersLoading: boolean
+  activeCount: number
+  mobileOpen: boolean
+  setMobileOpen: (v: boolean) => void
+}) {
+  const theme = useTheme()
+  const isMobile = useMediaQuery('(max-width:1200px)')
+  const [page, setPage] = useState(0)
+  const [rowsPerPage, setRowsPerPage] = useState(25)
+  const [sortKey, setSortKey] = useState<SortKey>('partNumber')
+  const [sortDir, setSortDir] = useState<'asc' | 'desc'>('asc')
+
+  const sorted = useMemo(() => [...models].sort((a, b) => {
+    const av = (a[sortKey] ?? '') as string
+    const bv = (b[sortKey] ?? '') as string
+    if (av < bv) return sortDir === 'asc' ? -1 : 1
+    if (av > bv) return sortDir === 'asc' ? 1 : -1
+    return 0
+  }), [models, sortKey, sortDir])
+
+  const paginated = sorted.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+
+  const handleSort = (key: SortKey) => {
+    if (sortKey === key) setSortDir(d => d === 'asc' ? 'desc' : 'asc')
+    else { setSortKey(key); setSortDir('asc') }
+  }
+
+  const headerSx = {
+    bgcolor: alpha(theme.palette.primary.main, 0.06),
+    borderBottom: `2px solid ${theme.palette.primary.main}`,
+    fontWeight: 700, fontSize: '0.72rem',
+    textTransform: 'uppercase' as const,
+    letterSpacing: '0.05em',
+  }
+
+  const sidebar = (
+    <Sidebar
+      filters={filters}
+      setFilters={setFilters}
+      filterOptions={filterOptions}
+      filtersLoading={filtersLoading}
+      activeCount={activeCount}
+    />
+  )
+
+  return (
+    <>
+      <Box sx={{ display: 'flex', alignItems: 'stretch', border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}`, borderRadius: '8px', overflow: 'hidden', bgcolor: 'background.paper', position: 'relative' }}>
+        {isFetching && (
+          <Box sx={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backdropFilter: 'blur(2px)', bgcolor: 'rgba(255,255,255,0.4)', zIndex: 10, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Box sx={{ bgcolor: 'background.paper', px: 3, py: 1.5, borderRadius: '20px', boxShadow: 2, display: 'flex', alignItems: 'center', gap: 1 }}>
+              <Box sx={{ width: 8, height: 8, borderRadius: '50%', bgcolor: 'primary.main', animation: 'pulse 1s ease-in-out infinite', '@keyframes pulse': { '0%, 100%': { opacity: 1 }, '50%': { opacity: 0.3 } } }} />
+              <Typography variant="caption" fontWeight={700} color="primary">UPDATING</Typography>
+            </Box>
+          </Box>
+        )}
+        {!isMobile && sidebar}
+        <Box sx={{ flex: 1, minWidth: 0, opacity: isFetching ? 0.6 : 1, transition: 'opacity 0.2s ease' }}>
+          <TableContainer>
+            <Table size="small" stickyHeader>
+              <TableHead>
+                <TableRow>
+                  <TableCell sx={{ ...headerSx, width: 40 }} />
+                  {([
+                    { key: 'partNumber' as SortKey,   label: 'Part Number' },
+                    { key: 'shaftSizeMm' as SortKey,  label: 'Shaft Size' },
+                    { key: 'sealSizeMm' as SortKey,   label: 'Seal Size (MM)' },
+                    { key: 'sealSizeInch' as SortKey, label: 'Seal Size (Inch)' },
+                    { key: 'price' as SortKey,        label: 'Price (GBP)' },
+                    { key: null,                       label: 'Quote' },
+                  ] as const).map((h, i) => (
+                    <TableCell key={i} sx={headerSx}>
+                      {h.key
+                        ? <TableSortLabel active={sortKey === h.key} direction={sortKey === h.key ? sortDir : 'asc'} onClick={() => handleSort(h.key!)}>{h.label}</TableSortLabel>
+                        : h.label
+                      }
+                    </TableCell>
+                  ))}
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {paginated.length === 0
+                  ? <TableRow><TableCell colSpan={7} align="center" sx={{ py: 6 }}><Typography variant="body2" color="text.secondary">No seals found.</Typography></TableCell></TableRow>
+                  : paginated.map((seal, i) => <SealRow key={`${seal.partNumber}-${i}`} seal={seal} />)
+                }
+              </TableBody>
+            </Table>
+          </TableContainer>
+          <TablePagination component="div" count={sorted.length} page={page} rowsPerPage={rowsPerPage}
+            onPageChange={(_, p) => setPage(p)}
+            onRowsPerPageChange={e => { setRowsPerPage(parseInt(e.target.value)); setPage(0) }}
+            rowsPerPageOptions={[25, 50, 100]}
+            sx={{ borderTop: `1px solid ${theme.palette.divider}` }} />
+        </Box>
       </Box>
-    </Box>
+      <Drawer open={mobileOpen} onClose={() => setMobileOpen(false)}>{sidebar}</Drawer>
+    </>
   )
 }
