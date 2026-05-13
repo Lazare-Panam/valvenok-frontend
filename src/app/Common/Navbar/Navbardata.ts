@@ -79,7 +79,7 @@ export const CATEGORIES: Category[] = [
     textColor: "#fff",
     items: [
       { label: "Sight Glass", href: "/filters/sight-glass" },
-      { label: "Filtration", href: "/categories/filtration" },
+      { label: "Filtration", href: "/filters/filteration" },
     ],
   },
   {

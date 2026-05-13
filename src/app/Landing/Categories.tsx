@@ -51,7 +51,7 @@ const CATEGORIES = [
     count: "80+",
     subs: [
       { name: "Sight Glass", href: "/filters/sight-glass" },
-      { name: "Filtration", href: "/categories/filtration" },
+      { name: "Filtration", href: "/filters/filteration" },
     ],
   },
   {
