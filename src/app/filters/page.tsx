@@ -21,7 +21,7 @@ export default function SightGlassFiltrationPage() {
           display: 'flex',
           alignItems: 'center',
           overflow: 'hidden',
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("REPLACE_WITH_HERO_IMAGE_URL")`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://pblol2.blob.core.windows.net/valvenok-images/products/sight-glass/sight-glass-hero.jpg")`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           py: { xs: 8, md: 12 }
@@ -122,7 +122,7 @@ export default function SightGlassFiltrationPage() {
   <Grid size={{ xs: 12, md: 6 }}>
     <Box sx={{ borderColor: 'divider', borderRadius: 2, p: 4, textAlign: 'center' }}>
       <img
-        src="https://pblol2.blob.core.windows.net/valvenok-images/products/sight-glass/sight-glass-batu.jpg"
+        src="https://pblol2.blob.core.windows.net/valvenok-images/products/sight-glass/sight-glass-no-bg.png"
         alt="Flanged Sight Glass"
         style={{ width: '50%', height: 'auto' }}
       />
