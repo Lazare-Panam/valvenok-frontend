@@ -74,6 +74,7 @@ export const CATEGORIES: Category[] = [
   },
   {
     id: "filters",
+    href:"/filters",
     label: "Filters",
     color: "#2e7d32",
     textColor: "#fff",
@@ -93,6 +94,7 @@ export const CATEGORIES: Category[] = [
   {
     id: "valves",
     label: "Industrial Valves",
+    href:"/flow-control",
     color: "#2e7d32",
     textColor: "#fff",
     items: [
