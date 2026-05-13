@@ -2,12 +2,10 @@
 import { useState, useMemo } from 'react'
 import {
   Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead,
-  TableRow, TableSortLabel, Collapse, Chip, Stack, IconButton, Button,
-  Accordion, AccordionSummary, AccordionDetails, FormGroup, FormControlLabel,
+  TableRow, TableSortLabel, Collapse, Chip, Stack, IconButton, Button, FormControlLabel,
   Checkbox, Divider, TablePagination
 } from '@mui/material'
 import { alpha, useTheme } from '@mui/material/styles'
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import FilterListIcon from '@mui/icons-material/FilterList'
@@ -15,7 +13,8 @@ import { useMediaQuery, Drawer } from '@mui/material'
 import { HP_FILTER_DATA, type HPFilterItem } from './hpFilterData'
 import RFQModal from '@/src/app/Common/RFQCard/RFQModal'
 import { type ProductForRFQ } from '@/src/app/Common/RFQCard/RequestForQuoteCard'
-
+import { CartItem, useCartStore } from '../../cart/hooks/useCartStore'
+import { FilterGroup } from './components/FilterGroup'
 interface Filters {
   subCategories: string[]
   models: string[]
@@ -31,7 +30,25 @@ const ALL_SUBCATEGORIES = [
   'Suction Strainers',
   'Clogging Indicators',
 ]
+function toCartItem(row: HPFilterItem): CartItem {
+  // Create a descriptive string from the most important specs
+  const descriptionParts = [
+    `Model: ${row.model}`,
+    `Thread: ${row.threadConnection}`,
+    row.maxPressure ? `Max Pressure: ${row.maxPressure}` : null,
+    row.flow ? `Flow: ${row.flow} l/min` : null,
+  ].filter(Boolean);
 
+  return {
+    id: row.partNumber, // Using partNumber as the unique ID for the cart
+    name: `${row.subCategory} — ${row.partNumber}`,
+    description: descriptionParts.join(', '), // e.g., "Model: HP01, Thread: 1/2 BSP, Max Pressure: 420 BAR"
+    partNumber: row.partNumber,
+    price: row.price,
+    quantity: 1, // Default starting quantity
+    cloudinaryId: row.imageUrl, // Mapping your image URL to the store's ID field
+  };
+}
 function toProductForRFQ(row: HPFilterItem): ProductForRFQ {
   const keySpecs = [
     { label: 'Model',            value: row.model },
@@ -60,22 +77,7 @@ function toProductForRFQ(row: HPFilterItem): ProductForRFQ {
   }
 }
 
-function FilterGroup({ title, count, children }: { title: string; count?: number; children: React.ReactNode }) {
-  const theme = useTheme()
-  return (
-    <Accordion disableGutters elevation={0} sx={{ bgcolor: 'transparent', '&:before': { display: 'none' }, mb: 0.5 }}>
-      <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ fontSize: 16 }} />} sx={{ px: 0, minHeight: 36, '& .MuiAccordionSummary-content': { my: 0.5 } }}>
-        <Stack direction="row" alignItems="center" spacing={1}>
-          <Typography variant="caption" fontWeight={700} color="text.primary">{title}</Typography>
-          {count ? <Chip label={count} size="small" sx={{ height: 16, fontSize: '0.65rem', bgcolor: theme.palette.primary.main, color: '#fff' }} /> : null}
-        </Stack>
-      </AccordionSummary>
-      <AccordionDetails sx={{ px: 0, pt: 0 }}>
-        <FormGroup>{children}</FormGroup>
-      </AccordionDetails>
-    </Accordion>
-  )
-}
+
 
 function Sidebar({ filters, setFilters, activeCount }: {
   filters: Filters
@@ -132,6 +134,7 @@ function Spec({ label, value }: { label: string; value?: string }) {
 }
 
 function FilterRow({ row }: { row: HPFilterItem }) {
+    const addItem = useCartStore((state) => state.addItem);
   const [open, setOpen] = useState(false)
   const [quoteProduct, setQuoteProduct] = useState<ProductForRFQ | null>(null)
   const theme = useTheme()
@@ -165,14 +168,28 @@ function FilterRow({ row }: { row: HPFilterItem }) {
           £{row.price.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
         </TableCell>
         <TableCell sx={{ py: 1 }}>
-          <Button
-            size="small"
-            variant="contained"
-            onClick={e => { e.stopPropagation(); setQuoteProduct(toProductForRFQ(row)) }}
-            sx={{ fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px', textTransform: 'none', whiteSpace: 'nowrap', boxShadow: 'none', '&:hover': { boxShadow: 'none' } }}
-          >
-            Request Quote
-          </Button>
+          <Button 
+        size="small" 
+        variant="contained"
+        onClick={(e) => { 
+            e.stopPropagation(); 
+            addItem(toCartItem(row)); // Calls the new mapping function
+        }}
+        sx={{ 
+            fontSize: '0.7rem', 
+            fontWeight: 700, 
+            py: 0.5, 
+            px: 1.5, 
+            borderRadius: '4px', 
+            textTransform: 'none', 
+            whiteSpace: 'nowrap', 
+            boxShadow: 'none', 
+            backgroundColor: '#2e7d32', // Optional: Green color often indicates "Add to Cart"
+            '&:hover': { boxShadow: 'none', backgroundColor: '#1b5e20' } 
+        }}
+        >
+        Add to Cart
+        </Button>
         </TableCell>
       </TableRow>
 
@@ -201,13 +218,28 @@ function FilterRow({ row }: { row: HPFilterItem }) {
                       <Spec label="Set Pressure"      value={row.setPressure ? `${row.setPressure} BAR` : undefined} />
                       <Spec label="Price (GBP)"       value={`£${row.price.toLocaleString('en-GB', { minimumFractionDigits: 2 })}`} />
                     </Stack>
-                    <Button
-                      variant="contained"
-                      onClick={() => setQuoteProduct(toProductForRFQ(row))}
-                      sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', boxShadow: 'none', '&:hover': { boxShadow: 'none' } }}
-                    >
-                      Request Quote
-                    </Button>
+                    <Button 
+        size="small" 
+        variant="contained"
+        onClick={(e) => { 
+            e.stopPropagation(); 
+            addItem(toCartItem(row)); // Calls the new mapping function
+        }}
+        sx={{ 
+            fontSize: '0.7rem', 
+            fontWeight: 700, 
+            py: 0.5, 
+            px: 1.5, 
+            borderRadius: '4px', 
+            textTransform: 'none', 
+            whiteSpace: 'nowrap', 
+            boxShadow: 'none', 
+            backgroundColor: '#2e7d32', // Optional: Green color often indicates "Add to Cart"
+            '&:hover': { boxShadow: 'none', backgroundColor: '#1b5e20' } 
+        }}
+        >
+        Add to Cart
+        </Button>
                   </Box>
                 </Stack>
               </Box>
