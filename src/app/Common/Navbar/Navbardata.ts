@@ -112,74 +112,74 @@ export const CATEGORIES: Category[] = [
       {
         label: "Submersible Pumps",
         href: "/submersible",
-        children: [
-          {
-            label: "Borewell Submersible",
-            href: "/submersible/borewell",
-          },
-          { label: "Light Drainage Pumps", href: "/submersible/tdl" },
-          { label: "Light Sewage Pumps", href: "/submersible/tsl" },
-          { label: "Heavy Sewage Pumps", href: "/submersible/tgt" },
-          { label: " Submersible Sewage Pumps", href: "/submersible/tga" },
-          {
-            label: "Heavy Duty Sewage Submersible Pumps",
-            href: "/submersible/tmc",
-          },
-          // {
-          //   label: "Openwell Submersible",
-          //   href: "/submersible/borewell",
-          //   children: [
-          //     { label: "Horizontal Pumps", href: "/submersible/borewell" },
-          //     { label: "Vertical Pumps", href: "/submersible/borewell" },
-          //   ],
-          // },
-          // {
-          //   label: "WasterWater Submersible",
-          //   href: "/wastewater",
-          //   children: [
-          //     { label: "Light Drainage Pumps", href: "/submersible/tdl" },
-          //     { label: "Light Sewage Pumps", href: "/submersible/tsl" },
-          //      { label: "Heavy Sewage Pumps", href: "/submersible/tgt" },
-          //       { label: " Submersible Sewage Pumps", href: "/submersible/tga" },
-          //       { label: "Heavy Duty Sewage Submersible Pumps", href: "/submersible/tmc" },
-          //   ],
-          // },
-          // {
-          //   label: "Surface Pumps",
-          //   href: "/submersible/borewell",
-          //   children: [
-          //     { label: "Peripheral Pumps", href: "/submersible/borewell" },
-          //     {
-          //       label: "Centrifugal Monoblock Pumps",
-          //       href: "/submersible/borewell",
-          //     },
-          //     { label: "Close Coupled Pumps", href: "/submersible/borewell" },
-          //     { label: "End Suction Pumps", href: "/submersible/borewell" },
-          //     {
-          //       label: "Horizontal Split Case Pumps",
-          //       href: "/submersible/borewell",
-          //     },
-          //     {
-          //       label: "Horizontal Multistage Pumps",
-          //       href: "/submersible/borewell",
-          //     },
-          //     {
-          //       label: "Vertical Multistage Pumps",
-          //       href: "/submersible/borewell",
-          //     },
-          //     {
-          //       label: "Pressure Boosting Systems",
-          //       href: "/submersible/borewell",
-          //     },
-          //     { label: "Induction Motors", href: "/submersible/borewell" },
-          //     { label: "Dewatering Pumps", href: "/submersible/borewell" },
-          //     {
-          //       label: "Vertical Turbine Pumps",
-          //       href: "/submersible/borewell",
-          //     },
-          //   ],
-          // },
-        ],
+        // children: [
+        //   {
+        //     label: "Borewell Submersible",
+        //     href: "/submersible/borewell",
+        //   },
+        //   { label: "Light Drainage Pumps", href: "/submersible/tdl" },
+        //   { label: "Light Sewage Pumps", href: "/submersible/tsl" },
+        //   { label: "Heavy Sewage Pumps", href: "/submersible/tgt" },
+        //   { label: " Submersible Sewage Pumps", href: "/submersible/tga" },
+        //   {
+        //     label: "Heavy Duty Sewage Submersible Pumps",
+        //     href: "/submersible/tmc",
+        //   },
+        //   {
+        //     label: "Openwell Submersible",
+        //     href: "/submersible/borewell",
+        //     children: [
+        //       { label: "Horizontal Pumps", href: "/submersible/borewell" },
+        //       { label: "Vertical Pumps", href: "/submersible/borewell" },
+        //     ],
+        //   },
+        //   {
+        //     label: "WasterWater Submersible",
+        //     href: "/wastewater",
+        //     children: [
+        //       { label: "Light Drainage Pumps", href: "/submersible/tdl" },
+        //       { label: "Light Sewage Pumps", href: "/submersible/tsl" },
+        //        { label: "Heavy Sewage Pumps", href: "/submersible/tgt" },
+        //         { label: " Submersible Sewage Pumps", href: "/submersible/tga" },
+        //         { label: "Heavy Duty Sewage Submersible Pumps", href: "/submersible/tmc" },
+        //     ],
+        //   },
+        //   {
+        //     label: "Surface Pumps",
+        //     href: "/submersible/borewell",
+        //     children: [
+        //       { label: "Peripheral Pumps", href: "/submersible/borewell" },
+        //       {
+        //         label: "Centrifugal Monoblock Pumps",
+        //         href: "/submersible/borewell",
+        //       },
+        //       { label: "Close Coupled Pumps", href: "/submersible/borewell" },
+        //       { label: "End Suction Pumps", href: "/submersible/borewell" },
+        //       {
+        //         label: "Horizontal Split Case Pumps",
+        //         href: "/submersible/borewell",
+        //       },
+        //       {
+        //         label: "Horizontal Multistage Pumps",
+        //         href: "/submersible/borewell",
+        //       },
+        //       {
+        //         label: "Vertical Multistage Pumps",
+        //         href: "/submersible/borewell",
+        //       },
+        //       {
+        //         label: "Pressure Boosting Systems",
+        //         href: "/submersible/borewell",
+        //       },
+        //       { label: "Induction Motors", href: "/submersible/borewell" },
+        //       { label: "Dewatering Pumps", href: "/submersible/borewell" },
+        //       {
+        //         label: "Vertical Turbine Pumps",
+        //         href: "/submersible/borewell",
+        //       },
+        //     ],
+        //   },
+        // ],
       },
       {
         label: "Mechanical Seals",

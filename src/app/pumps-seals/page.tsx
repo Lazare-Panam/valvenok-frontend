@@ -206,7 +206,7 @@ export default function PumpsAndSealsPage() {
             <Typography
               variant="h3"
               component="a"
-              href="/wastewater"
+              href="/submersible"
               sx={{
                 fontSize: { xs: 24, md: 32 },
                 fontWeight: 700,
