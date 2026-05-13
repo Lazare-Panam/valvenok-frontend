@@ -1,14 +1,14 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import {
-  Box,
-  Badge,
   Avatar,
+  Badge,
+  Box,
+  Divider,
   Menu,
   MenuItem,
   ListItemIcon,
-  Divider,
   Typography,
   alpha,
   useTheme,
@@ -21,37 +21,29 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircleOutlined";
 import { useRouter } from "next/navigation";
 import { useUserStore } from "@/src/store/useUserStore";
 import { useCartStore } from "@/src/app/cart/hooks/useCartStore";
-import { useLogout } from "../../login/hooks/useLogout";
+import { useLogout } from "@/src/app/login/hooks/useLogout";
+import { useHydrated } from "./useHydrated";
 
 interface Props {
   barHeight: number;
 }
 
-export default function NavUserActions({ barHeight }: Props) {
-  const onLogout = useLogout();
-  const theme = useTheme();
+export default function DesktopUserActions({ barHeight }: Props) {
   const router = useRouter();
-  
-  // 1. ADD MOUNTED STATE
-  const [mounted, setMounted] = useState(false);
-  
+  const theme = useTheme();
+  const onLogout = useLogout();
+  const hydrated = useHydrated();
   const { user, isAuthenticated } = useUserStore();
-  const totalItems = useCartStore((state) => state.getTotalItems());
-
+  const totalItems = useCartStore((s) => s.getTotalItems());
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
 
-  // 2. TRIGGER MOUNT ON CLIENT
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const navItemStyle = {
+  const itemSx = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     height: barHeight,
     px: 2.5,
+    gap: 1.5,
     color: "text.primary",
     fontFamily: '"Barlow Condensed", sans-serif',
     fontSize: "18px",
@@ -66,33 +58,21 @@ export default function NavUserActions({ barHeight }: Props) {
     },
   };
 
-  const iconStyle = {
-    fontSize: "28px",
-    flexShrink: 0,
-  };
+  const iconSx = { fontSize: 28, flexShrink: 0 };
 
   return (
     <Box sx={{ display: "flex", alignItems: "center", ml: "auto" }}>
-{/* ── QUICK ORDER ── */}
+      {/* QUICK ORDER */}
+      <Box sx={{ ...itemSx, color: "primary.main" }} onClick={() => router.push("/quick-order")}>
+        <BoltIcon sx={{ ...iconSx, color: "primary.main" }} />
+        Quick Order
+      </Box>
 
-<Box
-  sx={{ ...navItemStyle, gap: 1.5,color: 'primary.main'  }}
-  onClick={() => router.push("/quick-order")}
-  
->
-  <BoltIcon sx={{ ...iconStyle, color: 'primary.main' }} />
-  QUICK ORDER
-</Box>
-
-      {/* ── CART ── */}
-      <Box
-        sx={{ ...navItemStyle, gap: 1.5 }}
-        onClick={() => router.push("/cart")}
-      >
+      {/* CART */}
+      <Box sx={itemSx} onClick={() => router.push("/cart")}>
         <Badge
-          // 3. ONLY SHOW CONTENT IF MOUNTED
-          badgeContent={mounted ? totalItems : 0}
-          invisible={!mounted || totalItems === 0}
+          badgeContent={hydrated ? totalItems : 0}
+          invisible={!hydrated || totalItems === 0}
           color="primary"
           sx={{
             "& .MuiBadge-badge": {
@@ -104,19 +84,15 @@ export default function NavUserActions({ barHeight }: Props) {
             },
           }}
         >
-          <ShoppingCartIcon sx={iconStyle} />
+          <ShoppingCartIcon sx={iconSx} />
         </Badge>
-        CART
+        Cart
       </Box>
 
-      {/* ── AUTH ── */}
-      {/* 4. ONLY SHOW AUTHED UI IF MOUNTED */}
-      {mounted && isAuthenticated && user ? (
+      {/* AUTH */}
+      {hydrated && isAuthenticated && user ? (
         <>
-          <Box
-            sx={{ ...navItemStyle, gap: 1.5 }}
-            onClick={(e) => setAnchorEl(e.currentTarget)}
-          >
+          <Box sx={itemSx} onClick={(e) => setAnchorEl(e.currentTarget)}>
             <Avatar
               sx={{
                 width: 30,
@@ -126,18 +102,17 @@ export default function NavUserActions({ barHeight }: Props) {
                 fontSize: "13px",
                 fontWeight: 900,
                 borderRadius: 0,
-                border: "2px solid transparent",
               }}
             >
               {user.firstName[0]}
               {user.lastName[0]}
             </Avatar>
-            PROFILE
+            Profile
           </Box>
 
           <Menu
             anchorEl={anchorEl}
-            open={open}
+            open={Boolean(anchorEl)}
             onClose={() => setAnchorEl(null)}
             transformOrigin={{ horizontal: "right", vertical: "top" }}
             anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
@@ -166,10 +141,7 @@ export default function NavUserActions({ barHeight }: Props) {
               >
                 {user.firstName} {user.lastName}
               </Typography>
-              <Typography
-                variant="caption"
-                sx={{ color: "text.secondary", fontWeight: 600 }}
-              >
+              <Typography variant="caption" sx={{ color: "text.secondary", fontWeight: 600 }}>
                 {user.email}
               </Typography>
             </Box>
@@ -179,44 +151,31 @@ export default function NavUserActions({ barHeight }: Props) {
                 setAnchorEl(null);
                 router.push("/account");
               }}
-              sx={{
-                py: 1.5,
-                fontWeight: 800,
-                fontFamily: '"Barlow Condensed"',
-                letterSpacing: "0.05em",
-              }}
+              sx={{ py: 1.5, fontWeight: 800, fontFamily: '"Barlow Condensed"', letterSpacing: "0.05em" }}
             >
               <ListItemIcon>
                 <AccountCircleIcon sx={{ color: "text.primary" }} />
               </ListItemIcon>
-              MY ACCOUNT
+              My Account
             </MenuItem>
             <MenuItem
               onClick={() => {
                 setAnchorEl(null);
                 onLogout();
               }}
-              sx={{
-                py: 1.5,
-                fontWeight: 800,
-                color: "error.main",
-                fontFamily: '"Barlow Condensed"',
-              }}
+              sx={{ py: 1.5, fontWeight: 800, color: "error.main", fontFamily: '"Barlow Condensed"' }}
             >
               <ListItemIcon>
                 <LogoutIcon color="error" />
               </ListItemIcon>
-              LOGOUT
+              Logout
             </MenuItem>
           </Menu>
         </>
       ) : (
-        <Box
-          sx={{ ...navItemStyle, gap: 1.5 }}
-          onClick={() => router.push("/login")}
-        >
-          <PersonIcon sx={iconStyle} />
-          SIGN IN
+        <Box sx={itemSx} onClick={() => router.push("/login")}>
+          <PersonIcon sx={iconSx} />
+          Sign In
         </Box>
       )}
     </Box>
