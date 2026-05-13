@@ -98,8 +98,8 @@ export default function SightGlassFiltrationPage() {
 
         <Divider sx={{ mb: 10 }} />
 
-        {/* Sight Glass & Filtration Card */}
-       <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
+{/* Flanged Sight Glass - Image on the Right */}
+<Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
   <Grid size={{ xs: 12, md: 6 }}>
     <Typography variant="overline" sx={{ color: "#61D649", fontWeight: 600, letterSpacing: 2, fontSize: 11 }}>
       Sight Glass & Filtration
@@ -127,6 +127,57 @@ export default function SightGlassFiltrationPage() {
         style={{ width: '50%', height: 'auto' }}
       />
     </Box>
+  </Grid>
+</Grid>
+
+<Divider sx={{ mb: 10 }} />
+
+{/* Hydraulic Filtration - Image on the Left */}
+<Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
+  {/* Image moved to the first position in the container */}
+  <Grid size={{ xs: 12, md: 6 }}>
+    <Box sx={{ borderColor: 'divider', borderRadius: 2, p: 4, textAlign: 'center' }}>
+      <img
+        src="https://pblol2.blob.core.windows.net/valvenok-images/products/filters/DFM_Mega_Flow_Rate_Filter.png"
+        alt="Machinery Filters"
+        style={{ width: '50%', height: 'auto' }}
+      />
+    </Box>
+  </Grid>
+
+  <Grid size={{ xs: 12, md: 6 }}>
+    <Typography variant="overline" sx={{ color: "#61D649", fontWeight: 600, letterSpacing: 2, fontSize: 11 }}>
+      Hydraulic Filtration
+    </Typography>
+    <Typography variant="h3" component="a" href="/filters/filteration"
+      sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mt: 1, mb: 3, display: 'block', color: 'inherit', textDecoration: 'none', '&:hover': { color: '#61D649', textDecoration: 'underline' } }}>
+      Machinery Filters
+    </Typography>
+    <Typography sx={{ color: "text.secondary", lineHeight: 1.8, mb: 2 }}>
+      Complete Steed Machinery hydraulic filtration range for demanding industrial
+      applications. High pressure filters rated to 350 bar, aluminium body filters,
+      return line filters, duplex assemblies, suction strainers and clogging indicators —
+      all available to order with fast UK dispatch.
+    </Typography>
+    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5, mb: 3 }}>
+      {[
+        'High Pressure Filters — up to 350 BAR',
+        'Aluminium Filters — up to 250 BAR',
+        'Return Line Filters',
+        'Duplex Filters',
+        'Suction Strainers',
+        'Clogging Indicators',
+      ].map(item => (
+        <Typography key={item} sx={{ fontSize: 14, color: "text.secondary", display: 'flex', alignItems: 'center', gap: 1.5 }}>
+          <Box component="span" sx={{ width: 6, height: 6, borderRadius: '50%', bgcolor: '#61D649', flexShrink: 0 }} />
+          {item}
+        </Typography>
+      ))}
+    </Box>
+    <Button variant="outlined" href="/filters/filteration"
+      sx={{ borderColor: "#61D649", color: "#61D649", textTransform: "none", fontWeight: 700, "&:hover": { bgcolor: "#61D649", color: "#000", borderColor: "#61D649" } }}>
+      Browse Products
+    </Button>
   </Grid>
 </Grid>
 
