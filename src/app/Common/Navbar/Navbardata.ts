@@ -21,10 +21,9 @@ export interface NavLink {
 }
 
 export const NAV_LINKS: NavLink[] = [
-
   { label: "News & Blog", href: "/news" },
   { label: "Brands", href: "/brands" },
-    { label: "Track Order", href: "/track-order" },
+  { label: "Track Order", href: "/track-order" },
   { label: "My Account", href: "/account" },
   { label: "Contact Us", href: "/contact" },
 ];
@@ -74,18 +73,18 @@ export const CATEGORIES: Category[] = [
   },
   {
     id: "filters",
-    href:"/filters",
+    href: "/filters",
     label: "Filters",
     color: "#2e7d32",
     textColor: "#fff",
     items: [
-      { label: "Sight Glass", href: "/categories/sight-glass" },
+      { label: "Sight Glass", href: "/filters/sight-glass" },
       { label: "Filtration", href: "/categories/filtration" },
     ],
   },
   {
     id: "actuators",
-     href: "/actuators",
+    href: "/actuators",
     label: "Actuators",
     color: "#2e7d32",
     textColor: "#fff",
@@ -94,7 +93,7 @@ export const CATEGORIES: Category[] = [
   {
     id: "valves",
     label: "Industrial Valves",
-    href:"/flow-control",
+    href: "/flow-control",
     color: "#2e7d32",
     textColor: "#fff",
     items: [
@@ -183,7 +182,7 @@ export const CATEGORIES: Category[] = [
       },
       {
         label: "Mechanical Seals",
-        href: "/seals",
+        href: "/pumps-seals/seals",
       },
     ],
   },

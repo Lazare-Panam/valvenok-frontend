@@ -27,7 +27,7 @@ const CATEGORIES = [
       { name: "Flare Fittings", href: "/jic-fittings/" },
       { name: "Instrumentation Valves", href: "/valves" },
       { name: "Pipe Fittings", href: "/pipe-fittings" },
-       { name: "Weld Fittings", href: "/weld" },
+      { name: "Weld Fittings", href: "/weld" },
     ],
   },
   {
@@ -50,7 +50,7 @@ const CATEGORIES = [
     tag: "Industrial",
     count: "80+",
     subs: [
-      { name: "Sight Glass", href: "/categories/sight-glass" },
+      { name: "Sight Glass", href: "/filters/sight-glass" },
       { name: "Filtration", href: "/categories/filtration" },
     ],
   },
@@ -81,7 +81,7 @@ const CATEGORIES = [
     count: "180+",
     subs: [
       { name: "Industrial Pumps", href: "/pumps" },
-      { name: "Mechanical Seals", href: "/seals" },
+      { name: "Mechanical Seals", href: "/pumps-seals/seals" },
       { name: "Submersible Pumps", href: "/wastewater" },
     ],
   },

@@ -259,7 +259,7 @@ export default function PumpsAndSealsPage() {
             <Typography
               variant="h3"
               component="a"
-              href="/seals"
+              href="/pumps-seals/seals"
               sx={{
                 fontSize: { xs: 24, md: 32 },
                 fontWeight: 700,
