@@ -30,6 +30,7 @@ const ALL_SUBCATEGORIES = [
   'Suction Strainers',
   'Clogging Indicators',
 ]
+
 function toCartItem(row: HPFilterItem): CartItem {
   // Create a descriptive string from the most important specs
   const descriptionParts = [
@@ -49,34 +50,6 @@ function toCartItem(row: HPFilterItem): CartItem {
     cloudinaryId: row.imageUrl, // Mapping your image URL to the store's ID field
   };
 }
-function toProductForRFQ(row: HPFilterItem): ProductForRFQ {
-  const keySpecs = [
-    { label: 'Model',            value: row.model },
-    { label: 'Thread Connection', value: row.threadConnection },
-    row.housingLength  && { label: 'Housing Length',  value: `Length ${row.housingLength}` },
-    row.maxPressure    && { label: 'Max Pressure',     value: row.maxPressure },
-    row.flow           && { label: 'Max Flow',         value: `${row.flow} l/min` },
-    row.weight         && { label: 'Weight',           value: `${row.weight} kg` },
-    row.indicatorType  && { label: 'Indicator Type',   value: row.indicatorType },
-    row.mounting       && { label: 'Mounting',         value: row.mounting },
-    row.setPressure    && { label: 'Set Pressure',     value: `${row.setPressure} BAR` },
-    { label: 'Price', value: `£${row.price.toLocaleString('en-GB', { minimumFractionDigits: 2 })}` },
-  ].filter(Boolean) as { label: string; value: string }[]
-
-  return {
-    id: row.partNumber,
-    name: `${row.subCategory} — ${row.partNumber}`,
-    brand: 'Machinery',
-    category: 'Filtration',
-    categoryId: 'filtration',
-    subCategory: row.subCategory,
-    thumbnail: row.imageUrl,
-    description: `Steed Machinery ${row.subCategory}. Model ${row.model}, Thread Connection ${row.threadConnection}.`,
-    keySpecs,
-    variantInfo: { count: 1, sizeRange: row.model },
-  }
-}
-
 
 
 function Sidebar({ filters, setFilters, activeCount }: {

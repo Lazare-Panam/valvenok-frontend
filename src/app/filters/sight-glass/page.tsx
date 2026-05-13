@@ -13,35 +13,25 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import FilterListIcon from '@mui/icons-material/FilterList'
 import { useMediaQuery, Drawer } from '@mui/material'
 import { FLANGED_SIGHT_GLASS_DATA, type FlangedSightGlassItem } from './flangedSightGlassData'
-import RFQModal from '@/src/app/Common/RFQCard/RFQModal'
-import { type ProductForRFQ } from '@/src/app/Common/RFQCard/RequestForQuoteCard'
+
+import { CartItem, useCartStore } from '../../cart/hooks/useCartStore'
 
 interface Filters { sizes: string[]; pressureRatings: string[] }
 const EMPTY_FILTERS: Filters = { sizes: [], pressureRatings: [] }
 
 const DN_ORDER = ['DN15','DN20','DN25','DN32','DN40','DN50','DN65','DN80','DN100','DN125','DN150']
-
-function toProductForRFQ(row: FlangedSightGlassItem): ProductForRFQ {
+function toCartItem(row: FlangedSightGlassItem): CartItem {
   return {
     id: row.partNumber,
     name: `Flanged Sight Glass ${row.size} ${row.pressureRating}`,
-    brand: 'Batu Vana',
-    category: 'Sight Glasses',
-    categoryId: 'sight-glasses',
-    subCategory: 'Flanged Sight Glasses',
-    thumbnail: row.imageUrl,
-    description: `BAG-FL double glass flanged sight glass. ${row.size} (${row.inchSize}), ${row.pressureRating}. Cast iron GG25 body, borosilicate glass, PTFE sealing.`,
-    keySpecs: [
-      { label: 'Size', value: `${row.size} (${row.inchSize})` },
-      { label: 'Pressure Rating', value: row.pressureRating },
-      { label: 'Body Material', value: 'Cast Iron GG25' },
-      { label: 'Glass', value: 'Borosilicate' },
-      { label: 'Seal', value: 'PTFE' },
-      { label: 'Price', value: `£${row.price.toLocaleString('en-GB', { minimumFractionDigits: 2 })}` },
-    ],
-    variantInfo: { count: 1, sizeRange: row.size },
-  }
+    description: `Size: ${row.size} (${row.inchSize}), Rating: ${row.pressureRating}, Body: Cast Iron GG25`,
+    partNumber: row.partNumber,
+    price: row.price,
+    quantity: 1,
+    cloudinaryId: row.imageUrl,
+  };
 }
+
 
 function FilterGroup({ title, count, children }: { title: string; count?: number; children: React.ReactNode }) {
   const theme = useTheme()
@@ -111,8 +101,10 @@ function Spec({ label, value }: { label: string; value?: string }) {
 }
 
 function SightGlassRow({ row }: { row: FlangedSightGlassItem }) {
+  
+  const addItem = useCartStore((state) => state.addItem);
   const [open, setOpen] = useState(false)
-  const [quoteProduct, setQuoteProduct] = useState<ProductForRFQ | null>(null)
+
   const theme = useTheme()
 
   const pnColor = row.pressureRating === 'PN40'
@@ -145,11 +137,28 @@ function SightGlassRow({ row }: { row: FlangedSightGlassItem }) {
           £{row.price.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
         </TableCell>
         <TableCell sx={{ py: 1 }}>
-          <Button size="small" variant="contained"
-            onClick={e => { e.stopPropagation(); setQuoteProduct(toProductForRFQ(row)) }}
-            sx={{ fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px', textTransform: 'none', whiteSpace: 'nowrap', boxShadow: 'none', '&:hover': { boxShadow: 'none' } }}>
-            Request Quote
-          </Button>
+          <Button 
+  size="small" 
+  variant="contained"
+  onClick={(e) => { 
+    e.stopPropagation(); 
+    addItem(toCartItem(row)); // Calls the new mapping function
+  }}
+  sx={{ 
+    fontSize: '0.7rem', 
+    fontWeight: 700, 
+    py: 0.5, 
+    px: 1.5, 
+    borderRadius: '4px', 
+    textTransform: 'none', 
+    whiteSpace: 'nowrap', 
+    boxShadow: 'none', 
+    backgroundColor: '#2e7d32', // Optional: Green color often indicates "Add to Cart"
+    '&:hover': { boxShadow: 'none', backgroundColor: '#1b5e20' } 
+  }}
+>
+  Add to Cart
+</Button>
         </TableCell>
       </TableRow>
 
@@ -175,10 +184,28 @@ function SightGlassRow({ row }: { row: FlangedSightGlassItem }) {
                       <Spec label="Standard" value="EN 558 / EN 1092-1/2" />
                       <Spec label="Price (GBP)" value={`£${row.price.toLocaleString('en-GB', { minimumFractionDigits: 2 })}`} />
                     </Stack>
-                    <Button variant="contained" onClick={() => setQuoteProduct(toProductForRFQ(row))}
-                      sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', boxShadow: 'none', '&:hover': { boxShadow: 'none' } }}>
-                      Request Quote
-                    </Button>
+                    <Button 
+  size="small" 
+  variant="contained"
+  onClick={(e) => { 
+    e.stopPropagation(); 
+    addItem(toCartItem(row)); // Calls the new mapping function
+  }}
+  sx={{ 
+    fontSize: '0.7rem', 
+    fontWeight: 700, 
+    py: 0.5, 
+    px: 1.5, 
+    borderRadius: '4px', 
+    textTransform: 'none', 
+    whiteSpace: 'nowrap', 
+    boxShadow: 'none', 
+    backgroundColor: '#2e7d32', // Optional: Green color often indicates "Add to Cart"
+    '&:hover': { boxShadow: 'none', backgroundColor: '#1b5e20' } 
+  }}
+>
+  Add to Cart
+</Button>
                   </Box>
                 </Stack>
               </Box>
@@ -187,9 +214,7 @@ function SightGlassRow({ row }: { row: FlangedSightGlassItem }) {
         </TableRow>
       )}
 
-      {quoteProduct && (
-        <RFQModal open={!!quoteProduct} onClose={() => setQuoteProduct(null)} product={quoteProduct} />
-      )}
+      
     </>
   )
 }
