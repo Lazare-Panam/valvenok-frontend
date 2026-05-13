@@ -124,8 +124,8 @@ export default function MobileMenu({ onClose }: MobileMenuProps) {
         <ListItemButton component="a" href="/account" sx={{ px: 0 }}>
           <ListItemText primary="My Account" />
         </ListItemButton>
-        <ListItemButton component="a" href="/support" sx={{ px: 0 }}>
-          <ListItemText primary="Support" />
+        <ListItemButton component="a" href="/quick-order" sx={{ px: 0 }}>
+          <ListItemText primary="Quick Order" />
         </ListItemButton>
       </Box>
     </Box>

@@ -15,13 +15,13 @@ export default function NavLogo() {
         alignItems: "center",
         justifyContent: "center",
         flexShrink: 0,
-        px: 3,
+        px: { xs: 1, md: 3 },
         height: "100%",
       }}
     >
-      <Link 
-        component={NextLink} 
-        href="/" 
+      <Link
+        component={NextLink}
+        href="/"
         sx={{ display: "flex", alignItems: "center" }}
       >
         <Box
@@ -29,12 +29,12 @@ export default function NavLogo() {
           src={LOGO_URL}
           alt="Company Logo"
           sx={{
-            height: 96,
+            height: { xs: 44, sm: 56, md: 96 },
             width: "auto",
-            maxWidth: 220,
+            maxWidth: { xs: 120, sm: 160, md: 220 },
             display: "block",
             objectFit: "contain",
-            cursor: "pointer", // Ensures the hand icon appears on hover
+            cursor: "pointer",
           }}
         />
       </Link>
