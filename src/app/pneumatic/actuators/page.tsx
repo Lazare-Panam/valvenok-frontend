@@ -13,8 +13,7 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import FilterListIcon from '@mui/icons-material/FilterList'
 import { useMediaQuery, Drawer } from '@mui/material'
 import { ACTUATOR_DATA, type ActuatorItem } from './pneumaticActuatorData'
-import RFQModal from '../../Common/RFQCard/RFQModal'
-import { type ProductForRFQ } from '../../Common/RFQCard/RequestForQuoteCard'
+import { CartItem, useCartStore } from '../../cart/hooks/useCartStore'
 
 interface Filters {
   actuatorTypes: string[]
@@ -22,26 +21,27 @@ interface Filters {
 }
 const EMPTY_FILTERS: Filters = { actuatorTypes: [], actions: [] }
 
-function toProductForRFQ(row: ActuatorItem): ProductForRFQ {
+// ─── MAPPER ─────────────────────────────────────────────────────────────────
+
+function toCartItem(row: ActuatorItem): CartItem {
+  const descriptionParts = [
+    `Type: ${row.actuatorType}`,
+    `Action: ${row.action}`,
+    `Size: ${row.size}mm`,
+  ]
+
   return {
     id: row.model,
-    name: `${row.model} Pneumatic Actuator`,
-    brand: 'Panam Valves',
-    category: 'Pneumatic Actuators',
-    categoryId: 'pneumatic-actuators',
-    subCategory: row.actuatorType,
-    thumbnail: row.imageUrl,
-    description: `${row.actuatorType} pneumatic actuator, ${row.action}, ${row.size}mm bore.`,
-    keySpecs: [
-      { label: 'Actuator Type', value: row.actuatorType },
-      { label: 'Action', value: row.action },
-      { label: 'Size', value: `${row.size} mm` },
-      { label: 'Price', value: `£${row.priceGBP.toLocaleString('en-GB', { minimumFractionDigits: 2 })}` },
-      { label: 'Certifications', value: 'CE · ATEX · SIL' },
-    ],
-    variantInfo: { count: 1, sizeRange: `${row.size}mm` },
+    name: `${row.model} — ${row.actuatorType} Pneumatic Actuator`,
+    description: descriptionParts.join(', '),
+    partNumber: row.model,
+    price: row.priceGBP,
+    quantity: 1,
+    cloudinaryId: row.imageUrl,
   }
 }
+
+// ─── FILTER PIECES ──────────────────────────────────────────────────────────
 
 function FilterGroup({ title, count, children }: { title: string; count?: number; children: React.ReactNode }) {
   const theme = useTheme()
@@ -110,12 +110,17 @@ function Spec({ label, value }: { label: string; value?: string }) {
   )
 }
 
+// ─── ROW ────────────────────────────────────────────────────────────────────
+
 function ActuatorRow({ row }: { row: ActuatorItem }) {
   const [open, setOpen] = useState(false)
-  const [quoteProduct, setQuoteProduct] = useState<ProductForRFQ | null>(null)
   const theme = useTheme()
+  const addItem = useCartStore((state) => state.addItem)
 
-  const openQuote = () => setQuoteProduct(toProductForRFQ(row))
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    addItem(toCartItem(row))
+  }
 
   const seriesColor = row.actuatorType === 'Scotch-Yoke'
     ? { bg: alpha('#1565C0', 0.1), text: '#0D47A1' }
@@ -124,6 +129,19 @@ function ActuatorRow({ row }: { row: ActuatorItem }) {
   const actionColor = row.action === 'Double Acting'
     ? { bg: alpha(theme.palette.primary.main, 0.08), text: theme.palette.primary.dark }
     : { bg: alpha('#E65100', 0.08), text: '#BF360C' }
+
+  const cartBtnSx = {
+    fontSize: '0.7rem',
+    fontWeight: 700,
+    py: 0.5,
+    px: 1.5,
+    borderRadius: '4px',
+    textTransform: 'none' as const,
+    whiteSpace: 'nowrap' as const,
+    boxShadow: 'none',
+    backgroundColor: '#2e7d32',
+    '&:hover': { boxShadow: 'none', backgroundColor: '#1b5e20' },
+  }
 
   return (
     <>
@@ -153,13 +171,8 @@ function ActuatorRow({ row }: { row: ActuatorItem }) {
           £{row.priceGBP.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
         </TableCell>
         <TableCell sx={{ py: 1 }}>
-          <Button
-            size="small"
-            variant="contained"
-            onClick={e => { e.stopPropagation(); openQuote() }}
-            sx={{ fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px', textTransform: 'none', whiteSpace: 'nowrap', boxShadow: 'none', '&:hover': { boxShadow: 'none' } }}
-          >
-            Request Quote
+          <Button size="small" variant="contained" onClick={handleAddToCart} sx={cartBtnSx}>
+            Add to Cart
           </Button>
         </TableCell>
       </TableRow>
@@ -184,12 +197,8 @@ function ActuatorRow({ row }: { row: ActuatorItem }) {
                       <Spec label="Price (GBP)" value={`£${row.priceGBP.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`} />
                       <Spec label="Certifications" value="CE · ATEX · SIL" />
                     </Stack>
-                    <Button
-                      variant="contained"
-                      onClick={openQuote}
-                      sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px' }}
-                    >
-                      Request Quote
+                    <Button variant="contained" onClick={handleAddToCart} sx={cartBtnSx}>
+                      Add to Cart
                     </Button>
                   </Box>
                 </Stack>
@@ -198,13 +207,11 @@ function ActuatorRow({ row }: { row: ActuatorItem }) {
           </TableCell>
         </TableRow>
       )}
-
-      {quoteProduct && (
-        <RFQModal open={!!quoteProduct} onClose={() => setQuoteProduct(null)} product={quoteProduct} />
-      )}
     </>
   )
 }
+
+// ─── PAGE ───────────────────────────────────────────────────────────────────
 
 export default function PneumaticActuatorPage() {
   const theme = useTheme()
@@ -305,7 +312,7 @@ export default function PneumaticActuatorPage() {
                       { key: 'action',       label: 'Action' },
                       { key: 'size',         label: 'Size (mm)' },
                       { key: 'priceGBP',     label: 'Price (GBP)' },
-                      { key: null,           label: 'Quote' },
+                      { key: null,           label: 'Cart' },
                     ].map((h, i) => (
                       <TableCell key={i} sx={headerSx}>
                         {h.key

@@ -2,12 +2,42 @@
 import { useState } from "react"
 import {
   Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
-  TableSortLabel, Collapse, Typography, Stack, IconButton
+  TableSortLabel, Collapse, Typography, Stack, IconButton, Button
 } from "@mui/material"
 import { useTheme, alpha } from "@mui/material/styles"
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp"
 import { AirGunDTO } from "@/src/api/pneumaticApi"
+import { CartItem, useCartStore } from  "@/src/app/cart/hooks/useCartStore"
+
+// ─── MAPPER ─────────────────────────────────────────────────────────────────
+
+function toCartItem(row: AirGunDTO): CartItem {
+  return {
+    id: row.partNumber,
+    name: `Air Gun — ${row.partNumber}`,
+    description: row.description,
+    partNumber: row.partNumber,
+    price: Number(row.price),
+    quantity: 1,
+    cloudinaryId: row.imageUrl ?? '',
+  }
+}
+
+const cartBtnSx = {
+  fontSize: '0.7rem',
+  fontWeight: 700,
+  py: 0.5,
+  px: 1.5,
+  borderRadius: '4px',
+  textTransform: 'none' as const,
+  whiteSpace: 'nowrap' as const,
+  boxShadow: 'none',
+  backgroundColor: '#2e7d32',
+  '&:hover': { boxShadow: 'none', backgroundColor: '#1b5e20' },
+}
+
+// ─── SPEC ───────────────────────────────────────────────────────────────────
 
 function Spec({ label, value }: { label: string; value?: string | number }) {
   if (!value && value !== 0) return null
@@ -19,9 +49,17 @@ function Spec({ label, value }: { label: string; value?: string | number }) {
   )
 }
 
+// ─── ROW ────────────────────────────────────────────────────────────────────
+
 function AirGunRow({ row }: { row: AirGunDTO }) {
   const [open, setOpen] = useState(false)
   const theme = useTheme()
+  const addItem = useCartStore((state) => state.addItem)
+
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    addItem(toCartItem(row))
+  }
 
   return (
     <>
@@ -40,10 +78,15 @@ function AirGunRow({ row }: { row: AirGunDTO }) {
         </TableCell>
         <TableCell sx={{ py: 1, fontSize: "0.82rem" }}>{row.description}</TableCell>
         <TableCell sx={{ py: 1, fontWeight: 700 }}>£{Number(row.price).toFixed(2)}</TableCell>
+        <TableCell sx={{ py: 1 }}>
+          <Button size="small" variant="contained" onClick={handleAddToCart} sx={cartBtnSx}>
+            Add to Cart
+          </Button>
+        </TableCell>
       </TableRow>
       {open && (
         <TableRow>
-          <TableCell colSpan={4} sx={{ p: 0, borderBottom: "none" }}>
+          <TableCell colSpan={5} sx={{ p: 0, borderBottom: "none" }}>
             <Collapse in unmountOnExit>
               <Box sx={{ p: 3, bgcolor: alpha(theme.palette.primary.main, 0.02), borderLeft: `4px solid ${theme.palette.primary.main}`, borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
                 <Stack direction={{ xs: "column", md: "row" }} spacing={4} alignItems="flex-start">
@@ -56,11 +99,14 @@ function AirGunRow({ row }: { row: AirGunDTO }) {
                     <Typography variant="caption" fontWeight={900} sx={{ letterSpacing: 1, display: "block", mb: 2, color: theme.palette.primary.main }}>
                       SPECIFICATIONS
                     </Typography>
-                    <Stack direction="row" flexWrap="wrap" gap={3}>
+                    <Stack direction="row" flexWrap="wrap" gap={3} mb={3}>
                       <Spec label="Part Number" value={row.partNumber} />
                       <Spec label="Description" value={row.description} />
                       <Spec label="Price" value={`£${Number(row.price).toFixed(2)}`} />
                     </Stack>
+                    <Button variant="contained" onClick={handleAddToCart} sx={cartBtnSx}>
+                      Add to Cart
+                    </Button>
                   </Box>
                 </Stack>
               </Box>
@@ -71,6 +117,8 @@ function AirGunRow({ row }: { row: AirGunDTO }) {
     </>
   )
 }
+
+// ─── TABLE ──────────────────────────────────────────────────────────────────
 
 type SortKey = "partNumber" | "description" | "price"
 
@@ -128,12 +176,13 @@ export default function AirGunTable({ models, isFetching }: { models: AirGunDTO[
                   </TableSortLabel>
                 </TableCell>
               ))}
+              <TableCell sx={headerSx}>Cart</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {sorted.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={4} align="center" sx={{ py: 6 }}>
+                <TableCell colSpan={5} align="center" sx={{ py: 6 }}>
                   <Typography variant="body2" color="text.disabled">No air guns found.</Typography>
                 </TableCell>
               </TableRow>

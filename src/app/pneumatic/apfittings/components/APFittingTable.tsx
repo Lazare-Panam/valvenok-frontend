@@ -15,6 +15,7 @@ import {
   Typography,
   Stack,
   IconButton,
+  Button,
 } from "@mui/material";
 import { useTheme, alpha } from "@mui/material/styles";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
@@ -25,6 +26,47 @@ import {
   AP_THREAD_SIZE_LABELS,
   AP_SERIES_LABELS,
 } from "./APFittingSidebarPneumatic";
+import { CartItem, useCartStore } from "@/src/app/cart/hooks/useCartStore";
+
+// ─── MAPPER ─────────────────────────────────────────────────────────────────
+
+function toCartItem(row: APFittingDTO): CartItem {
+  const seriesLabel = AP_SERIES_LABELS[row.series] ?? row.series;
+  const threadLabel =
+    row.threadSizeDescription === "N/A" ? null : row.threadSizeDescription;
+
+  const descriptionParts = [
+    `Type: ${row.fittingTypeDescription}`,
+    `Series: ${seriesLabel}`,
+    `Tube: ${row.tubeSize}mm`,
+    threadLabel ? `Thread: ${threadLabel}` : null,
+  ].filter(Boolean);
+
+  return {
+    id: row.partNumber,
+    name: `${row.fittingTypeDescription} — ${row.partNumber}`,
+    description: descriptionParts.join(", "),
+    partNumber: row.partNumber,
+    price: Number(row.price),
+    quantity: 1,
+    cloudinaryId: row.imageUrl ?? "",
+  };
+}
+
+const cartBtnSx = {
+  fontSize: "0.7rem",
+  fontWeight: 700,
+  py: 0.5,
+  px: 1.5,
+  borderRadius: "4px",
+  textTransform: "none" as const,
+  whiteSpace: "nowrap" as const,
+  boxShadow: "none",
+  backgroundColor: "#2e7d32",
+  "&:hover": { boxShadow: "none", backgroundColor: "#1b5e20" },
+};
+
+// ─── SPEC ───────────────────────────────────────────────────────────────────
 
 function Spec({ label, value }: { label: string; value?: string | number }) {
   if (!value && value !== 0) return null;
@@ -45,9 +87,17 @@ function Spec({ label, value }: { label: string; value?: string | number }) {
   );
 }
 
+// ─── ROW ────────────────────────────────────────────────────────────────────
+
 function APFittingRow({ row }: { row: APFittingDTO }) {
   const [open, setOpen] = useState(false);
   const theme = useTheme();
+  const addItem = useCartStore((state) => state.addItem);
+
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    addItem(toCartItem(row));
+  };
 
   return (
     <>
@@ -124,10 +174,20 @@ function APFittingRow({ row }: { row: APFittingDTO }) {
         <TableCell sx={{ py: 1, fontWeight: 700 }}>
           £{Number(row.price).toFixed(2)}
         </TableCell>
+        <TableCell sx={{ py: 1 }}>
+          <Button
+            size="small"
+            variant="contained"
+            onClick={handleAddToCart}
+            sx={cartBtnSx}
+          >
+            Add to Cart
+          </Button>
+        </TableCell>
       </TableRow>
       {open && (
         <TableRow>
-          <TableCell colSpan={7} sx={{ p: 0, borderBottom: "none" }}>
+          <TableCell colSpan={8} sx={{ p: 0, borderBottom: "none" }}>
             <Collapse in unmountOnExit>
               <Box
                 sx={{
@@ -181,7 +241,7 @@ function APFittingRow({ row }: { row: APFittingDTO }) {
                     >
                       SPECIFICATIONS
                     </Typography>
-                    <Stack direction="row" flexWrap="wrap" gap={3}>
+                    <Stack direction="row" flexWrap="wrap" gap={3} mb={3}>
                       <Spec label="Part Number" value={row.partNumber} />
                       <Spec
                         label="Series"
@@ -205,6 +265,13 @@ function APFittingRow({ row }: { row: APFittingDTO }) {
                         value={`£${Number(row.price).toFixed(2)}`}
                       />
                     </Stack>
+                    <Button
+                      variant="contained"
+                      onClick={handleAddToCart}
+                      sx={cartBtnSx}
+                    >
+                      Add to Cart
+                    </Button>
                   </Box>
                 </Stack>
               </Box>
@@ -215,6 +282,8 @@ function APFittingRow({ row }: { row: APFittingDTO }) {
     </>
   );
 }
+
+// ─── TABLE ──────────────────────────────────────────────────────────────────
 
 type SortKey = "partNumber" | "fittingTypeDescription" | "tubeSize" | "price";
 
@@ -346,12 +415,13 @@ export default function APFittingTable({
                   )}
                 </TableCell>
               ))}
+              <TableCell sx={headerSx}>Cart</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {paginated.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={7} align="center" sx={{ py: 6 }}>
+                <TableCell colSpan={8} align="center" sx={{ py: 6 }}>
                   <Typography variant="body2" color="text.disabled">
                     No fittings found.
                   </Typography>
