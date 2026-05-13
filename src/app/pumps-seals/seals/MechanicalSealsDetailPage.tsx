@@ -5,7 +5,7 @@ import { alpha, useTheme } from "@mui/material/styles";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { MechanicalSealDTO } from "@/src/api/sealApi";
-import { useCartStore } from "../cart/hooks/useCartStore";
+import { useCartStore } from "../../cart/hooks/useCartStore";
 import { useNotificationStore } from "@/src/store/useNotificationStore";
 
 interface Props {

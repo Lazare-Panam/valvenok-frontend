@@ -8,7 +8,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import VerifiedIcon from '@mui/icons-material/Verified'
 import { MechanicalSealDTO } from '@/src/api/sealApi'
-import { useCartStore } from '../../cart/hooks/useCartStore'
+import { useCartStore } from '@/src/app/cart/hooks/useCartStore'
 import { useNotificationStore } from '@/src/store/useNotificationStore'
 
 const SEAL_TYPE_LABELS: Record<string, { name: string; application: string }> = {
