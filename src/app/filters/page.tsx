@@ -99,32 +99,36 @@ export default function SightGlassFiltrationPage() {
         <Divider sx={{ mb: 10 }} />
 
         {/* Sight Glass & Filtration Card */}
-        <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
-          <Grid size={{ xs: 12, md: 6 }}>
-            <Typography variant="overline" sx={{ color: "#61D649", fontWeight: 600, letterSpacing: 2, fontSize: 11 }}>
-              Sight Glass & Filtration
-            </Typography>
-            <Typography variant="h3" component="a" href="/sight-glass-filtration/products"
-              sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mt: 1, mb: 3, display: 'block', color: 'inherit', textDecoration: 'none', '&:hover': { color: '#61D649', textDecoration: 'underline' } }}>
-              SG Series Sight Glasses & Strainers
-            </Typography>
-            <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
-              Flanged sight glasses available in DN15 to DN200 with borosilicate or
-              tempered glass viewing windows, rated up to PN40. Y-type and basket strainers
-              in SS304 and SS316 with mesh sizes from 20 to 200 micron — ideal for protecting
-              pumps, control valves, and flow meters from upstream debris.
-            </Typography>
-            <Button variant="outlined" href="/sight-glass-filtration/products"
-              sx={{ mt: 3, borderColor: "#61D649", color: "#61D649", textTransform: "none", fontWeight: 700, "&:hover": { bgcolor: "#61D649", color: "#000", borderColor: "#61D649" } }}>
-              Browse Products
-            </Button>
-          </Grid>
-          <Grid size={{ xs: 12, md: 6 }}>
-            <Box sx={{ borderColor: 'divider', borderRadius: 2, p: 4, textAlign: 'center' }}>
-              <img src="REPLACE_WITH_PRODUCT_IMAGE_URL" alt="SG Series Sight Glasses & Strainers" style={{ width: '50%', height: 'auto' }} />
-            </Box>
-          </Grid>
-        </Grid>
+       <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
+  <Grid size={{ xs: 12, md: 6 }}>
+    <Typography variant="overline" sx={{ color: "#61D649", fontWeight: 600, letterSpacing: 2, fontSize: 11 }}>
+      Sight Glass & Filtration
+    </Typography>
+    <Typography variant="h3" component="a" href="/filters/sight-glass"
+      sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mt: 1, mb: 3, display: 'block', color: 'inherit', textDecoration: 'none', '&:hover': { color: '#61D649', textDecoration: 'underline' } }}>
+      Flanged Sight Glasses
+    </Typography>
+    <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
+      BAG-FL double glass flanged sight glasses for visual flow monitoring. Available in
+      DN15 to DN150 with borosilicate glass viewing windows, rated PN16 and PN40.
+      Suitable for water, food, chemicals, air and other gases. Cast iron GG25 body with
+      PTFE sealing, to EN 558 / EN 1092-1/2.
+    </Typography>
+    <Button variant="outlined" href="/filters/sight-glass"
+      sx={{ mt: 3, borderColor: "#61D649", color: "#61D649", textTransform: "none", fontWeight: 700, "&:hover": { bgcolor: "#61D649", color: "#000", borderColor: "#61D649" } }}>
+      Browse Products
+    </Button>
+  </Grid>
+  <Grid size={{ xs: 12, md: 6 }}>
+    <Box sx={{ borderColor: 'divider', borderRadius: 2, p: 4, textAlign: 'center' }}>
+      <img
+        src="https://pblol2.blob.core.windows.net/valvenok-images/products/sight-glass/sight-glass-batu.jpg"
+        alt="Flanged Sight Glass"
+        style={{ width: '50%', height: 'auto' }}
+      />
+    </Box>
+  </Grid>
+</Grid>
 
         <Divider sx={{ mb: 10 }} />
 
