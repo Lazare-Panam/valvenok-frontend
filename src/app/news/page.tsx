@@ -66,6 +66,25 @@ const POSTS = [
     category: "Engineering",
     link: "/news/seals-blog",
   },
+  {
+    title:
+      "Single Agitator Mechanical Seals: Design, Working Principle & Industrial Applications",
+    desc: "A complete engineering guide to one of the workhorses of the process industry — how it is built, how it keeps your reactor leak-free, and where it fits among the seal types you might be considering.",
+    thumbnail: "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/ben-kupke-ew-p24CVLR0-unsplash.jpg",
+    author: "Seal Raina",
+    date: "May 2026",
+    category: "Engineering",
+    link: "/news/seals-blog",
+  },
+  {
+  "title": "Submersible Pump Selection: 5 Questions to Ask Before You Specify",
+  "desc": "A technical guide to avoiding premature pump failure by matching metallurgy to water chemistry and understanding the critical variables of borewell installations.",
+  "thumbnail": "https://pblol2.blob.core.windows.net/valvenok-images/blogs/pumps-blog-hero.jpg",
+  "author": "Sejal Raina",
+  "date": "May 2026",
+  "category": "Engineering",
+  "link": "/news/stainless-steel-vs-cast-iron"
+}
 ];
 
 export default function BlogPage() {
