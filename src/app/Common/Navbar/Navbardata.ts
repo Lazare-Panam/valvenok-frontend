@@ -104,7 +104,7 @@ export const CATEGORIES: Category[] = [
   {
     id: "pumps",
     label: "Pumps & Seals",
-    href: "pumps-seals",
+    href: "/pumps-seals",
     color: "#2e7d32",
     textColor: "#fff",
     items: [

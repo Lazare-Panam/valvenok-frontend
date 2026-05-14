@@ -1,20 +1,31 @@
 "use client";
 
 import Box from "@mui/material/Box";
+import Link from "next/link";
 import StorefrontOutlinedIcon from "@mui/icons-material/StorefrontOutlined";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 interface Props {
   open: boolean;
-  onClick: () => void;
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
+  href: string;
   barHeight: number;
 }
 
-export default function NavShopButton({ open, onClick, barHeight }: Props) {
+export default function NavShopButton({
+  open,
+  onMouseEnter,
+  onMouseLeave,
+  href,
+  barHeight,
+}: Props) {
   return (
     <Box
-      component="button"
-      onClick={onClick}
+      component={Link}
+      href={href}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       sx={{
         display: "flex",
         alignItems: "center",
@@ -23,9 +34,10 @@ export default function NavShopButton({ open, onClick, barHeight }: Props) {
         height: barHeight,
         px: 3,
         border: "none",
-        borderRadius:"0px",
+        borderRadius: "0px",
         bgcolor: "primary.main",
         color: "#fff",
+        textDecoration: "none",
         fontFamily: '"Barlow Condensed", sans-serif',
         fontSize: "17px",
         fontWeight: 800,
