@@ -1,13 +1,16 @@
 'use client'
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import {
-  Box, Typography, CircularProgress, useMediaQuery, IconButton, Stack, Chip
+  Box, Typography, CircularProgress, useMediaQuery, IconButton, Button
 } from '@mui/material'
 import { alpha, useTheme } from '@mui/material/styles'
 import FilterListIcon from '@mui/icons-material/FilterList'
+import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import { useMechanicalSealFilters, useMechanicalSeals } from './hooks/useMechanicalSeals'
 import { MechanicalSealsActiveFilters } from './components/MechanicalSealsActiveFilters'
 import MechanicalSealsTable from './components/MechanicalSealsTable'
+import { SealFamilyGrid } from './components/SealFamilyGrid'
+import { groupIntoFamilies, getFamilyCode, SealFamily } from './utils/sealFamily'
 import { SealFilters, EMPTY_SEAL_FILTERS } from './hooks/types'
 
 export default function MechanicalSealsPage() {
@@ -15,66 +18,95 @@ export default function MechanicalSealsPage() {
   const isMobile = useMediaQuery('(max-width:1200px)')
   const [filters, setFilters] = useState<SealFilters>(EMPTY_SEAL_FILTERS)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [selectedFamily, setSelectedFamily] = useState<SealFamily | null>(null)
 
   const { data: filterOptions, isLoading: filtersLoading } = useMechanicalSealFilters()
-  const { data: models = [], isLoading, isFetching } = useMechanicalSeals(filters)
+  const { data: allModels = [], isLoading, isFetching } = useMechanicalSeals(filters)
+
+  // Grid view = unfiltered families. Detail view = variants of selected family,
+  // further filtered by the sidebar filters.
+  const families = useMemo(() => groupIntoFamilies(allModels), [allModels])
+  const visibleModels = useMemo(() => {
+    if (!selectedFamily) return allModels
+    return allModels.filter(s => getFamilyCode(s.partNumber) === selectedFamily.code)
+  }, [allModels, selectedFamily])
 
   const activeCount =
     filters.shaftSizes.length +
     filters.sealSizesMm.length +
     filters.sealSizesInch.length
 
+  const handleBack = () => {
+    setSelectedFamily(null)
+    setFilters(EMPTY_SEAL_FILTERS)
+  }
+
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: 'background.default' }}>
 
       {/* Header */}
       <Box sx={{ p: 4, borderBottom: `1px solid ${theme.palette.divider}`, bgcolor: 'background.paper' }}>
-        <Typography variant="h4" fontWeight={800} mb={1} color="primary">
-          Mechanical Seals
-        </Typography>
-        <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 700 }}>
-          Browse the complete mechanical seals range. Filter by shaft size and seal size —
-          available in both metric and imperial.
-        </Typography>
-        <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
-          {['Metric & Imperial', 'Shaft Size Filter', 'Seal Size Filter'].map(s => (
-            <Box key={s} sx={{ px: 1.5, py: 0.5, borderRadius: '20px', fontSize: '0.75rem', fontWeight: 600, bgcolor: alpha(theme.palette.primary.main, 0.08), color: theme.palette.primary.dark, border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}` }}>
-              {s}
-            </Box>
-          ))}
-        </Box>
+        {selectedFamily ? (
+          <>
+            <Button
+              startIcon={<ArrowBackIcon />}
+              onClick={handleBack}
+              sx={{ mb: 2, textTransform: 'none', fontWeight: 700 }}
+            >
+              Back to all models
+            </Button>
+            <Typography variant="h4" fontWeight={800} mb={1} color="primary" sx={{ fontFamily: 'monospace' }}>
+              {selectedFamily.code}
+            </Typography>
+            <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 700 }}>
+              {selectedFamily.variantCount} variants · {selectedFamily.sizeRange}
+            </Typography>
+          </>
+        ) : (
+          <>
+            <Typography variant="h4" fontWeight={800} mb={1} color="primary">
+              Mechanical Seals
+            </Typography>
+            <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 700 }}>
+              Browse the complete mechanical seals range. Select a model to view its variants and pricing.
+            </Typography>
+          </>
+        )}
       </Box>
 
       {/* Body */}
       <Box sx={{ p: { xs: 2, md: 3 }, flex: 1 }}>
-        {isMobile && (
-          <IconButton onClick={() => setMobileOpen(true)} sx={{ mb: 2 }}>
-            <FilterListIcon />
-          </IconButton>
-        )}
-
-        <MechanicalSealsActiveFilters filters={filters} setFilters={setFilters} />
-
-        <Typography variant="caption" fontWeight={700} color="text.secondary" sx={{ display: 'block', mb: 1 }}>
-          {isFetching && !isLoading ? 'UPDATING...' : isLoading ? 'LOADING...' : `${models.length} SEALS`}
-        </Typography>
-
         {isLoading ? (
           <Box sx={{ display: 'flex', justifyContent: 'center', mt: 10 }}>
             <CircularProgress color="primary" />
           </Box>
+        ) : !selectedFamily ? (
+          // GRID VIEW
+          <SealFamilyGrid families={families} onSelect={setSelectedFamily} />
         ) : (
-          <MechanicalSealsTable
-            models={models}
-            isFetching={isFetching}
-            filters={filters}
-            setFilters={setFilters}
-            filterOptions={filterOptions}
-            filtersLoading={filtersLoading}
-            activeCount={activeCount}
-            mobileOpen={mobileOpen}
-            setMobileOpen={setMobileOpen}
-          />
+          // DETAIL VIEW (existing table)
+          <>
+            {isMobile && (
+              <IconButton onClick={() => setMobileOpen(true)} sx={{ mb: 2 }}>
+                <FilterListIcon />
+              </IconButton>
+            )}
+            <MechanicalSealsActiveFilters filters={filters} setFilters={setFilters} />
+            <Typography variant="caption" fontWeight={700} color="text.secondary" sx={{ display: 'block', mb: 1 }}>
+              {isFetching ? 'UPDATING...' : `${visibleModels.length} VARIANTS`}
+            </Typography>
+            <MechanicalSealsTable
+              models={visibleModels}
+              isFetching={isFetching}
+              filters={filters}
+              setFilters={setFilters}
+              filterOptions={filterOptions}
+              filtersLoading={filtersLoading}
+              activeCount={activeCount}
+              mobileOpen={mobileOpen}
+              setMobileOpen={setMobileOpen}
+            />
+          </>
         )}
       </Box>
     </Box>
