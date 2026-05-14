@@ -3,37 +3,35 @@ import { useState, useMemo } from 'react'
 import {
   Box, Typography, Table, TableBody, TableCell, TableContainer,
   TableHead, TableRow, TablePagination, TableSortLabel, Collapse,
-  Chip, Stack, IconButton, Button,
+  Stack, IconButton, Button,
   Accordion, AccordionSummary, AccordionDetails,
-  FormGroup, FormControlLabel, Checkbox, Divider
+  FormGroup, FormControlLabel, Checkbox, Divider, Chip
 } from '@mui/material'
 import { alpha, useTheme } from '@mui/material/styles'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import { useMediaQuery, Drawer } from '@mui/material'
-import FilterListIcon from '@mui/icons-material/FilterList'
 import { MechanicalSealDTO } from '@/src/api/sealApi'
-import RFQModal from '@/src/app/Common/RFQCard/RFQModal'
-import { type ProductForRFQ } from '@/src/app/Common/RFQCard/RequestForQuoteCard'
+import { CartItem, useCartStore } from '@/src/app/cart/hooks/useCartStore'
+
 import { SealFilters, EMPTY_SEAL_FILTERS } from '../hooks/types'
 
-function toProductForRFQ(seal: MechanicalSealDTO): ProductForRFQ {
+function toCartItem(seal: MechanicalSealDTO): CartItem {
+  const descriptionParts = [
+    seal.shaftSizeMm  ? `Shaft Size: ${seal.shaftSizeMm}`   : null,
+    seal.sealSizeMm   ? `Seal Size: ${seal.sealSizeMm}mm`   : null,
+    seal.sealSizeInch ? `Seal Size: ${seal.sealSizeInch}"`  : null,
+  ].filter(Boolean)
+
   return {
     id: seal.partNumber,
     name: `Mechanical Seal — ${seal.partNumber}`,
-    brand: 'Valvenok',
-    category: 'Mechanical Seals',
-    categoryId: 'mechanical-seals',
-    thumbnail: seal.imageUrl,
-    description: `Mechanical seal ${seal.sealSizeMm ? `${seal.sealSizeMm}mm` : ''} ${seal.sealSizeInch ? `(${seal.sealSizeInch}")` : ''}`.trim(),
-    keySpecs: [
-      ...(seal.shaftSizeMm ? [{ label: 'Shaft Size', value: seal.shaftSizeMm }] : []),
-      ...(seal.sealSizeMm ? [{ label: 'Seal Size (MM)', value: seal.sealSizeMm }] : []),
-      ...(seal.sealSizeInch ? [{ label: 'Seal Size (Inch)', value: seal.sealSizeInch }] : []),
-      { label: 'Price', value: `£${seal.price.toFixed(2)}` },
-    ],
-    variantInfo: { count: 1, sizeRange: seal.sealSizeMm ?? seal.shaftSizeMm ?? '' },
+    description: descriptionParts.join(', '),
+    partNumber: seal.partNumber,
+    price: seal.price,
+    quantity: 1,
+    cloudinaryId: seal.imageUrl,
   }
 }
 
@@ -53,7 +51,7 @@ function Spec({ label, value }: { label: string; value?: string | null }) {
 function FilterGroup({ title, count, children }: { title: string; count?: number; children: React.ReactNode }) {
   const theme = useTheme()
   return (
-    <Accordion  disableGutters elevation={0} sx={{ bgcolor: 'transparent', '&:before': { display: 'none' }, mb: 0.5 }}>
+    <Accordion disableGutters elevation={0} sx={{ bgcolor: 'transparent', '&:before': { display: 'none' }, mb: 0.5 }}>
       <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ fontSize: 16 }} />} sx={{ px: 0, minHeight: 36, '& .MuiAccordionSummary-content': { my: 0.5 } }}>
         <Stack direction="row" alignItems="center" spacing={1}>
           <Typography variant="caption" fontWeight={700} color="text.primary">{title}</Typography>
@@ -138,9 +136,22 @@ function Sidebar({ filters, setFilters, filterOptions, filtersLoading, activeCou
 }
 
 function SealRow({ seal }: { seal: MechanicalSealDTO }) {
+  const addItem = useCartStore((state) => state.addItem)
   const [open, setOpen] = useState(false)
-  const [quoteProduct, setQuoteProduct] = useState<ProductForRFQ | null>(null)
   const theme = useTheme()
+
+  const cartButtonSx = {
+    fontSize: '0.7rem',
+    fontWeight: 700,
+    py: 0.5,
+    px: 1.5,
+    borderRadius: '4px',
+    textTransform: 'none',
+    whiteSpace: 'nowrap',
+    boxShadow: 'none',
+    backgroundColor: '#2e7d32',
+    '&:hover': { boxShadow: 'none', backgroundColor: '#1b5e20' },
+  }
 
   return (
     <>
@@ -161,10 +172,13 @@ function SealRow({ seal }: { seal: MechanicalSealDTO }) {
           £{seal.price.toFixed(2)}
         </TableCell>
         <TableCell sx={{ py: 1 }}>
-          <Button size="small" variant="contained"
-            onClick={e => { e.stopPropagation(); setQuoteProduct(toProductForRFQ(seal)) }}
-            sx={{ fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px', textTransform: 'none', whiteSpace: 'nowrap', boxShadow: 'none', '&:hover': { boxShadow: 'none' } }}>
-            Request Quote
+          <Button
+            size="small"
+            variant="contained"
+            onClick={e => { e.stopPropagation(); addItem(toCartItem(seal)) }}
+            sx={cartButtonSx}
+          >
+            Add to Cart
           </Button>
         </TableCell>
       </TableRow>
@@ -181,15 +195,18 @@ function SealRow({ seal }: { seal: MechanicalSealDTO }) {
                   <Box sx={{ flex: 1 }}>
                     <Typography variant="caption" fontWeight={900} color="primary" sx={{ display: 'block', mb: 2, letterSpacing: 1 }}>SPECIFICATIONS</Typography>
                     <Stack direction="row" flexWrap="wrap" gap={3} mb={3}>
-                      <Spec label="Part Number" value={seal.partNumber} />
-                      <Spec label="Shaft Size" value={seal.shaftSizeMm} />
+                      <Spec label="Part Number"    value={seal.partNumber} />
+                      <Spec label="Shaft Size"     value={seal.shaftSizeMm} />
                       <Spec label="Seal Size (MM)" value={seal.sealSizeMm} />
                       <Spec label="Seal Size (Inch)" value={seal.sealSizeInch} />
-                      <Spec label="Price" value={`£${seal.price.toFixed(2)}`} />
+                      <Spec label="Price"          value={`£${seal.price.toFixed(2)}`} />
                     </Stack>
-                    <Button variant="contained" onClick={() => setQuoteProduct(toProductForRFQ(seal))}
-                      sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', boxShadow: 'none', '&:hover': { boxShadow: 'none' } }}>
-                      Request Quote
+                    <Button
+                      variant="contained"
+                      onClick={() => addItem(toCartItem(seal))}
+                      sx={{ ...cartButtonSx, fontSize: '0.82rem', py: 0.75, px: 2 }}
+                    >
+                      Add to Cart
                     </Button>
                   </Box>
                 </Stack>
@@ -197,10 +214,6 @@ function SealRow({ seal }: { seal: MechanicalSealDTO }) {
             </Collapse>
           </TableCell>
         </TableRow>
-      )}
-
-      {quoteProduct && (
-        <RFQModal open={!!quoteProduct} onClose={() => setQuoteProduct(null)} product={quoteProduct} />
       )}
     </>
   )
@@ -246,7 +259,8 @@ export default function MechanicalSealsTable({
   const headerSx = {
     bgcolor: alpha(theme.palette.primary.main, 0.06),
     borderBottom: `2px solid ${theme.palette.primary.main}`,
-    fontWeight: 700, fontSize: '0.72rem',
+    fontWeight: 700,
+    fontSize: '0.72rem',
     textTransform: 'uppercase' as const,
     letterSpacing: '0.05em',
   }
@@ -280,12 +294,12 @@ export default function MechanicalSealsTable({
                 <TableRow>
                   <TableCell sx={{ ...headerSx, width: 40 }} />
                   {([
-                    { key: 'partNumber' as SortKey,   label: 'Part Number' },
-                    { key: 'shaftSizeMm' as SortKey,  label: 'Shaft Size' },
-                    { key: 'sealSizeMm' as SortKey,   label: 'Seal Size (MM)' },
+                    { key: 'partNumber'   as SortKey, label: 'Part Number' },
+                    { key: 'shaftSizeMm'  as SortKey, label: 'Shaft Size' },
+                    { key: 'sealSizeMm'   as SortKey, label: 'Seal Size (MM)' },
                     { key: 'sealSizeInch' as SortKey, label: 'Seal Size (Inch)' },
-                    { key: 'price' as SortKey,        label: 'Price (GBP)' },
-                    { key: null,                       label: 'Quote' },
+                    { key: 'price'        as SortKey, label: 'Price (GBP)' },
+                    { key: null,                       label: 'Cart' },
                   ] as const).map((h, i) => (
                     <TableCell key={i} sx={headerSx}>
                       {h.key
