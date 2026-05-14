@@ -12,14 +12,22 @@ import ProductHero from '../../Common/Products_Page/ProductHero'
 import TrustStrip from '../../Common/Products_Page/TrustStrip'
 import ProductCard from '../../Common/Products_Page/ProductCard'
 import { Category } from '../../Common/Products_Page/ProductCard'
+import RFQModal from '../../Common/RFQCard/RFQModal'
+import { type ProductForRFQ } from '../../Common/RFQCard/RequestForQuoteCard'
 
 import { useMechanicalSealFilters, useMechanicalSeals } from './hooks/useMechanicalSeals'
 import { MechanicalSealsActiveFilters } from './components/MechanicalSealsActiveFilters'
 import MechanicalSealsTable from './components/MechanicalSealsTable'
 import { SealFilters, EMPTY_SEAL_FILTERS } from './hooks/types'
 
-// ---------- Model catalog (drives the grid) ----------
-const SEAL_FAMILIES: Category[] = [
+// ---------- Types ----------
+type SealModelEntry = Category & {
+  kind: 'priced' | 'rfq'
+  rfqProduct?: ProductForRFQ
+}
+
+// ---------- Priced models (have variants in the table) ----------
+const PRICED_SEAL_MODELS: SealModelEntry[] = ([
   {
     code: 'AS91',
     title: 'AS91',
@@ -160,14 +168,289 @@ const SEAL_FAMILIES: Category[] = [
     href: '#PS38',
     image: 'https://pblol2.blob.core.windows.net/valvenok-images/products/mechanical-seals/PS38.png',
   },
+] as Category[]).map(c => ({ ...c, kind: 'priced' as const }))
+
+// ---------- RFQ-only models (click opens RFQ modal, no table) ----------
+const RFQ_ONLY_SEALS: SealModelEntry[] = [
+  {
+    code: 'AS91N',
+    title: 'AS91N',
+    subtitle: 'Single Agitator Mechanical Seal — Narrow Profile',
+    description: 'Narrow-profile single mechanical seal for top-entry agitators with tight space constraints. Built to order — contact us for sizing, materials and lead time.',
+    specs: ['Single Seal', 'Narrow Profile', 'Top-Entry Agitators', 'Made to Order'],
+    applications: 'Chemical Processing, Pharmaceuticals, Space-Constrained Installations',
+    href: '#AS91N',
+    image: 'https://pblol2.blob.core.windows.net/valvenok-images/products/mechanical-seals/AS91N.jpg',
+    kind: 'rfq',
+    rfqProduct: {
+      id: 'AS91N',
+      name: 'AS91N — Single Agitator Mechanical Seal (Narrow Profile)',
+      brand: 'Valvenok',
+      category: 'Mechanical Seals',
+      categoryId: 'mechanical-seals',
+      thumbnail: 'https://pblol2.blob.core.windows.net/valvenok-images/products/mechanical-seals/AS91N.jpg',
+      description: 'Narrow-profile single mechanical seal for top-entry agitators. Made to order.',
+      keySpecs: [
+        { label: 'Arrangement',  value: 'Single Seal' },
+        { label: 'Profile',      value: 'Narrow' },
+        { label: 'Service',      value: 'Top-Entry Agitators' },
+        { label: 'Availability', value: 'Made to Order' },
+      ],
+      variantInfo: { count: 0, sizeRange: 'Various' },
+    },
+  },
+  {
+    code: 'AS95',
+    title: 'AS95',
+    subtitle: 'Single Agitator Mechanical Seal — Extended Range',
+    description: 'Single mechanical seal for agitator service across an extended size range. Made to order — contact us for sizing, materials and lead time.',
+    specs: ['Single Seal', 'Extended Range', 'Agitator Service', 'Made to Order'],
+    applications: 'Chemical Processing, Pharmaceuticals, Mixing & Reactors',
+    href: '#AS95',
+    image: 'https://pblol2.blob.core.windows.net/valvenok-images/products/mechanical-seals/AS95.jpg',
+    kind: 'rfq',
+    rfqProduct: {
+      id: 'AS95',
+      name: 'AS95 — Single Agitator Mechanical Seal',
+      brand: 'Valvenok',
+      category: 'Mechanical Seals',
+      categoryId: 'mechanical-seals',
+      thumbnail: 'https://pblol2.blob.core.windows.net/valvenok-images/products/mechanical-seals/AS95.jpg',
+      description: 'Single agitator mechanical seal — extended range. Made to order.',
+      keySpecs: [
+        { label: 'Arrangement',  value: 'Single Seal' },
+        { label: 'Range',        value: 'Extended' },
+        { label: 'Service',      value: 'Agitator' },
+        { label: 'Availability', value: 'Made to Order' },
+      ],
+      variantInfo: { count: 0, sizeRange: 'Various' },
+    },
+  },
+  {
+    code: 'AS98',
+    title: 'AS98',
+    subtitle: 'Double Agitator Mechanical Seal — High Performance',
+    description: 'High-performance double mechanical seal for demanding agitator service. Pressurised barrier fluid arrangement for hazardous and high-purity fluids. Made to order.',
+    specs: ['Double Seal', 'High Performance', 'Pressurised Barrier', 'Made to Order'],
+    applications: 'Hazardous Service, Pharmaceuticals, Fine Chemicals',
+    href: '#AS98',
+    image: 'https://pblol2.blob.core.windows.net/valvenok-images/products/mechanical-seals/AS98.jpg',
+    kind: 'rfq',
+    rfqProduct: {
+      id: 'AS98',
+      name: 'AS98 — Double Agitator Mechanical Seal (High Performance)',
+      brand: 'Valvenok',
+      category: 'Mechanical Seals',
+      categoryId: 'mechanical-seals',
+      thumbnail: 'https://pblol2.blob.core.windows.net/valvenok-images/products/mechanical-seals/AS98.jpg',
+      description: 'High-performance double agitator mechanical seal. Made to order.',
+      keySpecs: [
+        { label: 'Arrangement',  value: 'Double Seal' },
+        { label: 'Performance',  value: 'High' },
+        { label: 'Barrier',      value: 'Pressurised' },
+        { label: 'Availability', value: 'Made to Order' },
+      ],
+      variantInfo: { count: 0, sizeRange: 'Various' },
+    },
+  },
+  {
+    code: 'AS99N',
+    title: 'AS99N',
+    subtitle: 'Single Agitator Mechanical Seal — Narrow Profile',
+    description: 'Narrow-profile single mechanical seal for tight installations. Engineered for agitators with restricted radial space. Made to order — contact us for specifications and lead time.',
+    specs: ['Single Seal', 'Narrow Profile', 'Agitator Service', 'Made to Order'],
+    applications: 'Space-Constrained Installations, Pharmaceuticals, Specialty Chemicals',
+    href: '#AS99N',
+    image: 'https://pblol2.blob.core.windows.net/valvenok-images/products/mechanical-seals/AS99N.jpg',
+    kind: 'rfq',
+    rfqProduct: {
+      id: 'AS99N',
+      name: 'AS99N — Single Agitator Mechanical Seal (Narrow Profile)',
+      brand: 'Valvenok',
+      category: 'Mechanical Seals',
+      categoryId: 'mechanical-seals',
+      thumbnail: 'https://pblol2.blob.core.windows.net/valvenok-images/products/mechanical-seals/AS99N.jpg',
+      description: 'Narrow-profile single agitator mechanical seal. Made to order.',
+      keySpecs: [
+        { label: 'Arrangement',  value: 'Single Seal' },
+        { label: 'Profile',      value: 'Narrow' },
+        { label: 'Service',      value: 'Agitator' },
+        { label: 'Availability', value: 'Made to Order' },
+      ],
+      variantInfo: { count: 0, sizeRange: 'Various' },
+    },
+  },
+  {
+    code: 'AS103',
+    title: 'AS103',
+    subtitle: 'Glass-Lined Reactor Mechanical Seal',
+    description: 'Mechanical seal engineered for glass-lined reactor service. Built to match GL reactor geometry and service conditions. Made to order — contact us for sizing and materials.',
+    specs: ['Glass-Lined Reactors', 'GL Service', 'Made to Order', 'Custom Sizing'],
+    applications: 'Pharmaceuticals, Fine Chemicals, Specialty Chemicals',
+    href: '#AS103',
+    image: 'https://pblol2.blob.core.windows.net/valvenok-images/products/mechanical-seals/AS103.jpg',
+    kind: 'rfq',
+    rfqProduct: {
+      id: 'AS103',
+      name: 'AS103 — Glass-Lined Reactor Mechanical Seal',
+      brand: 'Valvenok',
+      category: 'Mechanical Seals',
+      categoryId: 'mechanical-seals',
+      thumbnail: 'https://pblol2.blob.core.windows.net/valvenok-images/products/mechanical-seals/AS103.jpg',
+      description: 'Glass-lined reactor mechanical seal. Made to order.',
+      keySpecs: [
+        { label: 'Service',      value: 'Glass-Lined Reactors' },
+        { label: 'Sizing',       value: 'Custom' },
+        { label: 'Availability', value: 'Made to Order' },
+      ],
+      variantInfo: { count: 0, sizeRange: 'Various' },
+    },
+  },
+  {
+    code: 'AS110',
+    title: 'AS110',
+    subtitle: 'Heavy-Duty Agitator Mechanical Seal',
+    description: 'Heavy-duty mechanical seal for large-bore agitators and high-torque service. Built to order for specific shaft sizes and service conditions.',
+    specs: ['Heavy-Duty', 'Large Bore', 'High-Torque Service', 'Made to Order'],
+    applications: 'Heavy Industry, Large Reactors, High-Torque Agitators',
+    href: '#AS110',
+    image: 'https://pblol2.blob.core.windows.net/valvenok-images/products/mechanical-seals/AS110.jpg',
+    kind: 'rfq',
+    rfqProduct: {
+      id: 'AS110',
+      name: 'AS110 — Heavy-Duty Agitator Mechanical Seal',
+      brand: 'Valvenok',
+      category: 'Mechanical Seals',
+      categoryId: 'mechanical-seals',
+      thumbnail: 'https://pblol2.blob.core.windows.net/valvenok-images/products/mechanical-seals/AS110.jpg',
+      description: 'Heavy-duty agitator mechanical seal for large-bore service. Made to order.',
+      keySpecs: [
+        { label: 'Service',      value: 'Heavy-Duty Agitators' },
+        { label: 'Bore',         value: 'Large' },
+        { label: 'Sizing',       value: 'Custom' },
+        { label: 'Availability', value: 'Made to Order' },
+      ],
+      variantInfo: { count: 0, sizeRange: 'Various' },
+    },
+  },
+  {
+    code: 'AS-LB-01',
+    title: 'AS-LB-01',
+    subtitle: 'Lip Seal — Agitator Service',
+    description: 'Lip-seal arrangement for agitator service where mechanical seals are unsuitable. Cost-effective sealing for low-pressure, low-speed applications. Made to order.',
+    specs: ['Lip Seal', 'Low Pressure', 'Agitator Service', 'Made to Order'],
+    applications: 'Low-Pressure Mixers, Storage Tank Agitators, General Service',
+    href: '#AS-LB-01',
+    image: 'https://pblol2.blob.core.windows.net/valvenok-images/products/mechanical-seals/AS-LB-01.jpg',
+    kind: 'rfq',
+    rfqProduct: {
+      id: 'AS-LB-01',
+      name: 'AS-LB-01 — Lip Seal for Agitator Service',
+      brand: 'Valvenok',
+      category: 'Mechanical Seals',
+      categoryId: 'mechanical-seals',
+      thumbnail: 'https://pblol2.blob.core.windows.net/valvenok-images/products/mechanical-seals/AS-LB-01.jpg',
+      description: 'Lip-seal arrangement for low-pressure agitator service. Made to order.',
+      keySpecs: [
+        { label: 'Type',         value: 'Lip Seal' },
+        { label: 'Service',      value: 'Agitator' },
+        { label: 'Pressure',     value: 'Low' },
+        { label: 'Availability', value: 'Made to Order' },
+      ],
+      variantInfo: { count: 0, sizeRange: 'Various' },
+    },
+  },
+  {
+    code: 'AS-LB-02',
+    title: 'AS-LB-02',
+    subtitle: 'Lip Seal — Heavy-Duty Agitator Service',
+    description: 'Heavy-duty lip-seal arrangement for agitator service. Upgraded performance over AS-LB-01 for higher loads and extended life. Made to order.',
+    specs: ['Lip Seal', 'Heavy-Duty', 'Extended Life', 'Made to Order'],
+    applications: 'Industrial Mixers, Reactor Agitators, Heavy-Duty Service',
+    href: '#AS-LB-02',
+    image: 'https://pblol2.blob.core.windows.net/valvenok-images/products/mechanical-seals/AS-LB-02.jpg',
+    kind: 'rfq',
+    rfqProduct: {
+      id: 'AS-LB-02',
+      name: 'AS-LB-02 — Heavy-Duty Lip Seal',
+      brand: 'Valvenok',
+      category: 'Mechanical Seals',
+      categoryId: 'mechanical-seals',
+      thumbnail: 'https://pblol2.blob.core.windows.net/valvenok-images/products/mechanical-seals/AS-LB-02.jpg',
+      description: 'Heavy-duty lip-seal arrangement for industrial agitator service. Made to order.',
+      keySpecs: [
+        { label: 'Type',         value: 'Lip Seal' },
+        { label: 'Duty',         value: 'Heavy-Duty' },
+        { label: 'Service',      value: 'Industrial Agitators' },
+        { label: 'Availability', value: 'Made to Order' },
+      ],
+      variantInfo: { count: 0, sizeRange: 'Various' },
+    },
+  },
+  {
+    code: 'BS14',
+    title: 'BS14',
+    subtitle: 'Bellows Mechanical Seal',
+    description: 'Metal bellows mechanical seal for high-temperature service and applications where elastomers are unsuitable. Made to order — contact us for sizing and materials.',
+    specs: ['Bellows Seal', 'High Temperature', 'Elastomer-Free', 'Made to Order'],
+    applications: 'High-Temperature Service, Hot Oil, Steam, Specialty Chemicals',
+    href: '#BS14',
+    image: 'https://pblol2.blob.core.windows.net/valvenok-images/products/mechanical-seals/BS14.jpg',
+    kind: 'rfq',
+    rfqProduct: {
+      id: 'BS14',
+      name: 'BS14 — Bellows Mechanical Seal',
+      brand: 'Valvenok',
+      category: 'Mechanical Seals',
+      categoryId: 'mechanical-seals',
+      thumbnail: 'https://pblol2.blob.core.windows.net/valvenok-images/products/mechanical-seals/BS14.jpg',
+      description: 'Metal bellows mechanical seal for high-temperature service. Made to order.',
+      keySpecs: [
+        { label: 'Type',         value: 'Bellows Seal' },
+        { label: 'Temperature',  value: 'High' },
+        { label: 'Construction', value: 'Elastomer-Free' },
+        { label: 'Availability', value: 'Made to Order' },
+      ],
+      variantInfo: { count: 0, sizeRange: 'Various' },
+    },
+  },
+  {
+    code: 'BS14D',
+    title: 'BS14D',
+    subtitle: 'Double Bellows Mechanical Seal',
+    description: 'Double metal bellows mechanical seal for high-temperature service with pressurised barrier fluid. Safer sealing of hazardous fluids at elevated temperatures. Made to order.',
+    specs: ['Double Bellows', 'High Temperature', 'Pressurised Barrier', 'Made to Order'],
+    applications: 'Hazardous High-Temp Service, Hot Oil, Specialty Chemicals',
+    href: '#BS14D',
+    image: 'https://pblol2.blob.core.windows.net/valvenok-images/products/mechanical-seals/BS14D.jpg',
+    kind: 'rfq',
+    rfqProduct: {
+      id: 'BS14D',
+      name: 'BS14D — Double Bellows Mechanical Seal',
+      brand: 'Valvenok',
+      category: 'Mechanical Seals',
+      categoryId: 'mechanical-seals',
+      thumbnail: 'https://pblol2.blob.core.windows.net/valvenok-images/products/mechanical-seals/BS14D.jpg',
+      description: 'Double bellows mechanical seal for hazardous high-temperature service. Made to order.',
+      keySpecs: [
+        { label: 'Type',         value: 'Double Bellows' },
+        { label: 'Temperature',  value: 'High' },
+        { label: 'Barrier',      value: 'Pressurised' },
+        { label: 'Availability', value: 'Made to Order' },
+      ],
+      variantInfo: { count: 0, sizeRange: 'Various' },
+    },
+  },
 ]
 
+const ALL_SEAL_MODELS: SealModelEntry[] = [...PRICED_SEAL_MODELS, ...RFQ_ONLY_SEALS]
+
 const TRUST_POINTS = [
-  { value: '14 Seal Models', label: 'Complete Range' },
-  { value: 'Single & Double', label: 'Arrangements' },
+  { value: '14 Seal Models',    label: 'Complete Range' },
+  { value: 'Single & Double',   label: 'Arrangements' },
   { value: 'Metric & Imperial', label: 'Size Standards' },
-  { value: '0.5" – 160mm', label: 'Size Coverage' },
-  { value: 'Fast Dispatch', label: 'Availability' },
+  { value: '0.5" – 160mm',      label: 'Size Coverage' },
+  { value: 'Fast Dispatch',     label: 'Availability' },
 ]
 
 // "AS104 (40mm)" -> "AS104"
@@ -180,7 +463,8 @@ export default function MechanicalSealsPage() {
   // State
   const [filters, setFilters] = useState<SealFilters>(EMPTY_SEAL_FILTERS)
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [selectedModel, setSelectedModel] = useState<Category | null>(null)
+  const [selectedModel, setSelectedModel] = useState<SealModelEntry | null>(null)
+  const [rfqProduct, setRfqProduct] = useState<ProductForRFQ | null>(null)
 
   // Data
   const { data: filterOptions, isLoading: filtersLoading } = useMechanicalSealFilters()
@@ -196,6 +480,14 @@ export default function MechanicalSealsPage() {
     filters.shaftSizes.length +
     filters.sealSizesMm.length +
     filters.sealSizesInch.length
+
+  const handleCardClick = (model: SealModelEntry) => {
+    if (model.kind === 'rfq' && model.rfqProduct) {
+      setRfqProduct(model.rfqProduct)
+    } else {
+      setSelectedModel(model)
+    }
+  }
 
   const handleBack = () => {
     setSelectedModel(null)
@@ -214,6 +506,7 @@ export default function MechanicalSealsPage() {
           imageAlt="Valvenok Mechanical Seals"
           breadcrumb="Products / Mechanical Seals"
         />
+
         <Box sx={{
           maxWidth: 1400,
           mx: 'auto',
@@ -227,17 +520,26 @@ export default function MechanicalSealsPage() {
           },
           gap: 3,
         }}>
-          {SEAL_FAMILIES.map(family => (
+          {ALL_SEAL_MODELS.map(model => (
             <Box
-              key={family.code}
-              onClick={() => setSelectedModel(family)}
+              key={model.code}
+              onClick={() => handleCardClick(model)}
               sx={{ cursor: 'pointer' }}
             >
-              <ProductCard category={family} />
+              <ProductCard category={model} />
             </Box>
           ))}
         </Box>
+
         <TrustStrip points={TRUST_POINTS} />
+
+        {rfqProduct && (
+          <RFQModal
+            open={!!rfqProduct}
+            onClose={() => setRfqProduct(null)}
+            product={rfqProduct}
+          />
+        )}
       </>
     )
   }
