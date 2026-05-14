@@ -14,7 +14,17 @@ import {
 import Grid from "@mui/material/Grid";
 import { alpha, useTheme } from "@mui/material/styles";
 import { useRouter } from "next/navigation";
+
 const SUBMERSIBLE_SERIES = [
+  {
+    id: "stainless-sewage",
+    name: "Stainless Steel Sewage Pumps",
+    series: "TSS & TPS",
+    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/TSS.png",
+    description: "Compact IP68-rated stainless steel sewage pumps for domestic, light industrial and municipal water transfer and drainage. 400 – 1100W, 230V single-phase, Class E insulation.",
+    specs: ["IP68", "230V 1Ph", "400 – 1100 W", "5m Immersion"],
+    href: "/submersible/tss",
+  },
   {
     id: "borehole",
     name: "Borehole Submersible",
@@ -23,6 +33,15 @@ const SUBMERSIBLE_SERIES = [
     description: 'Full stainless steel borehole submersible pumps for deep well water supply. Available in 4", 6", 8" and 10" diameters with AISI 304, 316 and 904L construction.',
     specs: ['4" – 10"', "0.4 – 215 m³/hr", "Up to 870m", "0.37 – 220 kW"],
     href: "/submersible/borewell",
+  },
+  {
+    id: "medium-sewage",
+    name: "Mid-Range Sewage Pumps",
+    series: "TGB",
+    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/05-TGB.png",
+    description: "Mid-range submersible sewage pumps across 0.5 – 2.6 kW. Available in single-phase (230V) and three-phase (415V) with outlet sizes 1½\" and 2\".",
+    specs: ["0.5 – 2.6 kW", "230V / 415V", "1½\" – 2\" Outlet", "Single & 3 Phase"],
+    href: "/submersible/tgb",
   },
   {
     id: "light-drainage",
@@ -61,6 +80,15 @@ const SUBMERSIBLE_SERIES = [
     href: "/submersible/tga",
   },
   {
+    id: "industrial-sewage",
+    name: "Industrial Sewage Pumps",
+    series: "TMA",
+    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/09-TMA.png",
+    description: "Three-phase 415V submersible sewage pumps for industrial wastewater handling. 2\" outlet across 1.1 – 2.6 kW with robust construction.",
+    specs: ["1.1 – 2.6 kW", "415V 3Ph", "2\" Outlet", "Industrial Grade"],
+    href: "/submersible/tma",
+  },
+  {
     id: "heavy-duty-sewage",
     name: "Heavy Duty Sewage Pumps",
     series: "TMC",
@@ -70,6 +98,7 @@ const SUBMERSIBLE_SERIES = [
     href: "/submersible/tmc",
   },
 ]
+
 function SeriesCard({ series }: { series: (typeof SUBMERSIBLE_SERIES)[0] }) {
   const theme = useTheme();
   const router = useRouter();
@@ -78,8 +107,11 @@ function SeriesCard({ series }: { series: (typeof SUBMERSIBLE_SERIES)[0] }) {
     <Card
       elevation={0}
       sx={{
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
         border: `1px solid ${theme.palette.divider}`,
-        borderRadius: 2,
+        borderRadius: 0,
         "&:hover": {
           borderColor: "primary.main",
           boxShadow: `0 4px 20px ${alpha(theme.palette.primary.main, 0.12)}`,
@@ -87,19 +119,24 @@ function SeriesCard({ series }: { series: (typeof SUBMERSIBLE_SERIES)[0] }) {
         transition: "all 0.2s",
       }}
     >
-      <CardActionArea onClick={() => router.push(series.href)}>
+      <CardActionArea
+        onClick={() => router.push(series.href)}
+        sx={{ height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}
+      >
         <CardMedia
           component="img"
-          height={200}
           image={series.image}
           alt={series.name}
           sx={{
+            height: 200,
             objectFit: "contain",
             p: 3,
             bgcolor: alpha(theme.palette.primary.main, 0.02),
+            borderRadius: 0,
+            flexShrink: 0,
           }}
         />
-        <CardContent sx={{ p: 3 }}>
+        <CardContent sx={{ p: 3, flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
           <Stack
             direction="row"
             justifyContent="space-between"
@@ -114,12 +151,13 @@ function SeriesCard({ series }: { series: (typeof SUBMERSIBLE_SERIES)[0] }) {
               size="small"
               color="primary"
               variant="outlined"
+              sx={{ borderRadius: 0 }}
             />
           </Stack>
           <Typography
             variant="body2"
             color="text.secondary"
-            sx={{ mb: 2, lineHeight: 1.7 }}
+            sx={{ mb: 2, lineHeight: 1.7, flexGrow: 1 }}
           >
             {series.description}
           </Typography>
@@ -131,6 +169,7 @@ function SeriesCard({ series }: { series: (typeof SUBMERSIBLE_SERIES)[0] }) {
                 size="small"
                 sx={{
                   fontSize: "0.7rem",
+                  borderRadius: 0,
                   bgcolor: alpha(theme.palette.primary.main, 0.06),
                 }}
               />
@@ -196,6 +235,7 @@ export default function SubmersiblePumpsPage() {
                     label={tag}
                     size="small"
                     sx={{
+                      borderRadius: 0,
                       bgcolor: alpha(theme.palette.primary.main, 0.08),
                       fontWeight: 600,
                     }}
