@@ -2,9 +2,7 @@
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactNode, useState } from 'react';
-import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community';
 
-ModuleRegistry.registerModules([AllCommunityModule]);
 
 export default function Providers({ children }: { children: ReactNode }) {
   const [queryClient] = useState(() => new QueryClient({
