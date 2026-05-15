@@ -80,12 +80,12 @@ const BRANDS = [
     link: "https://tormacpumps.com/",
     desc: "High-efficiency submersible and peripheral pumping systems.",
   },
-  {
-    name: "Emerson",
-    logo: "https://www.emerson.com/resource/blob/emerson-logo-compressed--data-5970556.png",
-    link: "#",
-    desc: "Process automation and instrumentation engineering.",
-  },
+  // {
+  //   name: "Emerson",
+  //   logo: "https://www.emerson.com/resource/blob/emerson-logo-compressed--data-5970556.png",
+  //   link: "#",
+  //   desc: "Process automation and instrumentation engineering.",
+  // },
   {
     name: "Siemens",
     logo: "https://pblol2.blob.core.windows.net/valvenok-images/brands/siemens-logo.png",

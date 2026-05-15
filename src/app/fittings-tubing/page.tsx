@@ -188,7 +188,7 @@ export default function FittingsTubingPage() {
                 </Typography>
               ))}
             </Box>
-            <Button variant="outlined" href="/tubing"
+            <Button variant="outlined" href="/fittings-tubing/instrumentation-fittings/jic-fittings"
               sx={{ borderColor: "#61D649", color: "#61D649", textTransform: "none", fontWeight: 700, "&:hover": { bgcolor: "#61D649", color: "#000", borderColor: "#61D649" } }}>
               Browse Tubing
             </Button>

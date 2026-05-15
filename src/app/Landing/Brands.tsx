@@ -10,7 +10,7 @@ const BRANDS = [
   { name: 'Batu', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/batu-logo.png', link: 'https://www.batuvalve.com/' },
   { name: 'Spac', logo: 'https://pblol2.blob.core.windows.net/spac-images/spac-logo.webp', link: 'https://spacpneumatic.co.uk/' },
   { name: 'Tormac', logo: 'https://tormacpumps.com/wp-content/uploads/2025/06/tormac_logo.svg', link: 'https://tormacpumps.com/' },
-  { name: 'Emerson', logo: 'https://www.emerson.com/resource/blob/emerson-logo-compressed--data-5970556.png' },
+  // { name: 'Emerson', logo: 'https://www.emerson.com/resource/blob/emerson-logo-compressed--data-5970556.png' },
   { name: 'Siemens', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/siemens-logo.png'},
   { name: 'Crosby', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/crosby_logo.png' },
   { name: 'Atam Valves', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/atamvalves_logo.jpg' },

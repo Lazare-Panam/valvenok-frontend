@@ -24,7 +24,7 @@ const CATEGORIES = [
     tag: "Most Popular",
     count: "450+",
     subs: [
-      { name: "Flare Fittings", href: "/jic-fittings/" },
+      { name: "Flare Fittings", href: "/fittings-tubing/instrumentation-fittings/jic-fittings/" },
       { name: "Instrumentation Valves", href: "/valves" },
       { name: "Pipe Fittings", href: "/pipe-fittings" },
       { name: "Weld Fittings", href: "/weld" },

@@ -21,7 +21,7 @@ export default function IndustrialValvesPage() {
           display: 'flex',
           alignItems: 'center',
           overflow: 'hidden',
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("REPLACE_WITH_HERO_IMAGE_URL")`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://pblol2.blob.core.windows.net/valvenok-images/products/industrial-valves/industiral-hero.jpg")`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           py: { xs: 8, md: 12 }
@@ -104,7 +104,7 @@ export default function IndustrialValvesPage() {
             <Typography variant="overline" sx={{ color: "#61D649", fontWeight: 600, letterSpacing: 2, fontSize: 11 }}>
               Process & Plant
             </Typography>
-            <Typography variant="h3" component="a" href="/valves/industrial"
+            <Typography variant="h3" component="a" href="/industrial-valves"
               sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mt: 1, mb: 3, display: 'block', color: 'inherit', textDecoration: 'none', '&:hover': { color: '#61D649', textDecoration: 'underline' } }}>
               Industrial Valves
             </Typography>
@@ -114,14 +114,14 @@ export default function IndustrialValvesPage() {
               pressure classes 150 to 2500, with body materials including carbon steel,
               SS316, and duplex stainless. Conforms to API, ANSI, and BS standards.
             </Typography>
-            <Button variant="outlined" href="/valves/industrial"
+            <Button variant="outlined" href="/industrial-valves"
               sx={{ mt: 3, borderColor: "#61D649", color: "#61D649", textTransform: "none", fontWeight: 700, "&:hover": { bgcolor: "#61D649", color: "#000", borderColor: "#61D649" } }}>
               Browse Industrial Valves
             </Button>
           </Grid>
           <Grid size={{ xs: 12, md: 6 }}>
             <Box sx={{ borderColor: 'divider', borderRadius: 2, p: 4, textAlign: 'center' }}>
-              <img src="REPLACE_WITH_INDUSTRIAL_IMAGE_URL" alt="Industrial Valves" style={{ width: '50%', height: 'auto' }} />
+              <img src="https://pblol2.blob.core.windows.net/valvenok-images/products/valves/apollo-valves-88a10a01.webp" alt="Industrial Valves" style={{ width: '50%', height: 'auto' }} />
             </Box>
           </Grid>
         </Grid>
@@ -132,14 +132,14 @@ export default function IndustrialValvesPage() {
         <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
           <Grid size={{ xs: 12, md: 6 }}>
             <Box sx={{ borderColor: 'divider', borderRadius: 2, p: 4, textAlign: 'center' }}>
-              <img src="REPLACE_WITH_MARINE_IMAGE_URL" alt="Marine Valves" style={{ width: '50%', height: 'auto' }} />
+              <img src="https://pblol2.blob.core.windows.net/valvenok-images/products/industrial-valves/industrial-valves.jpg" alt="Marine Valves" style={{ width: '50%', height: 'auto' }} />
             </Box>
           </Grid>
           <Grid size={{ xs: 12, md: 6 }}>
             <Typography variant="overline" sx={{ color: "#61D649", fontWeight: 600, letterSpacing: 2, fontSize: 11 }}>
               Shipbuilding & Offshore
             </Typography>
-            <Typography variant="h3" component="a" href="/valves/marine"
+            <Typography variant="h3" component="a" href="/marine-valves"
               sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mt: 1, mb: 3, display: 'block', color: 'inherit', textDecoration: 'none', '&:hover': { color: '#61D649', textDecoration: 'underline' } }}>
               Marine Valves
             </Typography>
@@ -149,7 +149,7 @@ export default function IndustrialValvesPage() {
               bronze, nickel-aluminum bronze, and SS316 for seawater service, ballast
               systems, fuel lines, and fire-fighting installations.
             </Typography>
-            <Button variant="outlined" href="/valves/marine"
+            <Button variant="outlined" href="/marine-valves"
               sx={{ mt: 3, borderColor: "#61D649", color: "#61D649", textTransform: "none", fontWeight: 700, "&:hover": { bgcolor: "#61D649", color: "#000", borderColor: "#61D649" } }}>
               Browse Marine Valves
             </Button>

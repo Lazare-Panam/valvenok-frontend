@@ -38,12 +38,12 @@ export const CATEGORIES: Category[] = [
     items: [
       {
         label: "Instrumentation Fittings",
-        href: "/instrumentation-fittings",
+        href: "/fittings-tubing/instrumentation-fittings",
         children: [
-          { label: "Tube Fittings", href: "/fittings" },
-          { label: "Pipe Fittings", href: "/pipe-fittings" },
-          { label: "Flare Fittings", href: "/jic-fittings" },
-          { label: "Weld Fittings", href: "/weld" },
+          { label: "Tube Fittings", href: "/fittings-tubing/instrumentation-fittings/tube-fittings" },
+          { label: "Pipe Fittings", href: "/fittings-tubing/instrumentation-fittings/pipe-fittings" },
+          { label: "Flare Fittings", href: "/fittings-tubing/instrumentation-fittings/jic-fittings" },
+          { label: "Weld Fittings", href: "/fittings-tubing/instrumentation-fittings/weld-fittings" },
         ],
       },
       {
