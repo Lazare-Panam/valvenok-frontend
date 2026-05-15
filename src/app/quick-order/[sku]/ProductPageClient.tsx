@@ -5,7 +5,7 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
-
+import ProductInfoTabs from "./ProductInfoTabs";
 import { alpha } from "@mui/material/styles";
 import { useRouter } from "next/navigation";
 import { ProductQuickOrder } from "../product";
@@ -243,124 +243,7 @@ export default function ProductPageClient({ product, content }: Props) {
         </Box>
 
         {/* ─── NEW: PRODUCT DESCRIPTION ────────────────────────────── */}
-        <Box sx={{ mt: 6 }}>
-          <Divider sx={{ mb: 4 }} />
-
-          <Typography
-            sx={{
-              fontFamily: '"Barlow Condensed", sans-serif',
-              fontSize: "11px",
-              fontWeight: 700,
-              letterSpacing: "0.12em",
-              textTransform: "uppercase",
-              color: "text.secondary",
-              mb: 2,
-            }}
-          >
-            Product Description
-          </Typography>
-
-          <Typography
-            sx={{
-              fontFamily: '"Barlow Condensed", sans-serif',
-              fontSize: "16px",
-              fontWeight: 500,
-              lineHeight: 1.6,
-              color: "text.primary",
-              mb: 4,
-            }}
-          >
-            {content.longDescription}
-          </Typography>
-
-          {/* ─── KEY FEATURES ─────────────────────────────────────── */}
-          {content.keyFeatures.length > 0 && (
-            <Box sx={{ mb: 4 }}>
-              <Typography
-                sx={{
-                  fontFamily: '"Barlow Condensed", sans-serif',
-                  fontSize: "11px",
-                  fontWeight: 700,
-                  letterSpacing: "0.12em",
-                  textTransform: "uppercase",
-                  color: "text.secondary",
-                  mb: 2,
-                }}
-              >
-                Key Features
-              </Typography>
-
-              <Box component="ul" sx={{ pl: 0, m: 0, listStyle: "none" }}>
-                {content.keyFeatures.map((feature, i) => (
-                  <Box
-                    component="li"
-                    key={i}
-                    sx={{
-                      display: "flex",
-                      alignItems: "flex-start",
-                      gap: 1.5,
-                      mb: 1,
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        color: "primary.main",
-                        fontWeight: 900,
-                        flexShrink: 0,
-                        fontFamily: '"Barlow Condensed", sans-serif',
-                        fontSize: "16px",
-                        lineHeight: 1.6,
-                      }}
-                    >
-                      ▸
-                    </Box>
-                    <Typography
-                      sx={{
-                        fontFamily: '"Barlow Condensed", sans-serif',
-                        fontSize: "15px",
-                        fontWeight: 500,
-                        lineHeight: 1.6,
-                        color: "text.primary",
-                      }}
-                    >
-                      {feature}
-                    </Typography>
-                  </Box>
-                ))}
-              </Box>
-            </Box>
-          )}
-
-          {/* ─── APPLICATIONS ─────────────────────────────────────── */}
-          {content.applications && (
-            <Box>
-              <Typography
-                sx={{
-                  fontFamily: '"Barlow Condensed", sans-serif',
-                  fontSize: "11px",
-                  fontWeight: 700,
-                  letterSpacing: "0.12em",
-                  textTransform: "uppercase",
-                  color: "text.secondary",
-                  mb: 2,
-                }}
-              >
-                Applications
-              </Typography>
-              <Typography
-                sx={{
-                  fontFamily: '"Barlow Condensed", sans-serif',
-                  fontSize: "15px",
-                  fontWeight: 500,
-                  lineHeight: 1.6,
-                  color: "text.primary",
-                }}
-              >
-                {content.applications}
-              </Typography>
-            </Box>
-          )}
-        </Box>
+              <ProductInfoTabs content={content} />
         {/* ─── END NEW SECTIONS ────────────────────────────────────── */}
 
         <RelatedProducts
