@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
-import ProductHero from '../Common/Products_Page/ProductHero'
-import ProductGrid from '../Common/Products_Page/ProductGrid'
-import TrustStrip from '../Common/Products_Page/TrustStrip'
-import { Category } from '../Common/Products_Page/ProductCard'
+import ProductHero from '../../../Common/Products_Page/ProductHero'
+import ProductGrid from '../../../Common/Products_Page/ProductGrid'
+import TrustStrip from '../../../Common/Products_Page/TrustStrip'
+import { Category } from '../../../Common/Products_Page/ProductCard'
 
 export const metadata: Metadata = {
   title: 'Tube Fittings | SS316 Instrumentation Fittings ',
@@ -17,7 +17,7 @@ const CATEGORIES: Category[] = [
     description: 'Male and female connectors for instrumentation tube systems. Built for leak-free performance in high-pressure oil & gas and process applications.',
     specs: ['SS316', 'Twin Ferrule', 'NPT / BSPT / BSPP', 'Full Size Range'],
     applications: 'Oil & Gas, Petrochemical, Power Generation',
-    href: '/fittings/connectors',
+    href: '/fittings-tubing/instrumentation-fittings/tube-fittings/connectors',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/Bulkhead-Connector.jpg',
   },
   {
@@ -27,7 +27,7 @@ const CATEGORIES: Category[] = [
     description: 'Connect tube fittings to threaded ports across NPT, BSPT, and BSPP standards. Available in male and female configurations across a full size range.',
     specs: ['SS316', 'Twin Ferrule', 'NPT / BSPT / BSPP', '1/8" – 1"'],
     applications: 'Instrumentation, Process Systems, Marine',
-    href: '/fittings/adapters',
+    href: '/fittings-tubing/instrumentation-fittings/tube-fittings/adapters',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/male_adaptor.jpg',
   },
   {
@@ -37,7 +37,7 @@ const CATEGORIES: Category[] = [
     description: 'Direct port connections for instrumentation manifolds and panels. Male and female configurations for clean, space-saving installations.',
     specs: ['SS316', 'Twin Ferrule', 'Port Connection', 'BSPP / NPT'],
     applications: 'Manifold Systems, Panel Mounting, Subsea',
-    href: '/fittings/port-connectors',
+    href: '/fittings-tubing/instrumentation-fittings/tube-fittings/port-connectors',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/port-connector.jpg',
   },
   {
@@ -47,7 +47,7 @@ const CATEGORIES: Category[] = [
     description: 'Transition between tube OD sizes without additional fittings. Full range of reducing unions and couplings in fractional and metric sizes.',
     specs: ['SS316', 'Twin Ferrule', 'Reducing / Union', '1/8" – 1"'],
     applications: 'Process Piping, Instrumentation, Offshore',
-    href: '/fittings/reducer',
+    href: '/fittings-tubing/instrumentation-fittings/tube-fittings/reducer',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/reducer.jpg',
   },
   {
@@ -57,7 +57,7 @@ const CATEGORIES: Category[] = [
     description: 'Inline and bulkhead unions for tube fitting systems. Used for panel penetrations, straight connections, and union crosses in process instrumentation.',
     specs: ['SS316', 'Twin Ferrule', 'Union / Bulkhead', 'Full Size Range'],
     applications: 'Panel Penetrations, Inline Connections, Power',
-    href: '/fittings/unions',
+    href: '/fittings-tubing/instrumentation-fittings/tube-fittings/unions',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/union-cross.png',
   },
   {
@@ -67,7 +67,7 @@ const CATEGORIES: Category[] = [
     description: 'Weld-in sockets and gauge adaptors for direct connection to process pipework and vessels. Ideal for permanent instrumentation installations.',
     specs: ['SS316', 'Weld-In', 'Gauge / Socket', 'BSPP / NPT'],
     applications: 'Process Vessels, Pipework, Refineries',
-    href: '/fittings/weld-gauge',
+    href: '/fittings-tubing/instrumentation-fittings/tube-fittings/weld-gauge',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/male-pipe-weld-connector.jpg',
   },
   {
@@ -77,7 +77,7 @@ const CATEGORIES: Category[] = [
     description: 'Ferrules, plugs, and supporting components for tube fitting systems. Everything needed to complete and maintain your instrumentation assemblies.',
     specs: ['SS316', 'Twin Ferrule', 'BSPP / NPT', 'Full Size Range'],
     applications: 'All Instrumentation Systems',
-    href: '/fittings/accessories',
+    href: '/fittings-tubing/instrumentation-fittings/tube-fittings/accessories',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/tube_plug.jpg',
   },
   {
@@ -87,7 +87,7 @@ const CATEGORIES: Category[] = [
     description: 'Dielectric unions and gaskets that electrically isolate dissimilar metals, preventing galvanic corrosion in mixed-material instrumentation systems.',
     specs: ['SS316', 'Dielectric', 'Isolation', 'BSPP / NPT'],
     applications: 'Cathodic Protection, Offshore, Chemical Plants',
-    href: '/fittings/die-electric',
+    href: '/fittings-tubing/instrumentation-fittings/tube-fittings/die-electric',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/dielectric-fittings.jpg',
   },
 ]

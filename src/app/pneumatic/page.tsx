@@ -212,7 +212,33 @@ export default function PneumaticSystemsPage() {
         </Grid>
 
         <Divider sx={{ mb: 10 }} />
-
+         <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
+                  <Grid size={{ xs: 12, md: 6 }}>
+                    <Typography variant="overline" sx={{ color: "#61D649", fontWeight: 600, letterSpacing: 2, fontSize: 11 }}>
+                      Pneumatic Actuators
+                    </Typography>
+                    <Typography variant="h3" component="a" href="/pneumatic/actuators"
+                      sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mt: 1, mb: 3, display: 'block', color: 'inherit', textDecoration: 'none', '&:hover': { color: '#61D649', textDecoration: 'underline' } }}>
+                      AD Series Rack & Pinion Actuators
+                    </Typography>
+                    <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
+                      Double-acting and spring-return pneumatic actuators for quarter-turn valves.
+                      Compact design with high torque output for reliable process automation. Available
+                      in SS316 and aluminum body options with 90° rotation for ball and butterfly valves
+                      in chemical processing applications.
+                    </Typography>
+                    <Button variant="outlined" href="/pneumatic/actuators"
+                      sx={{ mt: 3, borderColor: "#61D649", color: "#61D649", textTransform: "none", fontWeight: 700, "&:hover": { bgcolor: "#61D649", color: "#000", borderColor: "#61D649" } }}>
+                      Browse Actuators
+                    </Button>
+                  </Grid>
+                  <Grid size={{ xs: 12, md: 6 }}>
+                    <Box sx={{ borderColor: 'divider', borderRadius: 2, p: 4, textAlign: 'center' }}>
+                      <img src="https://pblol2.blob.core.windows.net/panam-images/products/actuators/AD-Series.jpeg" alt="AD Series Rack & Pinion Actuators" style={{ width: '50%', height: 'auto' }} />
+                    </Box>
+                  </Grid>
+                </Grid>
+<Divider sx={{ mb: 10 }} />
         {/* Applications */}
         <Box sx={{ mb: 10 }}>
           <Typography variant="h3" sx={{ fontSize: { xs: 24, md: 30 }, fontWeight: 700, mb: 2 }}>

@@ -20,7 +20,7 @@ import Link from 'next/link';
 const categories = [
   {
     slug: 'fittings-valves',
-    href: '/fittings',
+    href: '/fittings-tubing',
     name: 'Fittings & Valves',
     tagline: 'Ball, gate, check & butterfly',
     image: 'https://pblol2.blob.core.windows.net/valvenok-images/products/fittings/hex_couplings.png',

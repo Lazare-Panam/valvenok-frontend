@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
-import ProductHero from '../Common/Products_Page/ProductHero'
-import ProductGrid from '../Common/Products_Page/ProductGrid'
-import TrustStrip from '../Common/Products_Page/TrustStrip'
-import { Category } from '../Common/Products_Page/ProductCard'
+import ProductHero from '@/src/app/Common/Products_Page/ProductHero'
+import ProductGrid from '@/src/app/Common/Products_Page/ProductGrid'
+import TrustStrip from '@/src/app/Common/Products_Page/TrustStrip'
+import { Category } from '@/src/app/Common/Products_Page/ProductCard'
 
 export const metadata: Metadata = {
   title: 'Weld Fittings | SS316 Instrumentation Weld Fittings | Valvenok',
@@ -17,7 +17,7 @@ const CATEGORIES: Category[] = [
     description: 'Butt weld elbows in 90° and 45° configurations for permanent directional changes in instrumentation tubing. Built for high-integrity, leak-free process systems.',
     specs: ['SS316', 'Butt Weld', '2mm – 25mm OD'],
     applications: 'Oil & Gas, Petrochemical, Power Generation',
-    href: '/weld/elbows',
+    href: '/fittings-tubing/instrumentation-fittings/weld-fittings/elbows',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/weld-fittings/elbow-weld.jpg',
   },
   {
@@ -27,7 +27,7 @@ const CATEGORIES: Category[] = [
     description: 'Weld connectors for joining instrumentation tubing to threaded or instrument connections. Male and female configurations across NPT, BSPT and BSPP standards.',
     specs: ['SS316', 'NPT / BSPT / BSPP', '2mm – 25mm OD'],
     applications: 'Process Vessels, Pipework, Refineries',
-    href: '/weld/connectors',
+    href: '/fittings-tubing/instrumentation-fittings/weld-fittings/connectors',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/weld-fittings/connector-weld.jpg',
   },
   {
@@ -37,7 +37,7 @@ const CATEGORIES: Category[] = [
   description: 'Male run and branch tees in tube socket weld configuration for permanent three-way connections in instrumentation and process piping. Available across NPT thread standards from 1/8" to 2".',
   specs: ['SS316', 'Tube Socket Weld', '1/8" – 2" OD'],
   applications: 'Oil & Gas, Petrochemical, Power Generation',
-  href: '/weld/tees',
+  href: '/fittings-tubing/instrumentation-fittings/weld-fittings/tees',
   image: 'https://pblol2.blob.core.windows.net/panam-images/products/weld-fittings/male-run-tee-weld.jpg',
 },
 ]

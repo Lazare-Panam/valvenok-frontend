@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
-import ProductHero from '../Common/Products_Page/ProductHero'
-import ProductGrid from '../Common/Products_Page/ProductGrid'
-import TrustStrip from '../Common/Products_Page/TrustStrip'
-import { Category } from '../Common/Products_Page/ProductCard'
+import ProductHero from '@/src/app/Common/Products_Page/ProductHero'
+import ProductGrid from '@/src/app/Common/Products_Page/ProductGrid'
+import TrustStrip from '@/src/app/Common/Products_Page/TrustStrip'
+
+import { Category } from '@/src/app/Common/Products_Page/ProductCard'
 
 export const metadata: Metadata = {
   title: 'Pipe Fittings | SS316 Instrumentation Fittings ',
@@ -17,7 +18,7 @@ const CATEGORIES: Category[] = [
     description: 'Hex nipples, long nipples, reducing nipples and couplings for direct pipe-to-pipe connections. Built for high-pressure instrumentation and process lines.',
     specs: ['SS316', 'NPT / BSPT / BSPP', 'Metric / SAE', '1/16" – 2"'],
     applications: 'Oil & Gas, Process Piping, Offshore',
-    href: '/pipe-fittings/nipples-couplings',
+    href: '/fittings-tubing/instrumentation-fittings/pipe-fittings/nipples-couplings',
     image: 'https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/pipe-fittings/hex%20nipples%20-%20bspp%20x%20bspp%20-%20png.png',
   },
   {
@@ -27,7 +28,7 @@ const CATEGORIES: Category[] = [
     description: 'Adapters, reducing bushings, hex plugs and pipe caps for thread conversion and line termination across all major thread standards.',
     specs: ['SS316', 'NPT / BSPT / BSPP', 'Metric / SAE', '1/16" – 2"'],
     applications: 'Instrumentation, Chemical, Power Generation',
-    href: '/pipe-fittings/adapters-plugs',
+    href: '/fittings-tubing/instrumentation-fittings/pipe-fittings/adapters-plugs',
     image: 'https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/pipe-fittings/adaptors.jpg',
   },
   {
@@ -37,7 +38,7 @@ const CATEGORIES: Category[] = [
     description: 'Female, male, street and union elbows for directional changes in instrumentation pipework. Available in straight and reducing configurations.',
     specs: ['SS316', 'NPT / BSPT / BSPP', '1/16" – 1½"'],
     applications: 'Process Systems, Marine, Petrochemical',
-    href: '/pipe-fittings/elbows',
+    href: '/fittings-tubing/instrumentation-fittings/pipe-fittings/elbows',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/female-elbow-bspp.png',
   },
   {
@@ -47,7 +48,7 @@ const CATEGORIES: Category[] = [
     description: 'Standard, bulkhead and swivel unions for maintainable connections in process instrumentation. ISO Parallel thread throughout.',
     specs: ['SS316', 'BSPP / ISO Parallel', '1/8" – 1½"'],
     applications: 'Panel Mounting, Subsea, Refineries',
-    href: '/pipe-fittings/unions-connectors',
+    href: '/fittings-tubing/instrumentation-fittings/pipe-fittings/unions-connectors',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/union-bspt-final.png',
   },
   {
@@ -57,7 +58,7 @@ const CATEGORIES: Category[] = [
     description: 'Female, male, branch and run tees plus crosses for multi-directional flow distribution in instrumentation and process systems.',
     specs: ['SS316', 'NPT / BSPP', '1/16" – 1½"'],
     applications: 'Flow Distribution, Process Plants, Offshore',
-    href: '/pipe-fittings/tees-cross',
+    href: '/fittings-tubing/instrumentation-fittings/pipe-fittings/tees-cross',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/female-tee-bspp.png',
   },
   {
@@ -67,7 +68,7 @@ const CATEGORIES: Category[] = [
     description: 'Over 650 pipe fitting configurations in one place. Filter by type, size, thread standard and material to find exactly what your system needs.',
     specs: ['SS316', 'NPT / BSPT / BSPP', 'Metric / SAE', '650+ configurations'],
     applications: 'All Industries & Applications',
-    href: '/pipe-fittings/all',
+    href: '/fittings-tubing/instrumentation-fittings/pipe-fittings/all',
     image: 'https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/pipe-fittings/adaptors.jpg',
   },
 ]
