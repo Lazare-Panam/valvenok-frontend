@@ -13,7 +13,7 @@ import { ProductContent } from "../product-content";
 import RelatedProducts from "@/src/components/RelatedProducts";
 import AddToCartSection from "./AddToCartSection";
 import PromoBar from "./PromoBar";
-
+import ProductImageZoom from "./ProductImageZoom";
 interface Props {
   product: ProductQuickOrder;
   content: ProductContent;
@@ -66,40 +66,10 @@ export default function ProductPageClient({ product, content }: Props) {
           }}
         >
           {/* LEFT — Image */}
-          <Box
-            sx={{
-              width: { xs: "100%", md: 360 },
-              flexShrink: 0,
-              border: "1px solid",
-              borderColor: "divider",
-              aspectRatio: "1 / 1",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              bgcolor: (t) => alpha(t.palette.text.primary, 0.02),
-              p: 4,
-            }}
-          >
-            {product.cloudinaryId ? (
-              <img
-                src={product.cloudinaryId}
-                alt={`${content.metaTitle.replace(' | Valvenok', '')} - Part ${product.sku}`}
-                style={{ width: "100%", height: "100%", objectFit: "contain" }}
-              />
-            ) : (
-              <Typography
-                sx={{
-                  fontFamily: '"Barlow Condensed", sans-serif',
-                  fontSize: "12px",
-                  color: "text.secondary",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.08em",
-                }}
-              >
-                No Image
-              </Typography>
-            )}
-          </Box>
+          <ProductImageZoom
+  imageUrl={product.cloudinaryId}
+  alt={`${content.metaTitle.replace(' | Valvenok', '')} - Part ${product.sku}`}
+/>
 
           {/* RIGHT — Details */}
           <Box sx={{ flex: 1, minWidth: 0 }}>
