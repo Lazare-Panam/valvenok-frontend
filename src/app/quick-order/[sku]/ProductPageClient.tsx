@@ -9,25 +9,28 @@ import Divider from "@mui/material/Divider";
 import { alpha } from "@mui/material/styles";
 import { useRouter } from "next/navigation";
 import { ProductQuickOrder } from "../product";
+import { ProductContent } from "../product-content";
 import RelatedProducts from "@/src/components/RelatedProducts";
 import AddToCartSection from "./AddToCartSection";
+import PromoBar from "./PromoBar";
 
 interface Props {
   product: ProductQuickOrder;
+  content: ProductContent;
 }
 
-export default function ProductPageClient({ product }: Props) {
+export default function ProductPageClient({ product, content }: Props) {
   const router = useRouter();
 
   // ── JSON-LD STRUCTURED DATA ──
-  // This tells Google explicitly what the product is in a way it can't ignore
   const jsonLd = {
     "@context": "https://schema.org/",
     "@type": "Product",
     "name": `PANAM ${product.name}`,
     "image": product.cloudinaryId,
-    "description": product.meta,
+    "description": content.metaDescription,
     "sku": product.sku,
+    "mpn": product.sku,
     "brand": {
       "@type": "Brand",
       "name": "Panam"
@@ -49,6 +52,9 @@ export default function ProductPageClient({ product }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+
+      {/* Promo bar */}
+      <PromoBar />
 
       <Container maxWidth="lg" sx={{ py: { xs: 4, md: 6 } }}>
         <Box
@@ -77,8 +83,7 @@ export default function ProductPageClient({ product }: Props) {
             {product.cloudinaryId ? (
               <img
                 src={product.cloudinaryId}
-                // Updated: Using .meta for SEO-friendly alt text
-                alt={`${product.meta} - Part ${product.sku}`}
+                alt={`${content.metaTitle.replace(' | Valvenok', '')} - Part ${product.sku}`}
                 style={{ width: "100%", height: "100%", objectFit: "contain" }}
               />
             ) : (
@@ -100,7 +105,7 @@ export default function ProductPageClient({ product }: Props) {
           <Box sx={{ flex: 1, minWidth: 0 }}>
             <Box>
               <Typography
-                component="h1" // Crucial for Google to see this as the official title
+                component="h1"
                 sx={{
                   fontFamily: '"Barlow Condensed", sans-serif',
                   fontSize: "26px",
@@ -116,7 +121,7 @@ export default function ProductPageClient({ product }: Props) {
               <Typography
                 sx={{
                   fontFamily: '"Barlow Condensed", sans-serif',
-                  fontSize: "15px", // fixed the typo "15x"
+                  fontSize: "15px",
                   fontWeight: 700,
                   letterSpacing: "0.12em",
                   textTransform: "uppercase",
@@ -236,6 +241,127 @@ export default function ProductPageClient({ product }: Props) {
             </Button>
           </Box>
         </Box>
+
+        {/* ─── NEW: PRODUCT DESCRIPTION ────────────────────────────── */}
+        <Box sx={{ mt: 6 }}>
+          <Divider sx={{ mb: 4 }} />
+
+          <Typography
+            sx={{
+              fontFamily: '"Barlow Condensed", sans-serif',
+              fontSize: "11px",
+              fontWeight: 700,
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              color: "text.secondary",
+              mb: 2,
+            }}
+          >
+            Product Description
+          </Typography>
+
+          <Typography
+            sx={{
+              fontFamily: '"Barlow Condensed", sans-serif',
+              fontSize: "16px",
+              fontWeight: 500,
+              lineHeight: 1.6,
+              color: "text.primary",
+              mb: 4,
+            }}
+          >
+            {content.longDescription}
+          </Typography>
+
+          {/* ─── KEY FEATURES ─────────────────────────────────────── */}
+          {content.keyFeatures.length > 0 && (
+            <Box sx={{ mb: 4 }}>
+              <Typography
+                sx={{
+                  fontFamily: '"Barlow Condensed", sans-serif',
+                  fontSize: "11px",
+                  fontWeight: 700,
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  color: "text.secondary",
+                  mb: 2,
+                }}
+              >
+                Key Features
+              </Typography>
+
+              <Box component="ul" sx={{ pl: 0, m: 0, listStyle: "none" }}>
+                {content.keyFeatures.map((feature, i) => (
+                  <Box
+                    component="li"
+                    key={i}
+                    sx={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      gap: 1.5,
+                      mb: 1,
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        color: "primary.main",
+                        fontWeight: 900,
+                        flexShrink: 0,
+                        fontFamily: '"Barlow Condensed", sans-serif',
+                        fontSize: "16px",
+                        lineHeight: 1.6,
+                      }}
+                    >
+                      ▸
+                    </Box>
+                    <Typography
+                      sx={{
+                        fontFamily: '"Barlow Condensed", sans-serif',
+                        fontSize: "15px",
+                        fontWeight: 500,
+                        lineHeight: 1.6,
+                        color: "text.primary",
+                      }}
+                    >
+                      {feature}
+                    </Typography>
+                  </Box>
+                ))}
+              </Box>
+            </Box>
+          )}
+
+          {/* ─── APPLICATIONS ─────────────────────────────────────── */}
+          {content.applications && (
+            <Box>
+              <Typography
+                sx={{
+                  fontFamily: '"Barlow Condensed", sans-serif',
+                  fontSize: "11px",
+                  fontWeight: 700,
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  color: "text.secondary",
+                  mb: 2,
+                }}
+              >
+                Applications
+              </Typography>
+              <Typography
+                sx={{
+                  fontFamily: '"Barlow Condensed", sans-serif',
+                  fontSize: "15px",
+                  fontWeight: 500,
+                  lineHeight: 1.6,
+                  color: "text.primary",
+                }}
+              >
+                {content.applications}
+              </Typography>
+            </Box>
+          )}
+        </Box>
+        {/* ─── END NEW SECTIONS ────────────────────────────────────── */}
 
         <RelatedProducts
           currentSku={product.sku}
