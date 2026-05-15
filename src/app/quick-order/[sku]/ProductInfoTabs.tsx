@@ -112,18 +112,35 @@ export default function ProductInfoTabs({ content }: Props) {
 function DescriptionPanel({ content }: { content: ProductContent }) {
   return (
     <Box>
+      {/* longDescription — short opening line */}
       <Typography
         sx={{
           fontFamily: '"Barlow Condensed", sans-serif',
-          fontSize: "20px",
-          fontWeight: 500,
+          fontSize: "30px",
+          fontWeight: 600,
           lineHeight: 1.6,
           color: "text.primary",
-          mb: 4,
+          mb: 3,
         }}
       >
         {content.longDescription}
       </Typography>
+
+      {/* metaDescription — long SEO paragraph, visible to humans + Google */}
+      {content.metaDescription && (
+        <Typography
+          sx={{
+            fontFamily: '"Barlow Condensed", sans-serif',
+            fontSize: "23px",
+            fontWeight: 400,
+            lineHeight: 1.7,
+            color: "text.primary",
+            mb: 4,
+          }}
+        >
+          {content.metaDescription}
+        </Typography>
+      )}
 
       {content.keyFeatures.length > 0 && (
         <Box sx={{ mb: 4 }}>
@@ -158,7 +175,7 @@ function DescriptionPanel({ content }: { content: ProductContent }) {
                     fontWeight: 900,
                     flexShrink: 0,
                     fontFamily: '"Barlow Condensed", sans-serif',
-                    fontSize: "18px",
+                    fontSize: "16px",
                     lineHeight: 1.6,
                   }}
                 >
@@ -199,7 +216,7 @@ function DescriptionPanel({ content }: { content: ProductContent }) {
           <Typography
             sx={{
               fontFamily: '"Barlow Condensed", sans-serif',
-              fontSize: "18px",
+              fontSize: "15px",
               fontWeight: 500,
               lineHeight: 1.6,
               color: "text.primary",
@@ -212,7 +229,6 @@ function DescriptionPanel({ content }: { content: ProductContent }) {
     </Box>
   );
 }
-
 // ─── DELIVERY PANEL ─────────────────────────────────────────────
 function DeliveryPanel() {
   return (
