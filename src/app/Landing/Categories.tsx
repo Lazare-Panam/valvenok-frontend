@@ -20,14 +20,14 @@ const CATEGORIES = [
   {
     name: "Fittings & Instrumentation Valves",
     img: "https://pblol2.blob.core.windows.net/valvenok-images/products/fittings/hex_couplings.png",
-    href: "/fittings/jic",
+    href: "/fittings-tubing/instrumentation-fittings/jic-fittings",
     tag: "Most Popular",
     count: "450+",
     subs: [
       { name: "Flare Fittings", href: "/fittings-tubing/instrumentation-fittings/jic-fittings/" },
       { name: "Instrumentation Valves", href: "/valves" },
-      { name: "Pipe Fittings", href: "/pipe-fittings" },
-      { name: "Weld Fittings", href: "/weld" },
+      { name: "Pipe Fittings", href: "/fittings-tubing/instrumentation-fittings/pipe-fittings" },
+      { name: "Weld Fittings", href: "/fittings-tubing/instrumentation-fittings/weld-fittings" },
     ],
   },
   {

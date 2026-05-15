@@ -186,7 +186,7 @@ const RFQ_ONLY_SEALS: SealModelEntry[] = [
     specs: ['Single Seal', 'Narrow Profile', 'Top-Entry Agitators', 'Made to Order'],
     applications: 'Chemical Processing, Pharmaceuticals, Space-Constrained Installations',
     href: '#AS91N',
-    image: 'https://pblol2.blob.core.windows.net/valvenok-images/products/mechanical-seals/AS91N.png',
+    image: 'https://pblol2.blob.core.windows.net/valvenok-images/products/mechanical-seals/AS91.jpg',
     keySpecs: [
       { label: 'Arrangement',  value: 'Single Seal' },
       { label: 'Profile',      value: 'Narrow' },

@@ -163,7 +163,7 @@ export default function FittingsTubingPage() {
             <Typography variant="overline" sx={{ color: "#61D649", fontWeight: 600, letterSpacing: 2, fontSize: 11 }}>
               Fluid Conveyance
             </Typography>
-            <Typography variant="h3" component="a" href="/tubing"
+            <Typography variant="h3" component="a" href="/pneumatic/tubing"
               sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mt: 1, mb: 3, display: 'block', color: 'inherit', textDecoration: 'none', '&:hover': { color: '#61D649', textDecoration: 'underline' } }}>
               Stainless Steel Tubing
             </Typography>

@@ -16,7 +16,7 @@ const DUMMY_RFQ_PRODUCTS: ProductForRFQ[] = [
     category: "Pumps", 
     categoryId: "pumps",
     subCategory: "Peripheral Vertical/Horizontal",
-    thumbnail: "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774524120/08-TEP-Peripheral-pumps-1-259x300_fstbrp.png",
+    thumbnail: "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/04-TGA.png",
     description: "Compact and powerful peripheral pumps designed for clean water applications, pressure boosting, and industrial liquid transfer where high head and constant flow are required.",
     keySpecs: [
       { label: "Max Head", value: "35 - 60 Meters" },
