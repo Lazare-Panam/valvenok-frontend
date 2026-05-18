@@ -105,7 +105,7 @@ export default function PneumaticSystemsPage() {
             </Typography>
             <Typography variant="h3" component="a" href="/pneumatic/cylinders"
               sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mt: 1, mb: 3, display: 'block', color: 'inherit', textDecoration: 'none', '&:hover': { color: '#61D649', textDecoration: 'underline' } }}>
-              ESC Series Pneumatic Cylinders
+              Pneumatic Cylinders
             </Typography>
             <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
               Standard tie rod profile double acting cylinders available in bore sizes 32mm to 250mm

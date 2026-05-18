@@ -1,88 +1,75 @@
-'use client'
-import { useState } from "react"
-import { Box, Typography, CircularProgress, useMediaQuery, Drawer, IconButton } from "@mui/material"
-import { useTheme, alpha } from "@mui/material/styles"
-import FilterListIcon from "@mui/icons-material/FilterList"
-import { useESCCylinders, useESCCylinderFilterOptions } from "../hooks/usePneumatic"
-import { ESCSidebar, EMPTY_ESC_FILTERS, type ESCFilters } from "./components/ESCSidebar"
-import { ESCActiveFilters } from "./components/ESCActiveFilters"
-import ESCTable from "./components/ESCTable"
+import type { Metadata } from "next";
+import ProductHero from "../../Common/Products_Page/ProductHero";
+import TrustStrip from "../../Common/Products_Page/TrustStrip";
+import { Category } from "../../Common/Products_Page/ProductCard";
+import CylindersGrid from "./CylindersGrid";
 
-export default function ESCCylinderPage() {
-  const theme = useTheme()
-  const isMobile = useMediaQuery("(max-width:1200px)")
-  const [filters, setFilters] = useState<ESCFilters>(EMPTY_ESC_FILTERS)
-  const [mobileOpen, setMobileOpen] = useState(false)
+export const metadata: Metadata = {
+  title: "Pneumatic Cylinders | ISO-15552 Profile Cylinders | Valvenok",
+  description:
+    "Valvenok supplies a full range of ISO-15552 profile pneumatic cylinders. SDNC, ESNC and ESC series across bore sizes 32mm to 320mm, magnetic and non-magnetic variants, strokes up to 1000mm.",
+};
 
-  const { data: filterOptions, isLoading: filtersLoading } = useESCCylinderFilterOptions()
-  const { data: models = [], isLoading, isFetching } = useESCCylinders(filters)
+const CYLINDER_FAMILIES: Category[] = [
+  {
+    code: "SDNC",
+    title: "SDNC Series",
+    subtitle: "Standard ISO-15552 Profile Cylinder",
+    description:
+      "Double-acting ISO-15552 profile pneumatic cylinders. The reliable workhorse for general automation, packaging and process machinery — available in magnetic and non-magnetic variants.",
+    specs: ["ISO 15552", "Ø32 – Ø125 mm", "Stroke 25 – 1000 mm", "Magnetic / Non-Magnetic"],
+    applications: "Industrial Automation, Packaging, Process Machinery",
+    href: "/pneumatic/cylinders/sdnc",
+    image:
+      "https://pblol2.blob.core.windows.net/spac-images/products/cylinder/SDNC/SDNC_no_bg.png",
+  },
+  {
+    code: "ESNC",
+    title: "ESNC Series",
+    subtitle: "Extended Bore ISO-15552 Tie Rod Cylinder",
+    description:
+      "Double-acting ISO-15552 tie rod profile pneumatic cylinders with extended bore range up to Ø200mm. Built for heavy-duty industrial applications requiring high force output.",
+    specs: ["ISO 15552 Tie Rod", "Ø32 – Ø200 mm", "Stroke 25 – 1000 mm", "Non-Magnetic"],
+    applications: "Heavy-Duty Automation, Material Handling, Press & Clamping",
+    href: "/pneumatic/cylinders/esnc",
+    image:
+      "https://pblol2.blob.core.windows.net/spac-images/products/cylinder/DSNC_7050.png",
+  },
+  {
+    code: "ESC",
+    title: "ESC Series",
+    subtitle: "Standard Tie Rod Profile Cylinder",
+    description:
+      "SPAC standard tie rod double-acting pneumatic cylinders. Standard and through-rod configurations across bore sizes 32mm to 250mm, magnetic and non-magnetic variants.",
+    specs: ["Tie Rod Profile", "Ø32 – Ø250 mm", "Standard & Through Rod", "Magnetic / Non-Magnetic"],
+    applications: "Industrial Automation, OEM Machinery, Process Equipment",
+    href: "/pneumatic/cylinders/esc",
+    image:
+      "https://pblol2.blob.core.windows.net/spac-images/products/cylinder/DSNC_7050.png",
+  },
+];
 
-  const activeCount =
-    filters.boreSizes.length +
-    filters.strokes.length +
-    (filters.throughRod !== null ? 1 : 0) +
-    (filters.magnetic !== null ? 1 : 0)
+const TRUST_POINTS = [
+  { value: "ISO 15552", label: "Compliance Standard" },
+  { value: "Ø32 – Ø320 mm", label: "Full Bore Range" },
+  { value: "Up to 1000 mm", label: "Stroke Length" },
+  { value: "Magnetic Variants", label: "Sensor-Ready" },
+  { value: "Fast Dispatch", label: "Availability" },
+];
 
-  const sidebar = (
-    <ESCSidebar
-      filters={filters}
-      setFilters={setFilters}
-      filterOptions={filterOptions}
-      filtersLoading={filtersLoading}
-      activeCount={activeCount}
-    />
-  )
-
+export default function CylindersIndexPage() {
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "background.default" }}>
-      <Box sx={{ p: 4, borderBottom: "1px solid rgba(0,0,0,0.08)", bgcolor: "background.paper" }}>
-        <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: theme.palette.primary.main }}>
-          ESC Series Cylinders
-        </Typography>
-        <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 700 }}>
-          SPAC Standard Tie Rod Profile double acting pneumatic cylinders. Available in standard and through rod configurations, magnetic and non-magnetic variants across bore sizes 32mm to 250mm.
-        </Typography>
-        <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
-          {["Bore: 32–250mm", "Stroke: 25–1000mm", "Double Acting", "Standard & Through Rod", "Magnetic & Non-Magnetic"].map(s => (
-            <Box key={s} sx={{ px: 1.5, py: 0.5, borderRadius: "20px", fontSize: "0.75rem", fontWeight: 600, bgcolor: alpha(theme.palette.primary.main, 0.08), color: theme.palette.primary.dark, border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}` }}>
-              {s}
-            </Box>
-          ))}
-        </Box>
-      </Box>
-
-      <Box sx={{ p: { xs: 2, md: 3 }, flex: 1 }}>
-        {isMobile && (
-          <IconButton onClick={() => setMobileOpen(true)} sx={{ mb: 2 }}>
-            <FilterListIcon />
-          </IconButton>
-        )}
-
-        <ESCActiveFilters filters={filters} setFilters={setFilters} />
-
-        <Typography variant="caption" fontWeight={700} color="text.disabled" sx={{ display: "block", mb: 1 }}>
-          {isFetching && !isLoading ? "UPDATING..." : isLoading ? "LOADING..." : `${models.length} CONFIGURATIONS`}
-        </Typography>
-
-        <Box sx={{
-          display: "flex", alignItems: "stretch",
-          border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}`,
-          borderRadius: "8px", overflow: "hidden", bgcolor: "background.paper",
-        }}>
-          {!isMobile && sidebar}
-          {isLoading ? (
-            <Box sx={{ flex: 1, display: "flex", justifyContent: "center", alignItems: "center", minHeight: 300 }}>
-              <CircularProgress sx={{ color: theme.palette.primary.main }} />
-            </Box>
-          ) : (
-            <ESCTable models={models} isFetching={isFetching} />
-          )}
-        </Box>
-
-        <Drawer open={mobileOpen} onClose={() => setMobileOpen(false)}>
-          {sidebar}
-        </Drawer>
-      </Box>
-    </Box>
-  )
+    <>
+      <ProductHero
+        title="Pneumatic Cylinders"
+        subtitle="ISO-15552 Profile Cylinders for Industrial Automation"
+        description="A complete range of double-acting pneumatic cylinders engineered to ISO-15552 standards. Standard profile, tie rod and extended bore series — magnetic and non-magnetic variants across the full bore and stroke spectrum."
+        imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/products/pneumatic-cylinder/cylinder-hero.jpg"
+        imageAlt="Valvenok ISO-15552 Pneumatic Cylinders"
+        breadcrumb="Products / Cylinders"
+      />
+      <CylindersGrid families={CYLINDER_FAMILIES} />
+      <TrustStrip points={TRUST_POINTS} />
+    </>
+  );
 }
