@@ -68,6 +68,7 @@ export const CATEGORIES: Category[] = [
       { label: "Pneumatic Cylinder", href: "/pneumatic/cylinders" },
       { label: "Pneumatic Fittings", href: "/pneumatic/apfittings" },
       { label: "Pneumatic Tubing", href: "/pneumatic/tubing" },
+      { label: "Pneumatic Actuators", href: "/pneumatic/actuators" },
       { label: "Air Gun", href: "/pneumatic/air-gun" },
     ],
   },

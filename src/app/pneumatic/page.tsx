@@ -219,7 +219,7 @@ export default function PneumaticSystemsPage() {
                     </Typography>
                     <Typography variant="h3" component="a" href="/pneumatic/actuators"
                       sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mt: 1, mb: 3, display: 'block', color: 'inherit', textDecoration: 'none', '&:hover': { color: '#61D649', textDecoration: 'underline' } }}>
-                      AD Series Rack & Pinion Actuators
+                      Pneumatic Actuators
                     </Typography>
                     <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
                       Double-acting and spring-return pneumatic actuators for quarter-turn valves.
