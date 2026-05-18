@@ -47,6 +47,18 @@ const CYLINDER_FAMILIES: Category[] = [
     image:
       "https://pblol2.blob.core.windows.net/spac-images/products/cylinder/DSNC_7050.png",
   },
+  {
+  code: "SDNU",
+  title: "SDNU Series",
+  subtitle: "ISO-6432 Stainless Steel Round Body Cylinder",
+  description:
+    "Double-acting ISO-6432 round body pneumatic cylinders in stainless steel. Compact magnetic-piston design across bore sizes 12mm to 25mm, with optional adjustable cushioning for end-of-stroke control in food, pharma and washdown applications.",
+  specs: ["ISO 6432", "SS Round Body", "Ø12 – Ø25 mm", "Magnetic / Cushion Option"],
+  applications: "Food & Beverage, Pharma, Washdown, Hygienic Automation",
+  href: "/pneumatic/cylinders/sdnu",
+  image:
+    "https://pblol2.blob.core.windows.net/spac-images/products/cylinder/DSC_7890_SDNU_rb.png",
+},
 ];
 
 const TRUST_POINTS = [
