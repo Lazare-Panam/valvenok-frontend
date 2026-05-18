@@ -3,7 +3,7 @@ import { useState } from "react"
 import { Box, Typography, CircularProgress, useMediaQuery, Drawer, IconButton } from "@mui/material"
 import { useTheme, alpha } from "@mui/material/styles"
 import FilterListIcon from "@mui/icons-material/FilterList"
-import { useAPFittings, useAPFittingFilterOptions } from "../hooks/usePneumatic"
+import { useAPFittings, useAPFittingFilterOptions } from "../../hooks/usePneumatic"
 import { APFittingSidebar, EMPTY_AP_FITTING_FILTERS, type APFittingFilters } from "./components/APFittingSidebarPneumatic"
 
 import { APFittingActiveFilters } from "./components/APFittingActiveFilters"

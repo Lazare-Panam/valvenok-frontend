@@ -40,10 +40,22 @@ export const CATEGORIES: Category[] = [
         label: "Instrumentation Fittings",
         href: "/fittings-tubing/instrumentation-fittings",
         children: [
-          { label: "Tube Fittings", href: "/fittings-tubing/instrumentation-fittings/tube-fittings" },
-          { label: "Pipe Fittings", href: "/fittings-tubing/instrumentation-fittings/pipe-fittings" },
-          { label: "Flare Fittings", href: "/fittings-tubing/instrumentation-fittings/jic-fittings" },
-          { label: "Weld Fittings", href: "/fittings-tubing/instrumentation-fittings/weld-fittings" },
+          {
+            label: "Tube Fittings",
+            href: "/fittings-tubing/instrumentation-fittings/tube-fittings",
+          },
+          {
+            label: "Pipe Fittings",
+            href: "/fittings-tubing/instrumentation-fittings/pipe-fittings",
+          },
+          {
+            label: "Flare Fittings",
+            href: "/fittings-tubing/instrumentation-fittings/jic-fittings",
+          },
+          {
+            label: "Weld Fittings",
+            href: "/fittings-tubing/instrumentation-fittings/weld-fittings",
+          },
         ],
       },
       {
@@ -66,7 +78,7 @@ export const CATEGORIES: Category[] = [
     textColor: "#fff",
     items: [
       { label: "Pneumatic Cylinder", href: "/pneumatic/cylinders" },
-      { label: "Pneumatic Fittings", href: "/pneumatic/apfittings" },
+      { label: "Pneumatic Fittings", href: "/pneumatic/fittings" },
       { label: "Pneumatic Tubing", href: "/pneumatic/tubing" },
       { label: "Pneumatic Actuators", href: "/pneumatic/actuators" },
       { label: "Air Gun", href: "/pneumatic/air-gun" },

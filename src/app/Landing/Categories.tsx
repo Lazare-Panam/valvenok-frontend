@@ -38,7 +38,7 @@ const CATEGORIES = [
     count: "200+",
     subs: [
       { name: "Pneumatic Cylinders", href: "/pneumatic/cylinders" },
-      { name: "Pneumatic Fittings", href: "/pneumatic/apfittings" },
+      { name: "Pneumatic Fittings", href: "/pneumatic/fittings" },
       { name: "Pneumatic Tubing", href: "/pneumatic/tubing" },
       { name: "Air Gun", href: "/pneumatic/air-gun" },
     ],
