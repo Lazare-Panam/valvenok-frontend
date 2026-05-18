@@ -52,7 +52,7 @@ export default function FittingsIndexPage() {
         title="Pneumatic Fittings"
         subtitle="Push-In & Compression Fittings for Pneumatic Systems"
         description="A complete range of pneumatic fittings engineered for leak-free, high-integrity connections in industrial automation and instrumentation. Push-in quick-connect and precision compression options across the full tube and thread range."
-        imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/products/pneumatic-fittings/fittings-hero.jpg"
+        imageSrc="https://pblol2.blob.core.windows.net/spac-images/products/fitting/p-fittings-hero.jpg"
         imageAlt="Valvenok Pneumatic Fittings"
         breadcrumb="Products / Fittings"
       />

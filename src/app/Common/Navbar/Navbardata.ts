@@ -32,7 +32,7 @@ export const CATEGORIES: Category[] = [
   {
     id: "fittings",
     label: "Fittings & Valves",
-    href: "/fittings",
+    href: "/fittings-tubing",
     color: "#1c6e2e",
     textColor: "#fff",
     items: [
