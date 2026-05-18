@@ -79,7 +79,7 @@ export default function CartPage() {
           <Button 
             variant="text"
             startIcon={<ArrowBackIcon />} 
-            onClick={() => router.push('/products')}
+            onClick={() => router.push('/categories')}
             sx={{ 
               fontWeight: 800, 
               mb: 1, 

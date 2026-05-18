@@ -123,7 +123,7 @@ export default function SavedCartPage() {
             </Typography>
             <Button
               variant="contained"
-              onClick={() => router.push('/products')}
+              onClick={() => router.push('/categories')}
               sx={{ borderRadius: 0, fontWeight: 800, textTransform: 'uppercase' }}
             >
               Browse Catalog
