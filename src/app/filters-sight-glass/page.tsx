@@ -104,7 +104,7 @@ export default function SightGlassFiltrationPage() {
     <Typography variant="overline" sx={{ color: "#61D649", fontWeight: 600, letterSpacing: 2, fontSize: 11 }}>
       Sight Glass & Filtration
     </Typography>
-    <Typography variant="h3" component="a" href="/filters/sight-glass"
+    <Typography variant="h3" component="a" href="/filters-sight-glass/sight-glass"
       sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mt: 1, mb: 3, display: 'block', color: 'inherit', textDecoration: 'none', '&:hover': { color: '#61D649', textDecoration: 'underline' } }}>
       Flanged Sight Glasses
     </Typography>
@@ -114,7 +114,7 @@ export default function SightGlassFiltrationPage() {
       Suitable for water, food, chemicals, air and other gases. Cast iron GG25 body with
       PTFE sealing, to EN 558 / EN 1092-1/2.
     </Typography>
-    <Button variant="outlined" href="/filters/sight-glass"
+    <Button variant="outlined" href="/filters-sight-glass/sight-glass"
       sx={{ mt: 3, borderColor: "#61D649", color: "#61D649", textTransform: "none", fontWeight: 700, "&:hover": { bgcolor: "#61D649", color: "#000", borderColor: "#61D649" } }}>
       Browse Products
     </Button>
@@ -149,7 +149,7 @@ export default function SightGlassFiltrationPage() {
     <Typography variant="overline" sx={{ color: "#61D649", fontWeight: 600, letterSpacing: 2, fontSize: 11 }}>
       Hydraulic Filtration
     </Typography>
-    <Typography variant="h3" component="a" href="/filters/filteration"
+    <Typography variant="h3" component="a" href="/filters-sight-glass/filteration"
       sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mt: 1, mb: 3, display: 'block', color: 'inherit', textDecoration: 'none', '&:hover': { color: '#61D649', textDecoration: 'underline' } }}>
       Machinery Filters
     </Typography>
@@ -174,7 +174,7 @@ export default function SightGlassFiltrationPage() {
         </Typography>
       ))}
     </Box>
-    <Button variant="outlined" href="/filters/filteration"
+    <Button variant="outlined" href="/filters-sight-glass/filteration"
       sx={{ borderColor: "#61D649", color: "#61D649", textTransform: "none", fontWeight: 700, "&:hover": { bgcolor: "#61D649", color: "#000", borderColor: "#61D649" } }}>
       Browse Products
     </Button>

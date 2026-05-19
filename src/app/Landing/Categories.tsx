@@ -50,8 +50,8 @@ const CATEGORIES = [
     tag: "Industrial",
     count: "80+",
     subs: [
-      { name: "Sight Glass", href: "/filters/sight-glass" },
-      { name: "Filtration", href: "/filters/filteration" },
+      { name: "Sight Glass", href: "/filters-sight-glass/sight-glass" },
+      { name: "Filtration", href: "/filters-sight-glass/filteration" },
     ],
   },
   {

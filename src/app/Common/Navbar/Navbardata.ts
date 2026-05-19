@@ -90,13 +90,13 @@ export const CATEGORIES: Category[] = [
   },
   {
     id: "filters",
-    href: "/filters",
+    href: "/filters-sight-glass",
     label: "Filters",
     color: "#2e7d32",
     textColor: "#fff",
     items: [
-      { label: "Sight Glass", href: "/filters/sight-glass" },
-      { label: "Filtration", href: "/filters/filteration" },
+      { label: "Sight Glass", href: "/filters-sight-glass/sight-glass" },
+      { label: "Filtration", href: "/filters-sight-glass/filteration" },
     ],
   },
   {

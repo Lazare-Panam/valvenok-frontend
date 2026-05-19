@@ -62,7 +62,7 @@ export const CATEGORY_METADATA = [
       "High-visibility flow indicators for real-time visual monitoring of fluid levels, color, and clarity within a process line.",
     image:
       "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774966701/shopping-removebg-preview_ccornj.png", // Replace with sight glass image when ready
-    href: "/filters/sight-glass",
+    href: "/filters-sight-glass/sight-glass",
     tags: ["Visual Inspection", "Borosilicate Glass", "Double Window"],
   },
   {
