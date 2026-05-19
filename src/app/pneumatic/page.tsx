@@ -202,7 +202,7 @@ export default function PneumaticSystemsPage() {
 
         <Divider sx={{ mb: 10 }} />
 
-        {/* ESC Cylinders */}
+        {/* Cylinders */}
         <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
           <Grid size={{ xs: 12, md: 6 }}>
             <Typography
@@ -219,7 +219,9 @@ export default function PneumaticSystemsPage() {
             <Typography
               variant="h3"
               component="a"
-              href="/pneumatic/cylinders"
+              href="https://www.spacpneumatic.co.uk/products/cylinders"
+              target="_blank"
+              rel="noopener noreferrer"
               sx={{
                 fontSize: { xs: 24, md: 32 },
                 fontWeight: 700,
@@ -241,7 +243,9 @@ export default function PneumaticSystemsPage() {
             </Typography>
             <Button
               variant="outlined"
-              href="/pneumatic/cylinders"
+              href="https://www.spacpneumatic.co.uk/products/cylinders"
+              target="_blank"
+              rel="noopener noreferrer"
               sx={{
                 mt: 3,
                 borderColor: "#61D649",
@@ -296,7 +300,6 @@ export default function PneumaticSystemsPage() {
               />
             </Box>
           </Grid>
-          
           <Grid size={{ xs: 12, md: 6 }}>
             <Typography
               variant="overline"
@@ -312,7 +315,9 @@ export default function PneumaticSystemsPage() {
             <Typography
               variant="h3"
               component="a"
-              href="/pneumatic/fittings"
+              href="https://www.spacpneumatic.co.uk/products/fittings"
+              target="_blank"
+              rel="noopener noreferrer"
               sx={{
                 fontSize: { xs: 24, md: 32 },
                 fontWeight: 700,
@@ -334,7 +339,9 @@ export default function PneumaticSystemsPage() {
             </Typography>
             <Button
               variant="outlined"
-              href="/pneumatic/fittings"
+              href="https://www.spacpneumatic.co.uk/products/fittings"
+              target="_blank"
+              rel="noopener noreferrer"
               sx={{
                 mt: 3,
                 borderColor: "#61D649",
@@ -372,7 +379,9 @@ export default function PneumaticSystemsPage() {
             <Typography
               variant="h3"
               component="a"
-              href="/pneumatic/tubing"
+              href="https://www.spacpneumatic.co.uk/products/tubing"
+              target="_blank"
+              rel="noopener noreferrer"
               sx={{
                 fontSize: { xs: 24, md: 32 },
                 fontWeight: 700,
@@ -394,7 +403,9 @@ export default function PneumaticSystemsPage() {
             </Typography>
             <Button
               variant="outlined"
-              href="/pneumatic/tubing"
+              href="https://www.spacpneumatic.co.uk/products/tubing"
+              target="_blank"
+              rel="noopener noreferrer"
               sx={{
                 mt: 3,
                 borderColor: "#61D649",
@@ -464,7 +475,9 @@ export default function PneumaticSystemsPage() {
             <Typography
               variant="h3"
               component="a"
-              href="/pneumatic/air-gun"
+              href="https://www.spacpneumatic.co.uk/air-gun"
+              target="_blank"
+              rel="noopener noreferrer"
               sx={{
                 fontSize: { xs: 24, md: 32 },
                 fontWeight: 700,
@@ -486,7 +499,9 @@ export default function PneumaticSystemsPage() {
             </Typography>
             <Button
               variant="outlined"
-              href="/pneumatic/air-gun"
+              href="https://www.spacpneumatic.co.uk/air-gun"
+              target="_blank"
+              rel="noopener noreferrer"
               sx={{
                 mt: 3,
                 borderColor: "#61D649",
@@ -506,6 +521,8 @@ export default function PneumaticSystemsPage() {
         </Grid>
 
         <Divider sx={{ mb: 10 }} />
+
+        {/* Actuators */}
         <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
           <Grid size={{ xs: 12, md: 6 }}>
             <Typography
@@ -522,7 +539,9 @@ export default function PneumaticSystemsPage() {
             <Typography
               variant="h3"
               component="a"
-              href="/pneumatic/actuators"
+              href="https://www.spacpneumatic.co.uk/products/actuators"
+              target="_blank"
+              rel="noopener noreferrer"
               sx={{
                 fontSize: { xs: 24, md: 32 },
                 fontWeight: 700,
@@ -545,7 +564,9 @@ export default function PneumaticSystemsPage() {
             </Typography>
             <Button
               variant="outlined"
-              href="/pneumatic/actuators"
+              href="https://www.spacpneumatic.co.uk/products/actuators"
+              target="_blank"
+              rel="noopener noreferrer"
               sx={{
                 mt: 3,
                 borderColor: "#61D649",
@@ -579,7 +600,9 @@ export default function PneumaticSystemsPage() {
             </Box>
           </Grid>
         </Grid>
+
         <Divider sx={{ mb: 10 }} />
+
         {/* Applications */}
         <Box sx={{ mb: 10 }}>
           <Typography
