@@ -7,7 +7,7 @@ import {
 import { useTheme } from '@mui/material/styles'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { type BallValveFilters, EMPTY_BALL_VALVE_FILTERS, SERIES_LABELS, BODY_MATERIAL_LABELS } from './types'
-import { type BallValveFilterOptions } from '../../../api/ballValveApi'
+import { BallValveFilterOptions } from '@/src/api/ballValveApi'
 
 interface Props {
   filters: BallValveFilters
