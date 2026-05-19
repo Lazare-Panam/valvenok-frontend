@@ -26,26 +26,28 @@ function RightPanel({ items, onClose }: { items: NavItem[]; onClose: () => void 
           return (
             <Box key={item.label}>
               {hasChildren ? (
-                 <Box
-    component="a"
-    href={item.href}
-    onMouseEnter={() => setHoveredLabel(item.label)}
-    sx={{
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "space-between",
-      fontSize: "1.25 rem",
-      fontWeight: 600,
-      color: isActive ? BRAND_GREEN : "#333",
-      textDecoration: "none",
-      py: 0.75,
-      pr: 1,
-      cursor: "pointer",
-      transition: "color 0.15s",
-      borderBottom: "1px solid #E8F5E9",
-      mb: 0.5,
-    }}
-  >
+                <Box
+                  component="a"
+                  href={item.href}
+                  target={item.external ? "_blank" : undefined}
+                  rel={item.external ? "noopener noreferrer" : undefined}
+                  onMouseEnter={() => setHoveredLabel(item.label)}
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    fontSize: "1.25 rem",
+                    fontWeight: 600,
+                    color: isActive ? BRAND_GREEN : "#333",
+                    textDecoration: "none",
+                    py: 0.75,
+                    pr: 1,
+                    cursor: "pointer",
+                    transition: "color 0.15s",
+                    borderBottom: "1px solid #E8F5E9",
+                    mb: 0.5,
+                  }}
+                >
                   {item.label}
                   <Box component="span" sx={{ ml: 1, color: BRAND_GREEN, fontSize: "1rem", lineHeight: 1 }}>›</Box>
                 </Box>
@@ -53,6 +55,8 @@ function RightPanel({ items, onClose }: { items: NavItem[]; onClose: () => void 
                 <Box
                   component="a"
                   href={item.href}
+                  target={item.external ? "_blank" : undefined}
+                  rel={item.external ? "noopener noreferrer" : undefined}
                   onClick={onClose}
                   onMouseEnter={() => setHoveredLabel(null)}
                   sx={{
@@ -118,48 +122,49 @@ export default function MegaMenu({ onClose }: Props) {
           boxShadow: "0px 20px 40px rgba(0,0,0,0.1)",
           zIndex: 300,
           borderTop: "1px solid #F0F0F0",
-           overflow: "hidden",
+          overflow: "hidden",
         }}
       >
         <Container maxWidth="xl" sx={{ p: 0 }}>
           <Grid container sx={{ minHeight: 500 }}>
 
             {/* SIDEBAR */}
-           {/* SIDEBAR */}
-<Grid size={{ md: 3 }} sx={{ borderRight: "1px solid #F0F0F0", py: 4, bgcolor: "#FAFAFA" }}>
-  {CATEGORIES.map((cat) => (
-    <Box
-      key={cat.id}
-      component="a"           // 1. Make it an anchor tag
-      href={cat.href || "#"}   // 2. Pass the href from your data
-      onMouseEnter={() => setActiveCategory(cat)}
-      onClick={(e) => {
-        // If there's no link, just prevent default so it doesn't jump to top of page
-        if (!cat.href) e.preventDefault(); 
-        onClose();
-      }}
-      sx={{
-        display: "block",      // 3. Ensure it behaves like a block for full-width clicking
-        textDecoration: "none", // 4. Remove default link underlining
-        px: 4,
-        py: 1.5,
-        cursor: "pointer",
-        transition: "0.2s",
-        fontSize: "1.25 rem",
-        fontWeight: activeCategory?.id === cat.id ? 700 : 500,
-        color: activeCategory?.id === cat.id ? BRAND_GREEN : "#4A4A4A",
-        bgcolor: activeCategory?.id === cat.id ? "#F2F8F3" : "transparent",
-        borderLeft: `4px solid ${activeCategory?.id === cat.id ? BRAND_GREEN : "transparent"}`,
-        "&:hover": { 
-          color: BRAND_GREEN, 
-          bgcolor: "#F2F8F3" 
-        },
-      }}
-    >
-      {cat.label}
-    </Box>
-  ))}
-</Grid>
+            <Grid size={{ md: 3 }} sx={{ borderRight: "1px solid #F0F0F0", py: 4, bgcolor: "#FAFAFA" }}>
+              {CATEGORIES.map((cat) => (
+                <Box
+                  key={cat.id}
+                  component="a"
+                  href={cat.href || "#"}
+                  target={cat.external ? "_blank" : undefined}
+                  rel={cat.external ? "noopener noreferrer" : undefined}
+                  onMouseEnter={() => setActiveCategory(cat)}
+                  onClick={(e) => {
+                    if (!cat.href) e.preventDefault();
+                    onClose();
+                  }}
+                  sx={{
+                    display: "block",
+                    textDecoration: "none",
+                    px: 4,
+                    py: 1.5,
+                    cursor: "pointer",
+                    transition: "0.2s",
+                    fontSize: "1.25 rem",
+                    fontWeight: activeCategory?.id === cat.id ? 700 : 500,
+                    color: activeCategory?.id === cat.id ? BRAND_GREEN : "#4A4A4A",
+                    bgcolor: activeCategory?.id === cat.id ? "#F2F8F3" : "transparent",
+                    borderLeft: `4px solid ${activeCategory?.id === cat.id ? BRAND_GREEN : "transparent"}`,
+                    "&:hover": {
+                      color: BRAND_GREEN,
+                      bgcolor: "#F2F8F3"
+                    },
+                  }}
+                >
+                  {cat.label}
+                </Box>
+              ))}
+            </Grid>
+
             {/* CONTENT */}
             <Grid size={{ md: 9 }} sx={{ p: 6 }}>
               <Typography

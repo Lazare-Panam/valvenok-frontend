@@ -3,6 +3,7 @@
 export interface NavItem {
   label: string;
   href?: string;
+  external?: boolean;
   children?: NavItem[];
 }
 
@@ -10,6 +11,7 @@ export interface Category {
   id: string;
   label: string;
   href?: string;
+  external?: boolean;
   color: string;
   textColor: string;
   items: NavItem[];
@@ -60,7 +62,7 @@ export const CATEGORIES: Category[] = [
       },
       {
         label: "Tubing",
-        href:"/fittings-tubing"
+        href: "/fittings-tubing",
       },
     ],
   },
@@ -71,7 +73,11 @@ export const CATEGORIES: Category[] = [
     color: "#2e7d32",
     textColor: "#fff",
     items: [
-      { label: "Pneumatic Cylinder", href: "/pneumatic/cylinders" },
+      {
+        label: "Pneumatic Cylinder",
+        href: "https://www.spacpneumatic.co.uk/products/cylinders",
+        external: true,
+      },
       { label: "Pneumatic Fittings", href: "/pneumatic/fittings" },
       { label: "Pneumatic Tubing", href: "/pneumatic/tubing" },
       { label: "Pneumatic Actuators", href: "/pneumatic/actuators" },
@@ -89,7 +95,7 @@ export const CATEGORIES: Category[] = [
       { label: "Filtration", href: "/filters-sight-glass/filteration" },
     ],
   },
-{
+  {
     id: "valves",
     label: "Valves",
     href: "/valves",
@@ -150,7 +156,6 @@ export const CATEGORIES: Category[] = [
       {
         label: "Submersible Pumps",
         href: "/pumps-seals/pumps",
-       
       },
       {
         label: "Mechanical Seals",
