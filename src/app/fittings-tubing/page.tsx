@@ -195,157 +195,165 @@ export default function FittingsTubingPage() {
           </Grid>
         </Grid>
         <Divider sx={{ mb: 10 }} />
-
+          {/* Pneumatic Tubing — Image on the Right */}
           <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
-          <Grid size={{ xs: 12, md: 6 }}>
-            <Typography
-              variant="overline"
-              sx={{
-                color: "#61D649",
-                fontWeight: 600,
-                letterSpacing: 2,
-                fontSize: 11,
-              }}
-            >
-              Pneumatic Tubing
-            </Typography>
-            <Typography
-              variant="h3"
-              component="a"
-              href="/fittings-tubing/pneumatic-tubing"
-              sx={{
-                fontSize: { xs: 24, md: 32 },
-                fontWeight: 700,
-                mt: 1,
-                mb: 3,
-                display: "block",
-                color: "inherit",
-                textDecoration: "none",
-                "&:hover": { color: "#61D649", textDecoration: "underline" },
-              }}
-            >
-              Polyurethane & Recoil Tubing
-            </Typography>
-            <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
-              SPAC tubing range including standard polyurethane, recoil,
-              anti-spark and anti-spark recoil variants. Available in OD sizes
-              4mm to 16mm across multiple colors including blue, yellow, black,
-              green and red in roll lengths up to 1000m.
-            </Typography>
-            <Button
-              variant="outlined"
-              href="/fittings-tubing/pneumatic-tubing"
-              sx={{
-                mt: 3,
-                borderColor: "#61D649",
-                color: "#61D649",
-                textTransform: "none",
-                fontWeight: 700,
-                "&:hover": {
-                  bgcolor: "#61D649",
-                  color: "#000",
-                  borderColor: "#61D649",
-                },
-              }}
-            >
-              Browse Tubing
-            </Button>
-          </Grid>
-          <Grid size={{ xs: 12, md: 6 }}>
-            <Box
-              sx={{
-                borderColor: "divider",
-                borderRadius: 2,
-                p: 4,
-                textAlign: "center",
-              }}
-            >
-              <img
-                src="https://pblol2.blob.core.windows.net/spac-images/products/tubing/tubing-spac.png"
-                alt="Pneumatic Tubing"
-                style={{ width: "50%", height: "auto" }}
-              />
-            </Box>
-          </Grid>
-        </Grid>
+  <Grid size={{ xs: 12, md: 6 }}>
+    <Typography
+      variant="overline"
+      sx={{
+        color: "#61D649",
+        fontWeight: 600,
+        letterSpacing: 2,
+        fontSize: 11,
+      }}
+    >
+      Pneumatic Tubing
+    </Typography>
+    <Typography
+      variant="h3"
+      component="a"
+      href="https://www.spacpneumatic.co.uk/products/tubing"
+      target="_blank"
+      rel="noopener noreferrer"
+      sx={{
+        fontSize: { xs: 24, md: 32 },
+        fontWeight: 700,
+        mt: 1,
+        mb: 3,
+        display: "block",
+        color: "inherit",
+        textDecoration: "none",
+        "&:hover": { color: "#61D649", textDecoration: "underline" },
+      }}
+    >
+      Polyurethane & Recoil Tubing
+    </Typography>
+    <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
+      SPAC tubing range including standard polyurethane, recoil,
+      anti-spark and anti-spark recoil variants. Available in OD sizes
+      4mm to 16mm across multiple colors including blue, yellow, black,
+      green and red in roll lengths up to 1000m.
+    </Typography>
+    <Button
+      variant="outlined"
+      href="https://www.spacpneumatic.co.uk/products/tubing"
+      target="_blank"
+      rel="noopener noreferrer"
+      sx={{
+        mt: 3,
+        borderColor: "#61D649",
+        color: "#61D649",
+        textTransform: "none",
+        fontWeight: 700,
+        "&:hover": {
+          bgcolor: "#61D649",
+          color: "#000",
+          borderColor: "#61D649",
+        },
+      }}
+    >
+      Browse Tubing
+    </Button>
+  </Grid>
+  <Grid size={{ xs: 12, md: 6 }}>
+    <Box
+      sx={{
+        borderColor: "divider",
+        borderRadius: 2,
+        p: 4,
+        textAlign: "center",
+      }}
+    >
+      <img
+        src="https://pblol2.blob.core.windows.net/spac-images/products/tubing/tubing-spac.png"
+        alt="Pneumatic Tubing"
+        style={{ width: "50%", height: "auto" }}
+      />
+    </Box>
+  </Grid>
+</Grid>
 
         <Divider sx={{ mb: 10 }} />
          
 
         {/* AP Fittings */}
-        <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
-          <Grid size={{ xs: 12, md: 6 }}>
-            <Box
-              sx={{
-                borderColor: "divider",
-                borderRadius: 2,
-                p: 4,
-                textAlign: "center",
-              }}
-            >
-              <img
-                src="https://pblol2.blob.core.windows.net/spac-images/products/fitting/a-series.png"
-                alt="AP Fittings"
-                style={{ width: "50%", height: "auto" }}
-              />
-            </Box>
-          </Grid>
-          
-          <Grid size={{ xs: 12, md: 6 }}>
-            <Typography
-              variant="overline"
-              sx={{
-                color: "#61D649",
-                fontWeight: 600,
-                letterSpacing: 2,
-                fontSize: 11,
-              }}
-            >
-              Fittings & Connections
-            </Typography>
-            <Typography
-              variant="h3"
-              component="a"
-              href="/fittings-tubing/pneumatic-fittings"
-              sx={{
-                fontSize: { xs: 24, md: 32 },
-                fontWeight: 700,
-                mt: 1,
-                mb: 3,
-                display: "block",
-                color: "inherit",
-                textDecoration: "none",
-                "&:hover": { color: "#61D649", textDecoration: "underline" },
-              }}
-            >
-              AP/EP Series Push-In Fittings
-            </Typography>
-            <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
-              A-Series grey and E-Series black push-in fittings compatible with
-              polyurethane and nylon tubing. Full range including male
-              connectors, female connectors, elbows, tees, multi-connectors and
-              more in BSP thread sizes G1/8 to G1/2.
-            </Typography>
-            <Button
-              variant="outlined"
-              href="/fittings-tubing/pneumatic-fittings"
-              sx={{
-                mt: 3,
-                borderColor: "#61D649",
-                color: "#61D649",
-                textTransform: "none",
-                fontWeight: 700,
-                "&:hover": {
-                  bgcolor: "#61D649",
-                  color: "#000",
-                  borderColor: "#61D649",
-                },
-              }}
-            >
-              Browse Fittings
-            </Button>
-          </Grid>
-        </Grid>
+       <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
+  <Grid size={{ xs: 12, md: 6 }}>
+    <Box
+      sx={{
+        borderColor: "divider",
+        borderRadius: 2,
+        p: 4,
+        textAlign: "center",
+      }}
+    >
+      <img
+        src="https://pblol2.blob.core.windows.net/spac-images/products/fitting/a-series.png"
+        alt="AP Fittings"
+        style={{ width: "50%", height: "auto" }}
+      />
+    </Box>
+  </Grid>
+
+  <Grid size={{ xs: 12, md: 6 }}>
+    <Typography
+      variant="overline"
+      sx={{
+        color: "#61D649",
+        fontWeight: 600,
+        letterSpacing: 2,
+        fontSize: 11,
+      }}
+    >
+      Fittings & Connections
+    </Typography>
+    <Typography
+      variant="h3"
+      component="a"
+      href="https://www.spacpneumatic.co.uk/products/fittings"
+      target="_blank"
+      rel="noopener noreferrer"
+      sx={{
+        fontSize: { xs: 24, md: 32 },
+        fontWeight: 700,
+        mt: 1,
+        mb: 3,
+        display: "block",
+        color: "inherit",
+        textDecoration: "none",
+        "&:hover": { color: "#61D649", textDecoration: "underline" },
+      }}
+    >
+      AP/EP Series Push-In Fittings
+    </Typography>
+    <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
+      A-Series grey and E-Series black push-in fittings compatible with
+      polyurethane and nylon tubing. Full range including male
+      connectors, female connectors, elbows, tees, multi-connectors and
+      more in BSP thread sizes G1/8 to G1/2.
+    </Typography>
+    <Button
+      variant="outlined"
+      href="https://www.spacpneumatic.co.uk/products/fittings"
+      target="_blank"
+      rel="noopener noreferrer"
+      sx={{
+        mt: 3,
+        borderColor: "#61D649",
+        color: "#61D649",
+        textTransform: "none",
+        fontWeight: 700,
+        "&:hover": {
+          bgcolor: "#61D649",
+          color: "#000",
+          borderColor: "#61D649",
+        },
+      }}
+    >
+      Browse Fittings
+    </Button>
+  </Grid>
+</Grid>
         <Divider sx={{ mb: 10 }} />
 
         {/* Applications */}

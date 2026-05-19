@@ -602,6 +602,86 @@ export default function PneumaticSystemsPage() {
         </Grid>
 
         <Divider sx={{ mb: 10 }} />
+        {/* Pneumatic Valves */}
+<Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
+  <Grid size={{ xs: 12, md: 6 }}>
+    <Box
+      sx={{
+        borderColor: "divider",
+        borderRadius: 2,
+        p: 4,
+        textAlign: "center",
+      }}
+    >
+      <img
+        src="https://pblol2.blob.core.windows.net/spac-images/products/pneumatic-valves/foot-pedal.jpg"
+        alt="Pneumatic Valves"
+        style={{ width: "50%", height: "auto" }}
+      />
+    </Box>
+  </Grid>
+  <Grid size={{ xs: 12, md: 6 }}>
+    <Typography
+      variant="overline"
+      sx={{
+        color: "#61D649",
+        fontWeight: 600,
+        letterSpacing: 2,
+        fontSize: 11,
+      }}
+    >
+      Directional Control
+    </Typography>
+    <Typography
+      variant="h3"
+      component="a"
+      href="https://www.spacpneumatic.co.uk/products/valves"
+      target="_blank"
+      rel="noopener noreferrer"
+      sx={{
+        fontSize: { xs: 24, md: 32 },
+        fontWeight: 700,
+        mt: 1,
+        mb: 3,
+        display: "block",
+        color: "inherit",
+        textDecoration: "none",
+        "&:hover": { color: "#61D649", textDecoration: "underline" },
+      }}
+    >
+      Pneumatic Valves
+    </Typography>
+    <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
+      Full range of pneumatic control valves for industrial automation,
+      including solenoid valves, hand lever valves, foot pedal valves, and
+      mechanical valves. Available in 3/2 and 5/2 configurations with G1/8
+      to G1/4 BSP port sizes for reliable directional control across
+      assembly lines and process machinery.
+    </Typography>
+    <Button
+      variant="outlined"
+      href="https://www.spacpneumatic.co.uk/products/valves"
+      target="_blank"
+      rel="noopener noreferrer"
+      sx={{
+        mt: 3,
+        borderColor: "#61D649",
+        color: "#61D649",
+        textTransform: "none",
+        fontWeight: 700,
+        "&:hover": {
+          bgcolor: "#61D649",
+          color: "#000",
+          borderColor: "#61D649",
+        },
+      }}
+    >
+      Browse Pneumatic Valves
+    </Button>
+  </Grid>
+</Grid>
+
+<Divider sx={{ mb: 10 }} />
 
         {/* Applications */}
         <Box sx={{ mb: 10 }}>
