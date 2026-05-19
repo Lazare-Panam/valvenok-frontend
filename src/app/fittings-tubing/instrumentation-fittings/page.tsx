@@ -80,7 +80,7 @@ export default function FittingsIndexPage() {
       <ProductHero
         title="Fittings"
         subtitle="SS316 Fittings for Instrumentation & Process Systems"
-        description="A complete range of stainless steel fittings engineered for leak-free performance in the most demanding industrial environments. Tube, pipe, JIC and weld fittings — all in SS316."
+        description="UK-based supplier of instrumentation fittings and stainless steel fittings for high-pressure systems, with fast global delivery for engineers and buyers."
         imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/banner-images/fittings-hero.jpg"
         imageAlt="Valvenok SS316 Instrumentation Fittings"
         breadcrumb="Products / Fittings"

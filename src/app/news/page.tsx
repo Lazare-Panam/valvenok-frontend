@@ -92,32 +92,34 @@ export default function BlogPage() {
     <Box sx={{ bgcolor: "background.default", minHeight: "100vh" }}>
       {/* --- HERO SECTION --- */}
       <Box sx={{ bgcolor: "primary.main", color: "white", pt: 12, pb: 8 }}>
-        <Container maxWidth="lg">
-          <Typography
-            variant="overline"
-            sx={{
-              fontFamily: '"Barlow Condensed"',
-              fontWeight: 800,
-              letterSpacing: "0.4em",
-              opacity: 0.8,
-            }}
-          >
-            Knowledge Base
-          </Typography>
-          <Typography
-            variant="h1"
-            sx={{
-              fontFamily: '"Barlow Condensed"',
-              fontSize: { xs: "3rem", md: "5rem" },
-              fontWeight: 900,
-              textTransform: "uppercase",
-              lineHeight: 0.9,
-            }}
-          >
-            Engineering <br /> Insights
-          </Typography>
-        </Container>
-      </Box>
+  <Container maxWidth="lg">
+    <Typography
+      variant="h1"
+      sx={{
+        fontFamily: '"Barlow Condensed"',
+        fontSize: { xs: "3rem", md: "5rem" },
+        fontWeight: 900,
+        textTransform: "uppercase",
+        lineHeight: 0.9,
+        mb: 2,
+      }}
+    >
+      Engineering Insights
+    </Typography>
+    <Typography
+      sx={{
+        fontFamily: '"Barlow Condensed"',
+        fontWeight: 500,
+        fontSize: { xs: "1rem", md: "1.25rem" },
+        opacity: 0.8,
+        mt: 2,
+      }}
+    >
+      News and technical insights on ball valve innovation and mechanical seals
+      for pumps from Valvenok, a UK supplier to global engineering teams.
+    </Typography>
+  </Container>
+</Box>
       {/* --- INTRO / DESCRIPTION SECTION --- */}
       <Box sx={{ bgcolor: "background.default", py: 10 }}>
         <Container maxWidth="lg">

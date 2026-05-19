@@ -35,9 +35,10 @@ export default function ActuatorsPage() {
             Pneumatic & Electric Valve Actuators
           </Typography>
           <Typography sx={{ fontSize: { xs: 18, md: 20 }, color: "rgba(255,255,255,0.9)", maxWidth: 600, mb: 5, lineHeight: 1.7 }}>
-            High-performance actuation solutions designed for reliability in harsh environments.
-            From rack and pinion pneumatic units to precision electric actuators, Valvenok
-            delivers automation you can depend on.
+            Leading UK supplier of Hydraulic, Pneumatic, and Instrumentation components, with specialist
+      expertise in valve actuators and complete actuating system solutions for demanding industrial
+      environments. Engineering excellence delivered fast to global procurement teams, supporting
+      everything from initial specification through to ongoing maintenance and optimisation.
           </Typography>
           <Button variant="contained" size="large" href="mailto:sales@valvenok.com"
             sx={{ bgcolor: "#61D649", color: "#000", borderRadius: 1, px: 5, py: 2, fontSize: '1rem', fontWeight: 700, textTransform: 'none', "&:hover": { bgcolor: "#fff", color: "#000" } }}>
