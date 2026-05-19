@@ -306,7 +306,7 @@ export default function FittingsTubingPage() {
             <Typography
               variant="h3"
               component="a"
-              href="/fittings-utbing/pneumatic-fittings"
+              href="/fittings-tubing/pneumatic-fittings"
               sx={{
                 fontSize: { xs: 24, md: 32 },
                 fontWeight: 700,
