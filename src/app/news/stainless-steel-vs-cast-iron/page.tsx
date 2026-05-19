@@ -594,7 +594,7 @@ export default function SubmersiblePumpsPage() {
           </Typography>
           <List sx={{ mb: 4 }}>
             {[
-              { text: "Explore the full Tormac submersible pump range", href: "https://www.panamvalve.com/products/submersible-pumps" },
+              
               { text: "Agitator mechanical seals for reactor and vessel service", href: "https://www.panamvalve.com/products/mechanical-seals" },
               { text: "Manifold valves for isolation, calibration, and double block and bleed", href: "https://www.panamvalve.com/products/valve-manifolds" },
               { text: "Instrumentation fittings for integrated process skids", href: "https://www.panamvalve.com/products/instrumentation-fittings" },

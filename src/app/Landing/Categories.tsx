@@ -80,9 +80,8 @@ const CATEGORIES = [
     tag: "Fluid Control",
     count: "180+",
     subs: [
-      { name: "Industrial Pumps", href: "/pumps" },
       { name: "Mechanical Seals", href: "/pumps-seals/seals" },
-      { name: "Submersible Pumps", href: "/wastewater" },
+      { name: "Pumps", href: "/pumps-seals/pumps" },
     ],
   },
 ];
