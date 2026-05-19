@@ -62,16 +62,6 @@ export const CATEGORIES: Category[] = [
         label: "Tubing",
         href:"/fittings-tubing"
       },
-      // {
-      //   label: "Instrumentation Valves",
-      //   href: "/valves",
-      //   children: [
-      //     { label: "Ball Valves", href: "/ball-valves" },
-      //     { label: "Needle Valves", href: "/needle-valves" },
-      //     { label: "Check Valves", href: "/valves/pcv" },
-      //     { label: "Relief Valves", href: "/valves/relief" },
-      //   ],
-      // },
     ],
   },
   {
@@ -99,21 +89,53 @@ export const CATEGORIES: Category[] = [
       { label: "Filtration", href: "/filters-sight-glass/filteration" },
     ],
   },
-  {
-    id: "actuators",
-    href: "/actuators",
-    label: "Actuators",
-    color: "#2e7d32",
-    textColor: "#fff",
-    items: [{ label: "Pneumatic Actuators", href: "/actuators" }],
-  },
-  {
+{
     id: "valves",
     label: "Valves",
     href: "/valves",
     color: "#2e7d32",
     textColor: "#fff",
     items: [
+      {
+        label: "Instrumentation Valves",
+        href: "/valves",
+        children: [
+          {
+            label: "Needle Valves",
+            href: "/valves/instrumentation-valves/needle-valves",
+            children: [
+              {
+                label: "IB Series — Integrated Bonnet",
+                href: "/valves/instrumentation-valves/needle-valves/ib",
+              },
+              {
+                label: "HB Series — Hex Body",
+                href: "/valves/instrumentation-valves/needle-valves/hb",
+              },
+              {
+                label: "HP Series — High Pressure",
+                href: "/valves/instrumentation-valves/needle-valves/hp",
+              },
+              {
+                label: "SB Series — Square Body",
+                href: "/valves/instrumentation-valves/needle-valves/sb",
+              },
+            ],
+          },
+          {
+            label: "Ball Valves",
+            href: "/valves/instrumentation-valves/ball-valves",
+          },
+          {
+            label: "Check Valves",
+            href: "/valves/instrumentation-valves/check-valves",
+          },
+          {
+            label: "Relief Valves",
+            href: "/valves/instrumentation-valves/relief-valves",
+          },
+        ],
+      },
       { label: "Industrial Valves", href: "/valves/industrial-valves" },
       { label: "Marine Valves", href: "/valves/marine-valves" },
     ],
