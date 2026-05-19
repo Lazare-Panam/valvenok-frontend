@@ -110,12 +110,12 @@ export const CATEGORIES: Category[] = [
   {
     id: "valves",
     label: "Valves",
-    href: "/flow-control",
+    href: "/valves",
     color: "#2e7d32",
     textColor: "#fff",
     items: [
-      { label: "Industrial Valves", href: "/industrial-valves" },
-      { label: "Marine Valves", href: "/marine-valves" },
+      { label: "Industrial Valves", href: "/valves/industrial-valves" },
+      { label: "Marine Valves", href: "/valves/marine-valves" },
     ],
   },
   {

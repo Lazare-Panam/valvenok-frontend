@@ -3,8 +3,7 @@ import {
   getBallValves,
   getBallValveFilterOptions,
   type BallValveFilterParams
-} from '../../../api/ballValveApi'
-
+} from '@/src/api/ballValveApi'
 export const useBallValveFilterOptions = () => {
   return useQuery({
     queryKey: ['ball-valve-filters'],

@@ -52,7 +52,7 @@ const categories = [
   },
   {
     slug: 'industrial-valves',
-    href: '/flow-control',
+    href: '/valves',
     name: 'Valves',
     tagline: 'Heavy-duty process valves',
     image: 'https://pblol2.blob.core.windows.net/valvenok-images/products/industrial-valves/industrial-valves.jpg',

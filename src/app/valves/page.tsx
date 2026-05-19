@@ -1,187 +1,230 @@
 "use client";
 
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid"; // Using MUI System Grid for better performance
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { alpha } from "@mui/material/styles";
-import { CATEGORY_METADATA } from "../categories/data";
-import { VALVE_DATA } from "./valvedata";
-export default function CategoriesPage() {
+import {
+  Box,
+  Container,
+  Typography,
+  Grid,
+  Divider,
+  Button,
+} from "@mui/material";
+
+export default function IndustrialValvesPage() {
   return (
-    <Box sx={{ bgcolor: "background.default", minHeight: "100vh", pb: 10 }}>
-      {/* --- HERO SECTION --- */}
+    <Box sx={{ bgcolor: "background.default", minHeight: "100vh" }}>
+      {/* Hero */}
       <Box
-  sx={{
-    bgcolor: "primary.main",
-    py: { xs: 8, md: 12 },
-    mb: 8,
-    color: "#fff",
-  }}
->
-  <Container maxWidth="lg">
-    <Typography
-      variant="overline"
-      sx={{
-        fontFamily: '"Barlow Condensed", sans-serif',
-        fontWeight: 800,
-        letterSpacing: "0.3em",
-        opacity: 0.8,
-        display: "block",
-      }}
-    >
-      Flow Control Excellence
-    </Typography>
-    <Typography
-      variant="h1"
-      sx={{
-        fontFamily: '"Barlow Condensed", sans-serif',
-        fontSize: { xs: "3rem", md: "5rem" },
-        fontWeight: 900,
-        textTransform: "uppercase",
-        lineHeight: 0.9,
-        mt: 1,
-      }}
-    >
-      Precision Valves
-    </Typography>
-    <Typography
-      sx={{ mt: 3, maxWidth: 600, fontSize: "1.1rem", opacity: 0.9 }}
-    >
-      Discover our industry-leading selection of ball, needle, and manifold valves, 
-      engineered for maximum durability and precision in critical process environments.
-    </Typography>
-  </Container>
-</Box>
-      {/* --- CARDS GRID --- */}
-      <Container maxWidth="lg">
-        <Grid container spacing={4}>
-          {VALVE_DATA.map((cat) => (
-            <Grid key={cat.id} size={{ xs: 12, sm: 6, md: 4 }}>
-              <Card
-                elevation={0}
-                sx={{
-                  height: "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                  border: "1px solid",
-                  borderColor: "divider",
-                  borderRadius: 0, // Keeps the industrial "square" look
-                  transition: "all 0.3s ease",
-                  "&:hover": {
-                    borderColor: "primary.main",
-                    transform: "translateY(-8px)",
-                    boxShadow: "0 20px 40px rgba(0,0,0,0.05)",
-                  },
-                }}
-              >
-                <Box sx={{ p: 3, bgcolor: "#fff", textAlign: "center" }}>
-                  <CardMedia
-                    component="img"
-                    image={cat.image}
-                    alt={cat.title}
-                    sx={{
-                      height: 220,
-                      objectFit: "contain",
-                      filter: "drop-shadow(0px 10px 15px rgba(0,0,0,0.1))",
-                    }}
-                  />
-                </Box>
+        sx={{
+          position: 'relative',
+          width: '100%',
+          minHeight: { xs: '60vh', md: '80vh' },
+          display: 'flex',
+          alignItems: 'center',
+          overflow: 'hidden',
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://pblol2.blob.core.windows.net/valvenok-images/products/industrial-valves/industiral-hero.jpg")`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          py: { xs: 8, md: 12 }
+        }}
+      >
+        <Container maxWidth="lg">
+          <Typography variant="overline" sx={{ color: "#61D649", letterSpacing: 3, fontSize: 11, fontWeight: 700 }}>
+            Industrial & Marine Solutions
+          </Typography>
+          <Typography variant="h1" sx={{ fontSize: { xs: 42, md: 72 }, fontWeight: 800, color: "#fff", mt: 1, mb: 3, lineHeight: 1.1, maxWidth: 900, textShadow: '0px 2px 10px rgba(0,0,0,0.3)' }}>
+            Industrial & Marine Valves
+          </Typography>
+          <Typography sx={{ fontSize: { xs: 18, md: 20 }, color: "rgba(255,255,255,0.9)", maxWidth: 600, mb: 5, lineHeight: 1.7 }}>
+            Robust valve solutions engineered for the toughest industrial environments
+            and certified for marine service. From process plants to offshore vessels,
+            Valvenok delivers the flow control you can trust.
+          </Typography>
+          <Button variant="contained" size="large" href="mailto:sales@valvenok.com"
+            sx={{ bgcolor: "#61D649", color: "#000", borderRadius: 1, px: 5, py: 2, fontSize: '1rem', fontWeight: 700, textTransform: 'none', "&:hover": { bgcolor: "#fff", color: "#000" } }}>
+            Request Valve Specs
+          </Button>
+        </Container>
+      </Box>
 
-                <CardContent sx={{ flexGrow: 1, px: 3, pt: 0 }}>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "baseline",
-                      mb: 1,
-                    }}
-                  >
-                    <Typography
-                      sx={{
-                        fontFamily: '"Barlow Condensed", sans-serif',
-                        fontSize: "1.5rem",
-                        fontWeight: 800,
-                        textTransform: "uppercase",
-                        color: "text.primary",
-                      }}
-                    >
-                      {cat.title}
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontSize: "0.75rem",
-                        fontWeight: 700,
-                        color: "primary.main",
-                        bgcolor: alpha("#61D649", 0.1),
-                        px: 1,
-                        py: 0.2,
-                      }}
-                    >
-                      {cat.count} ITEMS
-                    </Typography>
-                  </Box>
-
-                  <Typography
-                    variant="body2"
-                    sx={{ color: "text.secondary", mb: 2, minHeight: "3em" }}
-                  >
-                    {cat.description}
-                  </Typography>
-
-                  <Box
-                    sx={{ display: "flex", flexWrap: "wrap", gap: 1, mb: 3 }}
-                  >
-                    {cat.tags.map((tag) => (
-                      <Typography
-                        key={tag}
-                        sx={{
-                          fontSize: "10px",
-                          fontWeight: 700,
-                          textTransform: "uppercase",
-                          letterSpacing: "0.05em",
-                          color: "text.secondary",
-                          border: "1px solid",
-                          borderColor: "divider",
-                          px: 1,
-                          py: 0.3,
-                        }}
-                      >
-                        {tag}
-                      </Typography>
-                    ))}
-                  </Box>
-
-                  <Button
-                    fullWidth
-                    variant="outlined"
-                    href={cat.href}
-                    endIcon={<ArrowForwardIcon />}
-                    sx={{
-                      borderRadius: 0,
-                      borderWidth: "2px",
-                      fontFamily: '"Barlow Condensed", sans-serif',
-                      fontWeight: 800,
-                      textTransform: "uppercase",
-                      "&:hover": {
-                        borderWidth: "2px",
-                        bgcolor: "primary.main",
-                        color: "#fff",
-                      },
-                    }}
-                  >
-                    Explore Collection
-                  </Button>
-                </CardContent>
-              </Card>
-            </Grid>
+      {/* Trust bar */}
+      <Box sx={{ borderBottom: "1px solid", borderColor: "divider", py: 1.5, bgcolor: "#fff", whiteSpace: "nowrap", overflow: "hidden" }}>
+        <style>{`@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }`}</style>
+        <Box sx={{ display: "flex", width: "max-content", animation: "marquee 30s linear infinite", "&:hover": { animationPlayState: "paused" } }}>
+          {[1, 2].map((iteration) => (
+            <Box key={iteration} sx={{ display: "flex", gap: 6, pr: 6 }}>
+              {["API 6D & API 600 Standards", "Marine Class Approved", "SS316 / Duplex / Carbon Steel", "High-speed 24h Dispatch"].map((item) => (
+                <Typography key={item} sx={{ fontSize: 19, fontWeight: 500, color: "text.secondary", display: "flex", alignItems: "center", gap: 1.5 }}>
+                  <Box component="span" sx={{ width: 6, height: 6, borderRadius: "50%", bgcolor: "#61D649" }} />
+                  {item}
+                </Typography>
+              ))}
+            </Box>
           ))}
+        </Box>
+      </Box>
+
+      <Container maxWidth="lg" sx={{ py: { xs: 8, md: 12 } }}>
+
+        {/* Intro */}
+        <Grid container spacing={8} sx={{ mb: 10 }}>
+          <Grid size={{ xs: 12, md: 7 }}>
+            <Typography variant="h2" sx={{ fontSize: { xs: 28, md: 36 }, fontWeight: 700, mb: 3 }}>
+              Flow Control for Every Environment
+            </Typography>
+            <Typography sx={{ color: "text.secondary", lineHeight: 1.8, mb: 2 }}>
+              Valvenok supplies a comprehensive range of industrial, marine, and
+              instrumentation valves — plus a full SS316 fittings catalogue —
+              engineered for demanding service conditions. From high-pressure
+              process isolation to precision instrumentation lines, our products
+              perform across the full spectrum of flow control applications.
+            </Typography>
+            <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
+              Our portfolio includes <strong>ball valves</strong>, <strong>gate valves</strong>,{" "}
+              <strong>globe valves</strong>, <strong>check valves</strong>,{" "}
+              <strong>butterfly valves</strong>, <strong>instrumentation valves</strong>,
+              and a complete range of <strong>SS316 fittings</strong> — all available
+              with class society approvals where required.
+            </Typography>
+          </Grid>
+          <Grid size={{ xs: 12, md: 5 }}>
+            <Box sx={{ bgcolor: "#f7faf6", borderRadius: 2, p: 4 }}>
+              <Typography sx={{ fontWeight: 600, mb: 2, fontSize: 15 }}>Product Categories</Typography>
+              {["Industrial Valves (Ball, Gate, Globe, Check, Butterfly)", "Marine Class Approved Variants", "Instrumentation Valves (Ball, Needle, Check, Relief)", "Tube, Pipe, JIC & Weld Fittings", "Bronze, NAB, SS316 & Duplex Materials", "API, ANSI, BS & Class Society Standards"].map((item) => (
+                <Typography key={item} sx={{ fontSize: 14, color: "text.secondary", py: 1, borderBottom: "1px solid", borderColor: "divider" }}>
+                  {item}
+                </Typography>
+              ))}
+            </Box>
+          </Grid>
         </Grid>
+
+        <Divider sx={{ mb: 10 }} />
+
+        {/* Industrial Valves */}
+        <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Typography variant="overline" sx={{ color: "#61D649", fontWeight: 600, letterSpacing: 2, fontSize: 11 }}>
+              Process & Plant
+            </Typography>
+            <Typography variant="h3" component="a" href="/valves/industrial-valves"
+              sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mt: 1, mb: 3, display: 'block', color: 'inherit', textDecoration: 'none', '&:hover': { color: '#61D649', textDecoration: 'underline' } }}>
+              Industrial Valves
+            </Typography>
+            <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
+              Full range of industrial flow control valves for process plants, oil & gas
+              facilities, and power generation. Available in sizes from DN15 to DN600,
+              pressure classes 150 to 2500, with body materials including carbon steel,
+              SS316, and duplex stainless. Conforms to API, ANSI, and BS standards.
+            </Typography>
+            <Button variant="outlined" href="/valves/industrial-valves"
+              sx={{ mt: 3, borderColor: "#61D649", color: "#61D649", textTransform: "none", fontWeight: 700, "&:hover": { bgcolor: "#61D649", color: "#000", borderColor: "#61D649" } }}>
+              Browse Industrial Valves
+            </Button>
+          </Grid>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Box sx={{ borderColor: 'divider', borderRadius: 2, p: 4, textAlign: 'center' }}>
+              <img src="https://pblol2.blob.core.windows.net/valvenok-images/products/valves/apollo-valves-88a10a01.webp" alt="Industrial Valves" style={{ width: '50%', height: 'auto' }} />
+            </Box>
+          </Grid>
+        </Grid>
+
+        <Divider sx={{ mb: 10 }} />
+
+        {/* Marine Valves */}
+        <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Box sx={{ borderColor: 'divider', borderRadius: 2, p: 4, textAlign: 'center' }}>
+              <img src="https://pblol2.blob.core.windows.net/valvenok-images/products/industrial-valves/industrial-valves.jpg" alt="Marine Valves" style={{ width: '50%', height: 'auto' }} />
+            </Box>
+          </Grid>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Typography variant="overline" sx={{ color: "#61D649", fontWeight: 600, letterSpacing: 2, fontSize: 11 }}>
+              Shipbuilding & Offshore
+            </Typography>
+            <Typography variant="h3" component="a" href="/valves/marine-valves"
+              sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mt: 1, mb: 3, display: 'block', color: 'inherit', textDecoration: 'none', '&:hover': { color: '#61D649', textDecoration: 'underline' } }}>
+              Marine Valves
+            </Typography>
+            <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
+              Class society approved valves for commercial vessels, naval craft, and
+              offshore platforms. Certified by LR, DNV, BV, ABS, and CCS. Built in
+              bronze, nickel-aluminum bronze, and SS316 for seawater service, ballast
+              systems, fuel lines, and fire-fighting installations.
+            </Typography>
+            <Button variant="outlined" href="/valves/marine-valves"
+              sx={{ mt: 3, borderColor: "#61D649", color: "#61D649", textTransform: "none", fontWeight: 700, "&:hover": { bgcolor: "#61D649", color: "#000", borderColor: "#61D649" } }}>
+              Browse Marine Valves
+            </Button>
+          </Grid>
+        </Grid>
+
+        <Divider sx={{ mb: 10 }} />
+
+        {/* Instrumentation Valves */}
+        <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Typography variant="overline" sx={{ color: "#61D649", fontWeight: 600, letterSpacing: 2, fontSize: 11 }}>
+              Precision Instrumentation
+            </Typography>
+            <Typography variant="h3" component="a" href="/valves"
+              sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mt: 1, mb: 3, display: 'block', color: 'inherit', textDecoration: 'none', '&:hover': { color: '#61D649', textDecoration: 'underline' } }}>
+              Instrumentation Valves
+            </Typography>
+            <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
+              SS316 instrumentation valves engineered for precise flow control and
+              leak-tight isolation on high-pressure gauge, sampling, and process
+              measurement lines. Ball, needle, check, and relief variants across NPT,
+              BSPT, and BSPP standards — built for oil & gas, petrochemical, and
+              power generation duty.
+            </Typography>
+            <Button variant="outlined" href="/valves/instrumentation-valves"
+              sx={{ mt: 3, borderColor: "#61D649", color: "#61D649", textTransform: "none", fontWeight: 700, "&:hover": { bgcolor: "#61D649", color: "#000", borderColor: "#61D649" } }}>
+              Browse Instrumentation Valves
+            </Button>
+          </Grid>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Box sx={{ borderColor: 'divider', borderRadius: 2, p: 4, textAlign: 'center' }}>
+              <img src="https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PBV-2-S-04-FF-1.png" alt="Instrumentation Valves" style={{ width: '50%', height: 'auto' }} />
+            </Box>
+          </Grid>
+        </Grid>
+
+
+      
+
+        <Divider sx={{ mb: 10 }} />
+
+        {/* Applications */}
+        <Box sx={{ mb: 10 }}>
+          <Typography variant="h3" sx={{ fontSize: { xs: 24, md: 30 }, fontWeight: 700, mb: 2 }}>
+            Valve Applications
+          </Typography>
+          <Grid container spacing={2}>
+            {["Oil & Gas Pipelines", "Chemical & Petrochemical Plants", "Power Generation & Steam Systems", "Shipbuilding & Marine Engineering", "Offshore Platforms & FPSOs", "Water Treatment & Desalination"].map((ind) => (
+              <Grid key={ind} size={{ xs: 12, sm: 6, md: 4 }}>
+                <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
+                  <Box sx={{ width: 8, height: 8, borderRadius: "50%", bgcolor: "#61D649", flexShrink: 0 }} />
+                  <Typography sx={{ fontSize: 14, color: "text.secondary" }}>{ind}</Typography>
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+
+        {/* CTA */}
+        <Box sx={{ textAlign: "center", py: 6, borderRadius: 4, color: "#000000" }}>
+          <Typography variant="h3" sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mb: 2 }}>
+            Spec Your Valve Package Today
+          </Typography>
+          <Typography sx={{ color: "rgba(2, 2, 2, 0.7)", mb: 4, maxWidth: 560, mx: "auto" }}>
+            Need a specific pressure class, body material, or class society certificate?
+            Our technical engineers will help you build the right valve package for your project.
+          </Typography>
+          <Button variant="contained" href="mailto:sales@valvenok.com"
+            sx={{ bgcolor: "#61D649", color: "#000", px: 4, py: 1.5, fontWeight: 700 }}>
+            Contact Technical Team
+          </Button>
+        </Box>
       </Container>
     </Box>
   );

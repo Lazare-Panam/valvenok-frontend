@@ -57,12 +57,12 @@ const CATEGORIES = [
   {
     name: "Industrial Valves",
     img: "https://pblol2.blob.core.windows.net/valvenok-images/products/industrial-valves/industrial-valves.jpg",
-    href: "/ball-valves",
+    href: "/valves/instrumentation-valves/ball-valves",
     tag: "Heavy Duty",
     count: "280+",
     subs: [
-      { name: "Industrial Valves", href: "/industrial-valves" },
-      { name: "Marine Valves", href: "/marine-valves" },
+      { name: "Industrial Valves", href: "/valves/industrial-valves" },
+      { name: "Marine Valves", href: "/valves/marine-valves" },
     ],
   },
   {

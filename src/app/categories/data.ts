@@ -40,7 +40,7 @@ export const CATEGORY_METADATA = [
       "High-performance instrumentation ball valves designed for precise flow control and shut-off in critical applications.",
     image:
       "https://res.cloudinary.com/dm9rmmemx/image/upload/v1774963288/BALL-VALVES-TP-SERIES-PNG-removebg-preview.png",
-    href: "/ball-valves",
+    href: "/valves/instrumentation-valves/ball-valves",
     tags: ["Quarter-Turn", "Stainless Steel", "High Pressure"],
   },
   {
@@ -51,7 +51,7 @@ export const CATEGORY_METADATA = [
       "Precision flow control valves featuring fine-threaded stems for accurate metering in instrumentation systems.",
     image:
       "https://res.cloudinary.com/dm9rmmemx/image/upload/v1775124948/PNV-IB-S-02-OD_d8cb2n.png",
-    href: "/needle-valves",
+    href: "/valves/instrumentation-valves/needle-valves",
     tags: ["Flow Metering", "Hard Seat", "Micro-Adjustment"],
   },
   {

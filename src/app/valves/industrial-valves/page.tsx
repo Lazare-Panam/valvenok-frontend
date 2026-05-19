@@ -3,7 +3,8 @@
 import { useParams } from 'next/navigation';
 import { Container, Box, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid'; // Using Grid2 for the 'size' prop
-import RequestForQuoteCard, { ProductForRFQ } from '../Common/RFQCard/RequestForQuoteCard';
+import RequestForQuoteCard, { ProductForRFQ } from '../../Common/RFQCard/RequestForQuoteCard';
+
 // Updated Payload using the RFQ Interface (No pricing)
 const DUMMY_RFQ_PRODUCTS: ProductForRFQ[] = [
   {

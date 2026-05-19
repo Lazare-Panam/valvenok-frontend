@@ -8,7 +8,7 @@ export const VALVE_DATA = [
   count: 6,
   description: 'High-performance instrumentation ball valves designed for precise flow control and shut-off in critical applications.',
   image: 'https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PBV-2-S-04-FF-1.png',
-  href: '/ball-valves',
+  href: '/valves/instrumentation-valves/ball-valves',
   tags: ['Quarter-Turn', 'Stainless Steel', 'High Pressure'],
 },
 {
@@ -17,7 +17,7 @@ export const VALVE_DATA = [
     count: 1, // Adjust count as needed
     description: 'Precision flow control valves featuring fine-threaded stems for accurate metering in instrumentation systems.',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/needle-valves/hp-no-bg.png',
-    href: '/needle-valves',
+    href: '/valves/instrumentation-valves/needle-valves',
     tags: ['Flow Metering', 'Hard Seat', 'Micro-Adjustment'],
   },
 
@@ -27,7 +27,7 @@ export const VALVE_DATA = [
     count: 1, // Adjust count as needed
     description: 'High-integrity non-return valves designed to prevent backflow and protect sensitive instrumentation from process reversals.',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/check-valves/c1.png', // Placeholder URL following your Cloudinary pattern
-    href: '/valves/pcv',
+    href: '/valves/instrumentation-valves/check-valves',
     tags: ['Non-Return', 'Backflow Prevention', 'Cracking Pressure'],
   },
 {
@@ -36,7 +36,7 @@ export const VALVE_DATA = [
     count: 1, // Adjust count as needed
     description: 'Safety-critical pressure relief devices designed to protect instrumentation circuits and process vessels from overpressure conditions.',
     image: 'https://pblol2.blob.core.windows.net/panam-images/products/reflief-valves/relief-no-bg.png', // Placeholder URL following your Cloudinary pattern
-    href: '/valves/relief',
+    href: '/valves/instrumentation-valves/relief-valves',
     tags: ['Overpressure Protection', 'Set Pressure', 'Safety Critical'],
   },
   

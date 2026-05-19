@@ -51,7 +51,7 @@ const SLIDES = [
     title: "Marine Valves & Controls",
     accent: "Built for the Extremes",
     description: "Specialist valve solutions for marine and offshore applications. Corrosion-resistant materials engineered to perform in the harshest salt-water environments.",
-    href: "/marine-valves",
+    href: "/valves/marine-valves",
     btnText: "View Marine Valves",
     alt: "Heavy duty marine grade valve system"
   },
