@@ -42,23 +42,27 @@ export const CATEGORIES: Category[] = [
         label: "Instrumentation Fittings",
         href: "/fittings-tubing/instrumentation-fittings",
         children: [
-          {
-            label: "Tube Fittings",
-            href: "/fittings-tubing/instrumentation-fittings/tube-fittings",
-          },
-          {
-            label: "Pipe Fittings",
-            href: "/fittings-tubing/instrumentation-fittings/pipe-fittings",
-          },
-          {
-            label: "Flare Fittings",
-            href: "/fittings-tubing/instrumentation-fittings/jic-fittings",
-          },
-          {
-            label: "Weld Fittings",
-            href: "/fittings-tubing/instrumentation-fittings/weld-fittings",
-          },
-        ],
+  {
+    label: "Tube Fittings",
+    href: "https://www.panamvalve.com/tube-fittings",
+    external: true,
+  },
+  {
+    label: "Pipe Fittings",
+    href: "https://www.panamvalve.com/pipe-fittings",
+    external: true,
+  },
+  {
+    label: "Flare Fittings",
+    href: "https://www.panamvalve.com/jic-fittings",
+    external: true,
+  },
+  {
+    label: "Weld Fittings",
+    href: "https://www.panamvalve.com/weld-fittings",
+    external: true,
+  },
+],
       },
       {
         label: "Tubing",
@@ -78,10 +82,11 @@ export const CATEGORIES: Category[] = [
         href: "https://www.spacpneumatic.co.uk/products/cylinders",
         external: true,
       },
-      { label: "Pneumatic Fittings", href: "/pneumatic/fittings" },
-      { label: "Pneumatic Tubing", href: "/pneumatic/tubing" },
-      { label: "Pneumatic Actuators", href: "/pneumatic/actuators" },
-      { label: "Air Gun", href: "/pneumatic/air-gun" },
+     { label: "Pneumatic Fittings", href: "https://www.spacpneumatic.co.uk/products/fittings", external: true },
+{ label: "Pneumatic Tubing", href: "https://www.spacpneumatic.co.uk/products/tubing", external: true },
+{ label: "Pneumatic Actuators", href: "https://www.spacpneumatic.co.uk/products/actuators", external: true },
+{ label: "Air Gun", href: "https://www.spacpneumatic.co.uk/air-gun", external: true },
+{ label: "Pneumatic Valves", href: "https://www.spacpneumatic.co.uk/products/valves", external: true },
     ],
   },
   {
