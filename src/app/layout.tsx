@@ -7,6 +7,7 @@ import Navbar from "./Common/Navbar/Navbar";
 import Providers from "./providers";
 import { NotificationProvider } from "../components/NotificationProvider";
 import Footer from "./Common/Footer/Footer";
+import Breadcrumbs from "../components/Common/BreadCrumbs";
 
 
 
@@ -66,6 +67,7 @@ export default function RootLayout({
         <ThemeRegistry> <Providers>
           <NotificationProvider />
             <Navbar />
+            <Breadcrumbs />
             {children}
           </Providers></ThemeRegistry>
           <Footer/>

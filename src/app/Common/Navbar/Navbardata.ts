@@ -31,7 +31,7 @@ export const NAV_LINKS: NavLink[] = [
 export const CATEGORIES: Category[] = [
   {
     id: "fittings",
-    label: "Fittings & Valves",
+    label: "Fittings & Tubing",
     href: "/fittings-tubing",
     color: "#1c6e2e",
     textColor: "#fff",
@@ -59,15 +59,19 @@ export const CATEGORIES: Category[] = [
         ],
       },
       {
-        label: "Instrumentation Valves",
-        href: "/valves",
-        children: [
-          { label: "Ball Valves", href: "/ball-valves" },
-          { label: "Needle Valves", href: "/needle-valves" },
-          { label: "Check Valves", href: "/valves/pcv" },
-          { label: "Relief Valves", href: "/valves/relief" },
-        ],
+        label: "Tubing",
+        href:"/fittings-tubing"
       },
+      // {
+      //   label: "Instrumentation Valves",
+      //   href: "/valves",
+      //   children: [
+      //     { label: "Ball Valves", href: "/ball-valves" },
+      //     { label: "Needle Valves", href: "/needle-valves" },
+      //     { label: "Check Valves", href: "/valves/pcv" },
+      //     { label: "Relief Valves", href: "/valves/relief" },
+      //   ],
+      // },
     ],
   },
   {
@@ -105,7 +109,7 @@ export const CATEGORIES: Category[] = [
   },
   {
     id: "valves",
-    label: "Industrial Valves",
+    label: "Valves",
     href: "/flow-control",
     color: "#2e7d32",
     textColor: "#fff",

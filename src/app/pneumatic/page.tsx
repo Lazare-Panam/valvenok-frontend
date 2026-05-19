@@ -296,6 +296,7 @@ export default function PneumaticSystemsPage() {
               />
             </Box>
           </Grid>
+          
           <Grid size={{ xs: 12, md: 6 }}>
             <Typography
               variant="overline"

@@ -21,7 +21,7 @@ const categories = [
   {
     slug: 'fittings-valves',
     href: '/fittings-tubing',
-    name: 'Fittings & Valves',
+    name: 'Fittings & Tubing',
     tagline: 'Ball, gate, check & butterfly',
     image: 'https://pblol2.blob.core.windows.net/valvenok-images/products/fittings/hex_couplings.png',
     count: 120,
@@ -53,7 +53,7 @@ const categories = [
   {
     slug: 'industrial-valves',
     href: '/flow-control',
-    name: 'Industrial Valves',
+    name: 'Valves',
     tagline: 'Heavy-duty process valves',
     image: 'https://pblol2.blob.core.windows.net/valvenok-images/products/industrial-valves/industrial-valves.jpg',
     count: 96,

@@ -3,29 +3,29 @@ import { useState } from "react"
 import { Box, Typography, CircularProgress, useMediaQuery, Drawer, IconButton } from "@mui/material"
 import { useTheme, alpha } from "@mui/material/styles"
 import FilterListIcon from "@mui/icons-material/FilterList"
-import { useAPFittings, useAPFittingFilterOptions } from "../../hooks/usePneumatic"
-import { APFittingSidebar, EMPTY_AP_FITTING_FILTERS, type APFittingFilters } from "./components/APFittingSidebarPneumatic"
+import { useTubing, useTubingFilterOptions } from "../../pneumatic/hooks/usePneumatic"
 
-import { APFittingActiveFilters } from "./components/APFittingActiveFilters"
-import APFittingTable from "./components/APFittingTable"
+import { TubingSidebar, EMPTY_TUBING_FILTERS, type TubingFilters } from "./components/TubingSidebar"
+import { TubingActiveFilters } from "./components/TubingActiveFilters"
+import TubingTable from "./components/TubingTable"
 
-export default function APFittingPage() {
+export default function TubingPage() {
   const theme = useTheme()
   const isMobile = useMediaQuery("(max-width:1200px)")
-  const [filters, setFilters] = useState<APFittingFilters>(EMPTY_AP_FITTING_FILTERS)
+  const [filters, setFilters] = useState<TubingFilters>(EMPTY_TUBING_FILTERS)
   const [mobileOpen, setMobileOpen] = useState(false)
 
-  const { data: filterOptions, isLoading: filtersLoading } = useAPFittingFilterOptions()
-  const { data: models = [], isLoading, isFetching } = useAPFittings(filters)
+  const { data: filterOptions, isLoading: filtersLoading } = useTubingFilterOptions()
+  const { data: models = [], isLoading, isFetching } = useTubing(filters)
 
   const activeCount =
-    filters.series.length +
-    filters.fittingTypes.length +
-    filters.tubeSizes.length +
-    filters.threadSizes.length
+    filters.tubingTypes.length +
+    filters.colors.length +
+    filters.rollLengths.length +
+    (filters.hasConnector !== null ? 1 : 0)
 
   const sidebar = (
-    <APFittingSidebar
+    <TubingSidebar
       filters={filters}
       setFilters={setFilters}
       filterOptions={filterOptions}
@@ -38,13 +38,13 @@ export default function APFittingPage() {
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "background.default" }}>
       <Box sx={{ p: 4, borderBottom: "1px solid rgba(0,0,0,0.08)", bgcolor: "background.paper" }}>
         <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: theme.palette.primary.main }}>
-          AP/EP Series Push-In Fittings
+          Pneumatic Tubing
         </Typography>
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 700 }}>
-          SPAC A-Series (Grey) and E-Series (Black) push-in fittings compatible with polyurethane and nylon tubing. Full range of connectors, elbows, tees and multi-connectors in BSP thread sizes.
+          SPAC polyurethane tubing range including standard, recoil, anti-spark and anti-spark recoil variants. Available in multiple sizes, colors and roll lengths.
         </Typography>
         <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
-          {["A-Series Grey", "E-Series Black", "BSP Threads", "4–12mm Tube", "G1/8 – G1/2"].map(s => (
+          {["Polyurethane", "Recoil", "Anti-Spark", "Multiple Colors", "OD 4–16mm"].map(s => (
             <Box key={s} sx={{ px: 1.5, py: 0.5, borderRadius: "20px", fontSize: "0.75rem", fontWeight: 600, bgcolor: alpha(theme.palette.primary.main, 0.08), color: theme.palette.primary.dark, border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}` }}>
               {s}
             </Box>
@@ -59,10 +59,10 @@ export default function APFittingPage() {
           </IconButton>
         )}
 
-        <APFittingActiveFilters filters={filters} setFilters={setFilters} />
+        <TubingActiveFilters filters={filters} setFilters={setFilters} />
 
         <Typography variant="caption" fontWeight={700} color="text.disabled" sx={{ display: "block", mb: 1 }}>
-          {isFetching && !isLoading ? "UPDATING..." : isLoading ? "LOADING..." : `${models.length} FITTINGS`}
+          {isFetching && !isLoading ? "UPDATING..." : isLoading ? "LOADING..." : `${models.length} PRODUCTS`}
         </Typography>
 
         <Box sx={{
@@ -76,7 +76,7 @@ export default function APFittingPage() {
               <CircularProgress sx={{ color: theme.palette.primary.main }} />
             </Box>
           ) : (
-            <APFittingTable models={models} isFetching={isFetching} />
+            <TubingTable models={models} isFetching={isFetching} />
           )}
         </Box>
 

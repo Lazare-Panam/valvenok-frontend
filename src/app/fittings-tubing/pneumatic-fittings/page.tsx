@@ -19,7 +19,7 @@ const FITTING_FAMILIES: Category[] = [
       "Precision-engineered compression fittings for high-integrity airline and instrumentation connections. Leak-free performance across pneumatic and process applications.",
     specs: ["Compression", "High-Integrity", "Airline & Instrumentation", "Leak-Free Seal"],
     applications: "Instrumentation, Airline, Process Control, OEM Machinery",
-    href: "/pneumatic/fittings/a-series",
+    href: "/fittings-tubing/pneumatic-fittings/a-series",
     image:
       "https://pblol2.blob.core.windows.net/spac-images/products/fitting/a-series.png",
   },
@@ -31,7 +31,7 @@ const FITTING_FAMILIES: Category[] = [
       "Quick-connect push-in fittings for pneumatic and instrumentation systems. Connectors, elbows, tees, Y-fittings, banjos, flow control and hand valves across tube sizes 4mm to 16mm with BSP and M5 thread options.",
     specs: ["Push-In", "Ø4 – Ø16 mm Tube", "BSP / M5 Threads", "280+ Configurations"],
     applications: "Pneumatic Automation, Instrumentation, OEM Machinery",
-    href: "/pneumatic/fittings/e-series",
+    href: "/fittings-tubing/pneumatic-fittings/e-series",
     image:
       "https://pblol2.blob.core.windows.net/spac-images/products/fitting/e-series.jpg",
   },
