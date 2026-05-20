@@ -37,7 +37,7 @@ export default function PneumaticSystemsPage() {
               fontWeight: 700,
             }}
           >
-            Pneumatic Solutions
+             Solutions
           </Typography>
           <Typography
             variant="h1"
@@ -233,7 +233,7 @@ export default function PneumaticSystemsPage() {
                 "&:hover": { color: "#61D649", textDecoration: "underline" },
               }}
             >
-              Pneumatic Cylinders
+              Cylinders
             </Typography>
             <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
               Standard tie rod profile double acting cylinders available in bore
@@ -374,7 +374,7 @@ export default function PneumaticSystemsPage() {
                 fontSize: 11,
               }}
             >
-              Pneumatic Tubing
+              Tubing
             </Typography>
             <Typography
               variant="h3"
@@ -534,7 +534,7 @@ export default function PneumaticSystemsPage() {
                 fontSize: 11,
               }}
             >
-              Pneumatic Actuators
+               Actuators
             </Typography>
             <Typography
               variant="h3"
@@ -649,7 +649,7 @@ export default function PneumaticSystemsPage() {
         "&:hover": { color: "#61D649", textDecoration: "underline" },
       }}
     >
-      Pneumatic Valves
+      Valves
     </Typography>
     <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
       Full range of pneumatic control valves for industrial automation,
@@ -676,11 +676,86 @@ export default function PneumaticSystemsPage() {
         },
       }}
     >
-      Browse Pneumatic Valves
+      Browse  Valves
     </Button>
   </Grid>
 </Grid>
 
+<Divider sx={{ mb: 10 }} />
+{/* FRL Units */}
+<Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
+  <Grid size={{ xs: 12, md: 6 }}>
+    <Typography
+      variant="overline"
+      sx={{
+        color: "#61D649",
+        fontWeight: 600,
+        letterSpacing: 2,
+        fontSize: 11,
+      }}
+    >
+      Air Preparation Systems
+    </Typography>
+    <Typography
+      variant="h3"
+      component="a"
+      href="https://www.spacpneumatic.co.uk/products/frl"
+      target="_blank"
+      rel="noopener noreferrer"
+      sx={{
+        fontSize: { xs: 24, md: 32 },
+        fontWeight: 700,
+        mt: 1,
+        mb: 3,
+        display: "block",
+        color: "inherit",
+        textDecoration: "none",
+        "&:hover": { color: "#61D649", textDecoration: "underline" },
+      }}
+    >
+      FRL Units
+    </Typography>
+    <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
+      Complete air preparation catalogue — modular filter-regulator-lubricator combinations, integrated filter regulators, standalone precision and high-pressure regulators, plus standalone filters and lubricators. Available across BSP 1/4" to 1" port sizes with standard and bowl-guard variants. Engineered to deliver clean, regulated, lubricated air to your pneumatic tools, cylinders and valves.
+    </Typography>
+    <Button
+      variant="outlined"
+      href="https://www.spacpneumatic.co.uk/products/frl"
+      target="_blank"
+      rel="noopener noreferrer"
+      sx={{
+        mt: 3,
+        borderColor: "#61D649",
+        color: "#61D649",
+        textTransform: "none",
+        fontWeight: 700,
+        "&:hover": {
+          bgcolor: "#61D649",
+          color: "#000",
+          borderColor: "#61D649",
+        },
+      }}
+    >
+      Browse FRL Units
+    </Button>
+  </Grid>
+  <Grid size={{ xs: 12, md: 6 }}>
+    <Box
+      sx={{
+        borderColor: "divider",
+        borderRadius: 2,
+        p: 4,
+        textAlign: "center",
+      }}
+    >
+      <img
+        src="https://pblol2.blob.core.windows.net/spac-images/products/frl/AR.jpg"
+        alt="FRL Units"
+        style={{ width: "50%", height: "auto" }}
+      />
+    </Box>
+  </Grid>
+</Grid>
 <Divider sx={{ mb: 10 }} />
 
         {/* Applications */}
@@ -689,7 +764,7 @@ export default function PneumaticSystemsPage() {
             variant="h3"
             sx={{ fontSize: { xs: 24, md: 30 }, fontWeight: 700, mb: 2 }}
           >
-            Pneumatic Applications
+            Applications
           </Typography>
           <Grid container spacing={2}>
             {[
