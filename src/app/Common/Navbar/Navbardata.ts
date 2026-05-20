@@ -42,123 +42,246 @@ export const CATEGORIES: Category[] = [
         label: "Instrumentation Fittings",
         href: "/fittings-tubing/instrumentation-fittings",
         children: [
-      {
-        label: "Tube Fittings",
-        href: "https://www.panamvalve.com/tube-fittings",
-        external: true,
-      },
-      {
-        label: "Pipe Fittings",
-        href: "https://www.panamvalve.com/pipe-fittings",
-        external: true,
-      },
-      {
-        label: "Flare Fittings",
-        href: "https://www.panamvalve.com/jic-fittings",
-        external: true,
-      },
-      {
-        label: "Weld Fittings",
-        href: "https://www.panamvalve.com/weld-fittings",
-        external: true,
-      },
-    ],
+          {
+            label: "Tube Fittings",
+            href: "https://www.panamvalve.com/tube-fittings",
+            external: true,
+          },
+          {
+            label: "Pipe Fittings",
+            href: "https://www.panamvalve.com/pipe-fittings",
+            external: true,
+          },
+          {
+            label: "Flare Fittings",
+            href: "https://www.panamvalve.com/jic-fittings",
+            external: true,
+          },
+          {
+            label: "Weld Fittings",
+            href: "https://www.panamvalve.com/weld-fittings",
+            external: true,
+          },
+        ],
       },
       {
         label: "Pneumatic Tubing",
         href: "https://www.spacpneumatic.co.uk/products/tubing",
-        external: true 
+        external: true,
       },
       {
         label: "Pneumatic Fitting",
         href: "https://www.spacpneumatic.co.uk/products/fittings",
-        external: true 
+        external: true,
       },
     ],
   },
-    {
-      id: "pneumatic",
-      href: "/pneumatic",
-      label: "Pneumatic",
-      color: "#2e7d32",
-      textColor: "#fff",
-      items: [
+  {
+    id: "pneumatic",
+    href: "/pneumatic",
+    label: "Pneumatic",
+    color: "#2e7d32",
+    textColor: "#fff",
+    items: [
+      {
+        label: "Cylinder",
+        href: "https://www.spacpneumatic.co.uk/products/cylinders",
+        external: true,
+        children: [
+          {
+            label: "SDNC Series — Standard ISO Tie Rod",
+            href: "https://www.spacpneumatic.co.uk/products/cylinders/sdnc",
+            external: true,
+          },
+          {
+            label: "ESNC Series — Extended Bore Range",
+            href: "https://www.spacpneumatic.co.uk/products/cylinders/esnc",
+            external: true,
+          },
+          {
+            label: "ESC Series — Standard Tie Rod Profile",
+            href: "https://www.spacpneumatic.co.uk/products/cylinders/esc",
+            external: true,
+          },
+          {
+            label: "SDNU Series — Round Body Stainless Steel",
+            href: "https://www.spacpneumatic.co.uk/products/cylinders/sdnu",
+            external: true,
+          },
+          {
+            label: "EMAL Series — Standard Round Body",
+            href: "https://www.spacpneumatic.co.uk/products/cylinders/emal",
+            external: true,
+          },
+          {
+            label: "SQ2 Series — Short Stroke Compact Profile",
+            href: "https://www.spacpneumatic.co.uk/products/cylinders/sq2",
+            external: true,
+          },
+          {
+            label: "SDVU Series — Compact Short Stroke",
+            href: "https://www.spacpneumatic.co.uk/products/cylinders/sdvu",
+            external: true,
+          },
+          {
+            label: "SDVUL Series — Non-Rotary Short Stroke",
+            href: "https://www.spacpneumatic.co.uk/products/cylinders/sdvul",
+            external: true,
+          },
+        ],
+      },
+      {
+        label: "Fittings",
+        href: "https://www.spacpneumatic.co.uk/products/fittings",
+        external: true,
+         children: [
         {
-          label: "Cylinder",
-          href: "https://www.spacpneumatic.co.uk/products/cylinders",
+          label: "A Series Fittings",
+          href: "https://www.spacpneumatic.co.uk/products/fittings/a-series",
           external: true,
         },
-      { label: "Fittings", href: "https://www.spacpneumatic.co.uk/products/fittings", external: true },
-      { label: " Tubing", href: "https://www.spacpneumatic.co.uk/products/tubing", external: true },
-      { label: " Actuators", href: "https://www.spacpneumatic.co.uk/products/actuators", external: true },
-      { label: "Air Gun", href: "https://www.spacpneumatic.co.uk/air-gun", external: true },
-      { label: "Valves", href: "https://www.spacpneumatic.co.uk/products/valves", external: true },
-      { label: "FRL", href: "https://www.spacpneumatic.co.uk/products/frl", external: true },
-      ],
-    },
-    {
-      id: "filters",
-      href: "/filters-sight-glass",
-      label: "Filters",
-      color: "#2e7d32",
-      textColor: "#fff",
-      items: [
-        { label: "Sight Glass", href: "/filters-sight-glass/sight-glass" },
-        { label: "Filtration", href: "/filters-sight-glass/filteration" },
-      ],
-    },
-    {
-      id: "valves",
-      label: "Valves",
-      href: "/valves",
-      color: "#2e7d32",
-      textColor: "#fff",
-      items: [
         {
-          label: "Instrumentation Valves",
-          href: "/valves",
-          children: [
-            {
-              label: "Needle Valves",
-              href: "/valves/instrumentation-valves/needle-valves",
-              children: [
-                {
-                  label: "IB Series — Integrated Bonnet",
-                  href: "/valves/instrumentation-valves/needle-valves/ib",
-                },
-                {
-                  label: "HB Series — Hex Body",
-                  href: "/valves/instrumentation-valves/needle-valves/hb",
-                },
-                {
-                  label: "HP Series — High Pressure",
-                  href: "/valves/instrumentation-valves/needle-valves/hp",
-                },
-                {
-                  label: "SB Series — Square Body",
-                  href: "/valves/instrumentation-valves/needle-valves/sb",
-                },
-              ],
-            },
-            {
-              label: "Ball Valves",
-              href: "/valves/instrumentation-valves/ball-valves",
-            },
-            {
-              label: "Check Valves",
-              href: "/valves/instrumentation-valves/check-valves",
-            },
-            {
-              label: "Relief Valves",
-              href: "/valves/instrumentation-valves/relief-valves",
-            },
-          ],
+          label: "E Series Fittings",
+          href: "https://www.spacpneumatic.co.uk/products/fittings/e-series",
+          external: true,
         },
-        { label: "Industrial Valves", href: "/valves/industrial-valves" },
-        { label: "Marine Valves", href: "/valves/marine-valves" },
+        {
+          label: "S-Series Push-In Fittings",
+          href: "https://www.spacpneumatic.co.uk/products/fittings/s-series",
+          external: true,
+        },
       ],
-    },
-    {
+      },
+
+      {
+      label: "Valves",
+      href: "https://www.spacpneumatic.co.uk/products/valves",
+      external: true,
+      children: [
+        {
+          label: "FG Series — 5/2 Solenoid Valves",
+          href: "https://www.spacpneumatic.co.uk/products/valves/fg",
+          external: true,
+        },
+        {
+          label: "TG-J Series — Foot Pedal Valves",
+          href: "https://www.spacpneumatic.co.uk/products/valves/foot-pedal",
+          external: true,
+        },
+        {
+          label: "TG Series — Solenoid Valves",
+          href: "https://www.spacpneumatic.co.uk/products/valves/tg-series",
+          external: true,
+        },
+      ],
+      },
+      {
+        label: "FRL",
+        href: "https://www.spacpneumatic.co.uk/products/frl",
+        external: true,
+        children: [
+          {
+            label: "AC Series — Filter-Regulator-Lubricator",
+            href: "https://www.spacpneumatic.co.uk/products/frl/ac-series",
+            external: true,
+          },
+          {
+            label: "AW Series — Filter Regulator",
+            href: "https://www.spacpneumatic.co.uk/products/frl/aw",
+            external: true,
+          },
+          {
+            label: "AR Series — Air Regulator",
+            href: "https://www.spacpneumatic.co.uk/products/frl/ar",
+            external: true,
+          },
+          {
+            label: "AF / AL Series — Air Filter & Lubricator",
+            href: "https://www.spacpneumatic.co.uk/products/frl/af-al",
+            external: true,
+          },
+        ],
+      },
+            {
+        label: "Tubing",
+        href: "https://www.spacpneumatic.co.uk/products/tubing",
+        external: true,
+      },
+      {
+        label: "Actuators",
+        href: "https://www.spacpneumatic.co.uk/products/actuators",
+        external: true,
+      },
+      {
+        label: "Air Gun",
+        href: "https://www.spacpneumatic.co.uk/air-gun",
+        external: true,
+      },
+    ],
+  },
+  {
+    id: "filters",
+    href: "/filters-sight-glass",
+    label: "Filters",
+    color: "#2e7d32",
+    textColor: "#fff",
+    items: [
+      { label: "Sight Glass", href: "/filters-sight-glass/sight-glass" },
+      { label: "Filtration", href: "/filters-sight-glass/filteration" },
+    ],
+  },
+  {
+    id: "valves",
+    label: "Valves",
+    href: "/valves",
+    color: "#2e7d32",
+    textColor: "#fff",
+    items: [
+      {
+        label: "Instrumentation Valves",
+        href: "/valves",
+        children: [
+          {
+            label: "Needle Valves",
+            href: "/valves/instrumentation-valves/needle-valves",
+            children: [
+              {
+                label: "IB Series — Integrated Bonnet",
+                href: "/valves/instrumentation-valves/needle-valves/ib",
+              },
+              {
+                label: "HB Series — Hex Body",
+                href: "/valves/instrumentation-valves/needle-valves/hb",
+              },
+              {
+                label: "HP Series — High Pressure",
+                href: "/valves/instrumentation-valves/needle-valves/hp",
+              },
+              {
+                label: "SB Series — Square Body",
+                href: "/valves/instrumentation-valves/needle-valves/sb",
+              },
+            ],
+          },
+          {
+            label: "Ball Valves",
+            href: "/valves/instrumentation-valves/ball-valves",
+          },
+          {
+            label: "Check Valves",
+            href: "/valves/instrumentation-valves/check-valves",
+          },
+          {
+            label: "Relief Valves",
+            href: "/valves/instrumentation-valves/relief-valves",
+          },
+        ],
+      },
+      { label: "Industrial Valves", href: "/valves/industrial-valves" },
+      { label: "Marine Valves", href: "/valves/marine-valves" },
+    ],
+  },
+  {
     id: "pumps",
     label: "Pumps & Seals",
     href: "/pumps-seals",
