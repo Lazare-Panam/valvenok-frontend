@@ -36,7 +36,7 @@ export default function Home() {
       <FeaturedValves/>
       <Categories/>
       <FeaturedStrip/>
-      <PanamBanner/>
+     
       <Brands/>
       <AboutContact/>
     </>
