@@ -1,5 +1,5 @@
 'use client';
-
+//
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
@@ -88,7 +88,7 @@ export default function DeliveryBanner() {
                 letterSpacing: '0.05em',
                 color: 'text.primary',
               }}
-            >
+            > 
               {text}
             </Typography>
           </Box>
