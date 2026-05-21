@@ -224,7 +224,7 @@ useEffect(() => {
                   endIcon={<ArrowForwardIcon />}
                   sx={{
                     bgcolor: "#61D649",
-                    color: "#000",
+                    color: "#ffffff",
                     fontWeight: 900,
                     fontFamily: '"Barlow Condensed"',
                     px: 6,

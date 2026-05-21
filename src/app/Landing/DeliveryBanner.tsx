@@ -19,12 +19,13 @@ export default function DeliveryBanner() {
   return (
     <Box
       sx={{
-        bgcolor: 'text.primary',
+        bgcolor: '#f0fdf4',
         py: '12px',
         overflow: 'hidden',
         position: 'relative',
-        borderBottom: '2px solid',
-        borderColor: 'primary.main',
+        borderTop: '1px solid',
+        borderBottom: '1px solid',
+        borderColor: (t) => alpha(t.palette.primary.main, 0.2),
         '&::before, &::after': {
           content: '""',
           position: 'absolute',
@@ -36,11 +37,11 @@ export default function DeliveryBanner() {
         },
         '&::before': {
           left: 0,
-          background: (t) => `linear-gradient(to right, ${t.palette.text.primary} 20%, transparent 100%)`,
+          background: 'linear-gradient(to right, #f0fdf4 20%, transparent 100%)',
         },
         '&::after': {
           right: 0,
-          background: (t) => `linear-gradient(to left, ${t.palette.text.primary} 20%, transparent 100%)`,
+          background: 'linear-gradient(to left, #f0fdf4 20%, transparent 100%)',
         },
         '@keyframes marquee': {
           '0%':   { transform: 'translateX(0)' },
@@ -66,13 +67,13 @@ export default function DeliveryBanner() {
               mx: 1.5,
               px: 3,
               py: 0.5,
-              bgcolor: (t) => alpha(t.palette.common.white, 0.03),
+              bgcolor: (t) => alpha(t.palette.primary.main, 0.06),
               border: '1px solid',
-              borderColor: (t) => alpha(t.palette.common.white, 0.1),
+              borderColor: (t) => alpha(t.palette.primary.main, 0.15),
               borderRadius: '4px',
               transition: 'all 0.3s ease',
               '&:hover': {
-                bgcolor: (t) => alpha(t.palette.common.white, 0.08),
+                bgcolor: (t) => alpha(t.palette.primary.main, 0.12),
                 borderColor: 'primary.main',
               },
             }}
@@ -85,7 +86,7 @@ export default function DeliveryBanner() {
                 fontWeight: 700,
                 textTransform: 'uppercase',
                 letterSpacing: '0.05em',
-                color: (t) => alpha(t.palette.common.white, 0.9),
+                color: 'text.primary',
               }}
             >
               {text}
