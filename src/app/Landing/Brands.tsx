@@ -3,6 +3,7 @@
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
+import Tooltip from '@mui/material/Tooltip';
 import { keyframes } from '@mui/system';
 
 const marqueFwd = keyframes`
@@ -88,50 +89,65 @@ const MarqueeRow = ({ brands, reverse = false, speed = 25 }: MarqueeRowProps) =>
         }}
       >
         {track.map((brand, i) => (
-          <Box
+          <Tooltip
             key={i}
-            component="a"
-            href={brand.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            sx={{
-              flexShrink: 0,
-              mx: 1,
-              px: 2.5,
-              py: 1.5,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              bgcolor: 'background.paper',
-              border: '1.5px solid',
-              borderColor: 'divider',
-              textDecoration: 'none',
-              transition: 'all 0.2s ease-in-out',
-              '&:hover': {
-                borderColor: 'primary.main',
-                transform: 'translateY(-2px)',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+            title={brand.name}
+            placement="top"
+            arrow
+            slotProps={{
+              tooltip: {
+                sx: {
+                  fontSize: '12px',
+                  fontWeight: 600,
+                  letterSpacing: '0.04em',
+                },
               },
             }}
           >
             <Box
-              component="img"
-              src={brand.logo}
-              alt={`${brand.name} logo`}
+              component="a"
+              href={brand.link}
+              target="_blank"
+              rel="noopener noreferrer"
               sx={{
-                height: '40px',
-                width: 'auto',
-                maxWidth: '120px',
-                objectFit: 'contain',
-                opacity: 1,
-                filter: 'grayscale(0%)',
-                transition: 'all 0.3s',
+                flexShrink: 0,
+                mx: 1,
+                px: 2.5,
+                py: 1.5,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                bgcolor: 'background.paper',
+                border: '1.5px solid',
+                borderColor: 'divider',
+                textDecoration: 'none',
+                transition: 'all 0.2s ease-in-out',
                 '&:hover': {
-                  transform: 'scale(1.05)',
+                  borderColor: 'primary.main',
+                  transform: 'translateY(-2px)',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
                 },
               }}
-            />
-          </Box>
+            >
+              <Box
+                component="img"
+                src={brand.logo}
+                alt={`${brand.name} logo`}
+                sx={{
+                  height: '40px',
+                  width: 'auto',
+                  maxWidth: '120px',
+                  objectFit: 'contain',
+                  opacity: 1,
+                  filter: 'grayscale(0%)',
+                  transition: 'all 0.3s',
+                  '&:hover': {
+                    transform: 'scale(1.05)',
+                  },
+                }}
+              />
+            </Box>
+          </Tooltip>
         ))}
       </Box>
     </Box>
@@ -151,20 +167,31 @@ export default function Brands() {
       }}
     >
       <Container maxWidth="lg">
-        <Typography
+        <Box
           sx={{
-            textAlign: 'center',
-            fontFamily: '"Barlow Condensed", sans-serif',
-            fontSize: '22px',
-            fontWeight: 800,
-            letterSpacing: '0.18em',
-            textTransform: 'uppercase',
-            color: 'text.primary',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 2,
             mb: 4,
           }}
         >
-          Trusted Brands We Supply
-        </Typography>
+          <Box sx={{ flex: 1, height: '1px', bgcolor: 'divider' }} />
+          <Typography
+            sx={{
+              textAlign: 'center',
+              fontFamily: '"Barlow Condensed", sans-serif',
+              fontSize: '22px',
+              fontWeight: 800,
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              color: 'text.primary',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            Trusted Brands We Supply
+          </Typography>
+          <Box sx={{ flex: 1, height: '1px', bgcolor: 'divider' }} />
+        </Box>
       </Container>
 
       <MarqueeRow brands={ROWS[0]} reverse={false} speed={28} />
