@@ -32,12 +32,12 @@ export const NAV_LINKS: NavLink[] = [
 
 export const CATEGORIES: Category[] = [
   {
-    id: "fittings",
-    label: "Fittings & Tubing",
-    href: "/fittings-tubing",
-    color: "#1c6e2e",
-    textColor: "#fff",
-    items: [
+      id: "fittings",
+      label: "Fittings & Tubing",
+      href: "/fittings-tubing",
+      color: "#1c6e2e",
+      textColor: "#fff",
+      items: [
       {
         label: "Instrumentation Fittings",
         href: "/fittings-tubing/instrumentation-fittings",
@@ -73,6 +73,24 @@ export const CATEGORIES: Category[] = [
         label: "Pneumatic Fitting",
         href: "https://www.spacpneumatic.co.uk/products/fittings",
         external: true,
+      },
+    ],
+  },
+{
+    id: "actuators",
+    label: "Actuators",
+    href: "/actuators",
+    color: "#2e7d32",
+    textColor: "#fff",
+    items: [
+      {
+        label: "Pneumatic Actuators",
+        href: "https://www.spacpneumatic.co.uk/products/actuators",
+        external: true,
+      },
+      {
+        label: "Electric Actuators",
+        href: "/pneumatic/actuators/scotch-yoke",
       },
     ],
   },

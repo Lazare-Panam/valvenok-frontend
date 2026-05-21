@@ -36,12 +36,18 @@ export default function ActuatorsPage() {
           </Typography>
           <Typography sx={{ fontSize: { xs: 18, md: 20 }, color: "rgba(255,255,255,0.9)", maxWidth: 600, mb: 5, lineHeight: 1.7 }}>
             Leading UK supplier of Hydraulic, Pneumatic, and Instrumentation components, with specialist
-      expertise in valve actuators and complete actuating system solutions for demanding industrial
-      environments. Engineering excellence delivered fast to global procurement teams, supporting
-      everything from initial specification through to ongoing maintenance and optimisation.
+            expertise in valve actuators and complete actuating system solutions for demanding industrial
+            environments. Engineering excellence delivered fast to global procurement teams, supporting
+            everything from initial specification through to ongoing maintenance and optimisation.
           </Typography>
-          <Button variant="contained" size="large" href="mailto:sales@valvenok.com"
-            sx={{ bgcolor: "#61D649", color: "#000", borderRadius: 1, px: 5, py: 2, fontSize: '1rem', fontWeight: 700, textTransform: 'none', "&:hover": { bgcolor: "#fff", color: "#000" } }}>
+          <Button
+            variant="contained"
+            size="large"
+            href="https://www.spacpneumatic.co.uk/products/actuators"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{ bgcolor: "#61D649", color: "#000", borderRadius: 1, px: 5, py: 2, fontSize: '1rem', fontWeight: 700, textTransform: 'none', "&:hover": { bgcolor: "#fff", color: "#000" } }}
+          >
             Request Actuator Specs
           </Button>
         </Container>
@@ -98,64 +104,83 @@ export default function ActuatorsPage() {
 
         <Divider sx={{ mb: 10 }} />
 
-        {/* Rack & Pinion Pneumatic Actuators */}
-       <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
-  <Grid size={{ xs: 12, md: 6 }}>
-    <Typography variant="overline" sx={{ color: "#61D649", fontWeight: 600, letterSpacing: 2, fontSize: 11 }}>
-      Pneumatic Actuators
-    </Typography>
-    <Typography variant="h3" component="a" href="/pneumatic/actuators/scotch-yoke"
-      sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mt: 1, mb: 3, display: 'block', color: 'inherit', textDecoration: 'none', '&:hover': { color: '#61D649', textDecoration: 'underline' } }}>
-      AD Series Rack & Pinion Actuators
-    </Typography>
-    <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
-      Double-acting and spring-return pneumatic actuators for quarter-turn valves.
-      Compact design with high torque output for reliable process automation. Available
-      in SS316 and aluminum body options with 90° rotation for ball and butterfly valves
-      in chemical processing applications.
-    </Typography>
-    <Button variant="outlined" href="pneumatic/actuators/scotch-yoke"
-      sx={{ mt: 3, borderColor: "#61D649", color: "#61D649", textTransform: "none", fontWeight: 700, "&:hover": { bgcolor: "#61D649", color: "#000", borderColor: "#61D649" } }}>
-      Browse Actuators
-    </Button>
-  </Grid>
-  <Grid size={{ xs: 12, md: 6 }}>
-    <Box sx={{ borderColor: 'divider', borderRadius: 2, p: 4, textAlign: 'center' }}>
-      <img src="https://pblol2.blob.core.windows.net/panam-images/products/actuators/AD-Series.jpeg" alt="AD Series Rack & Pinion Actuators" style={{ width: '50%', height: 'auto' }} />
-    </Box>
-  </Grid>
-</Grid>
+        {/* AD Series — internal */}
+        <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Typography variant="overline" sx={{ color: "#61D649", fontWeight: 600, letterSpacing: 2, fontSize: 11 }}>
+              Pneumatic Actuators
+            </Typography>
+            <Typography
+              variant="h3"
+              component="a"
+              href="/pneumatic/actuators/scotch-yoke"
+              sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mt: 1, mb: 3, display: 'block', color: 'inherit', textDecoration: 'none', '&:hover': { color: '#61D649', textDecoration: 'underline' } }}
+            >
+              AD Series Rack & Pinion Actuators
+            </Typography>
+            <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
+              Double-acting and spring-return pneumatic actuators for quarter-turn valves.
+              Compact design with high torque output for reliable process automation. Available
+              in SS316 and aluminum body options with 90° rotation for ball and butterfly valves
+              in chemical processing applications.
+            </Typography>
+            <Button
+              variant="outlined"
+              href="/pneumatic/actuators/scotch-yoke"
+              sx={{ mt: 3, borderColor: "#61D649", color: "#61D649", textTransform: "none", fontWeight: 700, "&:hover": { bgcolor: "#61D649", color: "#000", borderColor: "#61D649" } }}
+            >
+              Browse Actuators
+            </Button>
+          </Grid>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Box sx={{ borderColor: 'divider', borderRadius: 2, p: 4, textAlign: 'center' }}>
+              <img src="https://pblol2.blob.core.windows.net/panam-images/products/actuators/AD-Series.jpeg" alt="AD Series Rack & Pinion Actuators" style={{ width: '50%', height: 'auto' }} />
+            </Box>
+          </Grid>
+        </Grid>
 
-<Divider sx={{ mb: 10 }} />
+        <Divider sx={{ mb: 10 }} />
 
-<Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
-  <Grid size={{ xs: 12, md: 6 }} order={{ xs: 2, md: 1 }}>
-    <Box sx={{ borderColor: 'divider', borderRadius: 2, p: 4, textAlign: 'center' }}>
-      <img src="https://pblol2.blob.core.windows.net/spac-images/products/actuators/SRA-25-02.jpg" alt="SRA Series Spring Return Actuators" style={{ width: '50%', height: 'auto' }} />
-    </Box>
-  </Grid>
-  <Grid size={{ xs: 12, md: 6 }} order={{ xs: 1, md: 2 }}>
-    <Typography variant="overline" sx={{ color: "#61D649", fontWeight: 600, letterSpacing: 2, fontSize: 11 }}>
-      Pneumatic Actuators
-    </Typography>
-    <Typography variant="h3" component="a" href="/pneumatic/actuators/sra"
-      sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mt: 1, mb: 3, display: 'block', color: 'inherit', textDecoration: 'none', '&:hover': { color: '#61D649', textDecoration: 'underline' } }}>
-      SRA Series Spring Return Actuators
-    </Typography>
-    <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
-      Fail-safe pneumatic rack-and-pinion rotary actuators with spring return operation.
-      Engineered for quarter-turn valve automation where reliable closure on loss of air
-      supply is critical. ISO 5211 direct-mount for ball, butterfly and plug valves across
-      process control, water treatment and food & beverage applications.
-    </Typography>
-    <Button variant="outlined" href="/pneumatic/actuators/sra"
-      sx={{ mt: 3, borderColor: "#61D649", color: "#61D649", textTransform: "none", fontWeight: 700, "&:hover": { bgcolor: "#61D649", color: "#000", borderColor: "#61D649" } }}>
-      Browse Actuators
-    </Button>
-  </Grid>
-</Grid>
+        {/* SRA Series — external */}
+        <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
+          <Grid size={{ xs: 12, md: 6 }} order={{ xs: 2, md: 1 }}>
+            <Box sx={{ borderColor: 'divider', borderRadius: 2, p: 4, textAlign: 'center' }}>
+              <img src="https://pblol2.blob.core.windows.net/spac-images/products/actuators/SRA-25-02.jpg" alt="SRA Series Spring Return Actuators" style={{ width: '50%', height: 'auto' }} />
+            </Box>
+          </Grid>
+          <Grid size={{ xs: 12, md: 6 }} order={{ xs: 1, md: 2 }}>
+            <Typography variant="overline" sx={{ color: "#61D649", fontWeight: 600, letterSpacing: 2, fontSize: 11 }}>
+              Pneumatic Actuators
+            </Typography>
+            <Typography
+              variant="h3"
+              component="a"
+              href="https://www.spacpneumatic.co.uk/products/actuators"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mt: 1, mb: 3, display: 'block', color: 'inherit', textDecoration: 'none', '&:hover': { color: '#61D649', textDecoration: 'underline' } }}
+            >
+              SRA Series Spring Return Actuators
+            </Typography>
+            <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
+              Fail-safe pneumatic rack-and-pinion rotary actuators with spring return operation.
+              Engineered for quarter-turn valve automation where reliable closure on loss of air
+              supply is critical. ISO 5211 direct-mount for ball, butterfly and plug valves across
+              process control, water treatment and food & beverage applications.
+            </Typography>
+            <Button
+              variant="outlined"
+              href="https://www.spacpneumatic.co.uk/products/actuators"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{ mt: 3, borderColor: "#61D649", color: "#61D649", textTransform: "none", fontWeight: 700, "&:hover": { bgcolor: "#61D649", color: "#000", borderColor: "#61D649" } }}
+            >
+              Browse Actuators
+            </Button>
+          </Grid>
+        </Grid>
 
-<Divider sx={{ mb: 10 }} />
+        <Divider sx={{ mb: 10 }} />
 
         {/* Applications */}
         <Box sx={{ mb: 10 }}>
@@ -183,8 +208,11 @@ export default function ActuatorsPage() {
             Need a custom torque rating or specific mounting configuration? Our technical
             engineers are ready to assist with your valve automation requirements.
           </Typography>
-          <Button variant="contained" href="mailto:sales@valvenok.com"
-            sx={{ bgcolor: "#61D649", color: "#000", px: 4, py: 1.5, fontWeight: 700 }}>
+          <Button
+            variant="contained"
+            href="mailto:sales@valvenok.com"
+            sx={{ bgcolor: "#61D649", color: "#000", px: 4, py: 1.5, fontWeight: 700 }}
+          >
             Contact Technical Team
           </Button>
         </Box>
