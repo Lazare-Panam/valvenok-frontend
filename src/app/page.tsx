@@ -35,8 +35,7 @@ export default function Home() {
       <DeliveryBanner/>
       <FeaturedValves/>
       <Categories/>
-      <FeaturedStrip/>
-     
+      <FeaturedStrip/> 
       <Brands/>
       <AboutContact/>
     </>

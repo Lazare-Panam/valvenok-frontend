@@ -11,11 +11,6 @@ const marqueFwd = keyframes`
   100% { transform: translateX(-50%); }
 `;
 
-const marqueRev = keyframes`
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0%); }
-`;
-
 const BRANDS = [
   { name: 'PANAM Valves', logo: 'https://pblol2.blob.core.windows.net/panam-images/panam-resize_smallest.jpg', link: 'https://www.panamvalve.com/' },
   { name: 'Cameron', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/cameron-logo.png', link: '#' },
@@ -39,34 +34,25 @@ const BRANDS = [
   { name: 'Anderson Greenwood', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/anderson-greewood-logo.jpg', link: '#' },
 ];
 
-const chunk = (arr: { name: string; logo: string; link: string }[], n: number) => {
-  const size = Math.ceil(arr.length / n);
-  return Array.from({ length: n }, (_, i) => arr.slice(i * size, i * size + size));
-};
-
-const ROWS = chunk(BRANDS, 4);
-
 interface MarqueeRowProps {
   brands: { name: string; logo: string; link: string }[];
-  reverse?: boolean;
   speed?: number;
 }
 
-const MarqueeRow = ({ brands, reverse = false, speed = 25 }: MarqueeRowProps) => {
-  const track = [...brands, ...brands, ...brands, ...brands];
+const MarqueeRow = ({ brands, speed = 60 }: MarqueeRowProps) => {
+  const track = [...brands, ...brands];
 
   return (
     <Box
       sx={{
         overflow: 'hidden',
         position: 'relative',
-        mb: 1.5,
         '&::before, &::after': {
           content: '""',
           position: 'absolute',
           top: 0,
           bottom: 0,
-          width: '100px',
+          width: '120px',
           zIndex: 2,
           pointerEvents: 'none',
         },
@@ -84,7 +70,7 @@ const MarqueeRow = ({ brands, reverse = false, speed = 25 }: MarqueeRowProps) =>
         sx={{
           display: 'flex',
           width: 'max-content',
-          animation: `${reverse ? marqueRev : marqueFwd} ${speed}s linear infinite`,
+          animation: `${marqueFwd} ${speed}s linear infinite`,
           '&:hover': { animationPlayState: 'paused' },
         }}
       >
@@ -111,9 +97,9 @@ const MarqueeRow = ({ brands, reverse = false, speed = 25 }: MarqueeRowProps) =>
               rel="noopener noreferrer"
               sx={{
                 flexShrink: 0,
-                mx: 1,
-                px: 2.5,
-                py: 1.5,
+                mx: 2,
+                px: 7,
+                py: 4,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -134,9 +120,9 @@ const MarqueeRow = ({ brands, reverse = false, speed = 25 }: MarqueeRowProps) =>
                 src={brand.logo}
                 alt={`${brand.name} logo`}
                 sx={{
-                  height: '40px',
+                  height: '160px',
                   width: 'auto',
-                  maxWidth: '120px',
+                  maxWidth: '400px',
                   objectFit: 'contain',
                   opacity: 1,
                   filter: 'grayscale(0%)',
@@ -167,14 +153,7 @@ export default function Brands() {
       }}
     >
       <Container maxWidth="lg">
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 2,
-            mb: 4,
-          }}
-        >
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 4 }}>
           <Box sx={{ flex: 1, height: '1px', bgcolor: 'divider' }} />
           <Typography
             sx={{
@@ -194,10 +173,7 @@ export default function Brands() {
         </Box>
       </Container>
 
-      <MarqueeRow brands={ROWS[0]} reverse={false} speed={28} />
-      <MarqueeRow brands={ROWS[1]} reverse={true}  speed={32} />
-      <MarqueeRow brands={ROWS[2]} reverse={false} speed={26} />
-      <MarqueeRow brands={ROWS[3]} reverse={true}  speed={30} />
+      <MarqueeRow brands={BRANDS} speed={60} />
     </Box>
   );
 }
