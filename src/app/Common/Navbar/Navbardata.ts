@@ -221,16 +221,14 @@ export const CATEGORIES: Category[] = [
       //   href: "https://www.spacpneumatic.co.uk/products/tubing",
       //   external: true,
       // },
-      // {
-      //   label: "Actuators",
-      //   href: "https://www.spacpneumatic.co.uk/products/actuators",
-      //   external: true,
-      // },
-      // {
-      //   label: "Air Gun",
-      //   href: "https://www.spacpneumatic.co.uk/air-gun",
-      //   external: true,
-      // },
+      {
+        label: "Actuators",
+        href: "/pneumatic/actuators",
+      },
+      {
+        label: "Air Gun",
+        href: "/pneumatic/air-gun",
+      },
     ],
   },
   {
