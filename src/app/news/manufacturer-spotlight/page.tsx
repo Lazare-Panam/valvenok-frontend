@@ -87,9 +87,9 @@ export default function ManufacturerSpotlightPage() {
         <Grid container spacing={8} alignItems="flex-start">
 
           {/* Article */}
-          <Grid size={{ xs: 12, md: 8 }}>
+          <Grid size={{ xs: 12, md: 8, }}>
 
-            <Typography sx={{ fontFamily: '"Barlow Condensed"', fontStyle: 'italic', fontSize: '1.4rem', lineHeight: 1.65, color: 'text.primary', mb: 3, fontWeight: 400 }}>
+            <Typography sx={{ fontFamily: '"Barlow Condensed"', fontStyle: 'italic', fontSize: '1.4rem', lineHeight: 1.65, color: '#000000', mb: 3, fontWeight: 400 }}>
               When you source through Valvenok, you're not choosing from one catalogue — you're accessing 16 of the world's most trusted manufacturers simultaneously.
             </Typography>
             <Typography sx={{ color: 'text.secondary', lineHeight: 1.8, mb: 2, fontSize: '1.05rem' }}>

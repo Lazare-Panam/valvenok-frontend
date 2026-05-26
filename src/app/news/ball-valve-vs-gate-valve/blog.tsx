@@ -67,7 +67,7 @@ export default function BallValveVsGateValvePage() {
         </Paper>
 
         {/* ── ARTICLE BODY ── */}
-        <Box sx={{ '& p': { mb: 3, lineHeight: 1.8, color: 'text.secondary', fontSize: '1.1rem' } }}>
+        <Box sx={{ '& p': { mb: 3, lineHeight: 1.8, color: '#000000', fontSize: '1.1rem' } }}>
 
           {/* INTRO */}
           <Typography>
