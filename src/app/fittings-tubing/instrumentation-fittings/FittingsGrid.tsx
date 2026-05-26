@@ -170,7 +170,6 @@ export default function FittingsGrid({ families }: { families: Category[] }) {
                   fullWidth
                   variant="outlined"
                   href={family.href}
-                  target="_blank"
                   rel="noopener noreferrer"
                   endIcon={<ArrowForwardIcon />}
                   sx={{

@@ -169,8 +169,7 @@ export default function IndustrialValvesPage() {
     <Typography
       variant="h3"
       component="a"
-      href="https://www.panamvalve.com/valves"
-      target="_blank"
+      href="/valves/instrumentation-valves"
       rel="noopener noreferrer"
       sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mt: 1, mb: 3, display: 'block', color: 'inherit', textDecoration: 'none', '&:hover': { color: '#61D649', textDecoration: 'underline' } }}
     >
@@ -185,8 +184,7 @@ export default function IndustrialValvesPage() {
     </Typography>
     <Button
       variant="outlined"
-      href="https://www.panamvalve.com/valves"
-      target="_blank"
+      href="/valves/instrumentation-valves"
       rel="noopener noreferrer"
       sx={{ mt: 3, borderColor: "#61D649", color: "#61D649", textTransform: "none", fontWeight: 700, "&:hover": { bgcolor: "#61D649", color: "#000", borderColor: "#61D649" } }}
     >

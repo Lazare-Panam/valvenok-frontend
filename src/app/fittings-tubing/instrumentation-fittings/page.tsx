@@ -19,7 +19,7 @@ const FITTING_FAMILIES: Category[] = [
       "SS316 twin ferrule tube fittings for leak-free instrumentation and process connections. Connectors, adapters, unions, reducers and more across NPT, BSPT and BSPP standards.",
     specs: ["SS316", "Twin Ferrule", "NPT / BSPT / BSPP", "Full Size Range"],
     applications: "Oil & Gas, Petrochemical, Power Generation",
-    href: "https://www.panamvalve.com/tube-fittings",
+    href: "/fittings-tubing/instrumentation-fittings/tube-fittings",
     image:
       "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/Bulkhead-Connector.jpg",
   },
@@ -36,7 +36,7 @@ const FITTING_FAMILIES: Category[] = [
       "650+ Configurations",
     ],
     applications: "Process Piping, Offshore, Marine, Refineries",
-    href: "https://www.panamvalve.com/pipe-fittings",
+    href: "/fittings-tubing/instrumentation-fittings/pipe-fittings",
     image:
       "https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/pipe-fittings/hex%20nipples%20-%20bspp%20x%20bspp%20-%20png.png",
   },
@@ -48,7 +48,7 @@ const FITTING_FAMILIES: Category[] = [
       "SS316 37° JIC flare fittings for high-pressure hydraulic and instrumentation systems. Connectors, unions, elbows, tees and adapters across NPT, BSPT, BSPP and SAE/MS.",
     specs: ["SS316", "37° JIC Flare", "NPT / BSPT / BSPP", "SAE/MS"],
     applications: "Hydraulics, Oil & Gas, Heavy Equipment, Marine",
-    href: "https://www.panamvalve.com/weld-fittings",
+    href: "/fittings-tubing/instrumentation-fittings/jic-fittings",
     image:
       "https://pblol2.blob.core.windows.net/panam-images/products/jic/flare/male-connector-jic.jpg",
   },
@@ -60,7 +60,7 @@ const FITTING_FAMILIES: Category[] = [
       "SS316 butt weld fittings for permanent, high-integrity process connections. Elbows and connectors engineered for the most demanding oil & gas and petrochemical applications.",
     specs: ["SS316", "Butt Weld", "NPT / BSPT / BSPP", "2mm – 25mm OD"],
     applications: "Oil & Gas, Petrochemical, Power Generation, Offshore",
-    href: "https://www.panamvalve.com/weld-fittings",
+    href: "/fittings-tubing/instrumentation-fittings/weld-fittings",
     image:
       "https://pblol2.blob.core.windows.net/panam-images/products/weld-fittings/elbow-weld.jpg",
   },

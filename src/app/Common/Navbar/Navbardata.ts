@@ -44,23 +44,20 @@ export const CATEGORIES: Category[] = [
         children: [
           {
             label: "Tube Fittings",
-            href: "https://www.panamvalve.com/tube-fittings",
-            external: true,
+            href: "/fittings-tubing/instrumentation-fittings/tube-fittings",
           },
           {
             label: "Pipe Fittings",
-            href: "https://www.panamvalve.com/pipe-fittings",
-            external: true,
+            href: "/fittings-tubing/instrumentation-fittings/pipe-fittings",
+
           },
           {
             label: "Flare Fittings",
-            href: "https://www.panamvalve.com/jic-fittings",
-            external: true,
+            href: "/fittings-tubing/instrumentation-fittings/jic-fittings",
           },
           {
             label: "Weld Fittings",
-            href: "https://www.panamvalve.com/weld-fittings",
-            external: true,
+            href: "/fittings-tubing/instrumentation-fittings/weld-fittings",
           },
         ],
       },

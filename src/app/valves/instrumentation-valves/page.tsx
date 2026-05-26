@@ -76,7 +76,7 @@ export default function ValvesIndexPage() {
         title="Valves"
         subtitle="SS316 Valves for Instrumentation & Process Systems"
         description="UK-based supplier of precision instrumentation and process valves engineered for high-pressure, leak-tight performance — with fast global delivery for engineers and buyers."
-        imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/banner-images/valves-hero.jpg"
+        imageSrc="https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/ball-valves-hero.jpg"
         imageAlt="Valvenok SS316 Instrumentation Valves"
         breadcrumb="Products / Valves"
       />

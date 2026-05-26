@@ -170,7 +170,6 @@ export default function ValvesGrid({ families }: { families: Category[] }) {
                   fullWidth
                   variant="outlined"
                   href={family.href}
-                  target="_blank"
                   rel="noopener noreferrer"
                   endIcon={<ArrowForwardIcon />}
                   sx={{
