@@ -167,7 +167,7 @@ export default function IndustrialValvesPage() {
       Precision Instrumentation
     </Typography>
     <Typography
-      variant="h3"
+      variant="h3" //
       component="a"
       href="/valves/instrumentation-valves"
       rel="noopener noreferrer"
