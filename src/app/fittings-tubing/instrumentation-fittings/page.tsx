@@ -64,6 +64,17 @@ const FITTING_FAMILIES: Category[] = [
     image:
       "https://pblol2.blob.core.windows.net/panam-images/products/weld-fittings/elbow-weld.jpg",
   },
+  {
+  code: "SGA",
+  title: "Swivel Gauge Adaptors",
+  subtitle: "360° Adjustable Gauge Positioning",
+  description:
+    "Panam SS316 Swivel Gauge Adaptors with 360° adjustable positioning and silver-plated anti-gall threads. Available in Type M (Metal-to-Metal) and Type S (Soft Sealing PTFE/Grafoil) across NPT, BSPP, BSPT and M20×1.5 thread standards.",
+  specs: ["SS316", "Type M & Type S", "NPT / BSPP / BSPT / M20×1.5", "360° Swivel"],
+  applications: "Pressure Gauges, Instrumentation, Oil & Gas, Process",
+  href: "/fittings-tubing/instrumentation-fittings/swivel-gauge-adaptors",
+  image: "https://pblol2.blob.core.windows.net/panam-images/products/swivel-gauge/PSGA-8N-SS - JPG.jpg",
+},
 ];
 
 const TRUST_POINTS = [

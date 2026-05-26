@@ -351,4 +351,16 @@ export const CATEGORIES: Category[] = [
       },
     ],
   },
+    {
+    id: "dbb",
+    href: "/double-block-and-bleed-valves",
+    label: "Double Block And Bleed",
+    color: "#2e7d32",
+    textColor: "#fff",
+    items: [
+      { label: "Flange to Flange", href: "/double-block-and-bleed-valves/flange-to-flange" },
+      { label: "Flange to Pipe", href: "/double-block-and-bleed-valves/flange-to-pipe" },
+       { label: "Pipe to Pipe", href: "/double-block-and-bleed-valves/pipe-to-pipe" },
+    ],
+  },
 ];
