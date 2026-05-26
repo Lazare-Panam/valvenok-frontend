@@ -43,8 +43,7 @@ export default function ActuatorsPage() {
           <Button
             variant="contained"
             size="large"
-            href="https://www.spacpneumatic.co.uk/products/actuators"
-            target="_blank"
+            href="https://www.valvenok.com/pneumatic/actuators"
             rel="noopener noreferrer"
             sx={{ bgcolor: "#61D649", color: "#000", borderRadius: 1, px: 5, py: 2, fontSize: '1rem', fontWeight: 700, textTransform: 'none', "&:hover": { bgcolor: "#fff", color: "#000" } }}
           >
@@ -155,8 +154,7 @@ export default function ActuatorsPage() {
             <Typography
               variant="h3"
               component="a"
-              href="https://www.spacpneumatic.co.uk/products/actuators"
-              target="_blank"
+              href="/pneumatic/actuators"
               rel="noopener noreferrer"
               sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mt: 1, mb: 3, display: 'block', color: 'inherit', textDecoration: 'none', '&:hover': { color: '#61D649', textDecoration: 'underline' } }}
             >
@@ -170,8 +168,7 @@ export default function ActuatorsPage() {
             </Typography>
             <Button
               variant="outlined"
-              href="https://www.spacpneumatic.co.uk/products/actuators"
-              target="_blank"
+              href="/pneumatic/actuators"
               rel="noopener noreferrer"
               sx={{ mt: 3, borderColor: "#61D649", color: "#61D649", textTransform: "none", fontWeight: 700, "&:hover": { bgcolor: "#61D649", color: "#000", borderColor: "#61D649" } }}
             >

@@ -219,8 +219,7 @@ export default function PneumaticSystemsPage() {
             <Typography
               variant="h3"
               component="a"
-              href="https://www.spacpneumatic.co.uk/products/cylinders"
-              target="_blank"
+              href="/pneumatic/cylinders"
               rel="noopener noreferrer"
               sx={{
                 fontSize: { xs: 24, md: 32 },
@@ -243,8 +242,7 @@ export default function PneumaticSystemsPage() {
             </Typography>
             <Button
               variant="outlined"
-              href="https://www.spacpneumatic.co.uk/products/cylinders"
-              target="_blank"
+              href="/pneumatic/cylinders"
               rel="noopener noreferrer"
               sx={{
                 mt: 3,
@@ -280,10 +278,10 @@ export default function PneumaticSystemsPage() {
           </Grid>
         </Grid>
 
-        <Divider sx={{ mb: 10 }} />
+        {/* <Divider sx={{ mb: 10 }} /> */}
 
         {/* AP Fittings */}
-        <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
+        {/* <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
           <Grid size={{ xs: 12, md: 6 }}>
             <Box
               sx={{
@@ -358,12 +356,12 @@ export default function PneumaticSystemsPage() {
               Browse Fittings
             </Button>
           </Grid>
-        </Grid>
+        </Grid> */}
 
         <Divider sx={{ mb: 10 }} />
 
         {/* Tubing */}
-        <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
+        {/* <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
           <Grid size={{ xs: 12, md: 6 }}>
             <Typography
               variant="overline"
@@ -440,7 +438,7 @@ export default function PneumaticSystemsPage() {
           </Grid>
         </Grid>
 
-        <Divider sx={{ mb: 10 }} />
+        <Divider sx={{ mb: 10 }} /> */}
 
         {/* Air Guns */}
         <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
@@ -475,8 +473,7 @@ export default function PneumaticSystemsPage() {
             <Typography
               variant="h3"
               component="a"
-              href="https://www.spacpneumatic.co.uk/air-gun"
-              target="_blank"
+              href="/pneumatic/air-gun"
               rel="noopener noreferrer"
               sx={{
                 fontSize: { xs: 24, md: 32 },
@@ -499,8 +496,7 @@ export default function PneumaticSystemsPage() {
             </Typography>
             <Button
               variant="outlined"
-              href="https://www.spacpneumatic.co.uk/air-gun"
-              target="_blank"
+              href="/pneumatic/air-gun"
               rel="noopener noreferrer"
               sx={{
                 mt: 3,
@@ -539,8 +535,7 @@ export default function PneumaticSystemsPage() {
             <Typography
               variant="h3"
               component="a"
-              href="https://www.spacpneumatic.co.uk/products/actuators"
-              target="_blank"
+              href="/pneumatic/actuators"
               rel="noopener noreferrer"
               sx={{
                 fontSize: { xs: 24, md: 32 },
@@ -564,8 +559,7 @@ export default function PneumaticSystemsPage() {
             </Typography>
             <Button
               variant="outlined"
-              href="https://www.spacpneumatic.co.uk/products/actuators"
-              target="_blank"
+              href="/pneumatic/actuators"
               rel="noopener noreferrer"
               sx={{
                 mt: 3,
@@ -603,7 +597,7 @@ export default function PneumaticSystemsPage() {
 
         <Divider sx={{ mb: 10 }} />
         {/* Pneumatic Valves */}
-<Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
+{/* <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
   <Grid size={{ xs: 12, md: 6 }}>
     <Box
       sx={{
@@ -679,11 +673,11 @@ export default function PneumaticSystemsPage() {
       Browse  Valves
     </Button>
   </Grid>
-</Grid>
-
-<Divider sx={{ mb: 10 }} />
+</Grid> */}
+{/* 
+<Divider sx={{ mb: 10 }} /> */}
 {/* FRL Units */}
-<Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
+{/* <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
   <Grid size={{ xs: 12, md: 6 }}>
     <Typography
       variant="overline"
@@ -756,7 +750,7 @@ export default function PneumaticSystemsPage() {
     </Box>
   </Grid>
 </Grid>
-<Divider sx={{ mb: 10 }} />
+<Divider sx={{ mb: 10 }} /> */}
 
         {/* Applications */}
         <Box sx={{ mb: 10 }}>

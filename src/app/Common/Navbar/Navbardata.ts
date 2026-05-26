@@ -61,16 +61,16 @@ export const CATEGORIES: Category[] = [
           },
         ],
       },
-      {
-        label: "Pneumatic Tubing",
-        href: "https://www.spacpneumatic.co.uk/products/tubing",
-        external: true,
-      },
-      {
-        label: "Pneumatic Fitting",
-        href: "https://www.spacpneumatic.co.uk/products/fittings",
-        external: true,
-      },
+      // {
+      //   label: "Pneumatic Tubing",
+      //   href: "/pneumatic/tubing",
+      //   external: true,
+      // },
+      // {
+      //   label: "Pneumatic Fitting",
+      //   href: "/pneumatic/fittings",
+      //   external: true,
+      // },
     ],
   },
 {
@@ -82,8 +82,7 @@ export const CATEGORIES: Category[] = [
     items: [
       {
         label: "Pneumatic Actuators",
-        href: "https://www.spacpneumatic.co.uk/products/actuators",
-        external: true,
+        href: "/pneumatic/actuators",
       },
       {
         label: "Electric Actuators",
@@ -100,138 +99,138 @@ export const CATEGORIES: Category[] = [
     items: [
       {
         label: "Cylinder",
-        href: "https://www.spacpneumatic.co.uk/products/cylinders",
+        href: "/pneumatic/cylinders",
         external: true,
         children: [
           {
             label: "SDNC Series — Standard ISO Tie Rod",
-            href: "https://www.spacpneumatic.co.uk/products/cylinders/sdnc",
-            external: true,
+            href: "/pneumatic/cylinders/sdnc",
+            
           },
           {
             label: "ESNC Series — Extended Bore Range",
-            href: "https://www.spacpneumatic.co.uk/products/cylinders/esnc",
-            external: true,
+            href: "/pneumatic/cylinders/esnc",
+           
           },
           {
             label: "ESC Series — Standard Tie Rod Profile",
-            href: "https://www.spacpneumatic.co.uk/products/cylinders/esc",
-            external: true,
+            href: "/pneumatic/cylinders/esc",
+           
           },
           {
             label: "SDNU Series — Round Body Stainless Steel",
-            href: "https://www.spacpneumatic.co.uk/products/cylinders/sdnu",
-            external: true,
+            href: "/pneumatic/cylinders/sdnu",
+           
           },
           {
             label: "EMAL Series — Standard Round Body",
-            href: "https://www.spacpneumatic.co.uk/products/cylinders/emal",
-            external: true,
+            href: "/pneumatic/cylinders/emal",
+            
           },
           {
             label: "SQ2 Series — Short Stroke Compact Profile",
-            href: "https://www.spacpneumatic.co.uk/products/cylinders/sq2",
-            external: true,
+            href: "/pneumatic/cylinders/sq2",
+           
           },
           {
             label: "SDVU Series — Compact Short Stroke",
-            href: "https://www.spacpneumatic.co.uk/products/cylinders/sdvu",
-            external: true,
+            href: "/pneumatic/cylinders/sdvu",
+           
           },
           {
             label: "SDVUL Series — Non-Rotary Short Stroke",
-            href: "https://www.spacpneumatic.co.uk/products/cylinders/sdvul",
-            external: true,
+            href: "/pneumatic/cylinders/sdvul",
+           
           },
         ],
       },
-      {
-        label: "Fittings",
-        href: "https://www.spacpneumatic.co.uk/products/fittings",
-        external: true,
-         children: [
-        {
-          label: "A Series Fittings",
-          href: "https://www.spacpneumatic.co.uk/products/fittings/a-series",
-          external: true,
-        },
-        {
-          label: "E Series Fittings",
-          href: "https://www.spacpneumatic.co.uk/products/fittings/e-series",
-          external: true,
-        },
-        {
-          label: "S-Series Push-In Fittings",
-          href: "https://www.spacpneumatic.co.uk/products/fittings/s-series",
-          external: true,
-        },
-      ],
-      },
+      // {
+      //   label: "Fittings",
+      //   href: "/pneumatic/fittings",
+ 
+      //    children: [
+      //   {
+      //     label: "A Series Fittings",
+      //     href: "/pneumatic/a-series",
+      //     external: true,
+      //   },
+      //   {
+      //     label: "E Series Fittings",
+      //     href: "/pneumatic/e-series",
+      //     external: true,
+      //   },
+      //   {
+      //     label: "S-Series Push-In Fittings",
+      //     href: "https://www.spacpneumatic.co.uk/products/fittings/s-series",
+      //     external: true,
+      //   },
+      // ],
+      // },
 
-      {
-      label: "Valves",
-      href: "https://www.spacpneumatic.co.uk/products/valves",
-      external: true,
-      children: [
-        {
-          label: "FG Series — 5/2 Solenoid Valves",
-          href: "https://www.spacpneumatic.co.uk/products/valves/fg",
-          external: true,
-        },
-        {
-          label: "TG-J Series — Foot Pedal Valves",
-          href: "https://www.spacpneumatic.co.uk/products/valves/foot-pedal",
-          external: true,
-        },
-        {
-          label: "TG Series — Solenoid Valves",
-          href: "https://www.spacpneumatic.co.uk/products/valves/tg-series",
-          external: true,
-        },
-      ],
-      },
-      {
-        label: "FRL",
-        href: "https://www.spacpneumatic.co.uk/products/frl",
-        external: true,
-        children: [
-          {
-            label: "AC Series — Filter-Regulator-Lubricator",
-            href: "https://www.spacpneumatic.co.uk/products/frl/ac-series",
-            external: true,
-          },
-          {
-            label: "AW Series — Filter Regulator",
-            href: "https://www.spacpneumatic.co.uk/products/frl/aw",
-            external: true,
-          },
-          {
-            label: "AR Series — Air Regulator",
-            href: "https://www.spacpneumatic.co.uk/products/frl/ar",
-            external: true,
-          },
-          {
-            label: "AF / AL Series — Air Filter & Lubricator",
-            href: "https://www.spacpneumatic.co.uk/products/frl/af-al",
-            external: true,
-          },
-        ],
-      },
-            {
-        label: "Tubing",
-        href: "https://www.spacpneumatic.co.uk/products/tubing",
-        external: true,
-      },
-      {
-        label: "Actuators",
-        href: "https://www.spacpneumatic.co.uk/products/actuators",
-        external: true,
-      },
-      {
-        label: "Air Gun",
-        href: "https://www.spacpneumatic.co.uk/air-gun",
-        external: true,
-      },
+      // {
+      // label: "Valves",
+      // href: "https://www.spacpneumatic.co.uk/products/valves",
+      // external: true,
+      // children: [
+      //   {
+      //     label: "FG Series — 5/2 Solenoid Valves",
+      //     href: "https://www.spacpneumatic.co.uk/products/valves/fg",
+      //     external: true,
+      //   },
+      //   {
+      //     label: "TG-J Series — Foot Pedal Valves",
+      //     href: "https://www.spacpneumatic.co.uk/products/valves/foot-pedal",
+      //     external: true,
+      //   },
+      //   {
+      //     label: "TG Series — Solenoid Valves",
+      //     href: "https://www.spacpneumatic.co.uk/products/valves/tg-series",
+      //     external: true,
+      //   },
+      // ],
+      // },
+      // {
+      //   label: "FRL",
+      //   href: "https://www.spacpneumatic.co.uk/products/frl",
+      //   external: true,
+      //   children: [
+      //     {
+      //       label: "AC Series — Filter-Regulator-Lubricator",
+      //       href: "https://www.spacpneumatic.co.uk/products/frl/ac-series",
+      //       external: true,
+      //     },
+      //     {
+      //       label: "AW Series — Filter Regulator",
+      //       href: "https://www.spacpneumatic.co.uk/products/frl/aw",
+      //       external: true,
+      //     },
+      //     {
+      //       label: "AR Series — Air Regulator",
+      //       href: "https://www.spacpneumatic.co.uk/products/frl/ar",
+      //       external: true,
+      //     },
+      //     {
+      //       label: "AF / AL Series — Air Filter & Lubricator",
+      //       href: "https://www.spacpneumatic.co.uk/products/frl/af-al",
+      //       external: true,
+      //     },
+      //   ],
+      // },
+      //       {
+      //   label: "Tubing",
+      //   href: "https://www.spacpneumatic.co.uk/products/tubing",
+      //   external: true,
+      // },
+      // {
+      //   label: "Actuators",
+      //   href: "https://www.spacpneumatic.co.uk/products/actuators",
+      //   external: true,
+      // },
+      // {
+      //   label: "Air Gun",
+      //   href: "https://www.spacpneumatic.co.uk/air-gun",
+      //   external: true,
+      // },
     ],
   },
   {
