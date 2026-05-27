@@ -61,6 +61,10 @@ export const CATEGORIES: Category[] = [
           },
         ],
       },
+      {
+        label: "SS Tubing",
+        href: "/fittings-tubing/tubing",
+      },
       // {
       //   label: "Pneumatic Tubing",
       //   href: "/pneumatic/tubing",

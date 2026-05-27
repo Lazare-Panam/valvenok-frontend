@@ -28,6 +28,7 @@ const CATEGORIES = [
       { name: "Instrumentation Valves", href: "/valves" },
       { name: "Pipe Fittings", href: "/fittings-tubing/instrumentation-fittings/pipe-fittings" },
       { name: "Weld Fittings", href: "/fittings-tubing/instrumentation-fittings/weld-fittings" },
+      { name: "SS Tubing", href: "/fittings-tubing/tubing" },
     ],
   },
   {
