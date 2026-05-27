@@ -155,7 +155,7 @@ export default function QuickCouplingIndexPage() {
               </Box>
               <Button variant="outlined" href="/quick-coupling-and-hoses/quick-coupling"
                 sx={{ borderColor: "#61D649", color: "#61D649", textTransform: "none", fontWeight: 700, "&:hover": { bgcolor: "#61D649", color: "#000", borderColor: "#61D649" } }}>
-                Browse Quick Couplings
+                Browse Quick Couplings.
               </Button>
             </Grid>
             <Grid size={{ xs: 12, md: 6 }}>
