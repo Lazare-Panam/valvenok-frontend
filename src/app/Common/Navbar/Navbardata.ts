@@ -360,4 +360,14 @@ export const CATEGORIES: Category[] = [
        { label: "Pipe to Pipe", href: "/double-block-and-bleed-valves/pipe-to-pipe" },
     ],
   },
+  {
+    id: "qc",
+    href: "/quick-coupling-and-hoses",
+    label: "Quick Coupling And Hoses",
+    color: "#2e7d32",
+    textColor: "#fff",
+    items: [
+      { label: "Quick Coupling", href: "/quick-coupling-and-hoses/quick-coupling" },
+    ],
+  },
 ];
