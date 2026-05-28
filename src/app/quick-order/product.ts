@@ -434,7 +434,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     category: "Hex Nipple",
     price: 25.99,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/hex-nipples-npt-x-bspp-1.png",
+      "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/hn-new.png",
     specs: {
       material: "SS316",
       type: "Imperial",
@@ -449,7 +449,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     category: "Hex Nipple",
     price: 25.99,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/hex-nipples-npt-x-bspp-1.png",
+      "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/hn-new.png",
     specs: {
       material: "SS316",
       type: "Imperial",
@@ -465,7 +465,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     category: "Hex Nipple",
     price: 48.86,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/hex-nipples-npt-x-bspp-1.png",
+      "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/hn-new.png",
     specs: {
       material: "SS316",
       pipeSize: '1"',
@@ -482,7 +482,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     category: "Hex Nipple",
     price: 48.86,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/hex-nipples-npt-x-bspp-1.png",
+      "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/hn-new.png",
     specs: {
       material: "SS316",
       pipeSize: '1"',
@@ -499,7 +499,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     category: "Hex Nipple",
     price: 2.66,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/hex-nipples-npt-x-bspp-1.png",
+      "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/hn-new.png",
     specs: {
       material: "SS316",
       pipeSize: '1/8"',
@@ -516,7 +516,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     category: "Hex Nipple",
     price: 6.35,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/hex-nipples-npt-x-bspp-1.png",
+      "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/hn-new.png",
     specs: {
       material: "SS316",
       pipeSize: '1/4"',
@@ -533,7 +533,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     category: "Hex Nipple",
     price: 7.65,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/hex-nipples-npt-x-bspp-1.png",
+      "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/hn-new.png",
     specs: {
       material: "SS316",
       pipeSize: '1/4"',
@@ -551,7 +551,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     category: "Hex Nipple",
     price: 13.75,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/hex-nipples-npt-x-bspp-1.png",
+      "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/hn-new.png",
     specs: {
       material: "SS316",
       pipeSize: '1/4"',
@@ -569,7 +569,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     category: "Hex Nipple",
     price: 6.82,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/hex-nipples-npt-x-bspp-1.png",
+      "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/hn-new.png",
     specs: {
       material: "SS316",
       pipeSize: '1/4"',
@@ -587,7 +587,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     category: "Hex Nipple",
     price: 9.36,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/hex-nipples-npt-x-bspp-1.png",
+      "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/hn-new.png",
     specs: {
       material: "SS316",
       pipeSize: '1/4"',
@@ -604,7 +604,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     category: "Hex Nipple",
     price: 4.51,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/hex-nipples-npt-x-bspp-1.png",
+      "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/hn-new.png",
     specs: {
       material: "SS316",
       pipeSize: '1/4"',
@@ -621,7 +621,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     category: "Hex Nipple",
     price: 9.36,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/hex-nipples-npt-x-bspp-1.png",
+      "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/hn-new.png",
     specs: {
       material: "SS316",
       pipeSize: '3/8"',
@@ -638,7 +638,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     category: "Hex Nipple",
     price: 16.63,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/hex-nipples-npt-x-bspp-1.png",
+      "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/hn-new.png",
     specs: {
       material: "SS316",
       pipeSize: '3/8"',
@@ -655,7 +655,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     category: "Hex Nipple",
     price: 16.63,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/hex-nipples-npt-x-bspp-1.png",
+      "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/hn-new.png",
     specs: {
       material: "SS316",
       pipeSize: '1/2"',
@@ -672,7 +672,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     category: "Hex Nipple",
     price: 19.86,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/hex-nipples-npt-x-bspp-1.png",
+      "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/hn-new.png",
     specs: {
       material: "SS316",
       pipeSize: '1/2"',
@@ -690,7 +690,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     category: "Hex Nipple",
     price: 22.75,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/hex-nipples-npt-x-bspp-1.png",
+      "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/hn-new.png",
     specs: {
       material: "SS316",
       pipeSize: '1/2"',
@@ -707,7 +707,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     category: "Hex Nipple",
     price: 12.08,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/hex-nipples-npt-x-bspp-1.png",
+      "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/hn-new.png",
     specs: {
       material: "SS316",
       pipeSize: '1/2"',
@@ -724,7 +724,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     category: "Hex Nipple",
     price: 22.75,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/hex-nipples-npt-x-bspp-1.png",
+      "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/hn-new.png",
     specs: {
       material: "SS316",
       pipeSize: '1/2"',
@@ -741,7 +741,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     category: "Hex Nipple",
     price: 12.08,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/hex-nipples-npt-x-bspp-1.png",
+      "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/hn-new.png",
     specs: {
       material: "SS316",
       pipeSize: '1/2"',
@@ -2002,7 +2002,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     category: "Close Nipple",
     price: 5.08,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/hex-nipples-npt-x-bspp-1.png",
+      "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/hn-new.png",
     specs: {
       material: "SS316",
       type: "Imperial",
