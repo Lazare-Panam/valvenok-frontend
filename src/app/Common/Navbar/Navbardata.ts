@@ -59,7 +59,7 @@ export const CATEGORIES: Category[] = [
   {
     id: "dbb",
     href: "/double-block-and-bleed-valves",
-    label: "DBB And Manifolds",
+    label: "DBB & Manifolds",
     color: "#2e7d32",
     textColor: "#fff",
     items: [
@@ -80,7 +80,7 @@ export const CATEGORIES: Category[] = [
   {
     id: "qc",
     href: "/quick-coupling-and-hoses",
-    label: "Quick Coupling And Tubing",
+    label: "Quick Coupling & Tubing",
     color: "#2e7d32",
     textColor: "#fff",
     items: [
@@ -97,7 +97,7 @@ export const CATEGORIES: Category[] = [
   {
     id: "pneumatic",
     href: "/pneumatic",
-    label: "Pneumatics And Vaccum",
+    label: "Pneumatics & Vaccum",
     color: "#2e7d32",
     textColor: "#fff",
     items: [
