@@ -32,12 +32,12 @@ export const NAV_LINKS: NavLink[] = [
 
 export const CATEGORIES: Category[] = [
   {
-      id: "fittings",
-      label: "Fittings & Tubing",
-      href: "/fittings-tubing",
-      color: "#1c6e2e",
-      textColor: "#fff",
-      items: [
+    id: "fittings",
+    label: "Instrumentation Fittings",
+    href: "/fittings-tubing",
+    color: "#1c6e2e",
+    textColor: "#fff",
+    items: [
       {
         label: "Instrumentation Fittings",
         href: "/fittings-tubing/instrumentation-fittings",
@@ -49,7 +49,6 @@ export const CATEGORIES: Category[] = [
           {
             label: "Pipe Fittings",
             href: "/fittings-tubing/instrumentation-fittings/pipe-fittings",
-
           },
           {
             label: "Flare Fittings",
@@ -61,10 +60,12 @@ export const CATEGORIES: Category[] = [
           },
         ],
       },
+
       {
         label: "SS Tubing",
         href: "/fittings-tubing/tubing",
       },
+
       // {
       //   label: "Pneumatic Tubing",
       //   href: "/pneumatic/tubing",
@@ -77,27 +78,44 @@ export const CATEGORIES: Category[] = [
       // },
     ],
   },
-{
-    id: "actuators",
-    label: "Actuators",
-    href: "/actuators",
+  {
+    id: "dbb",
+    href: "/double-block-and-bleed-valves",
+    label: "DBB And Manifolds",
     color: "#2e7d32",
     textColor: "#fff",
     items: [
       {
-        label: "Pneumatic Actuators",
-        href: "/pneumatic/actuators",
+        label: "Flange to Flange",
+        href: "/double-block-and-bleed-valves/flange-to-flange",
       },
       {
-        label: "Electric Actuators",
-        href: "/pneumatic/actuators/scotch-yoke",
+        label: "Flange to Pipe",
+        href: "/double-block-and-bleed-valves/flange-to-pipe",
+      },
+      {
+        label: "Pipe to Pipe",
+        href: "/double-block-and-bleed-valves/pipe-to-pipe",
+      },
+    ],
+  },
+  {
+    id: "qc",
+    href: "/quick-coupling-and-hoses",
+    label: "Quick Coupling And Tubing",
+    color: "#2e7d32",
+    textColor: "#fff",
+    items: [
+      {
+        label: "Quick Coupling",
+        href: "/quick-coupling-and-hoses/quick-coupling",
       },
     ],
   },
   {
     id: "pneumatic",
     href: "/pneumatic",
-    label: "Pneumatic",
+    label: "Pneumatics And Vaccum",
     color: "#2e7d32",
     textColor: "#fff",
     items: [
@@ -109,49 +127,41 @@ export const CATEGORIES: Category[] = [
           {
             label: "SDNC Series — Standard ISO Tie Rod",
             href: "/pneumatic/cylinders/sdnc",
-            
           },
           {
             label: "ESNC Series — Extended Bore Range",
             href: "/pneumatic/cylinders/esnc",
-           
           },
           {
             label: "ESC Series — Standard Tie Rod Profile",
             href: "/pneumatic/cylinders/esc",
-           
           },
           {
             label: "SDNU Series — Round Body Stainless Steel",
             href: "/pneumatic/cylinders/sdnu",
-           
           },
           {
             label: "EMAL Series — Standard Round Body",
             href: "/pneumatic/cylinders/emal",
-            
           },
           {
             label: "SQ2 Series — Short Stroke Compact Profile",
             href: "/pneumatic/cylinders/sq2",
-           
           },
           {
             label: "SDVU Series — Compact Short Stroke",
             href: "/pneumatic/cylinders/sdvu",
-           
           },
           {
             label: "SDVUL Series — Non-Rotary Short Stroke",
             href: "/pneumatic/cylinders/sdvul",
-           
           },
         ],
       },
       // {
       //   label: "Fittings",
       //   href: "/pneumatic/fittings",
- 
+
       //    children: [
       //   {
       //     label: "A Series Fittings",
@@ -226,15 +236,29 @@ export const CATEGORIES: Category[] = [
       //   external: true,
       // },
       {
-        label: "Actuators",
-        href: "/pneumatic/actuators",
-      },
-      {
         label: "Air Gun",
         href: "/pneumatic/air-gun",
       },
     ],
   },
+  {
+    id: "actuators",
+    label: "Actuators",
+    href: "/actuators",
+    color: "#2e7d32",
+    textColor: "#fff",
+    items: [
+      {
+        label: "Pneumatic Actuators",
+        href: "/pneumatic/actuators",
+      },
+      {
+        label: "Electric Actuators",
+        href: "/pneumatic/actuators/scotch-yoke",
+      },
+    ],
+  },
+
   {
     id: "filters",
     href: "/filters-sight-glass",
@@ -350,28 +374,6 @@ export const CATEGORIES: Category[] = [
         label: "Mechanical Seals",
         href: "/pumps-seals/seals",
       },
-    ],
-  },
-    {
-    id: "dbb",
-    href: "/double-block-and-bleed-valves",
-    label: "Double Block And Bleed",
-    color: "#2e7d32",
-    textColor: "#fff",
-    items: [
-      { label: "Flange to Flange", href: "/double-block-and-bleed-valves/flange-to-flange" },
-      { label: "Flange to Pipe", href: "/double-block-and-bleed-valves/flange-to-pipe" },
-       { label: "Pipe to Pipe", href: "/double-block-and-bleed-valves/pipe-to-pipe" },
-    ],
-  },
-  {
-    id: "qc",
-    href: "/quick-coupling-and-hoses",
-    label: "Quick Coupling And Hoses",
-    color: "#2e7d32",
-    textColor: "#fff",
-    items: [
-      { label: "Quick Coupling", href: "/quick-coupling-and-hoses/quick-coupling" },
     ],
   },
 ];

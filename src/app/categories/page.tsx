@@ -21,7 +21,7 @@ const categories = [
   {
     slug: 'fittings-valves',
     href: '/fittings-tubing',
-    name: 'Fittings & Tubing',
+    name: 'Instrumentation Fittings',
     tagline: 'Ball, gate, check & butterfly',
     image: 'https://pblol2.blob.core.windows.net/valvenok-images/products/fittings/hex_couplings.png',
     count: 120,
