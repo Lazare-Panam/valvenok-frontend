@@ -36,7 +36,7 @@ export default function QuickCouplingIndexPage() {
             variant="h1"
             sx={{ fontSize: { xs: 42, md: 72 }, fontWeight: 800, color: "#fff", mt: 1, mb: 3, lineHeight: 1.1, maxWidth: 900, textShadow: "0px 2px 10px rgba(0,0,0,0.3)" }}
           >
-            Quick Couplings &amp; Hoses
+            Quick Couplings &amp; Tubing
           </Typography>
           <Typography
             sx={{ fontSize: { xs: 18, md: 20 }, color: "rgba(255,255,255,0.9)", maxWidth: 620, mb: 5, lineHeight: 1.7 }}
@@ -167,7 +167,115 @@ export default function QuickCouplingIndexPage() {
         </Box>
 
         <Divider sx={{ mb: 10 }} />
-
+        <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Box
+              sx={{
+                borderColor: "divider",
+                borderRadius: 2,
+                p: 4,
+                textAlign: "center",
+              }}
+            >
+              <img
+                src="https://pblol2.blob.core.windows.net/panam-images/products/tubing/tubing-2.png"
+                alt="PANAM Stainless Steel Tubing"
+                style={{ width: "70%", height: "auto" }}
+              />
+            </Box>
+          </Grid>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Typography
+              variant="overline"
+              sx={{
+                color: "#61D649",
+                fontWeight: 600,
+                letterSpacing: 2,
+                fontSize: 11,
+              }}
+            >
+              Fluid Conveyance
+            </Typography>
+            <Typography
+              variant="h3"
+              component="a"
+              href="/fittings-tubing/tubing"
+              sx={{
+                fontSize: { xs: 24, md: 32 },
+                fontWeight: 700,
+                mt: 1,
+                mb: 3,
+                display: "block",
+                color: "inherit",
+                textDecoration: "none",
+                "&:hover": { color: "#61D649", textDecoration: "underline" },
+              }}
+            >
+              Stainless Steel Tubing
+            </Typography>
+            <Typography
+              sx={{ color: "text.secondary", lineHeight: 1.8, mb: 2 }}
+            >
+              Premium seamless stainless steel tubing engineered for
+              instrumentation and process applications. Available in SS316 and
+              SS304 with imperial and metric outside diameters. Fully compatible
+              with PANAM twin-ferrule fittings — supplied to demanding tolerance
+              and surface finish standards for reliable, leak-tight connections.
+            </Typography>
+            <Box
+              sx={{ display: "flex", flexDirection: "column", gap: 0.5, mb: 3 }}
+            >
+              {[
+                "Seamless SS316 & SS304",
+                'Imperial OD: 1/16" to 1"',
+                "Metric OD: 3mm to 25mm",
+                "Tight Tolerance & Surface Finish",
+                "Compatible with PANAM Fittings",
+              ].map((item) => (
+                <Typography
+                  key={item}
+                  sx={{
+                    fontSize: 14,
+                    color: "text.secondary",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 1.5,
+                  }}
+                >
+                  <Box
+                    component="span"
+                    sx={{
+                      width: 6,
+                      height: 6,
+                      borderRadius: "50%",
+                      bgcolor: "#61D649",
+                      flexShrink: 0,
+                    }}
+                  />
+                  {item}
+                </Typography>
+              ))}
+            </Box>
+            <Button
+              variant="outlined"
+              href="/fittings-tubing/tubing"
+              sx={{
+                borderColor: "#61D649",
+                color: "#61D649",
+                textTransform: "none",
+                fontWeight: 700,
+                "&:hover": {
+                  bgcolor: "#61D649",
+                  color: "#000",
+                  borderColor: "#61D649",
+                },
+              }}
+            >
+              Browse Tubing
+            </Button>
+          </Grid>
+        </Grid>
+         <Divider sx={{ mb: 10 }} />
         {/* ── APPLICATIONS ── */}
         <Box sx={{ mb: 10 }}>
           <Typography variant="h3" sx={{ fontSize: { xs: 24, md: 30 }, fontWeight: 700, mb: 2 }}>

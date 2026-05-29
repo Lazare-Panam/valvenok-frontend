@@ -38,44 +38,22 @@ export const CATEGORIES: Category[] = [
     color: "#1c6e2e",
     textColor: "#fff",
     items: [
-      {
-        label: "Instrumentation Fittings",
-        href: "/fittings-tubing/instrumentation-fittings",
-        children: [
-          {
-            label: "Tube Fittings",
-            href: "/fittings-tubing/instrumentation-fittings/tube-fittings",
-          },
-          {
-            label: "Pipe Fittings",
-            href: "/fittings-tubing/instrumentation-fittings/pipe-fittings",
-          },
-          {
-            label: "Flare Fittings",
-            href: "/fittings-tubing/instrumentation-fittings/jic-fittings",
-          },
-          {
-            label: "Weld Fittings",
-            href: "/fittings-tubing/instrumentation-fittings/weld-fittings",
-          },
-        ],
-      },
-
-      {
-        label: "SS Tubing",
-        href: "/fittings-tubing/tubing",
-      },
-
-      // {
-      //   label: "Pneumatic Tubing",
-      //   href: "/pneumatic/tubing",
-      //   external: true,
-      // },
-      // {
-      //   label: "Pneumatic Fitting",
-      //   href: "/pneumatic/fittings",
-      //   external: true,
-      // },
+        {
+          label: "Tube Fittings",
+          href: "/fittings-tubing/instrumentation-fittings/tube-fittings",
+        },
+        {
+          label: "Pipe Fittings",
+          href: "/fittings-tubing/instrumentation-fittings/pipe-fittings",
+        },
+        {
+          label: "Flare Fittings",
+          href: "/fittings-tubing/instrumentation-fittings/jic-fittings",
+        },
+        {
+          label: "Weld Fittings",
+          href: "/fittings-tubing/instrumentation-fittings/weld-fittings",
+        }
     ],
   },
   {
@@ -109,6 +87,10 @@ export const CATEGORIES: Category[] = [
       {
         label: "Quick Coupling",
         href: "/quick-coupling-and-hoses/quick-coupling",
+      },
+        {
+        label: "SS Tubing",
+        href: "/fittings-tubing/tubing",
       },
     ],
   },
