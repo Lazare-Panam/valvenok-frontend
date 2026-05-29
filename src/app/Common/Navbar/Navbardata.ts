@@ -57,26 +57,50 @@ export const CATEGORIES: Category[] = [
     ],
   },
   {
-    id: "dbb",
-    href: "/double-block-and-bleed-valves",
-    label: "DBB & Manifolds",
-    color: "#2e7d32",
-    textColor: "#fff",
-    items: [
-      {
-        label: "Flange to Flange",
-        href: "/double-block-and-bleed-valves/flange-to-flange",
-      },
-      {
-        label: "Flange to Pipe",
-        href: "/double-block-and-bleed-valves/flange-to-pipe",
-      },
-      {
-        label: "Pipe to Pipe",
-        href: "/double-block-and-bleed-valves/pipe-to-pipe",
-      },
-    ],
-  },
+  id: "dbb",
+  href: "/dbb-manifolds",
+  label: "DBB & Manifolds",
+  color: "#2e7d32",
+  textColor: "#fff",
+  items: [
+    {
+      label: "Double Block & Bleed Valves",
+      href: "/dbb-manifolds/double-block-and-bleed-valves",
+      children: [
+        {
+          label: "Flange to Flange",
+          href: "/dbb-manifolds/double-block-and-bleed-valves/flange-to-flange",
+        },
+        {
+          label: "Flange to Pipe",
+          href: "/dbb-manifolds/double-block-and-bleed-valves/flange-to-pipe",
+        },
+        {
+          label: "Pipe to Pipe",
+          href: "/dbb-manifolds/double-block-and-bleed-valves/pipe-to-pipe",
+        },
+      ],
+    },
+    {
+      label: "Valve Manifolds",
+      href: "/dbb-manifolds/manifolds",
+      children: [
+        {
+          label: "2-Valve Manifold",
+          href: "/dbb-manifolds/manifolds/2VM",
+        },
+        {
+          label: "3-Valve Manifold",
+          href: "/dbb-manifolds/manifolds/3VM",
+        },
+        {
+          label: "5-Valve Manifold",
+          href: "/dbb-manifolds/manifolds/5VM",
+        },
+      ],
+    },
+  ],
+},
   {
     id: "qc",
     href: "/quick-coupling-and-hoses",
