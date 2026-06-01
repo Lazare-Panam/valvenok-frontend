@@ -32,75 +32,155 @@ export const NAV_LINKS: NavLink[] = [
 
 export const CATEGORIES: Category[] = [
   {
+    id: "high-pressure",
+    label: "High Pressure/ Hydrogen",
+    href: "/high-pressure",
+    color: "#2e7d32",
+    textColor: "#fff",
+    items: [
+      {
+        label: "High Pressure Fittings",
+        href: "/high-pressure/fittings",
+        children: [
+          {
+            label: "Adapters & Reducers",
+            href: "/high-pressure/fittings/adapters",
+          },
+          {
+            label: "Cone & Thread Connectors",
+            href: "/high-pressure/fittings/connectors",
+          },
+          {
+            label: "Caps & Plugs",
+            href: "/high-pressure/fittings/end-connections",
+          },
+          {
+            label: "Elbows, Tees, Crosses & Nipples",
+            href: "/high-pressure/fittings/junction-fittings",
+          },
+          { label: "Unions", href: "/high-pressure/fittings/union" },
+        ],
+      },
+      {
+        label: "High Pressure Pipe Fittings",
+        href: "/high-pressure/pipe-fittings",
+        children: [
+          {
+            label: "Hex Couplings",
+            href: "/high-pressure/pipe-fittings/hex-coupling",
+          },
+          {
+            label: "Hex Nipples",
+            href: "/high-pressure/pipe-fittings/hex-nipples",
+          },
+          { label: "Adapters", href: "/high-pressure/pipe-fittings/adapters" },
+          { label: "Elbows", href: "/high-pressure/pipe-fittings/elbows" },
+          {
+            label: "Plugs & Caps",
+            href: "/high-pressure/pipe-fittings/end-connections",
+          },
+          {
+            label: "Tees & Crosses",
+            href: "/high-pressure/pipe-fittings/tees-cross",
+          },
+        ],
+      },
+      {
+        label: "Ball Valves",
+        href: "/high-pressure/ball-valves",
+      },
+      {
+        label: "Needle Valves",
+        href: "/high-pressure/needle-valves",
+      },
+      {
+        label: "DBB Valves",
+        href: "/high-pressure/dbb",
+      },
+      {
+        label: "Manifolds",
+        href: "/high-pressure/manifolds",
+      },
+      {
+        label: "Seals & Glands",
+        href: "/high-pressure/seals-glands",
+      },
+      {
+        label: "Cone & Thread Nipples",
+        href: "/high-pressure/cone-threaded-nipples",
+      },
+    ],
+  },
+  {
     id: "fittings",
     label: "Instrumentation Fittings",
     href: "/fittings-tubing",
     color: "#1c6e2e",
     textColor: "#fff",
     items: [
-        {
-          label: "Tube Fittings",
-          href: "/fittings-tubing/instrumentation-fittings/tube-fittings",
-        },
-        {
-          label: "Pipe Fittings",
-          href: "/fittings-tubing/instrumentation-fittings/pipe-fittings",
-        },
-        {
-          label: "Flare Fittings",
-          href: "/fittings-tubing/instrumentation-fittings/jic-fittings",
-        },
-        {
-          label: "Weld Fittings",
-          href: "/fittings-tubing/instrumentation-fittings/weld-fittings",
-        }
+      {
+        label: "Tube Fittings",
+        href: "/fittings-tubing/instrumentation-fittings/tube-fittings",
+      },
+      {
+        label: "Pipe Fittings",
+        href: "/fittings-tubing/instrumentation-fittings/pipe-fittings",
+      },
+      {
+        label: "Flare Fittings",
+        href: "/fittings-tubing/instrumentation-fittings/jic-fittings",
+      },
+      {
+        label: "Weld Fittings",
+        href: "/fittings-tubing/instrumentation-fittings/weld-fittings",
+      },
     ],
   },
   {
-  id: "dbb",
-  href: "/dbb-manifolds",
-  label: "DBB & Manifolds",
-  color: "#2e7d32",
-  textColor: "#fff",
-  items: [
-    {
-      label: "Double Block & Bleed Valves",
-      href: "/dbb-manifolds/double-block-and-bleed-valves",
-      children: [
-        {
-          label: "Flange to Flange",
-          href: "/dbb-manifolds/double-block-and-bleed-valves/flange-to-flange",
-        },
-        {
-          label: "Flange to Pipe",
-          href: "/dbb-manifolds/double-block-and-bleed-valves/flange-to-pipe",
-        },
-        {
-          label: "Pipe to Pipe",
-          href: "/dbb-manifolds/double-block-and-bleed-valves/pipe-to-pipe",
-        },
-      ],
-    },
-    {
-      label: "Valve Manifolds",
-      href: "/dbb-manifolds/manifolds",
-      children: [
-        {
-          label: "2-Valve Manifold",
-          href: "/dbb-manifolds/manifolds/2VM",
-        },
-        {
-          label: "3-Valve Manifold",
-          href: "/dbb-manifolds/manifolds/3VM",
-        },
-        {
-          label: "5-Valve Manifold",
-          href: "/dbb-manifolds/manifolds/5VM",
-        },
-      ],
-    },
-  ],
-},
+    id: "dbb",
+    href: "/dbb-manifolds",
+    label: "DBB & Manifolds",
+    color: "#2e7d32",
+    textColor: "#fff",
+    items: [
+      {
+        label: "Double Block & Bleed Valves",
+        href: "/dbb-manifolds/double-block-and-bleed-valves",
+        children: [
+          {
+            label: "Flange to Flange",
+            href: "/dbb-manifolds/double-block-and-bleed-valves/flange-to-flange",
+          },
+          {
+            label: "Flange to Pipe",
+            href: "/dbb-manifolds/double-block-and-bleed-valves/flange-to-pipe",
+          },
+          {
+            label: "Pipe to Pipe",
+            href: "/dbb-manifolds/double-block-and-bleed-valves/pipe-to-pipe",
+          },
+        ],
+      },
+      {
+        label: "Valve Manifolds",
+        href: "/dbb-manifolds/manifolds",
+        children: [
+          {
+            label: "2-Valve Manifold",
+            href: "/dbb-manifolds/manifolds/2VM",
+          },
+          {
+            label: "3-Valve Manifold",
+            href: "/dbb-manifolds/manifolds/3VM",
+          },
+          {
+            label: "5-Valve Manifold",
+            href: "/dbb-manifolds/manifolds/5VM",
+          },
+        ],
+      },
+    ],
+  },
   {
     id: "qc",
     href: "/quick-coupling-and-hoses",
@@ -112,7 +192,7 @@ export const CATEGORIES: Category[] = [
         label: "Quick Coupling",
         href: "/quick-coupling-and-hoses/quick-coupling",
       },
-        {
+      {
         label: "SS Tubing",
         href: "/fittings-tubing/tubing",
       },
