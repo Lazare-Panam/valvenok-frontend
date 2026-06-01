@@ -24,7 +24,7 @@ const FOOTER_LINKS = [
     title: "Products",
     links: [
       { label: "Instrumentation Valves", href: "/valves" },
-      { label: "Pumps & Motors", href: "/pumps" },
+      { label: "Pumps & Seals", href: "/pumps-seals" },
       { label: "Pneumatic Components", href: "/categories/frl" },
       { label: "Fittings", href: "/fittings-tubing/instrumentation-fittings/jic-fittings" },
     ],
