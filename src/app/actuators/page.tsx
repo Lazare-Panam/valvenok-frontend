@@ -23,7 +23,7 @@ const SERIES = [
   {
     category: "Electric Actuators",
     title: "Electric Rotary & Linear Actuators",
-    href: "/actuators",
+    href: "/actuators/electric",
     image: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/itq.webp",
     alt: "Electric Actuators",
     description:
