@@ -100,40 +100,6 @@ export default function ProductDetailPage() {
   return (
     <>
       <Box sx={{ bgcolor: 'background.default', minHeight: '100vh', pb: 12 }}>
-
-        {/* Top bar */}
-        <Box sx={{ bgcolor: 'text.primary', color: 'white', py: 4, borderBottom: '4px solid', borderColor: 'primary.main' }}>
-          <Container maxWidth="lg">
-            <Breadcrumbs
-              separator={<NavigateNextIcon fontSize="small" sx={{ color: alpha('#fff', 0.4) }} />}
-              sx={{ mb: 2 }}
-            >
-              <Typography
-                onClick={() => router.push('/valves/industrial-valves')}
-                sx={{ color: alpha('#fff', 0.5), fontSize: '0.75rem', fontWeight: 600, cursor: 'pointer', '&:hover': { color: '#fff' } }}
-              >
-                INDUSTRIAL VALVES
-              </Typography>
-              <Typography
-                onClick={() => router.push('/valves/industrial-valves')}
-                sx={{ color: alpha('#fff', 0.5), fontSize: '0.75rem', fontWeight: 600, cursor: 'pointer', '&:hover': { color: '#fff' } }}
-              >
-                {valve.category.toUpperCase()}
-              </Typography>
-              <Typography sx={{ color: 'primary.main', fontSize: '0.75rem', fontWeight: 700 }}>
-                {valve.name.toUpperCase()}
-              </Typography>
-            </Breadcrumbs>
-            <Button
-              startIcon={<ArrowBackIcon />}
-              onClick={() => router.back()}
-              sx={{ color: alpha('#fff', 0.6), fontWeight: 700, fontSize: '0.75rem', px: 0, '&:hover': { color: '#fff', bgcolor: 'transparent' } }}
-            >
-              BACK
-            </Button>
-          </Container>
-        </Box>
-
         {/* Hero */}
         <Container maxWidth="lg" sx={{ mt: 6 }}>
           <Grid container spacing={6}>
@@ -188,7 +154,7 @@ export default function ProductDetailPage() {
 
               <Typography
                 variant="h3"
-                sx={{ fontFamily: '"Barlow Condensed"', fontWeight: 900, textTransform: 'uppercase', lineHeight: 1, mb: 1 }}
+                sx={{ fontFamily: '"Barlow Condensed"', fontWeight: 100, textTransform: 'uppercase', lineHeight: 1, mb: 1 }}
               >
                 {valve.name}
               </Typography>
@@ -295,13 +261,13 @@ export default function ProductDetailPage() {
               <Box>
                 <Typography
                   variant="overline"
-                  sx={{ fontFamily: '"Barlow Condensed"', color: 'primary.main', fontWeight: 800, letterSpacing: 2 }}
+                  sx={{ fontFamily: '"Barlow Condensed"', color: 'primary.main', fontWeight: 100, letterSpacing: 2 }}
                 >
                   {valve.category}
                 </Typography>
                 <Typography
                   variant="h4"
-                  sx={{ fontFamily: '"Barlow Condensed"', fontWeight: 900, textTransform: 'uppercase', lineHeight: 1 }}
+                  sx={{ fontFamily: '"Barlow Condensed"', fontWeight: 100, textTransform: 'uppercase', lineHeight: 1 }}
                 >
                   Similar Products
                 </Typography>

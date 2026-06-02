@@ -43,7 +43,7 @@ const SERIES = [
   {
     category: "Gearboxes & Manual Actuators ",
     title: "Mechanical Actuators",
-    href: "/actuators",
+    href: "/actuators/mechanical",
     image: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/mechanical/mab.webp",
     alt: "Mechanical Actuators",
     description:
