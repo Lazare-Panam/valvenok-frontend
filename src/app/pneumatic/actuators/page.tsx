@@ -50,6 +50,57 @@ const ACTUATOR_FAMILIES: Category[] = [
   "applications": "Oil & Gas, Pipeline, Offshore, Heavy Industry, Challenging Environments",
   "href": "/pneumatic/actuators/pds",
   "image": "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/pneumatic/pdf.webp"
+},
+{
+  "code": "HD",
+  "title": "HD Series",
+  "subtitle": "Heavy-Duty Scotch Yoke Pneumatic Actuator — IS & IC Series",
+  "description": "Heavy-duty scotch yoke pneumatic actuators in Symmetric (IS) and Canted (IC) configurations, engineered for demanding industrial valve automation. Wide torque range for ball, butterfly and plug valves — on-off and modulating service. ATEX, SIL3 and PED certified.",
+  "specs": [
+    "Scotch Yoke IS & IC",
+    "132 – 120,867 Nm",
+    "3.5 – 10 bar",
+    "-20°C to +85°C",
+    "IP66 / IP67",
+    "ISO 5211 / ATEX / SIL3"
+  ],
+  "applications": "Oil & Gas, Pipeline, Offshore, Petrochemical, Heavy Industry",
+  "href": "/pneumatic/actuators/hd",
+  "image": "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/pneumatic/hd.webp"
+},
+{
+  "code": "PLDS",
+  "title": "PLDS Series",
+  "subtitle": "Pneumatic Linear Double Acting Cylinder",
+  "description": "Double-acting pneumatic linear cylinders engineered for precise motion control in automation systems and valve actuation. Low-friction seals, universal ISO mounting, and multiple corrosion protection grades for demanding industrial environments.",
+  "specs": [
+    "Double Acting",
+    "3 – 7 bar",
+    "-20°C to +80°C",
+    "IP66",
+    "ISO 3322 / 4393 / 5597",
+    "Multiple Corrosion Grades"
+  ],
+  "applications": "Valve Actuation, Automation Systems, Oil & Gas, Chemical, Offshore",
+  "href": "/pneumatic/actuators/plds",
+  "image": "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/pneumatic/plds.webp"
+},
+{
+  "code": "MPLDS",
+  "title": "MPLDS Series",
+  "subtitle": "Micro Pneumatic Double Acting Linear Actuator",
+  "description": "Compact double-acting pneumatic linear actuators engineered for fine automation and precise linear motion in tight spaces. Modular design, IP66 protection, and wide pressure range with support for positioners, solenoids and limit switches.",
+  "specs": [
+    "Double Acting",
+    "2.1 – 6.2 bar (30–90 PSIG)",
+    "-10°C to +60°C",
+    "IP66",
+    "Compact Modular Design",
+    "Positioner / Solenoid Ready"
+  ],
+  "applications": "Fine Automation, Small-Scale Valve Actuation, Instrumentation, Process Control",
+  "href": "/pneumatic/actuators/mplds",
+  "image": "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/pneumatic/mplds.webp"
 }
 ];
 
