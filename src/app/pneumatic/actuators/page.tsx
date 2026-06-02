@@ -35,6 +35,22 @@ const ACTUATOR_FAMILIES: Category[] = [
     image:
       "https://pblol2.blob.core.windows.net/panam-images/products/actuators/AD-Series.jpeg",
   },
+  {
+  "code": "PDS",
+  "title": "PDS Series",
+  "subtitle": "Scotch Yoke Pneumatic Actuator — Double & Single Acting",
+  "description": "Scotch-Yoke pneumatic actuators engineered for superior break-out torque in demanding flow control environments. Available in double acting (PD) and single acting spring return (PS) configurations with hard anodized aluminum construction for corrosion resistance.",
+  "specs": [
+    "Scotch Yoke",
+    "3.5–8 Bar",
+    "-20°C to +80°C",
+    "ISO 5211 / NAMUR / VDI-VDE 3845",
+    "±5° Adjustable Travel Stops"
+  ],
+  "applications": "Oil & Gas, Pipeline, Offshore, Heavy Industry, Challenging Environments",
+  "href": "/pneumatic/actuators/pds",
+  "image": "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/pneumatic/pdf.webp"
+}
 ];
 
 const TRUST_POINTS = [
