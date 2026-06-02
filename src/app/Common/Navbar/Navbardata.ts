@@ -342,6 +342,10 @@ export const CATEGORIES: Category[] = [
         label: "Electric Actuators",
         href: "/actuators/electric",
       },
+      {
+        label: "Hydraulic Actuators",
+        href: "/actuators/hydraulic",
+      },
     ],
   },
 

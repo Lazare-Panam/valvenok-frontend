@@ -33,7 +33,7 @@ const SERIES = [
   {
     category: "Hydraulic Actuators",
     title: "Hydraulic Rotary & Linear Actuators",
-    href: "/actuators",
+    href: "/actuators/hydraulic",
     image: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/hydraulic/adf.webp",
     alt: "Hydraulic Actuators",
     description:
