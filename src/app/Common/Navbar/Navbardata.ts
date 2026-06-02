@@ -328,26 +328,51 @@ export const CATEGORIES: Category[] = [
     ],
   },
   {
-    id: "actuators",
-    label: "Actuators",
-    href: "/actuators",
-    color: "#2e7d32",
-    textColor: "#fff",
-    items: [
-      {
-        label: "Pneumatic Actuators",
-        href: "/pneumatic/actuators",
-      },
-      {
-        label: "Electric Actuators",
-        href: "/actuators/electric",
-      },
-      {
-        label: "Hydraulic Actuators",
-        href: "/actuators/hydraulic",
-      },
-    ],
-  },
+  id: "actuators",
+  label: "Actuators",
+  href: "/actuators",
+  color: "#2e7d32",
+  textColor: "#fff",
+  items: [
+    {
+      label: "Pneumatic Actuators",
+      href: "/pneumatic/actuators",
+      children: [
+        { label: "SRA Series — Spring Return Rack & Pinion", href: "/pneumatic/actuators/sra" },
+        { label: "AD Series — Scotch Yoke Heavy-Duty", href: "/pneumatic/actuators/scotch-yoke" },
+        { label: "PDS Series — Scotch Yoke Double & Single Acting", href: "/pneumatic/actuators/pds" },
+        { label: "HD Series — Heavy-Duty IS & IC", href: "/pneumatic/actuators/hd" },
+        { label: "PLDS Series — Linear Double Acting Cylinder", href: "/pneumatic/actuators/plds" },
+        { label: "MPLDS Series — Micro Linear Double Acting", href: "/pneumatic/actuators/mplds" },
+      ],
+    },
+    {
+      label: "Electric Actuators",
+      href: "/actuators/electric",
+      children: [
+        { label: "ITQ Series — Rotary Electric Actuator", href: "/actuators/electric/itq" },
+        { label: "IQL Series — Linear Electric Actuator", href: "/actuators/electric/iql" },
+        { label: "ITL Series — Compact Linear 100% Duty Cycle", href: "/actuators/electric/itl" },
+        { label: "ITM Series — Multi-Turn Heavy-Duty", href: "/actuators/electric/itm" },
+      ],
+    },
+    {
+      label: "Hydraulic Actuators",
+      href: "/actuators/hydraulic",
+      children: [
+        { label: "ADF Series — Electro-Hydraulic Rotary (PANDA & PA)", href: "/actuators/hydraulic/adf" },
+      ],
+    },
+    {
+      label: "Mechanical Actuators",
+      href: "/actuators/mechanical",
+      children: [
+        { label: "MAB Series — Bevel Gear Multi-Turn", href: "/actuators/mechanical/mab" },
+        { label: "MAW Series — Worm Gear Quarter-Turn", href: "/actuators/mechanical/maw" },
+      ],
+    },
+  ],
+},
 
   {
     id: "filters",
