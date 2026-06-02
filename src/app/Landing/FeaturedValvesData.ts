@@ -9,7 +9,7 @@ export interface FeaturedValve {
   specs: { label: string; value: string }[];
 }
 
-export const VALVES: FeaturedValve[] = [
+export const FEATURED_PRODUCTS: FeaturedValve[] = [
   {
     id: 'cameron-wkm-370d',
     name: 'WKM 370D Series',
@@ -92,6 +92,77 @@ export const VALVES: FeaturedValve[] = [
       { label: 'Size Range', value: 'NPS 1/4"–2" | DN 6–50' },
       { label: 'Pressure Class', value: '4500 LTD' },
       { label: 'Max Pressure', value: '11,250 psig (776 bar)' },
+    ],
+  },
+  // ── Actuators ──
+  {
+    id: 'itq-electric-rotary',
+    name: 'ITQ Series Rotary Electric Actuator',
+    category: 'Electric Actuators',
+    categoryId: 'electric-actuators',
+    brand: 'Susin',
+    brandLogo: 'https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp',
+    thumbnail: 'https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/itq.webp',
+    specs: [
+      { label: 'Torque', value: '100 – 9,000 Nm' },
+      { label: 'Protection', value: 'IP67 / NEMA 4X & 6' },
+      { label: 'Mounting', value: 'ISO 5211' },
+    ],
+  },
+  {
+    id: 'itm-multiturn-electric',
+    name: 'ITM Series Multi-Turn Electric Actuator',
+    category: 'Electric Actuators',
+    categoryId: 'electric-actuators',
+    brand: 'Susin',
+    brandLogo: 'https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp',
+    thumbnail: 'https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/itm.webp',
+    specs: [
+      { label: 'Type', value: 'Multi-Turn Heavy-Duty' },
+      { label: 'Protection', value: 'IP68 Waterproof' },
+      { label: 'Feedback', value: 'Hall Incremental Encoder' },
+    ],
+  },
+  {
+    id: 'hd-scotch-yoke',
+    name: 'HD Series Heavy-Duty Scotch Yoke Actuator',
+    category: 'Pneumatic Actuators',
+    categoryId: 'pneumatic-actuators',
+    brand: 'Susin',
+    brandLogo: 'https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp',
+    thumbnail: 'https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/pneumatic/hd.webp',
+    specs: [
+      { label: 'Torque', value: '132 – 120,867 Nm' },
+      { label: 'Pressure', value: '3.5 – 10 bar' },
+      { label: 'Certifications', value: 'ATEX / SIL3 / PED' },
+    ],
+  },
+  {
+    id: 'adf-electro-hydraulic',
+    name: 'ADF Series Electro-Hydraulic Rotary Actuator',
+    category: 'Hydraulic Actuators',
+    categoryId: 'hydraulic-actuators',
+    brand: 'Susin',
+    brandLogo: 'https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp',
+    thumbnail: 'https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/hydraulic/adf.webp',
+    specs: [
+      { label: 'Torque', value: '46 – 10,000 Nm' },
+      { label: 'Protection', value: 'IP67 / IP68' },
+      { label: 'Certifications', value: 'ATEX Zone 1 & 2 / SIL3' },
+    ],
+  },
+  {
+    id: 'maw-worm-gear',
+    name: 'MAW Series Worm Gear Actuator',
+    category: 'Mechanical Actuators',
+    categoryId: 'mechanical-actuators',
+    brand: 'Susin',
+    brandLogo: 'https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp',
+    thumbnail: 'https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/mechanical/worm-gearboxes.webp',
+    specs: [
+      { label: 'Torque', value: '100 – 32,000 Nm' },
+      { label: 'Protection', value: 'Up to IP67M' },
+      { label: 'Mounting', value: 'ISO 5211 / MOV Compatible' },
     ],
   },
 ];
