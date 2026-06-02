@@ -340,7 +340,7 @@ export const CATEGORIES: Category[] = [
       },
       {
         label: "Electric Actuators",
-        href: "/pneumatic/actuators/scotch-yoke",
+        href: "/actuators/electric",
       },
     ],
   },
