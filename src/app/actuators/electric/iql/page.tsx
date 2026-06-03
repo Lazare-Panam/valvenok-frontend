@@ -165,25 +165,45 @@ export default function IQLPage() {
                   </Box>
                 ))}
               </Box>
-
-              <Button
-                variant="contained"
-                size="large"
-                fullWidth
-                startIcon={<ContactSupportIcon />}
-                onClick={() => setModalOpen(true)}
-                sx={{
-                  borderRadius: 0,
-                  fontWeight: 800,
-                  py: 1.75,
-                  fontSize: "1rem",
-                  boxShadow: "none",
-                  bgcolor: "#1c2e1a",
-                  "&:hover": { bgcolor: "primary.main", boxShadow: "none" },
-                }}
-              >
-                Request a Quote / Lead Time
-              </Button>
+             <Box sx={{ display: 'flex', gap: 2 }}>
+  <Button
+    variant="outlined"
+    size="large"
+    fullWidth
+    href="/actuators/electric/iql/products"
+    onClick={e => e.stopPropagation()}
+    sx={{
+      borderRadius: 0,
+      fontWeight: 800,
+      py: 1.75,
+      fontSize: "1rem",
+      boxShadow: "none",
+      borderColor: "#1c2e1a",
+      color: "#1c2e1a",
+      "&:hover": { borderColor: "primary.main", color: "primary.main", boxShadow: "none" },
+    }}
+  >
+    View Product
+  </Button>
+  <Button
+    variant="contained"
+    size="large"
+    fullWidth
+    startIcon={<ContactSupportIcon />}
+    onClick={() => setModalOpen(true)}
+    sx={{
+      borderRadius: 0,
+      fontWeight: 800,
+      py: 1.75,
+      fontSize: "1rem",
+      boxShadow: "none",
+      bgcolor: "#1c2e1a",
+      "&:hover": { bgcolor: "primary.main", boxShadow: "none" },
+    }}
+  >
+    Request a Quote / Lead Time
+  </Button>
+</Box>
             </Grid>
           </Grid>
         </Container>

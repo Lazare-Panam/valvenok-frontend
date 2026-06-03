@@ -4,13 +4,12 @@ import { useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import {
   Box, Container, Typography, Button, Chip, Divider,
-  Card, CardContent, useTheme, alpha, Breadcrumbs,
+  Card, CardContent, useTheme, alpha,
 } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ContactSupportIcon from '@mui/icons-material/ContactSupport';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
 import { VALVES, DUMMY_RFQ_PRODUCTS } from '../page';
 import RFQModal from '../../../Common/RFQCard/RFQModal';
