@@ -177,12 +177,22 @@ export const NAV_GROUPS: NavGroup[] = [
         ],
       },
       {
+        header: "Pneumatic Valves",
+        href: "/pneumatic/valves",
+        items: [
+          { label: "FG Series — 5/2 & 5/3 Way Solenoid Valves",          href: "/pneumatic/valves/fg" },
+          { label: "TG Series — 2/2, 3/2, 5/2 & 5/3 Way Solenoid Valves", href: "/pneumatic/valves/tg" },
+          { label: "Foot Pedal Valves",                                    href: "/pneumatic/valves/foot-pedal" },
+        ],
+      },
+      {
         header: "Air Gun",
         href: "/pneumatic/air-gun",
         items: [
           { label: "Air Gun", href: "/pneumatic/air-gun" },
         ],
       },
+      
     ],
   },
   {
