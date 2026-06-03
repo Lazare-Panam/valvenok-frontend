@@ -114,6 +114,7 @@ export const NAV_GROUPS: NavGroup[] = [
           { label: "SS Tubing", href: "/fittings-tubing/tubing" },
         ],
       },
+      
     ],
   },
   {
@@ -145,6 +146,14 @@ export const NAV_GROUPS: NavGroup[] = [
         items: [
           { label: "Industrial Valves", href: "/valves/industrial-valves" },
           { label: "Marine Valves", href: "/valves/marine-valves" },
+        ],
+      },
+      {
+        header: "Filters",
+        href: "/filters-sight-glass",
+        items: [
+          { label: "Sight Glass", href: "/filters-sight-glass/sight-glass" },
+          { label: "Filtration", href: "/filters-sight-glass/filteration" },
         ],
       },
     ],
@@ -221,16 +230,8 @@ export const NAV_GROUPS: NavGroup[] = [
   },
   {
     id: "mechanical",
-    label: "Mechanical",
+    label: "Pumps & Seals",
     columns: [
-      {
-        header: "Filters",
-        href: "/filters-sight-glass",
-        items: [
-          { label: "Sight Glass", href: "/filters-sight-glass/sight-glass" },
-          { label: "Filtration", href: "/filters-sight-glass/filteration" },
-        ],
-      },
       {
         header: "Pumps & Seals",
         href: "/pumps-seals",
