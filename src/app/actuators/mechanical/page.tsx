@@ -47,6 +47,24 @@ const MECHANICAL_FAMILIES: Category[] = [
     href: "/actuators/mechanical/maw",
     image: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/mechanical/worm-gearboxes.webp",
   },
+  {
+    code: "ITG",
+    title: "ITG Series",
+    subtitle: "Industrial Gear Actuator — Quarter-Turn",
+    description:
+      "Precision-engineered quarter-turn gear actuators for ball, butterfly and plug valves. Torque from 60–28,000 Nm, self-locking design, declutchable manual override, ISO 5211/5210 mounting and full actuator integration compatibility for pneumatic, hydraulic and electric automation.",
+    specs: [
+      "60 – 28,000 Nm",
+      "IP54 / IP55 / IP65 / IP67M",
+      "-20°C to +85°C",
+      "ISO 5211 / ISO 5210 Mount",
+      "Declutchable Override",
+      "±5° Stroke Adjustment",
+    ],
+    applications: "Ball, Butterfly & Plug Valves, Oil & Gas, Power Generation, Water & Wastewater, Chemical",
+    href: "/actuators/mechanical/itg",
+    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/mechanical/itg.webp",
+  },
 ];
 
 const TRUST_POINTS = [

@@ -1,191 +1,160 @@
 "use client";
 
 import * as React from "react";
-import { Box, Container, Typography, Fade } from "@mui/material";
-import Grid from "@mui/material/Grid";
-import { CATEGORIES, type Category, type NavItem } from "./Navbardata";
+import { Box, Typography, Fade } from "@mui/material";
+import { NavGroup, NavItem } from "./Navbardata";
 
-const BRAND_GREEN = "#1c6e2e";
+const BRAND_GREEN = "#61D649";
+const HEADER_COLOR = "#1c6e2e";
+const MAX_ITEMS = 4;
 
 interface Props {
+  group: NavGroup;
   onClose: () => void;
 }
 
-function RightPanel({ items, onClose }: { items: NavItem[]; onClose: () => void }) {
-  const [hoveredLabel, setHoveredLabel] = React.useState<string | null>(null);
-  const hovered = items.find((i) => i.label === hoveredLabel) ?? null;
+function ColumnItems({ items, colHref, onClose }: { items: NavItem[]; colHref?: string; onClose: () => void }) {
+  const visible = items.slice(0, MAX_ITEMS);
+  const hasMore = items.length > MAX_ITEMS;
 
   return (
-    <Box sx={{ display: "flex", height: "100%", gap: 6 }}>
-      {/* Current level — single column */}
-      <Box sx={{ minWidth: 200 }}>
-        {items.map((item) => {
-          const hasChildren = !!item.children?.length;
-          const isActive = hoveredLabel === item.label;
-
-          return (
-            <Box key={item.label}>
-              {hasChildren ? (
-                <Box
-                  component="a"
-                  href={item.href}
-                  target={item.external ? "_blank" : undefined}
-                  rel={item.external ? "noopener noreferrer" : undefined}
-                  onMouseEnter={() => setHoveredLabel(item.label)}
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    fontSize: "1.25 rem",
-                    fontWeight: 600,
-                    color: isActive ? BRAND_GREEN : "#333",
-                    textDecoration: "none",
-                    py: 0.75,
-                    pr: 1,
-                    cursor: "pointer",
-                    transition: "color 0.15s",
-                    borderBottom: "1px solid #E8F5E9",
-                    mb: 0.5,
-                  }}
-                >
-                  {item.label}
-                  <Box component="span" sx={{ ml: 1, color: BRAND_GREEN, fontSize: "1rem", lineHeight: 1 }}>›</Box>
-                </Box>
-              ) : (
-                <Box
-                  component="a"
-                  href={item.href}
-                  target={item.external ? "_blank" : undefined}
-                  rel={item.external ? "noopener noreferrer" : undefined}
-                  onClick={onClose}
-                  onMouseEnter={() => setHoveredLabel(null)}
-                  sx={{
-                    display: "block",
-                    fontSize: "1.25 rem",
-                    color: "#555",
-                    textDecoration: "none",
-                    py: 0.75,
-                    transition: "0.15s",
-                    "&:hover": { color: BRAND_GREEN, pl: "6px" },
-                  }}
-                >
-                  {item.label}
-                </Box>
-              )}
-            </Box>
-          );
-        })}
-      </Box>
-
-      {/* Children panel — only shown when a parent is hovered */}
-      {hovered?.children && (
-        <Box
-          onMouseEnter={() => setHoveredLabel(hovered.label)}
-          sx={{
-            flex: 1,
-            borderLeft: "1px solid #F0F0F0",
-            pl: 4,
-          }}
-        >
-          <Typography
-            variant="overline"
+    <>
+      {visible.map((item) => (
+        <Box key={item.label}>
+          <Box
+            component="a"
+            href={item.href}
+            onClick={onClose}
             sx={{
-              color: BRAND_GREEN,
-              fontWeight: 800,
-              mb: 2,
               display: "block",
-              letterSpacing: 1.5,
-              fontSize: "0.7rem",
+              fontSize: "0.82rem",
+              color: "#222",
+              fontWeight: 500,
+              textDecoration: "none",
+              py: 0.3,
+              lineHeight: 1.4,
+              transition: "color 0.15s",
+              "&:hover": { color: HEADER_COLOR },
             }}
           >
-            {hovered.label}
-          </Typography>
-          <RightPanel items={hovered.children} onClose={onClose} />
+            {item.label}
+          </Box>
+          {item.children?.slice(0, 2).map((child) => (
+            <Box
+              key={child.label}
+              component="a"
+              href={child.href}
+              onClick={onClose}
+              sx={{
+                display: "block",
+                fontSize: "0.75rem",
+                color: "#666",
+                fontWeight: 400,
+                textDecoration: "none",
+                py: 0.15,
+                pl: 1.5,
+                lineHeight: 1.4,
+                transition: "color 0.15s",
+                "&:hover": { color: HEADER_COLOR },
+              }}
+            >
+              {child.label}
+            </Box>
+          ))}
+          {item.children && item.children.length > 2 && (
+            <Box
+              component="a"
+              href={item.href}
+              onClick={onClose}
+              sx={{
+                display: "block",
+                fontSize: "0.72rem",
+                color: BRAND_GREEN,
+                fontWeight: 700,
+                textDecoration: "none",
+                py: 0.15,
+                pl: 1.5,
+                "&:hover": { textDecoration: "underline" },
+              }}
+            >
+              See all →
+            </Box>
+          )}
+        </Box>
+      ))}
+      {hasMore && (
+        <Box
+          component="a"
+          href={colHref}
+          onClick={onClose}
+          sx={{
+            display: "inline-block",
+            mt: 0.75,
+            fontSize: "0.75rem",
+            color: BRAND_GREEN,
+            fontWeight: 700,
+            textDecoration: "none",
+            "&:hover": { textDecoration: "underline" },
+          }}
+        >
+          See more →
         </Box>
       )}
-    </Box>
+    </>
   );
 }
 
-export default function MegaMenu({ onClose }: Props) {
-  const [activeCategory, setActiveCategory] = React.useState<Category>(CATEGORIES[0]);
+export default function MegaMenu({ group, onClose }: Props) {
+  // How many columns per row — 2 for groups with 3+ columns, else show all
+  const cols = group.columns.length <= 2 ? group.columns.length : 2;
 
   return (
     <Fade in>
       <Box
         sx={{
-          position: "absolute",
-          top: "100%",
-          left: 0,
-          right: 0,
           bgcolor: "white",
-          boxShadow: "0px 20px 40px rgba(0,0,0,0.1)",
-          zIndex: 300,
-          borderTop: "1px solid #F0F0F0",
-          overflow: "hidden",
+          boxShadow: "0px 8px 24px rgba(0,0,0,0.12)",
+          borderTop: `2px solid ${BRAND_GREEN}`,
+          borderBottom: "1px solid #e8e8e8",
         }}
       >
-        <Container maxWidth="xl" sx={{ p: 0 }}>
-          <Grid container sx={{ minHeight: 500 }}>
-
-            {/* SIDEBAR */}
-            <Grid size={{ md: 3 }} sx={{ borderRight: "1px solid #F0F0F0", py: 4, bgcolor: "#FAFAFA" }}>
-              {CATEGORIES.map((cat) => (
-                <Box
-                  key={cat.id}
-                  component="a"
-                  href={cat.href || "#"}
-                  target={cat.external ? "_blank" : undefined}
-                  rel={cat.external ? "noopener noreferrer" : undefined}
-                  onMouseEnter={() => setActiveCategory(cat)}
-                  onClick={(e) => {
-                    if (!cat.href) e.preventDefault();
-                    onClose();
-                  }}
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: `repeat(${cols}, minmax(200px, 260px))`,
+            gap: 3,
+            py: 3,
+            px: 4,
+          }}
+        >
+          {group.columns.map((col) => (
+            <Box key={col.header}>
+              <Box
+                component="a"
+                href={col.href}
+                onClick={onClose}
+                sx={{ textDecoration: "none", display: "block", mb: 1 }}
+              >
+                <Typography
                   sx={{
+                    fontSize: "0.65rem",
+                    fontWeight: 800,
+                    color: HEADER_COLOR,
+                    letterSpacing: "0.14em",
+                    textTransform: "uppercase",
+                    pb: 0.75,
+                    borderBottom: `1px solid #d4ecd4`,
                     display: "block",
-                    textDecoration: "none",
-                    px: 4,
-                    py: 1.5,
-                    cursor: "pointer",
-                    transition: "0.2s",
-                    fontSize: "1.25 rem",
-                    fontWeight: activeCategory?.id === cat.id ? 700 : 500,
-                    color: activeCategory?.id === cat.id ? BRAND_GREEN : "#4A4A4A",
-                    bgcolor: activeCategory?.id === cat.id ? "#F2F8F3" : "transparent",
-                    borderLeft: `4px solid ${activeCategory?.id === cat.id ? BRAND_GREEN : "transparent"}`,
-                    "&:hover": {
-                      color: BRAND_GREEN,
-                      bgcolor: "#F2F8F3"
-                    },
+                    "&:hover": { color: BRAND_GREEN },
                   }}
                 >
-                  {cat.label}
-                </Box>
-              ))}
-            </Grid>
-
-            {/* CONTENT */}
-            <Grid size={{ md: 9 }} sx={{ p: 6 }}>
-              <Typography
-                variant="overline"
-                sx={{
-                  color: BRAND_GREEN,
-                  fontWeight: 800,
-                  mb: 4,
-                  display: "block",
-                  letterSpacing: 1.5,
-                  fontSize: "0.75rem",
-                }}
-              >
-                {activeCategory?.label}
-              </Typography>
-
-              <RightPanel items={activeCategory?.items ?? []} onClose={onClose} />
-            </Grid>
-
-          </Grid>
-        </Container>
+                  {col.header}
+                </Typography>
+              </Box>
+              <ColumnItems items={col.items} colHref={col.href} onClose={onClose} />
+            </Box>
+          ))}
+        </Box>
       </Box>
     </Fade>
   );

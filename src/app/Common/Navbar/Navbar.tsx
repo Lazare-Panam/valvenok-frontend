@@ -8,40 +8,48 @@ import {
   Drawer,
   useTheme,
   useMediaQuery,
+  Typography,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import PhoneIcon from "@mui/icons-material/Phone";
+import EmailIcon from "@mui/icons-material/EmailOutlined";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import NavLogo from "./Navlogo";
-import NavShopButton from "./NavShopButton";
 import NavLinks from "./NavLinks";
 import MegaMenu from "./MegaMenu";
 import MobileMenu from "./MobileMenu";
 import DesktopUserActions from "./user-actions/DesktopUserActions";
+import { NAV_GROUPS, NavGroup } from "./Navbardata";
+import NavTopStrip from "./NavTopStrip";
 
-const BAR_HEIGHT_DESKTOP = 100;
-const BAR_HEIGHT_MOBILE = 64;
-const CLOSE_DELAY = 150; // ms — gives cursor time to travel button → menu
+const NAV_BAR_BG = "#4a9a3a";
+const DARK_GREEN = "#1c6e2e";
+const BRAND_GREEN = "#61D649";
+const LOGO_HEIGHT = 120;
+const NAV_HEIGHT = 56;
+const CLOSE_DELAY = 150;
 
 export default function Navbar() {
-  const [megaOpen, setMegaOpen] = React.useState(false);
+  const [activeGroup, setActiveGroup] = React.useState<NavGroup | null>(null);
+  const [triggerLeft, setTriggerLeft] = React.useState(0);
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const closeTimer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+  const navBarRef = React.useRef<HTMLDivElement>(null);
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-  const barHeight = isMobile ? BAR_HEIGHT_MOBILE : BAR_HEIGHT_DESKTOP;
 
-  const openMega = () => {
+  const openGroup = (group: NavGroup) => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
-    setMegaOpen(true);
+    setActiveGroup(group);
   };
 
   const scheduleClose = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
-    closeTimer.current = setTimeout(() => setMegaOpen(false), CLOSE_DELAY);
+    closeTimer.current = setTimeout(() => setActiveGroup(null), CLOSE_DELAY);
   };
 
-  // Cleanup on unmount
   React.useEffect(() => {
     return () => {
       if (closeTimer.current) clearTimeout(closeTimer.current);
@@ -50,62 +58,123 @@ export default function Navbar() {
 
   return (
     <Box sx={{ position: "relative", zIndex: 200 }}>
+
+      {/* ── BAR 1: dark green, phone + email + RFQ right-aligned ── */}
+<NavTopStrip/>
+      {/* ── BAR 2: white, logo left + cart/auth right ── */}
       <Box
         sx={{
           bgcolor: "#ffffff",
-          borderBottom: "1px solid",
-          borderColor: "divider",
-          width: "100%",
+          borderBottom: "1px solid #e8e8e8",
+          height: LOGO_HEIGHT,
         }}
       >
-        <Container maxWidth="xl" sx={{ px: { xs: 2, md: 3 } }}>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, md: 3 }, height: "100%" }}>
           <Box
             sx={{
               display: "flex",
               alignItems: "center",
-              height: barHeight,
               justifyContent: "space-between",
+              height: "100%",
             }}
           >
-            {/* LEFT: Hamburger (mobile) + Logo */}
-            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-              <IconButton
-                onClick={() => setMobileOpen(true)}
-                sx={{ display: { md: "none" }, color: "#333" }}
-                aria-label="Open menu"
-              >
-                <MenuIcon />
-              </IconButton>
-              <NavLogo />
-            </Box>
+            <NavLogo />
 
-            {/* CENTER (desktop): Shop button + nav links */}
             <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center" }}>
-              <NavShopButton
-                open={megaOpen}
-                onMouseEnter={openMega}
-                onMouseLeave={scheduleClose}
-                href="/categories"
-                barHeight={barHeight}
-              />
-              <NavLinks barHeight={barHeight} />
+              <DesktopUserActions barHeight={LOGO_HEIGHT} />
             </Box>
 
-            <Box sx={{ display: { xs: "none", md: "flex" } }}>
-              <DesktopUserActions barHeight={barHeight} />
-            </Box>
+            <IconButton
+              onClick={() => setMobileOpen(true)}
+              sx={{ display: { md: "none" }, color: "#333" }}
+            >
+              <MenuIcon />
+            </IconButton>
           </Box>
         </Container>
       </Box>
 
-      {/* Desktop mega menu — hover handlers keep it open when cursor enters it */}
-      {!isMobile && megaOpen && (
-        <Box onMouseEnter={openMega} onMouseLeave={scheduleClose}>
-          <MegaMenu onClose={() => setMegaOpen(false)} />
-        </Box>
-      )}
+      {/* ── BAR 3: green nav bar ── */}
+      <Box
+        ref={navBarRef}
+        sx={{
+          bgcolor: NAV_BAR_BG,
+          display: { xs: "none", md: "block" },
+          position: "relative",
+        }}
+      >
+        <Container maxWidth="xl" sx={{ px: { xs: 2, md: 3 } }}>
+          <Box sx={{ display: "flex", alignItems: "center", height: NAV_HEIGHT }}>
 
-      {/* Mobile drawer */}
+           
+            {NAV_GROUPS.map((group) => (
+              <Box
+                key={group.id}
+                component="a"
+                href={group.href ?? "#"}
+                onMouseEnter={(e) => {
+                  const el = e.currentTarget as HTMLElement;
+                  setTriggerLeft(el.offsetLeft);
+                  openGroup(group);
+                }}
+                onMouseLeave={scheduleClose}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 0.4,
+                  height: NAV_HEIGHT,
+                  px: 2,
+                  color: activeGroup?.id === group.id ? BRAND_GREEN : "#fff",
+                  fontFamily: '"Barlow Condensed", sans-serif',
+                  fontSize: "1rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.07em",
+                  textTransform: "uppercase",
+                  textDecoration: "none",
+                  whiteSpace: "nowrap",
+                  borderBottom: `3px solid ${
+                    activeGroup?.id === group.id ? BRAND_GREEN : "transparent"
+                  }`,
+                  transition: "all 0.15s",
+                  "&:hover": { color: BRAND_GREEN },
+                }}
+              >
+                {group.label}
+                <KeyboardArrowDownIcon
+                  sx={{
+                    fontSize: 18,
+                    transition: "transform 0.2s",
+                    transform:
+                      activeGroup?.id === group.id
+                        ? "rotate(180deg)"
+                        : "rotate(0deg)",
+                  }}
+                />
+              </Box>
+            ))}
+
+            <NavLinks barHeight={NAV_HEIGHT} />
+          </Box>
+        </Container>
+
+        {!isMobile && activeGroup && (
+          <Box
+            onMouseEnter={() => openGroup(activeGroup)}
+            onMouseLeave={scheduleClose}
+            sx={{
+              position: "absolute",
+              top: "100%",
+              left: triggerLeft,
+              zIndex: 300,
+              pointerEvents: "auto",
+            }}
+          >
+            <MegaMenu group={activeGroup} onClose={() => setActiveGroup(null)} />
+          </Box>
+        )}
+      </Box>
+
+      {/* ── MOBILE DRAWER ── */}
       <Drawer
         anchor="left"
         open={mobileOpen}
@@ -121,7 +190,7 @@ export default function Navbar() {
             borderColor: "divider",
           }}
         >
-          <IconButton onClick={() => setMobileOpen(false)} aria-label="Close menu">
+          <IconButton onClick={() => setMobileOpen(false)}>
             <CloseIcon />
           </IconButton>
         </Box>
