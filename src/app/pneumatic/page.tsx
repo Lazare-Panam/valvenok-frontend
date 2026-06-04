@@ -1,831 +1,107 @@
-"use client";
+import type { Metadata } from "next";
+import ProductHero from "../Common/Products_Page/ProductHero";
+import TrustStrip from "../Common/Products_Page/TrustStrip";
+import { Category } from "../Common/Products_Page/ProductCard";
+import PneumaticsGrid from "./PneumaticsGrid";
 
-import {
-  Box,
-  Container,
-  Typography,
-  Grid,
-  Divider,
-  Button,
-} from "@mui/material";
+export const metadata: Metadata = {
+  title: "Pneumatics & Vacuum | Cylinders, Valves & Actuators | Valvenok",
+  description:
+    "Valvenok supplies a full range of pneumatic components for industrial automation. ISO cylinders, solenoid valves, foot pedal valves, pneumatic actuators and air blow guns — engineered for reliable factory floor performance.",
+};
 
-export default function PneumaticSystemsPage() {
+const PNEUMATIC_FAMILIES: Category[] = [
+  {
+    code: "CYL",
+    title: "Cylinders",
+    subtitle: "ISO & Round Body Pneumatic Cylinders",
+    description:
+      "Standard and extended bore range pneumatic cylinders in ISO tie rod, round body and compact short stroke configurations. Bore sizes 32–250mm, strokes up to 1000mm, magnetic and non-magnetic piston options for position sensing.",
+    specs: [
+      "ISO 15552 & VDMA",
+      "32 – 250mm Bore",
+      "Up to 1000mm Stroke",
+      "Double Acting",
+      "Magnetic Piston Option",
+    ],
+    applications: "Assembly Lines, Material Handling, Automotive, Food & Beverage, Packaging",
+    href: "/pneumatic/cylinders",
+    image: "https://pblol2.blob.core.windows.net/spac-images/products/cylinder/DSNC_7050.png",
+  },
+  {
+    code: "PV",
+    title: "Pneumatic Valves",
+    subtitle: "Solenoid & Foot Pedal Control Valves",
+    description:
+      "FG and TG series solenoid valves in 2/2, 3/2, 5/2 and 5/3 way configurations, plus heavy-duty foot pedal valves for hands-free machine control. Single solenoid, double solenoid, center closed and high pressure variants across BSP 1/8\" to 1\" port sizes.",
+    specs: [
+      "2/2 · 3/2 · 5/2 · 5/3 Way",
+      "BSP 1/8\" – 1\"",
+      "Single & Double Solenoid",
+      "Center Closed Variants",
+      "Foot Pedal Options",
+    ],
+    applications: "Industrial Automation, Machine Building, Process Control, Hands-Free Operation",
+    href: "/pneumatic/valves",
+    image: "https://pblol2.blob.core.windows.net/spac-images/products/pneumatic-valves/pneumatic-valves2.png",
+  },
+  {
+    code: "ACT",
+    title: "Pneumatic Actuators",
+    subtitle: "Quarter-Turn Rotary Actuators",
+    description:
+      "Double-acting and spring-return pneumatic actuators for quarter-turn valve automation. Rack-and-pinion and scotch yoke designs for ball, butterfly and plug valves — ISO 5211 mounting, fail-safe spring return configurations for process control.",
+    specs: [
+      "Rack & Pinion · Scotch Yoke",
+      "Double Acting · Spring Return",
+      "ISO 5211 Mount",
+      "90° Rotation",
+      "Fail-Safe Options",
+    ],
+    applications: "Oil & Gas, Process Control, Water Treatment, Chemical, Offshore",
+    href: "/pneumatic/actuators",
+    image: "https://pblol2.blob.core.windows.net/panam-images/products/actuators/AD-Series.jpeg",
+  },
+  {
+    code: "AG",
+    title: "Air Blow Guns",
+    subtitle: "Industrial Pneumatic Air Guns",
+    description:
+      "Industrial pneumatic air blow guns for cleaning and drying applications. Metal body construction with multiple nozzle configurations — short, small, long angled and long bead nozzles for different industrial cleaning and blowing requirements.",
+    specs: [
+      "Metal Body",
+      "Multiple Nozzle Types",
+      "Short · Long · Angled",
+      "Industrial Heavy-Duty",
+      "BSP Connection",
+    ],
+    applications: "Machine Cleaning, Part Drying, Assembly Lines, Workshop, Maintenance",
+    href: "/pneumatic/air-gun",
+    image: "https://pblol2.blob.core.windows.net/spac-images/products/air-gun/air-gun.png",
+  },
+];
+
+const TRUST_POINTS = [
+  { value: "ISO 15552", label: "Cylinder Standard" },
+  { value: "5/2 · 5/3 Way", label: "Valve Configurations" },
+  { value: "ISO 5211", label: "Actuator Mounting" },
+  { value: "BSP 1/8\" – 1\"", label: "Port Size Range" },
+  { value: "Fast Dispatch", label: "Availability" },
+];
+
+export default function PneumaticsIndexPage() {
   return (
-    <Box sx={{ bgcolor: "background.default", minHeight: "100vh" }}>
-      {/* Hero */}
-      <Box
-        sx={{
-          position: "relative",
-          width: "100%",
-          minHeight: { xs: "60vh", md: "80vh" },
-          display: "flex",
-          alignItems: "center",
-          overflow: "hidden",
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://pblol2.blob.core.windows.net/valvenok-images/banner-images/ant-rozetsky-SLIFI67jv5k-unsplash.jpg")`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          py: { xs: 8, md: 12 },
-        }}
-      >
-        <Container maxWidth="lg">
-          <Typography
-            variant="overline"
-            sx={{
-              color: "#61D649",
-              letterSpacing: 3,
-              fontSize: 11,
-              fontWeight: 700,
-            }}
-          >
-             Solutions
-          </Typography>
-          <Typography
-            variant="h1"
-            sx={{
-              fontSize: { xs: 42, md: 72 },
-              fontWeight: 800,
-              color: "#fff",
-              mt: 1,
-              mb: 3,
-              lineHeight: 1.1,
-              maxWidth: 900,
-              textShadow: "0px 2px 10px rgba(0,0,0,0.3)",
-            }}
-          >
-            Industrial Pneumatic Control & Automation
-          </Typography>
-          <Typography
-            sx={{
-              fontSize: { xs: 18, md: 20 },
-              color: "rgba(255,255,255,0.9)",
-              maxWidth: 600,
-              mb: 5,
-              lineHeight: 1.7,
-            }}
-          >
-            High-efficiency pneumatic components designed for industrial
-            automation. From precision air preparation to heavy-duty actuation,
-            Valvenok provides the reliability your factory floor demands.
-          </Typography>
-          <Button
-            variant="contained"
-            size="large"
-            href="mailto:sales@valvenok.com"
-            sx={{
-              bgcolor: "#61D649",
-              color: "#000",
-              borderRadius: 1,
-              px: 5,
-              py: 2,
-              fontSize: "1rem",
-              fontWeight: 700,
-              textTransform: "none",
-              "&:hover": { bgcolor: "#fff", color: "#000" },
-            }}
-          >
-            Request Pneumatic Specs
-          </Button>
-        </Container>
-      </Box>
-
-      {/* Trust bar */}
-      <Box
-        sx={{
-          borderBottom: "1px solid",
-          borderColor: "divider",
-          py: 1.5,
-          bgcolor: "#fff",
-          whiteSpace: "nowrap",
-          overflow: "hidden",
-        }}
-      >
-        <style>{`@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }`}</style>
-        <Box
-          sx={{
-            display: "flex",
-            width: "max-content",
-            animation: "marquee 30s linear infinite",
-            "&:hover": { animationPlayState: "paused" },
-          }}
-        >
-          {[1, 2].map((iteration) => (
-            <Box key={iteration} sx={{ display: "flex", gap: 6, pr: 6 }}>
-              {[
-                "ISO 15552 & VDMA Standards",
-                "High-speed 24h Dispatch",
-                "Energy-efficient Air Prep",
-                "NPT & BSPP Thread Standards",
-              ].map((item) => (
-                <Typography
-                  key={item}
-                  sx={{
-                    fontSize: 19,
-                    fontWeight: 500,
-                    color: "text.secondary",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 1.5,
-                  }}
-                >
-                  <Box
-                    component="span"
-                    sx={{
-                      width: 6,
-                      height: 6,
-                      borderRadius: "50%",
-                      bgcolor: "#61D649",
-                    }}
-                  />
-                  {item}
-                </Typography>
-              ))}
-            </Box>
-          ))}
-        </Box>
-      </Box>
-
-      <Container maxWidth="lg" sx={{ py: { xs: 8, md: 12 } }}>
-        {/* Intro */}
-        <Grid container spacing={8} sx={{ mb: 10 }}>
-          <Grid size={{ xs: 12, md: 7 }}>
-            <Typography
-              variant="h2"
-              sx={{ fontSize: { xs: 28, md: 36 }, fontWeight: 700, mb: 3 }}
-            >
-              Precision Air Control
-            </Typography>
-            <Typography
-              sx={{ color: "text.secondary", lineHeight: 1.8, mb: 2 }}
-            >
-              Valvenok specializes in high-performance pneumatic systems
-              engineered for longevity and repeatability. Whether you are
-              building complex automation cells or maintaining existing air
-              lines, our components ensure minimal pressure drop and maximum
-              cycle life.
-            </Typography>
-            <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
-              Our range covers the entire air path: from{" "}
-              <strong>FRL units</strong> that clean and regulate supply, to{" "}
-              <strong>solenoid valves</strong> for logic control, and{" "}
-              <strong>ISO cylinders</strong> for linear motion.
-            </Typography>
-          </Grid>
-          <Grid size={{ xs: 12, md: 5 }}>
-            <Box sx={{ bgcolor: "#f7faf6", borderRadius: 2, p: 4 }}>
-              <Typography sx={{ fontWeight: 600, mb: 2, fontSize: 15 }}>
-                Pneumatic Categories
-              </Typography>
-              {[
-                "ISO 15552 & Roundline Cylinders",
-                "FRL Units (Filter, Regulator, Lubricator)",
-                "Directional Control Solenoid Valves",
-                "Push-in Fittings & Flow Controllers",
-                "Pneumatic Tubing (PU, PA, PTFE)",
-                "Air Silencers & Quick Exhaust Valves",
-              ].map((item) => (
-                <Typography
-                  key={item}
-                  sx={{
-                    fontSize: 14,
-                    color: "text.secondary",
-                    py: 1,
-                    borderBottom: "1px solid",
-                    borderColor: "divider",
-                  }}
-                >
-                  {item}
-                </Typography>
-              ))}
-            </Box>
-          </Grid>
-        </Grid>
-
-        <Divider sx={{ mb: 10 }} />
-
-        {/* Cylinders */}
-        <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
-          <Grid size={{ xs: 12, md: 6 }}>
-            <Typography
-              variant="overline"
-              sx={{
-                color: "#61D649",
-                fontWeight: 600,
-                letterSpacing: 2,
-                fontSize: 11,
-              }}
-            >
-              Actuation & Motion
-            </Typography>
-            <Typography
-              variant="h3"
-              component="a"
-              href="/pneumatic/cylinders"
-              rel="noopener noreferrer"
-              sx={{
-                fontSize: { xs: 24, md: 32 },
-                fontWeight: 700,
-                mt: 1,
-                mb: 3,
-                display: "block",
-                color: "inherit",
-                textDecoration: "none",
-                "&:hover": { color: "#61D649", textDecoration: "underline" },
-              }}
-            >
-              Cylinders
-            </Typography>
-            <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
-              Standard tie rod profile double acting cylinders available in bore
-              sizes 32mm to 250mm with strokes up to 1000mm. Available in
-              standard and through rod configurations, with magnetic and
-              non-magnetic piston options for position sensing.
-            </Typography>
-            <Button
-              variant="outlined"
-              href="/pneumatic/cylinders"
-              rel="noopener noreferrer"
-              sx={{
-                mt: 3,
-                borderColor: "#61D649",
-                color: "#61D649",
-                textTransform: "none",
-                fontWeight: 700,
-                "&:hover": {
-                  bgcolor: "#61D649",
-                  color: "#000",
-                  borderColor: "#61D649",
-                },
-              }}
-            >
-              Browse Cylinders
-            </Button>
-          </Grid>
-          <Grid size={{ xs: 12, md: 6 }}>
-            <Box
-              sx={{
-                borderColor: "divider",
-                borderRadius: 2,
-                p: 4,
-                textAlign: "center",
-              }}
-            >
-              <img
-                src="https://pblol2.blob.core.windows.net/spac-images/products/cylinder/DSNC_7050.png"
-                alt="ESC Cylinders"
-                style={{ width: "50%", height: "auto" }}
-              />
-            </Box>
-          </Grid>
-        </Grid>
-
-        {/* <Divider sx={{ mb: 10 }} /> */}
-
-        {/* AP Fittings */}
-        {/* <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
-          <Grid size={{ xs: 12, md: 6 }}>
-            <Box
-              sx={{
-                borderColor: "divider",
-                borderRadius: 2,
-                p: 4,
-                textAlign: "center",
-              }}
-            >
-              <img
-                src="https://pblol2.blob.core.windows.net/spac-images/products/fitting/a-series.png"
-                alt="AP Fittings"
-                style={{ width: "50%", height: "auto" }}
-              />
-            </Box>
-          </Grid>
-          <Grid size={{ xs: 12, md: 6 }}>
-            <Typography
-              variant="overline"
-              sx={{
-                color: "#61D649",
-                fontWeight: 600,
-                letterSpacing: 2,
-                fontSize: 11,
-              }}
-            >
-              Fittings & Connections
-            </Typography>
-            <Typography
-              variant="h3"
-              component="a"
-              href="https://www.spacpneumatic.co.uk/products/fittings"
-              target="_blank"
-              rel="noopener noreferrer"
-              sx={{
-                fontSize: { xs: 24, md: 32 },
-                fontWeight: 700,
-                mt: 1,
-                mb: 3,
-                display: "block",
-                color: "inherit",
-                textDecoration: "none",
-                "&:hover": { color: "#61D649", textDecoration: "underline" },
-              }}
-            >
-              AP/EP Series Push-In Fittings
-            </Typography>
-            <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
-              A-Series grey and E-Series black push-in fittings compatible with
-              polyurethane and nylon tubing. Full range including male
-              connectors, female connectors, elbows, tees, multi-connectors and
-              more in BSP thread sizes G1/8 to G1/2.
-            </Typography>
-            <Button
-              variant="outlined"
-              href="https://www.spacpneumatic.co.uk/products/fittings"
-              target="_blank"
-              rel="noopener noreferrer"
-              sx={{
-                mt: 3,
-                borderColor: "#61D649",
-                color: "#61D649",
-                textTransform: "none",
-                fontWeight: 700,
-                "&:hover": {
-                  bgcolor: "#61D649",
-                  color: "#000",
-                  borderColor: "#61D649",
-                },
-              }}
-            >
-              Browse Fittings
-            </Button>
-          </Grid>
-        </Grid> */}
-
-        <Divider sx={{ mb: 10 }} />
-
-        {/* Tubing */}
-        {/* <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
-          <Grid size={{ xs: 12, md: 6 }}>
-            <Typography
-              variant="overline"
-              sx={{
-                color: "#61D649",
-                fontWeight: 600,
-                letterSpacing: 2,
-                fontSize: 11,
-              }}
-            >
-              Tubing
-            </Typography>
-            <Typography
-              variant="h3"
-              component="a"
-              href="https://www.spacpneumatic.co.uk/products/tubing"
-              target="_blank"
-              rel="noopener noreferrer"
-              sx={{
-                fontSize: { xs: 24, md: 32 },
-                fontWeight: 700,
-                mt: 1,
-                mb: 3,
-                display: "block",
-                color: "inherit",
-                textDecoration: "none",
-                "&:hover": { color: "#61D649", textDecoration: "underline" },
-              }}
-            >
-              Polyurethane & Recoil Tubing
-            </Typography>
-            <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
-              SPAC tubing range including standard polyurethane, recoil,
-              anti-spark and anti-spark recoil variants. Available in OD sizes
-              4mm to 16mm across multiple colors including blue, yellow, black,
-              green and red in roll lengths up to 1000m.
-            </Typography>
-            <Button
-              variant="outlined"
-              href="https://www.spacpneumatic.co.uk/products/tubing"
-              target="_blank"
-              rel="noopener noreferrer"
-              sx={{
-                mt: 3,
-                borderColor: "#61D649",
-                color: "#61D649",
-                textTransform: "none",
-                fontWeight: 700,
-                "&:hover": {
-                  bgcolor: "#61D649",
-                  color: "#000",
-                  borderColor: "#61D649",
-                },
-              }}
-            >
-              Browse Tubing
-            </Button>
-          </Grid>
-          <Grid size={{ xs: 12, md: 6 }}>
-            <Box
-              sx={{
-                borderColor: "divider",
-                borderRadius: 2,
-                p: 4,
-                textAlign: "center",
-              }}
-            >
-              <img
-                src="https://pblol2.blob.core.windows.net/spac-images/products/tubing/tubing-spac.png"
-                alt="Pneumatic Tubing"
-                style={{ width: "50%", height: "auto" }}
-              />
-            </Box>
-          </Grid>
-        </Grid>
-
-        <Divider sx={{ mb: 10 }} /> */}
-
-        {/* Air Guns */}
-        <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
-          <Grid size={{ xs: 12, md: 6 }}>
-            <Box
-              sx={{
-                borderColor: "divider",
-                borderRadius: 2,
-                p: 4,
-                textAlign: "center",
-              }}
-            >
-              <img
-                src="https://pblol2.blob.core.windows.net/spac-images/products/air-gun/air-gun.png"
-                alt="Air Blow Guns"
-                style={{ width: "50%", height: "auto" }}
-              />
-            </Box>
-          </Grid>
-          <Grid size={{ xs: 12, md: 6 }}>
-            <Typography
-              variant="overline"
-              sx={{
-                color: "#61D649",
-                fontWeight: 600,
-                letterSpacing: 2,
-                fontSize: 11,
-              }}
-            >
-              Accessories
-            </Typography>
-            <Typography
-              variant="h3"
-              component="a"
-              href="/pneumatic/air-gun"
-              rel="noopener noreferrer"
-              sx={{
-                fontSize: { xs: 24, md: 32 },
-                fontWeight: 700,
-                mt: 1,
-                mb: 3,
-                display: "block",
-                color: "inherit",
-                textDecoration: "none",
-                "&:hover": { color: "#61D649", textDecoration: "underline" },
-              }}
-            >
-              Air Blow Guns
-            </Typography>
-            <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
-              Industrial pneumatic air blow guns for cleaning and drying
-              applications. Available in metal body and various nozzle
-              configurations including short nozzle, small nozzle, long angled
-              nozzle and long bead nozzle for different applications.
-            </Typography>
-            <Button
-              variant="outlined"
-              href="/pneumatic/air-gun"
-              rel="noopener noreferrer"
-              sx={{
-                mt: 3,
-                borderColor: "#61D649",
-                color: "#61D649",
-                textTransform: "none",
-                fontWeight: 700,
-                "&:hover": {
-                  bgcolor: "#61D649",
-                  color: "#000",
-                  borderColor: "#61D649",
-                },
-              }}
-            >
-              Browse Air Guns
-            </Button>
-          </Grid>
-        </Grid>
-
-        <Divider sx={{ mb: 10 }} />
-
-        {/* Actuators */}
-        <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
-          <Grid size={{ xs: 12, md: 6 }}>
-            <Typography
-              variant="overline"
-              sx={{
-                color: "#61D649",
-                fontWeight: 600,
-                letterSpacing: 2,
-                fontSize: 11,
-              }}
-            >
-               Actuators
-            </Typography>
-            <Typography
-              variant="h3"
-              component="a"
-              href="/pneumatic/actuators"
-              rel="noopener noreferrer"
-              sx={{
-                fontSize: { xs: 24, md: 32 },
-                fontWeight: 700,
-                mt: 1,
-                mb: 3,
-                display: "block",
-                color: "inherit",
-                textDecoration: "none",
-                "&:hover": { color: "#61D649", textDecoration: "underline" },
-              }}
-            >
-              Pneumatic Actuators
-            </Typography>
-            <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
-              Double-acting and spring-return pneumatic actuators for
-              quarter-turn valves. Compact design with high torque output for
-              reliable process automation. Available in SS316 and aluminum body
-              options with 90° rotation for ball and butterfly valves in
-              chemical processing applications.
-            </Typography>
-            <Button
-              variant="outlined"
-              href="/pneumatic/actuators"
-              rel="noopener noreferrer"
-              sx={{
-                mt: 3,
-                borderColor: "#61D649",
-                color: "#61D649",
-                textTransform: "none",
-                fontWeight: 700,
-                "&:hover": {
-                  bgcolor: "#61D649",
-                  color: "#000",
-                  borderColor: "#61D649",
-                },
-              }}
-            >
-              Browse Actuators
-            </Button>
-          </Grid>
-          <Grid size={{ xs: 12, md: 6 }}>
-            <Box
-              sx={{
-                borderColor: "divider",
-                borderRadius: 2,
-                p: 4,
-                textAlign: "center",
-              }}
-            >
-              <img
-                src="https://pblol2.blob.core.windows.net/panam-images/products/actuators/AD-Series.jpeg"
-                alt="AD Series Rack & Pinion Actuators"
-                style={{ width: "50%", height: "auto" }}
-              />
-            </Box>
-          </Grid>
-        </Grid>
-
-        <Divider sx={{ mb: 10 }} />
-        {/* Pneumatic Valves */}
-{/* <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
-  <Grid size={{ xs: 12, md: 6 }}>
-    <Box
-      sx={{
-        borderColor: "divider",
-        borderRadius: 2,
-        p: 4,
-        textAlign: "center",
-      }}
-    >
-      <img
-        src="https://pblol2.blob.core.windows.net/spac-images/products/pneumatic-valves/foot-pedal.jpg"
-        alt="Pneumatic Valves"
-        style={{ width: "50%", height: "auto" }}
+    <>
+      <ProductHero
+        title="Pneumatics & Vacuum"
+        subtitle="Cylinders, Valves & Actuators for Industrial Automation"
+        description="A complete range of pneumatic components engineered for reliable industrial automation. ISO cylinders for linear motion, solenoid and foot pedal valves for directional control, pneumatic actuators for valve automation, and air blow guns for cleaning and maintenance applications."
+        imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/banner-images/ant-rozetsky-SLIFI67jv5k-unsplash.jpg"
+        imageAlt="Valvenok Pneumatic Components"
+        breadcrumb="Products / Pneumatics & Vacuum"
       />
-    </Box>
-  </Grid>
-  <Grid size={{ xs: 12, md: 6 }}>
-    <Typography
-      variant="overline"
-      sx={{
-        color: "#61D649",
-        fontWeight: 600,
-        letterSpacing: 2,
-        fontSize: 11,
-      }}
-    >
-      Directional Control
-    </Typography>
-    <Typography
-      variant="h3"
-      component="a"
-      href="https://www.spacpneumatic.co.uk/products/valves"
-      target="_blank"
-      rel="noopener noreferrer"
-      sx={{
-        fontSize: { xs: 24, md: 32 },
-        fontWeight: 700,
-        mt: 1,
-        mb: 3,
-        display: "block",
-        color: "inherit",
-        textDecoration: "none",
-        "&:hover": { color: "#61D649", textDecoration: "underline" },
-      }}
-    >
-      Valves
-    </Typography>
-    <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
-      Full range of pneumatic control valves for industrial automation,
-      including solenoid valves, hand lever valves, foot pedal valves, and
-      mechanical valves. Available in 3/2 and 5/2 configurations with G1/8
-      to G1/4 BSP port sizes for reliable directional control across
-      assembly lines and process machinery.
-    </Typography>
-    <Button
-      variant="outlined"
-      href="https://www.spacpneumatic.co.uk/products/valves"
-      target="_blank"
-      rel="noopener noreferrer"
-      sx={{
-        mt: 3,
-        borderColor: "#61D649",
-        color: "#61D649",
-        textTransform: "none",
-        fontWeight: 700,
-        "&:hover": {
-          bgcolor: "#61D649",
-          color: "#000",
-          borderColor: "#61D649",
-        },
-      }}
-    >
-      Browse  Valves
-    </Button>
-  </Grid>
-</Grid> */}
-{/* 
-<Divider sx={{ mb: 10 }} /> */}
-{/* FRL Units */}
-{/* <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
-  <Grid size={{ xs: 12, md: 6 }}>
-    <Typography
-      variant="overline"
-      sx={{
-        color: "#61D649",
-        fontWeight: 600,
-        letterSpacing: 2,
-        fontSize: 11,
-      }}
-    >
-      Air Preparation Systems
-    </Typography>
-    <Typography
-      variant="h3"
-      component="a"
-      href="https://www.spacpneumatic.co.uk/products/frl"
-      target="_blank"
-      rel="noopener noreferrer"
-      sx={{
-        fontSize: { xs: 24, md: 32 },
-        fontWeight: 700,
-        mt: 1,
-        mb: 3,
-        display: "block",
-        color: "inherit",
-        textDecoration: "none",
-        "&:hover": { color: "#61D649", textDecoration: "underline" },
-      }}
-    >
-      FRL Units
-    </Typography>
-    <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
-      Complete air preparation catalogue — modular filter-regulator-lubricator combinations, integrated filter regulators, standalone precision and high-pressure regulators, plus standalone filters and lubricators. Available across BSP 1/4" to 1" port sizes with standard and bowl-guard variants. Engineered to deliver clean, regulated, lubricated air to your pneumatic tools, cylinders and valves.
-    </Typography>
-    <Button
-      variant="outlined"
-      href="https://www.spacpneumatic.co.uk/products/frl"
-      target="_blank"
-      rel="noopener noreferrer"
-      sx={{
-        mt: 3,
-        borderColor: "#61D649",
-        color: "#61D649",
-        textTransform: "none",
-        fontWeight: 700,
-        "&:hover": {
-          bgcolor: "#61D649",
-          color: "#000",
-          borderColor: "#61D649",
-        },
-      }}
-    >
-      Browse FRL Units
-    </Button>
-  </Grid>
-  <Grid size={{ xs: 12, md: 6 }}>
-    <Box
-      sx={{
-        borderColor: "divider",
-        borderRadius: 2,
-        p: 4,
-        textAlign: "center",
-      }}
-    >
-      <img
-        src="https://pblol2.blob.core.windows.net/spac-images/products/frl/AR.jpg"
-        alt="FRL Units"
-        style={{ width: "50%", height: "auto" }}
-      />
-    </Box>
-  </Grid>
-</Grid>
-<Divider sx={{ mb: 10 }} /> */}
-
-        {/* Applications */}
-        <Box sx={{ mb: 10 }}>
-          <Typography
-            variant="h3"
-            sx={{ fontSize: { xs: 24, md: 30 }, fontWeight: 700, mb: 2 }}
-          >
-            Applications
-          </Typography>
-          <Grid container spacing={2}>
-            {[
-              "Automated Assembly Lines",
-              "Food & Beverage Packaging",
-              "Pharmaceutical Cleanrooms",
-              "Conveyor Systems & Material Handling",
-              "Automotive Manufacturing",
-              "Textile & Printing Machinery",
-            ].map((ind) => (
-              <Grid key={ind} size={{ xs: 12, sm: 6, md: 4 }}>
-                <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
-                  <Box
-                    sx={{
-                      width: 8,
-                      height: 8,
-                      borderRadius: "50%",
-                      bgcolor: "#61D649",
-                      flexShrink: 0,
-                    }}
-                  />
-                  <Typography sx={{ fontSize: 14, color: "text.secondary" }}>
-                    {ind}
-                  </Typography>
-                </Box>
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
-
-        {/* CTA */}
-        <Box
-          sx={{ textAlign: "center", py: 6, borderRadius: 4, color: "#000000" }}
-        >
-          <Typography
-            variant="h3"
-            sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mb: 2 }}
-          >
-            Optimise Your Air System Today
-          </Typography>
-          <Typography
-            sx={{
-              color: "rgba(2, 2, 2, 0.7)",
-              mb: 4,
-              maxWidth: 560,
-              mx: "auto",
-            }}
-          >
-            Need a custom cylinder stroke or a specific FRL configuration? Our
-            technical engineers are ready to assist with your pneumatic circuit
-            design.
-          </Typography>
-          <Button
-            variant="contained"
-            href="mailto:sales@valvenok.com"
-            sx={{
-              bgcolor: "#61D649",
-              color: "#000",
-              px: 4,
-              py: 1.5,
-              fontWeight: 700,
-            }}
-          >
-            Contact Technical Team
-          </Button>
-        </Box>
-      </Container>
-    </Box>
+      <PneumaticsGrid families={PNEUMATIC_FAMILIES} />
+      <TrustStrip points={TRUST_POINTS} />
+    </>
   );
 }
