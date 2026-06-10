@@ -12,30 +12,32 @@ const marqueFwd = keyframes`
 `;
 
 const BRANDS = [
-  { name: 'PANAM Valves', logo: 'https://pblol2.blob.core.windows.net/panam-images/panam-resize_smallest.jpg', link: 'https://www.panamvalve.com/' },
-  { name: 'Cameron', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/cameron-logo.png', link: '#' },
-  { name: 'Baker Hughes', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/baker-hughes-logo.png', link: 'https://www.bakerhughes.com/' },
-  { name: 'Taylor Valve', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/taylor-valve-logo.png', link: 'https://taylorvalve.com/' },
-  { name: 'Leser', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/LESER-logo.png', link: 'https://www.leser.com/en/products/' },
-  { name: 'Mercer Valves', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/mercer-logo.jpg', link: 'https://www.mercervalve.net/' },
-  { name: 'Aquatrol', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/aquatrol-logo.png', link: 'https://www.aquatrol.com/index.htm' },
-  { name: 'Fisher', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/fisher-logo.jpg', link: 'https://www.fisher-valves.co.uk/index.shtml' },
-  { name: 'Batu Valves', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/batu-logo.png', link: 'https://www.batuvalve.com/' },
-  { name: 'Spac Pneumatic', logo: 'https://pblol2.blob.core.windows.net/spac-images/spac-logo.webp', link: 'https://spacpneumatic.co.uk/' },
-  { name: 'Tormac', logo: 'https://tormacpumps.com/wp-content/uploads/2025/06/tormac_logo.svg', link: 'https://tormacpumps.com/' },
-  { name: 'Siemens', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/siemens-logo.png', link: '#' },
-  { name: 'Endress Hauser', logo: 'https://www.uk.endress.com/images/logo/EH_Logo-d9672165.svg', link: '#' },
-  { name: 'Steed Hydraulic', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/steed-logo.png', link: '#' },
-  { name: 'FHT Valves', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/fht-valves-logo.png', link: '#' },
-  { name: 'Hydroseal', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/hydroseal-logo.png', link: '#' },
-  { name: 'Crosby', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/crosby_logo.png', link: '#' },
-  { name: 'Knuckle Valves', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/knuckle-valve-logo.png', link: '#' },
-  { name: 'Bettis', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/bettis-logo.png', link: '#' },
-  { name: 'Anderson Greenwood', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/anderson-greewood-logo.jpg', link: '#' },
+  { name: 'PANAM Valves', logo: 'https://pblol2.blob.core.windows.net/panam-images/panam-resize_smallest.jpg' },
+  { name: 'Cameron', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/cameron-logo.png' },
+  { name: 'Baker Hughes', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/baker-hughes-logo.png' },
+  { name: 'Taylor Valve', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/taylor-valve-logo.png' },
+  { name: 'Leser', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/LESER-logo.png' },
+  { name: 'Mercer Valves', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/mercer-logo.jpg' },
+  { name: 'Aquatrol', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/aquatrol-logo.png' },
+  { name: 'Fisher', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/fisher-logo.jpg' },
+  { name: 'Batu Valves', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/batu-logo.png' },
+  { name: 'Spac Pneumatic', logo: 'https://pblol2.blob.core.windows.net/spac-images/spac-logo.webp' },
+  { name: 'Tormac', logo: 'https://tormacpumps.com/wp-content/uploads/2025/06/tormac_logo.svg' },
+  { name: 'Siemens', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/siemens-logo.png' },
+  { name: 'Endress Hauser', logo: 'https://www.uk.endress.com/images/logo/EH_Logo-d9672165.svg' },
+  { name: 'Steed Hydraulic', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/steed-logo.png' },
+  { name: 'FHT Valves', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/fht-valves-logo.png' },
+  { name: 'Hydroseal', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/hydroseal-logo.png' },
+  { name: 'Crosby', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/crosby_logo.png' },
+  { name: 'Knuckle Valves', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/knuckle-valve-logo.png' },
+  { name: 'Bettis', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/bettis-logo.png' },
+  { name: 'Anderson Greenwood', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/anderson-greewood-logo.jpg' },
+  { name: 'Valve Systems International', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/vsi-logo.png' },
+  { name: 'Mars Valves', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/mars.png' },
 ];
 
 interface MarqueeRowProps {
-  brands: { name: string; logo: string; link: string }[];
+  brands: { name: string; logo: string }[];
   speed?: number;
 }
 
@@ -91,10 +93,6 @@ const MarqueeRow = ({ brands, speed = 60 }: MarqueeRowProps) => {
             }}
           >
             <Box
-              component="a"
-              href={brand.link}
-              target="_blank"
-              rel="noopener noreferrer"
               sx={{
                 flexShrink: 0,
                 mx: 2,
@@ -106,7 +104,7 @@ const MarqueeRow = ({ brands, speed = 60 }: MarqueeRowProps) => {
                 bgcolor: 'background.paper',
                 border: '1.5px solid',
                 borderColor: 'divider',
-                textDecoration: 'none',
+                cursor: 'default',
                 transition: 'all 0.2s ease-in-out',
                 '&:hover': {
                   borderColor: 'primary.main',
