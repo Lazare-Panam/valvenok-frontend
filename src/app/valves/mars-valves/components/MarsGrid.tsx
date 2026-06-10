@@ -37,7 +37,7 @@ function MarsRow({ row }: { row: MarsSeriesDTO }) {
     name: `Mars ${row.name}`,
   } as unknown as ProductForRFQ)
 
-  const goToDetail = () => router.push(`/valves/mars-ball-valves/${row.slug}`)
+  const goToDetail = () => router.push(`/valves/mars-valves/${row.slug}`)
 
   return (
     <>
@@ -167,7 +167,13 @@ export default function MarsTable({ models, isFetching, filters, setFilters, ava
   const sidebar = <MarsSidebar filters={filters} setFilters={setFilters} availableCounts={availableCounts} activeCount={activeCount} />
 
   return (
-    <Box sx={{ display: 'flex', alignItems: 'flex-start', border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}`, borderRadius: '8px', bgcolor: 'background.paper' }}>
+    <Box sx={{
+  display: 'flex',
+  alignItems: 'stretch',    // ← was 'flex-start'
+  border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}`,
+  borderRadius: '8px',
+  bgcolor: 'background.paper',
+}}>
       {!isMobile && sidebar}
       <Drawer open={mobileOpen} onClose={() => setMobileOpen(false)}>{sidebar}</Drawer>
       <Box sx={{ position: 'relative', flex: 1, minWidth: 0 }}>

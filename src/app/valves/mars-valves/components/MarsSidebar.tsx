@@ -79,7 +79,19 @@ export function MarsSidebar({ filters, setFilters, availableCounts, activeCount 
   const optionOptions = Array.from(new Set(MARS_BALL_VALVES_DATA.flatMap(getOptionTags))).sort()
 
   return (
-    <Box sx={{ width: 240, flexShrink: 0, p: 2, borderRight: '1px solid', borderColor: 'divider', bgcolor: 'background.paper', boxSizing: 'border-box' }}>
+    <Box sx={{
+  width: 240,
+  flexShrink: 0,
+  p: 2,
+  borderRight: '1px solid',
+  borderColor: 'divider',
+  bgcolor: 'background.paper',
+  boxSizing: 'border-box',
+  overflowY: 'auto',        // ← add
+  maxHeight: '100vh',       // ← add
+  position: 'sticky',       // ← add
+  top: 0,                   // ← add
+}}>
       <Stack direction="row" justifyContent="space-between" alignItems="center" mb={3}>
         <Typography variant="caption" fontWeight={900} letterSpacing={1} color="text.secondary">FIND YOUR VALVE</Typography>
         {activeCount > 0 && <Typography variant="caption" fontWeight={700} sx={{ cursor: 'pointer', color: theme.palette.primary.main }} onClick={() => setFilters(EMPTY_MARS_FILTERS)}>Clear all</Typography>}
