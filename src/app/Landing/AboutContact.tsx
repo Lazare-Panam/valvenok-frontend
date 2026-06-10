@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import { alpha } from "@mui/material/styles";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-
+//
 const JOSCAR_POINTS = [
   "Pre-qualified supplier recognised across the UK defence & aerospace sector",
   "Reduces procurement risk for Tier 1 contractors and MoD supply chains",
