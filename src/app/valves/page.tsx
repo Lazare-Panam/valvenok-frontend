@@ -12,6 +12,24 @@ export const metadata: Metadata = {
 
 const VALVE_FAMILIES: Category[] = [
   {
+    code: "MBV",
+    title: "Mars Ball Valves",
+    subtitle: "Premium Ball Valve Range — 1-Piece, 2-Piece, 3-Piece & Fire-Safe",
+    description:
+      "Mars Valves industrial ball valve range across 11 distinct series — 1-piece, 2-piece, 3-piece, multi-way diverter, wafer compact and fire-safe flanged designs. Stainless steel 316 (CF8M) construction with PTFE / RTFE seat options, API 607 fire-safe certification on the fire-safe ranges and NACE MR-0175 sour-gas service available.",
+    specs: [
+      "11 Ball Valve Series",
+      "Stainless Steel 316 (CF8M)",
+      "1/8\" – 12\" Size Range",
+      "Up to 2000 PSI",
+      "API 607 Fire Safe",
+      "ANSI · PN · JIS Flanged",
+    ],
+    applications: "Oil & Gas, Petrochemical, Process Plants, Refining, OEM Manufacturing, Utility Service",
+    href: "/valves/mars-valves",
+    image: "https://pblol2.blob.core.windows.net/mars-valves/ball-valves/series90D.jpg",
+  },
+  {
     code: "IV",
     title: "Industrial Valves",
     subtitle: "Process & Plant Flow Control",

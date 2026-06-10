@@ -145,6 +145,7 @@ export const NAV_GROUPS: NavGroup[] = [
         header: "Process Valves",
         href: "/valves",
         items: [
+          {label: "Mars Valves", href: "/valves/mars-valves"},
           { label: "Industrial Valves", href: "/valves/industrial-valves" },
           { label: "Marine Valves",     href: "/valves/marine-valves" },
         ],
