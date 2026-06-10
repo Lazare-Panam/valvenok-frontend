@@ -13,6 +13,22 @@ export interface FeaturedValve {
 
 export const FEATURED_PRODUCTS: FeaturedValve[] = [
   {
+    id: 'mars-series-33',
+    name: 'Series 33 Multi-Way Semi-Trunnion Ball Valve',
+    category: 'Ball Valves',
+    categoryId: 'ball-valves',
+    brand: 'Mars Valves',
+    brandLogo: 'https://pblol2.blob.core.windows.net/mars-valves/logo.jpg',
+    logoHeight: 58,
+    thumbnail: 'https://pblol2.blob.core.windows.net/mars-valves/ball-valves/series-33.png',
+    href: '/valves/mars-valves',
+    specs: [
+      { label: 'Size Range', value: '1/4" – 4" | Full Port' },
+      { label: 'Pressure Rating', value: '1000 PSI | ANSI CL150/300, PN16/40' },
+      { label: 'Port Options', value: 'L, T, I, X, LL, TT | Fire Safe Standard' },
+    ],
+  },
+  {
     id: 'cameron-wkm-370d',
     name: 'WKM 370D Series',
     category: 'Ball Valves',
