@@ -44,11 +44,11 @@ export default function RequestForQuoteCard({ product }: { product: ProductForRF
           }
         }}
       >
-        <Box sx={{ p: 3, textAlign: 'center', bgcolor: '#fff', display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '200px' }}>
+        <Box sx={{ p: 3, textAlign: 'center', bgcolor: '#fff', display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '280px' }}>
           <img
             src={product.thumbnail}
             alt={product.name}
-            style={{ maxHeight: '160px', maxWidth: '100%', objectFit: 'contain' }}
+            style={{ maxHeight: '240px', maxWidth: '100%', objectFit: 'contain' }}
           />
         </Box>
 

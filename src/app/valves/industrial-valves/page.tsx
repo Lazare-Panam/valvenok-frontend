@@ -24,7 +24,7 @@ export const VALVES: FeaturedValve[] = [
     categoryId: 'control-valves',
     brand: 'VSI – Valve Systems International',
     brandLogo: 'https://vsillc.com/wp-content/uploads/2026/02/Logo-2026-300x168.png',
-    thumbnail: 'https://vsillc.com/wp-content/uploads/2015/05/vsi-logo.png',
+    thumbnail: 'https://pblol2.blob.core.windows.net/valvenok-images/products/valves/Atlas-15.png',
     specs: [
       { label: 'NPS', value: '2"' },
       { label: 'Flow Capacity (Cv)', value: 'Up to 70' },
@@ -43,7 +43,7 @@ export const VALVES: FeaturedValve[] = [
     categoryId: 'control-valves',
     brand: 'VSI – Valve Systems International',
     brandLogo: 'https://vsillc.com/wp-content/uploads/2026/02/Logo-2026-300x168.png',
-    thumbnail: 'https://vsillc.com/wp-content/uploads/2015/05/vsi-logo.png',
+    thumbnail: 'https://pblol2.blob.core.windows.net/valvenok-images/products/valves/Atlas-21.png',
     specs: [
       { label: 'NPS', value: '3"' },
       { label: 'Flow Capacity (Cv)', value: 'Up to 130' },
