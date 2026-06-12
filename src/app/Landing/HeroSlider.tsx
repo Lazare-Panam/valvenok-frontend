@@ -21,10 +21,9 @@ const SLIDES = [
     duration: 12000,
     image: "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/david-birozy-O01Y_baYOfo-unsplash.jpg",
     upperTag: "AUTHORIZED DISTRIBUTOR",
-    tag: "JUST ANNOUNCED",
-    title: "32 NEW PUMP & VALVES",
-    accent: "FROM LEADING MANUFACTURERS",
-    description: "We're proud to announce that Valvenok has partnered with 32 world-class valve and process equipment manufacturers. From safety relief to control valves, subsea systems to nuclear-grade components — these brands bring the depth, certifications, and engineering pedigree our clients demand. All now available through a single, trusted source.",
+    title: "TAIWAN PRECISION",
+    accent: "DIRECTLY TO YOU ",
+    description: "As an authorized distributor of Taiwan's leading valve manufacturers, Valvenok brings you precision-engineered solutions — directly, without the middleman. From safety relief to control valves, subsea systems to nuclear-grade components, our curated portfolio of 32 world-class brands delivers the certifications and engineering pedigree your projects demand. One trusted source. Zero compromise.",
     href: "/brands",
     btnText: "View Our Brands",
     alt: "Global engineering brand logos and components"
