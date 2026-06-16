@@ -11,6 +11,24 @@ export const metadata: Metadata = {
 };
 
 const ELECTRIC_FAMILIES: Category[] = [
+    {
+    code: "KP",
+    title: "Kosaplus Series",
+    subtitle: "Compact Electric Quarter-Turn Actuator",
+    description:
+      "Kosaplus compact electric quarter-turn actuators engineered for precise on-off and modulating valve automation. Robust construction with integrated control electronics for direct valve mounting across process plant and industrial service.",
+    specs: [
+      "Quarter-Turn",
+      "On-Off & Modulating",
+      "Compact Design",
+      "Direct Valve Mount",
+      "Integrated Electronics",
+    ],
+    applications: "Process Plants, Water Treatment, Chemical, Industrial Automation",
+    href: "/pneumatic/actuators/scotch-yoke",
+    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/ec-kosaplus.png",
+    logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/brands/kosaplus-logo.png",
+  },
   {
     code: "ITQ",
     title: "ITQ SERIES (Rotary)",
@@ -84,24 +102,7 @@ const ELECTRIC_FAMILIES: Category[] = [
     image: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/itm.webp",
     logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp",
   },
-  {
-    code: "KP",
-    title: "Kosaplus Series",
-    subtitle: "Compact Electric Quarter-Turn Actuator",
-    description:
-      "Kosaplus compact electric quarter-turn actuators engineered for precise on-off and modulating valve automation. Robust construction with integrated control electronics for direct valve mounting across process plant and industrial service.",
-    specs: [
-      "Quarter-Turn",
-      "On-Off & Modulating",
-      "Compact Design",
-      "Direct Valve Mount",
-      "Integrated Electronics",
-    ],
-    applications: "Process Plants, Water Treatment, Chemical, Industrial Automation",
-    href: "/pneumatic/actuators/scotch-yoke",
-    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/ec-kosaplus.png",
-    logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/brands/kosaplus-logo.png",
-  },
+
 ];
 const TRUST_POINTS = [
   { value: "ISO 5211", label: "Mounting Standard" },
