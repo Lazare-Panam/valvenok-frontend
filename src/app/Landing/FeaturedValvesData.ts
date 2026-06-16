@@ -21,7 +21,7 @@ export const FEATURED_PRODUCTS: FeaturedValve[] = [
     brandLogo: 'https://pblol2.blob.core.windows.net/mars-valves/logo.jpg',
     logoHeight: 58,
     thumbnail: 'https://pblol2.blob.core.windows.net/mars-valves/ball-valves/series-33.png',
-    href: '/valves/mars-valves',
+    href: '/brands/mars-valves',
     specs: [
       { label: 'Size Range', value: '1/4" – 4" | Full Port' },
       { label: 'Pressure Rating', value: '1000 PSI | ANSI CL150/300, PN16/40' },

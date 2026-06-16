@@ -126,29 +126,23 @@ export default function ProductDetailPage() {
             {/* Details */}
             <Grid size={{ xs: 12, md: 7 }}>
 <Box sx={{ display: 'flex', gap: 1, mb: 2, alignItems: 'center', flexWrap: 'wrap' }}>
-  <Box
-    sx={{
-      border: '1px solid',
-      borderColor: 'divider',
-      px: 1.5,
-      height: 24,
-      bgcolor: '#fff',
-      display: 'inline-flex',
-      alignItems: 'center',
-    }}
-  >
-    <img
-      src={valve.brandLogo}
-      alt={valve.brand}
-      style={{ maxHeight: 14, maxWidth: 100, objectFit: 'contain' }}
-    />
-  </Box>
-  <Chip
-    label={valve.category}
-    size="small"
-    variant="outlined"
-    sx={{ borderRadius: 0, fontWeight: 700, fontSize: '0.7rem', height: 24 }}
+<Box
+  sx={{
+    border: '1px solid',
+    borderColor: 'divider',
+    px: 2.5,
+    height: 48,
+    bgcolor: '#fff',
+    display: 'inline-flex',
+    alignItems: 'center',
+  }}
+>
+  <img
+    src={valve.brandLogo}
+    alt={valve.brand}
+    style={{ maxHeight: 36, maxWidth: 160, objectFit: 'contain' }}
   />
+</Box>
 </Box>
 
               <Typography

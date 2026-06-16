@@ -41,84 +41,104 @@ export default function ProcessValvesGrid({ families }: { families: Category[] }
         >
           {families.map((family) => (
             <Card
-              key={family.code}
-              elevation={0}
-              sx={{
-                height: "100%",
-                display: "flex",
-                flexDirection: "column",
-                border: "1px solid",
-                borderColor: "divider",
-                borderRadius: 0,
-                transition: "all 0.3s ease",
-                "&:hover": {
-                  borderColor: "primary.main",
-                  transform: "translateY(-6px)",
-                  boxShadow: (theme) =>
-                    `0 20px 40px ${alpha(theme.palette.primary.main, 0.1)}`,
-                },
-              }}
-            >
-              <Box
-                sx={{
-                  p: 3,
-                  bgcolor: "#fff",
-                  textAlign: "center",
-                  position: "relative",
-                  height: 220,
-                }}
-              >
-                <Image
-                  src={family.image}
-                  alt={family.title}
-                  fill
-                  style={{ objectFit: "contain", padding: "24px" }}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-              </Box>
+  key={family.code}
+  elevation={0}
+  sx={{
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+    border: "1px solid",
+    borderColor: "divider",
+    borderRadius: 0,
+    transition: "all 0.3s ease",
+    "&:hover": {
+      borderColor: "primary.main",
+      transform: "translateY(-6px)",
+      boxShadow: (theme) =>
+        `0 20px 40px ${alpha(theme.palette.primary.main, 0.1)}`,
+    },
+  }}
+>
+  {/* Brand strip */}
+  {family.logoUrl && (
+    <Box
+      sx={{
+        px: 3,
+        py: 1.8,
+        borderBottom: "1px solid",
+        borderColor: "divider",
+        bgcolor: "#fff",
+        display: "flex",
+        alignItems: "center",
+      }}
+    >
+      <Box
+        component="img"
+        src={family.logoUrl}
+        alt={family.title}
+        sx={{ maxHeight: 52, maxWidth: 150, objectFit: "contain" }}
+      />
+    </Box>
+  )}
 
-              <CardContent
-                sx={{
-                  flexGrow: 1,
-                  display: "flex",
-                  flexDirection: "column",
-                  px: 3,
-                  pt: 2,
-                }}
-              >
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "baseline",
-                    mb: 1,
-                  }}
-                >
-                  <Typography
-                    sx={{
-                      fontFamily: '"Barlow Condensed", sans-serif',
-                      fontSize: "1.4rem",
-                      fontWeight: 800,
-                      textTransform: "uppercase",
-                      color: "text.primary",
-                    }}
-                  >
-                    {family.title}
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontSize: "0.7rem",
-                      fontWeight: 700,
-                      color: "primary.main",
-                      bgcolor: (theme) => alpha(theme.palette.primary.main, 0.1),
-                      px: 1,
-                      py: 0.2,
-                    }}
-                  >
-                    {family.code}
-                  </Typography>
-                </Box>
+  {/* Product image */}
+  <Box
+    sx={{
+      p: 3,
+      bgcolor: "#fff",
+      textAlign: "center",
+      position: "relative",
+      height: 220,
+    }}
+  >
+    <Image
+      src={family.image}
+      alt={family.title}
+      fill
+      style={{ objectFit: "contain", padding: "24px" }}
+      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+    />
+  </Box>
 
+  <CardContent
+    sx={{
+      flexGrow: 1,
+      display: "flex",
+      flexDirection: "column",
+      px: 3,
+      pt: 2,
+    }}
+  >
+    <Box sx={{ mb: 1 }}>
+      <Typography
+        sx={{
+          fontFamily: '"Barlow Condensed", sans-serif',
+          fontSize: "1.4rem",
+          fontWeight: 800,
+          textTransform: "uppercase",
+          color: "text.primary",
+        }}
+      >
+        {family.title}
+      </Typography>
+      {!family.logoUrl && (
+        <Typography
+          sx={{
+            fontSize: "0.7rem",
+            fontWeight: 700,
+            color: "primary.main",
+            bgcolor: (theme) => alpha(theme.palette.primary.main, 0.1),
+            px: 1,
+            py: 0.2,
+            display: "inline-block",
+            mt: 0.5,
+          }}
+        >
+          {family.code}
+        </Typography>
+      )}
+    </Box>
+                
                 <Typography
                   variant="caption"
                   color="text.secondary"

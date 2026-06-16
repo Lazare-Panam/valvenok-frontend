@@ -15,6 +15,7 @@ export interface Category {
   href: string
   image: string
   applications?: string
+  logoUrl?:string
 }
 
 export default function ProductCard({ category }: { category: Category }) {
