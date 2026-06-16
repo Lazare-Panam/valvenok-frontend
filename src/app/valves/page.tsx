@@ -125,7 +125,7 @@ const VALVE_FAMILIES: Category[] = [
     ],
     applications:
       "Oil & Gas, Petrochemical, Power Generation, Process Plants, Water Treatment, Refining",
-    href: "/valves/",
+    href: "/valves",
     image: "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/Inconel_gate_valve--The-Alloy-Valve-Stockist.jpg",
   },
 ];

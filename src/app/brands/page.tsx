@@ -1,14 +1,7 @@
 "use client";
 
 import React from "react";
-import {
-  Box,
-  Container,
-  Typography,
-  Card,
-  Stack,
-  alpha,
-} from "@mui/material";
+import { Box, Container, Typography, Card, Stack, alpha } from "@mui/material";
 import Grid from "@mui/material/Grid";
 //feat fixed images
 const BRANDS = [
@@ -21,6 +14,7 @@ const BRANDS = [
     name: "Mars Valves",
     logo: "https://pblol2.blob.core.windows.net/valvenok-images/brands/mars.png",
     desc: "Industrial valve solutions for a wide range of flow control applications.",
+    href: "/brands/mars-valves",
   },
   {
     name: "PANAM Valves",
@@ -161,27 +155,35 @@ export default function BrandsPage() {
               variant="body1"
               sx={{ fontSize: "1.1rem", opacity: 0.9, lineHeight: 1.7, mb: 3 }}
             >
-              Valvenok Ltd partners with a carefully selected range of leading global
-              manufacturers to supply high-quality valves, actuators, and fluid control
-              components to customers across the UK and beyond. Our brands page
-              showcases trusted engineering names known for reliability and innovation.
+              Valvenok Ltd partners with a carefully selected range of leading
+              global manufacturers to supply high-quality valves, actuators, and
+              fluid control components to customers across the UK and beyond.
+              Our brands page showcases trusted engineering names known for
+              reliability and innovation.
             </Typography>
 
             <Typography
               variant="body1"
               sx={{ fontSize: "1.1rem", opacity: 0.9, lineHeight: 1.7, mb: 3 }}
             >
-              By collaborating with recognized industry brands, we offer a comprehensive
-              product range—from precision-engineered ball valves to advanced actuation
-              technologies. We ensure every product meets strict quality standards for
-              demanding environments like oil & gas and process engineering.
+              By collaborating with recognized industry brands, we offer a
+              comprehensive product range—from precision-engineered ball valves
+              to advanced actuation technologies. We ensure every product meets
+              strict quality standards for demanding environments like oil & gas
+              and process engineering.
             </Typography>
 
             <Typography
               variant="body1"
-              sx={{ fontSize: "1rem", fontWeight: 600, opacity: 0.8, fontStyle: "italic" }}
+              sx={{
+                fontSize: "1rem",
+                fontWeight: 600,
+                opacity: 0.8,
+                fontStyle: "italic",
+              }}
             >
-              Explore our brand partners below or contact our team for tailored advice.
+              Explore our brand partners below or contact our team for tailored
+              advice.
             </Typography>
           </Box>
         </Container>
@@ -191,75 +193,79 @@ export default function BrandsPage() {
       <Container maxWidth="lg" sx={{ py: 12 }}>
         <Grid container spacing={3}>
           {BRANDS.map((brand) => (
-            <Grid key={brand.name} size={{ xs: 12, sm: 6, md: 4 }}>
-              <Card
-                elevation={0}
+  <Grid key={brand.name} size={{ xs: 12, sm: 6, md: 4 }}>
+    <Box
+      component={brand.href ? "a" : "div"}
+      href={brand.href ?? undefined}
+      sx={{
+        display: "block",
+        height: "100%",
+        textDecoration: "none",
+        color: "inherit",
+      }}
+    >
+      <Card
+        elevation={0}
+        sx={{
+          height: "100%",
+          borderRadius: 0,
+          border: "1px solid",
+          borderColor: "divider",
+          transition: "all 0.3s ease",
+          cursor: brand.href ? "pointer" : "default",
+          "&:hover": {
+            borderColor: "primary.main",
+            transform: "translateY(-5px)",
+            boxShadow: "0 20px 40px rgba(0,0,0,0.05)",
+          },
+        }}
+      >
+        <Box sx={{ height: "100%", p: 4 }}>
+          <Stack spacing={3} alignItems="center" textAlign="center">
+            <Box
+              sx={{
+                height: 80,
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                opacity: 0.8,
+                transition: "all 0.3s ease",
+                ".MuiCard-root:hover &": { opacity: 1 },
+              }}
+            >
+              <Box
+                component="img"
+                src={brand.logo}
+                alt={brand.name}
+                sx={{ maxHeight: "100%", maxWidth: "180px", objectFit: "contain" }}
+              />
+            </Box>
+            <Box>
+              <Typography
+                variant="h5"
                 sx={{
-                  height: "100%",
-                  borderRadius: 0,
-                  border: "1px solid",
-                  borderColor: "divider",
-                  transition: "all 0.3s ease",
-                  cursor: "default",
-                  "&:hover": {
-                    borderColor: "primary.main",
-                    transform: "translateY(-5px)",
-                    boxShadow: "0 20px 40px rgba(0,0,0,0.05)",
-                  },
+                  fontFamily: '"Barlow Condensed"',
+                  fontWeight: 800,
+                  textTransform: "uppercase",
+                  mb: 1,
                 }}
               >
-                <Box sx={{ height: "100%", p: 4 }}>
-                  <Stack spacing={3} alignItems="center" textAlign="center">
-                    <Box
-                      sx={{
-                        height: 80,
-                        width: "100%",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        opacity: 0.8,
-                        transition: "all 0.3s ease",
-                        ".MuiCard-root:hover &": {
-                          opacity: 1,
-                        },
-                      }}
-                    >
-                      <Box
-                        component="img"
-                        src={brand.logo}
-                        alt={brand.name}
-                        sx={{
-                          maxHeight: "100%",
-                          maxWidth: "180px",
-                          objectFit: "contain",
-                        }}
-                      />
-                    </Box>
-
-                    <Box>
-                      <Typography
-                        variant="h5"
-                        sx={{
-                          fontFamily: '"Barlow Condensed"',
-                          fontWeight: 800,
-                          textTransform: "uppercase",
-                          mb: 1,
-                        }}
-                      >
-                        {brand.name}
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        sx={{ color: "text.secondary", minHeight: "3em", px: 2 }}
-                      >
-                        {brand.desc}
-                      </Typography>
-                    </Box>
-                  </Stack>
-                </Box>
-              </Card>
-            </Grid>
-          ))}
+                {brand.name}
+              </Typography>
+              <Typography
+                variant="body2"
+                sx={{ color: "text.secondary", minHeight: "3em", px: 2 }}
+              >
+                {brand.desc}
+              </Typography>
+            </Box>
+          </Stack>
+        </Box>
+      </Card>
+    </Box>
+  </Grid>
+))}
         </Grid>
 
         {/* --- CONTACT CTA --- */}
@@ -280,7 +286,8 @@ export default function BrandsPage() {
             LOOKING FOR A SPECIFIC MANUFACTURER?
           </Typography>
           <Typography sx={{ color: "text.secondary", mb: 3 }}>
-            We have access to an extensive Global Supply Chain beyond what is listed here.
+            We have access to an extensive Global Supply Chain beyond what is
+            listed here.
           </Typography>
           <Typography
             component="a"
