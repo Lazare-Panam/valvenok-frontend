@@ -145,8 +145,18 @@ export const NAV_GROUPS: NavGroup[] = [
         header: "Process Valves",
         href: "/valves",
         items: [
-          {label: "Mars Valves", href: "/valves/mars-valves"},
-          { label: "Industrial Valves", href: "/valves/industrial-valves" },
+          {
+      label: "Industrial Valves",
+      href: "/valves/industrial-valves",
+      children: [
+        { label: "Ball Valves", href: "/valves/industrial-valves/ball-valves" },
+        { label: "Globe Valves", href: "/valves/industrial-valves/globe-valve" },
+        { label: "Gate Valves", href: "/valves/industrial-valves/gate-valves" },
+        { label: "Check Valves", href: "/valves/industrial-valves/check-valves" },
+        { label: "Control Valves", href: "/valves/industrial-valves/control-valves" },
+      ],
+    },
+      
           { label: "Marine Valves",     href: "/valves/marine-valves" },
         ],
       },

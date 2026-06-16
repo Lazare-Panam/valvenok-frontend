@@ -21,8 +21,7 @@ const ACTUATOR_FAMILIES: Category[] = [
     specs: ["Scotch Yoke", "High Torque", "Double Acting & Spring Return", "90° Rotation"],
     applications: "Oil & Gas, Pipeline, Offshore, Heavy Industry",
     href: "/pneumatic/actuators/scotch-yoke",
-    image:
-      "https://pblol2.blob.core.windows.net/panam-images/products/actuators/AD-Series.jpeg",
+    image:"https://pblol2.blob.core.windows.net/panam-images/products/actuators/AD-Series.jpeg",
         logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/brands/kosaplus-logo.png"
   },
   {

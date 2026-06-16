@@ -8,6 +8,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Image from "next/image";
 import { alpha } from "@mui/material/styles";
 import { Category } from "@/src/app/Common/Products_Page/ProductCard";
+
 export default function ElectricActuatorsGrid({ families }: { families: Category[] }) {
   return (
     <Box sx={{ bgcolor: "background.default", py: { xs: 6, md: 10 } }}>
@@ -59,6 +60,29 @@ export default function ElectricActuatorsGrid({ families }: { families: Category
                 },
               }}
             >
+              {/* Brand strip */}
+              {family.logoUrl && (
+                <Box
+                  sx={{
+                    px: 3,
+                    py: 1.5,
+                    borderBottom: "1px solid",
+                    borderColor: "divider",
+                    bgcolor: "#fff",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  <Box
+                    component="img"
+                    src={family.logoUrl}
+                    alt={family.title}
+                    sx={{ maxHeight: 82, maxWidth: 140, objectFit: "contain" }}
+                  />
+                </Box>
+              )}
+
+              {/* Image */}
               <Box
                 sx={{
                   p: 3,
@@ -105,18 +129,20 @@ export default function ElectricActuatorsGrid({ families }: { families: Category
                   >
                     {family.title}
                   </Typography>
-                  <Typography
-                    sx={{
-                      fontSize: "0.7rem",
-                      fontWeight: 700,
-                      color: "primary.main",
-                      bgcolor: (theme) => alpha(theme.palette.primary.main, 0.1),
-                      px: 1,
-                      py: 0.2,
-                    }}
-                  >
-                    {family.code}
-                  </Typography>
+                  {!family.logoUrl && (
+                    <Typography
+                      sx={{
+                        fontSize: "0.7rem",
+                        fontWeight: 700,
+                        color: "primary.main",
+                        bgcolor: (theme) => alpha(theme.palette.primary.main, 0.1),
+                        px: 1,
+                        py: 0.2,
+                      }}
+                    >
+                      {family.code}
+                    </Typography>
+                  )}
                 </Box>
 
                 <Typography
