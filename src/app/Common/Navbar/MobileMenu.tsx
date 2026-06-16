@@ -4,16 +4,15 @@ import * as React from "react";
 import {
   Box,
   Typography,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
   List,
   ListItemButton,
   ListItemText,
   Divider,
+  IconButton,
 } from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { NAV_GROUPS, NAV_LINKS, NavItem } from "./Navbardata";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { NAV_GROUPS, NAV_LINKS, NavColumn, NavItem } from "./Navbardata";
 import MobileUserActions from "./user-actions/MobileUserActions";
 
 const BRAND_GREEN = "#61D649";
@@ -23,111 +22,188 @@ interface Props {
   onClose: () => void;
 }
 
-function MobileNavItems({ items, onClose, depth = 0 }: { items: NavItem[]; onClose: () => void; depth?: number }) {
-  return (
-    <>
-      {items.map((item) =>
-        item.children?.length ? (
-          <Accordion
-            key={item.label}
-            disableGutters
-            elevation={0}
-            sx={{ bgcolor: "transparent", "&:before": { display: "none" } }}
-          >
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon fontSize="small" />}
-              sx={{ pl: 4 + depth * 2 }}
-            >
-              <ListItemText
-                primary={item.label}
-                primaryTypographyProps={{ fontWeight: 500, fontSize: "0.9rem" }}
-              />
-            </AccordionSummary>
-            <AccordionDetails sx={{ p: 0, bgcolor: "#fafafa" }}>
-              <MobileNavItems items={item.children} onClose={onClose} depth={depth + 1} />
-            </AccordionDetails>
-          </Accordion>
-        ) : (
-          <ListItemButton
-            key={item.label}
-            component="a"
-            href={item.href}
-            onClick={onClose}
-            sx={{ pl: 4 + depth * 2, py: 1 }}
-          >
-            <ListItemText
-              primary={item.label}
-              primaryTypographyProps={{ fontSize: "0.875rem" }}
-            />
-          </ListItemButton>
-        )
-      )}
-    </>
-  );
-}
+type PanelLevel =
+  | { type: "root" }
+  | { type: "columns"; groupLabel: string; columns: NavColumn[] }
+  | { type: "items"; colHeader: string; colHref?: string; items: NavItem[] }
+  | { type: "children"; parentLabel: string; parentHref?: string; children: NavItem[] };
 
 export default function MobileMenu({ onClose }: Props) {
+  const [stack, setStack] = React.useState<PanelLevel[]>([{ type: "root" }]);
+
+  const current = stack[stack.length - 1];
+
+  const push = (panel: PanelLevel) => setStack((s) => [...s, panel]);
+  const pop = () => setStack((s) => s.slice(0, -1));
+
   return (
-    <Box sx={{ pb: 4 }}>
-      <MobileUserActions onClose={onClose} />
-      <Divider sx={{ my: 1 }} />
-
-      <Typography
-        variant="overline"
-        sx={{ px: 2, fontWeight: 800, color: "text.secondary", display: "block", mb: 1 }}
-      >
-        Browse Products
-      </Typography>
-
-      {NAV_GROUPS.map((group) => (
-        <Accordion
-          key={group.id}
-          disableGutters
-          elevation={0}
-          sx={{ "&:before": { display: "none" }, borderBottom: "1px solid #f0f0f0" }}
+    <Box sx={{ pb: 4, height: "100%", overflow: "hidden", display: "flex", flexDirection: "column" }}>
+      {/* Back header */}
+      {stack.length > 1 && (
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            px: 1,
+            py: 0.5,
+            borderBottom: "1px solid #f0f0f0",
+            bgcolor: "#f9f9f9",
+          }}
         >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon sx={{ color: HEADER_COLOR }} />}
-            sx={{ px: 2, py: 1 }}
-          >
-            <Typography sx={{ fontWeight: 700, fontSize: "1rem", color: HEADER_COLOR }}>
-              {group.label}
+          <IconButton onClick={pop} size="small">
+            <ArrowBackIcon fontSize="small" />
+          </IconButton>
+          <Typography sx={{ fontWeight: 700, fontSize: "0.85rem", color: HEADER_COLOR, ml: 0.5 }}>
+            {current.type === "columns"
+              ? current.groupLabel
+              : current.type === "items"
+              ? current.colHeader
+              : current.type === "children"
+              ? current.parentLabel
+              : ""}
+          </Typography>
+        </Box>
+      )}
+
+      <Box sx={{ overflowY: "auto", flexGrow: 1 }}>
+        {/* ROOT */}
+        {current.type === "root" && (
+          <>
+            <MobileUserActions onClose={onClose} />
+            <Divider sx={{ my: 1 }} />
+            <Typography
+              variant="overline"
+              sx={{ px: 2, fontWeight: 800, color: "text.secondary", display: "block", mb: 1 }}
+            >
+              Browse Products
             </Typography>
-          </AccordionSummary>
 
-          <AccordionDetails sx={{ p: 0, bgcolor: "#fafafa" }}>
-            {group.columns.map((col) => (
-              <Box key={col.header}>
-                <Typography
-                  sx={{
-                    px: 3,
-                    pt: 1.5,
-                    pb: 0.5,
-                    fontSize: "0.7rem",
-                    fontWeight: 800,
-                    color: BRAND_GREEN,
-                    letterSpacing: "0.1em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  {col.header}
-                </Typography>
-                <List disablePadding>
-                  <MobileNavItems items={col.items} onClose={onClose} />
-                </List>
-              </Box>
+            {NAV_GROUPS.map((group) => (
+              <ListItemButton
+                key={group.id}
+                onClick={() =>
+                  push({ type: "columns", groupLabel: group.label, columns: group.columns })
+                }
+                sx={{ px: 2, py: 1.2, borderBottom: "1px solid #f5f5f5" }}
+              >
+                <ListItemText
+                  primary={group.label}
+                  primaryTypographyProps={{ fontWeight: 700, fontSize: "1rem", color: HEADER_COLOR }}
+                />
+                <ChevronRightIcon sx={{ color: BRAND_GREEN }} />
+              </ListItemButton>
             ))}
-          </AccordionDetails>
-        </Accordion>
-      ))}
 
-      <Divider sx={{ my: 2 }} />
+            <Divider sx={{ my: 2 }} />
 
-      {NAV_LINKS.map((link) => (
-        <ListItemButton key={link.label} component="a" href={link.href} onClick={onClose} sx={{ px: 2 }}>
-          <ListItemText primary={link.label} primaryTypographyProps={{ fontWeight: 500 }} />
-        </ListItemButton>
-      ))}
+            {NAV_LINKS.map((link) => (
+              <ListItemButton key={link.label} component="a" href={link.href} onClick={onClose} sx={{ px: 2 }}>
+                <ListItemText primary={link.label} primaryTypographyProps={{ fontWeight: 500 }} />
+              </ListItemButton>
+            ))}
+          </>
+        )}
+
+        {/* COLUMNS (level 1) */}
+        {current.type === "columns" && (
+          <List disablePadding>
+            {current.columns.map((col) => (
+              <ListItemButton
+                key={col.header}
+                onClick={() =>
+                  push({ type: "items", colHeader: col.header, colHref: col.href, items: col.items })
+                }
+                sx={{ px: 2, py: 1.1, borderBottom: "1px solid #f5f5f5" }}
+              >
+                <ListItemText
+                  primary={col.header}
+                  primaryTypographyProps={{
+                    fontSize: "0.82rem",
+                    fontWeight: 800,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.08em",
+                    color: BRAND_GREEN,
+                  }}
+                />
+                <ChevronRightIcon sx={{ color: "#ccc", fontSize: 18 }} />
+              </ListItemButton>
+            ))}
+          </List>
+        )}
+
+        {/* ITEMS (level 2) */}
+        {current.type === "items" && (
+          <List disablePadding>
+            {current.colHref && (
+              <ListItemButton
+                component="a"
+                href={current.colHref}
+                onClick={onClose}
+                sx={{ px: 2, py: 1, bgcolor: "#f5fdf3", borderBottom: "1px solid #e8f5e3" }}
+              >
+                <ListItemText
+                  primary={`View all ${current.colHeader}`}
+                  primaryTypographyProps={{ fontSize: "0.78rem", fontWeight: 700, color: HEADER_COLOR }}
+                />
+              </ListItemButton>
+            )}
+            {current.items.map((item) => (
+              <ListItemButton
+                key={item.label}
+                onClick={() =>
+                  item.children?.length
+                    ? push({ type: "children", parentLabel: item.label, parentHref: item.href, children: item.children })
+                    : onClose()
+                }
+                component={item.children?.length ? "div" : "a"}
+                href={item.children?.length ? undefined : item.href}
+                sx={{ px: 2, py: 1, borderBottom: "1px solid #f5f5f5" }}
+              >
+                <ListItemText
+                  primary={item.label}
+                  primaryTypographyProps={{ fontSize: "0.875rem", fontWeight: 500 }}
+                />
+                {item.children?.length ? (
+                  <ChevronRightIcon sx={{ color: "#ccc", fontSize: 18 }} />
+                ) : null}
+              </ListItemButton>
+            ))}
+          </List>
+        )}
+
+        {/* CHILDREN (level 3) */}
+        {current.type === "children" && (
+          <List disablePadding>
+            {current.parentHref && (
+              <ListItemButton
+                component="a"
+                href={current.parentHref}
+                onClick={onClose}
+                sx={{ px: 2, py: 1, bgcolor: "#f5fdf3", borderBottom: "1px solid #e8f5e3" }}
+              >
+                <ListItemText
+                  primary={`View all ${current.parentLabel}`}
+                  primaryTypographyProps={{ fontSize: "0.78rem", fontWeight: 700, color: HEADER_COLOR }}
+                />
+              </ListItemButton>
+            )}
+            {current.children.map((child) => (
+              <ListItemButton
+                key={child.label}
+                component="a"
+                href={child.href}
+                onClick={onClose}
+                sx={{ px: 2, py: 1, borderBottom: "1px solid #f5f5f5" }}
+              >
+                <ListItemText
+                  primary={child.label}
+                  primaryTypographyProps={{ fontSize: "0.85rem", color: "#444" }}
+                />
+              </ListItemButton>
+            ))}
+          </List>
+        )}
+      </Box>
     </Box>
   );
 }

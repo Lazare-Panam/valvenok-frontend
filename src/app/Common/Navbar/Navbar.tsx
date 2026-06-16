@@ -123,7 +123,7 @@ export default function Navbar() {
                   gap: 0.4,
                   height: NAV_HEIGHT,
                   px: 2,
-                  color: activeGroup?.id === group.id ? BRAND_GREEN : "#fff",
+                  color: "#fff",
                   fontFamily: '"Barlow Condensed", sans-serif',
                   fontSize: "1rem",
                   fontWeight: 700,

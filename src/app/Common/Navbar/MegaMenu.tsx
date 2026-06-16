@@ -6,107 +6,93 @@ import { NavGroup, NavItem } from "./Navbardata";
 
 const BRAND_GREEN = "#61D649";
 const HEADER_COLOR = "#1c6e2e";
-const MAX_ITEMS = 4;
 
 interface Props {
   group: NavGroup;
   onClose: () => void;
 }
 
-function ColumnItems({ items, colHref, onClose }: { items: NavItem[]; colHref?: string; onClose: () => void }) {
-  const visible = items.slice(0, MAX_ITEMS);
-  const hasMore = items.length > MAX_ITEMS;
+function ChildPanel({ items, onClose }: { items: NavItem[]; onClose: () => void }) {
+  const [activeIndex, setActiveIndex] = React.useState<number | null>(null);
 
   return (
-    <>
-      {visible.map((item) => (
-        <Box key={item.label}>
+    <Box sx={{ display: "flex" }}>
+      {/* Level 2 */}
+      <Box sx={{ minWidth: 220, borderRight: "1px solid #e8e8e8" }}>
+        {items.map((item, i) => (
           <Box
-            component="a"
-            href={item.href}
-            onClick={onClose}
+            key={item.label}
+            onMouseEnter={() => setActiveIndex(item.children?.length ? i : null)}
             sx={{
-              display: "block",
-              fontSize: "0.82rem",
-              color: "#222",
-              fontWeight: 500,
-              textDecoration: "none",
-              py: 0.3,
-              lineHeight: 1.4,
-              transition: "color 0.15s",
-              "&:hover": { color: HEADER_COLOR },
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              px: 2,
+              py: 0.9,
+              cursor: "pointer",
+              bgcolor: activeIndex === i ? "#f5fdf3" : "transparent",
+              borderLeft: activeIndex === i ? `3px solid ${BRAND_GREEN}` : "3px solid transparent",
+              transition: "all 0.1s",
             }}
           >
-            {item.label}
-          </Box>
-          {item.children?.slice(0, 2).map((child) => (
-            <Box
-              key={child.label}
-              component="a"
-              href={child.href}
-              onClick={onClose}
-              sx={{
-                display: "block",
-                fontSize: "0.75rem",
-                color: "#666",
-                fontWeight: 400,
-                textDecoration: "none",
-                py: 0.15,
-                pl: 1.5,
-                lineHeight: 1.4,
-                transition: "color 0.15s",
-                "&:hover": { color: HEADER_COLOR },
-              }}
-            >
-              {child.label}
-            </Box>
-          ))}
-          {item.children && item.children.length > 2 && (
             <Box
               component="a"
               href={item.href}
               onClick={onClose}
               sx={{
-                display: "block",
-                fontSize: "0.72rem",
-                color: BRAND_GREEN,
-                fontWeight: 700,
+                fontSize: "0.82rem",
+                fontWeight: 500,
+                color: "#222",
                 textDecoration: "none",
-                py: 0.15,
-                pl: 1.5,
-                "&:hover": { textDecoration: "underline" },
+                flexGrow: 1,
+                "&:hover": { color: HEADER_COLOR },
               }}
             >
-              See all →
+              {item.label}
             </Box>
-          )}
-        </Box>
-      ))}
-      {hasMore && (
-        <Box
-          component="a"
-          href={colHref}
-          onClick={onClose}
-          sx={{
-            display: "inline-block",
-            mt: 0.75,
-            fontSize: "0.75rem",
-            color: BRAND_GREEN,
-            fontWeight: 700,
-            textDecoration: "none",
-            "&:hover": { textDecoration: "underline" },
-          }}
-        >
-          See more →
-        </Box>
-      )}
-    </>
+            {item.children?.length ? (
+              <Box sx={{ fontSize: "0.7rem", color: "#aaa", ml: 1 }}>›</Box>
+            ) : null}
+          </Box>
+        ))}
+      </Box>
+
+      {/* Level 3 */}
+      {activeIndex !== null && items[activeIndex]?.children?.length ? (
+        <Fade in>
+          <Box sx={{ minWidth: 220, pl: 1 }}>
+            {items[activeIndex].children!.map((child) => (
+              <Box
+                key={child.label}
+                component="a"
+                href={child.href}
+                onClick={onClose}
+                sx={{
+                  display: "block",
+                  px: 2,
+                  py: 0.9,
+                  fontSize: "0.8rem",
+                  fontWeight: 400,
+                  color: "#444",
+                  textDecoration: "none",
+                  transition: "color 0.1s",
+                  "&:hover": { color: HEADER_COLOR },
+                }}
+              >
+                {child.label}
+              </Box>
+            ))}
+          </Box>
+        </Fade>
+      ) : null}
+    </Box>
   );
 }
 
 export default function MegaMenu({ group, onClose }: Props) {
-  // How many columns per row — 2 for groups with 3+ columns, else show all
-  const cols = group.columns.length <= 2 ? group.columns.length : 2;
+  const [activeColIndex, setActiveColIndex] = React.useState<number>(0);
+
+  const activeCol = group.columns[activeColIndex];
 
   return (
     <Fade in>
@@ -116,44 +102,58 @@ export default function MegaMenu({ group, onClose }: Props) {
           boxShadow: "0px 8px 24px rgba(0,0,0,0.12)",
           borderTop: `2px solid ${BRAND_GREEN}`,
           borderBottom: "1px solid #e8e8e8",
+          display: "flex",
+          minWidth: 660,
         }}
       >
+        {/* Level 1 — columns as categories */}
         <Box
           sx={{
-            display: "grid",
-            gridTemplateColumns: `repeat(${cols}, minmax(200px, 260px))`,
-            gap: 3,
-            py: 3,
-            px: 4,
+            minWidth: 200,
+            borderRight: "1px solid #e8e8e8",
+            py: 2,
+            bgcolor: "#f9f9f9",
           }}
         >
-          {group.columns.map((col) => (
-            <Box key={col.header}>
+          {group.columns.map((col, i) => (
+            <Box
+              key={col.header}
+              onMouseEnter={() => setActiveColIndex(i)}
+              sx={{
+                px: 2.5,
+                py: 1,
+                cursor: "pointer",
+                bgcolor: activeColIndex === i ? "white" : "transparent",
+                borderLeft: activeColIndex === i ? `3px solid ${BRAND_GREEN}` : "3px solid transparent",
+                transition: "all 0.1s",
+              }}
+            >
               <Box
                 component="a"
                 href={col.href}
                 onClick={onClose}
-                sx={{ textDecoration: "none", display: "block", mb: 1 }}
+                sx={{ textDecoration: "none" }}
               >
                 <Typography
                   sx={{
-                    fontSize: "0.65rem",
+                    fontSize: "0.72rem",
                     fontWeight: 800,
-                    color: HEADER_COLOR,
-                    letterSpacing: "0.14em",
+                    color: activeColIndex === i ? HEADER_COLOR : "#555",
+                    letterSpacing: "0.1em",
                     textTransform: "uppercase",
-                    pb: 0.75,
-                    borderBottom: `1px solid #d4ecd4`,
-                    display: "block",
-                    "&:hover": { color: BRAND_GREEN },
+                    transition: "color 0.1s",
                   }}
                 >
                   {col.header}
                 </Typography>
               </Box>
-              <ColumnItems items={col.items} colHref={col.href} onClose={onClose} />
             </Box>
           ))}
+        </Box>
+
+        {/* Level 2 + 3 */}
+        <Box sx={{ py: 2, flexGrow: 1 }}>
+          <ChildPanel items={activeCol.items} onClose={onClose} />
         </Box>
       </Box>
     </Fade>
