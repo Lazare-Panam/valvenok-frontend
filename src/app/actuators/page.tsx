@@ -8,6 +8,55 @@ import {
   Divider,
   Button,
 } from "@mui/material";
+import { Category } from "@/src/app/Common/Products_Page/ProductCard";
+import ProcessValvesGrid from "../valves/ProcessValvesGrid";
+
+const ACTUATOR_CATEGORIES: Category[] = [
+  {
+    code: "PA",
+    title: "Pneumatic Actuators",
+    subtitle: "Pneumatic Rotary & Linear Actuators",
+    description:
+      "A full range of pneumatic rotary and linear actuators engineered for reliable quarter-turn and linear valve control. Rack-and-pinion spring return for fail-safe process control, scotch yoke for high-torque heavy-duty automation — all with ISO 5211 direct-mount.",
+    specs: ["Rack & Pinion", "Scotch Yoke", "Spring Return", "ISO 5211", "ATEX Certified", "Double Acting"],
+    applications: "Oil & Gas, Petrochemical, Power Generation, Process Plants",
+    href: "/pneumatic/actuators",
+    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/pneumatic/hd.webp",
+  },
+  {
+    code: "EA",
+    title: "Electric Actuators",
+    subtitle: "Electric Rotary & Linear Actuators",
+    description:
+      "Precision electric actuators for quarter-turn and multi-turn valve automation. Intelligent torque control, modulating and on-off service, with integrated limit switches and positioners.",
+    specs: ["Quarter-Turn", "Multi-Turn", "Modulating", "On-Off Service", "Limit Switches", "Positioners"],
+    applications: "Water Treatment, Power Generation, Chemical, Pharmaceutical",
+    href: "/actuators/electric",
+    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/itq.webp",
+  },
+  {
+    code: "HA",
+    title: "Hydraulic Actuators",
+    subtitle: "Hydraulic Rotary & Linear Actuators",
+    description:
+      "High-force hydraulic actuators built for subsea, offshore and pipeline applications where extreme torque and fail-safe operation are non-negotiable. Scotch yoke and rack-and-pinion configurations available.",
+    specs: ["Scotch Yoke", "Rack & Pinion", "Spring Return", "Hydraulic Override", "Subsea Ready", "Fail-Safe"],
+    applications: "Subsea, Offshore, Pipeline & Transmission, FPSOs",
+    href: "/actuators/hydraulic",
+    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/hydraulic/adf.webp",
+  },
+  {
+    code: "MA",
+    title: "Mechanical Actuators",
+    subtitle: "Gearboxes & Manual Actuators",
+    description:
+      "Manual gearboxes and mechanical actuators for quarter-turn and multi-turn valves. Worm gear, bevel gear, and spur gear designs provide reliable manual override and standalone valve operation.",
+    specs: ["Worm Gear", "Bevel Gear", "Spur Gear", "Quarter-Turn", "Multi-Turn", "Manual Override"],
+    applications: "General Industrial, Pipeline, Process Plants, Marine",
+    href: "/actuators/mechanical",
+    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/mechanical/mab.webp",
+  },
+];
 
 const SERIES = [
   {
@@ -115,6 +164,9 @@ export default function ActuatorsPage() {
         </Box>
       </Box>
 
+      {/* ── Product Cards ── */}
+      <ProcessValvesGrid families={ACTUATOR_CATEGORIES} />
+
       <Container maxWidth="lg" sx={{ py: { xs: 8, md: 12 } }}>
 
         {/* ── Intro ── */}
@@ -162,12 +214,7 @@ export default function ActuatorsPage() {
           return (
             <Box key={title}>
               <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
-
-                {/* Text — left on even, right on odd */}
-                <Grid
-                  size={{ xs: 12, md: 6 }}
-                  order={{ xs: 1, md: isEven ? 1 : 2 }}
-                >
+                <Grid size={{ xs: 12, md: 6 }} order={{ xs: 1, md: isEven ? 1 : 2 }}>
                   <Typography variant="overline" sx={{ color: "#61D649", fontWeight: 600, letterSpacing: 2, fontSize: 11 }}>
                     {category}
                   </Typography>
@@ -190,21 +237,11 @@ export default function ActuatorsPage() {
                     {cta}
                   </Button>
                 </Grid>
-
-                {/* Image — right on even, left on odd */}
-                <Grid
-                  size={{ xs: 12, md: 6 }}
-                  order={{ xs: 2, md: isEven ? 2 : 1 }}
-                >
+                <Grid size={{ xs: 12, md: 6 }} order={{ xs: 2, md: isEven ? 2 : 1 }}>
                   <Box sx={{ borderRadius: 2, p: 4, textAlign: "center", bgcolor: "#f7faf6" }}>
-                    <img
-                      src={image}
-                      alt={alt}
-                      style={{ width: "50%", height: "auto", objectFit: "contain" }}
-                    />
+                    <img src={image} alt={alt} style={{ width: "50%", height: "auto", objectFit: "contain" }} />
                   </Box>
                 </Grid>
-
               </Grid>
               {index < SERIES.length - 1 && <Divider sx={{ mb: 10 }} />}
             </Box>

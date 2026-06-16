@@ -11,21 +11,10 @@ export const metadata: Metadata = {
 };
 
 const ACTUATOR_FAMILIES: Category[] = [
-  {
-    code: "SRA",
-    title: "SRA Series",
-    subtitle: "Spring Return Rack & Pinion Actuator",
-    description:
-      "Pneumatic rack-and-pinion rotary actuators with fail-safe spring return operation. ISO 5211 mounting for direct fit on quarter-turn ball, butterfly and plug valves across general process control.",
-    specs: ["Spring Return", "Rack & Pinion", "ISO 5211 Mount", "90° Rotation"],
-    applications: "Process Control, Water Treatment, Chemical, Food & Bev",
-    href: "/pneumatic/actuators/sra",
-    image:
-      "https://pblol2.blob.core.windows.net/spac-images/products/actuators/SRA-25-02.jpg",
-  },
+
   {
     code: "AD",
-    title: "AD Series",
+    title: "Scotch Yoke",
     subtitle: "Scotch Yoke Heavy-Duty Actuator",
     description:
       "Scotch yoke pneumatic actuators engineered for high-torque quarter-turn valve automation. Symmetric and canted yoke designs deliver superior breakaway torque for heavy-duty oil & gas, pipeline and offshore applications.",
@@ -34,10 +23,11 @@ const ACTUATOR_FAMILIES: Category[] = [
     href: "/pneumatic/actuators/scotch-yoke",
     image:
       "https://pblol2.blob.core.windows.net/panam-images/products/actuators/AD-Series.jpeg",
+        logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/brands/kosaplus-logo.png"
   },
   {
   "code": "PDS",
-  "title": "PDS Series",
+  "title": "PDS Actuator (Rotary)",
   "subtitle": "Scotch Yoke Pneumatic Actuator — Double & Single Acting",
   "description": "Scotch-Yoke pneumatic actuators engineered for superior break-out torque in demanding flow control environments. Available in double acting (PD) and single acting spring return (PS) configurations with hard anodized aluminum construction for corrosion resistance.",
   "specs": [
@@ -49,11 +39,12 @@ const ACTUATOR_FAMILIES: Category[] = [
   ],
   "applications": "Oil & Gas, Pipeline, Offshore, Heavy Industry, Challenging Environments",
   "href": "/pneumatic/actuators/pds",
-  "image": "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/pneumatic/pdf.webp"
+  "image": "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/pneumatic/pdf.webp",
+  logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp",
 },
 {
   "code": "HD",
-  "title": "HD Series",
+  "title": "HD Actuator (Rotary)",
   "subtitle": "Heavy-Duty Scotch Yoke Pneumatic Actuator — IS & IC Series",
   "description": "Heavy-duty scotch yoke pneumatic actuators in Symmetric (IS) and Canted (IC) configurations, engineered for demanding industrial valve automation. Wide torque range for ball, butterfly and plug valves — on-off and modulating service. ATEX, SIL3 and PED certified.",
   "specs": [
@@ -66,11 +57,12 @@ const ACTUATOR_FAMILIES: Category[] = [
   ],
   "applications": "Oil & Gas, Pipeline, Offshore, Petrochemical, Heavy Industry",
   "href": "/pneumatic/actuators/hd",
-  "image": "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/pneumatic/hd.webp"
+  "image": "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/pneumatic/hd.webp",
+  logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp",
 },
 {
   "code": "PLDS",
-  "title": "PLDS Series",
+  "title": "PLDS Actuator (Linear)",
   "subtitle": "Pneumatic Linear Double Acting Cylinder",
   "description": "Double-acting pneumatic linear cylinders engineered for precise motion control in automation systems and valve actuation. Low-friction seals, universal ISO mounting, and multiple corrosion protection grades for demanding industrial environments.",
   "specs": [
@@ -83,11 +75,12 @@ const ACTUATOR_FAMILIES: Category[] = [
   ],
   "applications": "Valve Actuation, Automation Systems, Oil & Gas, Chemical, Offshore",
   "href": "/pneumatic/actuators/plds",
-  "image": "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/pneumatic/plds.webp"
+  "image": "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/pneumatic/plds.webp",
+  logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp",
 },
 {
   "code": "MPLDS",
-  "title": "MPLDS Series",
+  "title": "MPLDS Actuator (Linear)",
   "subtitle": "Micro Pneumatic Double Acting Linear Actuator",
   "description": "Compact double-acting pneumatic linear actuators engineered for fine automation and precise linear motion in tight spaces. Modular design, IP66 protection, and wide pressure range with support for positioners, solenoids and limit switches.",
   "specs": [
@@ -100,7 +93,8 @@ const ACTUATOR_FAMILIES: Category[] = [
   ],
   "applications": "Fine Automation, Small-Scale Valve Actuation, Instrumentation, Process Control",
   "href": "/pneumatic/actuators/mplds",
-  "image": "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/pneumatic/mplds.webp"
+  "image": "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/pneumatic/mplds.webp",
+  logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp",
 }
 ];
 
