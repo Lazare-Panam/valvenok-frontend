@@ -28,6 +28,7 @@ const MECHANICAL_FAMILIES: Category[] = [
     applications: "Oil & Gas, Power Generation, Water Treatment, Chemical, Marine & Offshore",
     href: "/actuators/mechanical/mab",
     image: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/mechanical/mab.webp",
+     logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp",
   },
   {
     code: "MAW",
@@ -46,6 +47,7 @@ const MECHANICAL_FAMILIES: Category[] = [
     applications: "Ball, Butterfly & Plug Valves, Dampers, HVAC, Chemical, Power, Water",
     href: "/actuators/mechanical/maw",
     image: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/mechanical/worm-gearboxes.webp",
+     logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp",
   },
   {
     code: "ITG",
@@ -64,6 +66,7 @@ const MECHANICAL_FAMILIES: Category[] = [
     applications: "Ball, Butterfly & Plug Valves, Oil & Gas, Power Generation, Water & Wastewater, Chemical",
     href: "/actuators/mechanical/itg",
     image: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/mechanical/itg.webp",
+     logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp",
   },
 ];
 

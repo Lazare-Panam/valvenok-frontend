@@ -1,714 +1,294 @@
-"use client";
-import { useState, useMemo } from "react";
-import {
-  Box,
-  Typography,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  TableSortLabel,
-  Collapse,
-  Chip,
-  Stack,
-  IconButton,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  FormGroup,
-  FormControlLabel,
-  Checkbox,
-  Divider,
-  Button,
-} from "@mui/material";
-import { alpha, useTheme } from "@mui/material/styles";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import FilterListIcon from "@mui/icons-material/FilterList";
-import { useMediaQuery, Drawer } from "@mui/material";
-import { ACTUATOR_DATA, type ActuatorItem } from "../pneumaticActuatorData";
-import { CartItem, useCartStore } from "../../../cart/hooks/useCartStore";
+'use client';
 
-interface Filters {
-  actuatorTypes: string[];
-  actions: string[];
-}
-const EMPTY_FILTERS: Filters = { actuatorTypes: [], actions: [] };
+import { useState } from "react";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import Grid from "@mui/material/Grid";
+import Chip from "@mui/material/Chip";
+import Divider from "@mui/material/Divider";
+import Paper from "@mui/material/Paper";
+import Button from "@mui/material/Button";
+import ContactSupportIcon from "@mui/icons-material/ContactSupport";
+import TrustStrip from "../../../Common/Products_Page/TrustStrip";
+import RFQModal from "@/src/app/Common/RFQCard/RFQModal";
+import { ProductForRFQ } from "@/src/app/Common/RFQCard/RequestForQuoteCard";
 
-// ─── MAPPER ─────────────────────────────────────────────────────────────────
+const AD_PRODUCT: ProductForRFQ = {
+  id: "ad-series",
+  name: "AD / AS Series Scotch Yoke Pneumatic Actuator",
+  brand: "Kosaplus",
+  category: "Pneumatic Actuators",
+  categoryId: "pneumatic-actuators",
+  subCategory: "Scotch Yoke Actuators",
+  thumbnail: "https://pblol2.blob.core.windows.net/panam-images/products/actuators/AD-Series.jpeg",
+  description: "Scotch yoke pneumatic actuators engineered for high-torque quarter-turn valve automation. Double acting and spring return configurations across 11 sizes from 50–300mm.",
+  keySpecs: [
+    { label: "Type", value: "Scotch Yoke" },
+    { label: "Action", value: "Double Acting (AD) & Spring Return (AS)" },
+    { label: "Size Range", value: "50–300 mm" },
+    { label: "Rotation", value: "90°" },
+  ],
+  variantInfo: {
+    count: 22,
+    sizeRange: "AD50–AD300 / AS50–AS300",
+  },
+};
 
-function toCartItem(row: ActuatorItem): CartItem {
-  const descriptionParts = [
-    `Type: ${row.actuatorType}`,
-    `Action: ${row.action}`,
-    `Size: ${row.size}mm`,
-  ];
+const TECH_SPECS = [
+  { label: "Actuator Type", value: "Scotch Yoke" },
+  { label: "Action — AD Series", value: "Double Acting" },
+  { label: "Action — AS Series", value: "Spring Return" },
+  { label: "Size Range", value: "50 – 300 mm" },
+  { label: "Rotation", value: "90° Quarter-Turn" },
+  { label: "AD Series Models", value: "AD50, AD65, AD80, AD100, AD125, AD140, AD160, AD185, AD210, AD250, AD300" },
+  { label: "AS Series Models", value: "AS50, AS65, AS80, AS100, AS125, AS140, AS160, AS185, AS210, AS250, AS300" },
+  { label: "AD Price Range", value: "£94.71 – £5,082.00" },
+  { label: "AS Price Range", value: "£125.90 – £6,930.00" },
+  { label: "Applications", value: "Oil & Gas, Pipeline, Offshore, Heavy Industry" },
+  { label: "Mounting", value: "ISO 5211 / NAMUR" },
+  { label: "Configuration", value: "Double Acting & Spring Return Fail-Safe" },
+];
 
-  return {
-    id: row.model,
-    name: `${row.model} — ${row.actuatorType} Pneumatic Actuator`,
-    description: descriptionParts.join(", "),
-    partNumber: row.model,
-    price: row.priceGBP,
-    quantity: 1,
-    cloudinaryId: row.imageUrl,
-  };
-}
+const FEATURES = [
+  { letter: "A", title: "Scotch Yoke Mechanism", body: "Superior breakaway torque at valve open and close positions — ideal for high-torque applications." },
+  { letter: "B", title: "Double Acting (AD)", body: "Air pressure drives both open and close strokes for fast, controlled operation in process automation." },
+  { letter: "C", title: "Spring Return (AS)", body: "Fail-safe spring return ensures valve moves to safe position on loss of air supply." },
+  { letter: "D", title: "11 Size Range", body: "Available from 50mm to 300mm to match torque requirements across a wide range of valve sizes." },
+  { letter: "E", title: "High Breakaway Torque", body: "Scotch yoke geometry provides maximum torque at start and end of stroke where it's needed most." },
+  { letter: "F", title: "Quarter-Turn Operation", body: "90° rotation for direct actuation of ball, butterfly and plug valves without additional linkage." },
+  { letter: "G", title: "Heavy-Duty Construction", body: "Built for demanding oil & gas, pipeline and offshore environments with robust materials throughout." },
+  { letter: "H", title: "ISO 5211 Mounting", body: "Direct-mount ISO 5211 flange for plug-and-play compatibility with standard quarter-turn valves." },
+  { letter: "I", title: "NAMUR Interface", body: "NAMUR solenoid valve interface for direct accessory mounting without additional brackets." },
+  { letter: "J", title: "Symmetric & Canted Yoke", body: "Both symmetric and canted yoke designs available for optimised torque output profiles." },
+  { letter: "K", title: "Competitive Pricing", body: "Cost-effective across the full range — AD50 from £94.71 to AD300 at £5,082.00." },
+  { letter: "L", title: "Fast Dispatch", body: "Stock availability across the full AD and AS size range for fast lead times." },
+];
 
-// ─── FILTER PIECES ──────────────────────────────────────────────────────────
+const TRUST_POINTS = [
+  { value: "50–300 mm", label: "Size Range" },
+  { value: "90°", label: "Quarter-Turn" },
+  { value: "Scotch Yoke", label: "Mechanism" },
+  { value: "DA & SR", label: "Action Types" },
+  { value: "ISO 5211", label: "Mounting Standard" },
+];
 
-function FilterGroup({
-  title,
-  count,
-  children,
-}: {
-  title: string;
-  count?: number;
-  children: React.ReactNode;
-}) {
-  const theme = useTheme();
-  return (
-    <Accordion
-      defaultExpanded
-      disableGutters
-      elevation={0}
-      sx={{ bgcolor: "transparent", "&:before": { display: "none" }, mb: 0.5 }}
-    >
-      <AccordionSummary
-        expandIcon={<ExpandMoreIcon sx={{ fontSize: 16 }} />}
-        sx={{
-          px: 0,
-          minHeight: 36,
-          "& .MuiAccordionSummary-content": { my: 0.5 },
-        }}
-      >
-        <Stack direction="row" alignItems="center" spacing={1}>
-          <Typography variant="caption" fontWeight={700} color="text.primary">
-            {title}
-          </Typography>
-          {count ? (
-            <Chip
-              label={count}
-              size="small"
-              sx={{
-                height: 16,
-                fontSize: "0.65rem",
-                bgcolor: theme.palette.primary.main,
-                color: "#fff",
-              }}
-            />
-          ) : null}
-        </Stack>
-      </AccordionSummary>
-      <AccordionDetails sx={{ px: 0, pt: 0 }}>
-        <FormGroup>{children}</FormGroup>
-      </AccordionDetails>
-    </Accordion>
-  );
-}
+const CERTIFICATIONS = ["Scotch Yoke", "Double Acting", "Spring Return", "ISO 5211", "NAMUR", "90° Rotation"];
 
-function Sidebar({
-  filters,
-  setFilters,
-  activeCount,
-}: {
-  filters: Filters;
-  setFilters: React.Dispatch<React.SetStateAction<Filters>>;
-  activeCount: number;
-}) {
-  const theme = useTheme();
-  const toggle = (key: keyof Filters, val: string) =>
-    setFilters((prev) => ({
-      ...prev,
-      [key]: prev[key].includes(val)
-        ? prev[key].filter((v) => v !== val)
-        : [...prev[key], val],
-    }));
-
-  return (
-    <Box
-      sx={{
-        width: 220,
-        flexShrink: 0,
-        p: 2,
-        borderRight: "1px solid",
-        borderColor: "divider",
-        bgcolor: "background.paper",
-        overflowY: "auto",
-      }}
-    >
-      <Stack
-        direction="row"
-        justifyContent="space-between"
-        alignItems="center"
-        mb={2}
-      >
-        <Typography
-          variant="caption"
-          fontWeight={900}
-          letterSpacing={1}
-          color="text.secondary"
-        >
-          FILTER
-        </Typography>
-        {activeCount > 0 && (
-          <Typography
-            variant="caption"
-            fontWeight={700}
-            sx={{ cursor: "pointer", color: theme.palette.primary.main }}
-            onClick={() => setFilters(EMPTY_FILTERS)}
-          >
-            Clear all
-          </Typography>
-        )}
-      </Stack>
-      <FilterGroup
-        title="ACTUATOR TYPE"
-        count={filters.actuatorTypes.length || undefined}
-      >
-        {(["Scotch-Yoke", "Rack & Pinion"] as const).map((opt) => (
-          <FormControlLabel
-            key={opt}
-            control={
-              <Checkbox
-                size="small"
-                checked={filters.actuatorTypes.includes(opt)}
-                onChange={() => toggle("actuatorTypes", opt)}
-                sx={{
-                  py: 0.25,
-                  "&.Mui-checked": { color: theme.palette.primary.main },
-                }}
-              />
-            }
-            label={
-              <Typography variant="body2" fontSize="0.78rem">
-                {opt}
-              </Typography>
-            }
-          />
-        ))}
-      </FilterGroup>
-      <Divider sx={{ my: 0.5 }} />
-      <FilterGroup
-        title="ACTION TYPE"
-        count={filters.actions.length || undefined}
-      >
-        {(["Double Acting", "Spring Return"] as const).map((opt) => (
-          <FormControlLabel
-            key={opt}
-            control={
-              <Checkbox
-                size="small"
-                checked={filters.actions.includes(opt)}
-                onChange={() => toggle("actions", opt)}
-                sx={{
-                  py: 0.25,
-                  "&.Mui-checked": { color: theme.palette.primary.main },
-                }}
-              />
-            }
-            label={
-              <Typography variant="body2" fontSize="0.78rem">
-                {opt}
-              </Typography>
-            }
-          />
-        ))}
-      </FilterGroup>
-    </Box>
-  );
-}
-
-function Spec({ label, value }: { label: string; value?: string }) {
-  if (!value) return null;
-  return (
-    <Box>
-      <Typography
-        variant="caption"
-        color="text.disabled"
-        fontWeight={700}
-        sx={{ display: "block", textTransform: "uppercase", mb: 0.25 }}
-      >
-        {label}
-      </Typography>
-      <Typography variant="body2" fontWeight={600}>
-        {value}
-      </Typography>
-    </Box>
-  );
-}
-
-// ─── ROW ────────────────────────────────────────────────────────────────────
-
-function ActuatorRow({ row }: { row: ActuatorItem }) {
-  const [open, setOpen] = useState(false);
-  const theme = useTheme();
-  const addItem = useCartStore((state) => state.addItem);
-
-  const handleAddToCart = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    addItem(toCartItem(row));
-  };
-
-  const seriesColor =
-    row.actuatorType === "Scotch-Yoke"
-      ? { bg: alpha("#1565C0", 0.1), text: "#0D47A1" }
-      : { bg: alpha("#2E7D32", 0.1), text: "#1B5E20" };
-
-  const actionColor =
-    row.action === "Double Acting"
-      ? {
-          bg: alpha(theme.palette.primary.main, 0.08),
-          text: theme.palette.primary.dark,
-        }
-      : { bg: alpha("#E65100", 0.08), text: "#BF360C" };
-
-  const cartBtnSx = {
-    fontSize: "0.7rem",
-    fontWeight: 700,
-    py: 0.5,
-    px: 1.5,
-    borderRadius: "4px",
-    textTransform: "none" as const,
-    whiteSpace: "nowrap" as const,
-    boxShadow: "none",
-    backgroundColor: "#2e7d32",
-    "&:hover": { boxShadow: "none", backgroundColor: "#1b5e20" },
-  };
+export default function ADSeriesPage() {
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <>
-      <TableRow
-        hover
-        onClick={() => setOpen((o) => !o)}
-        sx={{
-          cursor: "pointer",
-          bgcolor: open ? alpha(theme.palette.primary.main, 0.04) : "inherit",
-          "&:hover": {
-            bgcolor: `${alpha(theme.palette.primary.main, 0.03)} !important`,
-          },
-        }}
-      >
-        <TableCell sx={{ width: 40, py: 1 }}>
-          <IconButton
-            size="small"
-            onClick={(e) => {
-              e.stopPropagation();
-              setOpen((o) => !o);
-            }}
-          >
-            {open ? (
-              <KeyboardArrowUpIcon fontSize="small" />
-            ) : (
-              <KeyboardArrowDownIcon fontSize="small" />
-            )}
-          </IconButton>
-        </TableCell>
-        <TableCell
-          sx={{
-            fontFamily: "monospace",
-            fontWeight: 700,
-            color: theme.palette.primary.main,
-            fontSize: "0.8rem",
-            py: 1,
-          }}
-        >
-          {row.model}
-        </TableCell>
-        <TableCell sx={{ py: 1 }}>
-          <Chip
-            label={row.actuatorType}
-            size="small"
-            sx={{
-              fontSize: "0.65rem",
-              fontWeight: 700,
-              bgcolor: seriesColor.bg,
-              color: seriesColor.text,
-            }}
-          />
-        </TableCell>
-        <TableCell sx={{ py: 1 }}>
-          <Chip
-            label={row.action}
-            size="small"
-            sx={{
-              fontSize: "0.65rem",
-              fontWeight: 700,
-              bgcolor: actionColor.bg,
-              color: actionColor.text,
-            }}
-          />
-        </TableCell>
-        <TableCell sx={{ py: 1, fontSize: "0.82rem", fontWeight: 600 }}>
-          {row.size} mm
-        </TableCell>
-        <TableCell
-          sx={{
-            py: 1,
-            fontSize: "0.82rem",
-            fontFamily: "monospace",
-            fontWeight: 700,
-            color: theme.palette.primary.dark,
-          }}
-        >
-          £
-          {row.priceGBP.toLocaleString("en-GB", {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2,
-          })}
-        </TableCell>
-        <TableCell sx={{ py: 1 }}>
-          <Button
-            size="small"
-            variant="contained"
-            onClick={handleAddToCart}
-            sx={cartBtnSx}
-          >
-            Add to Cart
-          </Button>
-        </TableCell>
-      </TableRow>
+      {/* ── Product Hero ── */}
+      <Box sx={{ bgcolor: "background.default", pt: { xs: 6, md: 10 }, pb: { xs: 6, md: 8 } }}>
+        <Container maxWidth="lg">
+          <Grid container spacing={6} alignItems="center">
 
-      {open && (
-        <TableRow>
-          <TableCell colSpan={7} sx={{ p: 0, borderBottom: "none" }}>
-            <Collapse in unmountOnExit>
+            {/* Image */}
+            <Grid size={{ xs: 12, md: 6 }}>
               <Box
                 sx={{
-                  p: 3,
-                  bgcolor: alpha(theme.palette.primary.main, 0.02),
-                  borderLeft: `4px solid ${theme.palette.primary.main}`,
-                  borderBottom: `1px solid ${theme.palette.divider}`,
+                  borderRadius: 3,
+                  overflow: "hidden",
+                  bgcolor: "#f0f4ef",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  aspectRatio: "4/3",
                 }}
               >
-                <Stack
-                  direction={{ xs: "column", md: "row" }}
-                  spacing={4}
-                  alignItems="flex-start"
+                <Box
+                  component="img"
+                  src="https://pblol2.blob.core.windows.net/panam-images/products/actuators/AD-Series.jpeg"
+                  alt="AD Series Scotch Yoke Pneumatic Actuator"
+                  sx={{ width: "100%", height: "100%", objectFit: "contain", p: 3 }}
+                />
+              </Box>
+            </Grid>
+
+            {/* Details */}
+            <Grid size={{ xs: 12, md: 6 }}>
+              <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2 }}>
+                <Box
+                  component="img"
+                  src="https://pblol2.blob.core.windows.net/valvenok-images/brands/kosaplus-logo.png"
+                  alt="Kosaplus"
+                  sx={{ maxHeight: 96, maxWidth: 140, objectFit: "contain" }}
+                />
+              </Box>
+
+              <Typography variant="overline" sx={{ color: "primary.main", fontWeight: 700, letterSpacing: 2 }}>
+                Pneumatic Actuators / Scotch Yoke
+              </Typography>
+
+              <Typography variant="h3" sx={{ fontWeight: 800, mt: 1, mb: 1, lineHeight: 1.2 }}>
+                AD / AS Series
+              </Typography>
+              <Typography variant="h6" sx={{ color: "text.secondary", fontWeight: 400, mb: 3 }}>
+                Scotch Yoke Heavy-Duty Pneumatic Actuator
+              </Typography>
+
+              <Typography variant="body1" sx={{ color: "text.secondary", mb: 3, lineHeight: 1.8 }}>
+                Scotch yoke pneumatic actuators engineered for high-torque quarter-turn valve automation.
+                Symmetric and canted yoke designs deliver superior breakaway torque for heavy-duty oil & gas,
+                pipeline and offshore applications. Available in double acting (AD) and spring return (AS)
+                configurations across 11 sizes from 50mm to 300mm.
+              </Typography>
+
+              <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mb: 4 }}>
+                {CERTIFICATIONS.map((c) => (
+                  <Chip
+                    key={c}
+                    label={c}
+                    size="small"
+                    sx={{
+                      bgcolor: "primary.light",
+                      color: "primary.dark",
+                      fontWeight: 600,
+                      fontSize: "0.7rem",
+                    }}
+                  />
+                ))}
+              </Box>
+
+              <Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2, mb: 4 }}>
+                {[
+                  { label: "Type", value: "Scotch Yoke" },
+                  { label: "Rotation", value: "90°" },
+                  { label: "Size Range", value: "50–300 mm" },
+                  { label: "Configurations", value: "DA & Spring Return" },
+                ].map(({ label, value }) => (
+                  <Box key={label}>
+                    <Typography variant="caption" sx={{ color: "text.secondary", textTransform: "uppercase", letterSpacing: 1 }}>
+                      {label}
+                    </Typography>
+                    <Typography variant="body1" sx={{ fontWeight: 700 }}>
+                      {value}
+                    </Typography>
+                  </Box>
+                ))}
+              </Box>
+
+              <Box sx={{ display: "flex", gap: 2 }}>
+                <Button
+                  variant="outlined"
+                  size="large"
+                  fullWidth
+                  href="/pneumatic/actuators/scotch-yoke/products"
+                  sx={{
+                    borderRadius: 0,
+                    fontWeight: 800,
+                    py: 1.75,
+                    fontSize: "1rem",
+                    boxShadow: "none",
+                    borderColor: "#1c2e1a",
+                    color: "#1c2e1a",
+                    "&:hover": { borderColor: "primary.main", color: "primary.main", boxShadow: "none" },
+                  }}
                 >
+                  View Products
+                </Button>
+                <Button
+                  variant="contained"
+                  size="large"
+                  fullWidth
+                  startIcon={<ContactSupportIcon />}
+                  onClick={() => setModalOpen(true)}
+                  sx={{
+                    borderRadius: 0,
+                    fontWeight: 800,
+                    py: 1.75,
+                    fontSize: "1rem",
+                    boxShadow: "none",
+                    bgcolor: "#1c2e1a",
+                    "&:hover": { bgcolor: "primary.main", boxShadow: "none" },
+                  }}
+                >
+                  Request a Quote / Lead Time
+                </Button>
+              </Box>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
+
+      <Divider />
+
+      {/* ── Technical Specifications ── */}
+      <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: "#fff" }}>
+        <Container maxWidth="lg">
+          <Typography variant="h5" sx={{ fontWeight: 700, mb: 6 }}>
+            Technical Specifications
+          </Typography>
+          <Grid container spacing={2}>
+            {TECH_SPECS.map(({ label, value }) => (
+              <Grid size={{ xs: 12, sm: 6, md: 4 }} key={label}>
+                <Paper variant="outlined" sx={{ p: 3, borderRadius: 2, height: "100%" }}>
+                  <Typography variant="caption" sx={{ color: "text.secondary", textTransform: "uppercase", letterSpacing: 1.5 }}>
+                    {label}
+                  </Typography>
+                  <Typography variant="body1" sx={{ fontWeight: 700, mt: 0.5 }}>
+                    {value}
+                  </Typography>
+                </Paper>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </Box>
+
+      <Divider />
+
+      {/* ── Features ── */}
+      <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: "background.default" }}>
+        <Container maxWidth="lg">
+          <Typography variant="h5" sx={{ fontWeight: 700, mb: 6 }}>
+            Key Features
+          </Typography>
+          <Grid container spacing={3}>
+            {FEATURES.map(({ letter, title, body }) => (
+              <Grid size={{ xs: 12, sm: 6, md: 4 }} key={letter}>
+                <Paper variant="outlined" sx={{ p: 3, borderRadius: 2, height: "100%", display: "flex", gap: 2 }}>
                   <Box
                     sx={{
-                      width: 140,
-                      height: 140,
                       flexShrink: 0,
-                      border: `1px solid ${theme.palette.divider}`,
-                      borderRadius: 1,
-                      bgcolor: "#fff",
+                      width: 36,
+                      height: 36,
+                      borderRadius: "50%",
+                      bgcolor: "primary.main",
+                      color: "#fff",
+                      fontWeight: 700,
+                      fontSize: "0.85rem",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      p: 1,
                     }}
                   >
-                    <Box
-                      component="img"
-                      src={row.imageUrl}
-                      alt={row.model}
-                      sx={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "contain",
-                      }}
-                    />
+                    {letter}
                   </Box>
-                  <Box sx={{ flex: 1 }}>
-                    <Typography
-                      variant="caption"
-                      fontWeight={900}
-                      color="primary"
-                      sx={{ display: "block", mb: 2, letterSpacing: 1 }}
-                    >
-                      SPECIFICATIONS
+                  <Box>
+                    <Typography variant="body2" sx={{ fontWeight: 700, mb: 0.5 }}>
+                      {title}
                     </Typography>
-                    <Stack direction="row" flexWrap="wrap" gap={3} mb={3}>
-                      <Spec label="Model" value={row.model} />
-                      <Spec label="Series" value={row.series} />
-                      <Spec label="Actuator Type" value={row.actuatorType} />
-                      <Spec label="Action" value={row.action} />
-                      <Spec label="Size" value={`${row.size} mm`} />
-                      <Spec
-                        label="Price (GBP)"
-                        value={`£${row.priceGBP.toLocaleString("en-GB", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
-                      />
-                      <Spec label="Certifications" value="CE · ATEX · SIL" />
-                    </Stack>
-                    <Button
-                      variant="contained"
-                      onClick={handleAddToCart}
-                      sx={cartBtnSx}
-                    >
-                      Add to Cart
-                    </Button>
+                    <Typography variant="body2" sx={{ color: "text.secondary", lineHeight: 1.6 }}>
+                      {body}
+                    </Typography>
                   </Box>
-                </Stack>
-              </Box>
-            </Collapse>
-          </TableCell>
-        </TableRow>
-      )}
+                </Paper>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </Box>
+
+      <TrustStrip points={TRUST_POINTS} />
+
+      <RFQModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        product={AD_PRODUCT}
+      />
     </>
-  );
-}
-
-// ─── PAGE ───────────────────────────────────────────────────────────────────
-
-export default function PneumaticActuatorPage() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery("(max-width:1200px)");
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [filters, setFilters] = useState<Filters>(EMPTY_FILTERS);
-  const [sortKey, setSortKey] = useState("size");
-  const [sortDir, setSortDir] = useState<"asc" | "desc">("asc");
-
-  const filtered = useMemo(
-    () =>
-      ACTUATOR_DATA.filter((r) => {
-        if (
-          filters.actuatorTypes.length &&
-          !filters.actuatorTypes.includes(r.actuatorType)
-        )
-          return false;
-        if (filters.actions.length && !filters.actions.includes(r.action))
-          return false;
-        return true;
-      }),
-    [filters],
-  );
-
-  const sorted = [...filtered].sort((a, b) => {
-    const av = (a as any)[sortKey] ?? 0;
-    const bv = (b as any)[sortKey] ?? 0;
-    if (av < bv) return sortDir === "asc" ? -1 : 1;
-    if (av > bv) return sortDir === "asc" ? 1 : -1;
-    return 0;
-  });
-
-  const activeCount = filters.actuatorTypes.length + filters.actions.length;
-
-  const headerSx = {
-    bgcolor: alpha(theme.palette.primary.main, 0.04),
-    borderBottom: `2px solid ${theme.palette.primary.main}`,
-    fontWeight: 700,
-    fontSize: "0.72rem",
-    textTransform: "uppercase" as const,
-    letterSpacing: "0.05em",
-  };
-
-  const handleSort = (key: string) => {
-    if (sortKey === key) setSortDir((d) => (d === "asc" ? "desc" : "asc"));
-    else {
-      setSortKey(key);
-      setSortDir("asc");
-    }
-  };
-
-  const sidebar = (
-    <Sidebar
-      filters={filters}
-      setFilters={setFilters}
-      activeCount={activeCount}
-    />
-  );
-
-  return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        minHeight: "100vh",
-        bgcolor: "#f8f9fa",
-      }}
-    >
-      <Box
-        sx={{
-          p: 4,
-          borderBottom: `1px solid ${theme.palette.divider}`,
-          bgcolor: "background.paper",
-        }}
-      >
-        <Typography
-          variant="h4"
-          fontWeight={800}
-          mb={1}
-          sx={{ color: theme.palette.primary.main }}
-        >
-          Pneumatic Actuators
-        </Typography>
-        <Typography
-          variant="body1"
-          color="text.secondary"
-          mb={2}
-          sx={{ maxWidth: 700 }}
-        >
-          Scotch-Yoke and Rack &amp; Pinion pneumatic actuators for industrial
-          valve automation. Available in double acting and spring return
-          configurations with CE, ATEX, and SIL certifications.
-        </Typography>
-        <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
-          {[
-            "CE Certified",
-            "ATEX",
-            "SIL",
-            "Scotch-Yoke",
-            "Rack & Pinion",
-            "Double Acting",
-            "Spring Return",
-          ].map((s) => (
-            <Box
-              key={s}
-              sx={{
-                px: 1.5,
-                py: 0.5,
-                borderRadius: "20px",
-                fontSize: "0.75rem",
-                fontWeight: 600,
-                bgcolor: alpha(theme.palette.primary.main, 0.08),
-                color: theme.palette.primary.dark,
-                border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}`,
-              }}
-            >
-              {s}
-            </Box>
-          ))}
-        </Box>
-      </Box>
-
-      <Box sx={{ p: { xs: 2, md: 3 }, flex: 1 }}>
-        {isMobile && (
-          <IconButton onClick={() => setMobileOpen(true)} sx={{ mb: 2 }}>
-            <FilterListIcon />
-          </IconButton>
-        )}
-
-        {activeCount > 0 && (
-          <Stack
-            direction="row"
-            alignItems="center"
-            gap={1}
-            flexWrap="wrap"
-            mb={2}
-          >
-            <Typography
-              variant="caption"
-              color="text.secondary"
-              fontWeight={700}
-            >
-              ACTIVE FILTERS:
-            </Typography>
-            {filters.actuatorTypes.map((v) => (
-              <Chip
-                key={v}
-                label={v}
-                size="small"
-                variant="outlined"
-                sx={{
-                  borderColor: theme.palette.primary.main,
-                  color: theme.palette.primary.main,
-                }}
-                onDelete={() =>
-                  setFilters((p) => ({
-                    ...p,
-                    actuatorTypes: p.actuatorTypes.filter((x) => x !== v),
-                  }))
-                }
-              />
-            ))}
-            {filters.actions.map((v) => (
-              <Chip
-                key={v}
-                label={v}
-                size="small"
-                variant="outlined"
-                sx={{
-                  borderColor: theme.palette.primary.main,
-                  color: theme.palette.primary.main,
-                }}
-                onDelete={() =>
-                  setFilters((p) => ({
-                    ...p,
-                    actions: p.actions.filter((x) => x !== v),
-                  }))
-                }
-              />
-            ))}
-          </Stack>
-        )}
-
-        <Typography
-          variant="caption"
-          fontWeight={700}
-          color="text.secondary"
-          sx={{ display: "block", mb: 1 }}
-        >
-          {filtered.length} CONFIGURATIONS
-        </Typography>
-
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "stretch",
-            border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}`,
-            borderRadius: "8px",
-            overflow: "hidden",
-            bgcolor: "background.paper",
-          }}
-        >
-          {!isMobile && sidebar}
-          <Box sx={{ flex: 1, minWidth: 0 }}>
-            <TableContainer>
-              <Table size="small" stickyHeader>
-                <TableHead>
-                  <TableRow>
-                    <TableCell sx={{ ...headerSx, width: 40 }} />
-                    {[
-                      { key: "model", label: "Model" },
-                      { key: "actuatorType", label: "Actuator Type" },
-                      { key: "action", label: "Action" },
-                      { key: "size", label: "Size (mm)" },
-                      { key: "priceGBP", label: "Price (GBP)" },
-                      { key: null, label: "Cart" },
-                    ].map((h, i) => (
-                      <TableCell key={i} sx={headerSx}>
-                        {h.key ? (
-                          <TableSortLabel
-                            active={sortKey === h.key}
-                            direction={sortKey === h.key ? sortDir : "asc"}
-                            onClick={() => handleSort(h.key!)}
-                          >
-                            {h.label}
-                          </TableSortLabel>
-                        ) : (
-                          h.label
-                        )}
-                      </TableCell>
-                    ))}
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {sorted.length === 0 ? (
-                    <TableRow>
-                      <TableCell colSpan={7} align="center" sx={{ py: 6 }}>
-                        <Typography variant="body2" color="text.secondary">
-                          No actuators match the selected filters.
-                        </Typography>
-                      </TableCell>
-                    </TableRow>
-                  ) : (
-                    sorted.map((row) => <ActuatorRow key={row.id} row={row} />)
-                  )}
-                </TableBody>
-              </Table>
-            </TableContainer>
-          </Box>
-        </Box>
-
-        <Drawer open={mobileOpen} onClose={() => setMobileOpen(false)}>
-          {sidebar}
-        </Drawer>
-      </Box>
-    </Box>
   );
 }

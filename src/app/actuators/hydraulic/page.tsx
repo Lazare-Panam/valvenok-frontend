@@ -28,6 +28,8 @@ const HYDRAULIC_FAMILIES: Category[] = [
     applications: "Oil & Gas, Power Plants, Water Treatment, Chemical, ESD Valves, Offshore, Marine",
     href: "/actuators/hydraulic/adf",
     image: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/hydraulic/adf.webp",
+    logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp",
+  
   },
 ];
 

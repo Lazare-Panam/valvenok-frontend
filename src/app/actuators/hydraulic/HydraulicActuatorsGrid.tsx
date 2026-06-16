@@ -59,6 +59,29 @@ export default function HydraulicActuatorsGrid({ families }: { families: Categor
                 },
               }}
             >
+              {/* Brand strip */}
+              {family.logoUrl && (
+                <Box
+                  sx={{
+                    px: 3,
+                    py: 1.5,
+                    borderBottom: "1px solid",
+                    borderColor: "divider",
+                    bgcolor: "#fff",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  <Box
+                    component="img"
+                    src={family.logoUrl}
+                    alt={family.title}
+                    sx={{ maxHeight: 32, maxWidth: 120, objectFit: "contain" }}
+                  />
+                </Box>
+              )}
+
+              {/* Image */}
               <Box
                 sx={{
                   p: 3,
@@ -105,18 +128,20 @@ export default function HydraulicActuatorsGrid({ families }: { families: Categor
                   >
                     {family.title}
                   </Typography>
-                  <Typography
-                    sx={{
-                      fontSize: "0.7rem",
-                      fontWeight: 700,
-                      color: "primary.main",
-                      bgcolor: (theme) => alpha(theme.palette.primary.main, 0.1),
-                      px: 1,
-                      py: 0.2,
-                    }}
-                  >
-                    {family.code}
-                  </Typography>
+                  {!family.logoUrl && (
+                    <Typography
+                      sx={{
+                        fontSize: "0.7rem",
+                        fontWeight: 700,
+                        color: "primary.main",
+                        bgcolor: (theme) => alpha(theme.palette.primary.main, 0.1),
+                        px: 1,
+                        py: 0.2,
+                      }}
+                    >
+                      {family.code}
+                    </Typography>
+                  )}
                 </Box>
 
                 <Typography
