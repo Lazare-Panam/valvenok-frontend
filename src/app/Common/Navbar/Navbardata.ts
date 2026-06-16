@@ -33,7 +33,107 @@ export const NAV_LINKS: NavLink[] = [
 ];
 
 export const NAV_GROUPS: NavGroup[] = [
+    {
+    id: "valves",
+    label: "Valves",
+    href: "/valves",
+    columns: [
+      {
+        header: "Instrumentation Valves",
+        href: "/valves/instrumentation-valves",
+        items: [
+          {
+            label: "Needle Valves",
+            href: "/valves/instrumentation-valves/needle-valves",
+            children: [
+              { label: "IB Series — Integrated Bonnet", href: "/valves/instrumentation-valves/needle-valves/ib" },
+              { label: "HB Series — Hex Body",          href: "/valves/instrumentation-valves/needle-valves/hb" },
+              { label: "HP Series — High Pressure",     href: "/valves/instrumentation-valves/needle-valves/hp" },
+              { label: "SB Series — Square Body",       href: "/valves/instrumentation-valves/needle-valves/sb" },
+            ],
+          },
+          { label: "Ball Valves",    href: "/valves/instrumentation-valves/ball-valves" },
+          { label: "Check Valves",   href: "/valves/instrumentation-valves/check-valves" },
+          { label: "Relief Valves",  href: "/valves/instrumentation-valves/relief-valves" },
+        ],
+      },
+      {
+        header: "Process Valves",
+        href: "/valves",
+        items: [
+          {
+      label: "Industrial Valves",
+      href: "/valves/industrial-valves",
+      children: [
+        { label: "Ball Valves", href: "/valves/industrial-valves/ball-valves" },
+        { label: "Globe Valves", href: "/valves/industrial-valves/globe-valve" },
+        { label: "Gate Valves", href: "/valves/industrial-valves/gate-valves" },
+        { label: "Check Valves", href: "/valves/industrial-valves/check-valves" },
+        { label: "Control Valves", href: "/valves/industrial-valves/control-valves" },
+      ],
+    },
+      
+          { label: "Marine Valves",     href: "/valves/marine-valves" },
+        ],
+      },
+      {
+        header: "Filters",
+        href: "/filters-sight-glass",
+        items: [
+          { label: "Sight Glass", href: "/filters-sight-glass/sight-glass" },
+          { label: "Filtration",  href: "/filters-sight-glass/filteration" },
+        ],
+      },
+    ],
+  },
+
+
   {
+    id: "actuators",
+    label: "Actuators",
+    href: "/actuators",
+    columns: [
+      {
+        header: "Pneumatic Actuators",
+        href: "/pneumatic/actuators",
+        items: [
+          { label: "SRA Series — Spring Return Rack & Pinion",    href: "/pneumatic/actuators/sra" },
+          { label: "AD Series — Scotch Yoke Heavy-Duty",          href: "/pneumatic/actuators/scotch-yoke" },
+          { label: "PDS Series — Double & Single Acting",         href: "/pneumatic/actuators/pds" },
+          { label: "HD Series — Heavy-Duty IS & IC",              href: "/pneumatic/actuators/hd" },
+          { label: "PLDS Series — Linear Double Acting",          href: "/pneumatic/actuators/plds" },
+          { label: "MPLDS Series — Micro Linear Double Acting",   href: "/pneumatic/actuators/mplds" },
+        ],
+      },
+      {
+        header: "Electric Actuators",
+        href: "/actuators/electric",
+        items: [
+          { label: "ITQ Series — Rotary Electric Actuator",         href: "/actuators/electric/itq" },
+          { label: "IQL Series — Linear Electric Actuator",         href: "/actuators/electric/iql" },
+          { label: "ITL Series — Compact Linear 100% Duty Cycle",   href: "/actuators/electric/itl" },
+          { label: "ITM Series — Multi-Turn Heavy-Duty",            href: "/actuators/electric/itm" },
+        ],
+      },
+      {
+        header: "Hydraulic Actuators",
+        href: "/actuators/hydraulic",
+        items: [
+          { label: "ADF Series — Electro-Hydraulic Rotary", href: "/actuators/hydraulic/adf" },
+        ],
+      },
+      {
+        header: "Mechanical Actuators",
+        href: "/actuators/mechanical",
+        items: [
+          { label: "MAB Series — Bevel Gear Multi-Turn",    href: "/actuators/mechanical/mab" },
+          { label: "MAW Series — Worm Gear Quarter-Turn",   href: "/actuators/mechanical/maw" },
+          { label: "ITG Series — Industrial Gear Quarter-Turn", href: "/actuators/mechanical/itg" },
+        ],
+      },
+    ],
+  },
+    {
     id: "instrumentation",
     label: "Instrumentation",
     href: "/instrumentation",
@@ -117,60 +217,7 @@ export const NAV_GROUPS: NavGroup[] = [
       },
     ],
   },
-  {
-    id: "valves",
-    label: "Valves",
-    href: "/valves",
-    columns: [
-      {
-        header: "Instrumentation Valves",
-        href: "/valves/instrumentation-valves",
-        items: [
-          {
-            label: "Needle Valves",
-            href: "/valves/instrumentation-valves/needle-valves",
-            children: [
-              { label: "IB Series — Integrated Bonnet", href: "/valves/instrumentation-valves/needle-valves/ib" },
-              { label: "HB Series — Hex Body",          href: "/valves/instrumentation-valves/needle-valves/hb" },
-              { label: "HP Series — High Pressure",     href: "/valves/instrumentation-valves/needle-valves/hp" },
-              { label: "SB Series — Square Body",       href: "/valves/instrumentation-valves/needle-valves/sb" },
-            ],
-          },
-          { label: "Ball Valves",    href: "/valves/instrumentation-valves/ball-valves" },
-          { label: "Check Valves",   href: "/valves/instrumentation-valves/check-valves" },
-          { label: "Relief Valves",  href: "/valves/instrumentation-valves/relief-valves" },
-        ],
-      },
-      {
-        header: "Process Valves",
-        href: "/valves",
-        items: [
-          {
-      label: "Industrial Valves",
-      href: "/valves/industrial-valves",
-      children: [
-        { label: "Ball Valves", href: "/valves/industrial-valves/ball-valves" },
-        { label: "Globe Valves", href: "/valves/industrial-valves/globe-valve" },
-        { label: "Gate Valves", href: "/valves/industrial-valves/gate-valves" },
-        { label: "Check Valves", href: "/valves/industrial-valves/check-valves" },
-        { label: "Control Valves", href: "/valves/industrial-valves/control-valves" },
-      ],
-    },
-      
-          { label: "Marine Valves",     href: "/valves/marine-valves" },
-        ],
-      },
-      {
-        header: "Filters",
-        href: "/filters-sight-glass",
-        items: [
-          { label: "Sight Glass", href: "/filters-sight-glass/sight-glass" },
-          { label: "Filtration",  href: "/filters-sight-glass/filteration" },
-        ],
-      },
-    ],
-  },
-  {
+    {
     id: "pneumatics",
     label: "Pneumatics & Vacuum",
     href: "/pneumatic",
@@ -203,51 +250,6 @@ export const NAV_GROUPS: NavGroup[] = [
         href: "/pneumatic/air-gun",
         items: [
           { label: "Air Gun", href: "/pneumatic/air-gun" },
-        ],
-      },
-    ],
-  },
-  {
-    id: "actuators",
-    label: "Actuators",
-    href: "/actuators",
-    columns: [
-      {
-        header: "Pneumatic Actuators",
-        href: "/pneumatic/actuators",
-        items: [
-          { label: "SRA Series — Spring Return Rack & Pinion",    href: "/pneumatic/actuators/sra" },
-          { label: "AD Series — Scotch Yoke Heavy-Duty",          href: "/pneumatic/actuators/scotch-yoke" },
-          { label: "PDS Series — Double & Single Acting",         href: "/pneumatic/actuators/pds" },
-          { label: "HD Series — Heavy-Duty IS & IC",              href: "/pneumatic/actuators/hd" },
-          { label: "PLDS Series — Linear Double Acting",          href: "/pneumatic/actuators/plds" },
-          { label: "MPLDS Series — Micro Linear Double Acting",   href: "/pneumatic/actuators/mplds" },
-        ],
-      },
-      {
-        header: "Electric Actuators",
-        href: "/actuators/electric",
-        items: [
-          { label: "ITQ Series — Rotary Electric Actuator",         href: "/actuators/electric/itq" },
-          { label: "IQL Series — Linear Electric Actuator",         href: "/actuators/electric/iql" },
-          { label: "ITL Series — Compact Linear 100% Duty Cycle",   href: "/actuators/electric/itl" },
-          { label: "ITM Series — Multi-Turn Heavy-Duty",            href: "/actuators/electric/itm" },
-        ],
-      },
-      {
-        header: "Hydraulic Actuators",
-        href: "/actuators/hydraulic",
-        items: [
-          { label: "ADF Series — Electro-Hydraulic Rotary", href: "/actuators/hydraulic/adf" },
-        ],
-      },
-      {
-        header: "Mechanical Actuators",
-        href: "/actuators/mechanical",
-        items: [
-          { label: "MAB Series — Bevel Gear Multi-Turn",    href: "/actuators/mechanical/mab" },
-          { label: "MAW Series — Worm Gear Quarter-Turn",   href: "/actuators/mechanical/maw" },
-          { label: "ITG Series — Industrial Gear Quarter-Turn", href: "/actuators/mechanical/itg" },
         ],
       },
     ],

@@ -23,8 +23,7 @@ import DesktopUserActions from "./user-actions/DesktopUserActions";
 import { NAV_GROUPS, NavGroup } from "./Navbardata";
 import NavTopStrip from "./NavTopStrip";
 
-const NAV_BAR_BG = "#4a9a3a";
-const DARK_GREEN = "#1c6e2e";
+const NAV_BAR_BG = "#61D649";
 const BRAND_GREEN = "#61D649";
 const LOGO_HEIGHT = 120;
 const NAV_HEIGHT = 56;
@@ -136,7 +135,7 @@ export default function Navbar() {
                     activeGroup?.id === group.id ? BRAND_GREEN : "transparent"
                   }`,
                   transition: "all 0.15s",
-                  "&:hover": { color: BRAND_GREEN },
+                  "&:hover": { color: "#ffff" },
                 }}
               >
                 {group.label}

@@ -34,7 +34,7 @@ export default function NavLinks({ barHeight }: Props) {
             transition: "all 0.15s",
             "&:hover": {
               color: "primary.main",
-              bgcolor: alpha(theme.palette.primary.main, 0.05),
+              bgcolor: "#ffff",
             },
           }}
         >

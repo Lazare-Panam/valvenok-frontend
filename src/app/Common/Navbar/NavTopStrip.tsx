@@ -4,8 +4,8 @@ import { Box, Container, Typography } from "@mui/material";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/EmailOutlined";
 
-const DARK_GREEN = "#1c6e2e";
-const BRAND_GREEN = "#61D649";
+const DARK_GREEN = "#61D649";
+const BRAND_GREEN = "#ffff";
 
 export default function NavTopStrip() {
   return (
@@ -75,7 +75,7 @@ export default function NavTopStrip() {
               textTransform: "uppercase",
               textDecoration: "none",
               transition: "all 0.2s",
-              "&:hover": { bgcolor: BRAND_GREEN, borderColor: BRAND_GREEN },
+              "&:hover": { bgcolor: "#d3d3d3", borderColor: "#fff" },
             }}
           >
             Request a Quote
