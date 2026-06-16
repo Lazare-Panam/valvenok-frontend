@@ -85,8 +85,8 @@ const ELECTRIC_FAMILIES: Category[] = [
     logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp",
   },
   {
-    code: "ITM (Multiturn)",
-    title: "ITM Series",
+    code: "ITM",
+    title: "ITM Series  (Multiturn)",
     subtitle: "Heavy-Duty Multi-Turn Electric Actuator",
     description: "Heavy-duty multi-turn electric actuators engineered for gate, globe and sluice valves requiring multi-revolution operation. Exceptional torque capability, IP68 waterproof protection, Hall incremental encoder feedback and smart local control for demanding Oil & Gas, Water Treatment and Petrochemical applications.",
     specs: [

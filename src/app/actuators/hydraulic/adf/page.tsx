@@ -16,7 +16,7 @@ import { ProductForRFQ } from "@/src/app/Common/RFQCard/RequestForQuoteCard";
 
 const ADF_PRODUCT: ProductForRFQ = {
   id: "adf-series",
-  name: "ADF Series Electro-Hydraulic Rotary Actuator",
+  name: "Electro-Hydraulic Rotary Actuator",
   brand: "Valvenok",
   category: "Hydraulic Actuators",
   categoryId: "hydraulic-actuators",
@@ -118,10 +118,10 @@ export default function ADFPage() {
               </Typography>
 
               <Typography variant="h3" sx={{ fontWeight: 800, mt: 1, mb: 1, lineHeight: 1.2 }}>
-                ADF Series
+                Electro-Hydraulic Rotary Actuator — PANDA & PA Series
               </Typography>
               <Typography variant="h6" sx={{ color: "text.secondary", fontWeight: 400, mb: 3 }}>
-                Electro-Hydraulic Rotary Actuator — PANDA & PA Series
+               ADF Series 
               </Typography>
 
               <Typography variant="body1" sx={{ color: "text.secondary", mb: 3, lineHeight: 1.8 }}>

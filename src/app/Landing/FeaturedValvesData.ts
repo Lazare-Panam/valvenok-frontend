@@ -174,7 +174,7 @@ export const FEATURED_PRODUCTS: FeaturedValve[] = [
   },
   {
     id: 'adf-electro-hydraulic',
-    name: 'ADF Series Electro-Hydraulic Rotary Actuator',
+    name: 'Electro-Hydraulic Rotary Actuator',
     category: 'Hydraulic Actuators',
     categoryId: 'hydraulic-actuators',
     brand: 'Susin',

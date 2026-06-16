@@ -119,7 +119,7 @@ export const NAV_GROUPS: NavGroup[] = [
         header: "Hydraulic Actuators",
         href: "/actuators/hydraulic",
         items: [
-          { label: "ADF Series — Electro-Hydraulic Rotary", href: "/actuators/hydraulic/adf" },
+          { label: "Electro-Hydraulic Rotary", href: "/actuators/hydraulic/adf" },
         ],
       },
       {

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const HYDRAULIC_FAMILIES: Category[] = [
   {
     code: "ADF",
-    title: "ADF Series",
+    title: "Electro-Hydraulic Rotary Actuator",
     subtitle: "Electro-Hydraulic Rotary Actuator — PANDA & PA Series",
     description:
       "Electro-hydraulic rotary actuators delivering 46–10,000 Nm with extremely high torque density in compact dimensions. PANDA low-pressure and PA high-pressure variants with spring return fail-safe, ATEX Zone 1 & 2 certification and IP67/68 protection for severe-duty and hazardous area applications.",
