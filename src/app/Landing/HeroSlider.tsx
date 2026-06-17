@@ -19,40 +19,46 @@ const SLIDES = [
   {
     id: 1,
     duration: 12000,
-    image: "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/cover-bg.jpeg",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/cover-bg.jpeg",
     upperTag: "AUTHORIZED DISTRIBUTOR",
     title: "TAIWAN PRECISION",
     accent: "DIRECTLY TO YOU ",
-    description: "As an authorized distributor of Taiwan's leading valve manufacturers, Valvenok brings you precision-engineered solutions — directly, without the middleman. From safety relief to control valves, subsea systems to nuclear-grade components, our curated portfolio of 32 world-class brands delivers the certifications and engineering pedigree your projects demand. One trusted source. Zero compromise.",
+    description:
+      "As an authorized distributor of Taiwan's leading valve manufacturers, Valvenok brings you precision-engineered solutions — directly, without the middleman. From safety relief to control valves, subsea systems to nuclear-grade components, our curated portfolio of 32 world-class brands delivers the certifications and engineering pedigree your projects demand. One trusted source. Zero compromise.",
     href: "/brands",
     btnText: "View Our Brands",
-    alt: "Global engineering brand logos and components"
+    alt: "Global engineering brand logos and components",
   },
   {
     id: 2,
     duration: 8000,
-    image: "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/dave-meckler-sIfOwIa8Lq0-unsplash.jpg",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/dave-meckler-sIfOwIa8Lq0-unsplash.jpg",
     upperTag: "ESTABLISHED 1998",
     tag: "UK Industrial Supplier",
     title: "Precision Pumps & Valves",
     accent: "Sourced & Supplied",
-    description: "High-performance Hydraulic and Pneumatic solutions. We leverage a Global Network to source and supply specialist instrumentation components for your specific requirements.",
+    description:
+      "High-performance Hydraulic and Pneumatic solutions. We leverage a Global Network to source and supply specialist instrumentation components for your specific requirements.",
     href: "/categories/mechanical-seals",
     btnText: "View Pumps",
-    alt: "Industrial precision pump assembly"
+    alt: "Industrial precision pump assembly",
   },
   {
     id: 3,
     duration: 8000,
-    image: "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/camara-negra-gdeNXROgblU-unsplash.jpg",
-    upperTag: "OFFSHORE SOLUTIONS",
-    tag: "JOSCAR REGISTERED",
-    title: "Marine Valves & Controls",
-    accent: "Built for the Extremes",
-    description: "Specialist valve solutions for marine and offshore applications. Corrosion-resistant materials engineered to perform in the harshest salt-water environments.",
-    href: "/valves/marine-valves",
-    btnText: "View Marine Valves",
-    alt: "Heavy duty marine grade valve system"
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/camara-negra-gdeNXROgblU-unsplash.jpg",
+    upperTag: "PROCESS SOLUTIONS",
+    tag: "INDUSTRIAL FLOW CONTROL",
+    title: "Process Valves",
+    accent: "Precision Under Pressure",
+    description:
+      "Comprehensive process valve solutions for industrial applications. Designed for reliable flow control, isolation, and regulation across demanding manufacturing, chemical, energy, and processing environments.",
+    href: "/valves",
+    btnText: "View Process Valves",
+    alt: "Industrial process valve installation",
   },
 ];
 
@@ -67,10 +73,10 @@ export default function HeroSlider() {
     setIndex((prev) => (prev - 1 + SLIDES.length) % SLIDES.length);
   }, []);
 
-useEffect(() => {
-  const timer = setInterval(nextSlide, SLIDES[index].duration);
-  return () => clearInterval(timer);
-}, [nextSlide, index]);
+  useEffect(() => {
+    const timer = setInterval(nextSlide, SLIDES[index].duration);
+    return () => clearInterval(timer);
+  }, [nextSlide, index]);
 
   return (
     <Box
@@ -112,12 +118,12 @@ useEffect(() => {
             sx={{
               position: "absolute",
               inset: 0,
-              background: "linear-gradient(90deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.5) 100%)",
+              background:
+                "linear-gradient(90deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.5) 100%)",
               zIndex: 1,
             }}
           />
 
-         
           {/* 4. CONTENT LAYER */}
           <Container
             maxWidth="lg"
@@ -241,9 +247,6 @@ useEffect(() => {
           </Container>
         </Box>
       </AnimatePresence>
-
-
-
 
       {/* 5. NAVIGATION CONTROLS */}
       <Stack
