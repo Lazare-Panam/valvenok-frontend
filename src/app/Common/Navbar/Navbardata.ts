@@ -33,7 +33,7 @@ export const NAV_LINKS: NavLink[] = [
 ];
 
 export const NAV_GROUPS: NavGroup[] = [
-  {
+{
   id: "hydrogen-cryogenic",
   label: "Hydrogen & Cryogenic",
   href: "/hydrogen-cryogenic",
@@ -54,6 +54,13 @@ export const NAV_GROUPS: NavGroup[] = [
           href: "/hydrogen-cryogenic/lpg",
           children: [
             { label: "View All Products", href: "/hydrogen-cryogenic/lpg/products" },
+          ],
+        },
+        {
+          label: "Industrial Gas Valves",
+          href: "/hydrogen-cryogenic/industrial-gas",
+          children: [
+            { label: "View All Products", href: "/hydrogen-cryogenic/industrial-gas/products" },
           ],
         },
       ],

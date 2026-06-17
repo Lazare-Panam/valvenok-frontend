@@ -24,10 +24,13 @@ const HYDROGEN_CRYOGENIC_SERIES: Category[] = [
       "13 Models",
       "H₂ Service",
     ],
-    applications: "Hydrogen Storage, Refuelling Stations, Cylinder Distribution, Hazardous Areas",
+    applications:
+      "Hydrogen Storage, Refuelling Stations, Cylinder Distribution, Hazardous Areas",
     href: "/hydrogen-cryogenic/hydrogen",
-    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/HE-700.png",
-    logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/top_logo.png",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/HE-700.png",
+    logoUrl:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/top_logo.png",
   },
   {
     code: "LPG",
@@ -42,10 +45,34 @@ const HYDROGEN_CRYOGENIC_SERIES: Category[] = [
       "20 Models",
       "LPG Service",
     ],
-    applications: "LPG Cylinder Filling, Storage Tanks, Piping Distribution, OPD Safety",
+    applications:
+      "LPG Cylinder Filling, Storage Tanks, Piping Distribution, OPD Safety",
     href: "/hydrogen-cryogenic/lpg",
-    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/YLC-2821.png",
-    logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/top_logo.png",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/YLC-2821.png",
+    logoUrl:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/top_logo.png",
+  },
+  {
+    code: "IGV",
+    title: "Industrial Gas Valves",
+    subtitle: "Tapered, Unified, Acetylene, Chlorine & More",
+    description:
+      "Youngdo industrial gas cylinder valves across 7 categories — tapered and unified inlet thread valves, non return valves, acetylene, chlorine/ammonia, tube trailer and piping connection valves. KGS, KS, CGA V-1, BS 341 and ISO certified for global industrial gas applications.",
+    specs: [
+      "25 MPa Max Pressure",
+      "KGS · KS · CGA V-1",
+      "BS 341 · ISO 10297",
+      "7 Categories",
+      "Industrial Gas Service",
+    ],
+    applications:
+      "Industrial Gas Cylinders, Acetylene, Chlorine, Ammonia, Tube Trailers, Piping Distribution",
+    href: "/hydrogen-cryogenic/industrial-gas",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/YOC-2820.png",
+    logoUrl:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/top_logo.png",
   },
 ];
 
