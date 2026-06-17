@@ -14,12 +14,36 @@ const ACCENT_COLORS = [
   { bg: "#166534", text: "#fff", border: "#166534" }, // green   — Industrial Valves
   { bg: "#0e7490", text: "#fff", border: "#0e7490" }, // teal    — Actuators
   { bg: "#9f1239", text: "#fff", border: "#9f1239" }, // crimson — Pumps
+  { bg: "#0f766e", text: "#fff", border: "#0f766e" }, // teal-green — Hydrogen
 ];
 
 const CATEGORIES = [
   {
+  name: "Hydrogen & Cryogenic",
+  img: "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/YEX-1100.png",
+  href: "/hydrogen-cryogenic",
+  tag: "New",
+  count: "40+",
+  subs: [
+    { name: "Hydrogen Cylinder Valves", href: "/hydrogen-cryogenic/hydrogen" },
+    { name: "LPG Cylinder Valves", href: "/hydrogen-cryogenic/lpg" },
+    { name: "Industrial Gas Valves", href: "/industrial-gas" },
+  ],
+},
+  {
+    name: "Industrial Valves",
+    img: "https://pblol2.blob.core.windows.net/mars-valves/ball-valves/series-10-10.png",
+    href: "/valves/instrumentation-valves/ball-valves",
+    tag: "Heavy Duty",
+    count: "280+",
+    subs: [
+      { name: "Industrial Valves", href: "/valves/industrial-valves" },
+      { name: "Marine Valves", href: "/valves/marine-valves" },
+    ],
+  },
+  {
     name: "Fittings & Instrumentation Valves",
-    img: "https://pblol2.blob.core.windows.net/valvenok-images/products/fittings/hex_couplings.png",
+    img: "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure/hp-nv.jpg",
     href: "/fittings-tubing/instrumentation-fittings/jic-fittings",
     tag: "Most Popular",
     count: "450+",
@@ -31,19 +55,7 @@ const CATEGORIES = [
       { name: "SS Tubing", href: "/fittings-tubing/tubing" },
     ],
   },
-  {
-    name: "Pneumatic Systems",
-    img: "https://pblol2.blob.core.windows.net/valvenok-images/products/pneumatic-cylinder/DSC_7050_ESNC-100x100.png",
-    href: "/collections/pneumatics",
-    tag: "Best Sellers",
-    count: "200+",
-    subs: [
-      { name: "Pneumatic Cylinders", href: "/pneumatic/cylinders" },
-      { name: "Pneumatic Fittings", href: "/pneumatic/fittings" },
-      { name: "Pneumatic Tubing", href: "/pneumatic/tubing" },
-      { name: "Air Gun", href: "/pneumatic/air-gun" },
-    ],
-  },
+ 
   {
     name: "Filters",
     img: "https://pblol2.blob.core.windows.net/valvenok-images/products/filters/DFM_Mega_Flow_Rate_Filter.png",
@@ -55,20 +67,10 @@ const CATEGORIES = [
       { name: "Filtration", href: "/filters-sight-glass/filteration" },
     ],
   },
-  {
-    name: "Industrial Valves",
-    img: "https://pblol2.blob.core.windows.net/valvenok-images/products/industrial-valves/industrial-valves.jpg",
-    href: "/valves/instrumentation-valves/ball-valves",
-    tag: "Heavy Duty",
-    count: "280+",
-    subs: [
-      { name: "Industrial Valves", href: "/valves/industrial-valves" },
-      { name: "Marine Valves", href: "/valves/marine-valves" },
-    ],
-  },
+
   {
     name: "Actuators",
-    img: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/actuator_no-bg.png",
+    img: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/hydraulic/adf.webp",
     href: "/pneumatic/actuators",
     tag: "Precision",
     count: "50+",
@@ -76,7 +78,7 @@ const CATEGORIES = [
   },
   {
     name: "Pumps & Mechanical Seal",
-    img: "https://pblol2.blob.core.windows.net/valvenok-images/products/seals/Seals.jpg",
+    img: "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/02-TSL.png",
     href: "/collections/tormac-pumps",
     tag: "Fluid Control",
     count: "180+",
