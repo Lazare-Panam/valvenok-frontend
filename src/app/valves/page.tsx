@@ -11,45 +11,96 @@ export const metadata: Metadata = {
 };
 
 const VALVE_FAMILIES: Category[] = [
-  
   {
-    code: "IV",
-    title: "Industrial Valves",
-    subtitle: "Process & Plant Flow Control",
+    code: "IBV",
+    title: "Industrial Ball Valves",
+    subtitle: "Industrial Ball Valve Range — 1-Piece, 2-Piece, 3-Piece & Fire-Safe",
     description:
-      "Full range of industrial flow control valves for process plants, oil & gas facilities and power generation. Ball, gate, globe, check and butterfly valves in sizes DN15 to DN600, pressure classes 150 to 2500 — carbon steel, SS316 and duplex. API, ANSI and BS standards.",
+      "Industrial ball valve range across 11 distinct series — 1-piece, 2-piece, 3-piece, multi-way diverter, wafer compact and fire-safe flanged designs. Stainless steel 316 (CF8M) construction with PTFE / RTFE seat options, API 607 fire-safe certification on select ranges, and NACE MR-0175 sour-gas service available.",
     specs: [
-      "Ball · Gate · Globe · Check · Butterfly",
-      "DN15 – DN600",
-      "Class 150 – 2500",
-      "SS316 · Duplex · Carbon Steel",
-      "API · ANSI · BS Standards",
+      "11 Ball Valve Series",
+      "Stainless Steel 316 (CF8M)",
+      '1/8" – 12" Size Range',
+      "Up to 2000 PSI",
+      "API 607 Fire Safe",
+      "ANSI · PN · JIS Flanged",
     ],
-    applications:
-      "Oil & Gas, Petrochemical, Power Generation, Process Plants, Water Treatment",
-    href: "/valves/industrial-valves",
-    image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/apollo-valves-88a10a01.webp",
+    applications: "Oil & Gas, Petrochemical, Process Plants, Refining, OEM Manufacturing, Utility Service",
+    href: "/valves/industrial-valves/ball-valves",
+    image: "https://pblol2.blob.core.windows.net/mars-valves/ball-valves/series90D.jpg",
   },
   {
-    code: "MV",
-    title: "Marine Valves",
-    subtitle: "Shipbuilding & Offshore Class Approved",
+    code: "IGV",
+    title: "Globe Valves",
+    subtitle: "Industrial Globe Valve Range — Flanged & Automated",
     description:
-      "Class society approved valves for commercial vessels, naval craft and offshore platforms. Certified by LR, DNV, BV, ABS and CCS. Bronze, nickel-aluminum bronze and SS316 for seawater service, ballast systems, fuel lines and fire-fighting installations.",
+      "Industrial globe valve range for precise flow regulation and throttling across demanding process applications. Robust flanged construction with automated actuator options available, suited for high-pressure and high-temperature service in critical pipeline systems.",
     specs: [
-      "LR · DNV · BV · ABS · CCS",
-      "Bronze · NAB · SS316",
-      "Seawater Service",
-      "Ballast & Fuel Systems",
-      "Fire-Fighting Rated",
+      "Flanged End Connections",
+      "Automated Actuator Options",
+      "High-Pressure Service",
+      "Carbon & Stainless Steel",
+      "ANSI · PN Flanged",
+      "Flow Regulation & Throttling",
     ],
-    applications:
-      "Commercial Vessels, Naval Craft, Offshore Platforms, FPSOs, Shipbuilding",
-    href: "/valves/marine-valves",
-    image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/industrial-valves/industrial-valves.jpg",
+    applications: "Oil & Gas, Petrochemical, Power Generation, Process Plants, Water Treatment, Refining",
+    href: "/valves/industrial-valves/globe-valve",
+    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/featured/fisher-rss.png",
   },
+  {
+    code: "CVL",
+    title: "Control Valves",
+    subtitle: "Severe Service Control Valves — Atlas Series",
+    description:
+      "VSI Atlas Series severe service control valves engineered for the most demanding high-pressure, high-noise and erosive process conditions. Precise flow control, extended maintenance cycles and 700:1 control range at ±3% accuracy.",
+    specs: [
+      "2\" – 4\" NPS",
+      "Cv Up to 300",
+      "0–5,000 psi DP",
+      "< 60 dB Choked Flow",
+      "2+ Year Maintenance Cycle",
+      "700:1 Control Range",
+    ],
+    applications: "Oil & Gas, Petrochemical, Pump Testing, Storage Blowdown, High-Flow Process Control",
+    href: "/valves/industrial-valves/control-valves",
+    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/Atlas-15.png",
+  },
+  {
+    code: "CKV",
+    title: "Check Valves",
+    subtitle: "Non-Return Valves — Swing & Bolted Bonnet",
+    description:
+      "Cast steel swing check valves rated to ASME Class 1500 across NPS 2–48, and high-integrity bolted bonnet designs rated to CL2500 for high-temperature and high-pressure service. Sourced from Velan and Anderson Greenwood.",
+    specs: [
+      "NPS 2–48 | DN 50–1200",
+      "ASME Class 150–2500",
+      "API 594",
+      "Cast & Alloy Steel",
+      "Full Bore Flow Path",
+      "High-Temperature Service",
+    ],
+    applications: "Oil & Gas, Petrochemical, Power Generation, Process Plants, Refining",
+    href: "/valves/industrial-valves/check-valves",
+    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/featured/API-594-cast-steel-swing-check.png",
+  },
+  {
+    code: "BFV",
+    title: "Butterfly Valves",
+    subtitle: "Industrial Butterfly Valve Range",
+    description:
+      "Industrial butterfly valves for on/off and throttling service across process plant, water treatment and marine applications. Wafer, lug and double flanged configurations in a range of materials.",
+    specs: [
+      "NPS 2–48 | DN 50–1200",
+      "ASME 150–1500",
+      "Wafer · Lug · Flanged",
+      "High-Pressure Rated",
+      "On/Off & Throttling",
+    ],
+    applications: "Oil & Gas, Water Treatment, Marine, Process Plants, Power Generation",
+    href: "/valves/industrial-valves/butterfly-valves",
+    image: "https://pblol2.blob.core.windows.net/mars-valves/butterfly-valve.jpg",
+  },
+
   {
     code: "INV",
     title: "Instrumentation Valves",
@@ -63,13 +114,10 @@ const VALVE_FAMILIES: Category[] = [
       "High Pressure Rated",
       "Leak-Tight Isolation",
     ],
-    applications:
-      "Oil & Gas, Petrochemical, Power Generation, Process Measurement, Sampling Lines",
+    applications: "Oil & Gas, Petrochemical, Power Generation, Process Measurement, Sampling Lines",
     href: "/valves/instrumentation-valves",
-    image:
-      "https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PBV-2-S-04-FF-1.png",
+    image: "https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PBV-2-S-04-FF-1.png",
   },
-  
 ];
 
 const TRUST_POINTS = [
