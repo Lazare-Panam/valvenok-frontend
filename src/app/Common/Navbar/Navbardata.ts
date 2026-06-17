@@ -33,6 +33,33 @@ export const NAV_LINKS: NavLink[] = [
 ];
 
 export const NAV_GROUPS: NavGroup[] = [
+  {
+  id: "hydrogen-cryogenic",
+  label: "Hydrogen & Cryogenic",
+  href: "/hydrogen-cryogenic",
+  columns: [
+    {
+      header: "Hydrogen & Cryogenic",
+      href: "/hydrogen-cryogenic",
+      items: [
+        {
+          label: "Hydrogen Cylinder Valves",
+          href: "/hydrogen-cryogenic/hydrogen",
+          children: [
+            { label: "View All Products", href: "/hydrogen-cryogenic/hydrogen/products" },
+          ],
+        },
+        {
+          label: "LPG Cylinder Valves",
+          href: "/hydrogen-cryogenic/lpg",
+          children: [
+            { label: "View All Products", href: "/hydrogen-cryogenic/lpg/products" },
+          ],
+        },
+      ],
+    },
+  ],
+},
     {
     id: "valves",
     label: "Valves",
@@ -217,43 +244,43 @@ export const NAV_GROUPS: NavGroup[] = [
       },
     ],
   },
-    {
-    id: "pneumatics",
-    label: "Pneumatics & Vacuum",
-    href: "/pneumatic",
-    columns: [
-      {
-        header: "Cylinders",
-        href: "/pneumatic/cylinders",
-        items: [
-          { label: "SDNC Series — Standard ISO Tie Rod",       href: "/pneumatic/cylinders/sdnc" },
-          { label: "ESNC Series — Extended Bore Range",        href: "/pneumatic/cylinders/esnc" },
-          { label: "ESC Series — Standard Tie Rod Profile",    href: "/pneumatic/cylinders/esc" },
-          { label: "SDNU Series — Round Body Stainless Steel", href: "/pneumatic/cylinders/sdnu" },
-          { label: "EMAL Series — Standard Round Body",        href: "/pneumatic/cylinders/emal" },
-          { label: "SQ2 Series — Short Stroke Compact Profile",href: "/pneumatic/cylinders/sq2" },
-          { label: "SDVU Series — Compact Short Stroke",       href: "/pneumatic/cylinders/sdvu" },
-          { label: "SDVUL Series — Non-Rotary Short Stroke",   href: "/pneumatic/cylinders/sdvul" },
-        ],
-      },
-      {
-        header: "Pneumatic Valves",
-        href: "/valves",
-        items: [
-          { label: "FG Series — 5/2 & 5/3 Way Solenoid Valves",           href: "/valves/fg" },
-          { label: "TG Series — 2/2, 3/2, 5/2 & 5/3 Way Solenoid Valves", href: "/valves/tg" },
-          { label: "Foot Pedal Valves",                                     href: "/valves/foot-pedal" },
-        ],
-      },
-      {
-        header: "Air Gun",
-        href: "/pneumatic/air-gun",
-        items: [
-          { label: "Air Gun", href: "/pneumatic/air-gun" },
-        ],
-      },
-    ],
-  },
+  //   {
+  //   id: "pneumatics",
+  //   label: "Pneumatics & Vacuum",
+  //   href: "/pneumatic",
+  //   columns: [
+  //     {
+  //       header: "Cylinders",
+  //       href: "/pneumatic/cylinders",
+  //       items: [
+  //         { label: "SDNC Series — Standard ISO Tie Rod",       href: "/pneumatic/cylinders/sdnc" },
+  //         { label: "ESNC Series — Extended Bore Range",        href: "/pneumatic/cylinders/esnc" },
+  //         { label: "ESC Series — Standard Tie Rod Profile",    href: "/pneumatic/cylinders/esc" },
+  //         { label: "SDNU Series — Round Body Stainless Steel", href: "/pneumatic/cylinders/sdnu" },
+  //         { label: "EMAL Series — Standard Round Body",        href: "/pneumatic/cylinders/emal" },
+  //         { label: "SQ2 Series — Short Stroke Compact Profile",href: "/pneumatic/cylinders/sq2" },
+  //         { label: "SDVU Series — Compact Short Stroke",       href: "/pneumatic/cylinders/sdvu" },
+  //         { label: "SDVUL Series — Non-Rotary Short Stroke",   href: "/pneumatic/cylinders/sdvul" },
+  //       ],
+  //     },
+  //     {
+  //       header: "Pneumatic Valves",
+  //       href: "/valves",
+  //       items: [
+  //         { label: "FG Series — 5/2 & 5/3 Way Solenoid Valves",           href: "/valves/fg" },
+  //         { label: "TG Series — 2/2, 3/2, 5/2 & 5/3 Way Solenoid Valves", href: "/valves/tg" },
+  //         { label: "Foot Pedal Valves",                                     href: "/valves/foot-pedal" },
+  //       ],
+  //     },
+  //     {
+  //       header: "Air Gun",
+  //       href: "/pneumatic/air-gun",
+  //       items: [
+  //         { label: "Air Gun", href: "/pneumatic/air-gun" },
+  //       ],
+  //     },
+  //   ],
+  // },
   {
     id: "mechanical",
     label: "Pumps & Seals",
