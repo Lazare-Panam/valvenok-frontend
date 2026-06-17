@@ -52,7 +52,7 @@ const HYDROGEN_CRYOGENIC_SERIES: Category[] = [
       "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/YLC-2821.png",
     logoUrl:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/top_logo.png",
-  },
+  },//
   {
     code: "IGV",
     title: "Industrial Gas Valves",
