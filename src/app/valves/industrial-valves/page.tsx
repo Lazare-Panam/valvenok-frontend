@@ -37,7 +37,7 @@ export const VALVES: FeaturedValve[] = [
   {
     id: 'globe-valve',
     name: 'Globe Valve',
-    category: 'Globe Valves',
+    category: 'Globe & Gate Valves',
     categoryId: 'globe-valves',
     brand: 'Fisher',
     brandLogo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/fisher-logo.jpg',

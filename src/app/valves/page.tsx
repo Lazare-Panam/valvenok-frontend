@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const VALVE_FAMILIES: Category[] = [
   {
     code: "IBV",
-    title: "Industrial Ball Valves",
+    title: "Ball Valves",
     subtitle: "Industrial Ball Valve Range — 1-Piece, 2-Piece, 3-Piece & Fire-Safe",
     description:
       "Industrial ball valve range across 11 distinct series — 1-piece, 2-piece, 3-piece, multi-way diverter, wafer compact and fire-safe flanged designs. Stainless steel 316 (CF8M) construction with PTFE / RTFE seat options, API 607 fire-safe certification on select ranges, and NACE MR-0175 sour-gas service available.",
@@ -31,7 +31,7 @@ const VALVE_FAMILIES: Category[] = [
   },
   {
     code: "IGV",
-    title: "Globe Valves",
+    title: "Globe & Gate Valves",
     subtitle: "Industrial Globe Valve Range — Flanged & Automated",
     description:
       "Industrial globe valve range for precise flow regulation and throttling across demanding process applications. Robust flanged construction with automated actuator options available, suited for high-pressure and high-temperature service in critical pipeline systems.",
