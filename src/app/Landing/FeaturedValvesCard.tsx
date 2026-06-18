@@ -2,10 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Box, Typography, Button } from '@mui/material';
-import ContactSupportIcon from '@mui/icons-material/ContactSupport';
-import RFQModal from '../Common/RFQCard/RFQModal';
-import { ProductForRFQ } from '../Common/RFQCard/RequestForQuoteCard';
+import { Box, Typography } from '@mui/material';
 import { FeaturedValve } from './FeaturedValvesData';
 
 interface FeaturedValveCardProps {
@@ -14,24 +11,9 @@ interface FeaturedValveCardProps {
 
 export default function FeaturedValveCard({ valve }: FeaturedValveCardProps) {
   const [hovered, setHovered] = useState(false);
-  const [modalOpen, setModalOpen] = useState(false);
-
   const logoH = valve.logoHeight ?? 40;
-
-  const rfqProduct: ProductForRFQ = {
-    id: valve.id,
-    name: valve.name,
-    brand: valve.brand,
-    category: valve.category,
-    categoryId: valve.categoryId,
-    thumbnail: valve.thumbnail,
-    description: valve.specs.map(s => `${s.label}: ${s.value}`).join(' | '),
-    keySpecs: valve.specs,
-    variantInfo: { count: 0, sizeRange: '' },
-  };
-
   return (
-    <>
+<Link href={valve.href} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
       <Box
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
@@ -167,34 +149,8 @@ export default function FeaturedValveCard({ valve }: FeaturedValveCardProps) {
               </Box>
             ))}
           </Box>
-
-          <Button
-            fullWidth
-            size="small"
-            startIcon={<ContactSupportIcon sx={{ fontSize: '17px !important' }} />}
-            onClick={() => setModalOpen(true)}
-            sx={{
-              mt: 'auto',
-              fontFamily: '"Barlow Condensed", sans-serif',
-              fontWeight: 700,
-              fontSize: '14px',
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              borderRadius: 0,
-              py: 1.6,
-              bgcolor: hovered ? '#61D649' : 'primary.main',
-              color: hovered ? '#000' : '#fff',
-              boxShadow: 'none',
-              transition: 'background-color 0.25s ease, color 0.25s ease',
-              '&:hover': { bgcolor: '#61D649', color: '#000', boxShadow: 'none' },
-            }}
-          >
-            Request for Quote
-          </Button>
         </Box>
       </Box>
-
-      <RFQModal open={modalOpen} onClose={() => setModalOpen(false)} product={rfqProduct} />
-    </>
+</Link>
   );
 }
