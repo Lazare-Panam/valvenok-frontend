@@ -86,6 +86,10 @@ export const NAV_GROUPS: NavGroup[] = [
         href: "/valves",
         items: [
           {
+            label: "Butterfly Valves",
+            href: "/valves/industrial-valves/butterfly-valves",
+          },
+          {
             label: "Ball Valves",
             href: "/valves/industrial-valves/ball-valves",
           },

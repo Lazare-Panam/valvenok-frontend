@@ -49,6 +49,30 @@ export const BALL_VALVES: FeaturedValve[] = [
       { label: 'Service', value: 'Automated Flow Control' },
     ],
   },
+  {
+  id: 'pf-deltaflux',
+  name: 'Deltaflux Trunnion Mounted Control Ball Valve',
+  category: 'Ball Valves',
+  categoryId: 'ball-valves',
+  brand: 'Pietro Fiorentini',
+  brandLogo: 'https://pblol2.blob.core.windows.net/valvenok-images/products/industrial-valves/logo.svg',
+  thumbnail: 'https://pblol2.blob.core.windows.net/valvenok-images/products/valves/ball-valves/deltaflux.jpg',
+  specs: [
+    { label: 'Size Range', value: '2"–48" | NPS 50–1200' },
+    { label: 'Pressure Rating', value: 'ANSI Class 150–2500' },
+    { label: 'Design Temperature', value: '-196°C to +425°C (-321°F to +800°F)' },
+    { label: 'Connections', value: 'RF & RTJ Flanged (ASME B16.5 / B16.47) / Butt Weld (ASME B16.25)' },
+    { label: 'Construction', value: 'Side Entry Bolted / Welded / Top Entry Bolted' },
+    { label: 'Seat Configuration', value: 'Unidirectional / DIB-1 / DIB-2 / DBB per API 6D' },
+    { label: 'Metallic Materials', value: 'Carbon Steel, Stainless Steel, Duplex, Super-Duplex, Exotic Alloys' },
+    { label: 'Soft Parts', value: 'RPTFE, PEEK, FKM, FFKM, HNBR, Graphite' },
+    { label: 'Coatings', value: 'ENP, Weld Overlay (316SS / N06625), HVOF (TCC / CCC)' },
+    { label: 'Certifications', value: 'API 6D, API 6A, API 6DSS, IEC 61508 SIL 2, PED 2014/68/EU' },
+    { label: 'Fire Safe', value: 'API 607 / API 6FA' },
+    { label: 'Fugitive Emissions', value: 'ISO 15848-1' },
+    { label: 'Operator', value: 'Bare Stem / Pneumatic / Hydraulic / Electric Actuator' },
+  ],
+},
 ];
 
 export const BALL_VALVE_RFQ: ProductForRFQ[] = BALL_VALVES.map((valve) => ({

@@ -47,7 +47,30 @@ const MARS_VALVE_SERIES: Category[] = [
       "https://pblol2.blob.core.windows.net/valvenok-images/products/featured/wkm-370d.jpg",
     logoUrl:
       "https://pblol2.blob.core.windows.net/valvenok-images/brands/cameron-logo.png",
-  },
+  },{
+  code: "PF-DFX",
+  title: "Deltaflux Control Ball Valve",
+  subtitle: "Trunnion Mounted — ANSI Class 150–2500",
+  description:
+    "Pietro Fiorentini Deltaflux trunnion mounted control ball valve for flow rate and pressure modulation across Oil & Gas, LNG, hydrogen, and water management applications. Quarter-turn trim delivers high Kv with minimum pressure drop in fully open position. Available in standard, welded body, and top-entry configurations.",
+  specs: [
+    '2"–48" | NPS 50–1200',
+    "ANSI Class 150–2500",
+    "-196°C to +425°C",
+    "API 6D / API 6A / API 6DSS",
+    "SIL 2 / PED 2014/68/EU",
+    "API 607 Fire Safe",
+  ],
+  applications:
+    "Oil & Gas, LNG, Hydrogen, Carbon Capture, Water Management, High-Pressure Process",
+  href: "/valves/industrial-valves/ball-valves/pf-deltaflux",
+  image:
+    "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/ball-valves/deltaflux.jpg",
+  logoUrl:
+    "https://pblol2.blob.core.windows.net/valvenok-images/products/industrial-valves/logo.svg",
+},
+  
+  
   //     {
   //     code: "MV-3P",
   //     title: "Three-Piece Ball Valve",
