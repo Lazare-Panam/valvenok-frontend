@@ -20,7 +20,7 @@ const SLIDES = [
     id: 1,
     duration: 12000,
     image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/cover-bg.jpeg",
+      "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/Taiwan.jpeg",
     upperTag: "AUTHORIZED DISTRIBUTOR",
     title: "TAIWAN PRECISION",
     accent: "DIRECTLY TO YOU ",
@@ -34,7 +34,7 @@ const SLIDES = [
     id: 2,
     duration: 8000,
     image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/dave-meckler-sIfOwIa8Lq0-unsplash.jpg",
+      "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/Process-valves.jpeg",
     upperTag: "ESTABLISHED 1998",
     tag: "UK Industrial Supplier",
     title: "Precision Pumps & Valves",
@@ -49,7 +49,7 @@ const SLIDES = [
     id: 3,
     duration: 8000,
     image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/camara-negra-gdeNXROgblU-unsplash.jpg",
+      "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/Mars.jpeg",
     upperTag: "PROCESS SOLUTIONS",
     tag: "INDUSTRIAL FLOW CONTROL",
     title: "Process Valves",
