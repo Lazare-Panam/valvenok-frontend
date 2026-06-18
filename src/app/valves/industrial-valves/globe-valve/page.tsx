@@ -49,6 +49,63 @@ const GLOBE_VALVE_SERIES: Category[] = [
     image: "https://pblol2.blob.core.windows.net/valvenok-images/products/featured/globe-valve.png",
     logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/brands/bf-logo.jpg",
   },
+  {
+  code: "JDV-SKA",
+  title: "SKA Series Gate Valve",
+  subtitle: "Gate Valve — Flanged & Socket Weld Ends",
+  description:
+    "JDV SKA Series gate valves to API 600 standard. Flanged and socket weld end connections with face-to-face per ANSI B16.10, end flanges ANSI B16.5 and butt welding ends ANSI B16.25. Inspection and test to API 598.",
+  specs: [
+    "API 600",
+    "DN15 – DN150",
+    "ANSI B16.5 Flanged",
+    "ANSI B16.25 Butt Weld",
+    "API 598 Tested",
+    "ANSI B16.10 Face-to-Face",
+  ],
+  applications: "Oil & Gas, Petrochemical, Process Plants, Power Generation, Refining",
+  href: "/valves/industrial-valves/globe-valve/jdv-ska-gate",
+  image: "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/SKA-Gate.png",
+  logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/brands/JDV_logo.png",
+},
+{
+  code: "JDV-SKG",
+  title: "SKG Series Globe Valve",
+  subtitle: "Globe Valve — Flanged & Socket Weld Ends",
+  description:
+    "JDV SKG Series globe valves to ANSI B16.34 standard. Flanged and socket welded end connections with face-to-face per ANSI B16.10 and butt welding ends ANSI B16.25. Inspection and test to API 598.",
+  specs: [
+    "ANSI B16.34",
+    "ANSI B16.5 Flanged",
+    "ANSI B16.25 Butt Weld",
+    "API 598 Tested",
+    "ANSI B16.10 Face-to-Face",
+    "Socket Weld Ends",
+  ],
+  applications: "Oil & Gas, Petrochemical, Process Plants, Power Generation, Refining",
+  href: "/valves/industrial-valves/globe-valve/jdv-skg-globe",
+  image: "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/product_SKG.png",
+  logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/brands/JDV_logo.png",
+},
+{
+  code: "JDV-SKH",
+  title: "SKH Series Check Valve",
+  subtitle: "Check Valve — Flanged & Socket Weld Ends",
+  description:
+    "JDV SKH Series check valves to ANSI B16.34 standard. Flanged and socket welded end connections with face-to-face per ANSI B16.10 and butt welding ends ANSI B16.25. Inspection and test to API 598.",
+  specs: [
+    "ANSI B16.34",
+    "ANSI B16.5 Flanged",
+    "ANSI B16.25 Butt Weld",
+    "API 598 Tested",
+    "ANSI B16.10 Face-to-Face",
+    "Socket Weld Ends",
+  ],
+  applications: "Oil & Gas, Petrochemical, Process Plants, Power Generation, Refining",
+  href: "/valves/industrial-valves/globe-valve/jdv-skh-check",
+  image: "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/product_SKG.png",
+  logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/brands/JDV_logo.png",
+},
 ];
 
 const TRUST_POINTS = [
