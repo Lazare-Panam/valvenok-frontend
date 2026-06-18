@@ -95,7 +95,7 @@ export const NAV_GROUPS: NavGroup[] = [
           },
           {
             label: "Gate Valves",
-            href: "/valves/industrial-valves/gate-valves",
+            href: "/valves/industrial-valves/globe-valve",
           },
           {
             label: "Check Valves",
@@ -148,7 +148,7 @@ export const NAV_GROUPS: NavGroup[] = [
           },
         ],
       },
-      
+
       {
         header: "Filters",
         href: "/filters-sight-glass",
