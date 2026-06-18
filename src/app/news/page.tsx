@@ -18,6 +18,15 @@ import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 
 const POSTS = [
   {
+  title: "Valvenok Partners with Mars Valves to Expand Industrial Solutions Across the UK",
+  desc: "A strategic collaboration bringing together two companies united by a shared commitment to engineering excellence and reliable flow control — expanding our industrial valve portfolio across the UK and beyond.",
+  thumbnail: "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/mars-banner.jpeg",
+  author: "Sejal Raina",
+  date: "June 2026",
+  category: "Partnership Announcement",
+  link: "/news/mars-valve-partnership",
+},
+  {
     title: "Industrial Mechanical Seals Guide: Engineering Specs & Selection",
     desc: "A comprehensive engineer's guide to Valvenok mechanical seals. Learn about material selection, API flush plans, and performance specs for high-pressure industrial systems",
     thumbnail:

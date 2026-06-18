@@ -13,7 +13,7 @@ export default function FeaturedValveCard({ valve }: FeaturedValveCardProps) {
   const [hovered, setHovered] = useState(false);
   const logoH = valve.logoHeight ?? 40;
   return (
-<Link href={valve.href} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
+    <Link href={valve.href} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
       <Box
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
@@ -151,6 +151,6 @@ export default function FeaturedValveCard({ valve }: FeaturedValveCardProps) {
           </Box>
         </Box>
       </Box>
-</Link>
+    </Link>
   );
 }
