@@ -79,6 +79,17 @@ const INSTRUMENTATION_FAMILIES: Category[] = [
     href: "/quick-coupling-and-hoses",
     image: "https://pblol2.blob.core.windows.net/panam-images/products/tubing/tubing-2.png",
   },
+  {
+  code: "GPR",
+  title: "Gas Pressure Regulators",
+  subtitle: "Direct Operated — Pietro Fiorentini",
+  description:
+    "Pietro Fiorentini direct-operated gas pressure regulators for high-pressure transmission systems and medium pressure natural gas distribution networks. Diaphragm-controlled, Fail Open per EN 334. Hydrogen Ready versions available across the range.",
+  specs: ["EN 334 — Fail Open", "Up to 250 bar", "DN 1\"–3\"", "H2 Ready"],
+  applications: "Natural Gas Transmission, Medium Pressure Distribution, Hydrogen Blending, Industrial Gas",
+  href: "/instrumentation/gas-pressure-regulator",
+  image: "https://pblol2.blob.core.windows.net/valvenok-images/products/gas-regulator/staflux-187.jpg",
+},
 ];
 
 const TRUST_POINTS = [

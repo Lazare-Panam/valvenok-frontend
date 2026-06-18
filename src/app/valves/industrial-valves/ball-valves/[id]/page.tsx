@@ -304,7 +304,7 @@ export default function BallValveDetailPage() {
                 <Button
                   variant="outlined"
                   size="large"
-                  onClick={() => router.push('/valves/ball-valves')}
+                  onClick={() => router.push('/valves/industrial-valves/ball-valves')}
                   sx={{
                     borderRadius: 0, fontWeight: 700, py: 1.75, px: 3, fontSize: '0.9rem',
                     borderColor: 'divider', color: 'text.primary',
@@ -338,7 +338,7 @@ export default function BallValveDetailPage() {
               </Box>
               <Button
                 variant="text"
-                onClick={() => router.push('/valves/ball-valves')}
+                onClick={() => router.push('/valves/industrial-valves/ball-valves')}
                 sx={{ fontWeight: 700, fontSize: '0.8rem', color: 'primary.main', '&:hover': { bgcolor: 'transparent', textDecoration: 'underline' } }}
               >
                 VIEW ALL →

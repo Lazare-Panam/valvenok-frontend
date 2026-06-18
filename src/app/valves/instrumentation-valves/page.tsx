@@ -59,6 +59,8 @@ const VALVE_FAMILIES: Category[] = [
     image:
       "https://pblol2.blob.core.windows.net/panam-images/products/reflief-valves/relief-no-bg.png",
   },
+  
+
 ];
 
 const TRUST_POINTS = [

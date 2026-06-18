@@ -395,6 +395,17 @@ export const NAV_GROUPS: NavGroup[] = [
           { label: "SS Tubing", href: "/fittings-tubing/tubing" },
         ],
       },
+      {
+  header: "Gas Pressure Regulators",
+  href: "/instrumentation/gas-pressure-regulator",
+  items: [
+    {
+      label: "Gas Pressure Regulators",
+      href: "/instruementation/gas-pressure-regulator/products",
+      
+    },
+  ],
+},
     ],
   },
   //   {
