@@ -396,16 +396,26 @@ export const NAV_GROUPS: NavGroup[] = [
         ],
       },
       {
-  header: "Gas Pressure Regulators",
-  href: "/instrumentation/gas-pressure-regulator",
-  items: [
-    {
-      label: "Gas Pressure Regulators",
-      href: "/instruementation/gas-pressure-regulator/products",
-      
-    },
-  ],
-},
+        header: "Gas Pressure Regulators",
+        href: "/instrumentation/gas-pressure-regulator",
+        items: [
+          {
+            label: "Gas Pressure Regulators",
+            href: "/instruementation/gas-pressure-regulator/products",
+          },
+        ],
+      },
+
+      {
+        header: "Flow Meter",
+        href: "/instrumentation/water-meter",
+        items: [
+          {
+            label: "Water Meter",
+            href: "/instrumentation/water-meter/products",
+          },
+        ],
+      },
     ],
   },
   //   {
