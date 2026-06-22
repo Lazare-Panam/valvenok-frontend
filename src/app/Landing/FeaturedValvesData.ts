@@ -151,7 +151,7 @@ export const FEATURED_PRODUCTS: FeaturedValve[] = [
     brand: "Kosaplus",
     brandLogo:
       "https://pblol2.blob.core.windows.net/valvenok-images/brands/kosaplus-logo.png",
-    logoHeight: 48,
+    logoHeight: 78,
     thumbnail:
       "https://pblol2.blob.core.windows.net/panam-images/products/actuators/AD-Series.jpeg",
     href: "/pneumatic/actuators/scotch-yoke",
