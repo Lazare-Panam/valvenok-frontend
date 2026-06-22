@@ -143,4 +143,22 @@ export const FEATURED_PRODUCTS: FeaturedValve[] = [
       { label: "Certifications", value: "ATEX / SIL3 / PED" },
     ],
   },
+  {
+    id: "kosaplus-scotch-yoke",
+    name: "AD Series Scotch Yoke Heavy-Duty Actuator",
+    category: "Pneumatic Actuators",
+    categoryId: "pneumatic-actuators",
+    brand: "Kosaplus",
+    brandLogo:
+      "https://pblol2.blob.core.windows.net/valvenok-images/brands/kosaplus-logo.png",
+    logoHeight: 48,
+    thumbnail:
+      "https://pblol2.blob.core.windows.net/panam-images/products/actuators/AD-Series.jpeg",
+    href: "/pneumatic/actuators/scotch-yoke",
+    specs: [
+      { label: "Type", value: "Scotch Yoke — High Torque" },
+      { label: "Operation", value: "Double Acting & Spring Return" },
+      { label: "Rotation", value: "90° Quarter-Turn" },
+    ],
+  },
 ];
