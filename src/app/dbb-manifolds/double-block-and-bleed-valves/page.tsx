@@ -288,7 +288,7 @@ export default function DBBIndexPage() {
               <Typography
                 variant="h3"
                 component="a"
-                href="/double-block-and-bleed-valves/flange-to-pipe"
+                href="/dbb-manifolds/double-block-and-bleed-valves/flange-to-pipe"
                 sx={{
                   fontSize: { xs: 24, md: 32 },
                   fontWeight: 700,
@@ -352,7 +352,7 @@ export default function DBBIndexPage() {
               </Box>
               <Button
                 variant="outlined"
-                href="/double-block-and-bleed-valves/flange-to-pipe"
+                href="/dbb-manifolds/double-block-and-bleed-valves/flange-to-pipe"
                 sx={{
                   borderColor: "#61D649",
                   color: "#61D649",
@@ -408,7 +408,7 @@ export default function DBBIndexPage() {
             <Typography
               variant="h3"
               component="a"
-              href="/double-block-and-bleed-valves/flange-to-flange"
+              href="/dbb-manifolds/double-block-and-bleed-valves/flange-to-flange"
               sx={{
                 fontSize: { xs: 24, md: 32 },
                 fontWeight: 700,
@@ -466,7 +466,7 @@ export default function DBBIndexPage() {
             </Box>
             <Button
               variant="outlined"
-              href="/double-block-and-bleed-valves/flange-to-flange"
+              href="/dbb-manifolds/double-block-and-bleed-valves/flange-to-flange"
               sx={{
                 borderColor: "#61D649",
                 color: "#61D649",
@@ -503,7 +503,7 @@ export default function DBBIndexPage() {
             <Typography
               variant="h3"
               component="a"
-              href="/double-block-and-bleed-valves/pipe-to-pipe"
+              href="/dbb-manifolds/double-block-and-bleed-valves/pipe-to-pipe"
               sx={{
                 fontSize: { xs: 24, md: 32 },
                 fontWeight: 700,
@@ -562,7 +562,7 @@ export default function DBBIndexPage() {
             </Box>
             <Button
               variant="outlined"
-              href="/double-block-and-bleed-valves/pipe-to-pipe"
+              href="/dbb-manifolds/double-block-and-bleed-valves/pipe-to-pipe"
               sx={{
                 borderColor: "#61D649",
                 color: "#61D649",

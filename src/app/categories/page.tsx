@@ -36,7 +36,7 @@ const categories = [
   },
   {
     slug: 'filters',
-    href: '/filters',
+    href: '/filters-sight-glass/',
     name: 'Filters',
     tagline: 'Strainers & inline filtration',
     image: 'https://pblol2.blob.core.windows.net/valvenok-images/products/filters/DFM_Mega_Flow_Rate_Filter.png',

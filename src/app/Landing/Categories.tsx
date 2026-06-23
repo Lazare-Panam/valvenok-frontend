@@ -27,7 +27,7 @@ const CATEGORIES = [
   subs: [
     { name: "Hydrogen Cylinder Valves", href: "/hydrogen-cryogenic/hydrogen" },
     { name: "LPG Cylinder Valves", href: "/hydrogen-cryogenic/lpg" },
-    { name: "Industrial Gas Valves", href: "/industrial-gas" },
+    { name: "Industrial Gas Valves", href: "/hydrogen-cryogenic/industrial-gas" },
   ],
 },
   {

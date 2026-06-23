@@ -115,7 +115,7 @@ export const FEATURED_PRODUCTS: FeaturedValve[] = [
     logoHeight: 48,
     thumbnail:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/industrial-valves/bf-32.jpg",
-    href: "/valves/industrial-valves/butterfly-valve/pf-bf32",
+    href: "/valves/industrial-valves/butterfly-valves/pf-bf32",
     specs: [
       { label: "Size Range", value: 'DN 50–250 | 2"–10"' },
       {

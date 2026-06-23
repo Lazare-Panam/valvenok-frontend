@@ -191,7 +191,7 @@ export default function InstrumentationIndexPage() {
               <Typography
                 variant="h3"
                 component="a"
-                href="/double-block-and-bleed-valves"
+                href="/dbb-manifolds/double-block-and-bleed-valves"
                 sx={{
                   fontSize: { xs: 24, md: 32 },
                   fontWeight: 700,
@@ -255,7 +255,7 @@ export default function InstrumentationIndexPage() {
               </Box>
               <Button
                 variant="outlined"
-                href="/double-block-and-bleed-valves"
+                href="/dbb-manifolds/double-block-and-bleed-valves"
                 sx={{
                   borderColor: "#61D649",
                   color: "#61D649",

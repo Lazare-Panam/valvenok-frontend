@@ -8,7 +8,7 @@ export const metadata = {
   openGraph: {
     title: 'Marine Valves | Valvenok Limited',
     description: 'NAB, Gun Metal, and SS marine valves compliant with NES 375, BS 5155, API 594, and BS 1868. Gate, butterfly, check, and fire hydrant series.',
-    url: 'https://www.valvenok.com/marine-valves',
+    url: 'https://www.valvenok.com/valves/marine-valves',
     siteName: 'Valvenok',
     type: 'website',
   },
@@ -18,7 +18,7 @@ export const metadata = {
     description: 'Marine-grade gate, butterfly, check and fire hydrant valves. NES 375, BS 5155 compliant.',
   },
   alternates: {
-    canonical: 'https://www.valvenok.com/marine-valves',
+    canonical: 'https://www.valvenok.com/valves/marine-valves',
   }
 };
 

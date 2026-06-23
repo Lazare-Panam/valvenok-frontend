@@ -62,7 +62,7 @@ export default function NavTopStrip() {
 
           <Box
             component="a"
-            href="/quote"
+            href="/contact"
             sx={{
               px: 2,
               py: 0.4,

@@ -8,7 +8,7 @@ export const metadata = {
   openGraph: {
     title: 'Industrial Valves | Valvenok Limited',
     description: 'API 6D ball valves, DBB, trunnion, needle, check and gas valves. High-pressure rated up to 1000 bar. Request a quote today.',
-    url: 'https://www.valvenok.com/industrial-valves',
+    url: 'https://www.valvenok.com/valves/industrial-valves',
     siteName: 'Valvenok',
     type: 'website',
   },
@@ -18,7 +18,7 @@ export const metadata = {
     description: 'API 6D ball valves, DBB, trunnion, needle and check valves. Up to 1000 bar.',
   },
   alternates: {
-    canonical: 'https://www.valvenok.com/industrial-valves',
+    canonical: 'https://www.valvenok.com/valves/industrial-valves',
   }
 };
 
