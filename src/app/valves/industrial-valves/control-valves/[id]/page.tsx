@@ -60,7 +60,7 @@ export const VSI_VALVES: FeaturedValve[] = [
     categoryId: 'control-valves',
     brand: 'VSI – Valve Systems International',
     brandLogo: 'https://vsillc.com/wp-content/uploads/2026/02/Logo-2026-300x168.png',
-    thumbnail: 'https://pblol2.blob.core.windows.net/valvenok-images/products/valves/Atlas-32.png',
+    thumbnail: 'https://pblol2.blob.core.windows.net/valvenok-images/products/valves/Atlas-21.png',
     specs: [
       { label: 'NPS', value: '4"' },
       { label: 'Flow Capacity (Cv)', value: 'Up to 300' },
