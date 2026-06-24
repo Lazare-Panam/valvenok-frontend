@@ -18,14 +18,36 @@ import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 
 const POSTS = [
   {
-  title: "Valvenok Partners with Mars Valves to Expand Industrial Solutions Across the UK",
-  desc: "A strategic collaboration bringing together two companies united by a shared commitment to engineering excellence and reliable flow control — expanding our industrial valve portfolio across the UK and beyond.",
-  thumbnail: "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/mars-banner.jpeg",
-  author: "Sejal Raina",
-  date: "June 2026",
-  category: "Partnership Announcement",
-  link: "/news/mars-valve-partnership",
-},
+    title: "Valvenok Announces Partnership with Pietro Fiorentini",
+    desc: "Italian innovation, delivered through Valvenok. We are now an Authorized Representative of Pietro Fiorentini — bringing world-class flow control, pressure management, and valve technologies to customers across the UK.",
+    thumbnail:
+      "https://pblol2.blob.core.windows.net/valvenok-images/blogs/pf.jpeg",
+    author: "Valvenok Team",
+    date: "June 2026",
+    category: "Partnership Announcement",
+    link: "/news/pietro-fiorentini-partnership",
+  },
+  {
+    title: "Valvenok Announces Strategic Partnership with Kosa Plus",
+    desc: "British engineering expertise meets South Korean manufacturing excellence — expanding our valve automation portfolio with pneumatic actuators, electric actuators, positioners, solenoid valves, and more.",
+    thumbnail:
+      "https://pblol2.blob.core.windows.net/valvenok-images/blogs/kosa_plus.jpeg",
+    author: "Sejal Raina",
+    date: "June 2026",
+    category: "Partnership Announcement",
+    link: "/news/valvenok-kosa-plus-partnership",
+  },
+  {
+    title:
+      "Valvenok Partners with Mars Valves to Expand Industrial Solutions Across the UK",
+    desc: "A strategic collaboration bringing together two companies united by a shared commitment to engineering excellence and reliable flow control — expanding our industrial valve portfolio across the UK and beyond.",
+    thumbnail:
+      "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/mars-banner.jpeg",
+    author: "Sejal Raina",
+    date: "June 2026",
+    category: "Partnership Announcement",
+    link: "/news/mars-valve-partnership",
+  },
   {
     title: "Industrial Mechanical Seals Guide: Engineering Specs & Selection",
     desc: "A comprehensive engineer's guide to Valvenok mechanical seals. Learn about material selection, API flush plans, and performance specs for high-pressure industrial systems",
@@ -48,42 +70,46 @@ const POSTS = [
     link: "/news/ball-valve-vs-gate-valve",
   },
   {
-  title: "The World's Best Valve Manufacturers, In One Place",
-  desc: "Valvenok partners directly with 16 of the world's leading valve and flow control manufacturers — bringing their full product range to engineers and procurement teams across 6 continents.",
-  thumbnail: "https://pblol2.blob.core.windows.net/valvenok-images/brands/batu-logo.png", // add your image here
-  author: "Kanchan Rajput",
-  date: "April 2026",
-  category: "Manufacturer Profiles",
-  link: "/news/manufacturer-spotlight",
-},
- {
-  title: "Instrumentation Fittings for Hydrogen: Leak-Tight Thread Practices",
-  desc: "Learn how to select and assemble instrumentation fittings for hydrogen with correct thread ID, sealants, and ferrule design to avoid leaks and delays.",
-  thumbnail: "https://pblol2.blob.core.windows.net/valvenok-images/blogs/blog4.jpg", // add your image here
-  author: "Steven Kassi",
-  date: "April 2026",
-  category: "Manufacturer Profiles",
-  link: "/news/instrumentation-fittings-hydrogen-leak-tight-threads",
-},
+    title: "The World's Best Valve Manufacturers, In One Place",
+    desc: "Valvenok partners directly with 16 of the world's leading valve and flow control manufacturers — bringing their full product range to engineers and procurement teams across 6 continents.",
+    thumbnail:
+      "https://pblol2.blob.core.windows.net/valvenok-images/brands/batu-logo.png", // add your image here
+    author: "Kanchan Rajput",
+    date: "April 2026",
+    category: "Manufacturer Profiles",
+    link: "/news/manufacturer-spotlight",
+  },
+  {
+    title: "Instrumentation Fittings for Hydrogen: Leak-Tight Thread Practices",
+    desc: "Learn how to select and assemble instrumentation fittings for hydrogen with correct thread ID, sealants, and ferrule design to avoid leaks and delays.",
+    thumbnail:
+      "https://pblol2.blob.core.windows.net/valvenok-images/blogs/blog4.jpg", // add your image here
+    author: "Steven Kassi",
+    date: "April 2026",
+    category: "Manufacturer Profiles",
+    link: "/news/instrumentation-fittings-hydrogen-leak-tight-threads",
+  },
   {
     title:
       "Single Agitator Mechanical Seals: Design, Working Principle & Industrial Applications",
     desc: "A complete engineering guide to one of the workhorses of the process industry — how it is built, how it keeps your reactor leak-free, and where it fits among the seal types you might be considering.",
-    thumbnail: "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/ben-kupke-ew-p24CVLR0-unsplash.jpg",
+    thumbnail:
+      "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/ben-kupke-ew-p24CVLR0-unsplash.jpg",
     author: "Seal Raina",
     date: "May 2026",
     category: "Engineering",
     link: "/news/seals-blog",
   },
   {
-  "title": "Submersible Pump Selection: 5 Questions to Ask Before You Specify",
-  "desc": "A technical guide to avoiding premature pump failure by matching metallurgy to water chemistry and understanding the critical variables of borewell installations.",
-  "thumbnail": "https://pblol2.blob.core.windows.net/valvenok-images/blogs/pumps-blog-hero.jpg",
-  "author": "Sejal Raina",
-  "date": "May 2026",
-  "category": "Engineering",
-  "link": "/news/stainless-steel-vs-cast-iron"
-}
+    title: "Submersible Pump Selection: 5 Questions to Ask Before You Specify",
+    desc: "A technical guide to avoiding premature pump failure by matching metallurgy to water chemistry and understanding the critical variables of borewell installations.",
+    thumbnail:
+      "https://pblol2.blob.core.windows.net/valvenok-images/blogs/pumps-blog-hero.jpg",
+    author: "Sejal Raina",
+    date: "May 2026",
+    category: "Engineering",
+    link: "/news/stainless-steel-vs-cast-iron",
+  },
 ];
 
 export default function BlogPage() {
@@ -91,34 +117,35 @@ export default function BlogPage() {
     <Box sx={{ bgcolor: "background.default", minHeight: "100vh" }}>
       {/* --- HERO SECTION --- */}
       <Box sx={{ bgcolor: "primary.main", color: "white", pt: 12, pb: 8 }}>
-  <Container maxWidth="lg">
-    <Typography
-      variant="h1"
-      sx={{
-        fontFamily: '"Barlow Condensed"',
-        fontSize: { xs: "3rem", md: "5rem" },
-        fontWeight: 900,
-        textTransform: "uppercase",
-        lineHeight: 0.9,
-        mb: 2,
-      }}
-    >
-      Engineering Insights
-    </Typography>
-    <Typography
-      sx={{
-        fontFamily: '"Barlow Condensed"',
-        fontWeight: 500,
-        fontSize: { xs: "1rem", md: "1.25rem" },
-        opacity: 0.8,
-        mt: 2,
-      }}
-    >
-      News and technical insights on ball valve innovation and mechanical seals
-      for pumps from Valvenok, a UK supplier to global engineering teams.
-    </Typography>
-  </Container>
-</Box>
+        <Container maxWidth="lg">
+          <Typography
+            variant="h1"
+            sx={{
+              fontFamily: '"Barlow Condensed"',
+              fontSize: { xs: "3rem", md: "5rem" },
+              fontWeight: 900,
+              textTransform: "uppercase",
+              lineHeight: 0.9,
+              mb: 2,
+            }}
+          >
+            Engineering Insights
+          </Typography>
+          <Typography
+            sx={{
+              fontFamily: '"Barlow Condensed"',
+              fontWeight: 500,
+              fontSize: { xs: "1rem", md: "1.25rem" },
+              opacity: 0.8,
+              mt: 2,
+            }}
+          >
+            News and technical insights on ball valve innovation and mechanical
+            seals for pumps from Valvenok, a UK supplier to global engineering
+            teams.
+          </Typography>
+        </Container>
+      </Box>
       {/* --- INTRO / DESCRIPTION SECTION --- */}
       <Box sx={{ bgcolor: "background.default", py: 10 }}>
         <Container maxWidth="lg">
