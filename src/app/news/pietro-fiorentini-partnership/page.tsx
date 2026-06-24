@@ -46,15 +46,17 @@ export default function PietroFiorentiniPage() {
           </Stack>
         </Container>
       </Box>
-{/* HERO IMAGE */}             {/* ← ADD HERE */}
-<Box sx={{ my: 6, textAlign: 'center' }}>
-  <Box
-    component="img"
-    src="https://pblol2.blob.core.windows.net/valvenok-images/blogs/pf.jpeg"
-    alt="Pietro Fiorentini and Valvenok Partnership"
-    sx={{ width: '100%', maxWidth: 700, border: '1px solid', borderColor: 'divider' }}
-  />
-</Box>
+
+      {/* HERO IMAGE */}
+      <Box sx={{ textAlign: 'center', bgcolor: 'background.default' }}>
+        <Box
+          component="img"
+          src="https://pblol2.blob.core.windows.net/valvenok-images/blogs/pf.jpeg"
+          alt="Pietro Fiorentini and Valvenok Partnership"
+          sx={{ width: '100%', maxWidth: 700, border: '1px solid', borderColor: 'divider', my: 6 }}
+        />
+      </Box>
+
       <Container maxWidth="md" sx={{ mt: -5 }}>
 
         {/* ── KEY TAKEAWAYS ── */}
@@ -65,7 +67,7 @@ export default function PietroFiorentiniPage() {
           <Grid container spacing={2}>
             {[
               'Valvenok is now an Authorized Representative of Pietro Fiorentini — a globally recognised leader in flow control, pressure management, and valve technologies.',
-              'The partnership gives customers access to Pietro Fiorentini\'s full range of industrial valves, pressure regulators, flow-control solutions, and actuation technologies.',
+              "The partnership gives customers access to Pietro Fiorentini's full range of industrial valves, pressure regulators, flow-control solutions, and actuation technologies.",
               'Pietro Fiorentini products are trusted across the global energy chain — backed by decades of Italian engineering excellence.',
               'Customers benefit from world-class product quality combined with responsive local support from the Valvenok team.',
               'Key products now available include the Dival 160 AP pressure regulator, Butterfly Valve BF31, Starflux 185, and the VS/AM 58 Relief Valve.',
@@ -151,35 +153,47 @@ export default function PietroFiorentiniPage() {
               {
                 category: 'Pressure Regulator',
                 name: 'Dival 160 AP',
+                image: 'https://pblol2.blob.core.windows.net/valvenok-images/blogs/dival-160-ap.jpg',
                 desc: 'Direct-operated gas pressure regulator for high- and medium-pressure networks rated up to 85 Barg.',
               },
               {
                 category: 'Industrial Valve',
                 name: 'Butterfly Valve BF31',
+                image: 'https://pblol2.blob.core.windows.net/valvenok-images/blogs/bf-31.jpg',
                 desc: 'Hermetic-seal butterfly valve with a 360° self-cleaning spherical seat and low control torque.',
               },
               {
                 category: 'Flow Control',
                 name: 'Starflux 185',
+                image: 'https://pblol2.blob.core.windows.net/valvenok-images/blogs/staflux-185.jpg',
                 desc: 'High-performance pressure regulator built for demanding transmission and distribution duty.',
               },
               {
                 category: 'Safety / Relief',
                 name: 'VS/AM 58 Relief Valve',
+                image: 'https://pblol2.blob.core.windows.net/valvenok-images/blogs/vs-am-58.jpg',
                 desc: 'Compact relief and monitor valve that safeguards downstream systems against overpressure.',
               },
             ].map((product, i) => (
               <Grid key={i} size={{ xs: 12, sm: 6 }}>
-                <Box sx={{ p: 3, border: '1.5px solid', borderColor: 'divider', height: '100%' }}>
-                  <Typography sx={{ fontFamily: DISPLAY_FONT, fontWeight: 700, fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'primary.main', mb: 1 }}>
-                    {product.category}
-                  </Typography>
-                  <Typography sx={{ fontFamily: DISPLAY_FONT, fontWeight: 900, fontSize: '1.3rem', color: 'text.primary', mb: 1, lineHeight: 1.1 }}>
-                    {product.name}
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.7 }}>
-                    {product.desc}
-                  </Typography>
+                <Box sx={{ border: '1.5px solid', borderColor: 'divider', height: '100%' }}>
+                  <Box
+                    component="img"
+                    src={product.image}
+                    alt={product.name}
+                    sx={{ width: '100%', height: 220, objectFit: 'contain', bgcolor: '#f9f9f9', borderBottom: '1px solid', borderColor: 'divider', p: 2 }}
+                  />
+                  <Box sx={{ p: 3 }}>
+                    <Typography sx={{ fontFamily: DISPLAY_FONT, fontWeight: 700, fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'primary.main', mb: 1 }}>
+                      {product.category}
+                    </Typography>
+                    <Typography sx={{ fontFamily: DISPLAY_FONT, fontWeight: 900, fontSize: '1.3rem', color: 'text.primary', mb: 1, lineHeight: 1.1 }}>
+                      {product.name}
+                    </Typography>
+                    <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.7 }}>
+                      {product.desc}
+                    </Typography>
+                  </Box>
                 </Box>
               </Grid>
             ))}
@@ -201,7 +215,7 @@ export default function PietroFiorentiniPage() {
           {/* PILLARS */}
           <Grid container spacing={2} sx={{ my: 4 }}>
             {[
-              { label: 'Premium', desc: 'World-class products from one of Italy\'s most respected engineering manufacturers.' },
+              { label: 'Premium', desc: "World-class products from one of Italy's most respected engineering manufacturers." },
               { label: 'Global', desc: 'Pietro Fiorentini technologies trusted by customers across the global energy chain.' },
               { label: 'Complete', desc: 'Full product range from pressure regulation to flow control and actuation.' },
               { label: 'Local Support', desc: 'Responsive technical support and application expertise from the Valvenok team.' },
