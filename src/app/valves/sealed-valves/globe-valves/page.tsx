@@ -150,7 +150,7 @@ Across Demanding Process, Chemical And Industrial Applications.
                   variant="outlined"
                   size="large"
                   fullWidth
-                  href="/pumps-seals/mechanical-seals/products"
+                  href="/valves/sealed-valves/globe-valves/products"
                   sx={{
                     borderRadius: 0, fontWeight: 800, py: 1.75, fontSize: "1rem", boxShadow: "none",
                     borderColor: "#1c2e1a", color: "#1c2e1a",

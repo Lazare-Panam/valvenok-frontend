@@ -29,6 +29,23 @@ const SEALED_VALVE_FAMILIES: Category[] = [
     href: "/valves/sealed-valves/globe-valves",
     image: "https://pblol2.blob.core.windows.net/valvenok-images/products/sealed-valves/din-standard-bellows-sealed-globe-valve-plus.jpg",
   },
+  {
+  code: "BGT",
+  title: "Gate Valves",
+  subtitle: "Bellows Sealed Gate Valves — DIN · ANSI",
+  description:
+    "Bellows sealed gate valves with automatic welded metal bellows forming a complete barrier between fluid and atmosphere. Zero stem leakage with double seal design — bellows plus packing backup for dual safety across DIN and ANSI standards.",
+  specs: [
+    "DIN · ANSI",
+    "Zero Stem Leakage",
+    "Double Seal — Bellows + Packing",
+    "Auto-Welded Bellows",
+    "CE / ISO Compliant",
+  ],
+  applications: "Process Plants, Chemical, Pharmaceutical, Power Generation, Industrial",
+  href: "/valves/sealed-valves/gate-valves",
+  image: "https://pblol2.blob.core.windows.net/valvenok-images/products/sealed-valves/ansi-standard-bellows-sealed-gate-valve.jpg",
+},
 ];
 
 const TRUST_POINTS = [

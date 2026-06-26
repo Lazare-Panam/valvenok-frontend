@@ -160,11 +160,12 @@ export const NAV_GROUPS: NavGroup[] = [
           { label: "Filtration", href: "/filters-sight-glass/filteration" },
         ],
       },
-       {
+      {
         header: "Sealed Valves",
         href: "/valves/sealed-valves",
         items: [
           { label: "Globe Valve", href: "/valves/sealed-valves/globe-valves" },
+           { label: "Gate Valve", href: "/valves/sealed-valves/gate-valves" },
         ],
       },
       {
