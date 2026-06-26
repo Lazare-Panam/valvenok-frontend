@@ -118,6 +118,25 @@ const VALVE_FAMILIES: Category[] = [
     href: "/valves/instrumentation-valves",
     image: "https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PBV-2-S-04-FF-1.png",
   },
+  {
+  code: "DVC",
+  title: "Danfoss Valve Components",
+  subtitle: "OEM & Aftermarket Valve Components",
+  description:
+    "Danfoss valve components for proportional and directional control valve systems. Full OEM and aftermarket supply across the Danfoss PVG valve range — supporting mobile hydraulics, agricultural machinery, construction equipment and industrial hydraulic applications.",
+  specs: [
+    "Danfoss OEM Quality",
+    "PVG Series Compatible",
+    "OEM & Aftermarket Supply",
+    "Mobile Hydraulics",
+    "CE / ISO Compliant",
+    "Fast Availability",
+  ],
+  applications: "Mobile Hydraulics, Agricultural Machinery, Construction Equipment, Marine, Industrial",
+  href: "/valves/valve-components",
+  image: "https://pblol2.blob.core.windows.net/valvenok-images/products/danfoss/dfe-vc.png",
+  logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/products/danfoss/new-logo.svg",
+},
 ];
 
 const TRUST_POINTS = [
