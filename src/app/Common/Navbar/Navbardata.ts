@@ -152,13 +152,19 @@ export const NAV_GROUPS: NavGroup[] = [
           },
         ],
       },
-
       {
         header: "Filters",
         href: "/filters-sight-glass",
         items: [
           { label: "Sight Glass", href: "/filters-sight-glass/sight-glass" },
           { label: "Filtration", href: "/filters-sight-glass/filteration" },
+        ],
+      },
+      {
+        header: "Valve Components",
+        href: "/valves/valve-components",
+        items: [
+          { label: "Valve Components", href: "/valves/valve-components" },
         ],
       },
     ],
@@ -422,43 +428,6 @@ export const NAV_GROUPS: NavGroup[] = [
       },
     ],
   },
-  //   {
-  //   id: "pneumatics",
-  //   label: "Pneumatics & Vacuum",
-  //   href: "/pneumatic",
-  //   columns: [
-  //     {
-  //       header: "Cylinders",
-  //       href: "/pneumatic/cylinders",
-  //       items: [
-  //         { label: "SDNC Series — Standard ISO Tie Rod",       href: "/pneumatic/cylinders/sdnc" },
-  //         { label: "ESNC Series — Extended Bore Range",        href: "/pneumatic/cylinders/esnc" },
-  //         { label: "ESC Series — Standard Tie Rod Profile",    href: "/pneumatic/cylinders/esc" },
-  //         { label: "SDNU Series — Round Body Stainless Steel", href: "/pneumatic/cylinders/sdnu" },
-  //         { label: "EMAL Series — Standard Round Body",        href: "/pneumatic/cylinders/emal" },
-  //         { label: "SQ2 Series — Short Stroke Compact Profile",href: "/pneumatic/cylinders/sq2" },
-  //         { label: "SDVU Series — Compact Short Stroke",       href: "/pneumatic/cylinders/sdvu" },
-  //         { label: "SDVUL Series — Non-Rotary Short Stroke",   href: "/pneumatic/cylinders/sdvul" },
-  //       ],
-  //     },
-  //     {
-  //       header: "Pneumatic Valves",
-  //       href: "/valves",
-  //       items: [
-  //         { label: "FG Series — 5/2 & 5/3 Way Solenoid Valves",           href: "/valves/fg" },
-  //         { label: "TG Series — 2/2, 3/2, 5/2 & 5/3 Way Solenoid Valves", href: "/valves/tg" },
-  //         { label: "Foot Pedal Valves",                                     href: "/valves/foot-pedal" },
-  //       ],
-  //     },
-  //     {
-  //       header: "Air Gun",
-  //       href: "/pneumatic/air-gun",
-  //       items: [
-  //         { label: "Air Gun", href: "/pneumatic/air-gun" },
-  //       ],
-  //     },
-  //   ],
-  // },
   {
     id: "mechanical",
     label: "Pumps & Seals",
