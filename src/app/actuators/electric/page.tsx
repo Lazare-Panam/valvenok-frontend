@@ -102,6 +102,25 @@ const ELECTRIC_FAMILIES: Category[] = [
     image: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/itm.webp",
     logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp",
   },
+  {
+    code: "DFE",
+    title: "Danfoss PVE Series",
+    subtitle: "Electrohydraulic Actuators for Proportional Valves",
+    description:
+      "Danfoss PVE series electrohydraulic actuators for precise proportional control of PVG directional valves. PVEA, PVEH, PVEM, PVEO, PVES, PVG and PVHC series with active and passive fault monitoring, Isobus communication and 12V / 24V operation.",
+    specs: [
+      "PVEA / PVEH / PVEM / PVEO / PVES",
+      "Active & Passive Fault Mon.",
+      "1X4AMP / 1X4DIN / 1X4DEU",
+      "12V / 24V",
+      "Isobus (PVED32 CC)",
+      "34 Models Available",
+    ],
+    applications: "Mobile Hydraulics, Agricultural Machinery, Construction Equipment, Marine, Industrial",
+    href: "/actuators/electric/pvae32",
+    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/danfoss/dfe-ac.png",
+    logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/products/danfoss/new-logo.svg",
+  },
 
 ];
 const TRUST_POINTS = [

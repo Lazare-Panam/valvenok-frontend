@@ -218,6 +218,10 @@ export const NAV_GROUPS: NavGroup[] = [
             label: "ITM Series — Multi-Turn Heavy-Duty",
             href: "/actuators/electric/itm",
           },
+          {
+            label: "Danfoss PVAE Acutator",
+            href: "/actuators/electric/pvae32",
+          },
         ],
       },
       {
