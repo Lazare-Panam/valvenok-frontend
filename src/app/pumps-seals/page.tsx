@@ -1,45 +1,39 @@
 "use client";
 
-import {
-  Box,
-  Container,
-  Typography,
-  Divider,
-  Button,
-} from "@mui/material";
+import { Box, Container, Typography, Divider, Button } from "@mui/material";
 import Grid from "@mui/material/Grid"; // Using the updated Grid2
 
 export default function PumpsAndSealsPage() {
   return (
     <Box sx={{ bgcolor: "background.default", minHeight: "100vh" }}>
       {/* Hero Section */}
-      <Box 
-        sx={{ 
-          position: 'relative',
-          width: '100%',
-          minHeight: { xs: '60vh', md: '80vh' },
-          display: 'flex',
-          alignItems: 'center',
-          overflow: 'hidden',
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("https://pblol2.blob.core.windows.net/valvenok-images/banner-images/pumps-banner.jpg")`, 
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          py: { xs: 8, md: 12 }
+      <Box
+        sx={{
+          position: "relative",
+          width: "100%",
+          minHeight: { xs: "60vh", md: "80vh" },
+          display: "flex",
+          alignItems: "center",
+          overflow: "hidden",
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("https://pblol2.blob.core.windows.net/valvenok-images/banner-images/pumps-banner.jpg")`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          py: { xs: 8, md: 12 },
         }}
       >
         <Container maxWidth="lg">
           <Typography
             variant="overline"
-            sx={{ 
-              color: "#61D649", 
-              letterSpacing: 3, 
+            sx={{
+              color: "#61D649",
+              letterSpacing: 3,
               fontSize: 11,
-              fontWeight: 700 
+              fontWeight: 700,
             }}
           >
             Fluid Handling & Sealing
           </Typography>
-          
+
           <Typography
             variant="h1"
             sx={{
@@ -50,12 +44,12 @@ export default function PumpsAndSealsPage() {
               mb: 3,
               lineHeight: 1.1,
               maxWidth: 900,
-              textShadow: '0px 2px 10px rgba(0,0,0,0.3)'
+              textShadow: "0px 2px 10px rgba(0,0,0,0.3)",
             }}
           >
             Industrial Pumps & High-Performance Seals
           </Typography>
-          
+
           <Typography
             sx={{
               fontSize: { xs: 18, md: 20 },
@@ -65,11 +59,12 @@ export default function PumpsAndSealsPage() {
               lineHeight: 1.7,
             }}
           >
-            Reliable fluid transfer solutions for the most demanding environments. 
-            From heavy-duty submersible pumps to precision-engineered mechanical seals, 
-            Valvenok ensures zero-leakage and maximum uptime.
+            Reliable fluid transfer solutions for the most demanding
+            environments. From heavy-duty submersible pumps to
+            precision-engineered mechanical seals, Valvenok ensures zero-leakage
+            and maximum uptime.
           </Typography>
-          
+
           <Button
             variant="contained"
             size="large"
@@ -80,9 +75,9 @@ export default function PumpsAndSealsPage() {
               borderRadius: 1,
               px: 5,
               py: 2,
-              fontSize: '1rem',
+              fontSize: "1rem",
               fontWeight: 700,
-              textTransform: 'none',
+              textTransform: "none",
               "&:hover": { bgcolor: "#fff", color: "#000" },
             }}
           >
@@ -133,7 +128,15 @@ export default function PumpsAndSealsPage() {
                     gap: 1.5,
                   }}
                 >
-                  <Box component="span" sx={{ width: 6, height: 6, borderRadius: "50%", bgcolor: "#61D649" }} />
+                  <Box
+                    component="span"
+                    sx={{
+                      width: 6,
+                      height: 6,
+                      borderRadius: "50%",
+                      bgcolor: "#61D649",
+                    }}
+                  />
                   {item}
                 </Typography>
               ))}
@@ -152,17 +155,20 @@ export default function PumpsAndSealsPage() {
             >
               Engineered Fluid Dynamics
             </Typography>
-            <Typography sx={{ color: "text.secondary", lineHeight: 1.8, mb: 2 }}>
-              Fluid handling is at the core of industrial efficiency. At Valvenok, we 
-              bridge the gap between powerful movement and secure containment. Our 
-              industrial pumps are built for continuous duty in abrasive and 
-              corrosive media, while our sealing solutions prevent costly downtime 
-              and environmental risk.
+            <Typography
+              sx={{ color: "text.secondary", lineHeight: 1.8, mb: 2 }}
+            >
+              Fluid handling is at the core of industrial efficiency. At
+              Valvenok, we bridge the gap between powerful movement and secure
+              containment. Our industrial pumps are built for continuous duty in
+              abrasive and corrosive media, while our sealing solutions prevent
+              costly downtime and environmental risk.
             </Typography>
             <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
-              We provide a complete ecosystem of <strong>Submersible Pumps</strong> for 
-              dewatering and sewage, alongside <strong>Mechanical Seals</strong> designed 
-              to fit all major pump brands.
+              We provide a complete ecosystem of{" "}
+              <strong>Submersible Pumps</strong> for dewatering and sewage,
+              alongside <strong>Mechanical Seals</strong> designed to fit all
+              major pump brands.
             </Typography>
           </Grid>
           <Grid size={{ xs: 12, md: 5 }}>
@@ -200,7 +206,15 @@ export default function PumpsAndSealsPage() {
         {/* Submersible Pumps Section */}
         <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
           <Grid size={{ xs: 12, md: 6 }}>
-            <Typography variant="overline" sx={{ color: "#61D649", fontWeight: 600, letterSpacing: 2, fontSize: 11 }}>
+            <Typography
+              variant="overline"
+              sx={{
+                color: "#61D649",
+                fontWeight: 600,
+                letterSpacing: 2,
+                fontSize: 11,
+              }}
+            >
               Fluid Transfer
             </Typography>
             <Typography
@@ -212,28 +226,40 @@ export default function PumpsAndSealsPage() {
                 fontWeight: 700,
                 mt: 1,
                 mb: 3,
-                display: 'block',
-                color: 'inherit',
-                textDecoration: 'none',
-                '&:hover': { color: '#61D649', textDecoration: 'underline' },
+                display: "block",
+                color: "inherit",
+                textDecoration: "none",
+                "&:hover": { color: "#61D649", textDecoration: "underline" },
               }}
             >
               Submersible Pumps
             </Typography>
             <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
-              Valvenok’s submersible range is engineered for the toughest drainage, 
-              sewage, and industrial wastewater challenges. Featuring high-torque 
-              motors and wear-resistant impellers, these pumps excel in construction 
-              dewatering, mining, and municipal applications. Our pumps are designed 
-              for easy maintenance and high energy efficiency.
+              Valvenok’s submersible range is engineered for the toughest
+              drainage, sewage, and industrial wastewater challenges. Featuring
+              high-torque motors and wear-resistant impellers, these pumps excel
+              in construction dewatering, mining, and municipal applications.
+              Our pumps are designed for easy maintenance and high energy
+              efficiency.
             </Typography>
           </Grid>
           <Grid size={{ xs: 12, md: 6 }}>
-            <Box sx={{ borderRadius: 2, p: 4, textAlign: 'center', bgcolor: '#fbfbfb' }}>
-              <img 
-                src="https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/02-TSL.png" 
-                alt="Industrial Submersible Pump" 
-                style={{ width: '60%', height: 'auto', mixBlendMode: 'multiply' }} 
+            <Box
+              sx={{
+                borderRadius: 2,
+                p: 4,
+                textAlign: "center",
+                bgcolor: "#fbfbfb",
+              }}
+            >
+              <img
+                src="https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/02-TSL.png"
+                alt="Industrial Submersible Pump"
+                style={{
+                  width: "60%",
+                  height: "auto",
+                  mixBlendMode: "multiply",
+                }}
               />
             </Box>
           </Grid>
@@ -244,16 +270,35 @@ export default function PumpsAndSealsPage() {
         {/* Mechanical Seals Section */}
         <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
           <Grid size={{ xs: 12, md: 6 }} sx={{ order: { xs: 2, md: 1 } }}>
-            <Box sx={{ borderRadius: 2, p: 4, textAlign: 'center', bgcolor: '#fbfbfb' }}>
-              <img 
-                src="https://pblol2.blob.core.windows.net/valvenok-images/products/seals/Seals.jpg" 
-                alt="Mechanical Seal Assembly" 
-                style={{ width: '60%', height: 'auto', mixBlendMode: 'multiply' }} 
+            <Box
+              sx={{
+                borderRadius: 2,
+                p: 4,
+                textAlign: "center",
+                bgcolor: "#fbfbfb",
+              }}
+            >
+              <img
+                src="https://pblol2.blob.core.windows.net/valvenok-images/products/seals/Seals.jpg"
+                alt="Mechanical Seal Assembly"
+                style={{
+                  width: "60%",
+                  height: "auto",
+                  mixBlendMode: "multiply",
+                }}
               />
             </Box>
           </Grid>
           <Grid size={{ xs: 12, md: 6 }} sx={{ order: { xs: 1, md: 2 } }}>
-            <Typography variant="overline" sx={{ color: "#61D649", fontWeight: 600, letterSpacing: 2, fontSize: 11 }}>
+            <Typography
+              variant="overline"
+              sx={{
+                color: "#61D649",
+                fontWeight: 600,
+                letterSpacing: 2,
+                fontSize: 11,
+              }}
+            >
               Containment & Safety
             </Typography>
             <Typography
@@ -265,21 +310,86 @@ export default function PumpsAndSealsPage() {
                 fontWeight: 700,
                 mt: 1,
                 mb: 3,
-                display: 'block',
-                color: 'inherit',
-                textDecoration: 'none',
-                '&:hover': { color: '#61D649', textDecoration: 'underline' },
+                display: "block",
+                color: "inherit",
+                textDecoration: "none",
+                "&:hover": { color: "#61D649", textDecoration: "underline" },
+              }}
+            >
+              Seals
+            </Typography>
+            <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
+              Ensure leak-free operation with our precision-engineered
+              mechanical seals. We supply a vast range of equivalent seals for
+              brands like Burgmann, John Crane, and Flowserve. Whether you need
+              a simple single-spring seal or a complex double-cartridge system
+              for hazardous chemicals, Valvenok provides the exact material face
+              combinations required.
+            </Typography>
+          </Grid>
+        </Grid>
+
+
+        <Divider sx={{ mb: 10 }} />
+
+        {/* ── Bellows Sealed Globe Valves — image RIGHT (zigzag) ── */}
+        <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Typography
+              variant="overline"
+              sx={{
+                color: "#61D649",
+                fontWeight: 600,
+                letterSpacing: 2,
+                fontSize: 11,
               }}
             >
               Mechanical Seals
             </Typography>
-            <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
-              Ensure leak-free operation with our precision-engineered mechanical 
-              seals. We supply a vast range of equivalent seals for brands like 
-              Burgmann, John Crane, and Flowserve. Whether you need a simple single-spring 
-              seal or a complex double-cartridge system for hazardous chemicals, 
-              Valvenok provides the exact material face combinations required.
+            <Typography
+              variant="h3"
+              component="a"
+              href="/pumps-seals/mechanical-seals"
+              sx={{
+                fontSize: { xs: 24, md: 32 },
+                fontWeight: 700,
+                mt: 1,
+                mb: 3,
+                display: "block",
+                color: "inherit",
+                textDecoration: "none",
+                "&:hover": { color: "#61D649", textDecoration: "underline" },
+              }}
+            >
+              Bellows Sealed Globe Valves
             </Typography>
+            <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
+              A complete range of bellows sealed globe valves across DIN, ANSI
+              and JIS standards. Double seal design with bellows plus packing
+              backup ensures zero stem leakage across demanding process,
+              chemical and industrial applications. 11 variants including
+              Y-Type, Angle, High Pressure and Gland Packing configurations.
+            </Typography>
+          </Grid>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Box
+              sx={{
+                borderRadius: 2,
+                p: 4,
+                textAlign: "center",
+                bgcolor: "#fbfbfb",
+              }}
+            >
+              <img
+                src="https://pblol2.blob.core.windows.net/valvenok-images/products/sealed-valves/din-standard-bellows-sealed-globe-valve-plus.jpg"
+                alt="Bellows Sealed Globe Valve"
+                style={{
+                  width: "60%",
+                  height: "auto",
+                  mixBlendMode: "multiply",
+                }}
+              />
+            </Box>
           </Grid>
         </Grid>
 
@@ -287,7 +397,10 @@ export default function PumpsAndSealsPage() {
 
         {/* Industries Served */}
         <Box sx={{ mb: 10 }}>
-          <Typography variant="h3" sx={{ fontSize: { xs: 24, md: 30 }, fontWeight: 700, mb: 4 }}>
+          <Typography
+            variant="h3"
+            sx={{ fontSize: { xs: 24, md: 30 }, fontWeight: 700, mb: 4 }}
+          >
             Industries & Applications
           </Typography>
           <Grid container spacing={3}>
@@ -301,8 +414,24 @@ export default function PumpsAndSealsPage() {
             ].map((ind) => (
               <Grid key={ind} size={{ xs: 12, sm: 6, md: 4 }}>
                 <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                  <Box sx={{ width: 10, height: 10, borderRadius: "50%", bgcolor: "#61D649", flexShrink: 0 }} />
-                  <Typography sx={{ fontSize: 15, color: "text.secondary", fontWeight: 500 }}>{ind}</Typography>
+                  <Box
+                    sx={{
+                      width: 10,
+                      height: 10,
+                      borderRadius: "50%",
+                      bgcolor: "#61D649",
+                      flexShrink: 0,
+                    }}
+                  />
+                  <Typography
+                    sx={{
+                      fontSize: 15,
+                      color: "text.secondary",
+                      fontWeight: 500,
+                    }}
+                  >
+                    {ind}
+                  </Typography>
                 </Box>
               </Grid>
             ))}
@@ -310,23 +439,56 @@ export default function PumpsAndSealsPage() {
         </Box>
 
         {/* CTA Section */}
-        <Box sx={{ textAlign: "center", py: 8, px: 4, bgcolor: "#f1f1f1", borderRadius: 4 }}>
-          <Typography variant="h3" sx={{ fontSize: { xs: 26, md: 36 }, fontWeight: 800, mb: 2 }}>
+        <Box
+          sx={{
+            textAlign: "center",
+            py: 8,
+            px: 4,
+            bgcolor: "#f1f1f1",
+            borderRadius: 4,
+          }}
+        >
+          <Typography
+            variant="h3"
+            sx={{ fontSize: { xs: 26, md: 36 }, fontWeight: 800, mb: 2 }}
+          >
             Fluid Problems? Engineered Solutions.
           </Typography>
-          <Typography sx={{ color: "text.secondary", mb: 4, maxWidth: 650, mx: "auto", fontSize: 17 }}>
-            Unsure which seal face is best for your media? Or need a pump curve calculation? 
-            Our engineers provide technical support and specification assistance within 24 hours.
+          <Typography
+            sx={{
+              color: "text.secondary",
+              mb: 4,
+              maxWidth: 650,
+              mx: "auto",
+              fontSize: 17,
+            }}
+          >
+            Unsure which seal face is best for your media? Or need a pump curve
+            calculation? Our engineers provide technical support and
+            specification assistance within 24 hours.
           </Typography>
-          <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
+          <Box
+            sx={{
+              display: "flex",
+              gap: 2,
+              justifyContent: "center",
+              flexWrap: "wrap",
+            }}
+          >
             <Button
               variant="contained"
               href="mailto:sales@valvenok.com"
-              sx={{ bgcolor: "#61D649", color: "#000", px: 4, py: 1.5, fontWeight: 700, fontSize: '1rem' }}
+              sx={{
+                bgcolor: "#61D649",
+                color: "#000",
+                px: 4,
+                py: 1.5,
+                fontWeight: 700,
+                fontSize: "1rem",
+              }}
             >
               Email Technical Support
             </Button>
-            
           </Box>
         </Box>
       </Container>
