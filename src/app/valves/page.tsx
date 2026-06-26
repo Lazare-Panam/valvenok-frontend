@@ -121,13 +121,12 @@ const VALVE_FAMILIES: Category[] = [
   {
   code: "DVC",
   title: "Danfoss Valve Components",
-  subtitle: "OEM & Aftermarket Valve Components",
+  subtitle: " Valve Components",
   description:
     "Danfoss valve components for proportional and directional control valve systems. Full OEM and aftermarket supply across the Danfoss PVG valve range — supporting mobile hydraulics, agricultural machinery, construction equipment and industrial hydraulic applications.",
   specs: [
     "Danfoss OEM Quality",
     "PVG Series Compatible",
-    "OEM & Aftermarket Supply",
     "Mobile Hydraulics",
     "CE / ISO Compliant",
     "Fast Availability",

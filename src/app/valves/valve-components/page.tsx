@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState } from "react";
 import Box from "@mui/material/Box";
@@ -21,12 +21,14 @@ const DANFOSS_VC_PRODUCT: ProductForRFQ = {
   category: "Valve Components",
   categoryId: "valve-components",
   subCategory: "Danfoss",
-  thumbnail: "https://pblol2.blob.core.windows.net/valvenok-images/products/danfoss/dfe-vc.png",
-  description: "Danfoss valve components for proportional and directional control valve systems. OEM and aftermarket supply across the full Danfoss valve range.",
+  thumbnail:
+    "https://pblol2.blob.core.windows.net/valvenok-images/products/danfoss/dfe-vc.png",
+  description:
+    "Original Danfoss valve components for proportional and directional control valve systems. Full supply across the Danfoss valve range.",
   keySpecs: [
     { label: "Brand", value: "Danfoss" },
     { label: "Type", value: "Valve Components" },
-    { label: "Supply", value: "OEM & Aftermarket" },
+    { label: "Supply", value: "Original Danfoss Parts" },
     { label: "Application", value: "Proportional & Directional Control" },
   ],
   variantInfo: {
@@ -36,32 +38,59 @@ const DANFOSS_VC_PRODUCT: ProductForRFQ = {
 };
 
 const TECH_SPECS = [
-  { label: "Brand",        value: "Danfoss" },
-  { label: "Type",         value: "Valve Components" },
-  { label: "Supply",       value: "OEM & Aftermarket" },
-  { label: "Application",  value: "Proportional & Directional Control Valves" },
-  { label: "Compatibility", value: "Danfoss PVG, PVE & associated valve series" },
+  { label: "Brand", value: "Danfoss" },
+  { label: "Type", value: "Valve Components" },
+  { label: "Supply", value: "Original Danfoss Parts" },
+  { label: "Application", value: "Proportional & Directional Control Valves" },
+  {
+    label: "Compatibility",
+    value: "Danfoss PVG, PVE & associated valve series",
+  },
   { label: "Certifications", value: "CE, ISO compliant" },
 ];
 
 const FEATURES = [
-  { letter: "A", title: "Full Range Supply",        body: "OEM and aftermarket valve components available across the complete Danfoss proportional and directional control valve range." },
-  { letter: "B", title: "Genuine Danfoss Quality",  body: "All components sourced to Danfoss specification, ensuring reliable performance and full compatibility with existing valve systems." },
-  { letter: "C", title: "PVG Series Compatible",    body: "Components designed for direct fitment with Danfoss PVG proportional directional control valves used in mobile hydraulic applications." },
-  { letter: "D", title: "OEM & Service Supply",     body: "Suitable for both original equipment manufacture and field service replacement, reducing downtime and maintaining system integrity." },
-  { letter: "E", title: "Wide Application Range",   body: "Covering agricultural machinery, construction equipment, marine and industrial hydraulic systems using Danfoss valve technology." },
-  { letter: "F", title: "Fast Availability",        body: "Stocked for prompt dispatch to support urgent maintenance, repair and overhaul requirements across the Danfoss valve platform." },
+  {
+    letter: "A",
+    title: "Full Range Supply",
+    body: "Original Danfoss valve components available across the complete proportional and directional control valve range.",
+  },
+  {
+    letter: "B",
+    title: "Original Danfoss Parts",
+    body: "All components are genuine Danfoss parts, ensuring reliable performance and full compatibility with existing valve systems.",
+  },
+  {
+    letter: "C",
+    title: "PVG Series Compatible",
+    body: "Components designed for direct fitment with Danfoss PVG proportional directional control valves used in mobile hydraulic applications.",
+  },
+  {
+    letter: "D",
+    title: "Service & MRO Supply",
+    body: "Suitable for field service replacement and MRO, reducing downtime and maintaining system integrity with original parts.",
+  },
+  {
+    letter: "E",
+    title: "Wide Application Range",
+    body: "Covering agricultural machinery, construction equipment, marine and industrial hydraulic systems using Danfoss valve technology.",
+  },
+  {
+    letter: "F",
+    title: "Fast Availability",
+    body: "Stocked for prompt dispatch to support urgent maintenance, repair and overhaul requirements across the Danfoss valve platform.",
+  },
 ];
 
 const TRUST_POINTS = [
-  { value: "Danfoss",     label: "OEM Brand" },
-  { value: "PVG Series",  label: "Compatibility" },
-  { value: "OEM & OES",  label: "Supply Type" },
-  { value: "CE / ISO",   label: "Certified" },
-  { value: "In Stock",   label: "Fast Dispatch" },
+  { value: "Danfoss", label: "Original Brand" },
+  { value: "PVG Series", label: "Compatibility" },
+  { value: "Original Parts", label: "Genuine Supply" },
+  { value: "CE / ISO", label: "Certified" },
+  { value: "In Stock", label: "Fast Dispatch" },
 ];
 
-const TAGS = ["Valve Components", "PVG Series", "OEM Supply", "Aftermarket", "CE", "ISO"];
+const TAGS = ["Valve Components", "PVG Series", "Original Parts", "CE", "ISO"];
 
 export default function DanfossValveComponentsPage() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -69,28 +98,44 @@ export default function DanfossValveComponentsPage() {
   return (
     <>
       {/* ── Hero ── */}
-      <Box sx={{ bgcolor: "background.default", pt: { xs: 6, md: 10 }, pb: { xs: 6, md: 8 } }}>
+      <Box
+        sx={{
+          bgcolor: "background.default",
+          pt: { xs: 6, md: 10 },
+          pb: { xs: 6, md: 8 },
+        }}
+      >
         <Container maxWidth="lg">
           <Grid container spacing={6} alignItems="center">
-
             {/* Image */}
             <Grid size={{ xs: 12, md: 6 }}>
-              <Box sx={{
-                borderRadius: 3, overflow: "hidden", bgcolor: "#f0f4ef",
-                display: "flex", alignItems: "center", justifyContent: "center", aspectRatio: "4/3",
-              }}>
+              <Box
+                sx={{
+                  borderRadius: 3,
+                  overflow: "hidden",
+                  bgcolor: "#f0f4ef",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  aspectRatio: "4/3",
+                }}
+              >
                 <Box
                   component="img"
                   src="https://pblol2.blob.core.windows.net/valvenok-images/products/danfoss/dfe-vc.png"
                   alt="Danfoss Valve Components"
-                  sx={{ width: "100%", height: "100%", objectFit: "contain", p: 3 }}
+                  sx={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "contain",
+                    p: 3,
+                  }}
                 />
               </Box>
             </Grid>
 
             {/* Details */}
             <Grid size={{ xs: 12, md: 6 }}>
-
               {/* Danfoss logo */}
               <Box sx={{ mb: 2 }}>
                 <Box
@@ -101,42 +146,80 @@ export default function DanfossValveComponentsPage() {
                 />
               </Box>
 
-              <Typography variant="overline" sx={{ color: "primary.main", fontWeight: 700, letterSpacing: 2 }}>
+              <Typography
+                variant="overline"
+                sx={{
+                  color: "primary.main",
+                  fontWeight: 700,
+                  letterSpacing: 2,
+                }}
+              >
                 Valve Components / Danfoss
               </Typography>
 
-              <Typography variant="h3" sx={{ fontWeight: 800, mt: 1, mb: 1, lineHeight: 1.2 }}>
+              <Typography
+                variant="h3"
+                sx={{ fontWeight: 800, mt: 1, mb: 1, lineHeight: 1.2 }}
+              >
                 Danfoss Valve Components
               </Typography>
-              <Typography variant="h6" sx={{ color: "text.secondary", fontWeight: 400, mb: 3 }}>
-                OEM & Aftermarket Supply
+              <Typography
+                variant="h6"
+                sx={{ color: "text.secondary", fontWeight: 400, mb: 3 }}
+              >
+                Original Parts Supply
               </Typography>
 
-              <Typography variant="body1" sx={{ color: "text.secondary", mb: 3, lineHeight: 1.8 }}>
-                Danfoss valve components for proportional and directional control valve systems.
-                Full OEM and aftermarket supply across the Danfoss PVG valve range — supporting
-                mobile hydraulics, agricultural machinery, construction equipment and industrial
-                hydraulic applications.
+              <Typography
+                variant="body1"
+                sx={{ color: "text.secondary", mb: 3, lineHeight: 1.8 }}
+              >
+                Original Danfoss Valve Components For Proportional And
+                Directional Control Valve Systems. Full Supply Across The
+                Danfoss PVG Valve Range — Supporting Mobile Hydraulics,
+                Agricultural Machinery, Construction Equipment And Industrial
+                Hydraulic Applications.
               </Typography>
 
               <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mb: 4 }}>
                 {TAGS.map((t) => (
-                  <Chip key={t} label={t} size="small" sx={{
-                    bgcolor: "primary.light", color: "primary.dark",
-                    fontWeight: 600, fontSize: "0.7rem",
-                  }} />
+                  <Chip
+                    key={t}
+                    label={t}
+                    size="small"
+                    sx={{
+                      bgcolor: "primary.light",
+                      color: "primary.dark",
+                      fontWeight: 600,
+                      fontSize: "0.7rem",
+                    }}
+                  />
                 ))}
               </Box>
 
-              <Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2, mb: 4 }}>
+              <Box
+                sx={{
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr",
+                  gap: 2,
+                  mb: 4,
+                }}
+              >
                 {[
-                  { label: "Brand",       value: "Danfoss" },
-                  { label: "Supply",      value: "OEM & Aftermarket" },
-                  { label: "Compatible",  value: "PVG Series" },
-                  { label: "Dispatch",    value: "Fast Availability" },
+                  { label: "Brand", value: "Danfoss" },
+                  { label: "Supply", value: "Original Parts" },
+                  { label: "Compatible", value: "PVG Series" },
+                  { label: "Dispatch", value: "Fast Availability" },
                 ].map(({ label, value }) => (
                   <Box key={label}>
-                    <Typography variant="caption" sx={{ color: "text.secondary", textTransform: "uppercase", letterSpacing: 1 }}>
+                    <Typography
+                      variant="caption"
+                      sx={{
+                        color: "text.secondary",
+                        textTransform: "uppercase",
+                        letterSpacing: 1,
+                      }}
+                    >
                       {label}
                     </Typography>
                     <Typography variant="body1" sx={{ fontWeight: 700 }}>
@@ -154,7 +237,11 @@ export default function DanfossValveComponentsPage() {
                   startIcon={<ContactSupportIcon />}
                   onClick={() => setModalOpen(true)}
                   sx={{
-                    borderRadius: 0, fontWeight: 800, py: 1.75, fontSize: "1rem", boxShadow: "none",
+                    borderRadius: 0,
+                    fontWeight: 800,
+                    py: 1.75,
+                    fontSize: "1rem",
+                    boxShadow: "none",
                     bgcolor: "#1c2e1a",
                     "&:hover": { bgcolor: "primary.main", boxShadow: "none" },
                   }}
@@ -172,15 +259,29 @@ export default function DanfossValveComponentsPage() {
       {/* ── Specs ── */}
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: "#fff" }}>
         <Container maxWidth="lg">
-          <Typography variant="h5" sx={{ fontWeight: 700, mb: 6 }}>Product Information</Typography>
+          <Typography variant="h5" sx={{ fontWeight: 700, mb: 6 }}>
+            Product Information
+          </Typography>
           <Grid container spacing={2}>
             {TECH_SPECS.map(({ label, value }) => (
               <Grid size={{ xs: 12, sm: 6, md: 4 }} key={label}>
-                <Paper variant="outlined" sx={{ p: 3, borderRadius: 2, height: "100%" }}>
-                  <Typography variant="caption" sx={{ color: "text.secondary", textTransform: "uppercase", letterSpacing: 1.5 }}>
+                <Paper
+                  variant="outlined"
+                  sx={{ p: 3, borderRadius: 2, height: "100%" }}
+                >
+                  <Typography
+                    variant="caption"
+                    sx={{
+                      color: "text.secondary",
+                      textTransform: "uppercase",
+                      letterSpacing: 1.5,
+                    }}
+                  >
                     {label}
                   </Typography>
-                  <Typography variant="body1" sx={{ fontWeight: 700, mt: 0.5 }}>{value}</Typography>
+                  <Typography variant="body1" sx={{ fontWeight: 700, mt: 0.5 }}>
+                    {value}
+                  </Typography>
                 </Paper>
               </Grid>
             ))}
@@ -193,21 +294,52 @@ export default function DanfossValveComponentsPage() {
       {/* ── Features ── */}
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: "background.default" }}>
         <Container maxWidth="lg">
-          <Typography variant="h5" sx={{ fontWeight: 700, mb: 6 }}>Key Features</Typography>
+          <Typography variant="h5" sx={{ fontWeight: 700, mb: 6 }}>
+            Key Features
+          </Typography>
           <Grid container spacing={3}>
             {FEATURES.map(({ letter, title, body }) => (
               <Grid size={{ xs: 12, sm: 6, md: 4 }} key={letter}>
-                <Paper variant="outlined" sx={{ p: 3, borderRadius: 2, height: "100%", display: "flex", gap: 2 }}>
-                  <Box sx={{
-                    flexShrink: 0, width: 36, height: 36, borderRadius: "50%",
-                    bgcolor: "primary.main", color: "#fff", fontWeight: 700,
-                    fontSize: "0.85rem", display: "flex", alignItems: "center", justifyContent: "center",
-                  }}>
+                <Paper
+                  variant="outlined"
+                  sx={{
+                    p: 3,
+                    borderRadius: 2,
+                    height: "100%",
+                    display: "flex",
+                    gap: 2,
+                  }}
+                >
+                  <Box
+                    sx={{
+                      flexShrink: 0,
+                      width: 36,
+                      height: 36,
+                      borderRadius: "50%",
+                      bgcolor: "primary.main",
+                      color: "#fff",
+                      fontWeight: 700,
+                      fontSize: "0.85rem",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
                     {letter}
                   </Box>
                   <Box>
-                    <Typography variant="body2" sx={{ fontWeight: 700, mb: 0.5 }}>{title}</Typography>
-                    <Typography variant="body2" sx={{ color: "text.secondary", lineHeight: 1.6 }}>{body}</Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{ fontWeight: 700, mb: 0.5 }}
+                    >
+                      {title}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{ color: "text.secondary", lineHeight: 1.6 }}
+                    >
+                      {body}
+                    </Typography>
                   </Box>
                 </Paper>
               </Grid>
@@ -218,7 +350,11 @@ export default function DanfossValveComponentsPage() {
 
       <TrustStrip points={TRUST_POINTS} />
 
-      <RFQModal open={modalOpen} onClose={() => setModalOpen(false)} product={DANFOSS_VC_PRODUCT} />
+      <RFQModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        product={DANFOSS_VC_PRODUCT}
+      />
     </>
   );
 }

@@ -62,7 +62,7 @@ const FEATURES = [
   { letter: "I", title: "DI Dual Input", body: "DI variants with 2X4AMP dual input for redundant or dual-axis control on safety-critical mobile equipment." },
   { letter: "J", title: "High Pressure Rotary", body: "PVHC16 hydraulic actuator rated to 20 Bar with 180° rotation for specialized rotary control valve applications." },
   { letter: "K", title: "Direct Valve Mount", body: "Designed for direct mounting onto Danfoss PVG proportional directional control valve sections." },
-  { letter: "L", title: "OEM & Service Supply", body: "Full range stocked for OEM supply, field replacement and aftermarket service across the Danfoss PVG valve family." },
+  
 ];
 
 const TRUST_POINTS = [
