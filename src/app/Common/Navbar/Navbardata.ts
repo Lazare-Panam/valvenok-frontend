@@ -160,6 +160,13 @@ export const NAV_GROUPS: NavGroup[] = [
           { label: "Filtration", href: "/filters-sight-glass/filteration" },
         ],
       },
+       {
+        header: "Sealed Valves",
+        href: "/valves/sealed-valves",
+        items: [
+          { label: "Globe Valve", href: "/valves/sealed-valves/globe-valves" },
+        ],
+      },
       {
         header: "Valve Components",
         href: "/valves/valve-components",
@@ -467,7 +474,7 @@ export const NAV_GROUPS: NavGroup[] = [
             ],
           },
           { label: "Seals", href: "/pumps-seals/seals" },
-          { label: "Mechanical Seals", href: "/pumps-seals/mechanical-seals" },
+        
         ],
       },
     ],

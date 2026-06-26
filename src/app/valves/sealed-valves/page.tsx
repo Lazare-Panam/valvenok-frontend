@@ -1,0 +1,57 @@
+import type { Metadata } from "next";
+import ProductHero from "../../Common/Products_Page/ProductHero";
+import TrustStrip from "../../Common/Products_Page/TrustStrip";
+import { Category } from "../../Common/Products_Page/ProductCard";
+import ProcessValvesGrid from "../ProcessValvesGrid";
+
+export const metadata: Metadata = {
+  title: "Sealed Valves | Bellows Sealed Globe Valves | Valvenok",
+  description:
+    "Valvenok supplies a complete range of bellows sealed globe valves across DIN, ANSI and JIS standards. Double seal design, zero stem leakage and corrosion-resistant construction for demanding process, chemical and industrial applications.",
+};
+
+const SEALED_VALVE_FAMILIES: Category[] = [
+  {
+    code: "BGV",
+    title: "Globe Valves",
+    subtitle: "Bellows Sealed Globe Valves — DIN · ANSI · JIS",
+    description:
+      "A complete range of bellows sealed globe valves across DIN, ANSI and JIS standards. Double seal design with bellows plus packing backup ensures zero stem leakage across demanding process, chemical and industrial applications. 11 variants including Y-Type, Angle, High Pressure and Gland Packing configurations.",
+    specs: [
+      "DIN · ANSI · JIS",
+      "Zero Stem Leakage",
+      "Double Seal — Bellows + Packing",
+      "11 Variants",
+      "Y-Type · Angle · High Pressure",
+      "CE / ISO Compliant",
+    ],
+    applications: "Process Plants, Chemical, Pharmaceutical, Power Generation, Industrial",
+    href: "/valves/sealed-valves/globe-valves",
+    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/sealed-valves/din-standard-bellows-sealed-globe-valve-plus.jpg",
+  },
+];
+
+const TRUST_POINTS = [
+  { value: "Zero Leakage",   label: "Stem Seal" },
+  { value: "DIN·ANSI·JIS",  label: "Standards" },
+  { value: "Double Seal",    label: "Bellows + Packing" },
+  { value: "11 Models",      label: "Full Range" },
+  { value: "CE / ISO",       label: "Certified" },
+];
+
+export default function SealedValvesIndexPage() {
+  return (
+    <>
+      <ProductHero
+        title="Sealed Valves"
+        subtitle="Zero-Leakage Valve Solutions"
+        description="A complete range of bellows sealed globe valves engineered for zero stem leakage in demanding process, chemical and industrial applications. DIN, ANSI and JIS standards with double seal design — bellows plus packing backup."
+        imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/products/sealed-valves/din-standard-bellows-sealed-globe-valve-plus.jpg"
+        imageAlt="Bellows Sealed Globe Valves"
+        breadcrumb="Products / Valves / Sealed Valves"
+      />
+      <ProcessValvesGrid families={SEALED_VALVE_FAMILIES} />
+      <TrustStrip points={TRUST_POINTS} />
+    </>
+  );
+}

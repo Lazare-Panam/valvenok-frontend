@@ -12,7 +12,7 @@ import Divider from "@mui/material/Divider";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import ContactSupportIcon from "@mui/icons-material/ContactSupport";
-import TrustStrip from "../../Common/Products_Page/TrustStrip";
+import TrustStrip from "@/src/app/Common/Products_Page/TrustStrip";
 import RFQModal from "@/src/app/Common/RFQCard/RFQModal";
 import { ProductForRFQ } from "@/src/app/Common/RFQCard/RequestForQuoteCard";
 

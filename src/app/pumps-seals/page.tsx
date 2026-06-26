@@ -332,68 +332,6 @@ export default function PumpsAndSealsPage() {
 
         <Divider sx={{ mb: 10 }} />
 
-        {/* ── Bellows Sealed Globe Valves — image RIGHT (zigzag) ── */}
-        <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
-          <Grid size={{ xs: 12, md: 6 }}>
-            <Typography
-              variant="overline"
-              sx={{
-                color: "#61D649",
-                fontWeight: 600,
-                letterSpacing: 2,
-                fontSize: 11,
-              }}
-            >
-              Bellows Sealed Globe Valves
-            </Typography>
-            <Typography
-              variant="h3"
-              component="a"
-              href="/pumps-seals/mechanical-seals"
-              sx={{
-                fontSize: { xs: 24, md: 32 },
-                fontWeight: 700,
-                mt: 1,
-                mb: 3,
-                display: "block",
-                color: "inherit",
-                textDecoration: "none",
-                "&:hover": { color: "#61D649", textDecoration: "underline" },
-              }}
-            >
-              Mechanical Seals
-            </Typography>
-            <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
-              A complete range of bellows sealed globe valves across DIN, ANSI
-              and JIS standards. Double seal design with bellows plus packing
-              backup ensures zero stem leakage across demanding process,
-              chemical and industrial applications. 11 variants including
-              Y-Type, Angle, High Pressure and Gland Packing configurations.
-            </Typography>
-          </Grid>
-          <Grid size={{ xs: 12, md: 6 }}>
-            <Box
-              sx={{
-                borderRadius: 2,
-                p: 4,
-                textAlign: "center",
-                bgcolor: "#fbfbfb",
-              }}
-            >
-              <img
-                src="https://pblol2.blob.core.windows.net/valvenok-images/products/sealed-valves/din-standard-bellows-sealed-globe-valve-plus.jpg"
-                alt="Bellows Sealed Globe Valve"
-                style={{
-                  width: "60%",
-                  height: "auto",
-                  mixBlendMode: "multiply",
-                }}
-              />
-            </Box>
-          </Grid>
-        </Grid>
-
-        <Divider sx={{ mb: 10 }} />
 
         {/* Industries Served */}
         <Box sx={{ mb: 10 }}>

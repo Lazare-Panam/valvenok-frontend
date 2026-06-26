@@ -119,6 +119,23 @@ const VALVE_FAMILIES: Category[] = [
     image: "https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/PBV-2-S-04-FF-1.png",
   },
   {
+  code: "SLV",
+  title: "Sealed Valves",
+  subtitle: "Bellows Sealed Globe Valves — DIN · ANSI · JIS",
+  description:
+    "A complete range of bellows sealed globe valves across DIN, ANSI and JIS standards. Double seal design with bellows plus packing backup ensures zero stem leakage across demanding process, chemical and industrial applications.",
+  specs: [
+    "DIN · ANSI · JIS",
+    "Zero Stem Leakage",
+    "Double Seal — Bellows + Packing",
+    "11 Variants",
+    "CE / ISO Compliant",
+  ],
+  applications: "Process Plants, Chemical, Pharmaceutical, Power Generation, Industrial",
+  href: "/valves/sealed-valves",
+  image: "https://pblol2.blob.core.windows.net/valvenok-images/products/sealed-valves/din-standard-bellows-sealed-globe-valve-plus.jpg",
+},
+  {
   code: "DVC",
   title: "Danfoss Valve Components",
   subtitle: " Valve Components",
