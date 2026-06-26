@@ -166,6 +166,7 @@ export const NAV_GROUPS: NavGroup[] = [
         items: [
           { label: "Globe Valve", href: "/valves/sealed-valves/globe-valves" },
            { label: "Gate Valve", href: "/valves/sealed-valves/gate-valves" },
+           { label: "Check Valve", href: "/valves/sealed-valves/check-valves" },
         ],
       },
       {

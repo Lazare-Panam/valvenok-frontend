@@ -46,6 +46,23 @@ const SEALED_VALVE_FAMILIES: Category[] = [
   href: "/valves/sealed-valves/gate-valves",
   image: "https://pblol2.blob.core.windows.net/valvenok-images/products/sealed-valves/ansi-standard-bellows-sealed-gate-valve.jpg",
 },
+{
+  code: "BCV",
+  title: "Check Valves",
+  subtitle: "Bellows Sealed Lift Check Valves — DIN",
+  description:
+    "DIN standard bellows sealed lift check valves with zero stem leakage construction for demanding process, chemical and industrial applications.",
+  specs: [
+    "DIN Standard",
+    "Zero Stem Leakage",
+    "Bellows Sealed",
+    "Lift Check",
+    "CE / ISO Compliant",
+  ],
+  applications: "Process Plants, Chemical, Pharmaceutical, Power Generation, Industrial",
+  href: "/valves/sealed-valves/check-valves",
+  image: "https://pblol2.blob.core.windows.net/valvenok-images/products/sealed-valves/din-standard-lift-check-valve-300x300.jpg",
+},
 ];
 
 const TRUST_POINTS = [
