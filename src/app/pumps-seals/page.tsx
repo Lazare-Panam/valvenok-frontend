@@ -344,7 +344,7 @@ export default function PumpsAndSealsPage() {
                 fontSize: 11,
               }}
             >
-              Mechanical Seals
+              Bellows Sealed Globe Valves
             </Typography>
             <Typography
               variant="h3"
@@ -361,7 +361,7 @@ export default function PumpsAndSealsPage() {
                 "&:hover": { color: "#61D649", textDecoration: "underline" },
               }}
             >
-              Bellows Sealed Globe Valves
+              Mechanical Seals
             </Typography>
             <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
               A complete range of bellows sealed globe valves across DIN, ANSI

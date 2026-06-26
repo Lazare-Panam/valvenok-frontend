@@ -106,16 +106,16 @@ export default function BellowsSealedGlobeValveInfoPage() {
               </Typography>
 
               <Typography variant="h3" sx={{ fontWeight: 800, mt: 1, mb: 1, lineHeight: 1.2 }}>
-                Bellows Sealed Globe Valves
+                Mechanical Seals
               </Typography>
               <Typography variant="h6" sx={{ color: "text.secondary", fontWeight: 400, mb: 3 }}>
                 DIN · ANSI · JIS — Zero Stem Leakage
               </Typography>
 
               <Typography variant="body1" sx={{ color: "text.secondary", mb: 3, lineHeight: 1.8 }}>
-                A complete range of bellows sealed globe valves across DIN, ANSI and JIS standards.
-                Double seal design with bellows plus packing backup ensures zero stem leakage
-                across demanding process, chemical and industrial applications.
+                A Complete Range Of Bellows Sealed Globe Valves Across DIN, ANSI And JIS Standards.
+Double Seal Design With Bellows Plus Packing Backup Ensures Zero Stem Leakage
+Across Demanding Process, Chemical And Industrial Applications.
               </Typography>
 
               <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mb: 4 }}>
