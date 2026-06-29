@@ -144,43 +144,138 @@ const BUTTERFLY_VALVE_SERIES: Category[] = [
       "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/logo.svg",
   },
   {
-  code: "VF-9A",
-  title: "VF-9A Series High Performance Double Eccentric Butterfly Valve",
-  subtitle: "Double Eccentric — ANSI 150LB & 300LB — 2\"–48\"",
-  description:
-    "Value Valves VF-9A Series high performance double eccentric butterfly valves. Six series across ANSI 150LB and 300LB — soft seat, metal seat + PTFE and metal seat configurations. DN50–DN1200 (2\"–48\"), SIL 2 certified, API 607 fire safe, ATEX approved and leakage Class IV/V.",
-  specs: [
-    "ANSI 150LB & 300LB",
-    "DN50–DN1200 (2\"–48\")",
-    "Soft · Metal+PTFE · Metal Seat",
-    "API 607 Fire Safe",
-    "SIL 2 / IEC 61508",
-    "ATEX 2014/34/EU",
-  ],
-  applications: "Petrochemical, Oil Refining, Power Generation, Food Industry, Chemical Processing",
-  href: "/valves/industrial-valves/butterfly-valves/double-eccentric-butterfly-valve",
-  image: "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/Double-Offset__25C11bHDDc.jpg",
-  logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/logo.svg",
-},
-{
-  code: "VF-265A",
-  title: "VF-265A Ship-Building Butterfly Valve",
-  subtitle: "Marine Flanged Butterfly Valve — DN50–DN600 (2\"–24\")",
-  description:
-    "Value Valves VF-265A Series ship-building butterfly valves. Flanged type, 10 bar and 16 bar pressure ratings, DN50–DN600 (2\"–24\"), soft seat, JIS 10K face to face. ABS, LR, BV, DNV, CR and CCS class society certified. Used on over 1,000 ships worldwide since 1980.",
-  specs: [
-    "DN50–DN600 (2\"–24\")",
-    "10 bar & 16 bar",
-    "Flanged — JIS 10K",
-    "ABS · LR · BV · DNV · CR · CCS",
-    "Soft Seat",
-    "ISO 5211 Mounting",
-  ],
-  applications: "Shipbuilding, Marine, Naval Vessels",
-  href: "/valves/industrial-valves/butterfly-valves/ship-building-butterfly-valve",
-  image: "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/vf-265-ship-building.jpg",
-  logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/logo.svg",
-},
+    code: "VF-9A",
+    title: "VF-9A Series High Performance Double Eccentric Butterfly Valve",
+    subtitle: 'Double Eccentric — ANSI 150LB & 300LB — 2"–48"',
+    description:
+      'Value Valves VF-9A Series high performance double eccentric butterfly valves. Six series across ANSI 150LB and 300LB — soft seat, metal seat + PTFE and metal seat configurations. DN50–DN1200 (2"–48"), SIL 2 certified, API 607 fire safe, ATEX approved and leakage Class IV/V.',
+    specs: [
+      "ANSI 150LB & 300LB",
+      'DN50–DN1200 (2"–48")',
+      "Soft · Metal+PTFE · Metal Seat",
+      "API 607 Fire Safe",
+      "SIL 2 / IEC 61508",
+      "ATEX 2014/34/EU",
+    ],
+    applications:
+      "Petrochemical, Oil Refining, Power Generation, Food Industry, Chemical Processing",
+    href: "/valves/industrial-valves/butterfly-valves/double-eccentric-butterfly-valve",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/Double-Offset__25C11bHDDc.jpg",
+    logoUrl:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/logo.svg",
+  },
+  {
+    code: "VF-265A",
+    title: "VF-265A Ship-Building Butterfly Valve",
+    subtitle: 'Marine Flanged Butterfly Valve — DN50–DN600 (2"–24")',
+    description:
+      'Value Valves VF-265A Series ship-building butterfly valves. Flanged type, 10 bar and 16 bar pressure ratings, DN50–DN600 (2"–24"), soft seat, JIS 10K face to face. ABS, LR, BV, DNV, CR and CCS class society certified. Used on over 1,000 ships worldwide since 1980.',
+    specs: [
+      'DN50–DN600 (2"–24")',
+      "10 bar & 16 bar",
+      "Flanged — JIS 10K",
+      "ABS · LR · BV · DNV · CR · CCS",
+      "Soft Seat",
+      "ISO 5211 Mounting",
+    ],
+    applications: "Shipbuilding, Marine, Naval Vessels",
+    href: "/valves/industrial-valves/butterfly-valves/ship-building-butterfly-valve",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/vf-265-ship-building.jpg",
+    logoUrl:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/logo.svg",
+  },
+  {
+    code: "VF-9A-AC",
+    title: "VF-9A Anti-Condensation Double Eccentric Butterfly Valve",
+    subtitle:
+      'Double Eccentric With Jacket Option — ANSI 150LB & 300LB — 2"–48"',
+    description:
+      'Value Valves VF-9A Series high-performance double eccentric butterfly valves with anti-condensation jacket option. ANSI 150LB and 300LB, DN50–DN1200 (2"–48"), soft seat, fire safe metal seat and full metal seat. SIL2 certified, TUV PED(H) and ATEX approved for oil, gas, petrochemical and industrial process applications.',
+    specs: [
+      "ANSI 150LB & 300LB",
+      'DN50–DN1200 (2"–48")',
+      "Anti-Condensation Jacket",
+      "SIL2 / IEC 61508-1",
+      "TUV PED(H) · ATEX",
+      "API 607 Fire Safe",
+    ],
+    applications:
+      "Petrochemical, Oil Refining, Power Generation, Chemical Processing, High-Temperature & Cryogenic Service",
+    href: "/valves/industrial-valves/butterfly-valves/anti-condensation-butterfly-valve",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/dpi-anti-condensation.jpg",
+    logoUrl:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/logo.svg",
+  },
+  {
+    code: "VF-CRYO",
+    title: "Cryogenic Butt Welded Butterfly Valve",
+    subtitle:
+      'Cryogenic Double Eccentric & Triple Offset — ANSI 150LB — 2"–36"',
+    description:
+      "Value Valves cryogenic butterfly valves — double eccentric and triple offset designs for LNG, LPG, petrochemical and nuclear power service. ANSI 150LB, -196°C to +760°C, butt welding, lugged and short flanged end connections. API 609 Monogram, API 607 fire safe, SIL2/SIL3, TUV PED(H) and ATEX certified.",
+    specs: [
+      "ANSI 150LB",
+      'DN50–DN900 (2"–36")',
+      "-196°C to +760°C",
+      "Butt Weld · Lugged · Short Flanged",
+      "API 609 Monogram · API 607",
+      "SIL2 / SIL3",
+    ],
+    applications:
+      "LNG, LPG, Cryogenic, Petrochemical, Nuclear Power, Fossil & Cogeneration Power",
+    href: "/valves/industrial-valves/butterfly-valves/butt-welded-butterfly-valve",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/butterfly-weld.jpg",
+    logoUrl:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/logo.svg",
+  },
+  {
+    code: "VF-75",
+    title: "VF-75 PTFE / PFA Lined Centric Butterfly Valve",
+    subtitle: 'PTFE & PFA Lined — DN50–DN600 (2"–24") — Up To 16 Bar',
+    description:
+      "Value Valves VF-75 Series centric butterfly valves with full PTFE or PFA lined disc and body seat. DN50–DN600, up to 16 bar, -35°C to +200°C. Wafer, lugged and flanged end connections. EN 593, API 609 and BS 5155 design standard for chemical, petrochemical, water treatment and food processing applications.",
+    specs: [
+      'DN50–DN600 (2"–24")',
+      "Up To 16 Bar",
+      "PTFE / PFA Lining",
+      "-35°C to +200°C",
+      "Wafer · Lugged · Flanged",
+      "EN 593 · API 609",
+    ],
+    applications:
+      "Chemical, Petrochemical, Water & Wastewater, Food Processing, Mining, HVAC, Shipbuilding",
+    href: "/valves/industrial-valves/butterfly-valves/ptfe-lined-butterfly-valve",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/ptfe_lined_butterfly.png",
+    logoUrl:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/logo.svg",
+  },
+  {
+    code: "VF-3",
+    title: "VF-3 Series Butterfly Damper Valve",
+    subtitle: 'Damper Valves — Centric, Double & Triple Eccentric — 2"–96"',
+    description:
+      'Value Valves VF-3 Series butterfly damper valves — centric, double eccentric and triple eccentric designs. Metal, rubber and PTFE seat options. 2"–96", up to 1093°C. Wafer, short body flange and long body flange. For HVAC, water treatment, flue gas and industrial gas damper applications.',
+    specs: [
+      '2"–96" Size Range',
+      "-46°C to +1093°C",
+      "Metal · Rubber · PTFE Seat",
+      "3 Valve Types",
+      "Class IV Shutoff",
+      "ISO 5211",
+    ],
+    applications:
+      "HVAC, Water Treatment, Flue Gas, Combustion Air, Industrial Gas, Chimney Damper",
+    href: "/valves/industrial-valves/butterfly-valves/damper-butterfly-valve",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/damper-valve.jpg",
+    logoUrl:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/logo.svg",
+  },
 ];
 
 const TRUST_POINTS = [
