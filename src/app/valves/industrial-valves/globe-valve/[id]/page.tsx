@@ -61,41 +61,6 @@ export const GLOBE_VALVES: FeaturedValve[] = [
     ],
   },
 
-{
-  id: "jdv-skg-globe",
-  name: "SKG Series Globe Valve",
-  category: "Globe Valves",
-  categoryId: "globe-valves",
-  brand: "JDV Control Valves",
-  brandLogo: "https://pblol2.blob.core.windows.net/valvenok-images/brands/JDV_logo.png",
-  thumbnail: "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/product_SKG.png",
-  specs: [
-    { label: "Standard", value: "ANSI B16.34" },
-    { label: "End Connections", value: "Flanged & Socket Weld" },
-    { label: "End Flanges", value: "ANSI B16.5" },
-    { label: "Butt Weld Ends", value: "ANSI B16.25" },
-    { label: "Face-to-Face", value: "ANSI B16.10" },
-    { label: "Inspection & Test", value: "API 598" },
-  ],
-},
-
-{
-  id: "jdv-ska-gate",
-  name: "SKA Series Gate Valve",
-  category: "Globe Valves",
-  categoryId: "globe-valves",
-  brand: "JDV Control Valves",
-  brandLogo: "https://pblol2.blob.core.windows.net/valvenok-images/brands/JDV_logo.png",
-  thumbnail: "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/SKA-Gate.png",
-  specs: [
-    { label: "Standard", value: "API 600" },
-    { label: "Size Range", value: "DN15 – DN150" },
-    { label: "End Connections", value: "Flanged & Socket Weld" },
-    { label: "End Flanges", value: "ANSI B16.5" },
-    { label: "Butt Weld Ends", value: "ANSI B16.25" },
-    { label: "Inspection & Test", value: "API 598" },
-  ],
-},
 
 ];
 
