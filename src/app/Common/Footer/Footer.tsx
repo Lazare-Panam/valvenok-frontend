@@ -23,10 +23,11 @@ const FOOTER_LINKS = [
   {
     title: "Products",
     links: [
-      { label: "Instrumentation Valves", href: "/valves" },
+      { label: "Hydrogen & Cryogenic", href: "/hydrogen-cryogenic" },
+      { label: "Valves", href: "/valves" },
+      { label: "Actuators", href: "/actuators" },
+      { label: "Instrumentation", href: "/instrumentation" },
       { label: "Pumps & Seals", href: "/pumps-seals" },
-      { label: "Pneumatic Components", href: "/categories/frl" },
-      { label: "Fittings", href: "/fittings-tubing/instrumentation-fittings/jic-fittings" },
     ],
   },
   {

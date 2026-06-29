@@ -31,14 +31,15 @@ const CATEGORIES = [
   ],
 },
   {
-    name: "Industrial Valves",
+    name: "Valves",
     img: "https://pblol2.blob.core.windows.net/mars-valves/ball-valves/series-10-10.png",
     href: "/valves/instrumentation-valves/ball-valves",
     tag: "Heavy Duty",
     count: "280+",
     subs: [
-      { name: "Industrial Valves", href: "/valves/industrial-valves" },
-      { name: "Marine Valves", href: "/valves/marine-valves" },
+      { name: "Process Valves", href: "/valves/" },
+      { name: "Sealed Valves", href: "/valves/sealed-valves" },
+      { name: "Instrumentation Valves", href: "/valves/instrumentation-valves" },
     ],
   },
   {
