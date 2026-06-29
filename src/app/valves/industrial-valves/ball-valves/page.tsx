@@ -140,28 +140,7 @@ const MARS_VALVE_SERIES: Category[] = [
       "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/logo.svg",
   },
 
-  {
-    code: "VV-2P",
-    title: "2-Piece Ball Valve",
-    subtitle: '2-Piece Floating Ball Valve — ANSI 150/300LB — 1/2"–12"',
-    description:
-      'Value Valves 2-piece floating ball valve. 1/2"–12", ANSI 150/300LB, PN10/16/25/40, -20°C to +200°C. Fire safe, bi-directional, blow-out proof stem, anti-static, ISO 5211 mounting. ISO 9001, ISO 10497, API 607 certified. 100% hydraulic leakage tested before release.',
-    specs: [
-      '1/2"–12" (DN15–DN300)',
-      "ANSI 150/300LB · PN10/16/25/40",
-      "-20°C to +200°C",
-      "API 607 Fire Safe",
-      "ISO 9001 · ISO 10497",
-      "100% Hydraulic Tested",
-    ],
-    applications:
-      "Petroleum & Refining, Chemical, Power & Energy, Steel Mill, Mining Industry",
-    href: "/valves/industrial-valves/ball-valves/two-piece-ball-valve",
-    image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/ball-valves/2-piece-bv.jpg",
-    logoUrl:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/logo.svg",
-  },
+  
 
   //     {
   //     code: "MV-3P",
