@@ -47,30 +47,122 @@ const MARS_VALVE_SERIES: Category[] = [
       "https://pblol2.blob.core.windows.net/valvenok-images/products/featured/wkm-370d.jpg",
     logoUrl:
       "https://pblol2.blob.core.windows.net/valvenok-images/brands/cameron-logo.png",
-  },{
-  code: "PF-DFX",
-  title: "Deltaflux Control Ball Valve",
-  subtitle: "Trunnion Mounted — ANSI Class 150–2500",
-  description:
-    "Pietro Fiorentini Deltaflux trunnion mounted control ball valve for flow rate and pressure modulation across Oil & Gas, LNG, hydrogen, and water management applications. Quarter-turn trim delivers high Kv with minimum pressure drop in fully open position. Available in standard, welded body, and top-entry configurations.",
-  specs: [
-    '2"–48" | NPS 50–1200',
-    "ANSI Class 150–2500",
-    "-196°C to +425°C",
-    "API 6D / API 6A / API 6DSS",
-    "SIL 2 / PED 2014/68/EU",
-    "API 607 Fire Safe",
-  ],
-  applications:
-    "Oil & Gas, LNG, Hydrogen, Carbon Capture, Water Management, High-Pressure Process",
-  href: "/valves/industrial-valves/ball-valves/pf-deltaflux",
-  image:
-    "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/ball-valves/deltaflux.jpg",
-  logoUrl:
-    "https://pblol2.blob.core.windows.net/valvenok-images/products/industrial-valves/logo.svg",
-},
-  
-  
+  },
+  {
+    code: "PF-DFX",
+    title: "Deltaflux Control Ball Valve",
+    subtitle: "Trunnion Mounted — ANSI Class 150–2500",
+    description:
+      "Pietro Fiorentini Deltaflux trunnion mounted control ball valve for flow rate and pressure modulation across Oil & Gas, LNG, hydrogen, and water management applications. Quarter-turn trim delivers high Kv with minimum pressure drop in fully open position. Available in standard, welded body, and top-entry configurations.",
+    specs: [
+      '2"–48" | NPS 50–1200',
+      "ANSI Class 150–2500",
+      "-196°C to +425°C",
+      "API 6D / API 6A / API 6DSS",
+      "SIL 2 / PED 2014/68/EU",
+      "API 607 Fire Safe",
+    ],
+    applications:
+      "Oil & Gas, LNG, Hydrogen, Carbon Capture, Water Management, High-Pressure Process",
+    href: "/valves/industrial-valves/ball-valves/pf-deltaflux",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/ball-valves/deltaflux.jpg",
+    logoUrl:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/industrial-valves/logo.svg",
+  },
+  {
+    code: "VF-BF",
+    title: "VF-BF Series Double Flanged Ball Valve",
+    subtitle:
+      'Double Flanged Floating Ball Valve — ANSI 150LB & 300LB — 1/2"–12"',
+    description:
+      'Value Valves VF-BF Series double flanged ball valves. ANSI 150LB and 300LB, 1/2"–12", -29°C to +210°C. Fire safe, bi-directional floating type, blow-out proof stem, anti-static. API 6D, API 607, API 608, ISO 5211. 100% hydraulic leakage tested before release.',
+    specs: [
+      '1/2"–12" (DN15–DN300)',
+      "ANSI 150LB & 300LB",
+      "-29°C to +210°C",
+      "API 607 Fire Safe",
+      "API 6D · API 608",
+      "ISO 5208 Rate A",
+    ],
+    applications:
+      "Petroleum & Refining, Chemical, Power & Energy, Steel Mill, Mining Industry",
+    href: "/valves/industrial-valves/ball-valves/vf-bf-double-flanged",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/ball-valves/three-piece-threaded.png",
+    logoUrl:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/logo.svg",
+  },
+  {
+    code: "VV-3P",
+    title: "3-Piece Threaded Ball Valve",
+    subtitle: 'Series 2000 — 2000 WOG — NPS 1/4"–2"',
+    description:
+      'Value Valves Series 2000 3-piece threaded ball valve. NPS 1/4"–2", 2000 WOG. Blow-out proof stem, pressure balance hole, dewaxing precision investment casting. Threaded (NPT/BSPT/DIN), socket weld and butt weld end connections. Inline serviceable swing-out body. MSS SP-110, EN 12266.',
+    specs: [
+      'NPS 1/4"–2" (DN8–DN50)',
+      "2000 WOG",
+      "Threaded · Socket Weld · Butt Weld",
+      "Blow-Out Proof Stem",
+      "3-Piece Swing-Out",
+      "MSS SP-110 · EN 12266",
+    ],
+    applications:
+      "Chemical Processing, Oil & Gas, Water Treatment, General Utilities, OEM Skid Manufacturers",
+    href: "/valves/industrial-valves/ball-valves/three-piece-threaded-ball-valve",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/ball-valves/3-p.png",
+    logoUrl:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/logo.svg",
+  },
+
+  // MARS_VALVE_SERIES blob
+  {
+    code: "VV-2P",
+    title: "2-Piece Ball Valve",
+    subtitle: '2-Piece Floating Ball Valve — ANSI 150/300LB — 1/2"–12"',
+    description:
+      'Value Valves 2-piece floating ball valve. 1/2"–12", ANSI 150/300LB, PN10/16/25/40, -20°C to +200°C. Fire safe, bi-directional, blow-out proof stem, anti-static, ISO 5211 mounting. ISO 9001, ISO 10497, API 607 certified. 100% hydraulic leakage tested before release.',
+    specs: [
+      '1/2"–12" (DN15–DN300)',
+      "ANSI 150/300LB · PN10/16/25/40",
+      "-20°C to +200°C",
+      "API 607 Fire Safe",
+      "ISO 9001 · ISO 10497",
+      "100% Hydraulic Tested",
+    ],
+    applications:
+      "Petroleum & Refining, Chemical, Power & Energy, Steel Mill, Mining Industry",
+    href: "/valves/industrial-valves/ball-valves/two-piece-ball-valve",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/ball-valves/2-piece-bv.jpg",
+    logoUrl:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/logo.svg",
+  },
+
+  {
+    code: "VV-2P",
+    title: "2-Piece Ball Valve",
+    subtitle: '2-Piece Floating Ball Valve — ANSI 150/300LB — 1/2"–12"',
+    description:
+      'Value Valves 2-piece floating ball valve. 1/2"–12", ANSI 150/300LB, PN10/16/25/40, -20°C to +200°C. Fire safe, bi-directional, blow-out proof stem, anti-static, ISO 5211 mounting. ISO 9001, ISO 10497, API 607 certified. 100% hydraulic leakage tested before release.',
+    specs: [
+      '1/2"–12" (DN15–DN300)',
+      "ANSI 150/300LB · PN10/16/25/40",
+      "-20°C to +200°C",
+      "API 607 Fire Safe",
+      "ISO 9001 · ISO 10497",
+      "100% Hydraulic Tested",
+    ],
+    applications:
+      "Petroleum & Refining, Chemical, Power & Energy, Steel Mill, Mining Industry",
+    href: "/valves/industrial-valves/ball-valves/two-piece-ball-valve",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/ball-valves/2-piece-bv.jpg",
+    logoUrl:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/logo.svg",
+  },
+
   //     {
   //     code: "MV-3P",
   //     title: "Three-Piece Ball Valve",

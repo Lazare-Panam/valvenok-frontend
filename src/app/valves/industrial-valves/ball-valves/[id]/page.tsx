@@ -1,78 +1,198 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useParams, useRouter } from 'next/navigation';
+import { useState } from "react";
+import { useParams, useRouter } from "next/navigation";
 import {
-  Box, Container, Typography, Button, Divider,
-  Card, CardContent, useTheme, alpha,
-} from '@mui/material';
-import Grid from '@mui/material/Grid';
-import ContactSupportIcon from '@mui/icons-material/ContactSupport';
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import RFQModal from '../../../../Common/RFQCard/RFQModal';
-import { ProductForRFQ } from '../../../../Common/RFQCard/RequestForQuoteCard';
-import { FeaturedValve } from '../../page';
+  Box,
+  Container,
+  Typography,
+  Button,
+  Divider,
+  Card,
+  CardContent,
+  useTheme,
+  alpha,
+} from "@mui/material";
+import Grid from "@mui/material/Grid";
+import ContactSupportIcon from "@mui/icons-material/ContactSupport";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import RFQModal from "../../../../Common/RFQCard/RFQModal";
+import { ProductForRFQ } from "../../../../Common/RFQCard/RequestForQuoteCard";
+import { FeaturedValve } from "../../page";
 
 export const BALL_VALVES: FeaturedValve[] = [
   {
-    id: 'cameron-wkm-370d',
-    name: 'WKM 370D Flanged Ball Valve',
-    category: 'Ball Valves',
-    categoryId: 'ball-valves',
-    brand: 'Cameron',
-    brandLogo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/cameron-logo.png',
-    thumbnail: 'https://pblol2.blob.core.windows.net/valvenok-images/products/featured/wkm-370d.jpg',
+    id: "cameron-wkm-370d",
+    name: "WKM 370D Flanged Ball Valve",
+    category: "Ball Valves",
+    categoryId: "ball-valves",
+    brand: "Cameron",
+    brandLogo:
+      "https://pblol2.blob.core.windows.net/valvenok-images/brands/cameron-logo.png",
+    thumbnail:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/featured/wkm-370d.jpg",
     specs: [
-      { label: 'Size Range', value: '2"–16" | 50–400 mm' },
-      { label: 'Pressure Class', value: 'ASME CL 150–2500' },
-      { label: 'End Connections', value: 'Flanged' },
-      { label: 'Service', value: 'High-Integrity Isolation' },
-      { label: 'Standard', value: 'API Rated' },
-      { label: 'Applications', value: 'Oil & Gas, Petrochemical, Refining' },
+      { label: "Size Range", value: '2"–16" | 50–400 mm' },
+      { label: "Pressure Class", value: "ASME CL 150–2500" },
+      { label: "End Connections", value: "Flanged" },
+      { label: "Service", value: "High-Integrity Isolation" },
+      { label: "Standard", value: "API Rated" },
+      { label: "Applications", value: "Oil & Gas, Petrochemical, Refining" },
     ],
   },
   {
-    id: 'bettis-rpx',
-    name: 'RPX Actuated Ball Valve',
-    category: 'Ball Valves',
-    categoryId: 'ball-valves',
-    brand: 'Bettis',
-    brandLogo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/bettis-logo.png',
-    thumbnail: 'https://pblol2.blob.core.windows.net/valvenok-images/products/featured/rps-actuated-ss.webp',
+    id: "bettis-rpx",
+    name: "RPX Actuated Ball Valve",
+    category: "Ball Valves",
+    categoryId: "ball-valves",
+    brand: "Bettis",
+    brandLogo:
+      "https://pblol2.blob.core.windows.net/valvenok-images/brands/bettis-logo.png",
+    thumbnail:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/featured/rps-actuated-ss.webp",
     specs: [
-      { label: 'Size Range', value: 'NPS 1/2–8 | DN 15–200' },
-      { label: 'Pressure Class', value: 'ANSI 150' },
-      { label: 'End Connections', value: 'Flanged' },
-      { label: 'Body Material', value: 'Stainless Steel' },
-      { label: 'Operation', value: 'Actuated' },
-      { label: 'Service', value: 'Automated Flow Control' },
+      { label: "Size Range", value: "NPS 1/2–8 | DN 15–200" },
+      { label: "Pressure Class", value: "ANSI 150" },
+      { label: "End Connections", value: "Flanged" },
+      { label: "Body Material", value: "Stainless Steel" },
+      { label: "Operation", value: "Actuated" },
+      { label: "Service", value: "Automated Flow Control" },
     ],
   },
   {
-  id: 'pf-deltaflux',
-  name: 'Deltaflux Trunnion Mounted Control Ball Valve',
-  category: 'Ball Valves',
-  categoryId: 'ball-valves',
-  brand: 'Pietro Fiorentini',
-  brandLogo: 'https://pblol2.blob.core.windows.net/valvenok-images/products/industrial-valves/logo.svg',
-  thumbnail: 'https://pblol2.blob.core.windows.net/valvenok-images/products/valves/ball-valves/deltaflux.jpg',
-  specs: [
-    { label: 'Size Range', value: '2"–48" | NPS 50–1200' },
-    { label: 'Pressure Rating', value: 'ANSI Class 150–2500' },
-    { label: 'Design Temperature', value: '-196°C to +425°C (-321°F to +800°F)' },
-    { label: 'Connections', value: 'RF & RTJ Flanged (ASME B16.5 / B16.47) / Butt Weld (ASME B16.25)' },
-    { label: 'Construction', value: 'Side Entry Bolted / Welded / Top Entry Bolted' },
-    { label: 'Seat Configuration', value: 'Unidirectional / DIB-1 / DIB-2 / DBB per API 6D' },
-    { label: 'Metallic Materials', value: 'Carbon Steel, Stainless Steel, Duplex, Super-Duplex, Exotic Alloys' },
-    { label: 'Soft Parts', value: 'RPTFE, PEEK, FKM, FFKM, HNBR, Graphite' },
-    { label: 'Coatings', value: 'ENP, Weld Overlay (316SS / N06625), HVOF (TCC / CCC)' },
-    { label: 'Certifications', value: 'API 6D, API 6A, API 6DSS, IEC 61508 SIL 2, PED 2014/68/EU' },
-    { label: 'Fire Safe', value: 'API 607 / API 6FA' },
-    { label: 'Fugitive Emissions', value: 'ISO 15848-1' },
-    { label: 'Operator', value: 'Bare Stem / Pneumatic / Hydraulic / Electric Actuator' },
-  ],
-},
+    id: "pf-deltaflux",
+    name: "Deltaflux Trunnion Mounted Control Ball Valve",
+    category: "Ball Valves",
+    categoryId: "ball-valves",
+    brand: "Pietro Fiorentini",
+    brandLogo:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/industrial-valves/logo.svg",
+    thumbnail:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/ball-valves/deltaflux.jpg",
+    specs: [
+      { label: "Size Range", value: '2"–48" | NPS 50–1200' },
+      { label: "Pressure Rating", value: "ANSI Class 150–2500" },
+      {
+        label: "Design Temperature",
+        value: "-196°C to +425°C (-321°F to +800°F)",
+      },
+      {
+        label: "Connections",
+        value:
+          "RF & RTJ Flanged (ASME B16.5 / B16.47) / Butt Weld (ASME B16.25)",
+      },
+      {
+        label: "Construction",
+        value: "Side Entry Bolted / Welded / Top Entry Bolted",
+      },
+      {
+        label: "Seat Configuration",
+        value: "Unidirectional / DIB-1 / DIB-2 / DBB per API 6D",
+      },
+      {
+        label: "Metallic Materials",
+        value:
+          "Carbon Steel, Stainless Steel, Duplex, Super-Duplex, Exotic Alloys",
+      },
+      { label: "Soft Parts", value: "RPTFE, PEEK, FKM, FFKM, HNBR, Graphite" },
+      {
+        label: "Coatings",
+        value: "ENP, Weld Overlay (316SS / N06625), HVOF (TCC / CCC)",
+      },
+      {
+        label: "Certifications",
+        value: "API 6D, API 6A, API 6DSS, IEC 61508 SIL 2, PED 2014/68/EU",
+      },
+      { label: "Fire Safe", value: "API 607 / API 6FA" },
+      { label: "Fugitive Emissions", value: "ISO 15848-1" },
+      {
+        label: "Operator",
+        value: "Bare Stem / Pneumatic / Hydraulic / Electric Actuator",
+      },
+    ],
+  },
+  {
+    id: "vf-bf-double-flanged",
+    name: "VF-BF Series Double Flanged Ball Valve",
+    category: "Ball Valves",
+    categoryId: "ball-valves",
+    brand: "Value Valves",
+    brandLogo:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/logo.svg",
+    thumbnail:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/ball-valves/three-piece-threaded.png",
+    specs: [
+      { label: "Size Range", value: '1/2"–12" (DN15–DN300)' },
+      {
+        label: "Pressure Class",
+        value: "ANSI 150LB (VF-BF1) · ANSI 300LB (VF-BF3)",
+      },
+      {
+        label: "Flange Standard",
+        value: "ASME B16.5 150LB / 300LB · JIS 10K / 16K",
+      },
+      { label: "Temperature", value: "-29°C to +210°C (-20°F to +410°F)" },
+      { label: "Design Standard", value: "API 6D · API 608 · ASME B16.34" },
+      { label: "Face To Face", value: "ANSI B16.10" },
+      { label: "Leakage Class", value: "ISO 5208 Rate A" },
+      { label: "Fire Safe", value: "API 607 · ISO 10497" },
+      { label: "Mounting", value: "ISO 5211" },
+    ],
+  },
+  {
+    id: "three-piece-threaded-ball-valve",
+    name: "3-Piece Threaded Ball Valve — Series 2000",
+    category: "Ball Valves",
+    categoryId: "ball-valves",
+    brand: "Value Valves",
+    brandLogo:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/logo.svg",
+    thumbnail:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/ball-valves/3-p.png",
+    specs: [
+      { label: "Size Range", value: 'NPS 1/4"–2" (DN8–DN50)' },
+      { label: "Pressure Rating", value: "2000 WOG" },
+      {
+        label: "End Connections",
+        value: "Threaded (NPT/BSPT/DIN) · Socket Weld · Butt Weld",
+      },
+      { label: "Face To Face", value: "DIN 3202-M3" },
+      { label: "Inspection & Test", value: "MSS SP-110 · EN 12266" },
+      { label: "Body / Ball", value: "CF8M (SS316) · CF8 (SS304) · WCB" },
+      { label: "Seat", value: "PTFE · RPTFE" },
+      { label: "Stem", value: "SS316 · SS304 — Blow-Out Proof" },
+      { label: "Body Design", value: "3-Piece Swing-Out — Inline Serviceable" },
+    ],
+  },
+  {
+    id: "two-piece-ball-valve",
+    name: "2-Piece Floating Ball Valve",
+    category: "Ball Valves",
+    categoryId: "ball-valves",
+    brand: "Value Valves",
+    brandLogo:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/logo.svg",
+    thumbnail:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/ball-valves/2-piece-bv.jpg",
+    specs: [
+      { label: "Size Range", value: '1/2"–12" (DN15–DN300)' },
+      {
+        label: "Pressure Rating",
+        value: "ANSI 150LB / 300LB · PN10 / PN16 / PN25 / PN40",
+      },
+      { label: "Temperature", value: "-20°C to +200°C (-4°F to +392°F)" },
+      {
+        label: "Body Design",
+        value: "2-Piece Split Body · Floating Ball · Bi-Directional",
+      },
+      { label: "Stem", value: "Blow-Out Proof" },
+      { label: "Anti-Static", value: "Ball To Stem To Body" },
+      { label: "Mounting", value: "ISO 5211" },
+      { label: "Fire Safe", value: "API 607 · ISO 10497" },
+      { label: "Certifications", value: "ISO 9001 · ISO 10497 · API 607" },
+    ],
+  },
 ];
 
 export const BALL_VALVE_RFQ: ProductForRFQ[] = BALL_VALVES.map((valve) => ({
@@ -87,7 +207,9 @@ export const BALL_VALVE_RFQ: ProductForRFQ[] = BALL_VALVES.map((valve) => ({
   keySpecs: valve.specs,
   variantInfo: {
     count: 1,
-    sizeRange: valve.specs.find(s => s.label === 'Size Range')?.value ?? 'Contact for details',
+    sizeRange:
+      valve.specs.find((s) => s.label === "Size Range")?.value ??
+      "Contact for details",
   },
 }));
 
@@ -100,34 +222,67 @@ function SimilarProductCard({ product }: { product: ProductForRFQ }) {
     <>
       <Card
         elevation={0}
-        onClick={() => router.push(`/valves/ball-valves/${product.id}`)}
+        onClick={() =>
+          router.push(`/valves/industrial-valves/ball-valves/${product.id}`)
+        }
         sx={{
           borderRadius: 0,
-          border: '1px solid',
-          borderColor: 'divider',
-          cursor: 'pointer',
-          transition: 'all 0.2s ease-in-out',
-          '&:hover': {
+          border: "1px solid",
+          borderColor: "divider",
+          cursor: "pointer",
+          transition: "all 0.2s ease-in-out",
+          "&:hover": {
             borderColor: theme.palette.primary.main,
             boxShadow: `0 4px 16px ${alpha(theme.palette.common.black, 0.08)}`,
           },
         }}
       >
-        <Box sx={{ bgcolor: '#fff', display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: 140, p: 2 }}>
-          <img src={product.thumbnail} alt={product.name} style={{ maxHeight: 110, maxWidth: '100%', objectFit: 'contain' }} />
+        <Box
+          sx={{
+            bgcolor: "#fff",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            minHeight: 140,
+            p: 2,
+          }}
+        >
+          <img
+            src={product.thumbnail}
+            alt={product.name}
+            style={{ maxHeight: 110, maxWidth: "100%", objectFit: "contain" }}
+          />
         </Box>
         <CardContent sx={{ p: 2 }}>
-          <Typography variant="caption" sx={{ color: 'primary.main', fontWeight: 700, textTransform: 'uppercase', letterSpacing: 1 }}>
+          <Typography
+            variant="caption"
+            sx={{
+              color: "primary.main",
+              fontWeight: 700,
+              textTransform: "uppercase",
+              letterSpacing: 1,
+            }}
+          >
             {product.brand}
           </Typography>
           <Typography
             variant="body2"
-            sx={{ fontFamily: '"Barlow Condensed"', fontWeight: 800, textTransform: 'uppercase', lineHeight: 1.2, mt: 0.5, mb: 1.5 }}
+            sx={{
+              fontFamily: '"Barlow Condensed"',
+              fontWeight: 800,
+              textTransform: "uppercase",
+              lineHeight: 1.2,
+              mt: 0.5,
+              mb: 1.5,
+            }}
           >
             {product.name}
           </Typography>
           {product.keySpecs[0] && (
-            <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block' }}>
+            <Typography
+              variant="caption"
+              sx={{ color: "text.secondary", display: "block" }}
+            >
               {product.keySpecs[0].label}: {product.keySpecs[0].value}
             </Typography>
           )}
@@ -135,18 +290,29 @@ function SimilarProductCard({ product }: { product: ProductForRFQ }) {
             variant="outlined"
             size="small"
             fullWidth
-            onClick={(e) => { e.stopPropagation(); setModalOpen(true); }}
+            onClick={(e) => {
+              e.stopPropagation();
+              setModalOpen(true);
+            }}
             sx={{
-              mt: 1.5, borderRadius: 0, fontWeight: 700, fontSize: '0.7rem',
-              borderColor: 'primary.main', color: 'primary.main',
-              '&:hover': { bgcolor: 'primary.main', color: '#fff' },
+              mt: 1.5,
+              borderRadius: 0,
+              fontWeight: 700,
+              fontSize: "0.7rem",
+              borderColor: "primary.main",
+              color: "primary.main",
+              "&:hover": { bgcolor: "primary.main", color: "#fff" },
             }}
           >
             Request Quote
           </Button>
         </CardContent>
       </Card>
-      <RFQModal open={modalOpen} onClose={() => setModalOpen(false)} product={product} />
+      <RFQModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        product={product}
+      />
     </>
   );
 }
@@ -160,74 +326,122 @@ export default function BallValveDetailPage() {
   const valve = BALL_VALVES.find((v) => v.id === id);
   const product = BALL_VALVE_RFQ.find((p) => p.id === id);
   const similarProducts = BALL_VALVE_RFQ.filter(
-    (p) => p.categoryId === valve?.categoryId && p.id !== id
+    (p) => p.categoryId === valve?.categoryId && p.id !== id,
   ).slice(0, 3);
 
   if (!valve || !product) {
     return (
-      <Box sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 2 }}>
-        <Typography variant="h4" sx={{ fontFamily: '"Barlow Condensed"', fontWeight: 900 }}>PRODUCT NOT FOUND</Typography>
-        <Button startIcon={<ArrowBackIcon />} onClick={() => router.back()} sx={{ fontWeight: 700 }}>Go Back</Button>
+      <Box
+        sx={{
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: 2,
+        }}
+      >
+        <Typography
+          variant="h4"
+          sx={{ fontFamily: '"Barlow Condensed"', fontWeight: 900 }}
+        >
+          PRODUCT NOT FOUND
+        </Typography>
+        <Button
+          startIcon={<ArrowBackIcon />}
+          onClick={() => router.back()}
+          sx={{ fontWeight: 700 }}
+        >
+          Go Back
+        </Button>
       </Box>
     );
   }
 
   return (
     <>
-      <Box sx={{ bgcolor: 'background.default', minHeight: '100vh', pb: 12 }}>
+      <Box sx={{ bgcolor: "background.default", minHeight: "100vh", pb: 12 }}>
         <Container maxWidth="lg" sx={{ mt: 6 }}>
           <Grid container spacing={6}>
-
             {/* Image */}
             <Grid size={{ xs: 12, md: 5 }}>
               <Box
                 sx={{
-                  bgcolor: '#fff',
-                  border: '1px solid',
-                  borderColor: 'divider',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
+                  bgcolor: "#fff",
+                  border: "1px solid",
+                  borderColor: "divider",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
                   minHeight: 380,
                   p: 4,
-                  position: 'sticky',
+                  position: "sticky",
                   top: 24,
                 }}
               >
-                <img src={valve.thumbnail} alt={valve.name} style={{ maxHeight: 320, maxWidth: '100%', objectFit: 'contain' }} />
+                <img
+                  src={valve.thumbnail}
+                  alt={valve.name}
+                  style={{
+                    maxHeight: 320,
+                    maxWidth: "100%",
+                    objectFit: "contain",
+                  }}
+                />
               </Box>
             </Grid>
 
             {/* Details */}
             <Grid size={{ xs: 12, md: 7 }}>
-              <Box sx={{ display: 'flex', gap: 1, mb: 2, alignItems: 'center', flexWrap: 'wrap' }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  gap: 1,
+                  mb: 2,
+                  alignItems: "center",
+                  flexWrap: "wrap",
+                }}
+              >
                 <Box
                   sx={{
-                    border: '1px solid',
-                    borderColor: 'divider',
+                    border: "1px solid",
+                    borderColor: "divider",
                     px: 2.5,
                     height: 48,
-                    bgcolor: '#fff',
-                    display: 'inline-flex',
-                    alignItems: 'center',
+                    bgcolor: "#fff",
+                    display: "inline-flex",
+                    alignItems: "center",
                   }}
                 >
                   <img
                     src={valve.brandLogo}
                     alt={valve.brand}
-                    style={{ maxHeight: 36, maxWidth: 160, objectFit: 'contain' }}
+                    style={{
+                      maxHeight: 36,
+                      maxWidth: 160,
+                      objectFit: "contain",
+                    }}
                   />
                 </Box>
               </Box>
 
               <Typography
                 variant="h3"
-                sx={{ fontFamily: '"Barlow Condensed"', fontWeight: 100, textTransform: 'uppercase', lineHeight: 1, mb: 1 }}
+                sx={{
+                  fontFamily: '"Barlow Condensed"',
+                  fontWeight: 100,
+                  textTransform: "uppercase",
+                  lineHeight: 1,
+                  mb: 1,
+                }}
               >
                 {valve.name}
               </Typography>
 
-              <Typography variant="body1" sx={{ color: 'text.secondary', mb: 4, lineHeight: 1.7 }}>
+              <Typography
+                variant="body1"
+                sx={{ color: "text.secondary", mb: 4, lineHeight: 1.7 }}
+              >
                 {product.description}
               </Typography>
 
@@ -235,34 +449,62 @@ export default function BallValveDetailPage() {
 
               <Typography
                 variant="overline"
-                sx={{ fontFamily: '"Barlow Condensed"', fontWeight: 800, letterSpacing: 2, color: 'text.secondary', display: 'block', mb: 1.5 }}
+                sx={{
+                  fontFamily: '"Barlow Condensed"',
+                  fontWeight: 800,
+                  letterSpacing: 2,
+                  color: "text.secondary",
+                  display: "block",
+                  mb: 1.5,
+                }}
               >
                 Technical Specifications
               </Typography>
-              <Box sx={{ border: '1px solid', borderColor: 'divider', mb: 4 }}>
+              <Box sx={{ border: "1px solid", borderColor: "divider", mb: 4 }}>
                 {valve.specs.map((spec, i) => (
                   <Box
                     key={i}
                     sx={{
-                      display: 'flex',
-                      borderBottom: i < valve.specs.length - 1 ? '1px solid' : 'none',
-                      borderColor: 'divider',
+                      display: "flex",
+                      borderBottom:
+                        i < valve.specs.length - 1 ? "1px solid" : "none",
+                      borderColor: "divider",
                     }}
                   >
                     <Box
                       sx={{
-                        width: '40%', px: 2, py: 1.5,
+                        width: "40%",
+                        px: 2,
+                        py: 1.5,
                         bgcolor: alpha(theme.palette.primary.main, 0.04),
-                        borderRight: '1px solid', borderColor: 'divider',
-                        display: 'flex', alignItems: 'center',
+                        borderRight: "1px solid",
+                        borderColor: "divider",
+                        display: "flex",
+                        alignItems: "center",
                       }}
                     >
-                      <Typography variant="caption" sx={{ fontWeight: 700, textTransform: 'uppercase', letterSpacing: 0.5 }}>
+                      <Typography
+                        variant="caption"
+                        sx={{
+                          fontWeight: 700,
+                          textTransform: "uppercase",
+                          letterSpacing: 0.5,
+                        }}
+                      >
                         {spec.label}
                       </Typography>
                     </Box>
-                    <Box sx={{ px: 2, py: 1.5, display: 'flex', alignItems: 'center' }}>
-                      <Typography variant="body2" sx={{ fontWeight: 500 }}>{spec.value}</Typography>
+                    <Box
+                      sx={{
+                        px: 2,
+                        py: 1.5,
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                    >
+                      <Typography variant="body2" sx={{ fontWeight: 500 }}>
+                        {spec.value}
+                      </Typography>
                     </Box>
                   </Box>
                 ))}
@@ -270,33 +512,57 @@ export default function BallValveDetailPage() {
 
               <Typography
                 variant="overline"
-                sx={{ fontFamily: '"Barlow Condensed"', fontWeight: 800, letterSpacing: 2, color: 'text.secondary', display: 'block', mb: 1.5 }}
+                sx={{
+                  fontFamily: '"Barlow Condensed"',
+                  fontWeight: 800,
+                  letterSpacing: 2,
+                  color: "text.secondary",
+                  display: "block",
+                  mb: 1.5,
+                }}
               >
                 Key Benefits
               </Typography>
-              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, mb: 4 }}>
+              <Box
+                sx={{ display: "flex", flexDirection: "column", gap: 1, mb: 4 }}
+              >
                 {[
-                  'Engineered for demanding industrial environments',
-                  'Reliable leak-tight isolation across full pressure range',
-                  'Sourced from trusted global manufacturers',
-                  'Available for RFQ with fast lead times',
+                  "Engineered for demanding industrial environments",
+                  "Reliable leak-tight isolation across full pressure range",
+                  "Sourced from trusted global manufacturers",
+                  "Available for RFQ with fast lead times",
                 ].map((benefit, i) => (
-                  <Box key={i} sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                    <CheckCircleOutlineIcon sx={{ color: 'primary.main', fontSize: 18 }} />
-                    <Typography variant="body2" sx={{ color: 'text.secondary' }}>{benefit}</Typography>
+                  <Box
+                    key={i}
+                    sx={{ display: "flex", alignItems: "center", gap: 1 }}
+                  >
+                    <CheckCircleOutlineIcon
+                      sx={{ color: "primary.main", fontSize: 18 }}
+                    />
+                    <Typography
+                      variant="body2"
+                      sx={{ color: "text.secondary" }}
+                    >
+                      {benefit}
+                    </Typography>
                   </Box>
                 ))}
               </Box>
 
-              <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+              <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
                 <Button
                   variant="contained"
                   size="large"
                   startIcon={<ContactSupportIcon />}
                   onClick={() => setModalOpen(true)}
                   sx={{
-                    borderRadius: 0, fontWeight: 800, py: 1.75, px: 4, fontSize: '1rem',
-                    boxShadow: 'none', '&:hover': { bgcolor: 'primary.dark', boxShadow: 'none' },
+                    borderRadius: 0,
+                    fontWeight: 800,
+                    py: 1.75,
+                    px: 4,
+                    fontSize: "1rem",
+                    boxShadow: "none",
+                    "&:hover": { bgcolor: "primary.dark", boxShadow: "none" },
                   }}
                 >
                   Request for Quote / Lead Time
@@ -304,11 +570,18 @@ export default function BallValveDetailPage() {
                 <Button
                   variant="outlined"
                   size="large"
-                  onClick={() => router.push('/valves/industrial-valves/ball-valves')}
+                  onClick={() =>
+                    router.push("/valves/industrial-valves/ball-valves")
+                  }
                   sx={{
-                    borderRadius: 0, fontWeight: 700, py: 1.75, px: 3, fontSize: '0.9rem',
-                    borderColor: 'divider', color: 'text.primary',
-                    '&:hover': { borderColor: 'text.primary' },
+                    borderRadius: 0,
+                    fontWeight: 700,
+                    py: 1.75,
+                    px: 3,
+                    fontSize: "0.9rem",
+                    borderColor: "divider",
+                    color: "text.primary",
+                    "&:hover": { borderColor: "text.primary" },
                   }}
                 >
                   Browse {valve.category}
@@ -321,25 +594,52 @@ export default function BallValveDetailPage() {
         {similarProducts.length > 0 && (
           <Container maxWidth="lg" sx={{ mt: 10 }}>
             <Divider sx={{ mb: 6 }} />
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', mb: 4 }}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "flex-end",
+                mb: 4,
+              }}
+            >
               <Box>
                 <Typography
                   variant="overline"
-                  sx={{ fontFamily: '"Barlow Condensed"', color: 'primary.main', fontWeight: 100, letterSpacing: 2 }}
+                  sx={{
+                    fontFamily: '"Barlow Condensed"',
+                    color: "primary.main",
+                    fontWeight: 100,
+                    letterSpacing: 2,
+                  }}
                 >
                   {valve.category}
                 </Typography>
                 <Typography
                   variant="h4"
-                  sx={{ fontFamily: '"Barlow Condensed"', fontWeight: 100, textTransform: 'uppercase', lineHeight: 1 }}
+                  sx={{
+                    fontFamily: '"Barlow Condensed"',
+                    fontWeight: 100,
+                    textTransform: "uppercase",
+                    lineHeight: 1,
+                  }}
                 >
                   Similar Products
                 </Typography>
               </Box>
               <Button
                 variant="text"
-                onClick={() => router.push('/valves/industrial-valves/ball-valves')}
-                sx={{ fontWeight: 700, fontSize: '0.8rem', color: 'primary.main', '&:hover': { bgcolor: 'transparent', textDecoration: 'underline' } }}
+                onClick={() =>
+                  router.push("/valves/industrial-valves/ball-valves")
+                }
+                sx={{
+                  fontWeight: 700,
+                  fontSize: "0.8rem",
+                  color: "primary.main",
+                  "&:hover": {
+                    bgcolor: "transparent",
+                    textDecoration: "underline",
+                  },
+                }}
               >
                 VIEW ALL →
               </Button>
@@ -355,7 +655,11 @@ export default function BallValveDetailPage() {
         )}
       </Box>
 
-      <RFQModal open={modalOpen} onClose={() => setModalOpen(false)} product={product} />
+      <RFQModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        product={product}
+      />
     </>
   );
 }
