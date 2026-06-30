@@ -277,47 +277,90 @@ const BUTTERFLY_VALVE_SERIES: Category[] = [
       "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/logo.svg",
   },
   {
-  code: "ISIS-S301E",
-  title: "S301E Wafer Pattern Butterfly Valve",
-  subtitle: 'Resilient Seated, Gearbox Operated — 1½"–12"',
-  description:
-    'SIRCA S301E Series resilient seated wafer pattern butterfly valve, gearbox operated. 1½"–12", PN6/PN10/PN16/ANSI 150. 316 stainless steel disc, EPDM or Nitrile liner. ISO 5211 mounting, Rate A no-leakage shutoff, ductile iron one-piece body, replaceable seat without special tools.',
-  specs: [
-    '1½"–12" (DN40–DN300)',
-    "PN6 · PN10 · PN16 · ANSI 150",
-    "316SS Disc",
-    "EPDM / Nitrile Liner",
-    "Gearbox Operated",
-    "ISO 5211 Mounting",
-  ],
-  applications: "Water Treatment, HVAC, Air Systems, General Industrial",
-  href: "/valves/industrial-valves/butterfly-valves/s301e-wafer-butterfly-valve",
-  image:
-    "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/pp-92.webp",
-  logoUrl:
-    "https://pblol2.blob.core.windows.net/valvenok-images/logo/logo-isis.svg",
-},
-{
-  code: "ISIS-S301E-LUG",
-  title: "S301E Lugged Butterfly Valve",
-  subtitle: 'Resilient Seated, Gearbox Operated — 1½"–8"',
-  description:
-    'SIRCA S301E Series resilient seated lugged butterfly valve, gearbox operated. 1½"–8", PN6/PN10/PN16/ANSI 150. 316 stainless steel disc, EPDM or Nitrile liner. ISO 5211 mounting, Rate A no-leakage shutoff. Lugged body allows dead-end installation as a foot valve.',
-  specs: [
-    '1½"–8" (DN40–DN200)',
-    "PN6 · PN10 · PN16 · ANSI 150",
-    "316SS Disc",
-    "EPDM / Nitrile Liner",
-    "Gearbox Operated",
-    "Dead-End Capable",
-  ],
-  applications: "Water Treatment, HVAC, Air Systems, General Industrial",
-  href: "/valves/industrial-valves/butterfly-valves/s301e-lugged-butterfly-valve",
-  image:
-    "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/pp-93.webp",
-  logoUrl:
-    "https://pblol2.blob.core.windows.net/valvenok-images/logo/logo-isis.svg",
-},
+    code: "ISIS-S301E",
+    title: "S301E Wafer Pattern Butterfly Valve",
+    subtitle: 'Resilient Seated, Gearbox Operated — 1½"–12"',
+    description:
+      'SIRCA S301E Series resilient seated wafer pattern butterfly valve, gearbox operated. 1½"–12", PN6/PN10/PN16/ANSI 150. 316 stainless steel disc, EPDM or Nitrile liner. ISO 5211 mounting, Rate A no-leakage shutoff, ductile iron one-piece body, replaceable seat without special tools.',
+    specs: [
+      '1½"–12" (DN40–DN300)',
+      "PN6 · PN10 · PN16 · ANSI 150",
+      "316SS Disc",
+      "EPDM / Nitrile Liner",
+      "Gearbox Operated",
+      "ISO 5211 Mounting",
+    ],
+    applications: "Water Treatment, HVAC, Air Systems, General Industrial",
+    href: "/valves/industrial-valves/butterfly-valves/s301e-wafer-butterfly-valve",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/pp-92.webp",
+    logoUrl:
+      "https://pblol2.blob.core.windows.net/valvenok-images/logo/logo-isis.svg",
+  },
+  {
+    code: "ISIS-S301E-LUG",
+    title: "S301E Lugged Butterfly Valve",
+    subtitle: 'Resilient Seated, Gearbox Operated — 1½"–8"',
+    description:
+      'SIRCA S301E Series resilient seated lugged butterfly valve, gearbox operated. 1½"–8", PN6/PN10/PN16/ANSI 150. 316 stainless steel disc, EPDM or Nitrile liner. ISO 5211 mounting, Rate A no-leakage shutoff. Lugged body allows dead-end installation as a foot valve.',
+    specs: [
+      '1½"–8" (DN40–DN200)',
+      "PN6 · PN10 · PN16 · ANSI 150",
+      "316SS Disc",
+      "EPDM / Nitrile Liner",
+      "Gearbox Operated",
+      "Dead-End Capable",
+    ],
+    applications: "Water Treatment, HVAC, Air Systems, General Industrial",
+    href: "/valves/industrial-valves/butterfly-valves/s301e-lugged-butterfly-valve",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/pp-93.webp",
+    logoUrl:
+      "https://pblol2.blob.core.windows.net/valvenok-images/logo/logo-isis.svg",
+  },
+  {
+    code: "ISIS-S301E-LEV",
+    title: "S301E Wafer Butterfly Valve — Lever Operated",
+    subtitle: 'Resilient Seated, Lever Operated — 1½"–8"',
+    description:
+      'SIRCA S301E Series resilient seated wafer pattern butterfly valve, lever operated. 1½"–8", PN6/PN10/PN16/ANSI 150. 316 stainless steel disc, EPDM or Nitrile liner. 10-position leverlock handle, ISO 5211 mounting, Rate A no-leakage shutoff.',
+    specs: [
+      '1½"–8" (DN40–DN200)',
+      "PN6 · PN10 · PN16 · ANSI 150",
+      "316SS Disc",
+      "EPDM / Nitrile Liner",
+      "10-Position Lever",
+      "ISO 5211 Mounting",
+    ],
+    applications: "Water Treatment, HVAC, Air Systems, General Industrial",
+    href: "/valves/industrial-valves/butterfly-valves/s301e-wafer-lever-butterfly-valve",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/pp-90.webp",
+    logoUrl:
+      "https://pblol2.blob.core.windows.net/valvenok-images/logo/logo-isis.svg",
+  },
+  {
+    code: "ISIS-401N",
+    title: "401N Series Double Offset Butterfly Valve",
+    subtitle: 'Double Eccentric, Bubble Tight — 3"–56" (DN80–DN1400)',
+    description:
+      'SIRCA 401N Series double eccentricity butterfly valve with bubble tight seal, designed for heavy duty shipbuilding and petrochemical service. 3"–56" (DN80–DN1400), ANSI Class 150 bidirectional. Wafer, lug and double flanged on request. API 607 fire safe, ATEX and SIL certified.',
+    specs: [
+      '3"–56" (DN80–DN1400)',
+      "ANSI Class 150",
+      "-40°C to +220°C",
+      "Wafer · Lug · Flanged",
+      "API 607 Fire Safe",
+      "ATEX · SIL",
+    ],
+    applications:
+      "Shipbuilding, Petrochemical, Chemical & Pharmaceutical, Solvent Recovery",
+    href: "/valves/industrial-valves/butterfly-valves/401n-double-offset-butterfly-valve",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/Sirca-401N.png",
+    logoUrl:
+      "https://pblol2.blob.core.windows.net/valvenok-images/logo/logo-isis.svg",
+  },
 ];
 
 const TRUST_POINTS = [
