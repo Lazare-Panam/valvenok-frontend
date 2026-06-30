@@ -276,6 +276,48 @@ const BUTTERFLY_VALVE_SERIES: Category[] = [
     logoUrl:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/logo.svg",
   },
+  {
+  code: "ISIS-S301E",
+  title: "S301E Wafer Pattern Butterfly Valve",
+  subtitle: 'Resilient Seated, Gearbox Operated — 1½"–12"',
+  description:
+    'SIRCA S301E Series resilient seated wafer pattern butterfly valve, gearbox operated. 1½"–12", PN6/PN10/PN16/ANSI 150. 316 stainless steel disc, EPDM or Nitrile liner. ISO 5211 mounting, Rate A no-leakage shutoff, ductile iron one-piece body, replaceable seat without special tools.',
+  specs: [
+    '1½"–12" (DN40–DN300)',
+    "PN6 · PN10 · PN16 · ANSI 150",
+    "316SS Disc",
+    "EPDM / Nitrile Liner",
+    "Gearbox Operated",
+    "ISO 5211 Mounting",
+  ],
+  applications: "Water Treatment, HVAC, Air Systems, General Industrial",
+  href: "/valves/industrial-valves/butterfly-valves/s301e-wafer-butterfly-valve",
+  image:
+    "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/pp-92.webp",
+  logoUrl:
+    "https://pblol2.blob.core.windows.net/valvenok-images/logo/logo-isis.svg",
+},
+{
+  code: "ISIS-S301E-LUG",
+  title: "S301E Lugged Butterfly Valve",
+  subtitle: 'Resilient Seated, Gearbox Operated — 1½"–8"',
+  description:
+    'SIRCA S301E Series resilient seated lugged butterfly valve, gearbox operated. 1½"–8", PN6/PN10/PN16/ANSI 150. 316 stainless steel disc, EPDM or Nitrile liner. ISO 5211 mounting, Rate A no-leakage shutoff. Lugged body allows dead-end installation as a foot valve.',
+  specs: [
+    '1½"–8" (DN40–DN200)',
+    "PN6 · PN10 · PN16 · ANSI 150",
+    "316SS Disc",
+    "EPDM / Nitrile Liner",
+    "Gearbox Operated",
+    "Dead-End Capable",
+  ],
+  applications: "Water Treatment, HVAC, Air Systems, General Industrial",
+  href: "/valves/industrial-valves/butterfly-valves/s301e-lugged-butterfly-valve",
+  image:
+    "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/pp-93.webp",
+  logoUrl:
+    "https://pblol2.blob.core.windows.net/valvenok-images/logo/logo-isis.svg",
+},
 ];
 
 const TRUST_POINTS = [
