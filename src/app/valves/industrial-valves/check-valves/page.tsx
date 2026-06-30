@@ -49,6 +49,25 @@ const CHECK_VALVE_SERIES: Category[] = [
     image: "https://pblol2.blob.core.windows.net/valvenok-images/products/featured/bolted-bonnet-check-valves.png",
     logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/brands/anderson-greewood-logo.jpg",
   },
+  {
+  code: "VV-CV125",
+  title: "Dual Plate Check Valve",
+  subtitle: 'CV-125 — ANSI 150LB — 1.5"–48"',
+  description:
+    'Value Valves CV-125 dual plate check valve for reliable reverse-flow protection. 1.5"–48" (DN40–DN1200), ANSI 150LB, -20°C to +120°C. Lightweight dual plates with independent springs, resilient long-life seat, low cracking pressure and minimal head loss for compact, energy-efficient installation.',
+  specs: [
+    '1.5"–48" (DN40–DN1200)',
+    "ANSI 150LB",
+    "-20°C to +120°C",
+    "Non-Slam Shutoff",
+    "Low Cracking Pressure",
+    "Compact Face-To-Face",
+  ],
+  applications: "Water Treatment, Energy, Petrochemical, Marine, HVAC",
+  href: "/valves/industrial-valves/check-valves/dual-plate-check-valve",
+  image: "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/check-value.png",
+  logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/logo.svg",
+},
   
 ];
 
