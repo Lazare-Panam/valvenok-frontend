@@ -73,11 +73,7 @@ export default function RootLayout({
           </Providers>
         </ThemeRegistry>
         <Footer />
-        <Script
-          id="hs-script-loader"
-          src="//js-eu1.hs-scripts.com/147618935.js"
-          strategy="afterInteractive"
-        />
+       
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-NRCXYNLX5K"
           strategy="afterInteractive"
