@@ -67,21 +67,30 @@ export default function ProductCard({ category }: { category: Category }) {
         {/* Header */}
         <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 1.5, mb: 1.5 }}>
           <Box sx={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            minWidth: 40,
-            height: 40,
-            px: 0.75,
-            flexShrink: 0,
-            bgcolor: (theme) => alpha(theme.palette.primary.main, 0.1),
-            color: 'primary.dark',
-            fontSize: '0.65rem',
-            fontWeight: 800,
-            letterSpacing: '0.05em',
-          }}>
-            {category.code}
-          </Box>
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  minWidth: 40,
+  height: 40,
+  px: 0.75,
+  flexShrink: 0,
+  bgcolor: (theme) => alpha(theme.palette.primary.main, 0.1),
+  color: 'primary.dark',
+  fontSize: '0.65rem',
+  fontWeight: 800,
+  letterSpacing: '0.05em',
+}}>
+  {category.logoUrl ? (
+    <Box
+      component="img"
+      src={category.logoUrl}
+      alt={category.code}
+      sx={{ maxHeight: 28, maxWidth: 60, objectFit: 'contain' }}
+    />
+  ) : (
+    category.code
+  )}
+</Box>
           <Box>
             <Typography fontWeight={700} fontSize="1rem" lineHeight={1.3} color="text.primary">
               {category.title}

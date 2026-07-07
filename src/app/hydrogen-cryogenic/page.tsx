@@ -52,7 +52,7 @@ const HYDROGEN_CRYOGENIC_SERIES: Category[] = [
       "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/YLC-2821.png",
     logoUrl:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/top_logo.png",
-  },//
+  }, //
   {
     code: "IGV",
     title: "Industrial Gas Valves",
@@ -73,6 +73,27 @@ const HYDROGEN_CRYOGENIC_SERIES: Category[] = [
       "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/YOC-2820.png",
     logoUrl:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/top_logo.png",
+  },
+  {
+    code: "HFX",
+    title: "High Pressure Valves",
+    subtitle: "Check, Needle, Ball, AOV, Safety & Special Valves",
+    description:
+      "Hiflux high pressure valves rated up to 150,000 psi across 56 models — check, needle, ball, air operated, safety and special valves. KC and KGS certified for industrial, hydrogen and wellhead applications worldwide.",
+    specs: [
+      "150,000 psi Max Pressure",
+      "KC · KGS Certified",
+      "56 Models",
+      "H₂ Compatible",
+      "Industrial & Wellhead",
+    ],
+    applications:
+      "Industrial High Pressure, Hydrogen Refuelling, Wellhead, Research & Test",
+    href: "/hydrogen-cryogenic/valves",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/needle-valve.png",
+    logoUrl:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/logo.png",
   },
 ];
 

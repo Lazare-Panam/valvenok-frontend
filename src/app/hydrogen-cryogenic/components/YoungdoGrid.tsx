@@ -54,12 +54,12 @@ export default function YoungdoGrid({ families }: { families: Category[] }) {
                   alignItems: "center",
                 }}
               >
-                <Box
-                  component="img"
-                  src={YOUNGDO_LOGO}
-                  alt="Youngdo"
-                  sx={{ maxHeight: 28, maxWidth: 110, objectFit: "contain" }}
-                />
+                 <Box
+    component="img"
+    src={family.logoUrl ?? YOUNGDO_LOGO}
+    alt={family.code}
+    sx={{ maxHeight: 28, maxWidth: 110, objectFit: "contain" }}
+  />
               </Box>
 
               {/* Image */}
