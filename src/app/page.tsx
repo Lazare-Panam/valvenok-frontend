@@ -34,9 +34,8 @@ export default function Home() {
     <>
       <HeroSlider />
       <DeliveryBanner />
-            <FeaturedValves />
+      <FeaturedValves />
       <Brands />
-
       <Categories />
       <FeaturedStrip />
       <AboutContact />

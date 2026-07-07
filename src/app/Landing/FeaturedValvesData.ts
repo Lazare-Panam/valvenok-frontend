@@ -13,23 +13,21 @@ export interface FeaturedValve {
 
 export const FEATURED_PRODUCTS: FeaturedValve[] = [
   {
-    id: "mars-series-33",
-    name: "Series 33 Multi-Way Semi-Trunnion Ball Valve",
-    category: "Ball Valves",
-    categoryId: "ball-valves",
-    brand: "Mars Valves",
-    brandLogo: "https://pblol2.blob.core.windows.net/mars-valves/logo.jpg",
-    logoHeight: 58,
+    id: "hiflux-high-pressure-valves",
+    name: "High Pressure Valves — Check, Needle, Ball, AOV, Safety & Special",
+    category: "High Pressure Valves",
+    categoryId: "high-pressure-valves",
+    brand: "Hiflux",
+    brandLogo:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/logo.png",
+    logoHeight: 36,
     thumbnail:
-      "https://pblol2.blob.core.windows.net/mars-valves/ball-valves/series-33.png",
-    href: "/brands/mars-valves",
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/needle-valve.png",
+    href: "/hydrogen-cryogenic/valves",
     specs: [
-      { label: "Size Range", value: '1/4" – 4" | Full Port' },
-      { label: "Pressure Rating", value: "1000 PSI | ANSI CL150/300, PN16/40" },
-      {
-        label: "Port Options",
-        value: "L, T, I, X, LL, TT | Fire Safe Standard",
-      },
+      { label: "Max Pressure", value: "~150,000 psi" },
+      { label: "Certifications", value: "KC · KGS Certified" },
+      { label: "Range", value: "56 Models — 6 Valve Categories" },
     ],
   },
   {

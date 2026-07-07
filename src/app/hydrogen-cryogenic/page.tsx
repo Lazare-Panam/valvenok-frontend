@@ -54,6 +54,27 @@ const HYDROGEN_CRYOGENIC_SERIES: Category[] = [
       "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/logo.png",
   },
   {
+    code: "TUB",
+    title: "High Pressure Tubing & Tooling",
+    subtitle: "Tubes, Nipples, Tooling Sets & Tube Supports",
+    description:
+      "Hiflux high pressure tubes and nipples rated up to 100,000 psi, with a full tooling set range — coning, threading, reseating tools, HSS dies, spare cutters and collets — plus 1, 2 and 3 line tube supports for secure installation.",
+    specs: [
+      "100,000 psi Max Pressure",
+      "KC · KGS Certified",
+      "18 Products",
+      "H₂ Compatible",
+      "Industrial & Wellhead",
+    ],
+    applications:
+      "Industrial High Pressure, Hydrogen Refuelling, Wellhead, Research & Test",
+    href: "/hydrogen-cryogenic/tubing",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/tube.png",
+    logoUrl:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/logo.png",
+  },
+  {
     code: "H2",
     title: "Hydrogen Cylinder Valves",
     subtitle: "High-Pressure Hydrogen Service — Up to 70 MPa",
