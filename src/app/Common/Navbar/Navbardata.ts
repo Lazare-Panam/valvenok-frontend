@@ -52,6 +52,16 @@ export const NAV_GROUPS: NavGroup[] = [
               },
             ],
           },
+           {
+            label: "Fittings",
+            href: "/hydrogen-cryogenic/fittings",
+            children: [
+              {
+                label: "View All Products",
+                href: "/hydrogen-cryogenic/fittings/products",
+              },
+            ],
+          },
           {
             label: "Hydrogen Cylinder Valves",
             href: "/hydrogen-cryogenic/hydrogen",
