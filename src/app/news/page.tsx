@@ -18,6 +18,16 @@ import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 
 const POSTS = [
   {
+    title: "Butterfly Valve Instrumentation and Connection Packages",
+    desc: "Triple offset, pneumatically actuated, and process butterfly valves — fully engineered from the primary isolation to the instrumentation layer, with UK stock and 24-hour engineering response.",
+    thumbnail:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/ptfe_lined_butterfly.png",
+    author: "Valvenok Team",
+    date: "June 2026",
+    category: "Technical Guide",
+    link: "/news/butterfly-valve-guide",
+  },
+  {
     title:
       "Valvenok Partners with VSI to Bring the Atlas SSCV to Severe Service",
     desc: "Valvenok has partnered with Valve Systems International to represent the Atlas Severe Service Control Valve — engineered from first principles to eliminate cavitation at the source.",
