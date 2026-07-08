@@ -19,7 +19,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCartOutlined";
 import PersonIcon from "@mui/icons-material/PersonOutline";
 import LogoutIcon from "@mui/icons-material/Logout";
 import AccountCircleIcon from "@mui/icons-material/AccountCircleOutlined";
-import SearchIcon from "@mui/icons-material/Search";
+import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
 import { useRouter } from "next/navigation";
 import { useUserStore } from "@/src/store/useUserStore";
 import { useCartStore } from "@/src/app/cart/hooks/useCartStore";
@@ -65,43 +65,13 @@ export default function DesktopUserActions({ barHeight }: Props) {
   return (
     <Box sx={{ display: "flex", alignItems: "center", ml: "auto" }}>
 
-     
+      {/* TRACK ORDER */}
+      <Box sx={itemSx} onClick={() => router.push("/track-order")}>
+        <LocalShippingOutlinedIcon sx={iconSx} />
+        Track Order
+      </Box>
 
-      {/* SEARCH BAR */}
-      {/* <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          height: 38,
-          px: 2,
-          mx: 1,
-          border: "1.5px solid",
-          borderColor: "divider",
-          borderRadius: "24px",
-          width: 220,
-          gap: 1,
-          transition: "border-color 0.2s",
-          "&:hover": { borderColor: "#4a9a3a" },
-          "&:focus-within": { borderColor: "#4a9a3a" },
-        }}
-      >
-        <SearchIcon sx={{ fontSize: 18, color: "#999", flexShrink: 0 }} />
-        <InputBase
-          placeholder="Search products..."
-          sx={{
-            fontSize: "0.82rem",
-            flex: 1,
-            "& input": { p: 0 },
-          }}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              const val = (e.target as HTMLInputElement).value;
-              if (val) router.push(`/search?q=${encodeURIComponent(val)}`);
-            }
-          }}
-        />
-      </Box> */}
-       {/* QUICK ORDER */}
+      {/* QUICK ORDER */}
       <Box sx={{ ...itemSx, color: "primary.main" }} onClick={() => router.push("/quick-order")}>
         <BoltIcon sx={{ ...iconSx, color: "primary.main" }} />
         Quick Order
