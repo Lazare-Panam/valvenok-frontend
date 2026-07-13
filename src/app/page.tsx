@@ -5,6 +5,7 @@ import DeliveryBanner from "./Landing/DeliveryBanner";
 import FeaturedStrip from "./Landing/FeaturedStrip";
 import FeaturedValves from "./Landing/FeaturedValves";
 import HeroSlider from "./Landing/HeroSlider";
+import MarsSection from "./Landing/MarsSection";
 
 // For Next.js App Router (metadata object)
 export const metadata = {
@@ -34,6 +35,7 @@ export default function Home() {
     <>
       <HeroSlider />
       <DeliveryBanner />
+      <MarsSection/>
       <FeaturedValves />
       <Brands />
       <Categories />
