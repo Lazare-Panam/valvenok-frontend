@@ -6,6 +6,26 @@ import Grid from "@mui/material/Grid";
 //feat fixed images
 const BRANDS = [
   {
+    name: "Value Valves",
+    logo: "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/logo.svg",
+    desc: "Butterfly valves and flow control solutions for industrial piping systems.",
+  },
+  {
+    name: "Walrus Pumps",
+    logo: "https://pblol2.blob.core.windows.net/valvenok-images/logo/walrus_pumps.webp",
+    desc: "Industrial pumps engineered for reliable fluid transfer applications.",
+  },
+  {
+    name: "Hiflux",
+    logo: "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/logo.png",
+    desc: "Process equipment and flow solutions for industrial applications.",
+  },
+  {
+    name: "Kosaplus",
+    logo: "https://pblol2.blob.core.windows.net/valvenok-images/brands/kosaplus-logo.png",
+    desc: "Industrial valve and fittings solutions for process industries.",
+  },
+  {
     name: "Valve Systems International",
     logo: "https://pblol2.blob.core.windows.net/valvenok-images/brands/vsi-logo.png",
     desc: "Comprehensive valve supply and engineering solutions for process industries.",
@@ -65,11 +85,6 @@ const BRANDS = [
     name: "Spac Pneumatic",
     logo: "https://pblol2.blob.core.windows.net/spac-images/spac-logo.webp",
     desc: "Pneumatic components and industrial automation systems.",
-  },
-  {
-    name: "Tormac",
-    logo: "https://tormacpumps.com/wp-content/uploads/2025/06/tormac_logo.svg",
-    desc: "High-efficiency submersible and peripheral pumping systems.",
   },
   {
     name: "Siemens",
@@ -193,79 +208,87 @@ export default function BrandsPage() {
       <Container maxWidth="lg" sx={{ py: 12 }}>
         <Grid container spacing={3}>
           {BRANDS.map((brand) => (
-  <Grid key={brand.name} size={{ xs: 12, sm: 6, md: 4 }}>
-    <Box
-      component={brand.href ? "a" : "div"}
-      href={brand.href ?? undefined}
-      sx={{
-        display: "block",
-        height: "100%",
-        textDecoration: "none",
-        color: "inherit",
-      }}
-    >
-      <Card
-        elevation={0}
-        sx={{
-          height: "100%",
-          borderRadius: 0,
-          border: "1px solid",
-          borderColor: "divider",
-          transition: "all 0.3s ease",
-          cursor: brand.href ? "pointer" : "default",
-          "&:hover": {
-            borderColor: "primary.main",
-            transform: "translateY(-5px)",
-            boxShadow: "0 20px 40px rgba(0,0,0,0.05)",
-          },
-        }}
-      >
-        <Box sx={{ height: "100%", p: 4 }}>
-          <Stack spacing={3} alignItems="center" textAlign="center">
-            <Box
-              sx={{
-                height: 80,
-                width: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                opacity: 0.8,
-                transition: "all 0.3s ease",
-                ".MuiCard-root:hover &": { opacity: 1 },
-              }}
-            >
+            <Grid key={brand.name} size={{ xs: 12, sm: 6, md: 4 }}>
               <Box
-                component="img"
-                src={brand.logo}
-                alt={brand.name}
-                sx={{ maxHeight: "100%", maxWidth: "180px", objectFit: "contain" }}
-              />
-            </Box>
-            <Box>
-              <Typography
-                variant="h5"
+                component={brand.href ? "a" : "div"}
+                href={brand.href ?? undefined}
                 sx={{
-                  fontFamily: '"Barlow Condensed"',
-                  fontWeight: 800,
-                  textTransform: "uppercase",
-                  mb: 1,
+                  display: "block",
+                  height: "100%",
+                  textDecoration: "none",
+                  color: "inherit",
                 }}
               >
-                {brand.name}
-              </Typography>
-              <Typography
-                variant="body2"
-                sx={{ color: "text.secondary", minHeight: "3em", px: 2 }}
-              >
-                {brand.desc}
-              </Typography>
-            </Box>
-          </Stack>
-        </Box>
-      </Card>
-    </Box>
-  </Grid>
-))}
+                <Card
+                  elevation={0}
+                  sx={{
+                    height: "100%",
+                    borderRadius: 0,
+                    border: "1px solid",
+                    borderColor: "divider",
+                    transition: "all 0.3s ease",
+                    cursor: brand.href ? "pointer" : "default",
+                    "&:hover": {
+                      borderColor: "primary.main",
+                      transform: "translateY(-5px)",
+                      boxShadow: "0 20px 40px rgba(0,0,0,0.05)",
+                    },
+                  }}
+                >
+                  <Box sx={{ height: "100%", p: 4 }}>
+                    <Stack spacing={3} alignItems="center" textAlign="center">
+                      <Box
+                        sx={{
+                          height: 80,
+                          width: "100%",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          opacity: 0.8,
+                          transition: "all 0.3s ease",
+                          ".MuiCard-root:hover &": { opacity: 1 },
+                        }}
+                      >
+                        <Box
+                          component="img"
+                          src={brand.logo}
+                          alt={brand.name}
+                          sx={{
+                            maxHeight: "100%",
+                            maxWidth: "180px",
+                            objectFit: "contain",
+                          }}
+                        />
+                      </Box>
+                      <Box>
+                        <Typography
+                          variant="h5"
+                          sx={{
+                            fontFamily: '"Barlow Condensed"',
+                            fontWeight: 800,
+                            textTransform: "uppercase",
+                            mb: 1,
+                          }}
+                        >
+                          {brand.name}
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            color: "text.secondary",
+                            minHeight: "3em",
+                            px: 2,
+                          }}
+                        >
+                          {brand.desc}
+                        </Typography>
+                      </Box>
+                    </Stack>
+                  </Box>
+                </Card>
+              </Box>
+            </Grid>
+          ))}
         </Grid>
 
         {/* --- CONTACT CTA --- */}
