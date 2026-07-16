@@ -46,6 +46,7 @@ const FOOTER_LINKS = [
       { label: "Privacy Policy", href: "/privacy" },
       { label: "Cookie Policy", href: "/cookies" },
       { label: "Delivery Information", href: "/delivery" },
+      { label: "Return Policy", href: "/returns-policy" },
     ],
   },
 ];
@@ -143,18 +144,32 @@ export default function Footer() {
             <Stack spacing={2}>
               {/* Address */}
               <Stack direction="row" spacing={1.5} alignItems="flex-start">
-                <LocationOnIcon sx={{ fontSize: 18, color: BRAND_GREEN, mt: 0.3 }} />
+                <LocationOnIcon
+                  sx={{ fontSize: 18, color: BRAND_GREEN, mt: 0.3 }}
+                />
                 <Box>
-                  <Typography variant="body2" sx={{ color: "white", fontWeight: 700 }}>
+                  <Typography
+                    variant="body2"
+                    sx={{ color: "white", fontWeight: 700 }}
+                  >
                     Valvenok Ltd.
                   </Typography>
-                  <Typography variant="body2" sx={{ color: alpha("#fff", 0.7) }}>
+                  <Typography
+                    variant="body2"
+                    sx={{ color: alpha("#fff", 0.7) }}
+                  >
                     St. Edburgs Hall, Priory Rd
                   </Typography>
-                  <Typography variant="body2" sx={{ color: alpha("#fff", 0.7) }}>
+                  <Typography
+                    variant="body2"
+                    sx={{ color: alpha("#fff", 0.7) }}
+                  >
                     Bicester, OX26 6BL
                   </Typography>
-                  <Typography variant="body2" sx={{ color: alpha("#fff", 0.7) }}>
+                  <Typography
+                    variant="body2"
+                    sx={{ color: alpha("#fff", 0.7) }}
+                  >
                     United Kingdom
                   </Typography>
                 </Box>
