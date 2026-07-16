@@ -1,86 +1,33 @@
 'use client';
 
-import { useState } from 'react';
-import { Box, Container, Typography, Button } from '@mui/material';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { PRODUCTS } from '../quick-order/product';
-import { useCartStore } from '../cart/hooks/useCartStore';
-import RelatedProductCard from '@/src/components/RelatedProductCard';
+import { Box, Container, Typography, Card, Stack } from '@mui/material';
+import Link from 'next/link';
 
-const FILTER_TABS = ['Male Connector', 'Union Elbow', 'Hex Nipple', 'Bulkhead Union', 'Male Elbow'];
-
-const TAB_MAP: Record<string, string[]> = {
-  'Male Connector': ['Male Connector'],
-  'Union Elbow':    ['Union Elbow'],
-  'Hex Nipple':     ['Hex Nipple'],
-  'Bulkhead Union': ['Bulkhead Union'],
-  'Male Elbow':     ['Male Elbow'],
-};
-
-const PICKS: Array<{
-  sku: string;
-  wasPrice: number;
-  badge: { label: string; color: 'green' | 'blue' | 'dark' };
-}> = [
-  // Male Connector
-  { sku: 'PMC-04-4G-SS',  wasPrice: 10.70, badge: { label: '-23%', color: 'green' } },
-  { sku: 'PMC-06-6G-SS',  wasPrice: 15.76, badge: { label: '-23%', color: 'green' } },
-  { sku: 'PMC-08-8G-SS',  wasPrice: 29.21, badge: { label: '-23%', color: 'green' } },
-  { sku: 'PMC-M08-4G-SS', wasPrice: 11.52, badge: { label: '-23%', color: 'green' } },
-  // Union Elbow
-  { sku: 'PUE-04-SS',     wasPrice: 17.69, badge: { label: '-23%', color: 'green' } },
-  { sku: 'PUE-06-SS',     wasPrice: 23.49, badge: { label: '-23%', color: 'green' } },
-  { sku: 'PUE-M08-SS',    wasPrice: 21.81, badge: { label: '-23%', color: 'green' } },
-  { sku: 'PUE-M10-SS',    wasPrice: 23.49, badge: { label: '-23%', color: 'green' } },
-  // Hex Nipple
-  { sku: 'PHN-4G-SS',     wasPrice: 8.25,  badge: { label: '-23%', color: 'green' } },
-  { sku: 'PHN-4G-SS-10K', wasPrice: 9.94,  badge: { label: 'H2',   color: 'blue'  } },
-  { sku: 'PHN-8G-SS',     wasPrice: 21.59, badge: { label: '-23%', color: 'green' } },
-  { sku: 'PHN-8G-SS-10K', wasPrice: 25.80, badge: { label: 'H2',   color: 'blue'  } },
-  // Bulkhead Union
-  { sku: 'PBU-4G-SS',     wasPrice: 14.85, badge: { label: '-23%', color: 'green' } },
-  { sku: 'PBU-6G-SS',     wasPrice: 22.37, badge: { label: '-23%', color: 'green' } },
-  { sku: 'PBU-8G-SS',     wasPrice: 37.65, badge: { label: '-23%', color: 'green' } },
-  { sku: 'PBU-M08-SS',    wasPrice: 23.02, badge: { label: 'New',  color: 'dark'  } },
-  // Male Elbow
-  { sku: 'PME-04-4R-SS',  wasPrice: 17.37, badge: { label: '-23%', color: 'green' } },
-  { sku: 'PME-M06-4R-SS', wasPrice: 17.37, badge: { label: '-23%', color: 'green' } },
-  { sku: 'PME-M08-4R-SS', wasPrice: 19.97, badge: { label: '-23%', color: 'green' } },
-  { sku: 'PME-M10-4R-SS', wasPrice: 23.73, badge: { label: '-23%', color: 'green' } },
+const BRAND_TILES = [
+  {
+    name: 'Panam',
+    logo: 'https://pblol2.blob.core.windows.net/panam-images/panam-resize_smallest.jpg',
+    desc: 'Instrumentation valves and fittings for global process industries.',
+    href: '/quick-order',
+    external: false,
+  },
+  {
+    name: 'Value Valves',
+    logo: 'https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/logo.svg',
+    desc: 'Butterfly valves and flow control solutions for industrial piping systems.',
+    href: '/valves/industrial-valves/butterfly-valves/centric-butterfly-valve/products',
+    external: false,
+  },
+  {
+    name: 'Mars Valves',
+    logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/mars.png',
+    desc: 'Industrial valve solutions for a wide range of flow control applications.',
+    href: 'https://www.marsvalveuk.com/products/one-piece-ball-valves/variants',
+    external: true,
+  },
 ];
 
-const BADGE_SX = {
-  green: { bgcolor: '#166534', color: '#bbf7d0' },
-  blue:  { bgcolor: '#1e3a5f', color: '#93c5fd' },
-  dark:  { bgcolor: 'rgba(0,0,0,0.55)', color: '#ffffff' },
-};
-
 export default function BestSellers() {
-  const [activeTab, setActiveTab] = useState('Male Connector');
-  const { addItem } = useCartStore();
-
-  const enriched = PICKS
-    .map(p => ({ ...p, product: PRODUCTS.find(x => x.sku === p.sku) }))
-    .filter(p => p.product);
-
-  const visible = enriched.filter(p =>
-    TAB_MAP[activeTab]?.some(c => p.product!.category.includes(c)) ?? false
-  );
-
-  const handleAddToCart = (e: React.MouseEvent, product: typeof PRODUCTS[0]) => {
-    e.preventDefault();
-    e.stopPropagation();
-    addItem({
-      id: product.sku,
-      name: product.name,
-      description: product.meta,
-      partNumber: product.sku,
-      price: product.price,
-      quantity: 1,
-      cloudinaryId: product.cloudinaryId,
-    });
-  };
-
   return (
     <Box component="section" sx={{ bgcolor: 'primary.main', py: { xs: 5, md: 8 } }}>
       <Container maxWidth="xl">
@@ -106,7 +53,7 @@ export default function BestSellers() {
               display: 'block',
               mb: 0.5,
             }}>
-              Featured Products ——
+              Featured Brands ——
             </Typography>
             <Typography sx={{
               fontFamily: '"Barlow Condensed", sans-serif',
@@ -121,141 +68,129 @@ export default function BestSellers() {
           </Box>
 
           {/* ── Stock/lead time note ── */}
-<Box sx={{
-  display: 'flex',
-  alignItems: 'center',
-  gap: 1.5,
-  mb: 3,
-}}>
-  <Box sx={{
-    width: 8,
-    height: 8,
-    borderRadius: '50%',
-    
-    flexShrink: 0,
-  }} />
-  <Typography sx={{
-    fontFamily: '"Barlow Condensed", sans-serif',
-    fontSize: 13,
-    fontWeight: 600,
-    letterSpacing: '.1em',
-    textTransform: 'uppercase',
-    color: '#ffff',
-    opacity: 0.75,
-  }}>
-    All products stocked in the UK — extremely low lead times, ready to ship
-  </Typography>
-</Box>
-
-          {/* Filter tabs */}
-          <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', alignItems: 'center' }}>
-            {FILTER_TABS.map(tab => (
-              <Button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                sx={{
-                  fontFamily: '"Barlow Condensed", sans-serif',
-                  fontWeight: 700,
-                  fontSize: 11,
-                  letterSpacing: '.1em',
-                  textTransform: 'uppercase',
-                  px: 2,
-                  py: 0.75,
-                  borderRadius: 0,
-                  minWidth: 0,
-                  border: '1px solid',
-                  borderColor: activeTab === tab ? 'primary.contrastText' : 'rgba(255,255,255,0.3)',
-                  bgcolor:     activeTab === tab ? 'rgba(255,255,255,0.15)' : 'transparent',
-                  color:       activeTab === tab ? 'primary.contrastText'   : 'rgba(255,255,255,0.55)',
-                  '&:hover': {
-                    bgcolor:     'rgba(255,255,255,0.1)',
-                    borderColor: 'primary.contrastText',
-                    color:       'primary.contrastText',
-                  },
-                }}
-              >
-                {tab}
-              </Button>
-            ))}
+          <Box sx={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 1.5,
+            mb: 3,
+          }}>
+            <Box sx={{
+              width: 8,
+              height: 8,
+              borderRadius: '50%',
+              bgcolor: 'primary.contrastText',
+              flexShrink: 0,
+            }} />
+            <Typography sx={{
+              fontFamily: '"Barlow Condensed", sans-serif',
+              fontSize: 13,
+              fontWeight: 600,
+              letterSpacing: '.1em',
+              textTransform: 'uppercase',
+              color: '#ffffff',
+              opacity: 0.75,
+            }}>
+              All products stocked in the UK — extremely low lead times, ready to ship
+            </Typography>
           </Box>
         </Box>
 
-        {/* ── Cards grid ── */}
+        {/* ── Brand tiles ── */}
         <Box sx={{
           display: 'grid',
-          gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' },
+          gridTemplateColumns: { xs: '1fr', sm: 'repeat(3, 1fr)' },
           gap: 2,
         }}>
-          {visible.map(({ product, wasPrice, badge }) => (
+          {BRAND_TILES.map((brand) => (
             <Box
-              key={product!.sku}
-              sx={{ position: 'relative', display: 'flex', flexDirection: 'column' }}
+              key={brand.name}
+              component={brand.external ? 'a' : Link}
+              href={brand.href}
+              target={brand.external ? '_blank' : undefined}
+              rel={brand.external ? 'noopener noreferrer' : undefined}
+              sx={{
+                display: 'block',
+                height: '100%',
+                textDecoration: 'none',
+                color: 'inherit',
+              }}
             >
-              {/* Badge — floats over the card */}
-              <Box sx={{
-                position: 'absolute',
-                top: 10,
-                left: 10,
-                zIndex: 10,
-                px: 1,
-                py: 0.4,
-                fontFamily: '"Barlow Condensed", sans-serif',
-                fontSize: 10,
-                fontWeight: 700,
-                letterSpacing: '.08em',
-                textTransform: 'uppercase',
-                ...BADGE_SX[badge.color],
-              }}>
-                {badge.label}
-              </Box>
-
-              {/* Was price — floats top right */}
-              <Box sx={{
-                position: 'absolute',
-                top: 10,
-                right: 10,
-                zIndex: 10,
-                fontFamily: '"Barlow Condensed", sans-serif',
-                fontSize: 11,
-                color: 'rgba(0,0,0,0.35)',
-                textDecoration: 'line-through',
-              }}>
-                £{wasPrice.toFixed(2)}
-              </Box>
-
-              {/* The actual card — unchanged RelatedProductCard */}
-              <RelatedProductCard product={product!} />
-
-              {/* Add to Cart — sits below the card, full width */}
-             <Button
-  fullWidth
-  size="small"
-  startIcon={<ShoppingCartIcon sx={{ fontSize: '14px !important' }} />}
-  onClick={(e) => handleAddToCart(e, product!)}
-  sx={{
-    fontFamily: '"Barlow Condensed", sans-serif',
-    fontWeight: 700,
-    fontSize: 11,
-    letterSpacing: '.1em',
-    textTransform: 'uppercase',
-    borderRadius: 0,
-    py: 1,
-    bgcolor: '#ffffff',
-    color: 'primary.main',
-    border: '1px solid rgba(255,255,255,0.25)',
-    '&:hover': { bgcolor: 'rgba(255,255,255,0.85)' },
-  }}
->
-  Add to Cart
-</Button>
+              <Card
+                elevation={0}
+                sx={{
+                  height: '100%',
+                  borderRadius: 0,
+                  border: '1px solid rgba(255,255,255,0.25)',
+                  bgcolor: '#ffffff',
+                  transition: 'all 0.3s ease',
+                  cursor: 'pointer',
+                  '&:hover': {
+                    borderColor: 'primary.contrastText',
+                    transform: 'translateY(-5px)',
+                    boxShadow: '0 20px 40px rgba(0,0,0,0.25)',
+                  },
+                }}
+              >
+                <Box sx={{ height: '100%', p: 4 }}>
+                  <Stack spacing={3} alignItems="center" textAlign="center">
+                    <Box
+                      sx={{
+                        height: 80,
+                        width: '100%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        opacity: 0.8,
+                        transition: 'all 0.3s ease',
+                        '.MuiCard-root:hover &': { opacity: 1 },
+                      }}
+                    >
+                      <Box
+                        component="img"
+                        src={brand.logo}
+                        alt={brand.name}
+                        sx={{
+                          maxHeight: '100%',
+                          maxWidth: '180px',
+                          objectFit: 'contain',
+                        }}
+                      />
+                    </Box>
+                    <Box>
+                      <Typography
+                        variant="h5"
+                        sx={{
+                          fontFamily: '"Barlow Condensed"',
+                          fontWeight: 800,
+                          textTransform: 'uppercase',
+                          mb: 1,
+                          color: 'text.primary',
+                        }}
+                      >
+                        {brand.name}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          color: 'text.secondary',
+                          px: 2,
+                        }}
+                      >
+                        {brand.desc}
+                      </Typography>
+                    </Box>
+                  </Stack>
+                </Box>
+              </Card>
             </Box>
           ))}
         </Box>
 
         {/* ── View all CTA ── */}
         <Box sx={{ textAlign: 'center', mt: 4 }}>
-          <Button
-            href="/quick-order"
+          <Box
+            component={Link}
+            href="/brands"
             sx={{
               fontFamily: '"Barlow Condensed", sans-serif',
               fontWeight: 700,
@@ -264,19 +199,19 @@ export default function BestSellers() {
               textTransform: 'uppercase',
               px: 5,
               py: 1.2,
-              borderRadius: 0,
+              display: 'inline-block',
               border: '1px solid rgba(255,255,255,0.35)',
               color: 'rgba(255,255,255,0.65)',
+              textDecoration: 'none',
               '&:hover': {
                 border: '1px solid',
                 borderColor: 'primary.contrastText',
                 color: 'primary.contrastText',
-                bgcolor: 'transparent',
               },
             }}
           >
-            View All Products →
-          </Button>
+            View All Brands →
+          </Box>
         </Box>
 
       </Container>

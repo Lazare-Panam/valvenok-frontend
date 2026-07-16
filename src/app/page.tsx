@@ -35,11 +35,11 @@ export default function Home() {
     <>
       <HeroSlider />
       <DeliveryBanner />
-      <MarsSection/>
+      <FeaturedStrip />
+      <MarsSection />
       <FeaturedValves />
       <Brands />
       <Categories />
-      <FeaturedStrip />
       <AboutContact />
     </>
   );
