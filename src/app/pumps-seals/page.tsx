@@ -232,7 +232,7 @@ export default function PumpsAndSealsPage() {
                 "&:hover": { color: "#61D649", textDecoration: "underline" },
               }}
             >
-              Submersible Pumps
+              Pumps
             </Typography>
             <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
               Valvenok’s submersible range is engineered for the toughest
