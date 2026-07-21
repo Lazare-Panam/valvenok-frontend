@@ -151,6 +151,7 @@ function SeriesCard({ series }: { series: (typeof SUBMERSIBLE_SERIES)[0] }) {
         transition: "all 0.2s",
       }}
     >
+      
       <CardActionArea
         onClick={() => router.push(series.href)}
         sx={{
