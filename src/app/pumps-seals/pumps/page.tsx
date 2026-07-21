@@ -17,6 +17,22 @@ import { useRouter } from "next/navigation";
 
 const SUBMERSIBLE_SERIES = [
   {
+    id: "specialised-pumps",
+    name: "Specialised Pumps",
+    series: "LMP / Atomizer / PSI / PW / PK",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/walrus-pumps/LMP2050.png",
+    description:
+      "WALRUS specialised pumps including high-head screw pumps, atomizer pumps and general utility pumps for agriculture, construction and manufacturing applications.",
+    specs: [
+      "0.1 – 7.5 kW",
+      "Up to 800M Head",
+      "Up to 1,000 L/min",
+      "Up to 30 kg/cm²",
+    ],
+    href: "/pumps-seals/pumps/specialised-pumps",
+  },
+  {
     id: "regenerative-pump",
     name: "Regenerative Pumps",
     series: "TP8 / GQ / GQCN / TP3 / TPGK",
@@ -91,28 +107,7 @@ const SUBMERSIBLE_SERIES = [
     ],
     href: "/pumps-seals/pumps/horizontal-centrifugal-pumps",
   },
-  {
-    id: "stainless-sewage",
-    name: "Stainless Steel Sewage Pumps",
-    series: "TSS & TPS",
-    image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/TSS.png",
-    description:
-      "Compact IP68-rated stainless steel sewage pumps for domestic, light industrial and municipal water transfer and drainage. 400 – 1100W, 230V single-phase, Class E insulation.",
-    specs: ["IP68", "230V 1Ph", "400 – 1100 W", "5m Immersion"],
-    href: "/pumps-seals/pumps/tss",
-  },
-  {
-    id: "borehole",
-    name: "Borehole Submersible",
-    series: "TS / TN / TL",
-    image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/4-inch-ss-in.png",
-    description:
-      'Full stainless steel borehole submersible pumps for deep well water supply. Available in 4", 6", 8" and 10" diameters with AISI 304, 316 and 904L construction.',
-    specs: ['4" – 10"', "0.4 – 215 m³/hr", "Up to 870m", "0.37 – 220 kW"],
-    href: "/pumps-seals/pumps/borewell",
-  },
+
 ];
 
 function SeriesCard({ series }: { series: (typeof SUBMERSIBLE_SERIES)[0] }) {
