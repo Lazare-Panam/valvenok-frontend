@@ -17,6 +17,17 @@ import { useRouter } from "next/navigation";
 
 const SUBMERSIBLE_SERIES = [
   {
+    id: "inverter-constant-pressure-systems",
+    name: "Inverter Constant Pressure Control Systems",
+    series: "HQIC / TPH_IC / TPM_IC",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/HQIC.webp",
+    description:
+      "WALRUS inverter-driven constant pressure control systems for consistent flow across industrial and commercial water supply. Five series including single and x2 configurations.",
+    specs: ["0.37 – 7.5 kW", "Up to 8.0 kg/cm²", "Up to 1,600 L/min"],
+    href: "/pumps-seals/pumps/inverter-constant-pressure-systems",
+  },
+  {
     id: "peripheral-booster-pumps",
     name: "Peripheral Booster Pumps",
     series: "TP8 / GQB / GQCN_B ",
@@ -117,33 +128,6 @@ const SUBMERSIBLE_SERIES = [
       "Inbuilt Capacitor",
     ],
     href: "/pumps-seals/pumps/tdl",
-  },
-  {
-    id: "light-sewage",
-    name: "Light Sewage Pumps",
-    series: "TSL",
-    image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/02-TSL.png",
-    description:
-      "Vortex impeller submersible pumps for light sewage and drainage applications. Available in single and three phase with auto float switch options.",
-    specs: [
-      "230V / 400V",
-      "Single & 3 Phase",
-      "Sewage & Drainage",
-      "Auto Float Switch",
-    ],
-    href: "/pumps-seals/pumps/tsl",
-  },
-  {
-    id: "heavy-sewage",
-    name: "Heavy Sewage Pumps",
-    series: "TGT",
-    image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/06-TGT.png",
-    description:
-      "Heavy-duty submersible sewage pumps for demanding wastewater applications. Available from 0.75kW to 9.5kW with auto coupling and inbuilt TOP options.",
-    specs: ["0.75 – 9.5 kW", "230V / 400V", "Auto Coupling", "Inbuilt TOP"],
-    href: "/pumps-seals/pumps/tgt",
   },
 ];
 
