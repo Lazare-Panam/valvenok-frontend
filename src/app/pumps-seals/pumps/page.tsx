@@ -17,9 +17,25 @@ import { useRouter } from "next/navigation";
 
 const SUBMERSIBLE_SERIES = [
   {
+    id: "peripheral-booster-pumps",
+    name: "Peripheral Booster Pumps",
+    series: "TP8 / GQB / GQCN_B ",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/TP8.webp",
+    description:
+      "WALRUS peripheral booster pumps for domestic, light industrial and manufacturing applications. Six series across 50Hz and 60Hz operation.",
+    specs: [
+      "0.18 – 0.98 kW",
+      "50Hz / 60Hz",
+      "Up to 62M Head",
+      "Up to 85 L/min",
+    ],
+    href: "/pumps-seals/pumps/peripheral-booster-pumps",
+  },
+  {
     id: "immersible-centrifugal-pumps",
     name: "Immersible Centrifugal Pumps",
-    series: "TPAK-J / TPHK / TPMK / TPRK_E",
+    series: "TPAK-J / TPHK / TPMK",
     image:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/walrus-pumps/TPAK-J.webp",
     description:
@@ -128,49 +144,6 @@ const SUBMERSIBLE_SERIES = [
       "Heavy-duty submersible sewage pumps for demanding wastewater applications. Available from 0.75kW to 9.5kW with auto coupling and inbuilt TOP options.",
     specs: ["0.75 – 9.5 kW", "230V / 400V", "Auto Coupling", "Inbuilt TOP"],
     href: "/pumps-seals/pumps/tgt",
-  },
-  {
-    id: "sewage-submersible",
-    name: "Submersible Sewage Pumps",
-    series: "TGA",
-    image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/04-TGA.png",
-    description:
-      "Heavy duty submersible sewage pumps for handling solids up to 80mm. Available with delivery sizes from 50mm to 100mm at 1450 rpm, 400V three phase.",
-    specs: [
-      "50 – 100mm Delivery",
-      "Up to 80mm Solids",
-      "1450 rpm",
-      "400V 3 Phase",
-    ],
-    href: "/pumps-seals/pumps/tga",
-  },
-  {
-    id: "industrial-sewage",
-    name: "Industrial Sewage Pumps",
-    series: "TMA",
-    image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/09-TMA.png",
-    description:
-      'Three-phase 415V submersible sewage pumps for industrial wastewater handling. 2" outlet across 1.1 – 2.6 kW with robust construction.',
-    specs: ["1.1 – 2.6 kW", "415V 3Ph", '2" Outlet', "Industrial Grade"],
-    href: "/pumps-seals/pumps/tma",
-  },
-  {
-    id: "heavy-duty-sewage",
-    name: "Heavy Duty Sewage Pumps",
-    series: "TMC",
-    image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/07-TMC1.png",
-    description:
-      "High-performance submersible sewage pumps for the most demanding wastewater applications. Available from 1.85kW to 34kW with delivery sizes from 80mm to 150mm.",
-    specs: [
-      "1.85 – 34 kW",
-      "80 – 150mm Delivery",
-      "Auto Coupling",
-      "Moisture Sensor",
-    ],
-    href: "/pumps-seals/pumps/tmc",
   },
 ];
 
