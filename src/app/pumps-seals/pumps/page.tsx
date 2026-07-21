@@ -17,6 +17,22 @@ import { useRouter } from "next/navigation";
 
 const SUBMERSIBLE_SERIES = [
   {
+    id: "immersible-centrifugal-pumps",
+    name: "Immersible Centrifugal Pumps",
+    series: "TPAK-J / TPHK / TPMK / TPRK_E",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/walrus-pumps/TPAK-J.webp",
+    description:
+      "WALRUS immersible centrifugal pumps engineered for manufacturing industry applications, across seven series and 50Hz/60Hz operation.",
+    specs: [
+      "0.18 – 18.5 kW",
+      "50Hz / 60Hz",
+      "Up to 267M Head",
+      "Up to 650 L/min",
+    ],
+    href: "/pumps-seals/pumps/immersible-centrifugal-pumps",
+  },
+  {
     id: "horizontal-centrifugal-pumps",
     name: "Horizontal Pumps",
     series: "WQ_B / HQ_B / TQ_B ",
