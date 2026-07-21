@@ -17,6 +17,22 @@ import { useRouter } from "next/navigation";
 
 const SUBMERSIBLE_SERIES = [
   {
+    id: "regenerative-pump",
+    name: "Regenerative Pumps",
+    series: "TP8 / GQ / GQCN / TP3 / TPGK",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/walrus-pumps/TPGK.webp",
+    description:
+      "WALRUS regenerative pumps for domestic, light industrial and manufacturing applications. Five series across 50Hz and 60Hz operation.",
+    specs: [
+      "0.18 – 0.98 kW",
+      "50Hz / 60Hz",
+      "Up to 62M Head",
+      "Up to 85 L/min",
+    ],
+    href: "/pumps-seals/pumps/regenerative-pump",
+  },
+  {
     id: "inverter-constant-pressure-systems",
     name: "Inverter Constant Pressure Control Systems",
     series: "HQIC / TPH_IC / TPM_IC",
@@ -96,38 +112,6 @@ const SUBMERSIBLE_SERIES = [
       'Full stainless steel borehole submersible pumps for deep well water supply. Available in 4", 6", 8" and 10" diameters with AISI 304, 316 and 904L construction.',
     specs: ['4" – 10"', "0.4 – 215 m³/hr", "Up to 870m", "0.37 – 220 kW"],
     href: "/pumps-seals/pumps/borewell",
-  },
-  {
-    id: "medium-sewage",
-    name: "Mid-Range Sewage Pumps",
-    series: "TGB",
-    image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/05-TGB.png",
-    description:
-      'Mid-range submersible sewage pumps across 0.5 – 2.6 kW. Available in single-phase (230V) and three-phase (415V) with outlet sizes 1½" and 2".',
-    specs: [
-      "0.5 – 2.6 kW",
-      "230V / 415V",
-      '1½" – 2" Outlet',
-      "Single & 3 Phase",
-    ],
-    href: "/pumps-seals/pumps/tgb",
-  },
-  {
-    id: "light-drainage",
-    name: "Light Drainage Pumps",
-    series: "TDL",
-    image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/03-TDL.png",
-    description:
-      "Vortex impeller submersible pumps for light drainage applications. Available in single and three phase, 230V and 400V with inbuilt capacitor options.",
-    specs: [
-      "230V / 400V",
-      "Single & 3 Phase",
-      "Vortex Impeller",
-      "Inbuilt Capacitor",
-    ],
-    href: "/pumps-seals/pumps/tdl",
   },
 ];
 
