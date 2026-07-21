@@ -52,7 +52,7 @@ export const NAV_GROUPS: NavGroup[] = [
               },
             ],
           },
-           {
+          {
             label: "Fittings",
             href: "/hydrogen-cryogenic/fittings",
             children: [
@@ -195,8 +195,8 @@ export const NAV_GROUPS: NavGroup[] = [
         href: "/valves/sealed-valves",
         items: [
           { label: "Globe Valve", href: "/valves/sealed-valves/globe-valves" },
-           { label: "Gate Valve", href: "/valves/sealed-valves/gate-valves" },
-           { label: "Check Valve", href: "/valves/sealed-valves/check-valves" },
+          { label: "Gate Valve", href: "/valves/sealed-valves/gate-valves" },
+          { label: "Check Valve", href: "/valves/sealed-valves/check-valves" },
         ],
       },
       {
@@ -477,36 +477,30 @@ export const NAV_GROUPS: NavGroup[] = [
         href: "/pumps-seals",
         items: [
           {
-            label: "Submersible Pumps",
-            href: "/pumps-seals/pumps",
-            children: [
-              {
-                label: "Stainless Steel Sewage Pumps",
-                href: "/pumps-seals/pumps/tss",
-              },
-              {
-                label: "Borewell Submersible",
-                href: "/pumps-seals/pumps/borewell",
-              },
-              {
-                label: "Mid-Range Sewage Pumps",
-                href: "/pumps-seals/pumps/tgb",
-              },
-              { label: "Light Drainage Pumps", href: "/pumps-seals/pumps/tdl" },
-              { label: "Light Sewage Pumps", href: "/pumps-seals/pumps/tsl" },
-              { label: "Heavy Sewage Pumps", href: "/pumps-seals/pumps/tgt" },
-              {
-                label: "Industrial Sewage Pumps",
-                href: "/pumps-seals/pumps/tma",
-              },
-              {
-                label: "Heavy Duty Sewage Pumps",
-                href: "/pumps-seals/pumps/tmc",
-              },
-            ],
+            label: "Electronic Control Pump",
+            href: "/pumps-seals/pumps/specialised-pumps",
+          },
+          {
+            label: "Automatic Booster Pump",
+            href: "/pumps-seals/pumps/regenerative-pump",
+          },
+          {
+            label: "Multistage Centrifugal Pump",
+            href: "/pumps-seals/pumps/inverter-constant-pressure-systems",
+          },
+          {
+            label: "Direct Water Pump",
+            href: "/pumps-seals/pumps/peripheral-booster-pumps",
+          },
+          {
+            label: "Submersible Pump",
+            href: "/pumps-seals/pumps/immersible-centrifugal-pumps",
+          },
+          {
+            label: "Hot Water Pump",
+            href: "/pumps-seals/pumps/horizontal-centrifugal-pumps",
           },
           { label: "Seals", href: "/pumps-seals/seals" },
-        
         ],
       },
     ],

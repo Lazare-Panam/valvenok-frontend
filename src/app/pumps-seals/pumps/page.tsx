@@ -11,7 +11,6 @@ export const metadata: Metadata = {
 };
 
 const WALRUS_LOGO = "https://pblol2.blob.core.windows.net/valvenok-images/logo/walrus_pumps.webp";
-
 const PUMP_FAMILIES: Category[] = [
   {
     code: "LMP",
