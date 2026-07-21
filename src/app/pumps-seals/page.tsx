@@ -253,7 +253,7 @@ export default function PumpsAndSealsPage() {
               }}
             >
               <img
-                src="https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/02-TSL.png"
+                src="https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/HQIC.webp"
                 alt="Industrial Submersible Pump"
                 style={{
                   width: "60%",
@@ -329,9 +329,7 @@ export default function PumpsAndSealsPage() {
           </Grid>
         </Grid>
 
-
         <Divider sx={{ mb: 10 }} />
-
 
         {/* Industries Served */}
         <Box sx={{ mb: 10 }}>
