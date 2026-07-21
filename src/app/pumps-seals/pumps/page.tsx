@@ -17,11 +17,29 @@ import { useRouter } from "next/navigation";
 
 const SUBMERSIBLE_SERIES = [
   {
+    id: "horizontal-centrifugal-pumps",
+    name: "Horizontal Pumps",
+    series: "WQ_B / HQ_B / TQ_B ",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/walrus-pumps/WQ_B.webp",
+    description:
+      "WALRUS horizontal centrifugal pumps for residential, commercial and light industrial water supply. Stainless steel impellers, dual outlet configurations and electronic control options across six series.",
+    specs: [
+      "0.18 – 3.7 kW",
+      "50Hz / 60Hz",
+      "Up to 56M Head",
+      "Up to 270 L/min",
+    ],
+    href: "/pumps-seals/pumps/horizontal-centrifugal-pumps",
+  },
+  {
     id: "stainless-sewage",
     name: "Stainless Steel Sewage Pumps",
     series: "TSS & TPS",
-    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/TSS.png",
-    description: "Compact IP68-rated stainless steel sewage pumps for domestic, light industrial and municipal water transfer and drainage. 400 – 1100W, 230V single-phase, Class E insulation.",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/TSS.png",
+    description:
+      "Compact IP68-rated stainless steel sewage pumps for domestic, light industrial and municipal water transfer and drainage. 400 – 1100W, 230V single-phase, Class E insulation.",
     specs: ["IP68", "230V 1Ph", "400 – 1100 W", "5m Immersion"],
     href: "/pumps-seals/pumps/tss",
   },
@@ -29,8 +47,10 @@ const SUBMERSIBLE_SERIES = [
     id: "borehole",
     name: "Borehole Submersible",
     series: "TS / TN / TL",
-    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/4-inch-ss-in.png",
-    description: 'Full stainless steel borehole submersible pumps for deep well water supply. Available in 4", 6", 8" and 10" diameters with AISI 304, 316 and 904L construction.',
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/4-inch-ss-in.png",
+    description:
+      'Full stainless steel borehole submersible pumps for deep well water supply. Available in 4", 6", 8" and 10" diameters with AISI 304, 316 and 904L construction.',
     specs: ['4" – 10"', "0.4 – 215 m³/hr", "Up to 870m", "0.37 – 220 kW"],
     href: "/pumps-seals/pumps/borewell",
   },
@@ -38,35 +58,58 @@ const SUBMERSIBLE_SERIES = [
     id: "medium-sewage",
     name: "Mid-Range Sewage Pumps",
     series: "TGB",
-    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/05-TGB.png",
-    description: "Mid-range submersible sewage pumps across 0.5 – 2.6 kW. Available in single-phase (230V) and three-phase (415V) with outlet sizes 1½\" and 2\".",
-    specs: ["0.5 – 2.6 kW", "230V / 415V", "1½\" – 2\" Outlet", "Single & 3 Phase"],
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/05-TGB.png",
+    description:
+      'Mid-range submersible sewage pumps across 0.5 – 2.6 kW. Available in single-phase (230V) and three-phase (415V) with outlet sizes 1½" and 2".',
+    specs: [
+      "0.5 – 2.6 kW",
+      "230V / 415V",
+      '1½" – 2" Outlet',
+      "Single & 3 Phase",
+    ],
     href: "/pumps-seals/pumps/tgb",
   },
   {
     id: "light-drainage",
     name: "Light Drainage Pumps",
     series: "TDL",
-    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/03-TDL.png",
-    description: "Vortex impeller submersible pumps for light drainage applications. Available in single and three phase, 230V and 400V with inbuilt capacitor options.",
-    specs: ["230V / 400V", "Single & 3 Phase", "Vortex Impeller", "Inbuilt Capacitor"],
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/03-TDL.png",
+    description:
+      "Vortex impeller submersible pumps for light drainage applications. Available in single and three phase, 230V and 400V with inbuilt capacitor options.",
+    specs: [
+      "230V / 400V",
+      "Single & 3 Phase",
+      "Vortex Impeller",
+      "Inbuilt Capacitor",
+    ],
     href: "/pumps-seals/pumps/tdl",
   },
   {
     id: "light-sewage",
     name: "Light Sewage Pumps",
     series: "TSL",
-    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/02-TSL.png",
-    description: "Vortex impeller submersible pumps for light sewage and drainage applications. Available in single and three phase with auto float switch options.",
-    specs: ["230V / 400V", "Single & 3 Phase", "Sewage & Drainage", "Auto Float Switch"],
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/02-TSL.png",
+    description:
+      "Vortex impeller submersible pumps for light sewage and drainage applications. Available in single and three phase with auto float switch options.",
+    specs: [
+      "230V / 400V",
+      "Single & 3 Phase",
+      "Sewage & Drainage",
+      "Auto Float Switch",
+    ],
     href: "/pumps-seals/pumps/tsl",
   },
   {
     id: "heavy-sewage",
     name: "Heavy Sewage Pumps",
     series: "TGT",
-    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/06-TGT.png",
-    description: "Heavy-duty submersible sewage pumps for demanding wastewater applications. Available from 0.75kW to 9.5kW with auto coupling and inbuilt TOP options.",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/06-TGT.png",
+    description:
+      "Heavy-duty submersible sewage pumps for demanding wastewater applications. Available from 0.75kW to 9.5kW with auto coupling and inbuilt TOP options.",
     specs: ["0.75 – 9.5 kW", "230V / 400V", "Auto Coupling", "Inbuilt TOP"],
     href: "/pumps-seals/pumps/tgt",
   },
@@ -74,30 +117,46 @@ const SUBMERSIBLE_SERIES = [
     id: "sewage-submersible",
     name: "Submersible Sewage Pumps",
     series: "TGA",
-    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/04-TGA.png",
-    description: "Heavy duty submersible sewage pumps for handling solids up to 80mm. Available with delivery sizes from 50mm to 100mm at 1450 rpm, 400V three phase.",
-    specs: ["50 – 100mm Delivery", "Up to 80mm Solids", "1450 rpm", "400V 3 Phase"],
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/04-TGA.png",
+    description:
+      "Heavy duty submersible sewage pumps for handling solids up to 80mm. Available with delivery sizes from 50mm to 100mm at 1450 rpm, 400V three phase.",
+    specs: [
+      "50 – 100mm Delivery",
+      "Up to 80mm Solids",
+      "1450 rpm",
+      "400V 3 Phase",
+    ],
     href: "/pumps-seals/pumps/tga",
   },
   {
     id: "industrial-sewage",
     name: "Industrial Sewage Pumps",
     series: "TMA",
-    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/09-TMA.png",
-    description: "Three-phase 415V submersible sewage pumps for industrial wastewater handling. 2\" outlet across 1.1 – 2.6 kW with robust construction.",
-    specs: ["1.1 – 2.6 kW", "415V 3Ph", "2\" Outlet", "Industrial Grade"],
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/09-TMA.png",
+    description:
+      'Three-phase 415V submersible sewage pumps for industrial wastewater handling. 2" outlet across 1.1 – 2.6 kW with robust construction.',
+    specs: ["1.1 – 2.6 kW", "415V 3Ph", '2" Outlet', "Industrial Grade"],
     href: "/pumps-seals/pumps/tma",
   },
   {
     id: "heavy-duty-sewage",
     name: "Heavy Duty Sewage Pumps",
     series: "TMC",
-    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/07-TMC1.png",
-    description: "High-performance submersible sewage pumps for the most demanding wastewater applications. Available from 1.85kW to 34kW with delivery sizes from 80mm to 150mm.",
-    specs: ["1.85 – 34 kW", "80 – 150mm Delivery", "Auto Coupling", "Moisture Sensor"],
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/07-TMC1.png",
+    description:
+      "High-performance submersible sewage pumps for the most demanding wastewater applications. Available from 1.85kW to 34kW with delivery sizes from 80mm to 150mm.",
+    specs: [
+      "1.85 – 34 kW",
+      "80 – 150mm Delivery",
+      "Auto Coupling",
+      "Moisture Sensor",
+    ],
     href: "/pumps-seals/pumps/tmc",
   },
-]
+];
 
 function SeriesCard({ series }: { series: (typeof SUBMERSIBLE_SERIES)[0] }) {
   const theme = useTheme();
@@ -107,9 +166,9 @@ function SeriesCard({ series }: { series: (typeof SUBMERSIBLE_SERIES)[0] }) {
     <Card
       elevation={0}
       sx={{
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
         border: `1px solid ${theme.palette.divider}`,
         borderRadius: 0,
         "&:hover": {
@@ -121,7 +180,12 @@ function SeriesCard({ series }: { series: (typeof SUBMERSIBLE_SERIES)[0] }) {
     >
       <CardActionArea
         onClick={() => router.push(series.href)}
-        sx={{ height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}
+        sx={{
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "stretch",
+        }}
       >
         <CardMedia
           component="img"
@@ -136,7 +200,9 @@ function SeriesCard({ series }: { series: (typeof SUBMERSIBLE_SERIES)[0] }) {
             flexShrink: 0,
           }}
         />
-        <CardContent sx={{ p: 3, flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+        <CardContent
+          sx={{ p: 3, flexGrow: 1, display: "flex", flexDirection: "column" }}
+        >
           <Stack
             direction="row"
             justifyContent="space-between"
