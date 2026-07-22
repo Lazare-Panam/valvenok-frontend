@@ -3,40 +3,35 @@ import { useMemo, useState } from "react";
 import { Box, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import {
-  HorizontalCentrifugalSidebar,
-  HorizontalCentrifugalFilterParams,
-} from "./components/HorizontalCentrifugalSidebar";
-import { HorizontalCentrifugalActiveFilters } from "./components/HorizontalCentrifugalActiveFilters";
-import HorizontalCentrifugalTable from "./components/HorizontalCentrifugalTable";
-import { HORIZONTAL_CENTRIFUGAL_MODELS } from "./components/data";
+  MultistageCentrifugalSidebar,
+  MultistageCentrifugalFilterParams,
+} from "./components/MultistageCentrifugalSidebar";
+import { MultistageCentrifugalActiveFilters } from "./components/MultistageCentrifugalActiveFilters";
+import MultistageCentrifugalTable from "./components/MultistageCentrifugalTable";
+import { MULTISTAGE_CENTRIFUGAL_MODELS } from "./components/data";
 
-const unique = <K extends keyof (typeof HORIZONTAL_CENTRIFUGAL_MODELS)[number]>(
+const unique = <K extends keyof (typeof MULTISTAGE_CENTRIFUGAL_MODELS)[number]>(
   key: K,
-) => [...new Set(HORIZONTAL_CENTRIFUGAL_MODELS.map((m) => String(m[key])))];
+) => [...new Set(MULTISTAGE_CENTRIFUGAL_MODELS.map((m) => String(m[key])))];
 
-const uniqueApplications = () => [
-  ...new Set(HORIZONTAL_CENTRIFUGAL_MODELS.flatMap((m) => m.applications)),
-];
-
-export default function HorizontalCentrifugalPage() {
+export default function MultistageCentrifugalProductsPage() {
   const theme = useTheme();
-  const [filters, setFilters] = useState<HorizontalCentrifugalFilterParams>({});
+  const [filters, setFilters] = useState<MultistageCentrifugalFilterParams>({});
 
   const filterOptions = {
     series: unique("series"),
     frequencyHz: unique("frequencyHz").sort((a, b) => Number(a) - Number(b)),
-    applications: uniqueApplications(),
+    phase: unique("phase").sort((a, b) => Number(a) - Number(b)),
   };
 
   const filtered = useMemo(
     () =>
-      HORIZONTAL_CENTRIFUGAL_MODELS.filter(
+      MULTISTAGE_CENTRIFUGAL_MODELS.filter(
         (m) =>
           (!filters.series || filters.series.includes(m.series)) &&
           (!filters.frequencyHz ||
             filters.frequencyHz.includes(m.frequencyHz)) &&
-          (!filters.applications ||
-            filters.applications.some((a) => m.applications.includes(a))),
+          (!filters.phase || filters.phase.includes(m.phase)),
       ),
     [filters],
   );
@@ -49,7 +44,7 @@ export default function HorizontalCentrifugalPage() {
         bgcolor: "background.default",
       }}
     >
-      <HorizontalCentrifugalSidebar
+      <MultistageCentrifugalSidebar
         filters={filters}
         setFilters={setFilters}
         filterOptions={filterOptions}
@@ -67,15 +62,15 @@ export default function HorizontalCentrifugalPage() {
           }}
         >
           <Typography variant="h4" fontWeight={800} mb={1} color="primary">
-            Horizontal Centrifugal Pumps
+            Multistage Centrifugal Pump — Model Range
           </Typography>
           <Typography
             variant="body1"
             color="text.secondary"
             sx={{ maxWidth: 700 }}
           >
-            WQ_B · HQ_B · TQ_B · TPH_Q · HQCN_B · TQCN_B Series. Stainless steel
-            impellers, dual outlet configurations, 50Hz and 60Hz operation.
+            HS and TS series across 50Hz and 60Hz operation, single and
+            three-phase configurations.
           </Typography>
         </Box>
 
@@ -88,11 +83,11 @@ export default function HorizontalCentrifugalPage() {
           >
             {filtered.length} MODELS
           </Typography>
-          <HorizontalCentrifugalActiveFilters
+          <MultistageCentrifugalActiveFilters
             filters={filters}
             setFilters={setFilters}
           />
-          <HorizontalCentrifugalTable models={filtered} />
+          <MultistageCentrifugalTable models={filtered} />
         </Box>
       </Box>
     </Box>

@@ -19,9 +19,14 @@ import {
 import { alpha, useTheme } from "@mui/material/styles";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import { HorizontalCentrifugalPumpModel } from "./data";
+import { MultistageCentrifugalPumpModel } from "./data";
 import RFQModal from "@/src/app/Common/RFQCard/RFQModal";
 import { type ProductForRFQ } from "@/src/app/Common/RFQCard/RequestForQuoteCard";
+
+const IMAGE_URLS: Record<"HS" | "TS", string> = {
+  HS: "https://pblol2.blob.core.windows.net/valvenok-images/products/walrus-pumps/HS.webp",
+  TS: "https://pblol2.blob.core.windows.net/valvenok-images/products/walrus-pumps/HS.webp",
+};
 
 function Spec({ label, value }: { label: string; value: string }) {
   if (!value) return null;
@@ -42,28 +47,29 @@ function Spec({ label, value }: { label: string; value: string }) {
   );
 }
 
-function Row({ model }: { model: HorizontalCentrifugalPumpModel }) {
+function Row({ model }: { model: MultistageCentrifugalPumpModel }) {
   const [open, setOpen] = useState(false);
   const [quoteProduct, setQuoteProduct] = useState<ProductForRFQ | null>(null);
   const theme = useTheme();
 
   const openQuote = () =>
     setQuoteProduct({
-      id: model.modelCode,
-      name: `${model.seriesName} (${model.frequencyHz}Hz)`,
-      brand: "WALRUS Pump",
-      category: "Horizontal Centrifugal Pump",
-      categoryId: "horizontal-centrifugal-pump",
-      subCategory: model.seriesName,
-      thumbnail: model.imageUrl,
-      description: `${model.seriesName} — ${model.frequencyHz}Hz, power ${model.powerKw}kW, head ${model.headM}, flow ${model.flowLMin}.`,
+      id: model.id,
+      name: `${model.modelCode} (${model.frequencyHz}Hz, ${model.phase}-Phase)`,
+      brand: "WALRUS",
+      category: "Multistage Centrifugal Pump",
+      categoryId: "multistage-centrifugal-pump",
+      subCategory: `${model.series} Series`,
+      thumbnail: IMAGE_URLS[model.series],
+      description: `${model.modelCode} — ${model.frequencyHz}Hz, ${model.powerKw}kW, ${model.phase}-phase, ${model.voltV}V, H max ${model.hMaxM}m, Q max ${model.qMaxLMin}L/min.`,
       keySpecs: [
         { label: "Frequency", value: `${model.frequencyHz} Hz` },
         { label: "Power", value: `${model.powerKw} kW` },
-        { label: "Head", value: model.headM },
-        { label: "Flow", value: model.flowLMin },
+        { label: "Phase", value: `${model.phase}-Phase` },
+        { label: "H max", value: `${model.hMaxM} m` },
+        { label: "Q max", value: `${model.qMaxLMin} L/min` },
       ],
-      variantInfo: { count: 1, sizeRange: model.seriesName },
+      variantInfo: { count: 1, sizeRange: model.modelCode },
     });
 
   return (
@@ -119,9 +125,17 @@ function Row({ model }: { model: HorizontalCentrifugalPumpModel }) {
         <TableCell sx={{ py: 1, fontSize: "0.82rem" }}>
           {model.powerKw} kW
         </TableCell>
-        <TableCell sx={{ py: 1, fontSize: "0.82rem" }}>{model.headM}</TableCell>
         <TableCell sx={{ py: 1, fontSize: "0.82rem" }}>
-          {model.flowLMin}
+          {model.phase}-Ph
+        </TableCell>
+        <TableCell sx={{ py: 1, fontSize: "0.82rem" }}>
+          {model.voltV} V
+        </TableCell>
+        <TableCell sx={{ py: 1, fontSize: "0.82rem" }}>
+          {model.hMaxM} m
+        </TableCell>
+        <TableCell sx={{ py: 1, fontSize: "0.82rem" }}>
+          {model.qMaxLMin} L/min
         </TableCell>
         <TableCell sx={{ py: 1 }}>
           <Button
@@ -150,7 +164,7 @@ function Row({ model }: { model: HorizontalCentrifugalPumpModel }) {
 
       {open && (
         <TableRow>
-          <TableCell colSpan={8} sx={{ p: 0, borderBottom: "none" }}>
+          <TableCell colSpan={9} sx={{ p: 0, borderBottom: "none" }}>
             <Collapse in unmountOnExit>
               <Box
                 sx={{
@@ -165,33 +179,31 @@ function Row({ model }: { model: HorizontalCentrifugalPumpModel }) {
                   spacing={4}
                   alignItems="flex-start"
                 >
-                  {model.imageUrl && (
+                  <Box
+                    sx={{
+                      width: 140,
+                      height: 140,
+                      flexShrink: 0,
+                      border: `1px solid ${theme.palette.divider}`,
+                      borderRadius: 1,
+                      bgcolor: "#fff",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      p: 1,
+                    }}
+                  >
                     <Box
+                      component="img"
+                      src={IMAGE_URLS[model.series]}
+                      alt={model.modelCode}
                       sx={{
-                        width: 140,
-                        height: 140,
-                        flexShrink: 0,
-                        border: `1px solid ${theme.palette.divider}`,
-                        borderRadius: 1,
-                        bgcolor: "#fff",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        p: 1,
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "contain",
                       }}
-                    >
-                      <Box
-                        component="img"
-                        src={model.imageUrl}
-                        alt={model.modelCode}
-                        sx={{
-                          width: "100%",
-                          height: "100%",
-                          objectFit: "contain",
-                        }}
-                      />
-                    </Box>
-                  )}
+                    />
+                  </Box>
                   <Box sx={{ flex: 1 }}>
                     <Typography
                       variant="caption"
@@ -203,24 +215,22 @@ function Row({ model }: { model: HorizontalCentrifugalPumpModel }) {
                     </Typography>
                     <Stack direction="row" flexWrap="wrap" gap={3} mb={3}>
                       <Spec label="Model Code" value={model.modelCode} />
-                      <Spec label="Series" value={model.seriesName} />
+                      <Spec label="Series" value={`${model.series} Series`} />
                       <Spec
                         label="Frequency"
                         value={`${model.frequencyHz} Hz`}
                       />
                       <Spec label="Power" value={`${model.powerKw} kW`} />
-                      <Spec label="Head" value={model.headM} />
-                      <Spec label="Flow" value={model.flowLMin} />
-                    </Stack>
-                    <Stack direction="row" flexWrap="wrap" gap={0.75} mb={3}>
-                      {model.applications.map((a) => (
-                        <Chip
-                          key={a}
-                          label={a}
-                          size="small"
-                          variant="outlined"
-                        />
-                      ))}
+                      <Spec label="Phase" value={`${model.phase}-Phase`} />
+                      <Spec label="Volt" value={`${model.voltV} V`} />
+                      <Spec label="Amps" value={`${model.ampsA} A`} />
+                      <Spec label="Inlet" value={model.inletIn} />
+                      <Spec label="Outlet" value={model.outletIn} />
+                      <Spec label="H max." value={`${model.hMaxM} m`} />
+                      <Spec label="Q max." value={`${model.qMaxLMin} L/min`} />
+                      <Spec label="N.W." value={`${model.nwKg} kg`} />
+                      <Spec label="G.W." value={`${model.gwKg} kg`} />
+                      <Spec label="Pack Qty" value={model.packQty} />
                     </Stack>
                     <Button
                       variant="contained"
@@ -251,13 +261,13 @@ function Row({ model }: { model: HorizontalCentrifugalPumpModel }) {
   );
 }
 
-type SortKey = "modelCode" | "seriesName" | "frequencyHz";
+type SortKey = "modelCode" | "series" | "frequencyHz" | "powerKw";
 
-export default function HorizontalCentrifugalTable({
+export default function MultistageCentrifugalTable({
   models,
   isFetching,
 }: {
-  models: HorizontalCentrifugalPumpModel[];
+  models: MultistageCentrifugalPumpModel[];
   isFetching?: boolean;
 }) {
   const theme = useTheme();
@@ -358,11 +368,13 @@ export default function HorizontalCentrifugalTable({
               <TableCell sx={{ ...headerSx, width: 40 }} />
               {[
                 { key: "modelCode" as SortKey, label: "Model Code" },
-                { key: "seriesName" as SortKey, label: "Series" },
+                { key: "series" as SortKey, label: "Series" },
                 { key: "frequencyHz" as SortKey, label: "Frequency" },
-                { key: null, label: "Power" },
-                { key: null, label: "Head" },
-                { key: null, label: "Flow" },
+                { key: "powerKw" as SortKey, label: "Power" },
+                { key: null, label: "Phase" },
+                { key: null, label: "Volt" },
+                { key: null, label: "H max" },
+                { key: null, label: "Q max" },
                 { key: null, label: "Quote" },
               ].map((h, i) => (
                 <TableCell key={i} sx={headerSx}>
@@ -384,16 +396,14 @@ export default function HorizontalCentrifugalTable({
           <TableBody>
             {paginated.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={8} align="center" sx={{ py: 6 }}>
+                <TableCell colSpan={9} align="center" sx={{ py: 6 }}>
                   <Typography variant="body2" color="text.secondary">
                     No models found.
                   </Typography>
                 </TableCell>
               </TableRow>
             ) : (
-              paginated.map((model, i) => (
-                <Row key={`${model.modelCode}-${i}`} model={model} />
-              ))
+              paginated.map((model) => <Row key={model.id} model={model} />)
             )}
           </TableBody>
         </Table>

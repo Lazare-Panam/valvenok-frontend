@@ -4,22 +4,22 @@ import {
 } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 
-export interface ImmersibleCentrifugalFilterParams {
+export interface MultistageCentrifugalFilterParams {
   series?: string[]
   frequencyHz?: string[]
-  applications?: string[]
+  phase?: string[]
 }
 
 interface Props {
-  filters: ImmersibleCentrifugalFilterParams
-  setFilters: (fn: (prev: ImmersibleCentrifugalFilterParams) => ImmersibleCentrifugalFilterParams) => void
-  filterOptions: Record<keyof ImmersibleCentrifugalFilterParams, string[]>
+  filters: MultistageCentrifugalFilterParams
+  setFilters: (fn: (prev: MultistageCentrifugalFilterParams) => MultistageCentrifugalFilterParams) => void
+  filterOptions: Record<keyof MultistageCentrifugalFilterParams, string[]>
   onClear: () => void
 }
 
 function FilterGroup({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <Accordion defaultExpanded={false} disableGutters elevation={0}
+    <Accordion defaultExpanded disableGutters elevation={0}
       sx={{ bgcolor: 'transparent', '&:before': { display: 'none' }, mb: 1 }}>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon sx={{ fontSize: 16 }} />}
@@ -58,12 +58,12 @@ function MultiCheckbox({
   )
 }
 
-export function ImmersibleCentrifugalSidebar({ filters, setFilters, filterOptions, onClear }: Props) {
+export function MultistageCentrifugalSidebar({ filters, setFilters, filterOptions, onClear }: Props) {
   const activeCount = Object.values(filters).filter(v =>
     v !== undefined && (!Array.isArray(v) || v.length > 0)
   ).length
 
-  const toggle = (key: keyof ImmersibleCentrifugalFilterParams, val: string) => {
+  const toggle = (key: keyof MultistageCentrifugalFilterParams, val: string) => {
     setFilters(prev => {
       const current = (prev[key] as string[] | undefined) ?? []
       const updated = current.includes(val) ? current.filter(v => v !== val) : [...current, val]
@@ -100,8 +100,8 @@ export function ImmersibleCentrifugalSidebar({ filters, setFilters, filterOption
       </FilterGroup>
       <Divider sx={{ my: 1 }} />
 
-      <FilterGroup title="APPLICATIONS">
-        <MultiCheckbox options={filterOptions.applications} selected={filters.applications} onChange={v => toggle('applications', v)} />
+      <FilterGroup title="PHASE">
+        <MultiCheckbox options={filterOptions.phase} selected={filters.phase} onChange={v => toggle('phase', v)} />
       </FilterGroup>
     </Box>
   )

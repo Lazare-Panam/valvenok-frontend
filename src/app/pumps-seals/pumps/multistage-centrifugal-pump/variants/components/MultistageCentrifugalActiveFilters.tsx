@@ -1,25 +1,25 @@
 import { Stack, Chip, Typography } from '@mui/material'
-import { RegenerativePumpFilterParams } from './RegenerativePumpSidebar'
+import { MultistageCentrifugalFilterParams } from './MultistageCentrifugalSidebar'
 
 interface Props {
-  filters: RegenerativePumpFilterParams
-  setFilters: (fn: (prev: RegenerativePumpFilterParams) => RegenerativePumpFilterParams) => void
+  filters: MultistageCentrifugalFilterParams
+  setFilters: (fn: (prev: MultistageCentrifugalFilterParams) => MultistageCentrifugalFilterParams) => void
 }
 
-const LABELS: Record<keyof RegenerativePumpFilterParams, string> = {
-  series: 'Series', frequencyHz: 'Hz', applications: 'Application',
+const LABELS: Record<keyof MultistageCentrifugalFilterParams, string> = {
+  series: 'Series', frequencyHz: 'Hz', phase: 'Phase',
 }
 
-export function RegenerativePumpActiveFilters({ filters, setFilters }: Props) {
-  const active: { key: keyof RegenerativePumpFilterParams; label: string; value: string }[] = []
+export function MultistageCentrifugalActiveFilters({ filters, setFilters }: Props) {
+  const active: { key: keyof MultistageCentrifugalFilterParams; label: string; value: string }[] = []
 
-  ;(Object.keys(filters) as (keyof RegenerativePumpFilterParams)[]).forEach(key => {
+  ;(Object.keys(filters) as (keyof MultistageCentrifugalFilterParams)[]).forEach(key => {
     filters[key]?.forEach(v => active.push({ key, label: `${LABELS[key]}: ${v}`, value: v }))
   })
 
   if (active.length === 0) return null
 
-  const removeFilter = (key: keyof RegenerativePumpFilterParams, value: string) => {
+  const removeFilter = (key: keyof MultistageCentrifugalFilterParams, value: string) => {
     setFilters(prev => {
       const current = prev[key] ?? []
       const updated = current.filter(v => v !== value)

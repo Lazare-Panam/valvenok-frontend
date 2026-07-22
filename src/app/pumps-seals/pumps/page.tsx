@@ -27,40 +27,12 @@ const PUMP_FAMILIES: Category[] = [
     ],
     applications:
       "Manufacturing, Agriculture, Construction, Water Supply & Pollution Control, Entertainment & Leisure",
-    href: "/pumps-seals/pumps/specialised-pumps",
+    href: "/pumps-seals/pumps/electronic-control-pump",
     image:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/walrus-pumps/WQ_B.webp",
     logoUrl: WALRUS_LOGO,
   },
-  // {
-  //   code: "TP8",
-  //   title: "Automatic Booster Pump",
-  //   subtitle: "TP8 / GQ / GQCN / TP3 / TPGK Series",
-  //   description:
-  //     "WALRUS regenerative pumps for domestic, light industrial and manufacturing applications. Five series across 50Hz and 60Hz operation.",
-  //   specs: [
-  //     "0.18 – 0.98 kW",
-  //     "50Hz / 60Hz",
-  //     "Up to 62M Head",
-  //     "Up to 85 L/min",
-  //   ],
-  //   applications: "Construction, Agriculture, Entertainment & Leisure, Accommodation & Food Service, Wholesale & Retail, Manufacturing",
-  //   href: "/pumps-seals/pumps/regenerative-pump",
-  //   image: "https://pblol2.blob.core.windows.net/valvenok-images/products/walrus-pumps/TPGK.webp",
-  //   logoUrl: WALRUS_LOGO,
-  // },
-  // {
-  //   code: "HQIC",
-  //   title: "Multistage Centrifugal Pump",
-  //   subtitle: "HQIC / TPH_IC / TPM_IC Series",
-  //   description:
-  //     "WALRUS inverter-driven constant pressure control systems for consistent flow across industrial and commercial water supply. Five series including single and x2 configurations.",
-  //   specs: ["0.37 – 7.5 kW", "Up to 8.0 kg/cm²", "Up to 1,600 L/min"],
-  //   applications: "Construction, Agriculture, Entertainment & Leisure, Accommodation & Food Service, Wholesale & Retail, Service",
-  //   href: "/pumps-seals/pumps/inverter-constant-pressure-systems",
-  //   image: "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/HQIC.webp",
-  //   logoUrl: WALRUS_LOGO,
-  // },
+
   {
     code: "TP8B",
     title: "Automatic Booster Pump",
@@ -80,40 +52,25 @@ const PUMP_FAMILIES: Category[] = [
       "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/TP8.webp",
     logoUrl: WALRUS_LOGO,
   },
-  // {
-  //   code: "TPAK",
-  //   title: "Submersible Pump",
-  //   subtitle: "TPAK-J / TPHK / TPMK Series",
-  //   description:
-  //     "WALRUS immersible centrifugal pumps engineered for manufacturing industry applications, across seven series and 50Hz/60Hz operation.",
-  //   specs: [
-  //     "0.18 – 18.5 kW",
-  //     "50Hz / 60Hz",
-  //     "Up to 267M Head",
-  //     "Up to 650 L/min",
-  //   ],
-  //   applications: "Manufacturing Industry",
-  //   href: "/pumps-seals/pumps/immersible-centrifugal-pumps",
-  //   image: "https://pblol2.blob.core.windows.net/valvenok-images/products/walrus-pumps/TPAK-J.webp",
-  //   logoUrl: WALRUS_LOGO,
-  // },
-  // {
-  //   code: "WQB",
-  //   title: "Hot Water Pump",
-  //   subtitle: "WQ_B / HQ_B / TQ_B Series",
-  //   description:
-  //     "WALRUS horizontal centrifugal pumps for residential, commercial and light industrial water supply. Stainless steel impellers, dual outlet configurations and electronic control options across six series.",
-  //   specs: [
-  //     "0.18 – 3.7 kW",
-  //     "50Hz / 60Hz",
-  //     "Up to 56M Head",
-  //     "Up to 270 L/min",
-  //   ],
-  //   applications: "Construction, Agriculture, Entertainment & Leisure, Accommodation & Food Service, Wholesale & Retail, Service",
-  //   href: "/pumps-seals/pumps/horizontal-centrifugal-pumps",
-  //   image: "https://pblol2.blob.core.windows.net/valvenok-images/products/walrus-pumps/WQ_B.webp",
-  //   logoUrl: WALRUS_LOGO,
-  // },
+  {
+    code: "HSTS",
+    title: "Multistage Centrifugal Pump",
+    subtitle: "HS / TS Series",
+    description:
+      "WALRUS multistage centrifugal pumps for pressure boosting from city mains or private water systems. Close-coupled, corrosion resistant construction with steady, quiet, vibration-free operation.",
+    specs: [
+      "0.18 – 3.7 kW",
+      "50Hz / 60Hz",
+      "Up to 50M Head",
+      "Up to 270 L/min",
+    ],
+    applications:
+      "Construction, Electricity & New Energy, Wholesale & Retail, Manufacturing, Accommodation & Food Service, Service, Agriculture & Fishing, Entertainment & Leisure, Water Supply & Pollution Control",
+    href: "/pumps-seals/pumps/multistage-centrifugal-pump",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/walrus-pumps/HS.webp",
+    logoUrl: WALRUS_LOGO,
+  },
 ];
 
 const TRUST_POINTS = [
