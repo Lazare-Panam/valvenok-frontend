@@ -104,6 +104,25 @@ const PUMP_FAMILIES: Category[] = [
       "https://pblol2.blob.core.windows.net/valvenok-images/products/walrus-pumps/PW.webp",
     logoUrl: WALRUS_LOGO,
   },
+  {
+    code: "TQCN",
+    title: "Hot Water Pump",
+    subtitle: "TQCN / HQCN Series",
+    description:
+      "WALRUS all-in-one electronic control pumps rated for hot water up to +90°C. Pump, motor, pressure tank and controller in a single unit, with automatic relief valve and anti-cycling protection.",
+    specs: [
+      "0.18 – 3.7 kW",
+      "50Hz / 60Hz",
+      "Up to 50M Head",
+      "Up to 270 L/min",
+    ],
+    applications:
+      "Construction, Electricity & New Energy, Wholesale & Retail, Manufacturing, Accommodation & Food Service, Service, Agriculture & Fishing, Entertainment & Leisure, Water Supply & Pollution Control",
+    href: "/pumps-seals/pumps/hot-water-pump",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/walrus-pumps/TQCN200B.webp",
+    logoUrl: WALRUS_LOGO,
+  },
 ];
 
 const TRUST_POINTS = [
