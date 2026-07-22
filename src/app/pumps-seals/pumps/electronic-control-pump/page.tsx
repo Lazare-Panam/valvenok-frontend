@@ -418,6 +418,14 @@ export default function ElectronicControlPumpPage() {
             </Grid>
 
             <Grid size={{ xs: 12, md: 6 }}>
+              <Box sx={{ mb: 2 }}>
+                <Box
+                  component="img"
+                  src="https://pblol2.blob.core.windows.net/valvenok-images/logo/walrus_pumps.webp"
+                  alt="WALRUS Pump"
+                  sx={{ height: 32, objectFit: "contain" }}
+                />
+              </Box>
               <Typography
                 variant="overline"
                 sx={{

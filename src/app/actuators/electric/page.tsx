@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 const ELECTRIC_FAMILIES: Category[] = [
-    {
+  {
     code: "KP",
     title: "Kosaplus Series",
     subtitle: "Compact Electric Quarter-Turn Actuator",
@@ -24,10 +24,13 @@ const ELECTRIC_FAMILIES: Category[] = [
       "Direct Valve Mount",
       "Integrated Electronics",
     ],
-    applications: "Process Plants, Water Treatment, Chemical, Industrial Automation",
-    href: "/pneumatic/actuators/scotch-yoke",
-    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/ec-kosaplus.png",
-    logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/brands/kosaplus-logo.png",
+    applications:
+      "Process Plants, Water Treatment, Chemical, Industrial Automation",
+    href: "/actuators/electric/ke-series",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/ec-kosaplus.png",
+    logoUrl:
+      "https://pblol2.blob.core.windows.net/valvenok-images/brands/kosaplus-logo.png",
   },
   {
     code: "ITQ",
@@ -43,16 +46,20 @@ const ELECTRIC_FAMILIES: Category[] = [
       "Double Worm Self-Locking",
       "110/220VAC · 380/440VAC · 24VDC",
     ],
-    applications: "Oil & Gas, Power Generation, Water Treatment, Chemical, Pharmaceutical, Marine",
+    applications:
+      "Oil & Gas, Power Generation, Water Treatment, Chemical, Pharmaceutical, Marine",
     href: "/actuators/electric/itq",
-    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/itq.webp",
-    logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/itq.webp",
+    logoUrl:
+      "https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp",
   },
   {
     code: "IQL",
     title: "IQL SERIES (Linear)",
     subtitle: "Linear Electric Actuator",
-    description: "Robust linear electric actuators engineered for precise modulating control of globe, gate valves and dampers. High thrust capacity from 4–25 kN, IP67 protection, battery backup fail-safe, and full modulating control via 4–20mA / 0–10V for demanding industrial automation.",
+    description:
+      "Robust linear electric actuators engineered for precise modulating control of globe, gate valves and dampers. High thrust capacity from 4–25 kN, IP67 protection, battery backup fail-safe, and full modulating control via 4–20mA / 0–10V for demanding industrial automation.",
     specs: [
       "4 – 25 kN Thrust",
       "40 – 100 mm Stroke",
@@ -61,16 +68,20 @@ const ELECTRIC_FAMILIES: Category[] = [
       "4–20mA / 0–10V Control",
       "Battery Backup Fail-Safe",
     ],
-    applications: "Globe & Gate Valves, Damper Automation, Power Plants, Water Treatment",
+    applications:
+      "Globe & Gate Valves, Damper Automation, Power Plants, Water Treatment",
     href: "/actuators/electric/iql",
-    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/iql.webp",
-    logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/iql.webp",
+    logoUrl:
+      "https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp",
   },
   {
     code: "ITL",
     title: "ITL Series (Linear)",
     subtitle: "Compact Linear Electric Actuator — 100% Duty Cycle",
-    description: "Compact and powerful linear electric actuators with 100% duty cycle motor engineered for high-frequency modulating control. 1–10 kN thrust, IP66/67 protection, universal power supply and full 4–20mA / 0–10V control signal compatibility for demanding process automation.",
+    description:
+      "Compact and powerful linear electric actuators with 100% duty cycle motor engineered for high-frequency modulating control. 1–10 kN thrust, IP66/67 protection, universal power supply and full 4–20mA / 0–10V control signal compatibility for demanding process automation.",
     specs: [
       "1 – 10 kN Thrust",
       "15 – 50 mm Stroke",
@@ -79,16 +90,20 @@ const ELECTRIC_FAMILIES: Category[] = [
       "-20°C to +70°C",
       "4–20mA / 0–10V Control",
     ],
-    applications: "Control Valves, Industrial Dampers, Process Automation, High-Frequency Modulation",
+    applications:
+      "Control Valves, Industrial Dampers, Process Automation, High-Frequency Modulation",
     href: "/actuators/electric/itl",
-    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/itl.webp",
-    logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/itl.webp",
+    logoUrl:
+      "https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp",
   },
   {
     code: "ITM",
     title: "ITM Series  (Multiturn)",
     subtitle: "Heavy-Duty Multi-Turn Electric Actuator",
-    description: "Heavy-duty multi-turn electric actuators engineered for gate, globe and sluice valves requiring multi-revolution operation. Exceptional torque capability, IP68 waterproof protection, Hall incremental encoder feedback and smart local control for demanding Oil & Gas, Water Treatment and Petrochemical applications.",
+    description:
+      "Heavy-duty multi-turn electric actuators engineered for gate, globe and sluice valves requiring multi-revolution operation. Exceptional torque capability, IP68 waterproof protection, Hall incremental encoder feedback and smart local control for demanding Oil & Gas, Water Treatment and Petrochemical applications.",
     specs: [
       "Multi-Turn",
       "IP68 Waterproof",
@@ -97,10 +112,13 @@ const ELECTRIC_FAMILIES: Category[] = [
       "TENV High-Torque Motor",
       "Ex d IIC T4 Optional",
     ],
-    applications: "Oil & Gas, Petrochemical, Power Generation, Water Treatment, Sewage, Chemical, HVAC",
+    applications:
+      "Oil & Gas, Petrochemical, Power Generation, Water Treatment, Sewage, Chemical, HVAC",
     href: "/actuators/electric/itm",
-    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/itm.webp",
-    logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/itm.webp",
+    logoUrl:
+      "https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp",
   },
   {
     code: "DFE",
@@ -116,12 +134,14 @@ const ELECTRIC_FAMILIES: Category[] = [
       "Isobus (PVED32 CC)",
       "34 Models Available",
     ],
-    applications: "Mobile Hydraulics, Agricultural Machinery, Construction Equipment, Marine, Industrial",
+    applications:
+      "Mobile Hydraulics, Agricultural Machinery, Construction Equipment, Marine, Industrial",
     href: "/actuators/electric/pvae32",
-    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/danfoss/dfe-ac.png",
-    logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/products/danfoss/new-logo.svg",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/danfoss/dfe-ac.png",
+    logoUrl:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/danfoss/new-logo.svg",
   },
-
 ];
 const TRUST_POINTS = [
   { value: "ISO 5211", label: "Mounting Standard" },

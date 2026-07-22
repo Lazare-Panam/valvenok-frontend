@@ -183,14 +183,6 @@ export const NAV_GROUPS: NavGroup[] = [
         ],
       },
       {
-        header: "Filters",
-        href: "/filters-sight-glass",
-        items: [
-          { label: "Sight Glass", href: "/filters-sight-glass/sight-glass" },
-          { label: "Filtration", href: "/filters-sight-glass/filteration" },
-        ],
-      },
-      {
         header: "Sealed Valves",
         href: "/valves/sealed-valves",
         items: [
@@ -454,7 +446,6 @@ export const NAV_GROUPS: NavGroup[] = [
           },
         ],
       },
-
       {
         header: "Flow Meter",
         href: "/instrumentation/water-meter",
@@ -463,6 +454,14 @@ export const NAV_GROUPS: NavGroup[] = [
             label: "Water Meter",
             href: "/instrumentation/water-meter/products",
           },
+        ],
+      },
+      {
+        header: "Filters",
+        href: "/filters-sight-glass",
+        items: [
+          { label: "Sight Glass", href: "/filters-sight-glass/sight-glass" },
+          { label: "Filtration", href: "/filters-sight-glass/filteration" },
         ],
       },
     ],

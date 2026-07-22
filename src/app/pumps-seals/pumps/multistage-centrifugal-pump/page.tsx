@@ -339,6 +339,14 @@ export default function MultistageCentrifugalPumpPage() {
             </Grid>
 
             <Grid size={{ xs: 12, md: 6 }}>
+              <Box sx={{ mb: 2 }}>
+                <Box
+                  component="img"
+                  src="https://pblol2.blob.core.windows.net/valvenok-images/logo/walrus_pumps.webp"
+                  alt="WALRUS Pump"
+                  sx={{ height: 32, objectFit: "contain" }}
+                />
+              </Box>
               <Typography
                 variant="overline"
                 sx={{
@@ -459,7 +467,7 @@ export default function MultistageCentrifugalPumpPage() {
                     "&:hover": { bgcolor: "primary.main", boxShadow: "none" },
                   }}
                 >
-                  Request a Quote / Lead Time  
+                  Request a Quote / Lead Time
                 </Button>
               </Box>
             </Grid>
@@ -517,7 +525,6 @@ export default function MultistageCentrifugalPumpPage() {
       </Box>
 
       <Divider />
-
 
       {/* Operating conditions */}
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: "#fff" }}>
