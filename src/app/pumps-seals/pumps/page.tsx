@@ -124,6 +124,25 @@ const PUMP_FAMILIES: Category[] = [
     logoUrl: WALRUS_LOGO,
   },
   {
+    code: "HQC",
+    title: "Automatic Flow-Controlled Pump",
+    subtitle: "HQC / TQC Series",
+    description:
+      "WALRUS automatic flow-controlled pumps designed to install below a water tower for downward pressurization. The pump automatically starts and increases pressure when water is used, and shuts off automatically when demand stops.",
+    specs: [
+      "0.18 – 0.75 kW",
+      "50Hz / 60Hz",
+      "Up to 4.4 kg/cm²",
+      "Up to 120 L/min",
+    ],
+    applications:
+      "Construction, Electricity & New Energy, Wholesale & Retail, Manufacturing, Accommodation & Food Service, Service, Agriculture & Fishing, Entertainment & Leisure, Water Supply & Pollution Control",
+    href: "/pumps-seals/pumps/automatic-flow-controlled-pump",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/walrus-pumps/HQC_200B.webp",
+    logoUrl: WALRUS_LOGO,
+  },
+  {
     code: "TPRKE",
     title: "Immersible Pump",
     subtitle: "TPRK_E / TPHK / TPK Series",
