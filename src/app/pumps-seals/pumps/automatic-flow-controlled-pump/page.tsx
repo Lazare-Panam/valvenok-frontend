@@ -317,21 +317,7 @@ export default function AutomaticFlowControlledPumpPage() {
 
       <Divider />
 
-      {/* Model tables */}
-      <Box sx={{ py: { xs: 8, md: 10 }, bgcolor: "background.default" }}>
-        <Container maxWidth="lg">
-          <Typography variant="h5" sx={{ fontWeight: 700, mb: 4 }}>Model Data</Typography>
-          <ModelTable title="HQC Series" rows={HQC_MODEL_TABLE} />
-          <ModelTable title="TQC Series" rows={TQC_MODEL_TABLE} />
-
-          <Typography variant="h5" sx={{ fontWeight: 700, mb: 4, mt: 6 }}>Dimensions</Typography>
-          <DimensionsTable title="HQC Series" rows={HQC_DIMENSIONS} />
-          <DimensionsTable title="TQC Series" rows={TQC_DIMENSIONS} />
-        </Container>
-      </Box>
-
-      <Divider />
-
+ 
       {/* Operating conditions */}
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: "#fff" }}>
         <Container maxWidth="lg">
