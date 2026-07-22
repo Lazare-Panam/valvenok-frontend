@@ -71,6 +71,25 @@ const PUMP_FAMILIES: Category[] = [
       "https://pblol2.blob.core.windows.net/valvenok-images/products/walrus-pumps/HS.webp",
     logoUrl: WALRUS_LOGO,
   },
+  {
+    code: "TP3B",
+    title: "Direct Water Pump",
+    subtitle: "TP3_PTB Series",
+    description:
+      "WALRUS direct water pumps with a brass-made impeller for high temperature and friction resistance, and a plastic pump body for safe, hygienic water quality. Compact, low-noise construction for domestic and light industrial use.",
+    specs: [
+      "0.18 – 0.37 kW",
+      "50Hz / 60Hz",
+      "Up to 40M Head",
+      "Up to 42 L/min",
+    ],
+    applications:
+      "Construction, Electricity & New Energy, Wholesale & Retail, Manufacturing, Accommodation & Food Service, Service, Agriculture & Fishing, Entertainment & Leisure, Water Supply & Pollution Control",
+    href: "/pumps-seals/pumps/direct-water-pump",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/walrus-pumps/TP3.webp",
+    logoUrl: WALRUS_LOGO,
+  },
 ];
 
 const TRUST_POINTS = [
