@@ -459,7 +459,7 @@ export default function MultistageCentrifugalPumpPage() {
                     "&:hover": { bgcolor: "primary.main", boxShadow: "none" },
                   }}
                 >
-                  Request a Quote / Lead Time
+                  Request a Quote / Lead Time  
                 </Button>
               </Box>
             </Grid>
@@ -523,7 +523,7 @@ export default function MultistageCentrifugalPumpPage() {
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: "#fff" }}>
         <Container maxWidth="lg">
           <Typography variant="h5" sx={{ fontWeight: 700, mb: 6 }}>
-            Operating Conditions
+            Operating Conditions:
           </Typography>
           <Grid container spacing={2}>
             {OPERATING_CONDITIONS.map(({ label, value }) => (
