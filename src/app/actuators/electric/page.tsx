@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const ELECTRIC_FAMILIES: Category[] = [
   {
     code: "KP",
-    title: "Kosaplus Series",
+    title: "KE Series",
     subtitle: "Compact Electric Quarter-Turn Actuator",
     description:
       "Kosaplus compact electric quarter-turn actuators engineered for precise on-off and modulating valve automation. Robust construction with integrated control electronics for direct valve mounting across process plant and industrial service.",
