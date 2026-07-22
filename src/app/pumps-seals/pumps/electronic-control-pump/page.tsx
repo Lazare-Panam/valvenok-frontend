@@ -432,13 +432,13 @@ export default function ElectronicControlPumpPage() {
                 variant="h3"
                 sx={{ fontWeight: 800, mt: 1, mb: 1, lineHeight: 1.2 }}
               >
-                HQ_B / TQ_B Series
+                Electronic Control Pump
               </Typography>
               <Typography
                 variant="h6"
                 sx={{ color: "text.secondary", fontWeight: 400, mb: 3 }}
               >
-                Electronic Control Pump
+                HQ_B / TQ_B Series
               </Typography>
               <Typography
                 variant="body1"

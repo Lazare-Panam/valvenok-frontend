@@ -10,7 +10,8 @@ export const metadata: Metadata = {
     "Valvenok supplies a full range of WALRUS pumps for water supply, drainage and industrial applications — electronic control, automatic booster, multistage centrifugal, direct water, submersible, and hot water series.",
 };
 
-const WALRUS_LOGO = "https://pblol2.blob.core.windows.net/valvenok-images/logo/walrus_pumps.webp";
+const WALRUS_LOGO =
+  "https://pblol2.blob.core.windows.net/valvenok-images/logo/walrus_pumps.webp";
 const PUMP_FAMILIES: Category[] = [
   {
     code: "LMP",
@@ -24,9 +25,11 @@ const PUMP_FAMILIES: Category[] = [
       "Up to 1,000 L/min",
       "Up to 30 kg/cm²",
     ],
-    applications: "Manufacturing, Agriculture, Construction, Water Supply & Pollution Control, Entertainment & Leisure",
+    applications:
+      "Manufacturing, Agriculture, Construction, Water Supply & Pollution Control, Entertainment & Leisure",
     href: "/pumps-seals/pumps/specialised-pumps",
-    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/walrus-pumps/WQ_B.webp",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/walrus-pumps/WQ_B.webp",
     logoUrl: WALRUS_LOGO,
   },
   // {
@@ -58,23 +61,25 @@ const PUMP_FAMILIES: Category[] = [
   //   image: "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/HQIC.webp",
   //   logoUrl: WALRUS_LOGO,
   // },
-  // {
-  //   code: "TP8B",
-  //   title: "Direct Water Pump",
-  //   subtitle: "TP8 / GQB / GQCN_B Series",
-  //   description:
-  //     "WALRUS peripheral booster pumps for domestic, light industrial and manufacturing applications. Six series across 50Hz and 60Hz operation.",
-  //   specs: [
-  //     "0.18 – 0.98 kW",
-  //     "50Hz / 60Hz",
-  //     "Up to 62M Head",
-  //     "Up to 85 L/min",
-  //   ],
-  //   applications: "Construction, Agriculture, Entertainment & Leisure, Accommodation & Food Service, Wholesale & Retail, Manufacturing",
-  //   href: "/pumps-seals/pumps/peripheral-booster-pumps",
-  //   image: "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/TP8.webp",
-  //   logoUrl: WALRUS_LOGO,
-  // },
+  {
+    code: "TP8B",
+    title: "Automatic Booster Pump",
+    subtitle: "TP8 / GQB / GQCN_B Series",
+    description:
+      "WALRUS peripheral booster pumps for domestic, light industrial and manufacturing applications. Six series across 50Hz and 60Hz operation.",
+    specs: [
+      "0.18 – 0.98 kW",
+      "50Hz / 60Hz",
+      "Up to 62M Head",
+      "Up to 85 L/min",
+    ],
+    applications:
+      "Construction, Agriculture, Entertainment & Leisure, Accommodation & Food Service, Wholesale & Retail, Manufacturing",
+    href: "/pumps-seals/pumps/automatic-booster-pump",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/TP8.webp",
+    logoUrl: WALRUS_LOGO,
+  },
   // {
   //   code: "TPAK",
   //   title: "Submersible Pump",
@@ -109,7 +114,6 @@ const PUMP_FAMILIES: Category[] = [
   //   image: "https://pblol2.blob.core.windows.net/valvenok-images/products/walrus-pumps/WQ_B.webp",
   //   logoUrl: WALRUS_LOGO,
   // },
-  
 ];
 
 const TRUST_POINTS = [

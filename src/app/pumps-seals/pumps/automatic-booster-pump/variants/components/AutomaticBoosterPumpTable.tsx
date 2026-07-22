@@ -1,38 +1,49 @@
-'use client'
 import { useState } from 'react'
 import {
   Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
   TablePagination, TableSortLabel, Collapse, Chip, Typography, Stack,
-  IconButton, Button, Divider
+  IconButton, Button,
 } from '@mui/material'
 import { alpha, useTheme } from '@mui/material/styles'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
-import { SubmersibleModelDTO } from '@/src/api/pumpsApi'
+import { AutomaticBoosterPumpModel } from './data'
 import RFQModal from '@/src/app/Common/RFQCard/RFQModal'
-import { ProductForRFQ } from '@/src/app/Common/RFQCard/RequestForQuoteCard'
+import { type ProductForRFQ } from '@/src/app/Common/RFQCard/RequestForQuoteCard'
 
-function Spec({ label, value, mono }: { label: string; value: string; mono?: boolean }) {
+function Spec({ label, value }: { label: string; value: string }) {
   if (!value) return null
   return (
     <Box>
       <Typography variant="caption" color="text.disabled" fontWeight={700}
         sx={{ display: 'block', textTransform: 'uppercase', mb: 0.25 }}>{label}</Typography>
-      <Typography variant="body2" fontWeight={600}
-        sx={{ fontFamily: mono ? 'monospace' : undefined }}>{value}</Typography>
+      <Typography variant="body2" fontWeight={600}>{value}</Typography>
     </Box>
   )
 }
 
-function Row({ model }: { model: SubmersibleModelDTO }) {
+function Row({ model }: { model: AutomaticBoosterPumpModel }) {
   const [open, setOpen] = useState(false)
   const [quoteProduct, setQuoteProduct] = useState<ProductForRFQ | null>(null)
   const theme = useTheme()
 
   const openQuote = () => setQuoteProduct({
-    id: model.modelCode,
-    name: `${model.modelCode} — ${model.diameterInches} Submersible Pump`,
-  } as unknown as ProductForRFQ)
+    id: model.id,
+    name: model.modelCode,
+    brand: 'WALRUS',
+    category: 'Automatic Booster Pump',
+    categoryId: 'automatic-booster-pump',
+    subCategory: 'TP8_PTB Series',
+    thumbnail: 'https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/TP8.webp',
+    description: `${model.modelCode} — ${model.frequencyHz}Hz, ${model.powerKw}kW, H max ${model.hMaxM}m, Q max ${model.qMaxLMin}L/min. ${model.antiMicrobial ? 'Anti-microbial (B) variant.' : 'Standard (non anti-microbial) variant.'}`,
+    keySpecs: [
+      { label: 'Frequency', value: `${model.frequencyHz} Hz` },
+      { label: 'Power',     value: `${model.powerKw} kW` },
+      { label: 'H max',     value: `${model.hMaxM} m` },
+      { label: 'Q max',     value: `${model.qMaxLMin} L/min` },
+    ],
+    variantInfo: { count: 1, sizeRange: model.modelCode },
+  })
 
   return (
     <>
@@ -50,15 +61,18 @@ function Row({ model }: { model: SubmersibleModelDTO }) {
           {model.modelCode}
         </TableCell>
         <TableCell sx={{ py: 1 }}>
-          <Chip label={model.version} size="small"
-            sx={{ fontSize: '0.65rem', fontWeight: 700, bgcolor: alpha(theme.palette.primary.main, 0.1), color: theme.palette.primary.dark }} />
+          <Chip
+            label={model.antiMicrobial ? 'Anti-Microbial' : 'Standard'}
+            size="small"
+            color={model.antiMicrobial ? 'primary' : 'default'}
+            sx={{ fontSize: '0.65rem', fontWeight: 700 }}
+          />
         </TableCell>
-        <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{model.diameterInches} ({model.diameterMm}mm)</TableCell>
-        <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{model.flowM3Hr} m³/hr</TableCell>
-        <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{model.maxHeadM} m</TableCell>
-        <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{model.powerKw} kW / {model.powerHp} HP</TableCell>
-        <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{model.outletSize}</TableCell>
-        <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{model.speed} rpm</TableCell>
+        <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{model.frequencyHz} Hz</TableCell>
+        <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{model.powerKw} kW</TableCell>
+        <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{model.voltV} V</TableCell>
+        <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{model.hMaxM} m</TableCell>
+        <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{model.qMaxLMin} L/min</TableCell>
         <TableCell sx={{ py: 1 }}>
           <Button size="small" variant="contained"
             onClick={e => { e.stopPropagation(); openQuote() }}
@@ -70,64 +84,47 @@ function Row({ model }: { model: SubmersibleModelDTO }) {
 
       {open && (
         <TableRow>
-          <TableCell colSpan={10} sx={{ p: 0, borderBottom: 'none' }}>
+          <TableCell colSpan={8} sx={{ p: 0, borderBottom: 'none' }}>
             <Collapse in unmountOnExit>
               <Box sx={{ p: 3, bgcolor: alpha(theme.palette.primary.main, 0.02), borderLeft: `4px solid ${theme.palette.primary.main}`, borderBottom: `1px solid ${theme.palette.divider}` }}>
-                <Stack direction={{ xs: 'column', md: 'row' }} spacing={4} alignItems="flex-start">
-                  {model.imageUrl && (
-                    <Box sx={{ width: 140, height: 140, flexShrink: 0, border: `1px solid ${theme.palette.divider}`, borderRadius: 1, bgcolor: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', p: 1 }}>
-                      <Box component="img" src={model.imageUrl} alt={model.modelCode}
-                        sx={{ width: '100%', height: '100%', objectFit: 'contain' }} />
-                    </Box>
-                  )}
-                  <Box sx={{ flex: 1 }}>
-                    <Typography variant="caption" fontWeight={900} color="primary"
-                      sx={{ display: 'block', mb: 2, letterSpacing: 1 }}>TECHNICAL SPECIFICATIONS</Typography>
-                    <Stack direction="row" flexWrap="wrap" gap={3} mb={3}>
-                      <Spec label="Model Code" value={model.modelCode} mono />
-                      <Spec label="Version" value={model.version} />
-                      <Spec label="Material" value={model.material} />
-                      <Spec label="Diameter" value={`${model.diameterInches} (${model.diameterMm}mm)`} />
-                      <Spec label="Flow Rate" value={`${model.flowM3Hr} m³/hr`} />
-                      <Spec label="Max Head" value={`${model.maxHeadM} m`} />
-                      <Spec label="Power" value={`${model.powerKw} kW / ${model.powerHp} HP`} />
-                      <Spec label="Outlet Size" value={model.outletSize} />
-                      <Spec label="Speed" value={`${model.speed} rpm`} />
-                      {model.impellerTrim && <Spec label="Impeller Trim" value={model.impellerTrim === 'A' ? 'A — One Trimmed' : 'AA — Two Trimmed'} />}
-                      {model.motorDiameter && <Spec label="Motor Diameter" value={`${model.motorDiameter}"`} />}
-                    </Stack>
-                    <Button variant="contained" onClick={openQuote}
-                      sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px' }}>
-                      Request Quote
-                    </Button>
-                  </Box>
-                  <Divider orientation="vertical" flexItem />
-                  <Box sx={{ minWidth: 140 }}>
-                    <Typography variant="caption" fontWeight={900} color="text.disabled" sx={{ display: 'block', mb: 2 }}>SERIES</Typography>
-                    <Chip
-                      label={model.version === 'TS' ? 'AISI 304' : model.version === 'TN' ? 'AISI 316' : 'AISI 904L'}
-                      color="primary" variant="outlined" size="small"
-                      sx={{ mb: 1, display: 'block', width: 'fit-content' }}
-                    />
-                    <Typography variant="caption" color="text.secondary">{model.material}</Typography>
-                  </Box>
+                <Typography variant="caption" fontWeight={900} color="primary"
+                  sx={{ display: 'block', mb: 2, letterSpacing: 1 }}>TECHNICAL SPECIFICATIONS</Typography>
+                <Stack direction="row" flexWrap="wrap" gap={3} mb={3}>
+                  <Spec label="Model Code" value={model.modelCode} />
+                  <Spec label="Anti-Microbial" value={model.antiMicrobial ? 'Yes (B)' : 'No'} />
+                  <Spec label="Frequency" value={`${model.frequencyHz} Hz`} />
+                  <Spec label="Power" value={`${model.powerKw} kW`} />
+                  <Spec label="Phase" value={`${model.phase}-Phase`} />
+                  <Spec label="Volt" value={`${model.voltV} V`} />
+                  <Spec label="Amps" value={`${model.ampsA} A`} />
+                  <Spec label="Inlet" value={model.inletIn} />
+                  <Spec label="Outlet" value={model.outletIn} />
+                  <Spec label="Pressure Switch ON" value={`${model.pressureSwitchOnKgCm2} kg/cm²`} />
+                  <Spec label="Pressure Switch OFF" value={`${model.pressureSwitchOffKgCm2} kg/cm²`} />
+                  <Spec label="Pressure Tank" value={`${model.pressureTankL} L`} />
+                  <Spec label="H max." value={`${model.hMaxM} m`} />
+                  <Spec label="Q max." value={`${model.qMaxLMin} L/min`} />
+                  <Spec label="N.W." value={`${model.nwKg} kg`} />
+                  <Spec label="G.W." value={`${model.gwKg} kg`} />
+                  <Spec label="Pack Qty" value={model.packQty} />
                 </Stack>
+                <Button variant="contained" onClick={openQuote}
+                  sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px' }}>
+                  Request Quote
+                </Button>
               </Box>
             </Collapse>
           </TableCell>
         </TableRow>
       )}
-
-      {quoteProduct && (
-        <RFQModal open={!!quoteProduct} onClose={() => setQuoteProduct(null)} product={quoteProduct} />
-      )}
+      {quoteProduct && <RFQModal open={!!quoteProduct} onClose={() => setQuoteProduct(null)} product={quoteProduct} />}
     </>
   )
 }
 
-type SortKey = 'modelCode' | 'version' | 'diameterMm' | 'flowM3Hr' | 'maxHeadM' | 'powerKw' | 'outletSize' | 'speed'
+type SortKey = 'modelCode' | 'frequencyHz' | 'powerKw'
 
-export default function SubmersibleTable({ models, isFetching }: { models: SubmersibleModelDTO[]; isFetching?: boolean }) {
+export default function AutomaticBoosterPumpTable({ models, isFetching }: { models: AutomaticBoosterPumpModel[]; isFetching?: boolean }) {
   const theme = useTheme()
   const [page, setPage] = useState(0)
   const [rowsPerPage, setRowsPerPage] = useState(50)
@@ -173,13 +170,12 @@ export default function SubmersibleTable({ models, isFetching }: { models: Subme
               <TableCell sx={{ ...headerSx, width: 40 }} />
               {([
                 { key: 'modelCode' as SortKey, label: 'Model Code' },
-                { key: 'version' as SortKey, label: 'Version' },
-                { key: 'diameterMm' as SortKey, label: 'Diameter' },
-                { key: 'flowM3Hr' as SortKey, label: 'Flow (m³/hr)' },
-                { key: 'maxHeadM' as SortKey, label: 'Max Head (m)' },
+                { key: null, label: 'Anti-Microbial' },
+                { key: 'frequencyHz' as SortKey, label: 'Frequency' },
                 { key: 'powerKw' as SortKey, label: 'Power' },
-                { key: 'outletSize' as SortKey, label: 'Outlet Size' },
-                { key: 'speed' as SortKey, label: 'Speed (rpm)' },
+                { key: null, label: 'Volt' },
+                { key: null, label: 'H max' },
+                { key: null, label: 'Q max' },
                 { key: null, label: 'Quote' },
               ]).map((h, i) => (
                 <TableCell key={i} sx={headerSx}>
@@ -195,19 +191,14 @@ export default function SubmersibleTable({ models, isFetching }: { models: Subme
           <TableBody>
             {paginated.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={10} align="center" sx={{ py: 6 }}>
+                <TableCell colSpan={8} align="center" sx={{ py: 6 }}>
                   <Typography variant="body2" color="text.secondary">No models found.</Typography>
                 </TableCell>
               </TableRow>
-            ) : paginated.map((model, i) => <Row key={`${model.modelCode}-${i}`} model={model} />)}
+            ) : paginated.map((model) => <Row key={model.id} model={model} />)}
           </TableBody>
         </Table>
       </TableContainer>
-      <Box sx={{ px: 2, py: 1, borderTop: `1px solid ${theme.palette.divider}`, bgcolor: alpha(theme.palette.primary.main, 0.02) }}>
-        <Typography variant="caption" color="text.secondary">
-          * For AISI 316 replace TS with TN — Performance Data remains same. &nbsp;|&nbsp; * For AISI 904L replace TS with TL — Performance Data remains same.
-        </Typography>
-      </Box>
       <TablePagination
         component="div"
         count={sorted.length}
