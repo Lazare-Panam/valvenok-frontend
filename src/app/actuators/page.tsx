@@ -48,7 +48,7 @@ const ACTUATOR_CATEGORIES: Category[] = [
     applications: "Water Treatment, Power Generation, Chemical, Pharmaceutical",
     href: "/actuators/electric",
     image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/itq.webp",
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/walrus-pumps/ke-ac.jpeg",
   },
   {
     code: "HA",

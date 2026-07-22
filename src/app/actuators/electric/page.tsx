@@ -28,7 +28,7 @@ const ELECTRIC_FAMILIES: Category[] = [
       "Process Plants, Water Treatment, Chemical, Industrial Automation",
     href: "/actuators/electric/ke-series",
     image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/ec-kosaplus.png",
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/walrus-pumps/ke-ac.jpeg",
     logoUrl:
       "https://pblol2.blob.core.windows.net/valvenok-images/brands/kosaplus-logo.png",
   },

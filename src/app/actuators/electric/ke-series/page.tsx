@@ -137,7 +137,7 @@ export default function KESeriesActuatorPage() {
             <Grid size={{ xs: 12, md: 6 }}>
               <Box sx={{ borderRadius: 3, overflow: "hidden", bgcolor: "#f0f4ef", display: "flex", alignItems: "center", justifyContent: "center", aspectRatio: "4/3" }}>
                 <Box component="img"
-                  src="https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/ec-kosaplus.png"
+                  src="https://pblol2.blob.core.windows.net/valvenok-images/products/walrus-pumps/ke-ac.jpeg"
                   alt="KE Series Quarter-Turn Electric Actuator"
                   sx={{ width: "100%", height: "100%", objectFit: "contain", p: 3 }}
                 />
