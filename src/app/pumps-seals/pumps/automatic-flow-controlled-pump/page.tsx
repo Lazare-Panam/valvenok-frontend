@@ -280,7 +280,7 @@ export default function AutomaticFlowControlledPumpPage() {
 
               <Box sx={{ display: "flex", gap: 2 }}>
                 <Button variant="outlined" size="large" fullWidth
-                  href="/pumps-seals/pumps/automatic-flow-controlled-pump/products"
+                  href="/pumps-seals/pumps/automatic-flow-controlled-pump/variants"
                   sx={{ borderRadius: 0, fontWeight: 800, py: 1.75, fontSize: "1rem", boxShadow: "none", borderColor: "#1c2e1a", color: "#1c2e1a", "&:hover": { borderColor: "primary.main", color: "primary.main", boxShadow: "none" } }}>
                   View Products
                 </Button>
