@@ -90,6 +90,20 @@ const PUMP_FAMILIES: Category[] = [
       "https://pblol2.blob.core.windows.net/valvenok-images/products/walrus-pumps/TP3.webp",
     logoUrl: WALRUS_LOGO,
   },
+  {
+    code: "PWA",
+    title: "Submersible Pump",
+    subtitle: "PW_A / PW_E Series",
+    description:
+      "WALRUS submersible pumps for clean water in a corrosion-resistant, compact design. IP68 rated with thermal overload protection, suitable for garden ponds, fish breeding, drainage and confined-space pumping.",
+    specs: ["100 – 800 W", "50Hz / 60Hz", "Up to 14M Head", "Up to 440 L/min"],
+    applications:
+      "Construction, Electricity & New Energy, Wholesale & Retail, Agriculture & Fishing, Entertainment & Leisure, Water Supply & Pollution Control, Manufacturing, Accommodation & Food Service, Service",
+    href: "/pumps-seals/pumps/submersible-pump",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/walrus-pumps/PW.webp",
+    logoUrl: WALRUS_LOGO,
+  },
 ];
 
 const TRUST_POINTS = [

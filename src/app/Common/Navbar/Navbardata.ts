@@ -481,19 +481,19 @@ export const NAV_GROUPS: NavGroup[] = [
           },
           {
             label: "Automatic Booster Pump",
-            href: "/pumps-seals/pumps/regenerative-pump",
+            href: "/pumps-seals/pumps/automatic-booster-pump",
           },
           {
             label: "Multistage Centrifugal Pump",
-            href: "/pumps-seals/pumps/inverter-constant-pressure-systems",
+            href: "/pumps-seals/pumps/multistage-centrifugal-pump",
           },
           {
             label: "Direct Water Pump",
-            href: "/pumps-seals/pumps/peripheral-booster-pumps",
+            href: "/pumps-seals/pumps/direct-water-pump",
           },
           {
             label: "Submersible Pump",
-            href: "/pumps-seals/pumps/immersible-centrifugal-pumps",
+            href: "/pumps-seals/pumps/submersible-pump",
           },
           {
             label: "Hot Water Pump",

@@ -327,13 +327,13 @@ export default function DirectWaterPumpPage() {
                 variant="h3"
                 sx={{ fontWeight: 800, mt: 1, mb: 1, lineHeight: 1.2 }}
               >
-                TP3_PTB Series
+                Direct Water Pump
               </Typography>
               <Typography
                 variant="h6"
                 sx={{ color: "text.secondary", fontWeight: 400, mb: 3 }}
               >
-                Direct Water Pump
+                TP3_PTB Series
               </Typography>
               <Typography
                 variant="body1"
