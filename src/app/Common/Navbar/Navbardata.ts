@@ -478,7 +478,7 @@ export const NAV_GROUPS: NavGroup[] = [
         items: [
           {
             label: "Electronic Control Pump",
-            href: "/pumps-seals/pumps/specialised-pumps",
+            href: "/pumps-seals/pumps/electronic-control-pump",
           },
           {
             label: "Automatic Booster Pump",
