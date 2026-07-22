@@ -497,7 +497,11 @@ export const NAV_GROUPS: NavGroup[] = [
           },
           {
             label: "Hot Water Pump",
-            href: "/pumps-seals/pumps/horizontal-centrifugal-pumps",
+            href: "/pumps-seals/pumps/hot-water-pump",
+          },
+          {
+            label: "Immersible Pump",
+            href: "/pumps-seals/pumps/immersible-pump",
           },
           { label: "Seals", href: "/pumps-seals/seals" },
         ],

@@ -123,6 +123,25 @@ const PUMP_FAMILIES: Category[] = [
       "https://pblol2.blob.core.windows.net/valvenok-images/products/walrus-pumps/TQCN200B.webp",
     logoUrl: WALRUS_LOGO,
   },
+  {
+    code: "TPRKE",
+    title: "Immersible Pump",
+    subtitle: "TPRK_E / TPHK / TPK Series",
+    description:
+      "WALRUS vertical multistage centrifugal immersible pumps for industrial use, especially machine tools. Self-priming, stainless steel construction across three series for water, coolant, light oil and other clean, non-aggressive fluids.",
+    specs: [
+      "0.22 – 18.5 kW",
+      "50Hz / 60Hz",
+      "Up to 267M Head",
+      "Up to 650 L/min",
+    ],
+    applications:
+      "Construction, Electricity & New Energy, Wholesale & Retail, Manufacturing, Accommodation & Food Service, Service, Agriculture & Fishing, Entertainment & Leisure, Water Supply & Pollution Control",
+    href: "/pumps-seals/pumps/immersible-pump",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/walrus-pumps/TPHK.webp",
+    logoUrl: WALRUS_LOGO,
+  },
 ];
 
 const TRUST_POINTS = [
