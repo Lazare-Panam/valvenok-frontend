@@ -302,6 +302,30 @@ export default function AWWAButterflyValvePage() {
                 >
                   Request a Quote / Lead Time
                 </Button>
+                <Button
+                  variant="outlined"
+                  size="large"
+                  fullWidth
+                  href="https://pblol2.blob.core.windows.net/valvenok-images/catalogs/value-valves/butterfly-valves/AWWA__Butterfly_Valve.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{
+                    borderRadius: 0,
+                    fontWeight: 800,
+                    py: 1.75,
+                    fontSize: "1rem",
+                    boxShadow: "none",
+                    borderColor: "#1c2e1a",
+                    color: "#1c2e1a",
+                    "&:hover": {
+                      borderColor: "primary.main",
+                      color: "primary.main",
+                      boxShadow: "none",
+                    },
+                  }}
+                >
+                  Download Catalog
+                </Button>
               </Box>
             </Grid>
           </Grid>
