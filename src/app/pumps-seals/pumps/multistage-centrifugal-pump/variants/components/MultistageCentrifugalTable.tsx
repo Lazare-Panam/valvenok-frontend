@@ -19,6 +19,8 @@ import {
 import { alpha, useTheme } from "@mui/material/styles";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import FileDownloadIcon from "@mui/icons-material/FileDownload";
+import * as XLSX from "xlsx";
 import { MultistageCentrifugalPumpModel } from "./data";
 import RFQModal from "@/src/app/Common/RFQCard/RFQModal";
 import { type ProductForRFQ } from "@/src/app/Common/RFQCard/RequestForQuoteCard";
@@ -275,6 +277,7 @@ export default function MultistageCentrifugalTable({
   const [rowsPerPage, setRowsPerPage] = useState(50);
   const [sortKey, setSortKey] = useState<SortKey>("modelCode");
   const [sortDir, setSortDir] = useState<"asc" | "desc">("asc");
+  const [exporting, setExporting] = useState(false);
 
   const handleSort = (key: SortKey) => {
     if (sortKey === key) setSortDir((d) => (d === "asc" ? "desc" : "asc"));
@@ -296,6 +299,52 @@ export default function MultistageCentrifugalTable({
     page * rowsPerPage,
     page * rowsPerPage + rowsPerPage,
   );
+
+  const handleExportToExcel = () => {
+    setExporting(true);
+    try {
+      const rows = sorted.map((m) => ({
+        "Model Code": m.modelCode,
+        Series: m.series,
+        "Frequency (Hz)": m.frequencyHz,
+        "Power (kW)": m.powerKw,
+        Phase: m.phase,
+        "Volt (V)": m.voltV,
+        "Amps (A)": m.ampsA,
+        Inlet: m.inletIn,
+        Outlet: m.outletIn,
+        "H max (m)": m.hMaxM,
+        "Q max (L/min)": m.qMaxLMin,
+        "N.W. (kg)": m.nwKg,
+        "G.W. (kg)": m.gwKg,
+        "Pack Qty": m.packQty,
+      }));
+
+      const worksheet = XLSX.utils.json_to_sheet(rows);
+      worksheet["!cols"] = [
+        { wch: 16 }, // Model Code
+        { wch: 10 }, // Series
+        { wch: 14 }, // Frequency
+        { wch: 12 }, // Power
+        { wch: 8 }, // Phase
+        { wch: 10 }, // Volt
+        { wch: 10 }, // Amps
+        { wch: 10 }, // Inlet
+        { wch: 10 }, // Outlet
+        { wch: 12 }, // H max
+        { wch: 16 }, // Q max
+        { wch: 10 }, // N.W.
+        { wch: 10 }, // G.W.
+        { wch: 10 }, // Pack Qty
+      ];
+
+      const workbook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(workbook, worksheet, "Multistage Centrifugal");
+      XLSX.writeFile(workbook, "multistage-centrifugal-pump-models.xlsx");
+    } finally {
+      setExporting(false);
+    }
+  };
 
   const headerSx = {
     bgcolor: alpha(theme.palette.primary.main, 0.04),
@@ -359,6 +408,20 @@ export default function MultistageCentrifugalTable({
           </Box>
         </Box>
       )}
+
+      <Stack direction="row" alignItems="center" justifyContent="flex-end" sx={{ mb: 1 }}>
+        <Button
+          size="small"
+          variant="outlined"
+          startIcon={<FileDownloadIcon fontSize="small" />}
+          onClick={handleExportToExcel}
+          disabled={exporting || sorted.length === 0}
+          sx={{ textTransform: "none", fontWeight: 700 }}
+        >
+          {exporting ? "Exporting..." : "Import as Excel"}
+        </Button>
+      </Stack>
+
       <TableContainer
         sx={{ opacity: isFetching ? 0.6 : 1, transition: "opacity 0.2s ease" }}
       >

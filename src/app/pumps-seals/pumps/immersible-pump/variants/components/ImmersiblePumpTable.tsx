@@ -7,6 +7,8 @@ import {
 import { alpha, useTheme } from '@mui/material/styles'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
+import FileDownloadIcon from '@mui/icons-material/FileDownload'
+import * as XLSX from 'xlsx'
 import { ImmersiblePumpModel } from './data'
 import RFQModal from '@/src/app/Common/RFQCard/RFQModal'
 import { type ProductForRFQ } from '@/src/app/Common/RFQCard/RequestForQuoteCard'
@@ -126,6 +128,7 @@ export default function ImmersiblePumpTable({ models, isFetching }: { models: Im
   const [rowsPerPage, setRowsPerPage] = useState(50)
   const [sortKey, setSortKey] = useState<SortKey>('modelCode')
   const [sortDir, setSortDir] = useState<'asc' | 'desc'>('asc')
+  const [exporting, setExporting] = useState(false)
 
   const handleSort = (key: SortKey) => {
     if (sortKey === key) setSortDir(d => d === 'asc' ? 'desc' : 'asc')
@@ -140,6 +143,48 @@ export default function ImmersiblePumpTable({ models, isFetching }: { models: Im
   })
 
   const paginated = sorted.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+
+  const handleExportToExcel = () => {
+    setExporting(true)
+    try {
+      const rows = sorted.map((m) => ({
+        'Model Code': m.modelCode,
+        Series: m.series,
+        'Sub-Series': m.subSeries,
+        'Frequency (Hz)': m.frequencyHz,
+        Phase: m.phase,
+        'Voltage Code': m.voltageCode,
+        'Volts (V)': m.voltsV,
+        'Output (kW)': m.outputKw,
+        'Input (kW)': m.inputKw ?? '',
+        'Ampere (rated)': m.ampsRated,
+        'Ampere (max)': m.ampsMax,
+        'Service Factor': m.serviceFactor,
+      }))
+
+      const worksheet = XLSX.utils.json_to_sheet(rows)
+      worksheet['!cols'] = [
+        { wch: 16 }, // Model Code
+        { wch: 10 }, // Series
+        { wch: 12 }, // Sub-Series
+        { wch: 14 }, // Frequency
+        { wch: 8 },  // Phase
+        { wch: 14 }, // Voltage Code
+        { wch: 10 }, // Volts
+        { wch: 12 }, // Output
+        { wch: 12 }, // Input
+        { wch: 14 }, // Ampere rated
+        { wch: 14 }, // Ampere max
+        { wch: 14 }, // Service Factor
+      ]
+
+      const workbook = XLSX.utils.book_new()
+      XLSX.utils.book_append_sheet(workbook, worksheet, 'Immersible Pumps')
+      XLSX.writeFile(workbook, 'immersible-pump-models.xlsx')
+    } finally {
+      setExporting(false)
+    }
+  }
 
   const headerSx = {
     bgcolor: alpha(theme.palette.primary.main, 0.04),
@@ -159,6 +204,20 @@ export default function ImmersiblePumpTable({ models, isFetching }: { models: Im
           </Box>
         </Box>
       )}
+
+      <Stack direction="row" alignItems="center" justifyContent="flex-end" sx={{ mb: 1 }}>
+        <Button
+          size="small"
+          variant="outlined"
+          startIcon={<FileDownloadIcon fontSize="small" />}
+          onClick={handleExportToExcel}
+          disabled={exporting || sorted.length === 0}
+          sx={{ textTransform: 'none', fontWeight: 700 }}
+        >
+          {exporting ? 'Exporting...' : 'Import as Excel'}
+        </Button>
+      </Stack>
+
       <TableContainer sx={{ opacity: isFetching ? 0.6 : 1, transition: 'opacity 0.2s ease' }}>
         <Table size="small" stickyHeader>
           <TableHead>
