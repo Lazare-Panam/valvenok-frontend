@@ -104,6 +104,71 @@ export const NAV_GROUPS: NavGroup[] = [
           },
         ],
       },
+      {
+        header: "High Pressure / Hydrogen",
+        href: "/high-pressure",
+        items: [
+          {
+            label: "High Pressure Fittings",
+            href: "/high-pressure/fittings",
+            children: [
+              {
+                label: "Adapters & Reducers",
+                href: "/high-pressure/fittings/adapters",
+              },
+              {
+                label: "Cone & Thread Connectors",
+                href: "/high-pressure/fittings/connectors",
+              },
+              {
+                label: "Caps & Plugs",
+                href: "/high-pressure/fittings/end-connections",
+              },
+              {
+                label: "Elbows, Tees, Crosses & Nipples",
+                href: "/high-pressure/fittings/junction-fittings",
+              },
+              { label: "Unions", href: "/high-pressure/fittings/union" },
+            ],
+          },
+          {
+            label: "High Pressure Pipe Fittings",
+            href: "/high-pressure/pipe-fittings",
+            children: [
+              {
+                label: "Hex Couplings",
+                href: "/high-pressure/pipe-fittings/hex-coupling",
+              },
+              {
+                label: "Hex Nipples",
+                href: "/high-pressure/pipe-fittings/hex-nipples",
+              },
+              {
+                label: "Adapters",
+                href: "/high-pressure/pipe-fittings/adapters",
+              },
+              { label: "Elbows", href: "/high-pressure/pipe-fittings/elbows" },
+              {
+                label: "Plugs & Caps",
+                href: "/high-pressure/pipe-fittings/end-connections",
+              },
+              {
+                label: "Tees & Crosses",
+                href: "/high-pressure/pipe-fittings/tees-cross",
+              },
+            ],
+          },
+          { label: "Ball Valves", href: "/high-pressure/ball-valves" },
+          { label: "Needle Valves", href: "/high-pressure/needle-valves" },
+          { label: "DBB Valves", href: "/high-pressure/dbb" },
+          { label: "Manifolds", href: "/high-pressure/manifolds" },
+          { label: "Seals & Glands", href: "/high-pressure/seals-glands" },
+          {
+            label: "Cone & Thread Nipples",
+            href: "/high-pressure/cone-threaded-nipples",
+          },
+        ],
+      },
     ],
   },
   {
@@ -296,71 +361,7 @@ export const NAV_GROUPS: NavGroup[] = [
     label: "Instrumentation",
     href: "/instrumentation",
     columns: [
-      {
-        header: "High Pressure / Hydrogen",
-        href: "/high-pressure",
-        items: [
-          {
-            label: "High Pressure Fittings",
-            href: "/high-pressure/fittings",
-            children: [
-              {
-                label: "Adapters & Reducers",
-                href: "/high-pressure/fittings/adapters",
-              },
-              {
-                label: "Cone & Thread Connectors",
-                href: "/high-pressure/fittings/connectors",
-              },
-              {
-                label: "Caps & Plugs",
-                href: "/high-pressure/fittings/end-connections",
-              },
-              {
-                label: "Elbows, Tees, Crosses & Nipples",
-                href: "/high-pressure/fittings/junction-fittings",
-              },
-              { label: "Unions", href: "/high-pressure/fittings/union" },
-            ],
-          },
-          {
-            label: "High Pressure Pipe Fittings",
-            href: "/high-pressure/pipe-fittings",
-            children: [
-              {
-                label: "Hex Couplings",
-                href: "/high-pressure/pipe-fittings/hex-coupling",
-              },
-              {
-                label: "Hex Nipples",
-                href: "/high-pressure/pipe-fittings/hex-nipples",
-              },
-              {
-                label: "Adapters",
-                href: "/high-pressure/pipe-fittings/adapters",
-              },
-              { label: "Elbows", href: "/high-pressure/pipe-fittings/elbows" },
-              {
-                label: "Plugs & Caps",
-                href: "/high-pressure/pipe-fittings/end-connections",
-              },
-              {
-                label: "Tees & Crosses",
-                href: "/high-pressure/pipe-fittings/tees-cross",
-              },
-            ],
-          },
-          { label: "Ball Valves", href: "/high-pressure/ball-valves" },
-          { label: "Needle Valves", href: "/high-pressure/needle-valves" },
-          { label: "DBB Valves", href: "/high-pressure/dbb" },
-          { label: "Manifolds", href: "/high-pressure/manifolds" },
-          { label: "Seals & Glands", href: "/high-pressure/seals-glands" },
-          {
-            label: "Cone & Thread Nipples",
-            href: "/high-pressure/cone-threaded-nipples",
-          },
-        ],
-      },
+    
       {
         header: "Instrumentation Fittings",
         href: "/fittings-tubing",
