@@ -62,8 +62,43 @@ export default function DesktopUserActions({ barHeight }: Props) {
 
   const iconSx = { fontSize: 24, flexShrink: 0 };
 
+  const BPMA_LOGO_URL =
+    "https://pblol2.blob.core.windows.net/valvenok-images/certfiicates/bpma-logo.jpg";
+  const BPMA_PDF_URL =
+    "https://pblol2.blob.core.windows.net/valvenok-images/certfiicates/BMPA.pdf";
+
   return (
     <Box sx={{ display: "flex", alignItems: "center", ml: "auto" }}>
+      {/* BPMA CERTIFICATE */}
+      <Box
+        component="a"
+        href={BPMA_PDF_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          height: barHeight,
+          px: 2,
+          cursor: "pointer",
+          transition: "opacity 0.2s ease-in-out",
+          "&:hover": {
+            opacity: 0.75,
+          },
+        }}
+      >
+        <Box
+          component="img"
+          src={BPMA_LOGO_URL}
+          alt="BPMA Certificate"
+          sx={{
+            height: Math.min(barHeight - 16, 36),
+            width: "auto",
+            display: "block",
+          }}
+        />
+      </Box>
 
       {/* TRACK ORDER */}
       <Box sx={itemSx} onClick={() => router.push("/track-order")}>
@@ -72,7 +107,10 @@ export default function DesktopUserActions({ barHeight }: Props) {
       </Box>
 
       {/* QUICK ORDER */}
-      <Box sx={{ ...itemSx, color: "primary.main" }} onClick={() => router.push("/quick-order")}>
+      <Box
+        sx={{ ...itemSx, color: "primary.main" }}
+        onClick={() => router.push("/quick-order")}
+      >
         <BoltIcon sx={{ ...iconSx, color: "primary.main" }} />
         Quick Order
       </Box>
@@ -113,7 +151,8 @@ export default function DesktopUserActions({ barHeight }: Props) {
                 borderRadius: 0,
               }}
             >
-              {user.firstName[0]}{user.lastName[0]}
+              {user.firstName[0]}
+              {user.lastName[0]}
             </Avatar>
             Profile
           </Box>
@@ -140,27 +179,55 @@ export default function DesktopUserActions({ barHeight }: Props) {
             <Box sx={{ px: 2, py: 2 }}>
               <Typography
                 variant="subtitle1"
-                sx={{ fontWeight: 900, textTransform: "uppercase", fontFamily: '"Barlow Condensed"', lineHeight: 1.2 }}
+                sx={{
+                  fontWeight: 900,
+                  textTransform: "uppercase",
+                  fontFamily: '"Barlow Condensed"',
+                  lineHeight: 1.2,
+                }}
               >
                 {user.firstName} {user.lastName}
               </Typography>
-              <Typography variant="caption" sx={{ color: "text.secondary", fontWeight: 600 }}>
+              <Typography
+                variant="caption"
+                sx={{ color: "text.secondary", fontWeight: 600 }}
+              >
                 {user.email}
               </Typography>
             </Box>
             <Divider sx={{ borderBottomWidth: 2 }} />
             <MenuItem
-              onClick={() => { setAnchorEl(null); router.push("/account"); }}
-              sx={{ py: 1.5, fontWeight: 800, fontFamily: '"Barlow Condensed"', letterSpacing: "0.05em" }}
+              onClick={() => {
+                setAnchorEl(null);
+                router.push("/account");
+              }}
+              sx={{
+                py: 1.5,
+                fontWeight: 800,
+                fontFamily: '"Barlow Condensed"',
+                letterSpacing: "0.05em",
+              }}
             >
-              <ListItemIcon><AccountCircleIcon sx={{ color: "text.primary" }} /></ListItemIcon>
+              <ListItemIcon>
+                <AccountCircleIcon sx={{ color: "text.primary" }} />
+              </ListItemIcon>
               My Account
             </MenuItem>
             <MenuItem
-              onClick={() => { setAnchorEl(null); onLogout(); }}
-              sx={{ py: 1.5, fontWeight: 800, color: "error.main", fontFamily: '"Barlow Condensed"' }}
+              onClick={() => {
+                setAnchorEl(null);
+                onLogout();
+              }}
+              sx={{
+                py: 1.5,
+                fontWeight: 800,
+                color: "error.main",
+                fontFamily: '"Barlow Condensed"',
+              }}
             >
-              <ListItemIcon><LogoutIcon color="error" /></ListItemIcon>
+              <ListItemIcon>
+                <LogoutIcon color="error" />
+              </ListItemIcon>
               Logout
             </MenuItem>
           </Menu>

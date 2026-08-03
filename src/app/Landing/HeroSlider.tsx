@@ -20,7 +20,7 @@ const SLIDES = [
     id: 1,
     duration: 12000,
     image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/Taiwan.jpeg",
+      "https://pblol2.blob.core.windows.net/valvenok-images/certfiicates/walurs-pumps-banner.webp",
     upperTag: "AUTHORIZED DISTRIBUTOR",
     title: "TAIWAN PRECISION",
     accent: "DIRECTLY TO YOU ",
