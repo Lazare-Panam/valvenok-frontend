@@ -68,7 +68,7 @@ const HYDROGEN_CRYOGENIC_SERIES: Category[] = [
     ],
     applications:
       "Industrial High Pressure, Hydrogen Refuelling, Wellhead, Research & Test",
-    href: "/hydrogen-cryogenic/tubing",
+    href: "/hydrogen-cryogenic/",
     image:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/tube.png",
     logoUrl:

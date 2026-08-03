@@ -805,14 +805,7 @@ export default function GasRegulatorPage() {
 
   return (
     <>
-      <title>Gas Pressure Regulators | Valvenok</title>
-      <meta
-        name="description"
-        content="Pietro Fiorentini direct-operated gas pressure regulators — Dival 160 AP, Staflux 185, Staflux 187, Staflux Mini. High and medium pressure natural gas distribution. Hydrogen ready."
-      />
-      <meta property="og:title" content="Gas Pressure Regulators | Valvenok" />
-      <meta property="og:type" content="product" />
-
+      
       <Box
         sx={{
           display: "flex",
