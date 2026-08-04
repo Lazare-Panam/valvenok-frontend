@@ -325,7 +325,7 @@ export default function ButterflyValveDetailPage() {
               </Box>
 
               <Typography
-                variant="h3"
+                variant="h1"
                 sx={{
                   fontFamily: '"Barlow Condensed"',
                   fontWeight: 100,

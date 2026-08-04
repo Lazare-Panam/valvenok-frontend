@@ -52,7 +52,7 @@ export default function FittingsTubingPage() {
               textShadow: "0px 2px 10px rgba(0,0,0,0.3)",
             }}
           >
-            Instrumentation Fittings 
+            Instrumentation Fittings
           </Typography>
           <Typography
             sx={{
@@ -220,7 +220,7 @@ export default function FittingsTubingPage() {
               Connection Components
             </Typography>
             <Typography
-              variant="h3"
+              variant="h1"
               component="a"
               href="/fittings-tubing/instrumentation-fittings"
               sx={{
@@ -318,11 +318,10 @@ export default function FittingsTubingPage() {
 
         <Divider sx={{ mb: 10 }} />
 
-
         {/* Applications */}
         <Box sx={{ mb: 10 }}>
           <Typography
-            variant="h3"
+            variant="h1"
             sx={{ fontSize: { xs: 24, md: 30 }, fontWeight: 700, mb: 2 }}
           >
             Fittings & Tubing Applications
@@ -361,7 +360,7 @@ export default function FittingsTubingPage() {
           sx={{ textAlign: "center", py: 6, borderRadius: 4, color: "#000000" }}
         >
           <Typography
-            variant="h3"
+            variant="h1"
             sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mb: 2 }}
           >
             Build Leak-Free Connections Today

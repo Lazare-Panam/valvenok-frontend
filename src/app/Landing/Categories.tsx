@@ -19,17 +19,23 @@ const ACCENT_COLORS = [
 
 const CATEGORIES = [
   {
-  name: "Hydrogen & Cryogenic",
-  img: "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/YEX-1100.png",
-  href: "/hydrogen-cryogenic",
-  tag: "New",
-  count: "40+",
-  subs: [
-    { name: "Hydrogen Cylinder Valves", href: "/hydrogen-cryogenic/hydrogen" },
-    { name: "LPG Cylinder Valves", href: "/hydrogen-cryogenic/lpg" },
-    { name: "Industrial Gas Valves", href: "/hydrogen-cryogenic/industrial-gas" },
-  ],
-},
+    name: "Hydrogen & Cryogenic",
+    img: "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/YEX-1100.png",
+    href: "/hydrogen-cryogenic",
+    tag: "New",
+    count: "40+",
+    subs: [
+      {
+        name: "Hydrogen Cylinder Valves",
+        href: "/hydrogen-cryogenic/hydrogen",
+      },
+      { name: "LPG Cylinder Valves", href: "/hydrogen-cryogenic/lpg" },
+      {
+        name: "Industrial Gas Valves",
+        href: "/hydrogen-cryogenic/industrial-gas",
+      },
+    ],
+  },
   {
     name: "Valves",
     img: "https://pblol2.blob.core.windows.net/mars-valves/ball-valves/series-10-10.png",
@@ -39,7 +45,10 @@ const CATEGORIES = [
     subs: [
       { name: "Process Valves", href: "/valves/" },
       { name: "Sealed Valves", href: "/valves/sealed-valves" },
-      { name: "Instrumentation Valves", href: "/valves/instrumentation-valves" },
+      {
+        name: "Instrumentation Valves",
+        href: "/valves/instrumentation-valves",
+      },
     ],
   },
   {
@@ -49,14 +58,23 @@ const CATEGORIES = [
     tag: "Most Popular",
     count: "450+",
     subs: [
-      { name: "Flare Fittings", href: "/fittings-tubing/instrumentation-fittings/jic-fittings/" },
+      {
+        name: "Flare Fittings",
+        href: "/fittings-tubing/instrumentation-fittings/jic-fittings/",
+      },
       { name: "Instrumentation Valves", href: "/valves" },
-      { name: "Pipe Fittings", href: "/fittings-tubing/instrumentation-fittings/pipe-fittings" },
-      { name: "Weld Fittings", href: "/fittings-tubing/instrumentation-fittings/weld-fittings" },
+      {
+        name: "Pipe Fittings",
+        href: "/fittings-tubing/instrumentation-fittings/pipe-fittings",
+      },
+      {
+        name: "Weld Fittings",
+        href: "/fittings-tubing/instrumentation-fittings/weld-fittings",
+      },
       { name: "SS Tubing", href: "/fittings-tubing/tubing" },
     ],
   },
- 
+
   {
     name: "Filters",
     img: "https://pblol2.blob.core.windows.net/valvenok-images/products/filters/DFM_Mega_Flow_Rate_Filter.png",
@@ -252,7 +270,7 @@ export default function Categories() {
                     </Typography>
 
                     <Typography
-                      variant="h3"
+                      variant="h1"
                       sx={{
                         fontFamily: '"Barlow Condensed", sans-serif',
                         fontSize: isFeatured ? "1.8rem" : "1.2rem",

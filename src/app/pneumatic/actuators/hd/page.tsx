@@ -108,7 +108,7 @@ export default function HDPage() {
                 Pneumatic Actuators / HD Series
               </Typography>
 
-              <Typography variant="h3" sx={{ fontWeight: 800, mt: 1, mb: 1, lineHeight: 1.2 }}>
+              <Typography variant="h1" sx={{ fontWeight: 800, mt: 1, mb: 1, lineHeight: 1.2 }}>
                 HD Series
               </Typography>
               <Typography variant="h6" sx={{ color: "text.secondary", fontWeight: 400, mb: 3 }}>

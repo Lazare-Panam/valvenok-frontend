@@ -426,7 +426,7 @@ export default function BallValveDetailPage() {
               </Box>
 
               <Typography
-                variant="h3"
+                variant="h1"
                 sx={{
                   fontFamily: '"Barlow Condensed"',
                   fontWeight: 100,

@@ -199,7 +199,7 @@ export default function ITGPage() {
                 Mechanical Actuators / ITG Series
               </Typography>
               <Typography
-                variant="h3"
+                variant="h1"
                 sx={{ fontWeight: 800, mt: 1, mb: 1, lineHeight: 1.2 }}
               >
                 ITG Series

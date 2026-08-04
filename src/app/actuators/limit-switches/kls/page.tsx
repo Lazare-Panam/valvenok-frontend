@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState } from "react";
 import Box from "@mui/material/Box";
@@ -21,8 +21,10 @@ const KLS_PRODUCT: ProductForRFQ = {
   category: "Limit Switch Boxes",
   categoryId: "limit-switches",
   subCategory: "Weatherproof & Explosion-Proof",
-  thumbnail: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/limit-switches/ks-limit-switch.jpg",
-  description: "Valve position indicators with IECEx & KCs explosion-proof certification. IP67/IP68, mechanical SPDT and proximity switch options, aluminium die-cast housing.",
+  thumbnail:
+    "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/limit-switches/ks-limit-switch.jpg",
+  description:
+    "Valve position indicators with IECEx & KCs explosion-proof certification. IP67/IP68, mechanical SPDT and proximity switch options, aluminium die-cast housing.",
   keySpecs: [
     { label: "Protection", value: "IP67 / IP68" },
     { label: "Certification", value: "IECEx / KCs" },
@@ -37,34 +39,94 @@ const KLS_PRODUCT: ProductForRFQ = {
 
 const TECH_SPECS = [
   { label: "Weatherproof Protection", value: "IP67 / IP68" },
-  { label: "Explosion-Proof", value: "Ex db IIC T6 Gb / Ex tb IIIC T80°C Db, IP67" },
+  {
+    label: "Explosion-Proof",
+    value: "Ex db IIC T6 Gb / Ex tb IIIC T80°C Db, IP67",
+  },
   { label: "Certification", value: "IECEx, KCs (Korean Explosion Proof)" },
-  { label: "Switch Type", value: "2 × SPDT Mechanical or Proximity (PNP / NPN / 2-wire / P&F / SOLDO)" },
-  { label: "Visual Indicator", value: "3-Way Indicator (standard) / 4-piece plastic indicator" },
+  {
+    label: "Switch Type",
+    value:
+      "2 × SPDT Mechanical or Proximity (PNP / NPN / 2-wire / P&F / SOLDO)",
+  },
+  {
+    label: "Visual Indicator",
+    value: "3-Way Indicator (standard) / 4-piece plastic indicator",
+  },
   { label: "Cam Mechanism", value: "Quick-set & both-side contact cam" },
   { label: "Housing Structure", value: "Top two-fold weatherproof structure" },
-  { label: "Body Material — Standard", value: "ALDC 12 (non-bushed or bushed housing)" },
-  { label: "Body Material — Options", value: "SUS304 (S4), SUS316 (S6), SUS316L (L6)" },
+  {
+    label: "Body Material — Standard",
+    value: "ALDC 12 (non-bushed or bushed housing)",
+  },
+  {
+    label: "Body Material — Options",
+    value: "SUS304 (S4), SUS316 (S6), SUS316L (L6)",
+  },
   { label: "Ambient Temperature — Standard", value: "-20°C to +60°C" },
   { label: "Ambient Temperature — Low Temp", value: "-40°C to +60°C" },
   { label: "Shaft Length", value: "Short (S) or Long +5mm (L)" },
   { label: "Cable Entry — KLS1x", value: "PF1/2" },
   { label: "Cable Entry — KLS2x", value: "PF3/4 (KCs) / NPT3/4" },
   { label: "Bracket Options", value: "BS1, BS2, BS3, BS4, MB1" },
-  { label: "Model Range", value: "KLS10, KLS1P, KLS1N, KLS12, KLS13, KLS14 / KLS20, KLS2P, KLS2N, KLS22, KLS23, KLS24" },
+  {
+    label: "Model Range",
+    value:
+      "KLS10, KLS1P, KLS1N, KLS12, KLS13, KLS14 / KLS20, KLS2P, KLS2N, KLS22, KLS23, KLS24",
+  },
 ];
 
 const FEATURES = [
-  { letter: "A", title: "Explosion-Proof Certified", body: "IECEx and KCs (Korean explosion-proof) certified — suitable for hazardous areas including Zone 1 & 2 gas and dust environments." },
-  { letter: "B", title: "IP67 / IP68 Protection", body: "Top two-fold weatherproof structure with IP67 standard and IP68 optional for submersion-rated installations." },
-  { letter: "C", title: "Multiple Switch Types", body: "Available in mechanical 2×SPDT, PNP proximity, NPN proximity, 2-wire proximity, P&F, and SOLDO proximity configurations." },
-  { letter: "D", title: "3-Way Visual Indicator", body: "Clear 3-way position indicator with 4-piece plastic indicator for instant visual confirmation of valve open/closed status." },
-  { letter: "E", title: "Quick-Set Cam Mechanism", body: "Both-side contact cam with quick-set adjustment for fast, accurate alignment to valve travel without special tools." },
-  { letter: "F", title: "Multiple Body Materials", body: "ALDC12 aluminium die-cast as standard, with SUS304, SUS316, and SUS316L stainless steel options for corrosive environments." },
-  { letter: "G", title: "Wide Temperature Range", body: "Standard -20°C to +60°C with low-temperature option down to -40°C for cold climate and cryogenic adjacent service." },
-  { letter: "H", title: "Flexible Bracket Mounting", body: "Five bracket options (BS1–BS4, MB1) for direct mounting to all major pneumatic and electric actuator platforms." },
-  { letter: "I", title: "Flexible Cable Entry", body: "PF1/2 for weatherproof KLS1x models; PF3/4 or NPT3/4 for explosion-proof KLS2x models." },
-  { letter: "J", title: "Short & Long Shaft Options", body: "Short shaft standard; long shaft (+5mm) option available to accommodate different actuator shaft protrusion depths." },
+  {
+    letter: "A",
+    title: "Explosion-Proof Certified",
+    body: "IECEx and KCs (Korean explosion-proof) certified — suitable for hazardous areas including Zone 1 & 2 gas and dust environments.",
+  },
+  {
+    letter: "B",
+    title: "IP67 / IP68 Protection",
+    body: "Top two-fold weatherproof structure with IP67 standard and IP68 optional for submersion-rated installations.",
+  },
+  {
+    letter: "C",
+    title: "Multiple Switch Types",
+    body: "Available in mechanical 2×SPDT, PNP proximity, NPN proximity, 2-wire proximity, P&F, and SOLDO proximity configurations.",
+  },
+  {
+    letter: "D",
+    title: "3-Way Visual Indicator",
+    body: "Clear 3-way position indicator with 4-piece plastic indicator for instant visual confirmation of valve open/closed status.",
+  },
+  {
+    letter: "E",
+    title: "Quick-Set Cam Mechanism",
+    body: "Both-side contact cam with quick-set adjustment for fast, accurate alignment to valve travel without special tools.",
+  },
+  {
+    letter: "F",
+    title: "Multiple Body Materials",
+    body: "ALDC12 aluminium die-cast as standard, with SUS304, SUS316, and SUS316L stainless steel options for corrosive environments.",
+  },
+  {
+    letter: "G",
+    title: "Wide Temperature Range",
+    body: "Standard -20°C to +60°C with low-temperature option down to -40°C for cold climate and cryogenic adjacent service.",
+  },
+  {
+    letter: "H",
+    title: "Flexible Bracket Mounting",
+    body: "Five bracket options (BS1–BS4, MB1) for direct mounting to all major pneumatic and electric actuator platforms.",
+  },
+  {
+    letter: "I",
+    title: "Flexible Cable Entry",
+    body: "PF1/2 for weatherproof KLS1x models; PF3/4 or NPT3/4 for explosion-proof KLS2x models.",
+  },
+  {
+    letter: "J",
+    title: "Short & Long Shaft Options",
+    body: "Short shaft standard; long shaft (+5mm) option available to accommodate different actuator shaft protrusion depths.",
+  },
 ];
 
 const TRUST_POINTS = [
@@ -75,7 +137,13 @@ const TRUST_POINTS = [
   { value: "Fast Dispatch", label: "Availability" },
 ];
 
-const CERTIFICATIONS = ["IP67 / IP68", "IECEx", "KCs Explosion Proof", "Ex db IIC T6 Gb", "Ex tb IIIC T80°C Db"];
+const CERTIFICATIONS = [
+  "IP67 / IP68",
+  "IECEx",
+  "KCs Explosion Proof",
+  "Ex db IIC T6 Gb",
+  "Ex tb IIIC T80°C Db",
+];
 
 export default function KLSPage() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -83,10 +151,15 @@ export default function KLSPage() {
   return (
     <>
       {/* ── Product Hero ── */}
-      <Box sx={{ bgcolor: "background.default", pt: { xs: 6, md: 10 }, pb: { xs: 6, md: 8 } }}>
+      <Box
+        sx={{
+          bgcolor: "background.default",
+          pt: { xs: 6, md: 10 },
+          pb: { xs: 6, md: 8 },
+        }}
+      >
         <Container maxWidth="lg">
           <Grid container spacing={6} alignItems="center">
-
             {/* Image */}
             <Grid size={{ xs: 12, md: 6 }}>
               <Box
@@ -104,29 +177,51 @@ export default function KLSPage() {
                   component="img"
                   src="https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/limit-switches/ks-limit-switch.jpg"
                   alt="KLS Series Limit Switch Box"
-                  sx={{ width: "100%", height: "100%", objectFit: "contain", p: 3 }}
+                  sx={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "contain",
+                    p: 3,
+                  }}
                 />
               </Box>
             </Grid>
 
             {/* Details */}
             <Grid size={{ xs: 12, md: 6 }}>
-              <Typography variant="overline" sx={{ color: "primary.main", fontWeight: 700, letterSpacing: 2 }}>
+              <Typography
+                variant="overline"
+                sx={{
+                  color: "primary.main",
+                  fontWeight: 700,
+                  letterSpacing: 2,
+                }}
+              >
                 Limit Switch Boxes / KLS Series
               </Typography>
 
-              <Typography variant="h3" sx={{ fontWeight: 800, mt: 1, mb: 1, lineHeight: 1.2 }}>
+              <Typography
+                variant="h1"
+                sx={{ fontWeight: 800, mt: 1, mb: 1, lineHeight: 1.2 }}
+              >
                 Valve Position Indicator — Weatherproof & Explosion-Proof
               </Typography>
-              <Typography variant="h6" sx={{ color: "text.secondary", fontWeight: 400, mb: 3 }}>
+              <Typography
+                variant="h6"
+                sx={{ color: "text.secondary", fontWeight: 400, mb: 3 }}
+              >
                 KLS Series
               </Typography>
 
-              <Typography variant="body1" sx={{ color: "text.secondary", mb: 3, lineHeight: 1.8 }}>
-                The KLS series detects fully open/closed valve position and transmits it to the
-                control system — a critical component in process safety loops. IECEx and KCs
-                explosion-proof certified, IP67/IP68 rated, with mechanical SPDT and proximity
-                switch options in aluminium or stainless steel housings.
+              <Typography
+                variant="body1"
+                sx={{ color: "text.secondary", mb: 3, lineHeight: 1.8 }}
+              >
+                The KLS series detects fully open/closed valve position and
+                transmits it to the control system — a critical component in
+                process safety loops. IECEx and KCs explosion-proof certified,
+                IP67/IP68 rated, with mechanical SPDT and proximity switch
+                options in aluminium or stainless steel housings.
               </Typography>
 
               <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mb: 4 }}>
@@ -145,7 +240,14 @@ export default function KLSPage() {
                 ))}
               </Box>
 
-              <Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2, mb: 4 }}>
+              <Box
+                sx={{
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr",
+                  gap: 2,
+                  mb: 4,
+                }}
+              >
                 {[
                   { label: "Protection", value: "IP67 / IP68" },
                   { label: "Certification", value: "IECEx / KCs" },
@@ -153,7 +255,14 @@ export default function KLSPage() {
                   { label: "Temperature", value: "-40°C to +60°C" },
                 ].map(({ label, value }) => (
                   <Box key={label}>
-                    <Typography variant="caption" sx={{ color: "text.secondary", textTransform: "uppercase", letterSpacing: 1 }}>
+                    <Typography
+                      variant="caption"
+                      sx={{
+                        color: "text.secondary",
+                        textTransform: "uppercase",
+                        letterSpacing: 1,
+                      }}
+                    >
                       {label}
                     </Typography>
                     <Typography variant="body1" sx={{ fontWeight: 700 }}>
@@ -177,7 +286,11 @@ export default function KLSPage() {
                     boxShadow: "none",
                     borderColor: "#1c2e1a",
                     color: "#1c2e1a",
-                    "&:hover": { borderColor: "primary.main", color: "primary.main", boxShadow: "none" },
+                    "&:hover": {
+                      borderColor: "primary.main",
+                      color: "primary.main",
+                      boxShadow: "none",
+                    },
                   }}
                 >
                   All Limit Switches
@@ -217,8 +330,18 @@ export default function KLSPage() {
           <Grid container spacing={2}>
             {TECH_SPECS.map(({ label, value }) => (
               <Grid size={{ xs: 12, sm: 6, md: 4 }} key={label}>
-                <Paper variant="outlined" sx={{ p: 3, borderRadius: 2, height: "100%" }}>
-                  <Typography variant="caption" sx={{ color: "text.secondary", textTransform: "uppercase", letterSpacing: 1.5 }}>
+                <Paper
+                  variant="outlined"
+                  sx={{ p: 3, borderRadius: 2, height: "100%" }}
+                >
+                  <Typography
+                    variant="caption"
+                    sx={{
+                      color: "text.secondary",
+                      textTransform: "uppercase",
+                      letterSpacing: 1.5,
+                    }}
+                  >
                     {label}
                   </Typography>
                   <Typography variant="body1" sx={{ fontWeight: 700, mt: 0.5 }}>
@@ -242,7 +365,16 @@ export default function KLSPage() {
           <Grid container spacing={3}>
             {FEATURES.map(({ letter, title, body }) => (
               <Grid size={{ xs: 12, sm: 6, md: 4 }} key={letter}>
-                <Paper variant="outlined" sx={{ p: 3, borderRadius: 2, height: "100%", display: "flex", gap: 2 }}>
+                <Paper
+                  variant="outlined"
+                  sx={{
+                    p: 3,
+                    borderRadius: 2,
+                    height: "100%",
+                    display: "flex",
+                    gap: 2,
+                  }}
+                >
                   <Box
                     sx={{
                       flexShrink: 0,
@@ -261,10 +393,16 @@ export default function KLSPage() {
                     {letter}
                   </Box>
                   <Box>
-                    <Typography variant="body2" sx={{ fontWeight: 700, mb: 0.5 }}>
+                    <Typography
+                      variant="body2"
+                      sx={{ fontWeight: 700, mb: 0.5 }}
+                    >
                       {title}
                     </Typography>
-                    <Typography variant="body2" sx={{ color: "text.secondary", lineHeight: 1.6 }}>
+                    <Typography
+                      variant="body2"
+                      sx={{ color: "text.secondary", lineHeight: 1.6 }}
+                    >
                       {body}
                     </Typography>
                   </Box>

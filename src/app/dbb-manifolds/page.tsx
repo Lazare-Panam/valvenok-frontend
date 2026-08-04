@@ -172,7 +172,6 @@ export default function InstrumentationIndexPage() {
       </Box>
 
       <Container maxWidth="lg" sx={{ py: { xs: 8, md: 12 } }}>
-
         {/* ── DBB ── */}
         <Box id="range">
           <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
@@ -189,7 +188,7 @@ export default function InstrumentationIndexPage() {
                 Primary Instrument Isolation
               </Typography>
               <Typography
-                variant="h3"
+                variant="h1"
                 component="a"
                 href="/dbb-manifolds/double-block-and-bleed-valves"
                 sx={{
@@ -309,7 +308,7 @@ export default function InstrumentationIndexPage() {
               Instrument Isolation & Equalising
             </Typography>
             <Typography
-              variant="h3"
+              variant="h1"
               component="a"
               href="/dbb-manifolds/manifolds"
               sx={{
@@ -392,7 +391,7 @@ export default function InstrumentationIndexPage() {
         {/* ── CTA ── */}
         <Box sx={{ textAlign: "center", py: 6 }}>
           <Typography
-            variant="h3"
+            variant="h1"
             sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mb: 2 }}
           >
             Specify your instrumentation valve

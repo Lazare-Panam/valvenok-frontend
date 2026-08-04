@@ -280,7 +280,7 @@ export default function ManifoldsIndexPage() {
                 2-Valve
               </Typography>
               <Typography
-                variant="h3"
+                variant="h1"
                 component="a"
                 href="/dbb-manifolds/manifolds/2VM"
                 sx={{
@@ -400,7 +400,7 @@ export default function ManifoldsIndexPage() {
               3-Valve
             </Typography>
             <Typography
-              variant="h3"
+              variant="h1"
               component="a"
               href="/dbb-manifolds/manifolds/3VM"
               sx={{
@@ -496,7 +496,7 @@ export default function ManifoldsIndexPage() {
               5-Valve
             </Typography>
             <Typography
-              variant="h3"
+              variant="h1"
               component="a"
               href="/dbb-manifolds/manifolds/5VM"
               sx={{
@@ -588,7 +588,7 @@ export default function ManifoldsIndexPage() {
         {/* ── APPLICATIONS ── */}
         <Box sx={{ mb: 10 }}>
           <Typography
-            variant="h3"
+            variant="h1"
             sx={{ fontSize: { xs: 24, md: 30 }, fontWeight: 700, mb: 2 }}
           >
             Valve Manifold Applications
@@ -645,7 +645,7 @@ export default function ManifoldsIndexPage() {
         {/* ── CTA ── */}
         <Box sx={{ textAlign: "center", py: 6 }}>
           <Typography
-            variant="h3"
+            variant="h1"
             sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mb: 2 }}
           >
             Specify your valve manifold

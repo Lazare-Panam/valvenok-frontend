@@ -207,7 +207,7 @@ export default function TripleOffsetButterflyValvePage() {
                 Butterfly Valves / Triple Offset
               </Typography>
               <Typography
-                variant="h3"
+                variant="h1"
                 sx={{ fontWeight: 800, mt: 1, mb: 1, lineHeight: 1.2 }}
               >
                 VF-8A Series

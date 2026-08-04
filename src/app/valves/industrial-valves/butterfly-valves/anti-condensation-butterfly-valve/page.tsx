@@ -219,7 +219,7 @@ export default function AntiCondensationButterflyValvePage() {
                 Butterfly Valves / Anti-Condensation
               </Typography>
               <Typography
-                variant="h3"
+                variant="h1"
                 sx={{ fontWeight: 800, mt: 1, mb: 1, lineHeight: 1.2 }}
               >
                 VF-9A Series

@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -80,7 +79,13 @@ export default function WaterMeterPage() {
   return (
     <>
       {/* Hero */}
-      <Box sx={{ bgcolor: "background.default", pt: { xs: 6, md: 10 }, pb: { xs: 6, md: 8 } }}>
+      <Box
+        sx={{
+          bgcolor: "background.default",
+          pt: { xs: 6, md: 10 },
+          pb: { xs: 6, md: 8 },
+        }}
+      >
         <Container maxWidth="lg">
           <Grid container spacing={6} alignItems="center">
             <Grid size={{ xs: 12, md: 6 }}>
@@ -99,7 +104,12 @@ export default function WaterMeterPage() {
                   component="img"
                   src="https://pblol2.blob.core.windows.net/valvenok-images/products/water-meter/mj-cold.webp"
                   alt="Multi-Jet Cold Water Meter"
-                  sx={{ width: "100%", height: "100%", objectFit: "contain", p: 3 }}
+                  sx={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "contain",
+                    p: 3,
+                  }}
                 />
               </Box>
             </Grid>
@@ -107,23 +117,37 @@ export default function WaterMeterPage() {
             <Grid size={{ xs: 12, md: 6 }}>
               <Typography
                 variant="overline"
-                sx={{ color: "primary.main", fontWeight: 700, letterSpacing: 2 }}
+                sx={{
+                  color: "primary.main",
+                  fontWeight: 700,
+                  letterSpacing: 2,
+                }}
               >
                 Water Meters / Multi-Jet
               </Typography>
 
-              <Typography variant="h3" sx={{ fontWeight: 800, mt: 1, mb: 1, lineHeight: 1.2 }}>
+              <Typography
+                variant="h1"
+                sx={{ fontWeight: 800, mt: 1, mb: 1, lineHeight: 1.2 }}
+              >
                 Multi-Jet Water Meter
               </Typography>
-              <Typography variant="h6" sx={{ color: "text.secondary", fontWeight: 400, mb: 3 }}>
+              <Typography
+                variant="h6"
+                sx={{ color: "text.secondary", fontWeight: 400, mb: 3 }}
+              >
                 UPC-MJTC-112 — Brass Body, Thread End
               </Typography>
 
-              <Typography variant="body1" sx={{ color: "text.secondary", mb: 3, lineHeight: 1.8 }}>
-                ISO 4064 and ISI compliant multi-jet cold water meter with brass body and thread end
-                connections. Designed for low pressure loss, lower transmission resistance and long
-                working life. Available in sizes 15mm to 50mm, rated to 1.6 MPa Class B. 15mm size
-                is ISI marked.
+              <Typography
+                variant="body1"
+                sx={{ color: "text.secondary", mb: 3, lineHeight: 1.8 }}
+              >
+                ISO 4064 and ISI compliant multi-jet cold water meter with brass
+                body and thread end connections. Designed for low pressure loss,
+                lower transmission resistance and long working life. Available
+                in sizes 15mm to 50mm, rated to 1.6 MPa Class B. 15mm size is
+                ISI marked.
               </Typography>
 
               <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mb: 4 }}>
@@ -142,7 +166,14 @@ export default function WaterMeterPage() {
                 ))}
               </Box>
 
-              <Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2, mb: 4 }}>
+              <Box
+                sx={{
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr",
+                  gap: 2,
+                  mb: 4,
+                }}
+              >
                 {[
                   { label: "Model", value: "UPC-MJTC-112" },
                   { label: "Size Range", value: "15mm – 50mm" },
@@ -152,7 +183,11 @@ export default function WaterMeterPage() {
                   <Box key={label}>
                     <Typography
                       variant="caption"
-                      sx={{ color: "text.secondary", textTransform: "uppercase", letterSpacing: 1 }}
+                      sx={{
+                        color: "text.secondary",
+                        textTransform: "uppercase",
+                        letterSpacing: 1,
+                      }}
                     >
                       {label}
                     </Typography>
@@ -177,7 +212,11 @@ export default function WaterMeterPage() {
                     boxShadow: "none",
                     borderColor: "#1c2e1a",
                     color: "#1c2e1a",
-                    "&:hover": { borderColor: "primary.main", color: "primary.main", boxShadow: "none" },
+                    "&:hover": {
+                      borderColor: "primary.main",
+                      color: "primary.main",
+                      boxShadow: "none",
+                    },
                   }}
                 >
                   View Products
@@ -217,10 +256,17 @@ export default function WaterMeterPage() {
           <Grid container spacing={2}>
             {TECH_SPECS.map(({ label, value }) => (
               <Grid size={{ xs: 12, sm: 6, md: 4 }} key={label}>
-                <Paper variant="outlined" sx={{ p: 3, borderRadius: 2, height: "100%" }}>
+                <Paper
+                  variant="outlined"
+                  sx={{ p: 3, borderRadius: 2, height: "100%" }}
+                >
                   <Typography
                     variant="caption"
-                    sx={{ color: "text.secondary", textTransform: "uppercase", letterSpacing: 1.5 }}
+                    sx={{
+                      color: "text.secondary",
+                      textTransform: "uppercase",
+                      letterSpacing: 1.5,
+                    }}
                   >
                     {label}
                   </Typography>
@@ -247,7 +293,13 @@ export default function WaterMeterPage() {
               <Grid size={{ xs: 12, sm: 6, md: 4 }} key={letter}>
                 <Paper
                   variant="outlined"
-                  sx={{ p: 3, borderRadius: 2, height: "100%", display: "flex", gap: 2 }}
+                  sx={{
+                    p: 3,
+                    borderRadius: 2,
+                    height: "100%",
+                    display: "flex",
+                    gap: 2,
+                  }}
                 >
                   <Box
                     sx={{
@@ -267,10 +319,16 @@ export default function WaterMeterPage() {
                     {letter}
                   </Box>
                   <Box>
-                    <Typography variant="body2" sx={{ fontWeight: 700, mb: 0.5 }}>
+                    <Typography
+                      variant="body2"
+                      sx={{ fontWeight: 700, mb: 0.5 }}
+                    >
                       {title}
                     </Typography>
-                    <Typography variant="body2" sx={{ color: "text.secondary", lineHeight: 1.6 }}>
+                    <Typography
+                      variant="body2"
+                      sx={{ color: "text.secondary", lineHeight: 1.6 }}
+                    >
                       {body}
                     </Typography>
                   </Box>
@@ -289,7 +347,10 @@ export default function WaterMeterPage() {
           <Box
             sx={{
               display: "grid",
-              gridTemplateColumns: { xs: "repeat(2, 1fr)", md: "repeat(5, 1fr)" },
+              gridTemplateColumns: {
+                xs: "repeat(2, 1fr)",
+                md: "repeat(5, 1fr)",
+              },
               gap: 3,
             }}
           >
@@ -303,7 +364,11 @@ export default function WaterMeterPage() {
                 </Typography>
                 <Typography
                   variant="caption"
-                  sx={{ color: "rgba(255,255,255,0.6)", textTransform: "uppercase", letterSpacing: 1 }}
+                  sx={{
+                    color: "rgba(255,255,255,0.6)",
+                    textTransform: "uppercase",
+                    letterSpacing: 1,
+                  }}
                 >
                   {label}
                 </Typography>

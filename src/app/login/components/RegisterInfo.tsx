@@ -1,10 +1,18 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { Box, Typography, List, ListItem, ListItemIcon, ListItemText, Button } from '@mui/material';
+import React from "react";
+import {
+  Box,
+  Typography,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Button,
+} from "@mui/material";
 import SquareIcon from "@mui/icons-material/Square";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
 export default function RegisterInfo() {
   const router = useRouter();
@@ -14,16 +22,26 @@ export default function RegisterInfo() {
     "Direct access to technical CAD data",
     "Streamlined project management tools",
     "Priority engineering network access",
-
   ];
 
   return (
-    <Box sx={{ width: '100%' }}>
-      <Typography variant="h3" sx={{ color: '#61D649', fontWeight: 900, mb: 2, textTransform: 'uppercase' }}>
+    <Box sx={{ width: "100%" }}>
+      <Typography
+        variant="h1"
+        sx={{
+          color: "#61D649",
+          fontWeight: 900,
+          mb: 2,
+          textTransform: "uppercase",
+        }}
+      >
         New Customer
       </Typography>
-      
-      <Typography variant="body1" sx={{ color: '#4a6b45', fontSize: "1.1rem", mb: 4 }}>
+
+      <Typography
+        variant="body1"
+        sx={{ color: "#4a6b45", fontSize: "1.1rem", mb: 4 }}
+      >
         Join the Valvenok ecosystem for industrial excellence:
       </Typography>
 
@@ -31,11 +49,17 @@ export default function RegisterInfo() {
         {benefits.map((text, index) => (
           <ListItem key={index} sx={{ alignItems: "flex-start", px: 0, py: 1 }}>
             <ListItemIcon sx={{ minWidth: "28px", mt: 1 }}>
-              <SquareIcon sx={{ fontSize: 8, color: '#61D649' }} />
+              <SquareIcon sx={{ fontSize: 8, color: "#61D649" }} />
             </ListItemIcon>
             <ListItemText
               primary={
-                <Typography sx={{ color: '#1c2e1a', fontSize: "1.05rem", fontWeight: 500 }}>
+                <Typography
+                  sx={{
+                    color: "#1c2e1a",
+                    fontSize: "1.05rem",
+                    fontWeight: 500,
+                  }}
+                >
                   {text}
                 </Typography>
               }
@@ -49,10 +73,15 @@ export default function RegisterInfo() {
         endIcon={<ChevronRightIcon />}
         onClick={() => router.push("/register")}
         sx={{
-          backgroundColor: 'primary.main',
-          color: '#fff',
-          "&:hover": { backgroundColor: 'primary.dark' },
-          py: 2, px: 6, fontWeight: 800, borderRadius: 0, boxShadow: "none", letterSpacing: 2
+          backgroundColor: "primary.main",
+          color: "#fff",
+          "&:hover": { backgroundColor: "primary.dark" },
+          py: 2,
+          px: 6,
+          fontWeight: 800,
+          borderRadius: 0,
+          boxShadow: "none",
+          letterSpacing: 2,
         }}
       >
         CREATE ACCOUNT

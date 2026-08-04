@@ -218,7 +218,7 @@ export default function PumpsAndSealsPage() {
               Fluid Transfer
             </Typography>
             <Typography
-              variant="h3"
+              variant="h1"
               component="a"
               href="/pumps-seals/pumps"
               sx={{
@@ -302,7 +302,7 @@ export default function PumpsAndSealsPage() {
               Containment & Safety
             </Typography>
             <Typography
-              variant="h3"
+              variant="h1"
               component="a"
               href="/pumps-seals/seals"
               sx={{
@@ -334,7 +334,7 @@ export default function PumpsAndSealsPage() {
         {/* Industries Served */}
         <Box sx={{ mb: 10 }}>
           <Typography
-            variant="h3"
+            variant="h1"
             sx={{ fontSize: { xs: 24, md: 30 }, fontWeight: 700, mb: 4 }}
           >
             Industries & Applications
@@ -385,7 +385,7 @@ export default function PumpsAndSealsPage() {
           }}
         >
           <Typography
-            variant="h3"
+            variant="h1"
             sx={{ fontSize: { xs: 26, md: 36 }, fontWeight: 800, mb: 2 }}
           >
             Fluid Problems? Engineered Solutions.

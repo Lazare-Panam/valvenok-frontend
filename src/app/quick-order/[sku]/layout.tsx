@@ -23,18 +23,29 @@ export async function generateMetadata({
     : `${content.metaTitle} (${sku})`;
 
   const fullTitle = `${title} | Valvenok`;
+  const canonicalUrl = `https://www.valvenok.com/quick-order/${sku}`;
+  const image = product.cloudinaryId
+    ? [product.cloudinaryId]
+    : "https://pblol2.blob.core.windows.net/valvenok-images/logo/Valvenok_logo.jpeg";
 
   return {
     title: fullTitle,
     description: content.metaDescription,
     alternates: {
-      canonical: `https://www.valvenok.com/quick-order/${sku}`,
+      canonical: canonicalUrl,
     },
     openGraph: {
       title: fullTitle,
       description: content.metaDescription,
-      url: `https://www.valvenok.com/quick-order/${sku}`,
+      url: canonicalUrl,
       type: "website",
+      images: image,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: fullTitle,
+      description: content.metaDescription,
+      images: image,
     },
   };
 }

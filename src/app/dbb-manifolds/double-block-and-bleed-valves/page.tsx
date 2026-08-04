@@ -286,7 +286,7 @@ export default function DBBIndexPage() {
                 Connection Types 1 &amp; 3
               </Typography>
               <Typography
-                variant="h3"
+                variant="h1"
                 component="a"
                 href="/dbb-manifolds/double-block-and-bleed-valves/flange-to-pipe"
                 sx={{
@@ -406,7 +406,7 @@ export default function DBBIndexPage() {
               Connection Types 2 &amp; 4
             </Typography>
             <Typography
-              variant="h3"
+              variant="h1"
               component="a"
               href="/dbb-manifolds/double-block-and-bleed-valves/flange-to-flange"
               sx={{
@@ -501,7 +501,7 @@ export default function DBBIndexPage() {
               Connection Type 6
             </Typography>
             <Typography
-              variant="h3"
+              variant="h1"
               component="a"
               href="/dbb-manifolds/double-block-and-bleed-valves/pipe-to-pipe"
               sx={{
@@ -594,7 +594,7 @@ export default function DBBIndexPage() {
         {/* ── APPLICATIONS ── */}
         <Box sx={{ mb: 10 }}>
           <Typography
-            variant="h3"
+            variant="h1"
             sx={{ fontSize: { xs: 24, md: 30 }, fontWeight: 700, mb: 2 }}
           >
             DBB Valve Applications
@@ -651,7 +651,7 @@ export default function DBBIndexPage() {
         {/* ── CTA ── */}
         <Box sx={{ textAlign: "center", py: 6 }}>
           <Typography
-            variant="h3"
+            variant="h1"
             sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mb: 2 }}
           >
             Specify your DBB valve

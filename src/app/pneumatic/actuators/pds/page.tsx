@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState } from "react";
 import type { Metadata } from "next";
@@ -21,8 +21,10 @@ const PDS_PRODUCT: ProductForRFQ = {
   category: "Pneumatic Actuators",
   categoryId: "pneumatic-actuators",
   subCategory: "Scotch Yoke",
-  thumbnail: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/pneumatic/pdf.webp",
-  description: "Scotch-Yoke pneumatic actuators engineered for superior break-out torque. Double acting and spring return, 10–4000 Nm, ATEX certified, SIL3 capable.",
+  thumbnail:
+    "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/pneumatic/pdf.webp",
+  description:
+    "Scotch-Yoke pneumatic actuators engineered for superior break-out torque. Double acting and spring return, 10–4000 Nm, ATEX certified, SIL3 capable.",
   keySpecs: [
     { label: "Torque", value: "10 – 4,000 Nm" },
     { label: "Pressure", value: "2 – 8 bar" },
@@ -51,17 +53,61 @@ const TECH_SPECS = [
 ];
 
 const FEATURES = [
-  { letter: "A", title: "Compact Design", body: "Double acting and single acting spring return configurations in a compact form factor." },
-  { letter: "B", title: "Scotch-Yoke Technology", body: "Higher torque at end positions for heavy-duty valve and damper automation." },
-  { letter: "C", title: "Spring Modules", body: "Multiple interchangeable spring modules for varied torque output and fail-safe requirements." },
-  { letter: "D", title: "Mounting Standards", body: "ISO 5211, DIN 3337, NAMUR and VDI/VDE 3845 compliant." },
-  { letter: "E", title: "Pre-Compressed Springs", body: "Pre-compressed at assembly for safe, controlled handling and installation." },
-  { letter: "F", title: "Certifications", body: "ATEX 2014/34/EU certified. SIL3 capable as a standalone device." },
-  { letter: "G", title: "Anodized Aluminum Body", body: "Hard-anodized aluminum for superior corrosion resistance and durability." },
-  { letter: "H", title: "Durability", body: "Rated for over 1 million cycles under harsh industrial conditions." },
-  { letter: "I", title: "Low Air Consumption", body: "Efficient pneumatic design reduces compressed air usage and operating costs." },
-  { letter: "J", title: "Accessory Ready", body: "Mounting provisions for solenoid valves, limit switches, and positioners." },
-  { letter: "K", title: "Customizable Drive Shaft", body: "Drive shaft shapes and sizes configurable for multiple valve stem types." },
+  {
+    letter: "A",
+    title: "Compact Design",
+    body: "Double acting and single acting spring return configurations in a compact form factor.",
+  },
+  {
+    letter: "B",
+    title: "Scotch-Yoke Technology",
+    body: "Higher torque at end positions for heavy-duty valve and damper automation.",
+  },
+  {
+    letter: "C",
+    title: "Spring Modules",
+    body: "Multiple interchangeable spring modules for varied torque output and fail-safe requirements.",
+  },
+  {
+    letter: "D",
+    title: "Mounting Standards",
+    body: "ISO 5211, DIN 3337, NAMUR and VDI/VDE 3845 compliant.",
+  },
+  {
+    letter: "E",
+    title: "Pre-Compressed Springs",
+    body: "Pre-compressed at assembly for safe, controlled handling and installation.",
+  },
+  {
+    letter: "F",
+    title: "Certifications",
+    body: "ATEX 2014/34/EU certified. SIL3 capable as a standalone device.",
+  },
+  {
+    letter: "G",
+    title: "Anodized Aluminum Body",
+    body: "Hard-anodized aluminum for superior corrosion resistance and durability.",
+  },
+  {
+    letter: "H",
+    title: "Durability",
+    body: "Rated for over 1 million cycles under harsh industrial conditions.",
+  },
+  {
+    letter: "I",
+    title: "Low Air Consumption",
+    body: "Efficient pneumatic design reduces compressed air usage and operating costs.",
+  },
+  {
+    letter: "J",
+    title: "Accessory Ready",
+    body: "Mounting provisions for solenoid valves, limit switches, and positioners.",
+  },
+  {
+    letter: "K",
+    title: "Customizable Drive Shaft",
+    body: "Drive shaft shapes and sizes configurable for multiple valve stem types.",
+  },
 ];
 
 const TRUST_POINTS = [
@@ -72,7 +118,14 @@ const TRUST_POINTS = [
   { value: "1M+ Cycles", label: "Service Life" },
 ];
 
-const CERTIFICATIONS = ["ATEX 2014/34/EU", "SIL3", "CE", "IP66/67", "ISO 5211", "NAMUR"];
+const CERTIFICATIONS = [
+  "ATEX 2014/34/EU",
+  "SIL3",
+  "CE",
+  "IP66/67",
+  "ISO 5211",
+  "NAMUR",
+];
 
 export default function PDSPage() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -80,7 +133,13 @@ export default function PDSPage() {
   return (
     <>
       {/* ── Product Hero ── */}
-      <Box sx={{ bgcolor: "background.default", pt: { xs: 6, md: 10 }, pb: { xs: 6, md: 8 } }}>
+      <Box
+        sx={{
+          bgcolor: "background.default",
+          pt: { xs: 6, md: 10 },
+          pb: { xs: 6, md: 8 },
+        }}
+      >
         <Container maxWidth="lg">
           <Grid container spacing={6} alignItems="center">
             {/* Image */}
@@ -100,28 +159,51 @@ export default function PDSPage() {
                   component="img"
                   src="https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/pneumatic/pdf.webp"
                   alt="PDS Series Scotch Yoke Pneumatic Actuator"
-                  sx={{ width: "100%", height: "100%", objectFit: "contain", p: 3 }}
+                  sx={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "contain",
+                    p: 3,
+                  }}
                 />
               </Box>
             </Grid>
 
             {/* Details */}
             <Grid size={{ xs: 12, md: 6 }}>
-              <Typography variant="overline" sx={{ color: "primary.main", fontWeight: 700, letterSpacing: 2 }}>
+              <Typography
+                variant="overline"
+                sx={{
+                  color: "primary.main",
+                  fontWeight: 700,
+                  letterSpacing: 2,
+                }}
+              >
                 Pneumatic Actuators / PDS Series
               </Typography>
 
-              <Typography variant="h3" sx={{ fontWeight: 800, mt: 1, mb: 1, lineHeight: 1.2 }}>
+              <Typography
+                variant="h1"
+                sx={{ fontWeight: 800, mt: 1, mb: 1, lineHeight: 1.2 }}
+              >
                 PDS Series
               </Typography>
-              <Typography variant="h6" sx={{ color: "text.secondary", fontWeight: 400, mb: 3 }}>
+              <Typography
+                variant="h6"
+                sx={{ color: "text.secondary", fontWeight: 400, mb: 3 }}
+              >
                 Scotch Yoke Pneumatic Rotary Actuator
               </Typography>
 
-              <Typography variant="body1" sx={{ color: "text.secondary", mb: 3, lineHeight: 1.8 }}>
-                Advanced Scotch-Yoke technology delivering superior break-out torque for precise valve
-                and damper control in the most demanding environments. Available in double acting (PD)
-                and spring return (PS) configurations — torque outputs up to 4,000 Nm.
+              <Typography
+                variant="body1"
+                sx={{ color: "text.secondary", mb: 3, lineHeight: 1.8 }}
+              >
+                Advanced Scotch-Yoke technology delivering superior break-out
+                torque for precise valve and damper control in the most
+                demanding environments. Available in double acting (PD) and
+                spring return (PS) configurations — torque outputs up to 4,000
+                Nm.
               </Typography>
 
               <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mb: 4 }}>
@@ -140,7 +222,14 @@ export default function PDSPage() {
                 ))}
               </Box>
 
-              <Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2, mb: 4 }}>
+              <Box
+                sx={{
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr",
+                  gap: 2,
+                  mb: 4,
+                }}
+              >
                 {[
                   { label: "Torque", value: "10 – 4,000 Nm" },
                   { label: "Pressure", value: "2 – 8 bar" },
@@ -148,7 +237,14 @@ export default function PDSPage() {
                   { label: "Cycle Life", value: "≥ 1M cycles" },
                 ].map(({ label, value }) => (
                   <Box key={label}>
-                    <Typography variant="caption" sx={{ color: "text.secondary", textTransform: "uppercase", letterSpacing: 1 }}>
+                    <Typography
+                      variant="caption"
+                      sx={{
+                        color: "text.secondary",
+                        textTransform: "uppercase",
+                        letterSpacing: 1,
+                      }}
+                    >
                       {label}
                     </Typography>
                     <Typography variant="body1" sx={{ fontWeight: 700 }}>
@@ -159,45 +255,49 @@ export default function PDSPage() {
               </Box>
 
               {/* RFQ Button */}
-              <Box sx={{ display: 'flex', gap: 2 }}>
-  <Button
-    variant="outlined"
-    size="large"
-    fullWidth
-    href="/pneumatic/actuators/pds/products"
-    onClick={e => e.stopPropagation()}
-    sx={{
-      borderRadius: 0,
-      fontWeight: 800,
-      py: 1.75,
-      fontSize: "1rem",
-      boxShadow: "none",
-      borderColor: "#1c2e1a",
-      color: "#1c2e1a",
-      "&:hover": { borderColor: "primary.main", color: "primary.main", boxShadow: "none" },
-    }}
-  >
-    View Product
-  </Button>
-  <Button
-    variant="contained"
-    size="large"
-    fullWidth
-    startIcon={<ContactSupportIcon />}
-    onClick={() => setModalOpen(true)}
-    sx={{
-      borderRadius: 0,
-      fontWeight: 800,
-      py: 1.75,
-      fontSize: "1rem",
-      boxShadow: "none",
-      bgcolor: "#1c2e1a",
-      "&:hover": { bgcolor: "primary.main", boxShadow: "none" },
-    }}
-  >
-    Request a Quote / Lead Time
-  </Button>
-</Box>
+              <Box sx={{ display: "flex", gap: 2 }}>
+                <Button
+                  variant="outlined"
+                  size="large"
+                  fullWidth
+                  href="/pneumatic/actuators/pds/products"
+                  onClick={(e) => e.stopPropagation()}
+                  sx={{
+                    borderRadius: 0,
+                    fontWeight: 800,
+                    py: 1.75,
+                    fontSize: "1rem",
+                    boxShadow: "none",
+                    borderColor: "#1c2e1a",
+                    color: "#1c2e1a",
+                    "&:hover": {
+                      borderColor: "primary.main",
+                      color: "primary.main",
+                      boxShadow: "none",
+                    },
+                  }}
+                >
+                  View Product
+                </Button>
+                <Button
+                  variant="contained"
+                  size="large"
+                  fullWidth
+                  startIcon={<ContactSupportIcon />}
+                  onClick={() => setModalOpen(true)}
+                  sx={{
+                    borderRadius: 0,
+                    fontWeight: 800,
+                    py: 1.75,
+                    fontSize: "1rem",
+                    boxShadow: "none",
+                    bgcolor: "#1c2e1a",
+                    "&:hover": { bgcolor: "primary.main", boxShadow: "none" },
+                  }}
+                >
+                  Request a Quote / Lead Time
+                </Button>
+              </Box>
             </Grid>
           </Grid>
         </Container>
@@ -214,8 +314,18 @@ export default function PDSPage() {
           <Grid container spacing={2}>
             {TECH_SPECS.map(({ label, value }) => (
               <Grid size={{ xs: 12, sm: 6, md: 4 }} key={label}>
-                <Paper variant="outlined" sx={{ p: 3, borderRadius: 2, height: "100%" }}>
-                  <Typography variant="caption" sx={{ color: "text.secondary", textTransform: "uppercase", letterSpacing: 1.5 }}>
+                <Paper
+                  variant="outlined"
+                  sx={{ p: 3, borderRadius: 2, height: "100%" }}
+                >
+                  <Typography
+                    variant="caption"
+                    sx={{
+                      color: "text.secondary",
+                      textTransform: "uppercase",
+                      letterSpacing: 1.5,
+                    }}
+                  >
                     {label}
                   </Typography>
                   <Typography variant="body1" sx={{ fontWeight: 700, mt: 0.5 }}>
@@ -239,7 +349,16 @@ export default function PDSPage() {
           <Grid container spacing={3}>
             {FEATURES.map(({ letter, title, body }) => (
               <Grid size={{ xs: 12, sm: 6, md: 4 }} key={letter}>
-                <Paper variant="outlined" sx={{ p: 3, borderRadius: 2, height: "100%", display: "flex", gap: 2 }}>
+                <Paper
+                  variant="outlined"
+                  sx={{
+                    p: 3,
+                    borderRadius: 2,
+                    height: "100%",
+                    display: "flex",
+                    gap: 2,
+                  }}
+                >
                   <Box
                     sx={{
                       flexShrink: 0,
@@ -258,10 +377,16 @@ export default function PDSPage() {
                     {letter}
                   </Box>
                   <Box>
-                    <Typography variant="body2" sx={{ fontWeight: 700, mb: 0.5 }}>
+                    <Typography
+                      variant="body2"
+                      sx={{ fontWeight: 700, mb: 0.5 }}
+                    >
                       {title}
                     </Typography>
-                    <Typography variant="body2" sx={{ color: "text.secondary", lineHeight: 1.6 }}>
+                    <Typography
+                      variant="body2"
+                      sx={{ color: "text.secondary", lineHeight: 1.6 }}
+                    >
                       {body}
                     </Typography>
                   </Box>

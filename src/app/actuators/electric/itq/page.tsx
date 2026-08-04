@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState } from "react";
 import Box from "@mui/material/Box";
@@ -14,7 +14,6 @@ import TrustStrip from "../../../Common/Products_Page/TrustStrip";
 import RFQModal from "@/src/app/Common/RFQCard/RFQModal";
 import { ProductForRFQ } from "@/src/app/Common/RFQCard/RequestForQuoteCard";
 
-
 const ITQ_PRODUCT: ProductForRFQ = {
   id: "itq-series",
   name: "ITQ Series Rotary Electric Actuator",
@@ -22,8 +21,10 @@ const ITQ_PRODUCT: ProductForRFQ = {
   category: "Electric Actuators",
   categoryId: "electric-actuators",
   subCategory: "Rotary Electric",
-  thumbnail: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/itq.webp",
-  description: "High-performance rotary electric actuators, 100–9000 Nm, IP67/NEMA 4X, double worm self-locking gear, ISO 5211 mount.",
+  thumbnail:
+    "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/itq.webp",
+  description:
+    "High-performance rotary electric actuators, 100–9000 Nm, IP67/NEMA 4X, double worm self-locking gear, ISO 5211 mount.",
   keySpecs: [
     { label: "Torque", value: "100 – 9,000 Nm" },
     { label: "Protection", value: "IP67 / NEMA 4X & 6" },
@@ -38,14 +39,23 @@ const ITQ_PRODUCT: ProductForRFQ = {
 
 const TECH_SPECS = [
   { label: "Enclosure", value: "IP67, NEMA 4X & 6 — O-ring sealed" },
-  { label: "Main Power Supply", value: "110/220VAC/1Ph, 380/440VAC/3Ph ±10%, 24VDC" },
+  {
+    label: "Main Power Supply",
+    value: "110/220VAC/1Ph, 380/440VAC/3Ph ±10%, 24VDC",
+  },
   { label: "Control Power Supply", value: "110/220VAC/1Ph/50/60Hz ±10%" },
   { label: "Duty Cycle (On-Off)", value: "S2: 10–30 min" },
-  { label: "Duty Cycle (Modulating)", value: "S4, 30–50%, 300–1200 starts/hour" },
+  {
+    label: "Duty Cycle (Modulating)",
+    value: "S4, 30–50%, 300–1200 starts/hour",
+  },
   { label: "Motor", value: "Squirrel cage induction motor" },
   { label: "Limit Switches", value: "2× Open & Close (SPDT 250VAC/10A)" },
   { label: "Torque Switches", value: "1× Open & Close (SPDT 250VAC/10A)" },
-  { label: "Stall Protection", value: "Thermal — Open 150°C ±5°C, Close 97°C ±15°C" },
+  {
+    label: "Stall Protection",
+    value: "Thermal — Open 150°C ±5°C, Close 97°C ±15°C",
+  },
   { label: "Travel Angle", value: "90° ± 5° (0°–100°)" },
   { label: "Manual Override", value: "Auto-declutching handwheel" },
   { label: "Self Locking", value: "Double worm gearing (no brake required)" },
@@ -58,19 +68,71 @@ const TECH_SPECS = [
 ];
 
 const FEATURES = [
-  { letter: "A", title: "Compact & Robust Construction", body: "Compact lightweight design with robust construction delivering up to 9,000 Nm output torque." },
-  { letter: "B", title: "Wide Torque Range", body: "100 Nm to 9,000 Nm torque range to suit diverse valve automation requirements." },
-  { letter: "C", title: "Durable Housing", body: "Hard-anodized aluminum housing with epoxy powder coating for severe industrial environments." },
-  { letter: "D", title: "Superior Sealing", body: "Radial seals and O-rings provide IP67 waterproof protection (NEMA 4 & 6) as standard, optional IP68." },
-  { letter: "E", title: "ISO 5211 Mounting", body: "Mounting base per ISO 5211 standard for easy valve interface and installation." },
-  { letter: "F", title: "Precision Drive Bushing", body: "Removable drive bushing allows easy machining, mounting, and field maintenance." },
-  { letter: "G", title: "Self-Locking Gear", body: "Double worm gearing provides self-locking capability — no external brake required." },
-  { letter: "H", title: "Auto-Declutch Handwheel", body: "Auto-declutching manual override with pad-lockable auto/manual switch lever for safe operation." },
-  { letter: "I", title: "Mechanical Torque Protection", body: "Built-in mechanical torque sensing protects against overload conditions." },
-  { letter: "J", title: "Clear Position Indication", body: "Large window and continuous mechanical indicator provide clear valve position visibility." },
-  { letter: "K", title: "Flexible Local Control", body: "Multiple local position control options for easy commissioning and field operation." },
-  { letter: "L", title: "Digital Control Ready", body: "Supports digitalized control components for integration with modern automation systems." },
-  { letter: "M", title: "High-Efficiency Motor", body: "Induction motor with high starting torque, thermal protection and Class F insulation." },
+  {
+    letter: "A",
+    title: "Compact & Robust Construction",
+    body: "Compact lightweight design with robust construction delivering up to 9,000 Nm output torque.",
+  },
+  {
+    letter: "B",
+    title: "Wide Torque Range",
+    body: "100 Nm to 9,000 Nm torque range to suit diverse valve automation requirements.",
+  },
+  {
+    letter: "C",
+    title: "Durable Housing",
+    body: "Hard-anodized aluminum housing with epoxy powder coating for severe industrial environments.",
+  },
+  {
+    letter: "D",
+    title: "Superior Sealing",
+    body: "Radial seals and O-rings provide IP67 waterproof protection (NEMA 4 & 6) as standard, optional IP68.",
+  },
+  {
+    letter: "E",
+    title: "ISO 5211 Mounting",
+    body: "Mounting base per ISO 5211 standard for easy valve interface and installation.",
+  },
+  {
+    letter: "F",
+    title: "Precision Drive Bushing",
+    body: "Removable drive bushing allows easy machining, mounting, and field maintenance.",
+  },
+  {
+    letter: "G",
+    title: "Self-Locking Gear",
+    body: "Double worm gearing provides self-locking capability — no external brake required.",
+  },
+  {
+    letter: "H",
+    title: "Auto-Declutch Handwheel",
+    body: "Auto-declutching manual override with pad-lockable auto/manual switch lever for safe operation.",
+  },
+  {
+    letter: "I",
+    title: "Mechanical Torque Protection",
+    body: "Built-in mechanical torque sensing protects against overload conditions.",
+  },
+  {
+    letter: "J",
+    title: "Clear Position Indication",
+    body: "Large window and continuous mechanical indicator provide clear valve position visibility.",
+  },
+  {
+    letter: "K",
+    title: "Flexible Local Control",
+    body: "Multiple local position control options for easy commissioning and field operation.",
+  },
+  {
+    letter: "L",
+    title: "Digital Control Ready",
+    body: "Supports digitalized control components for integration with modern automation systems.",
+  },
+  {
+    letter: "M",
+    title: "High-Efficiency Motor",
+    body: "Induction motor with high starting torque, thermal protection and Class F insulation.",
+  },
 ];
 
 const TRUST_POINTS = [
@@ -81,7 +143,14 @@ const TRUST_POINTS = [
   { value: "Self-Locking", label: "Double Worm Gear" },
 ];
 
-const CERTIFICATIONS = ["IP67", "NEMA 4X", "NEMA 6", "ISO 5211", "Class F Insulation", "Optional IP68"];
+const CERTIFICATIONS = [
+  "IP67",
+  "NEMA 4X",
+  "NEMA 6",
+  "ISO 5211",
+  "Class F Insulation",
+  "Optional IP68",
+];
 
 export default function ITQPage() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -89,10 +158,15 @@ export default function ITQPage() {
   return (
     <>
       {/* ── Product Hero ── */}
-      <Box sx={{ bgcolor: "background.default", pt: { xs: 6, md: 10 }, pb: { xs: 6, md: 8 } }}>
+      <Box
+        sx={{
+          bgcolor: "background.default",
+          pt: { xs: 6, md: 10 },
+          pb: { xs: 6, md: 8 },
+        }}
+      >
         <Container maxWidth="lg">
           <Grid container spacing={6} alignItems="center">
-
             {/* Image */}
             <Grid size={{ xs: 12, md: 6 }}>
               <Box
@@ -110,29 +184,51 @@ export default function ITQPage() {
                   component="img"
                   src="https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/itq.webp"
                   alt="ITQ Series Rotary Electric Actuator"
-                  sx={{ width: "100%", height: "100%", objectFit: "contain", p: 3 }}
+                  sx={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "contain",
+                    p: 3,
+                  }}
                 />
               </Box>
             </Grid>
 
             {/* Details */}
             <Grid size={{ xs: 12, md: 6 }}>
-              <Typography variant="overline" sx={{ color: "primary.main", fontWeight: 700, letterSpacing: 2 }}>
+              <Typography
+                variant="overline"
+                sx={{
+                  color: "primary.main",
+                  fontWeight: 700,
+                  letterSpacing: 2,
+                }}
+              >
                 Electric Actuators / ITQ Series
               </Typography>
 
-              <Typography variant="h3" sx={{ fontWeight: 800, mt: 1, mb: 1, lineHeight: 1.2 }}>
+              <Typography
+                variant="h1"
+                sx={{ fontWeight: 800, mt: 1, mb: 1, lineHeight: 1.2 }}
+              >
                 ITQ Series
               </Typography>
-              <Typography variant="h6" sx={{ color: "text.secondary", fontWeight: 400, mb: 3 }}>
+              <Typography
+                variant="h6"
+                sx={{ color: "text.secondary", fontWeight: 400, mb: 3 }}
+              >
                 Rotary Electric Actuator
               </Typography>
 
-              <Typography variant="body1" sx={{ color: "text.secondary", mb: 3, lineHeight: 1.8 }}>
-                High-performance rotary electric actuators delivering 100–9,000 Nm for demanding
-                valve automation. Hard-anodized aluminum housing, IP67/NEMA 4X protection, double
-                worm self-locking gear and auto-declutching handwheel — built for reliable
-                operation across diverse industrial applications.
+              <Typography
+                variant="body1"
+                sx={{ color: "text.secondary", mb: 3, lineHeight: 1.8 }}
+              >
+                High-performance rotary electric actuators delivering 100–9,000
+                Nm for demanding valve automation. Hard-anodized aluminum
+                housing, IP67/NEMA 4X protection, double worm self-locking gear
+                and auto-declutching handwheel — built for reliable operation
+                across diverse industrial applications.
               </Typography>
 
               <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mb: 4 }}>
@@ -151,7 +247,14 @@ export default function ITQPage() {
                 ))}
               </Box>
 
-              <Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2, mb: 4 }}>
+              <Box
+                sx={{
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr",
+                  gap: 2,
+                  mb: 4,
+                }}
+              >
                 {[
                   { label: "Torque", value: "100 – 9,000 Nm" },
                   { label: "Protection", value: "IP67 / NEMA 4X" },
@@ -159,7 +262,14 @@ export default function ITQPage() {
                   { label: "Travel Angle", value: "90° ± 5°" },
                 ].map(({ label, value }) => (
                   <Box key={label}>
-                    <Typography variant="caption" sx={{ color: "text.secondary", textTransform: "uppercase", letterSpacing: 1 }}>
+                    <Typography
+                      variant="caption"
+                      sx={{
+                        color: "text.secondary",
+                        textTransform: "uppercase",
+                        letterSpacing: 1,
+                      }}
+                    >
                       {label}
                     </Typography>
                     <Typography variant="body1" sx={{ fontWeight: 700 }}>
@@ -203,8 +313,18 @@ export default function ITQPage() {
           <Grid container spacing={2}>
             {TECH_SPECS.map(({ label, value }) => (
               <Grid size={{ xs: 12, sm: 6, md: 4 }} key={label}>
-                <Paper variant="outlined" sx={{ p: 3, borderRadius: 2, height: "100%" }}>
-                  <Typography variant="caption" sx={{ color: "text.secondary", textTransform: "uppercase", letterSpacing: 1.5 }}>
+                <Paper
+                  variant="outlined"
+                  sx={{ p: 3, borderRadius: 2, height: "100%" }}
+                >
+                  <Typography
+                    variant="caption"
+                    sx={{
+                      color: "text.secondary",
+                      textTransform: "uppercase",
+                      letterSpacing: 1.5,
+                    }}
+                  >
                     {label}
                   </Typography>
                   <Typography variant="body1" sx={{ fontWeight: 700, mt: 0.5 }}>
@@ -228,7 +348,16 @@ export default function ITQPage() {
           <Grid container spacing={3}>
             {FEATURES.map(({ letter, title, body }) => (
               <Grid size={{ xs: 12, sm: 6, md: 4 }} key={letter}>
-                <Paper variant="outlined" sx={{ p: 3, borderRadius: 2, height: "100%", display: "flex", gap: 2 }}>
+                <Paper
+                  variant="outlined"
+                  sx={{
+                    p: 3,
+                    borderRadius: 2,
+                    height: "100%",
+                    display: "flex",
+                    gap: 2,
+                  }}
+                >
                   <Box
                     sx={{
                       flexShrink: 0,
@@ -247,10 +376,16 @@ export default function ITQPage() {
                     {letter}
                   </Box>
                   <Box>
-                    <Typography variant="body2" sx={{ fontWeight: 700, mb: 0.5 }}>
+                    <Typography
+                      variant="body2"
+                      sx={{ fontWeight: 700, mb: 0.5 }}
+                    >
                       {title}
                     </Typography>
-                    <Typography variant="body2" sx={{ color: "text.secondary", lineHeight: 1.6 }}>
+                    <Typography
+                      variant="body2"
+                      sx={{ color: "text.secondary", lineHeight: 1.6 }}
+                    >
                       {body}
                     </Typography>
                   </Box>

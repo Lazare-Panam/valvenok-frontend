@@ -191,7 +191,7 @@ export default function AWWAButterflyValvePage() {
                 Butterfly Valves / AWWA Double Flanged
               </Typography>
               <Typography
-                variant="h3"
+                variant="h1"
                 sx={{ fontWeight: 800, mt: 1, mb: 1, lineHeight: 1.2 }}
               >
                 VF-264 Series

@@ -60,8 +60,6 @@ export const GLOBE_VALVES: FeaturedValve[] = [
       { label: "Body Material", value: "Carbon & Alloy Steel" },
     ],
   },
-
-
 ];
 
 export const GLOBE_VALVE_RFQ: ProductForRFQ[] = GLOBE_VALVES.map((valve) => ({
@@ -291,7 +289,7 @@ export default function GlobeValveDetailPage() {
               </Box>
 
               <Typography
-                variant="h3"
+                variant="h1"
                 sx={{
                   fontFamily: '"Barlow Condensed"',
                   fontWeight: 100,

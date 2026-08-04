@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState } from "react";
 import Box from "@mui/material/Box";
@@ -21,8 +21,10 @@ const IQL_PRODUCT: ProductForRFQ = {
   category: "Electric Actuators",
   categoryId: "electric-actuators",
   subCategory: "Linear Electric",
-  thumbnail: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/iql.webp",
-  description: "Robust linear electric actuators for precise modulating control. 4–25 kN thrust, IP67, battery backup fail-safe, 4–20mA / 0–10V control.",
+  thumbnail:
+    "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/iql.webp",
+  description:
+    "Robust linear electric actuators for precise modulating control. 4–25 kN thrust, IP67, battery backup fail-safe, 4–20mA / 0–10V control.",
   keySpecs: [
     { label: "Thrust", value: "4 – 25 kN" },
     { label: "Stroke", value: "40 – 100 mm" },
@@ -52,23 +54,71 @@ const TECH_SPECS = [
   { label: "Manual Override", value: "Handwheel with declutchable lever" },
   { label: "Explosion Proof", value: "Ex d IIB T4 (available)" },
   { label: "Space Heater", value: "5W anti-condensation (110/220VAC)" },
-  { label: "Cable Entry", value: "2 × 3/4\" PF" },
+  { label: "Cable Entry", value: '2 × 3/4" PF' },
   { label: "Weight", value: "7 – 22 kg (model dependent)" },
 ];
 
 const FEATURES = [
-  { letter: "A", title: "Robust Construction", body: "Aluminium alloy housing with hard anodized treatment and epoxy powder coating for long-term durability." },
-  { letter: "B", title: "High Thrust Output", body: "4–25 kN thrust force for reliable control of globe valves, gate valves and linear motion applications." },
-  { letter: "C", title: "Precision Linear Positioning", body: "Smooth, accurate linear movement ensures stable modulating performance and precise valve positioning." },
-  { letter: "D", title: "Wide Power Supply Options", body: "Supports 24VDC, single-phase 110/220VAC, and three-phase 380/440VAC for flexible installation." },
-  { letter: "E", title: "Manual Override", body: "Handwheel with switchable declutchable lever for safe manual operation during maintenance or power failure." },
-  { letter: "F", title: "High Safety & Protection", body: "Built-in thermal protection with Class F insulation and IP67 enclosure for harsh environment operation." },
-  { letter: "G", title: "Local & Remote Control", body: "Supports local control units and remote analog signals including 4–20mA and voltage inputs." },
-  { letter: "H", title: "Advanced Feedback", body: "Optional potentiometer, current transformer and position feedback for precise closed-loop control." },
-  { letter: "I", title: "Flexible Duty Cycles", body: "Designed for S2 and S4 duty cycles — suitable for intermittent and modulating operation." },
-  { letter: "J", title: "Easy Installation", body: "Compact design with standardized mounting dimensions simplifies installation and maintenance." },
-  { letter: "K", title: "Fail-Safe Backup", body: "Optional battery backup with selectable open, close or stay-put position on power loss." },
-  { letter: "L", title: "Explosion-Proof Option", body: "Ex d IIB T4 configuration available for hazardous area and classified zone applications." },
+  {
+    letter: "A",
+    title: "Robust Construction",
+    body: "Aluminium alloy housing with hard anodized treatment and epoxy powder coating for long-term durability.",
+  },
+  {
+    letter: "B",
+    title: "High Thrust Output",
+    body: "4–25 kN thrust force for reliable control of globe valves, gate valves and linear motion applications.",
+  },
+  {
+    letter: "C",
+    title: "Precision Linear Positioning",
+    body: "Smooth, accurate linear movement ensures stable modulating performance and precise valve positioning.",
+  },
+  {
+    letter: "D",
+    title: "Wide Power Supply Options",
+    body: "Supports 24VDC, single-phase 110/220VAC, and three-phase 380/440VAC for flexible installation.",
+  },
+  {
+    letter: "E",
+    title: "Manual Override",
+    body: "Handwheel with switchable declutchable lever for safe manual operation during maintenance or power failure.",
+  },
+  {
+    letter: "F",
+    title: "High Safety & Protection",
+    body: "Built-in thermal protection with Class F insulation and IP67 enclosure for harsh environment operation.",
+  },
+  {
+    letter: "G",
+    title: "Local & Remote Control",
+    body: "Supports local control units and remote analog signals including 4–20mA and voltage inputs.",
+  },
+  {
+    letter: "H",
+    title: "Advanced Feedback",
+    body: "Optional potentiometer, current transformer and position feedback for precise closed-loop control.",
+  },
+  {
+    letter: "I",
+    title: "Flexible Duty Cycles",
+    body: "Designed for S2 and S4 duty cycles — suitable for intermittent and modulating operation.",
+  },
+  {
+    letter: "J",
+    title: "Easy Installation",
+    body: "Compact design with standardized mounting dimensions simplifies installation and maintenance.",
+  },
+  {
+    letter: "K",
+    title: "Fail-Safe Backup",
+    body: "Optional battery backup with selectable open, close or stay-put position on power loss.",
+  },
+  {
+    letter: "L",
+    title: "Explosion-Proof Option",
+    body: "Ex d IIB T4 configuration available for hazardous area and classified zone applications.",
+  },
 ];
 
 const TRUST_POINTS = [
@@ -79,7 +129,14 @@ const TRUST_POINTS = [
   { value: "4–20mA", label: "Modulating Control" },
 ];
 
-const CERTIFICATIONS = ["IP67", "IP68 Optional", "CE", "ISO 9001", "Ex d IIB T4", "Class F Insulation"];
+const CERTIFICATIONS = [
+  "IP67",
+  "IP68 Optional",
+  "CE",
+  "ISO 9001",
+  "Ex d IIB T4",
+  "Class F Insulation",
+];
 
 export default function IQLPage() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -87,10 +144,15 @@ export default function IQLPage() {
   return (
     <>
       {/* ── Product Hero ── */}
-      <Box sx={{ bgcolor: "background.default", pt: { xs: 6, md: 10 }, pb: { xs: 6, md: 8 } }}>
+      <Box
+        sx={{
+          bgcolor: "background.default",
+          pt: { xs: 6, md: 10 },
+          pb: { xs: 6, md: 8 },
+        }}
+      >
         <Container maxWidth="lg">
           <Grid container spacing={6} alignItems="center">
-
             {/* Image */}
             <Grid size={{ xs: 12, md: 6 }}>
               <Box
@@ -108,28 +170,50 @@ export default function IQLPage() {
                   component="img"
                   src="https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/iql.webp"
                   alt="IQL Series Linear Electric Actuator"
-                  sx={{ width: "100%", height: "100%", objectFit: "contain", p: 3 }}
+                  sx={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "contain",
+                    p: 3,
+                  }}
                 />
               </Box>
             </Grid>
 
             {/* Details */}
             <Grid size={{ xs: 12, md: 6 }}>
-              <Typography variant="overline" sx={{ color: "primary.main", fontWeight: 700, letterSpacing: 2 }}>
+              <Typography
+                variant="overline"
+                sx={{
+                  color: "primary.main",
+                  fontWeight: 700,
+                  letterSpacing: 2,
+                }}
+              >
                 Electric Actuators / IQL Series
               </Typography>
 
-              <Typography variant="h3" sx={{ fontWeight: 800, mt: 1, mb: 1, lineHeight: 1.2 }}>
+              <Typography
+                variant="h1"
+                sx={{ fontWeight: 800, mt: 1, mb: 1, lineHeight: 1.2 }}
+              >
                 IQL Series
               </Typography>
-              <Typography variant="h6" sx={{ color: "text.secondary", fontWeight: 400, mb: 3 }}>
+              <Typography
+                variant="h6"
+                sx={{ color: "text.secondary", fontWeight: 400, mb: 3 }}
+              >
                 Linear Electric Actuator
               </Typography>
 
-              <Typography variant="body1" sx={{ color: "text.secondary", mb: 3, lineHeight: 1.8 }}>
-                Robust linear electric actuators engineered for precise modulating control of globe,
-                gate valves and dampers. High thrust capacity from 4–25 kN, IP67 protection,
-                battery backup fail-safe, and full modulating control via 4–20mA / 0–10V.
+              <Typography
+                variant="body1"
+                sx={{ color: "text.secondary", mb: 3, lineHeight: 1.8 }}
+              >
+                Robust linear electric actuators engineered for precise
+                modulating control of globe, gate valves and dampers. High
+                thrust capacity from 4–25 kN, IP67 protection, battery backup
+                fail-safe, and full modulating control via 4–20mA / 0–10V.
               </Typography>
 
               <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mb: 4 }}>
@@ -148,7 +232,14 @@ export default function IQLPage() {
                 ))}
               </Box>
 
-              <Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2, mb: 4 }}>
+              <Box
+                sx={{
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr",
+                  gap: 2,
+                  mb: 4,
+                }}
+              >
                 {[
                   { label: "Thrust", value: "4 – 25 kN" },
                   { label: "Stroke", value: "40 – 100 mm" },
@@ -156,7 +247,14 @@ export default function IQLPage() {
                   { label: "Temperature", value: "-20°C to +70°C" },
                 ].map(({ label, value }) => (
                   <Box key={label}>
-                    <Typography variant="caption" sx={{ color: "text.secondary", textTransform: "uppercase", letterSpacing: 1 }}>
+                    <Typography
+                      variant="caption"
+                      sx={{
+                        color: "text.secondary",
+                        textTransform: "uppercase",
+                        letterSpacing: 1,
+                      }}
+                    >
                       {label}
                     </Typography>
                     <Typography variant="body1" sx={{ fontWeight: 700 }}>
@@ -165,45 +263,49 @@ export default function IQLPage() {
                   </Box>
                 ))}
               </Box>
-             <Box sx={{ display: 'flex', gap: 2 }}>
-  <Button
-    variant="outlined"
-    size="large"
-    fullWidth
-    href="/actuators/electric/iql/products"
-    onClick={e => e.stopPropagation()}
-    sx={{
-      borderRadius: 0,
-      fontWeight: 800,
-      py: 1.75,
-      fontSize: "1rem",
-      boxShadow: "none",
-      borderColor: "#1c2e1a",
-      color: "#1c2e1a",
-      "&:hover": { borderColor: "primary.main", color: "primary.main", boxShadow: "none" },
-    }}
-  >
-    View Product
-  </Button>
-  <Button
-    variant="contained"
-    size="large"
-    fullWidth
-    startIcon={<ContactSupportIcon />}
-    onClick={() => setModalOpen(true)}
-    sx={{
-      borderRadius: 0,
-      fontWeight: 800,
-      py: 1.75,
-      fontSize: "1rem",
-      boxShadow: "none",
-      bgcolor: "#1c2e1a",
-      "&:hover": { bgcolor: "primary.main", boxShadow: "none" },
-    }}
-  >
-    Request a Quote / Lead Time
-  </Button>
-</Box>
+              <Box sx={{ display: "flex", gap: 2 }}>
+                <Button
+                  variant="outlined"
+                  size="large"
+                  fullWidth
+                  href="/actuators/electric/iql/products"
+                  onClick={(e) => e.stopPropagation()}
+                  sx={{
+                    borderRadius: 0,
+                    fontWeight: 800,
+                    py: 1.75,
+                    fontSize: "1rem",
+                    boxShadow: "none",
+                    borderColor: "#1c2e1a",
+                    color: "#1c2e1a",
+                    "&:hover": {
+                      borderColor: "primary.main",
+                      color: "primary.main",
+                      boxShadow: "none",
+                    },
+                  }}
+                >
+                  View Product
+                </Button>
+                <Button
+                  variant="contained"
+                  size="large"
+                  fullWidth
+                  startIcon={<ContactSupportIcon />}
+                  onClick={() => setModalOpen(true)}
+                  sx={{
+                    borderRadius: 0,
+                    fontWeight: 800,
+                    py: 1.75,
+                    fontSize: "1rem",
+                    boxShadow: "none",
+                    bgcolor: "#1c2e1a",
+                    "&:hover": { bgcolor: "primary.main", boxShadow: "none" },
+                  }}
+                >
+                  Request a Quote / Lead Time
+                </Button>
+              </Box>
             </Grid>
           </Grid>
         </Container>
@@ -220,8 +322,18 @@ export default function IQLPage() {
           <Grid container spacing={2}>
             {TECH_SPECS.map(({ label, value }) => (
               <Grid size={{ xs: 12, sm: 6, md: 4 }} key={label}>
-                <Paper variant="outlined" sx={{ p: 3, borderRadius: 2, height: "100%" }}>
-                  <Typography variant="caption" sx={{ color: "text.secondary", textTransform: "uppercase", letterSpacing: 1.5 }}>
+                <Paper
+                  variant="outlined"
+                  sx={{ p: 3, borderRadius: 2, height: "100%" }}
+                >
+                  <Typography
+                    variant="caption"
+                    sx={{
+                      color: "text.secondary",
+                      textTransform: "uppercase",
+                      letterSpacing: 1.5,
+                    }}
+                  >
                     {label}
                   </Typography>
                   <Typography variant="body1" sx={{ fontWeight: 700, mt: 0.5 }}>
@@ -245,7 +357,16 @@ export default function IQLPage() {
           <Grid container spacing={3}>
             {FEATURES.map(({ letter, title, body }) => (
               <Grid size={{ xs: 12, sm: 6, md: 4 }} key={letter}>
-                <Paper variant="outlined" sx={{ p: 3, borderRadius: 2, height: "100%", display: "flex", gap: 2 }}>
+                <Paper
+                  variant="outlined"
+                  sx={{
+                    p: 3,
+                    borderRadius: 2,
+                    height: "100%",
+                    display: "flex",
+                    gap: 2,
+                  }}
+                >
                   <Box
                     sx={{
                       flexShrink: 0,
@@ -264,10 +385,16 @@ export default function IQLPage() {
                     {letter}
                   </Box>
                   <Box>
-                    <Typography variant="body2" sx={{ fontWeight: 700, mb: 0.5 }}>
+                    <Typography
+                      variant="body2"
+                      sx={{ fontWeight: 700, mb: 0.5 }}
+                    >
                       {title}
                     </Typography>
-                    <Typography variant="body2" sx={{ color: "text.secondary", lineHeight: 1.6 }}>
+                    <Typography
+                      variant="body2"
+                      sx={{ color: "text.secondary", lineHeight: 1.6 }}
+                    >
                       {body}
                     </Typography>
                   </Box>

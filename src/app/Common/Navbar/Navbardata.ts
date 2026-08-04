@@ -30,6 +30,7 @@ export const NAV_LINKS: NavLink[] = [
   { label: "Brands", href: "/brands" },
   // { label: "Track Order", href: "/track-order" },
   { label: "Contact Us", href: "/contact" },
+   { label: "About Us", href: "/about" },
 ];
 
 export const NAV_GROUPS: NavGroup[] = [

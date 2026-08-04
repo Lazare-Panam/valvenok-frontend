@@ -324,7 +324,7 @@ export default function DirectWaterPumpPage() {
                 WALRUS / Direct Water Pump
               </Typography>
               <Typography
-                variant="h3"
+                variant="h1"
                 sx={{ fontWeight: 800, mt: 1, mb: 1, lineHeight: 1.2 }}
               >
                 Direct Water Pump
