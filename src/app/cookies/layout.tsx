@@ -15,10 +15,7 @@ export const metadata = {
   alternates: {
     canonical: 'https://www.valvenok.com/cookies',
   },
-  robots: {
-    index: false,
-    follow: false,
-  }
+ 
 };
 
 export default function CookiesLayout({ children }: { children: React.ReactNode }) {

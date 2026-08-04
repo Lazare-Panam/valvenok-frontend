@@ -15,10 +15,7 @@ export const metadata = {
   alternates: {
     canonical: 'https://www.valvenok.com/privacy',
   },
-  robots: {
-    index: false,
-    follow: false,
-  }
+  
 };
 
 export default function PrivacyLayout({ children }: { children: React.ReactNode }) {

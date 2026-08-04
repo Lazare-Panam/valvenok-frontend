@@ -15,10 +15,7 @@ export const metadata = {
   alternates: {
     canonical: 'https://www.valvenok.com/terms',
   },
-  robots: {
-    index: false,
-    follow: false,
-  }
+ 
 };
 
 export default function TermsLayout({ children }: { children: React.ReactNode }) {
