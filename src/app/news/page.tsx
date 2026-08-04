@@ -15,7 +15,7 @@ import {
 import Grid from "@mui/material/Grid";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
-
+import SEOButtons from "../about/SEOButtons";
 const POSTS = [
   {
     title: "Butterfly Valve Instrumentation and Connection Packages",
@@ -350,6 +350,7 @@ export default function BlogPage() {
           ))}
         </Grid>
       </Container>
+      <SEOButtons />
     </Box>
   );
 }
