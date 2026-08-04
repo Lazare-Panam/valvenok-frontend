@@ -42,6 +42,15 @@ export const metadata: Metadata = {
     icon: "https://pblol2.blob.core.windows.net/valvenok-images/logo/Valvenok_logo.jpeg",
   },
   metadataBase: new URL("https://www.valvenok.com"),
+  twitter: {
+    card: "summary_large_image",
+    title: "Valvenok | Industrial Valves, Fittings & Instrumentation UK",
+    description:
+      "UK's Leading Supplier of High-Pressure Valves, SS316 Fittings, and Hydrogen-ready components. Official distributor for PANAM and 40+ Global Engineering Brands.",
+    images: [
+      "https://pblol2.blob.core.windows.net/valvenok-images/logo/Valvenok_logo.jpeg",
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -73,7 +82,7 @@ export default function RootLayout({
           </Providers>
         </ThemeRegistry>
         <Footer />
-       
+
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-NRCXYNLX5K"
           strategy="afterInteractive"
