@@ -199,7 +199,7 @@ export default function AccessoryPage() {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
       <Box sx={{ p: 4, borderBottom: `1px solid ${theme.palette.divider}`, bgcolor: 'background.paper' }}>
-        <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: theme.palette.primary.main }}>Tube Fittings — Accessories</Typography>
+        <Typography variant="h1" fontWeight={800} mb={1} sx={{ color: theme.palette.primary.main }}>Tube Fittings — Accessories</Typography>
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 700 }}>
           Stainless steel tube fitting accessories including tube plugs, tube caps, nuts, front ferrules, back ferrules and pipe inserts. Available in Imperial and Metric tube OD.
         </Typography>

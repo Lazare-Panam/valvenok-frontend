@@ -531,7 +531,7 @@ export default function PneumaticActuatorPage() {
         }}
       >
         <Typography
-          variant="h4"
+          variant="h1"
           fontWeight={800}
           mb={1}
           sx={{ color: theme.palette.primary.main }}

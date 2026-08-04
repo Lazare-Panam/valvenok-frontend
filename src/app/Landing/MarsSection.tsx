@@ -2,7 +2,7 @@
 
 import { Box, Divider, Typography } from "@mui/material";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@mui/material";
 
 const bodyText = {
   color: "text.secondary",
@@ -36,25 +36,37 @@ export default function MarsSection() {
           {/* left: copy */}
           <Box sx={{ flex: 1 }}>
             <Typography component="h2" sx={{ ...heading, mt: 0 }}>
-              Who we are
+              <Link
+                href="/about"
+                sx={{
+                  color: "inherit",
+                  textDecoration: "none",
+                  "&:hover": { textDecoration: "underline" },
+                }}
+              >
+                Who we are
+              </Link>
             </Typography>
 
             <Typography sx={bodyText}>
               We're{" "}
-              <Box component="span" sx={{ fontWeight: 700, color: "text.primary" }}>
+              <Box
+                component="span"
+                sx={{ fontWeight: 700, color: "text.primary" }}
+              >
                 Valvenok
               </Box>{" "}
-              — and we're now also an official authorised distributor of
-              genuine MARS industrial valves, supplying authentic products
-              backed by full manufacturer documentation, certification, and
-              technical support.
+              — and we're now also an official authorised distributor of genuine
+              MARS industrial valves, supplying authentic products backed by
+              full manufacturer documentation, certification, and technical
+              support.
             </Typography>
 
             <Typography sx={bodyText}>
               We work closely with manufacturers to deliver valves that meet
-              demanding industry standards. Every product we supply is
-              traceable and quality-assured, with the documentation engineers
-              and procurement teams expect.
+              demanding industry standards. Every product we supply is traceable
+              and quality-assured, with the documentation engineers and
+              procurement teams expect.
             </Typography>
 
             <Typography component="h3" sx={heading}>

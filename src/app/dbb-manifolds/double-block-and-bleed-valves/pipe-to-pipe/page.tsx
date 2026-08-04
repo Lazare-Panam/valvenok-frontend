@@ -56,7 +56,7 @@ export default function DBBPipeToPipePage() {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
       <Box sx={{ p: 4, borderBottom: `1px solid ${theme.palette.divider}`, bgcolor: 'background.paper' }}>
-        <Typography variant="h4" fontWeight={800} mb={1} color="primary">
+        <Typography variant="h1" fontWeight={800} mb={1} color="primary">
           {DBB_PXP_DESCRIPTION.title}
         </Typography>
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 700 }}>

@@ -58,7 +58,7 @@ export default function KESeriesProductsPage() {
             bgcolor: "background.paper",
           }}
         >
-          <Typography variant="h4" fontWeight={800} mb={1} color="primary">
+          <Typography variant="h1" fontWeight={800} mb={1} color="primary">
             KE Series — Model Range
           </Typography>
           <Typography
