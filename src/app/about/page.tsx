@@ -3,6 +3,7 @@ import AboutHero from "./AboutHero";
 import AboutStory from "./AboutStory";
 import AboutValues from "./AboutValves";
 import AboutStats from "./AboutStats";
+import SEOButtons from "./SEOButtons";
 
 export const metadata = {
   title: "About Us | Valvenok",
@@ -18,6 +19,7 @@ export default function AboutPage() {
       <AboutStory />
       <AboutCTA />
       <AboutValues />
+      <SEOButtons />
     </>
   );
 }
