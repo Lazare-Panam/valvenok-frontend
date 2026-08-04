@@ -1,14 +1,7 @@
-import type { Metadata } from "next";
 import ProductHero from "../Common/Products_Page/ProductHero";
 import TrustStrip from "../Common/Products_Page/TrustStrip";
 import { Category } from "../Common/Products_Page/ProductCard";
 import InstrumentationGrid from "./InstrumentationGrid";
-
-export const metadata: Metadata = {
-  title: "Instrumentation | High Pressure, Fittings & Valves | Valvenok",
-  description:
-    "Valvenok supplies a complete range of instrumentation products — high pressure fittings, tube and pipe fittings, DBB and manifold valves, quick couplings and SS tubing for oil & gas, petrochemical and process industries.",
-};
 
 const INSTRUMENTATION_FAMILIES: Category[] = [
   {

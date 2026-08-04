@@ -1,14 +1,7 @@
-import type { Metadata } from "next";
 import ProductHero from "@/src/app/Common/Products_Page/ProductHero";
 import TrustStrip from "@/src/app/Common/Products_Page/TrustStrip";
 import { Category } from "@/src/app/Common/Products_Page/ProductCard";
 import YoungdoGrid from "./components/YoungdoGrid";
-
-export const metadata: Metadata = {
-  title: "Hydrogen & Cryogenic | Valvenok",
-  description:
-    "Valvenok supplies Youngdo hydrogen cylinder valves and LPG valves — high-pressure hydrogen service up to 70 MPa, LPG cylinder valves, OPD devices and piping connection valves. KGS, EC79, IECEx and CGA certified.",
-};
 
 const HYDROGEN_CRYOGENIC_SERIES: Category[] = [
   {
@@ -115,7 +108,7 @@ const HYDROGEN_CRYOGENIC_SERIES: Category[] = [
       "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/YLC-2821.png",
     logoUrl:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/top_logo.png",
-  }, //
+  },
   {
     code: "IGV",
     title: "Industrial Gas Valves",
