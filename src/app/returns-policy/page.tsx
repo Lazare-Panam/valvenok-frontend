@@ -7,7 +7,7 @@ import BlockIcon from "@mui/icons-material/Block";
 import BuildCircleIcon from "@mui/icons-material/BuildCircle";
 import AssignmentReturnIcon from "@mui/icons-material/AssignmentReturn";
 import { alpha } from "@mui/material/styles";
-
+import SEOButtons from "../about/SEOButtons";
 const returnPoints = [
   {
     icon: <EventBusyIcon />,
@@ -117,8 +117,8 @@ const ReturnsPolicyPage = () => {
             variant="body1"
             sx={{ color: "text.secondary", maxWidth: 640, mt: 2 }}
           >
-            We want you to be happy with your order. If something isn't
-            right, here's how returns work.
+            We want you to be happy with your order. If something isn't right,
+            here's how returns work.
           </Typography>
         </Container>
       </Box>
@@ -130,6 +130,7 @@ const ReturnsPolicyPage = () => {
           ))}
         </Grid>
       </Container>
+      <SEOButtons />
     </Box>
   );
 };
