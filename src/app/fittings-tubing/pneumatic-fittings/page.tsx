@@ -1,14 +1,7 @@
-import type { Metadata } from "next";
 import ProductHero from "../../Common/Products_Page/ProductHero";
 import TrustStrip from "../../Common/Products_Page/TrustStrip";
 import { Category } from "../../Common/Products_Page/ProductCard";
 import FittingsGrid from "./FittingsGrid";
-
-export const metadata: Metadata = {
-  title: "Pneumatic Fittings | Push-In & Compression Fittings | Valvenok",
-  description:
-    "Valvenok supplies a complete range of pneumatic fittings for industrial automation and instrumentation. A-Series precision compression fittings and E-Series push-in fittings across tube sizes 4mm to 16mm with BSP and M5 thread options.",
-};
 
 const FITTING_FAMILIES: Category[] = [
   {
