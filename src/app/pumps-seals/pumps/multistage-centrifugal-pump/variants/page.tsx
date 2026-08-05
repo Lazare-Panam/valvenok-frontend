@@ -61,7 +61,7 @@ export default function MultistageCentrifugalProductsPage() {
             bgcolor: "background.paper",
           }}
         >
-          <Typography variant="h4" fontWeight={800} mb={1} color="primary">
+          <Typography variant="h1" fontWeight={800} mb={1} color="primary">
             Multistage Centrifugal Pump — Model Range
           </Typography>
           <Typography

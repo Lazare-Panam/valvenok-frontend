@@ -27,7 +27,7 @@ export default function WeldFittingPage({ defaultFittingTypes }: { defaultFittin
       <Box sx={{ p: 4, borderBottom: `1px solid ${theme.palette.divider}`, bgcolor: 'background.paper' }}>
         <Box sx={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', flexWrap: 'wrap', gap: 2 }}>
           <Box>
-            <Typography variant="h4" fontWeight={800} mb={1} color="primary">
+            <Typography variant="h1" fontWeight={800} mb={1} color="primary">
               Weld Fittings{' '}
               <Box component="span" sx={{ color: 'text.primary', fontWeight: 400 }}>
                 — 316 Stainless Steel

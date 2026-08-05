@@ -23,7 +23,7 @@ export default function JICProductPage({ defaultFittingTypes }: { defaultFitting
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
       <Box sx={{ p: 4, borderBottom: `1px solid ${theme.palette.divider}`, bgcolor: 'background.paper' }}>
-        <Typography variant="h4" fontWeight={800} mb={1} color="primary">
+        <Typography variant="h1" fontWeight={800} mb={1} color="primary">
           37° Flared JIC Fittings{' '}
           <Box component="span" sx={{ color: 'text.primary', fontWeight: 400 }}>
             — 316 Stainless Steel

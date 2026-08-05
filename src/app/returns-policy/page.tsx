@@ -105,7 +105,7 @@ const ReturnsPolicyPage = () => {
             <Box sx={{ width: 40, height: "1px", bgcolor: "primary.main" }} />
           </Stack>
           <Typography
-            variant="h2"
+            variant="h1"
             sx={{ fontWeight: 800, fontSize: { xs: "2.25rem", md: "3rem" } }}
           >
             Returns{" "}

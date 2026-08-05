@@ -228,7 +228,7 @@ export default function LPGProductsPage() {
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
         <Box component="img" src={YOUNGDO_LOGO} alt="Youngdo" sx={{ maxHeight: 32, maxWidth: 120, objectFit: 'contain', bgcolor: BRAND_GREEN, p: 1, borderRadius: 1, mb: 2 }} />
-        <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_GREEN, fontFamily: PRIMARY_FONT }}>LPG Cylinder Valves</Typography>
+        <Typography variant="h1" fontWeight={800} mb={1} sx={{ color: BRAND_GREEN, fontFamily: PRIMARY_FONT }}>LPG Cylinder Valves</Typography>
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 800, fontFamily: PRIMARY_FONT }}>
           Youngdo LPG cylinder valves, OPD overfilling prevention devices and piping connection valves — YLC, MT, YBC, OPD, YLG and YPC series. KGS, KS, CGA V-1 and UL certified.
         </Typography>

@@ -62,7 +62,7 @@ export default function AutomaticBoosterPumpProductsPage() {
             bgcolor: "background.paper",
           }}
         >
-          <Typography variant="h4" fontWeight={800} mb={1} color="primary">
+          <Typography variant="h1" fontWeight={800} mb={1} color="primary">
             Automatic Booster Pump — Model Range
           </Typography>
           <Typography

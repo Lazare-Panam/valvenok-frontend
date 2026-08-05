@@ -71,7 +71,7 @@ export default function HPEndFittingPage() {
         }}
       >
         <Typography
-          variant="h4"
+          variant="h1"
           fontWeight={800}
           mb={1}
           sx={{ color: BRAND_GREEN, fontFamily: PRIMARY_FONT }}

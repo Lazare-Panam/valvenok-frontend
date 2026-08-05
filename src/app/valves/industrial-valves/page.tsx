@@ -169,7 +169,7 @@ export default function CategoryListingPage() {
             Commercial Inquiry Portfolio
           </Typography>
           <Typography
-            variant="h2"
+            variant="h1"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 900,

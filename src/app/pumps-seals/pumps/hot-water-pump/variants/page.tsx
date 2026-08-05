@@ -32,7 +32,7 @@ export default function HotWaterPumpProductsPage() {
 
       <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', minWidth: 0 }}>
         <Box sx={{ p: 4, borderBottom: `1px solid ${theme.palette.divider}`, bgcolor: 'background.paper' }}>
-          <Typography variant="h4" fontWeight={800} mb={1} color="primary">
+          <Typography variant="h1" fontWeight={800} mb={1} color="primary">
             Hot Water Pump — Model Range
           </Typography>
           <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 700 }}>

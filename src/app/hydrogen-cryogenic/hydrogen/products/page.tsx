@@ -254,7 +254,7 @@ export default function HydrogenProductsPage() {
       {/* Header */}
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
         <Box component="img" src={YOUNGDO_LOGO} alt="Youngdo" sx={{ maxHeight: 32, maxWidth: 120, objectFit: 'contain', bgcolor: DARK_GREEN, p: 1, borderRadius: 1, mb: 2 }} />
-        <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: DARK_GREEN, fontFamily: PRIMARY_FONT }}>
+        <Typography variant="h1" fontWeight={800} mb={1} sx={{ color: DARK_GREEN, fontFamily: PRIMARY_FONT }}>
           Hydrogen Cylinder Valves
         </Typography>
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 800, fontFamily: PRIMARY_FONT }}>
