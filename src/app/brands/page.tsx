@@ -11,6 +11,11 @@ const BRANDS = [
     desc: "Butterfly valves and flow control solutions for industrial piping systems.",
   },
   {
+    name: "UTAM Valves",
+    logo: "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/utam-logo.png",
+    desc: "Full range of industrial and marine valves engineered for reliable, leak-tight performance across demanding process and offshore environments.",
+  },
+  {
     name: "Walrus Pumps",
     logo: "https://pblol2.blob.core.windows.net/valvenok-images/logo/walrus_pumps.webp",
     desc: "Industrial pumps engineered for reliable fluid transfer applications.",

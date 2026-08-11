@@ -39,22 +39,38 @@ export const VALVES: FeaturedValve[] = [
       { label: "Connections", value: "ANSI · PN · JIS Flanged" },
     ],
   },
-  {
-    id: "globe-valve",
-    name: "Globe Valve",
-    category: "Globe & Gate Valves",
-    categoryId: "globe-valves",
-    brand: "Fisher",
-    brandLogo:
-      "https://pblol2.blob.core.windows.net/valvenok-images/brands/fisher-logo.jpg",
-    thumbnail:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/featured/fisher-rss.png",
-    specs: [
-      { label: "Size Range", value: "NPS 1, 1-1/2, 2, 3, 4" },
-      { label: "Pressure Class", value: "CL 150, CL 300" },
-      { label: "Temperature", value: "Standard Operating Temperature" },
-    ],
-  },
+ {
+  id: "globe-valve",
+  name: "Globe Valves",
+  category: "Globe Valves",
+  categoryId: "globe-valves",
+  brand: "UTAM Syncercon",
+  brandLogo:
+    "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/utam-logo.png",
+  thumbnail:
+    "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/globe-bonnet-valve.png",
+  specs: [
+    { label: "Size Range", value: '½"–24" (DN15–DN600)' },
+    { label: "Pressure Class", value: "ASME Class 150 / 300" },
+    { label: "Bonnet Types", value: "Bolted & Union Bonnet" },
+  ],
+},
+{
+  id: "gate-valves",
+  name: "Gate Valves",
+  category: "Gate Valves",
+  categoryId: "gate-valves",
+  brand: "UTAM Syncercon",
+  brandLogo:
+    "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/utam-logo.png",
+  thumbnail:
+    "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/bolted-gate-valve.png",
+  specs: [
+    { label: "Size Range", value: '½"–24" (DN15–DN600)' },
+    { label: "Pressure Class", value: "ASME Class 150 / 300" },
+    { label: "Bonnet Types", value: "Bolted & Union Bonnet" },
+  ],
+},
   {
     id: "control-valves",
     name: "Control Valves",

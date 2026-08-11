@@ -61,50 +61,6 @@ export const GLOBE_VALVES: FeaturedValve[] = [
     ],
   },
   {
-    id: "utam-bolted-bonnet-gate-valve",
-    name: "Gate Valve — Bolted Bonnet",
-    category: "Gate Valves",
-    categoryId: "gate-valves",
-    brand: "UTAM Syncercon",
-    brandLogo:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/utam-logo.png",
-    thumbnail:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/bolted-gate-valve.png",
-    specs: [
-      { label: "Size Range", value: '½"–24" (DN15–DN600)' },
-      { label: "Pressure Class", value: "ASME Class 150 / 300" },
-      { label: "Bonnet Type", value: "Bolted Bonnet" },
-      { label: "Stem Type", value: "Rising & Non-Rising Stem" },
-      { label: "Service", value: "Marine & Shipbuilding Isolation" },
-      {
-        label: "Body Material",
-        value: "Bronze, Nickel Aluminium Bronze, Duplex Stainless",
-      },
-    ],
-  },
-  {
-    id: "utam-union-bonnet-gate-valve",
-    name: "Gate Valve — Union Bonnet",
-    category: "Gate Valves",
-    categoryId: "gate-valves",
-    brand: "UTAM Syncercon",
-    brandLogo:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/utam-logo.png",
-    thumbnail:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/union-bonnet-gate.png",
-    specs: [
-      { label: "Size Range", value: '½"–4" (DN15–DN100)' },
-      { label: "Pressure Class", value: "ASME Class 150 / 300 & PN32" },
-      { label: "Bonnet Type", value: "Union Bonnet" },
-      { label: "Stem Type", value: "Inside Screw, Rising Stem" },
-      { label: "Operation", value: "Handwheel Operated" },
-      {
-        label: "Body Material",
-        value: "Bronze, Nickel Aluminium Bronze, Duplex Stainless",
-      },
-    ],
-  },
-  {
     id: "utam-bolted-bonnet-globe-valve",
     name: "Globe Valve — Bolted Bonnet",
     category: "Globe Valves",
