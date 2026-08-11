@@ -112,59 +112,8 @@ export const BALL_VALVES: FeaturedValve[] = [
       },
     ],
   },
-  {
-    id: "vf-bf-double-flanged",
-    name: "VF-BF Series Double Flanged Ball Valve",
-    category: "Ball Valves",
-    categoryId: "ball-valves",
-    brand: "Value Valves",
-    brandLogo:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/logo.svg",
-    thumbnail:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/ball-valves/three-piece-threaded.png",
-    specs: [
-      { label: "Size Range", value: '1/2"–12" (DN15–DN300)' },
-      {
-        label: "Pressure Class",
-        value: "ANSI 150LB (VF-BF1) · ANSI 300LB (VF-BF3)",
-      },
-      {
-        label: "Flange Standard",
-        value: "ASME B16.5 150LB / 300LB · JIS 10K / 16K",
-      },
-      { label: "Temperature", value: "-29°C to +210°C (-20°F to +410°F)" },
-      { label: "Design Standard", value: "API 6D · API 608 · ASME B16.34" },
-      { label: "Face To Face", value: "ANSI B16.10" },
-      { label: "Leakage Class", value: "ISO 5208 Rate A" },
-      { label: "Fire Safe", value: "API 607 · ISO 10497" },
-      { label: "Mounting", value: "ISO 5211" },
-    ],
-  },
-  {
-    id: "three-piece-threaded-ball-valve",
-    name: "3-Piece Threaded Ball Valve — Series 2000",
-    category: "Ball Valves",
-    categoryId: "ball-valves",
-    brand: "Value Valves",
-    brandLogo:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/logo.svg",
-    thumbnail:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/ball-valves/3-p.png",
-    specs: [
-      { label: "Size Range", value: 'NPS 1/4"–2" (DN8–DN50)' },
-      { label: "Pressure Rating", value: "2000 WOG" },
-      {
-        label: "End Connections",
-        value: "Threaded (NPT/BSPT/DIN) · Socket Weld · Butt Weld",
-      },
-      { label: "Face To Face", value: "DIN 3202-M3" },
-      { label: "Inspection & Test", value: "MSS SP-110 · EN 12266" },
-      { label: "Body / Ball", value: "CF8M (SS316) · CF8 (SS304) · WCB" },
-      { label: "Seat", value: "PTFE · RPTFE" },
-      { label: "Stem", value: "SS316 · SS304 — Blow-Out Proof" },
-      { label: "Body Design", value: "3-Piece Swing-Out — Inline Serviceable" },
-    ],
-  },
+  
+
   {
     id: "two-piece-ball-valve",
     name: "2-Piece Floating Ball Valve",

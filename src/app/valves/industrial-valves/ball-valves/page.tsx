@@ -70,51 +70,7 @@ const MARS_VALVE_SERIES: Category[] = [
     logoUrl:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/industrial-valves/logo.svg",
   },
-  {
-    code: "VF-BF",
-    title: "VF-BF Series Double Flanged Ball Valve",
-    subtitle:
-      'Double Flanged Floating Ball Valve — ANSI 150LB & 300LB — 1/2"–12"',
-    description:
-      'Value Valves VF-BF Series double flanged ball valves. ANSI 150LB and 300LB, 1/2"–12", -29°C to +210°C. Fire safe, bi-directional floating type, blow-out proof stem, anti-static. API 6D, API 607, API 608, ISO 5211. 100% hydraulic leakage tested before release.',
-    specs: [
-      '1/2"–12" (DN15–DN300)',
-      "ANSI 150LB & 300LB",
-      "-29°C to +210°C",
-      "API 607 Fire Safe",
-      "API 6D · API 608",
-      "ISO 5208 Rate A",
-    ],
-    applications:
-      "Petroleum & Refining, Chemical, Power & Energy, Steel Mill, Mining Industry",
-    href: "/valves/industrial-valves/ball-valves/vf-bf-double-flanged",
-    image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/ball-valves/three-piece-threaded.png",
-    logoUrl:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/logo.svg",
-  },
-  {
-    code: "VV-3P",
-    title: "3-Piece Threaded Ball Valve",
-    subtitle: 'Series 2000 — 2000 WOG — NPS 1/4"–2"',
-    description:
-      'Value Valves Series 2000 3-piece threaded ball valve. NPS 1/4"–2", 2000 WOG. Blow-out proof stem, pressure balance hole, dewaxing precision investment casting. Threaded (NPT/BSPT/DIN), socket weld and butt weld end connections. Inline serviceable swing-out body. MSS SP-110, EN 12266.',
-    specs: [
-      'NPS 1/4"–2" (DN8–DN50)',
-      "2000 WOG",
-      "Threaded · Socket Weld · Butt Weld",
-      "Blow-Out Proof Stem",
-      "3-Piece Swing-Out",
-      "MSS SP-110 · EN 12266",
-    ],
-    applications:
-      "Chemical Processing, Oil & Gas, Water Treatment, General Utilities, OEM Skid Manufacturers",
-    href: "/valves/industrial-valves/ball-valves/three-piece-threaded-ball-valve",
-    image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/ball-valves/3-p.png",
-    logoUrl:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/logo.svg",
-  },
+  
 
   // MARS_VALVE_SERIES blob
   {
