@@ -25,17 +25,20 @@ const GLOBE_VALVE_SERIES: Category[] = [
       "Precise Flow Regulation",
       "Fisher Engineered",
     ],
-    applications: "Chemical Processing, Petrochemical, Process Plants, Corrosive Media Service",
+    applications:
+      "Chemical Processing, Petrochemical, Process Plants, Corrosive Media Service",
     href: "/valves/industrial-valves/globe-valve/fisher-rss-lined",
-    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/featured/fisher-rss.png",
-    logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/brands/fisher-logo.jpg",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/featured/fisher-rss.png",
+    logoUrl:
+      "https://pblol2.blob.core.windows.net/valvenok-images/brands/fisher-logo.jpg",
   },
   {
     code: "BF-WBG",
     title: "Globe Valves — Welded Bonnet",
     subtitle: "High-Pressure Welded Bonnet — Up to 11,250 psig",
     description:
-      "Bonney Forge welded bonnet globe valves for extreme high-pressure service up to 11,250 psig (776 bar). Class 4500 LTD rated across NPS 1/4\"–2\" for critical isolation and flow control in demanding process environments.",
+      'Bonney Forge welded bonnet globe valves for extreme high-pressure service up to 11,250 psig (776 bar). Class 4500 LTD rated across NPS 1/4"–2" for critical isolation and flow control in demanding process environments.',
     specs: [
       'NPS 1/4"–2" | DN 6–50',
       "Class 4500 LTD",
@@ -44,12 +47,56 @@ const GLOBE_VALVE_SERIES: Category[] = [
       "High-Pressure Service",
       "Bonney Forge",
     ],
-    applications: "Oil & Gas, High-Pressure Process, Petrochemical, Refining, Critical Isolation Service",
+    applications:
+      "Oil & Gas, High-Pressure Process, Petrochemical, Refining, Critical Isolation Service",
     href: "/valves/industrial-valves/globe-valve/bonney-forge-welded-bonnet",
-    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/featured/globe-valve.png",
-    logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/brands/bf-logo.jpg",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/featured/globe-valve.png",
+    logoUrl:
+      "https://pblol2.blob.core.windows.net/valvenok-images/brands/bf-logo.jpg",
   },
-
+  {
+    code: "UTM-BBG",
+    title: "Gate Valve — Bolted Bonnet",
+    subtitle: "Bolted Bonnet Gate Valve — DN15 to DN600",
+    description:
+      "UTAM Syncercon bolted bonnet gate valve designed for marine and shipbuilding applications, offering reliable shut-off performance, leak-proof operation, and long service life in seawater and offshore environments. Available with rising and non-rising stem in ASME Class 150/300 across DN15 to DN600.",
+    specs: [
+      '½" to 24" (DN15 to DN600)',
+      "ASME Class 150 / 300",
+      "Bolted Bonnet",
+      "Rising & Non-Rising Stem",
+      "Handwheel & Gearbox Operated",
+      "Lloyd's Register Approved",
+    ],
+    applications: "Marine, Shipbuilding, Offshore, Seawater Service",
+    href: "/valves/industrial-valves/globe-valve/utam-bolted-bonnet-gate-valve",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/bolted-gate-valve.png",
+    logoUrl:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/utam-logo.png",
+  },
+  {
+    code: "UTM-UBG",
+    title: "Gate Valve — Union Bonnet",
+    subtitle: "Union Bonnet Gate Valve — DN15 to DN100",
+    description:
+      "UTAM Syncercon union bonnet gate valve, a linear motion valve providing secure sealing and easy maintenance, used to start or stop fluid flow in marine and shipbuilding applications. Handwheel operated with rising stem, in ASME Class 150/300 & PN32 across DN15 to DN100.",
+    specs: [
+      '½" to 4" (DN15 to DN100)',
+      "ASME Class 150 / 300 & PN32",
+      "Union Bonnet",
+      "Inside Screw, Rising Stem",
+      "Handwheel Operated",
+      "Lloyd's Register Approved",
+    ],
+    applications: "Marine, Shipbuilding, Offshore, Seawater Service",
+    href: "/valves/industrial-valves/globe-valve/utam-union-bonnet-gate-valve",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/union-bonnet-gate.png",
+    logoUrl:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/utam-logo.png",
+  },
 ];
 
 const TRUST_POINTS = [
