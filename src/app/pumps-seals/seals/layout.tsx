@@ -3,8 +3,7 @@ import type { Metadata } from "next";
 const TITLE = "Mechanical Seals | Valvenok";
 const DESCRIPTION =
   "Single and double agitator mechanical seals for reactors and mixing vessels.";
-const IMAGE =
-  "https://pblol2.blob.core.windows.net/valvenok-images/logo/Valvenok_logo.jpeg";
+const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo-2.png";
 
 export const metadata: Metadata = {
   title: TITLE,

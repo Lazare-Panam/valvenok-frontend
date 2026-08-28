@@ -5,7 +5,7 @@ import Link from "@mui/material/Link";
 import NextLink from "next/link";
 
 const LOGO_URL =
-  "https://pblol2.blob.core.windows.net/valvenok-images/logo/Valvenok_logo.jpeg";
+  "https://pblol2.blob.core.windows.net/valvenok-images/logo-2.png";
 
 export default function NavLogo() {
   return (

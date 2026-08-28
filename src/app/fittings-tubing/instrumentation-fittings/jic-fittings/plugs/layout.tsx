@@ -3,8 +3,7 @@ import type { Metadata } from "next";
 const TITLE = "JIC Plugs, Caps & Nuts | Valvenok";
 const DESCRIPTION =
   "SS316 37° JIC plugs, caps and nuts for hydraulic line termination.";
-const IMAGE =
-  "https://pblol2.blob.core.windows.net/valvenok-images/logo/Valvenok_logo.jpeg";
+const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo-2.png";
 
 export const metadata: Metadata = {
   title: TITLE,

@@ -3,8 +3,7 @@ import type { Metadata } from "next";
 const TITLE = "High Pressure Ball Valves | Valvenok";
 const DESCRIPTION =
   "High pressure ball valves across multiple series, pressure ratings and connection types.";
-const IMAGE =
-  "https://pblol2.blob.core.windows.net/valvenok-images/logo/Valvenok_logo.jpeg";
+const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo-2.png";
 
 export const metadata: Metadata = {
   title: TITLE,

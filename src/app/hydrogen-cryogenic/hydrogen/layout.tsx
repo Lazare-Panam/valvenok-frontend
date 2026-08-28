@@ -15,9 +15,7 @@ export const metadata: Metadata = {
     title: "Hydrogen Cylinder Valves | Valvenok",
     description:
       "Youngdo high-pressure hydrogen cylinder valves rated up to 70 MPa, KGS, EC79, R134, IECEx certified.",
-    images: [
-      "https://pblol2.blob.core.windows.net/valvenok-images/logo/Valvenok_logo.jpeg",
-    ],
+    images: ["https://pblol2.blob.core.windows.net/valvenok-images/logo-2.png"],
   },
 };
 

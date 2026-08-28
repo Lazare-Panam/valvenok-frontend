@@ -3,8 +3,7 @@ import type { Metadata } from "next";
 const TITLE = "JIC Adapters & Reducers | Valvenok";
 const DESCRIPTION =
   "SS316 JIC adapters and reducers for high-pressure hydraulic connections.";
-const IMAGE =
-  "https://pblol2.blob.core.windows.net/valvenok-images/logo/Valvenok_logo.jpeg";
+const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo-2.png";
 
 export const metadata: Metadata = {
   title: TITLE,

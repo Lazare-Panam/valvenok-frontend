@@ -28,7 +28,7 @@ const BRAND_GREEN = "#61D649";
 const LOGO_HEIGHT = 120;
 const NAV_HEIGHT = 56;
 const CLOSE_DELAY = 150;
-
+const LOGO_BG = "#F9F7F3";
 export default function Navbar() {
   const [activeGroup, setActiveGroup] = React.useState<NavGroup | null>(null);
   const [triggerLeft, setTriggerLeft] = React.useState(0);
@@ -57,13 +57,13 @@ export default function Navbar() {
 
   return (
     <Box sx={{ position: "relative", zIndex: 200 }}>
-
       {/* ── BAR 1: dark green, phone + email + RFQ right-aligned ── */}
-<NavTopStrip/>
+      <NavTopStrip />
       {/* ── BAR 2: white, logo left + cart/auth right ── */}
+      {/* ── BAR 2: logo left + cart/auth right ── */}
       <Box
         sx={{
-          bgcolor: "#ffffff",
+          bgcolor: LOGO_BG, // was "#ffffff"
           borderBottom: "1px solid #e8e8e8",
           height: LOGO_HEIGHT,
         }}
@@ -79,7 +79,9 @@ export default function Navbar() {
           >
             <NavLogo />
 
-            <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center" }}>
+            <Box
+              sx={{ display: { xs: "none", md: "flex" }, alignItems: "center" }}
+            >
               <DesktopUserActions barHeight={LOGO_HEIGHT} />
             </Box>
 
@@ -103,9 +105,9 @@ export default function Navbar() {
         }}
       >
         <Container maxWidth="xl" sx={{ px: { xs: 2, md: 3 } }}>
-          <Box sx={{ display: "flex", alignItems: "center", height: NAV_HEIGHT }}>
-
-           
+          <Box
+            sx={{ display: "flex", alignItems: "center", height: NAV_HEIGHT }}
+          >
             {NAV_GROUPS.map((group) => (
               <Box
                 key={group.id}
@@ -168,7 +170,10 @@ export default function Navbar() {
               pointerEvents: "auto",
             }}
           >
-            <MegaMenu group={activeGroup} onClose={() => setActiveGroup(null)} />
+            <MegaMenu
+              group={activeGroup}
+              onClose={() => setActiveGroup(null)}
+            />
           </Box>
         )}
       </Box>
