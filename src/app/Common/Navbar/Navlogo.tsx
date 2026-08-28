@@ -28,14 +28,13 @@ export default function NavLogo() {
           component="img"
           src={LOGO_URL}
           alt="Company Logo"
-          sx={{
-            height: { xs: 44, sm: 56, md: 96 },
-            width: "auto",
-            maxWidth: { xs: 120, sm: 160, md: 220 },
-            display: "block",
-            objectFit: "contain",
-            cursor: "pointer",
-          }}
+         sx={{
+  height: { xs: 44, sm: 56, md: 116 },
+  width: { xs: 130, sm: 170, md: 240 },
+  display: "block",
+  objectFit: "fill",
+  cursor: "pointer",
+}}
         />
       </Link>
     </Box>
