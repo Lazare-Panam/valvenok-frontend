@@ -9,22 +9,7 @@ export interface ProductQuickOrder {
 }
 
 export const PRODUCTS: ProductQuickOrder[] = [
-  {
-    sku: "TEST",
-    name: 'Adapters, 1/4" F ISO Parallel x 1/4" M NPT, SS316',
-    meta: "Panam Adapter, Pipe Fitting",
-    category: "Adapter",
-    price: 0.5,
-    cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/adaptor",
-    specs: {
-      material: "SS316",
-      type: "Imperial",
-      threadType: "ISO Parallel x NPT",
-      sizeA: '1/4" BSPP F',
-      sizeB: '1/4" NPT M',
-    },
-  },
+ 
   {
     sku: "PA-4G-4N-SS",
     name: 'Adapters, 1/4" F ISO Parallel x 1/4" M NPT, SS316',
