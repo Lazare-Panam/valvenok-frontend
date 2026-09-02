@@ -7,6 +7,8 @@ import Button from "@mui/material/Button";
 import { alpha } from "@mui/material/styles";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import Reveal from "@/src/app/Common/Reveal";
+import MagneticWrap from "@/src/app/Common/MagneticWrap";
 //
 const JOSCAR_POINTS = [
   "Pre-qualified supplier recognised across the UK defence & aerospace sector",
@@ -33,6 +35,7 @@ export default function AboutContact() {
           }}
         >
           {/* ── LEFT: JOSCAR Text ── */}
+          <Reveal>
           <Box>
             <Typography
               sx={{
@@ -102,11 +105,19 @@ export default function AboutContact() {
                     alignItems: "flex-start",
                     gap: 1.5,
                     py: 1.1,
+                    px: 1,
+                    mx: -1,
+                    borderRadius: "4px",
                     borderBottom: "1px solid",
                     borderColor: "divider",
                     fontSize: "15px",
                     fontWeight: 500,
                     color: "text.primary",
+                    transition: "background-color 0.2s ease, transform 0.2s ease",
+                    "&:hover": {
+                      bgcolor: (t) => alpha(t.palette.primary.main, 0.06),
+                      transform: "translateX(3px)",
+                    },
                     "&:last-child": { borderBottom: "none" },
                   }}
                 >
@@ -123,29 +134,34 @@ export default function AboutContact() {
               ))}
             </Box>
 
-            <Button
-              variant="contained"
-              color="primary"
-              href="/contact"
-              endIcon={<ArrowForwardIcon />}
-              sx={{
-                borderRadius: "0px",
-                fontFamily: '"Barlow Condensed", sans-serif',
-                fontWeight: 800,
-                fontSize: "15px",
-                letterSpacing: "0.06em",
-                textTransform: "uppercase",
-                px: 3.5,
-                py: 1.5,
-                boxShadow: "none",
-                "&:hover": { boxShadow: "none" },
-              }}
-            >
-              Request JOSCAR Documentation
-            </Button>
+            <MagneticWrap strength={0.2}>
+              <Button
+                variant="contained"
+                color="primary"
+                href="/contact"
+                endIcon={<ArrowForwardIcon />}
+                sx={{
+                  borderRadius: "0px",
+                  fontFamily: '"Barlow Condensed", sans-serif',
+                  fontWeight: 800,
+                  fontSize: "15px",
+                  letterSpacing: "0.06em",
+                  textTransform: "uppercase",
+                  px: 3.5,
+                  py: 1.5,
+                  boxShadow: "none",
+                  transition: "transform 0.2s ease",
+                  "&:hover": { boxShadow: "none", transform: "translateY(-2px)" },
+                }}
+              >
+                Request JOSCAR Documentation
+              </Button>
+            </MagneticWrap>
           </Box>
+          </Reveal>
 
           {/* ── RIGHT: JOSCAR Certificate Card ── */}
+          <Reveal delay={150} y={32}>
           <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
             {/* Certificate visual */}
             {/* Certificate Image */}
@@ -158,6 +174,11 @@ export default function AboutContact() {
                 alignItems: "center",
                 justifyContent: "center",
                 minHeight: 800,
+                transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                "&:hover": {
+                  transform: "translateY(-4px)",
+                  boxShadow: "0 20px 40px rgba(0,0,0,0.12)",
+                },
               }}
             >
               <img
@@ -173,6 +194,7 @@ export default function AboutContact() {
               />
             </Box>
           </Box>
+          </Reveal>
         </Box>
       </Container>
     </Box>

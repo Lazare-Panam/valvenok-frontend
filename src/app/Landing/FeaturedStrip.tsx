@@ -2,6 +2,7 @@
 
 import { Box, Container, Typography, Card, Stack } from '@mui/material';
 import Link from 'next/link';
+import Reveal from '@/src/app/Common/Reveal';
 
 const BRAND_TILES = [
   {
@@ -33,6 +34,7 @@ export default function BestSellers() {
       <Container maxWidth="xl">
 
         {/* ── Header row ── */}
+        <Reveal>
         <Box sx={{
           display: 'flex',
           alignItems: 'flex-end',
@@ -94,6 +96,7 @@ export default function BestSellers() {
             </Typography>
           </Box>
         </Box>
+        </Reveal>
 
         {/* ── Brand tiles ── */}
         <Box sx={{
@@ -101,9 +104,9 @@ export default function BestSellers() {
           gridTemplateColumns: { xs: '1fr', sm: 'repeat(3, 1fr)' },
           gap: 2,
         }}>
-          {BRAND_TILES.map((brand) => (
+          {BRAND_TILES.map((brand, i) => (
+            <Reveal key={brand.name} delay={i * 100}>
             <Box
-              key={brand.name}
               component={brand.external ? 'a' : Link}
               href={brand.href}
               target={brand.external ? '_blank' : undefined}
@@ -183,6 +186,7 @@ export default function BestSellers() {
                 </Box>
               </Card>
             </Box>
+            </Reveal>
           ))}
         </Box>
 

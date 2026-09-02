@@ -3,6 +3,7 @@
 import { Box, Container, Typography } from '@mui/material';
 import FeaturedValveCard from './FeaturedValvesCard';
 import { FEATURED_PRODUCTS } from './FeaturedValvesData';
+import Reveal from '@/src/app/Common/Reveal';
 
 export default function FeaturedValves() {
   return (
@@ -11,38 +12,35 @@ export default function FeaturedValves() {
       sx={{
         py: { xs: 5, md: 8 },
         bgcolor: 'grey.50',
-        '@keyframes sectionFadeIn': {
-          from: { opacity: 0, transform: 'translateY(24px)' },
-          to:   { opacity: 1, transform: 'translateY(0)' },
-        },
-        animation: 'sectionFadeIn 0.6s ease both',
       }}
     >
       <Container maxWidth="xl">
-        <Box sx={{ mb: { xs: 3, md: 5 } }}>
-          <Typography sx={{
-            fontFamily: '"Barlow Condensed", sans-serif',
-            fontSize: 11,
-            fontWeight: 700,
-            letterSpacing: '.2em',
-            textTransform: 'uppercase',
-            color: 'text.secondary',
-            display: 'block',
-            mb: 0.5,
-          }}>
-            Premium Selection ——
-          </Typography>
-          <Typography sx={{
-            fontFamily: '"Barlow Condensed", sans-serif',
-            fontWeight: 900,
-            fontSize: { xs: 32, sm: 40, md: 56 },
-            lineHeight: 0.88,
-            textTransform: 'uppercase',
-            color: 'text.primary',
-          }}>
-            Featured<br />Products
-          </Typography>
-        </Box>
+        <Reveal>
+          <Box sx={{ mb: { xs: 3, md: 5 } }}>
+            <Typography sx={{
+              fontFamily: '"Barlow Condensed", sans-serif',
+              fontSize: 11,
+              fontWeight: 700,
+              letterSpacing: '.2em',
+              textTransform: 'uppercase',
+              color: 'text.secondary',
+              display: 'block',
+              mb: 0.5,
+            }}>
+              Premium Selection ——
+            </Typography>
+            <Typography sx={{
+              fontFamily: '"Barlow Condensed", sans-serif',
+              fontWeight: 900,
+              fontSize: { xs: 32, sm: 40, md: 56 },
+              lineHeight: 0.88,
+              textTransform: 'uppercase',
+              color: 'text.primary',
+            }}>
+              Featured<br />Products
+            </Typography>
+          </Box>
+        </Reveal>
 
         <Box sx={{
           display: 'grid',
@@ -55,19 +53,9 @@ export default function FeaturedValves() {
           gap: 2,
         }}>
           {FEATURED_PRODUCTS.map((product, index) => (
-            <Box
-              key={product.id}
-              sx={{
-                '@keyframes cardIn': {
-                  from: { opacity: 0, transform: 'translateY(20px)' },
-                  to:   { opacity: 1, transform: 'translateY(0)' },
-                },
-                animation: 'cardIn 0.5s ease both',
-                animationDelay: `${index * 60}ms`,
-              }}
-            >
+            <Reveal key={product.id} delay={Math.min(index * 60, 400)}>
               <FeaturedValveCard valve={product} />
-            </Box>
+            </Reveal>
           ))}
         </Box>
       </Container>

@@ -6,15 +6,16 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Collapse from "@mui/material/Collapse";
 import Link from "next/link";
+import Reveal from "@/src/app/Common/Reveal";
 
+// Order matches CATEGORIES below 1:1 — each entry is that category's accent.
 const ACCENT_COLORS = [
-  { bg: "#c2410c", text: "#fff", border: "#c2410c" }, // orange  — Fittings
-  { bg: "#1d4ed8", text: "#fff", border: "#1d4ed8" }, // blue    — Pneumatics
-  { bg: "#6d28d9", text: "#fff", border: "#6d28d9" }, // purple  — Filters
-  { bg: "#166534", text: "#fff", border: "#166534" }, // green   — Industrial Valves
-  { bg: "#0e7490", text: "#fff", border: "#0e7490" }, // teal    — Actuators
-  { bg: "#9f1239", text: "#fff", border: "#9f1239" }, // crimson — Pumps
-  { bg: "#0f766e", text: "#fff", border: "#0f766e" }, // teal-green — Hydrogen
+  { bg: "#0f766e", text: "#fff", border: "#0f766e" }, // teal-green — Hydrogen & Cryogenic
+  { bg: "#166534", text: "#fff", border: "#166534" }, // green      — Valves
+  { bg: "#c2410c", text: "#fff", border: "#c2410c" }, // orange     — Fittings & Instrumentation Valves
+  { bg: "#6d28d9", text: "#fff", border: "#6d28d9" }, // purple     — Filters
+  { bg: "#0e7490", text: "#fff", border: "#0e7490" }, // teal       — Actuators
+  { bg: "#9f1239", text: "#fff", border: "#9f1239" }, // crimson    — Pumps & Mechanical Seal
 ];
 
 const CATEGORIES = [
@@ -97,7 +98,7 @@ const CATEGORIES = [
   },
   {
     name: "Pumps & Mechanical Seal",
-    img: "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/02-TSL.png",
+    img: "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/HQIC.webp",
     href: "/collections/tormac-pumps",
     tag: "Fluid Control",
     count: "180+",
@@ -116,35 +117,37 @@ export default function Categories() {
     <Box component="section" sx={{ py: { xs: 4, md: 8 }, bgcolor: "grey.50" }}>
       <Container maxWidth="lg">
         {/* Section Header */}
-        <Box sx={{ textAlign: "center", mb: 6 }}>
-          <Typography
-            sx={{
-              fontFamily: '"Barlow Condensed", sans-serif',
-              fontSize: "12px",
-              fontWeight: 800,
-              letterSpacing: "0.2em",
-              textTransform: "uppercase",
-              color: "primary.main",
-              mb: 1,
-            }}
-          >
-            Browse by Category
-          </Typography>
-          <Typography
-            component="h2"
-            sx={{
-              fontFamily: '"Barlow Condensed", sans-serif',
-              fontSize: { xs: "2.8rem", md: "4rem" },
-              fontWeight: 900,
-              textTransform: "uppercase",
-              color: "text.primary",
-              letterSpacing: "0.02em",
-              lineHeight: 1,
-            }}
-          >
-            Explore Our Catalog
-          </Typography>
-        </Box>
+        <Reveal>
+          <Box sx={{ textAlign: "center", mb: 6 }}>
+            <Typography
+              sx={{
+                fontFamily: '"Barlow Condensed", sans-serif',
+                fontSize: "12px",
+                fontWeight: 800,
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
+                color: "primary.main",
+                mb: 1,
+              }}
+            >
+              Browse by Category
+            </Typography>
+            <Typography
+              component="h2"
+              sx={{
+                fontFamily: '"Barlow Condensed", sans-serif',
+                fontSize: { xs: "2.8rem", md: "4rem" },
+                fontWeight: 900,
+                textTransform: "uppercase",
+                color: "text.primary",
+                letterSpacing: "0.02em",
+                lineHeight: 1,
+              }}
+            >
+              Explore Our Catalog
+            </Typography>
+          </Box>
+        </Reveal>
 
         {/* Category Grid */}
         <Box
@@ -164,11 +167,14 @@ export default function Categories() {
             const accent = ACCENT_COLORS[i];
 
             return (
-              <Box
+              <Reveal
                 key={cat.name}
+                delay={Math.min(i * 80, 320)}
+                sx={{ gridColumn: { md: isFeatured ? "span 3" : "span 1" } }}
+              >
+              <Box
                 onClick={() => toggle(i)}
                 sx={{
-                  gridColumn: { md: isFeatured ? "span 3" : "span 1" },
                   position: "relative",
                   bgcolor: "white",
                   border: "1px solid",
@@ -347,6 +353,7 @@ export default function Categories() {
                   </Collapse>
                 </Box>
               </Box>
+              </Reveal>
             );
           })}
         </Box>

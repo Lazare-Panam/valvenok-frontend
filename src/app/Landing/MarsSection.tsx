@@ -3,6 +3,7 @@
 import { Box, Divider, Typography } from "@mui/material";
 import Image from "next/image";
 import { Link } from "@mui/material";
+import Reveal from "@/src/app/Common/Reveal";
 
 const bodyText = {
   color: "text.secondary",
@@ -34,6 +35,7 @@ export default function MarsSection() {
           }}
         >
           {/* left: copy */}
+          <Reveal>
           <Box sx={{ flex: 1 }}>
             <Typography component="h2" sx={{ ...heading, mt: 0 }}>
               <Link
@@ -80,8 +82,10 @@ export default function MarsSection() {
               delivery.
             </Typography>
           </Box>
+          </Reveal>
 
           {/* right: static image */}
+          <Reveal delay={150} y={32}>
           <Box sx={{ flex: 1, width: "100%" }}>
             <Box
               sx={{
@@ -94,6 +98,11 @@ export default function MarsSection() {
                 bgcolor: "#fff",
                 border: "1px solid",
                 borderColor: "rgba(0,0,0,0.08)",
+                transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                "&:hover": {
+                  transform: "translateY(-4px)",
+                  boxShadow: "0 20px 40px rgba(0,0,0,0.16)",
+                },
               }}
             >
               <Link
@@ -111,6 +120,7 @@ export default function MarsSection() {
               </Link>
             </Box>
           </Box>
+          </Reveal>
         </Box>
 
         <Divider sx={{ mt: { xs: 5, md: 8 } }} />

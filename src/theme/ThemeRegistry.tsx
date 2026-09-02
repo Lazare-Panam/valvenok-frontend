@@ -25,6 +25,11 @@ const theme = createTheme({
     fontFamily: "var(--font-body), sans-serif",
   },
   components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        html: { scrollBehavior: "smooth" },
+      },
+    },
     MuiTypography: {
       styleOverrides: {
         root: {

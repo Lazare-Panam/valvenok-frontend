@@ -5,6 +5,7 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
 import { keyframes } from '@mui/system';
+import Reveal from '@/src/app/Common/Reveal';
 
 const marqueFwd = keyframes`
   0% { transform: translateX(0); }
@@ -60,11 +61,11 @@ const MarqueeRow = ({ brands, speed = 60 }: MarqueeRowProps) => {
         },
         '&::before': {
           left: 0,
-          background: 'linear-gradient(to right, #f7faf6 0%, transparent 100%)',
+          background: 'linear-gradient(to right, #ffffff 0%, transparent 100%)',
         },
         '&::after': {
           right: 0,
-          background: 'linear-gradient(to left, #f7faf6 0%, transparent 100%)',
+          background: 'linear-gradient(to left, #ffffff 0%, transparent 100%)',
         },
       }}
     >
@@ -143,7 +144,7 @@ export default function Brands() {
     <Box
       sx={{
         py: 6,
-        bgcolor: 'grey.50',
+        bgcolor: '#fff',
         borderTop: '1px solid',
         borderBottom: '1px solid',
         borderColor: 'divider',
@@ -151,6 +152,7 @@ export default function Brands() {
       }}
     >
       <Container maxWidth="lg">
+        <Reveal>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 4 }}>
           <Box sx={{ flex: 1, height: '1px', bgcolor: 'divider' }} />
           <Typography
@@ -169,6 +171,7 @@ export default function Brands() {
           </Typography>
           <Box sx={{ flex: 1, height: '1px', bgcolor: 'divider' }} />
         </Box>
+        </Reveal>
       </Container>
 
       <MarqueeRow brands={BRANDS} speed={60} />

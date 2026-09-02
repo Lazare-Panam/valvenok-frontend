@@ -1,11 +1,16 @@
 import AboutContact from "./Landing/AboutContact";
 import Brands from "./Landing/Brands";
 import Categories from "./Landing/Categories";
+import CategoryQuickNav from "./Landing/CategoryQuickNav";
 import DeliveryBanner from "./Landing/DeliveryBanner";
 import FeaturedStrip from "./Landing/FeaturedStrip";
 import FeaturedValves from "./Landing/FeaturedValves";
 import HeroSlider from "./Landing/HeroSlider";
 import MarsSection from "./Landing/MarsSection";
+import ValuePropBanner from "./Landing/ValuePropBanner";
+import StatsBand from "./Landing/StatsBand";
+import TestimonialsSection from "./Landing/TestimonialsSection";
+import FAQSection from "./Landing/FAQSection";
 
 // For Next.js App Router (metadata object)
 export const metadata = {
@@ -34,12 +39,17 @@ export default function Home() {
   return (
     <>
       <HeroSlider />
+      <CategoryQuickNav />
       <DeliveryBanner />
       <FeaturedStrip />
+      <ValuePropBanner />
       <MarsSection />
       <FeaturedValves />
       <Brands />
       <Categories />
+      <StatsBand />
+      <TestimonialsSection />
+      <FAQSection />
       <AboutContact />
     </>
   );
