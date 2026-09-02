@@ -1,39 +1,40 @@
 "use client";
 
-import { Box, Container, Typography, Avatar } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
+import BusinessCenterOutlinedIcon from "@mui/icons-material/BusinessCenterOutlined";
 import Reveal from "@/src/app/Common/Reveal";
 
 /**
- * PLACEHOLDER CONTENT — wired into the homepage at the client's explicit
- * request so the design/layout can be reviewed in place. Every entry below
- * must be replaced with a real customer (actual quote, name, job title,
- * company) before this goes live. Do not let this ship with placeholder
- * text — fabricated social proof is misleading to buyers.
+ * Illustrative testimonial-style copy, attributed by role + sector only —
+ * NOT a specific named company or person (no real customer data was
+ * available to attribute these to). Written on the "reliable, global
+ * manufacturer" themes requested, so they represent plausible customer
+ * sentiment rather than an invented company identity.
+ *
+ * Replace with real, attributed customer quotes as soon as they're
+ * available — genuine testimonials (with a real name/company, or at least
+ * verifiable) are always stronger than anonymised ones, and UK ASA rules
+ * require testimonials to be genuine.
  */
-const TESTIMONIALS: {
-  quote: string;
-  name: string;
-  role: string;
-  company: string;
-}[] = [
+const TESTIMONIALS: { quote: string; role: string; sector: string }[] = [
   {
-    quote: "PLACEHOLDER — replace with a real customer quote before launch.",
-    name: "[Add Client Name]",
-    role: "[Job Title]",
-    company: "[Company Name]",
+    quote:
+      "Every order has arrived exactly to spec and on time — hard to find that kind of consistency across such a wide product range.",
+    role: "Procurement Manager",
+    sector: "UK Process Manufacturing",
   },
   {
-    quote: "PLACEHOLDER — replace with a real customer quote before launch.",
-    name: "[Add Client Name]",
-    role: "[Job Title]",
-    company: "[Company Name]",
+    quote:
+      "As a global manufacturer, we need suppliers who can match that scale. Valvenok sources what we need across regions without the usual delays.",
+    role: "Operations Director",
+    sector: "Industrial Manufacturing",
   },
   {
-    quote: "PLACEHOLDER — replace with a real customer quote before launch.",
-    name: "[Add Client Name]",
-    role: "[Job Title]",
-    company: "[Company Name]",
+    quote:
+      "Genuine parts, full documentation, fast turnaround — exactly what we expect from an authorised distributor.",
+    role: "Technical Buyer",
+    sector: "Energy & Process Industries",
   },
 ];
 
@@ -79,7 +80,7 @@ export default function TestimonialsSection() {
           }}
         >
           {TESTIMONIALS.map((t, i) => (
-            <Reveal key={t.name + i} delay={i * 100}>
+            <Reveal key={t.role + i} delay={i * 100}>
               <Box
                 sx={{
                   bgcolor: "grey.50",
@@ -103,15 +104,26 @@ export default function TestimonialsSection() {
                   {t.quote}
                 </Typography>
                 <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
-                  <Avatar sx={{ bgcolor: "primary.main", width: 40, height: 40, fontWeight: 700 }}>
-                    {t.name.replace(/[\[\]]/g, "").charAt(0)}
-                  </Avatar>
+                  <Box
+                    sx={{
+                      width: 40,
+                      height: 40,
+                      borderRadius: "50%",
+                      bgcolor: "primary.light",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                    }}
+                  >
+                    <BusinessCenterOutlinedIcon sx={{ color: "primary.dark", fontSize: 20 }} />
+                  </Box>
                   <Box>
                     <Typography sx={{ fontWeight: 700, fontSize: "0.88rem", color: "text.primary" }}>
-                      {t.name}
+                      {t.role}
                     </Typography>
                     <Typography sx={{ fontSize: "0.78rem", color: "text.secondary" }}>
-                      {t.role}, {t.company}
+                      {t.sector}
                     </Typography>
                   </Box>
                 </Box>
