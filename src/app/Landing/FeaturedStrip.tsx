@@ -30,7 +30,14 @@ const BRAND_TILES = [
 
 export default function BestSellers() {
   return (
-    <Box component="section" sx={{ bgcolor: 'primary.main', py: { xs: 5, md: 8 } }}>
+    <Box
+      component="section"
+      sx={{
+        background: (t) =>
+          `linear-gradient(135deg, ${t.palette.primary.dark} 0%, ${t.palette.primary.main} 55%, ${t.palette.primary.dark} 100%)`,
+        py: { xs: 8, md: 12 },
+      }}
+    >
       <Container maxWidth="xl">
 
         {/* ── Header row ── */}
@@ -51,7 +58,7 @@ export default function BestSellers() {
               letterSpacing: '.2em',
               textTransform: 'uppercase',
               color: 'primary.contrastText',
-              opacity: 0.55,
+              opacity: 0.85,
               display: 'block',
               mb: 0.5,
             }}>
@@ -90,7 +97,7 @@ export default function BestSellers() {
               letterSpacing: '.1em',
               textTransform: 'uppercase',
               color: '#ffffff',
-              opacity: 0.75,
+              opacity: 0.92,
             }}>
               All products stocked in the UK — extremely low lead times, ready to ship
             </Typography>

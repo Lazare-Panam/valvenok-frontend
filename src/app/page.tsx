@@ -2,6 +2,7 @@ import AboutContact from "./Landing/AboutContact";
 import Brands from "./Landing/Brands";
 import Categories from "./Landing/Categories";
 import CategoryQuickNav from "./Landing/CategoryQuickNav";
+import CertificationsStrip from "./Landing/CertificationsStrip";
 import DeliveryBanner from "./Landing/DeliveryBanner";
 import FeaturedStrip from "./Landing/FeaturedStrip";
 import FeaturedValves from "./Landing/FeaturedValves";
@@ -10,6 +11,7 @@ import MarsSection from "./Landing/MarsSection";
 import ValuePropBanner from "./Landing/ValuePropBanner";
 import StatsBand from "./Landing/StatsBand";
 import TestimonialsSection from "./Landing/TestimonialsSection";
+import LatestInsights from "./Landing/LatestInsights";
 import FAQSection from "./Landing/FAQSection";
 
 // For Next.js App Router (metadata object)
@@ -39,6 +41,7 @@ export default function Home() {
   return (
     <>
       <HeroSlider />
+      <CertificationsStrip />
       <CategoryQuickNav />
       <DeliveryBanner />
       <FeaturedStrip />
@@ -49,6 +52,7 @@ export default function Home() {
       <Categories />
       <StatsBand />
       <TestimonialsSection />
+      <LatestInsights />
       <FAQSection />
       <AboutContact />
     </>

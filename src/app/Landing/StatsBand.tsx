@@ -68,7 +68,7 @@ export default function StatsBand() {
     <Box
       component="section"
       sx={{
-        py: { xs: 7, md: 10 },
+        py: { xs: 8, md: 12 },
         background:
           "linear-gradient(135deg, #61D649 0%, #4a9a3a 60%, #2d5c22 100%)",
       }}

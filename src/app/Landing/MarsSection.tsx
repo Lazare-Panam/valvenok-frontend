@@ -22,7 +22,7 @@ const heading = {
 
 export default function MarsSection() {
   return (
-    <Box component="section" sx={{ py: { xs: 6, md: 10 }, bgcolor: "#fff" }}>
+    <Box component="section" sx={{ py: { xs: 8, md: 12 }, bgcolor: "#fff" }}>
       <Box sx={{ maxWidth: "1280px", mx: "auto", px: { xs: 3, md: 8 } }}>
         <Divider sx={{ mb: { xs: 5, md: 8 } }} />
 
@@ -92,7 +92,7 @@ export default function MarsSection() {
                 position: "relative",
                 width: "100%",
                 pt: "75%",
-                borderRadius: "6px",
+                borderRadius: "4px",
                 overflow: "hidden",
                 boxShadow: "0 12px 32px rgba(0,0,0,0.12)",
                 bgcolor: "#fff",

@@ -23,7 +23,7 @@ export default function AboutContact() {
   return (
     <Box
       component="section"
-      sx={{ py: { xs: 7, md: 10 }, bgcolor: "background.paper" }}
+      sx={{ py: { xs: 8, md: 12 }, bgcolor: "background.paper" }}
     >
       <Container maxWidth="lg">
         <Box

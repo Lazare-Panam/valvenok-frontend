@@ -142,6 +142,17 @@ export default function HeroSlider() {
             }}
           />
 
+          {/* 3. BOTTOM VIGNETTE (keeps nav controls/indicators legible on any slide) */}
+          <Box
+            sx={{
+              position: "absolute",
+              inset: 0,
+              background:
+                "linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 30%)",
+              zIndex: 1,
+            }}
+          />
+
           {/* 4. CONTENT LAYER */}
           <Container
             maxWidth="lg"

@@ -10,7 +10,7 @@ export default function FeaturedValves() {
     <Box
       component="section"
       sx={{
-        py: { xs: 5, md: 8 },
+        py: { xs: 8, md: 12 },
         bgcolor: 'grey.50',
       }}
     >

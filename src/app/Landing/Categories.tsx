@@ -114,7 +114,7 @@ export default function Categories() {
   const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
 
   return (
-    <Box component="section" sx={{ py: { xs: 4, md: 8 }, bgcolor: "grey.50" }}>
+    <Box component="section" sx={{ py: { xs: 8, md: 12 }, bgcolor: "grey.50" }}>
       <Container maxWidth="lg">
         {/* Section Header */}
         <Reveal>

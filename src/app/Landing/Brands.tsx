@@ -143,7 +143,7 @@ export default function Brands() {
   return (
     <Box
       sx={{
-        py: 6,
+        py: { xs: 6, md: 9 },
         bgcolor: '#fff',
         borderTop: '1px solid',
         borderBottom: '1px solid',
