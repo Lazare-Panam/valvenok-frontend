@@ -27,14 +27,16 @@ export default function NavLogo() {
         <Box
           component="img"
           src={LOGO_URL}
-          alt="Company Logo"
-         sx={{
-  height: { xs: 44, sm: 56, md: 116 },
-  width: { xs: 130, sm: 170, md: 240 },
-  display: "block",
-  objectFit: "fill",
-  cursor: "pointer",
-}}
+          alt="Valvenok"
+          sx={{
+            height: { xs: 44, sm: 56, md: 116 },
+            width: { xs: 130, sm: 170, md: 240 },
+            display: "block",
+            objectFit: "contain",
+            cursor: "pointer",
+            transition: "opacity 0.2s ease",
+            "&:hover": { opacity: 0.85 },
+          }}
         />
       </Link>
     </Box>

@@ -5,7 +5,7 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/EmailOutlined";
 
 const DARK_GREEN = "#61D649";
-const BRAND_GREEN = "#ffff";
+const ICON_WHITE = "#fff";
 
 export default function NavTopStrip() {
   return (
@@ -27,7 +27,7 @@ export default function NavTopStrip() {
           }}
         >
           <Box sx={{ display: "flex", alignItems: "center", gap: 0.75 }}>
-            <PhoneIcon sx={{ fontSize: 13, color: BRAND_GREEN }} />
+            <PhoneIcon sx={{ fontSize: 13, color: ICON_WHITE }} />
             <Typography
               component="a"
               href="tel:+447368557896"
@@ -36,7 +36,8 @@ export default function NavTopStrip() {
                 fontSize: "0.78rem",
                 fontWeight: 500,
                 textDecoration: "none",
-                "&:hover": { color: BRAND_GREEN },
+                transition: "opacity 0.2s ease",
+                "&:hover": { textDecoration: "underline", opacity: 0.85 },
               }}
             >
               +44 7368 557896
@@ -44,7 +45,7 @@ export default function NavTopStrip() {
           </Box>
 
           <Box sx={{ display: "flex", alignItems: "center", gap: 0.75 }}>
-            <EmailIcon sx={{ fontSize: 13, color: BRAND_GREEN }} />
+            <EmailIcon sx={{ fontSize: 13, color: ICON_WHITE }} />
             <Typography
               component="a"
               href="mailto:sales@valvenok.com"
@@ -53,7 +54,8 @@ export default function NavTopStrip() {
                 fontSize: "0.78rem",
                 fontWeight: 500,
                 textDecoration: "none",
-                "&:hover": { color: BRAND_GREEN },
+                transition: "opacity 0.2s ease",
+                "&:hover": { textDecoration: "underline", opacity: 0.85 },
               }}
             >
               sales@valvenok.com
@@ -75,7 +77,7 @@ export default function NavTopStrip() {
               textTransform: "uppercase",
               textDecoration: "none",
               transition: "all 0.2s",
-              "&:hover": { bgcolor: "#d3d3d3", borderColor: "#fff" },
+              "&:hover": { bgcolor: "#fff", color: DARK_GREEN, borderColor: "#fff" },
             }}
           >
             Request a Quote

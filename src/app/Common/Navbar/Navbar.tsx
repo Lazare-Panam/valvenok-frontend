@@ -87,7 +87,12 @@ export default function Navbar() {
 
             <IconButton
               onClick={() => setMobileOpen(true)}
-              sx={{ display: { md: "none" }, color: "#333" }}
+              sx={{
+                display: { md: "none" },
+                color: "#333",
+                transition: "background-color 0.2s ease, color 0.2s ease",
+                "&:hover": { bgcolor: "rgba(97,214,73,0.1)", color: NAV_BAR_BG },
+              }}
             >
               <MenuIcon />
             </IconButton>
@@ -137,7 +142,7 @@ export default function Navbar() {
                     activeGroup?.id === group.id ? BRAND_GREEN : "transparent"
                   }`,
                   transition: "all 0.15s",
-                  "&:hover": { color: "#ffff" },
+                  "&:hover": { color: "#fff", bgcolor: "rgba(255,255,255,0.08)" },
                 }}
               >
                 {group.label}

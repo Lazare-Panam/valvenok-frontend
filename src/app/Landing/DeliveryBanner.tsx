@@ -5,12 +5,14 @@ import Typography from '@mui/material/Typography';
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
 import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
 import VerifiedOutlinedIcon from '@mui/icons-material/VerifiedOutlined';
+import AccountBalanceOutlinedIcon from '@mui/icons-material/AccountBalanceOutlined';
 import { alpha } from '@mui/material/styles';
 
 const ITEMS = [
   { icon: LocalShippingOutlinedIcon, text: 'Free UK Delivery on Orders Over £150' },
   { icon: InventoryOutlinedIcon,     text: '2–3 Day Dispatch on All Stocked Items' },
   { icon: VerifiedOutlinedIcon,      text: 'JOSCAR Registered Supplier' },
+  { icon: AccountBalanceOutlinedIcon, text: 'Trade Credit Accounts Available' },
 ];
 
 const TRACK = [...ITEMS, ...ITEMS, ...ITEMS];

@@ -8,6 +8,7 @@ import Providers from "./providers";
 import { NotificationProvider } from "../components/NotificationProvider";
 import Footer from "./Common/Footer/Footer";
 import Breadcrumbs from "../components/Common/BreadCrumbs";
+import ScrollProgress from "./Common/ScrollProgress";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -82,6 +83,7 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <ScrollProgress />
         <ThemeRegistry>
           {" "}
           <Providers>

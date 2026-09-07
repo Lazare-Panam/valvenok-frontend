@@ -15,6 +15,9 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+import VerifiedUserOutlinedIcon from "@mui/icons-material/VerifiedUserOutlined";
+import WorkspacePremiumOutlinedIcon from "@mui/icons-material/WorkspacePremiumOutlined";
+import Reveal from "../Reveal";
 
 const BRAND_GREEN = "#61D649";
 const DARK_BG = "#1c2e1a";
@@ -67,68 +70,73 @@ export default function Footer() {
         <Grid container spacing={6}>
           {/* ── COLUMN 1: BRAND ── */}
           <Grid size={{ xs: 12, md: 4 }}>
-            <Typography
-              variant="h5"
-              sx={{
-                fontWeight: 900,
-                textTransform: "uppercase",
-                letterSpacing: "0.05em",
-                mb: 3,
-                color: "white",
-              }}
-            >
-              Industrial{" "}
-              <Box component="span" sx={{ color: BRAND_GREEN }}>
-                Supplies
-              </Box>
-            </Typography>
-            <Typography
-              variant="body2"
-              sx={{ color: alpha("#fff", 0.7), mb: 4, lineHeight: 1.8 }}
-            >
-              Leading UK supplier of Hydraulic, Pneumatic, and Instrumentation
-              components. Engineering excellence delivered fast to Global
-              Procurement Teams.
-            </Typography>
+            <Reveal>
+              <Typography
+                variant="h5"
+                sx={{
+                  fontWeight: 900,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.05em",
+                  mb: 3,
+                  color: "white",
+                }}
+              >
+                Industrial{" "}
+                <Box component="span" sx={{ color: BRAND_GREEN }}>
+                  Supplies
+                </Box>
+              </Typography>
+              <Typography
+                variant="body2"
+                sx={{ color: alpha("#fff", 0.7), mb: 4, lineHeight: 1.8 }}
+              >
+                Leading UK supplier of Hydraulic, Pneumatic, and Instrumentation
+                components. Engineering excellence delivered fast to Global
+                Procurement Teams.
+              </Typography>
+            </Reveal>
           </Grid>
 
           {/* ── COLUMNS 2-4: LINKS ── */}
-          {FOOTER_LINKS.map((section) => (
+          {FOOTER_LINKS.map((section, i) => (
             <Grid size={{ xs: 6, sm: 4, md: 2 }} key={section.title}>
-              <Typography
-                sx={{
-                  fontWeight: 800,
-                  textTransform: "uppercase",
-                  mb: 3,
-                  letterSpacing: "0.1em",
-                  fontSize: "14px",
-                  color: BRAND_GREEN,
-                }}
-              >
-                {section.title}
-              </Typography>
-              <Stack spacing={1.5}>
-                {section.links.map((link) => (
-                  <Link
-                    key={link.label}
-                    href={link.href}
-                    underline="none"
-                    sx={{
-                      color: alpha("#fff", 0.6),
-                      fontSize: "14px",
-                      transition: "0.2s",
-                      "&:hover": { color: BRAND_GREEN, pl: 0.5 },
-                    }}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </Stack>
+              <Reveal delay={i * 80}>
+                <Typography
+                  sx={{
+                    fontWeight: 800,
+                    textTransform: "uppercase",
+                    mb: 3,
+                    letterSpacing: "0.1em",
+                    fontSize: "14px",
+                    color: BRAND_GREEN,
+                  }}
+                >
+                  {section.title}
+                </Typography>
+                <Stack spacing={1.5}>
+                  {section.links.map((link) => (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      underline="none"
+                      sx={{
+                        color: alpha("#fff", 0.6),
+                        fontSize: "14px",
+                        transition: "0.2s",
+                        "&:hover": { color: BRAND_GREEN, pl: 0.5 },
+                      }}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </Stack>
+              </Reveal>
             </Grid>
           ))}
 
           {/* ── COLUMN 5: CONTACT ── */}
           <Grid size={{ xs: 12, md: 2 }}>
+            <Reveal delay={240}>
             <Typography
               sx={{
                 fontWeight: 800,
@@ -203,7 +211,14 @@ export default function Footer() {
                   sx={{
                     color: "white",
                     bgcolor: alpha("#fff", 0.1),
-                    "&:hover": { bgcolor: BRAND_GREEN },
+                    border: "1px solid",
+                    borderColor: alpha("#fff", 0.15),
+                    transition: "background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease",
+                    "&:hover": {
+                      bgcolor: BRAND_GREEN,
+                      borderColor: BRAND_GREEN,
+                      transform: "translateY(-3px)",
+                    },
                   }}
                 >
                   <LinkedInIcon fontSize="small" />
@@ -226,6 +241,7 @@ export default function Footer() {
                 </IconButton>
               </Stack>
             </Stack>
+            </Reveal>
           </Grid>
         </Grid>
 
@@ -245,20 +261,52 @@ export default function Footer() {
             © {new Date().getFullYear()} INDUSTRIAL SUPPLIES LTD. ALL RIGHTS
             RESERVED.
           </Typography>
-          <Stack direction="row" spacing={3}>
-            <Box sx={{ display: "flex", gap: 2 }}>
-              <Typography
-                variant="caption"
-                sx={{ fontWeight: 900, color: alpha("#fff", 0.3) }}
+          <Stack direction="row" spacing={1.5}>
+            <Box sx={{ display: "flex", gap: 1.5 }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 0.75,
+                  px: 1.5,
+                  py: 0.6,
+                  border: "1px solid",
+                  borderColor: alpha("#fff", 0.15),
+                  borderRadius: "3px",
+                  transition: "border-color 0.2s ease, background-color 0.2s ease",
+                  "&:hover": { borderColor: BRAND_GREEN, bgcolor: alpha(BRAND_GREEN, 0.06) },
+                }}
               >
-                JOSCAR
-              </Typography>
-              <Typography
-                variant="caption"
-                sx={{ fontWeight: 900, color: alpha("#fff", 0.3) }}
+                <VerifiedUserOutlinedIcon sx={{ fontSize: 14, color: BRAND_GREEN }} />
+                <Typography
+                  variant="caption"
+                  sx={{ fontWeight: 800, letterSpacing: "0.08em", color: alpha("#fff", 0.6) }}
+                >
+                  JOSCAR
+                </Typography>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 0.75,
+                  px: 1.5,
+                  py: 0.6,
+                  border: "1px solid",
+                  borderColor: alpha("#fff", 0.15),
+                  borderRadius: "3px",
+                  transition: "border-color 0.2s ease, background-color 0.2s ease",
+                  "&:hover": { borderColor: BRAND_GREEN, bgcolor: alpha(BRAND_GREEN, 0.06) },
+                }}
               >
-                ISO 9001
-              </Typography>
+                <WorkspacePremiumOutlinedIcon sx={{ fontSize: 14, color: BRAND_GREEN }} />
+                <Typography
+                  variant="caption"
+                  sx={{ fontWeight: 800, letterSpacing: "0.08em", color: alpha("#fff", 0.6) }}
+                >
+                  ISO 9001
+                </Typography>
+              </Box>
             </Box>
           </Stack>
         </Stack>

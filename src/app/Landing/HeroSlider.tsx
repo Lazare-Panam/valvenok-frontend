@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import {
   Box,
   Container,
@@ -64,6 +64,7 @@ const SLIDES = [
 
 export default function HeroSlider() {
   const [index, setIndex] = useState(0);
+  const glowRef = useRef<HTMLDivElement>(null);
 
   const nextSlide = useCallback(() => {
     setIndex((prev) => (prev + 1) % SLIDES.length);
@@ -78,8 +79,25 @@ export default function HeroSlider() {
     return () => clearInterval(timer);
   }, [nextSlide, index]);
 
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const el = glowRef.current;
+    if (!el) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    el.style.background = `radial-gradient(600px circle at ${x}px ${y}px, rgba(97,214,73,0.22), transparent 45%)`;
+  };
+
+  const handleMouseLeave = () => {
+    const el = glowRef.current;
+    if (!el) return;
+    el.style.background = "transparent";
+  };
+
   return (
     <Box
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       sx={{
         position: "relative",
         width: "100%",

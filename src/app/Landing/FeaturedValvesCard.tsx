@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Link from 'next/link';
 import { Box, Typography } from '@mui/material';
 import { FeaturedValve } from './FeaturedValvesData';
@@ -11,12 +11,32 @@ interface FeaturedValveCardProps {
 
 export default function FeaturedValveCard({ valve }: FeaturedValveCardProps) {
   const [hovered, setHovered] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
   const logoH = valve.logoHeight ?? 40;
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const el = cardRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const px = (e.clientX - rect.left) / rect.width - 0.5;
+    const py = (e.clientY - rect.top) / rect.height - 0.5;
+    el.style.transform = `perspective(900px) rotateX(${(-py * 6).toFixed(2)}deg) rotateY(${(px * 6).toFixed(2)}deg) translateY(-6px)`;
+  };
+
+  const handleMouseLeave = () => {
+    setHovered(false);
+    const el = cardRef.current;
+    if (!el) return;
+    el.style.transform = '';
+  };
+
   return (
     <Link href={valve.href} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
       <Box
+        ref={cardRef}
         onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
         sx={{
           position: 'relative',
           bgcolor: '#fff',
@@ -26,7 +46,8 @@ export default function FeaturedValveCard({ valve }: FeaturedValveCardProps) {
           flexDirection: 'column',
           height: '100%',
           transform: hovered ? 'translateY(-6px)' : 'translateY(0)',
-          transition: 'transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease',
+          transition: 'transform 0.15s ease, border-color 0.3s ease, box-shadow 0.3s ease',
+          willChange: 'transform',
           boxShadow: hovered
             ? '0 20px 40px rgba(0,0,0,0.12)'
             : '0 1px 4px rgba(0,0,0,0.04)',

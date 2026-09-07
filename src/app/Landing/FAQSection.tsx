@@ -30,6 +30,10 @@ const FAQS = [
     q: "What's your returns policy?",
     a: "Unused items in original packaging can be returned in line with our Returns Policy — see the Returns page for full terms.",
   },
+  {
+    q: "Do you offer trade credit accounts?",
+    a: "Yes. Approved business customers can apply for a trade credit account to order on invoice terms rather than paying upfront. Contact our sales team to discuss eligibility and get one set up.",
+  },
 ];
 
 export default function FAQSection() {
