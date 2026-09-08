@@ -17,7 +17,6 @@ module.exports = {
       loc: path,
       changefreq: config.changefreq,
       priority: priorities[path] ?? 0.6,
-      lastmod: new Date().toISOString(),
     }
   },
 }

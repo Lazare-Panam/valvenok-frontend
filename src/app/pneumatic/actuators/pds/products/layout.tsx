@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "PD Actuators | Valvenok",
+  title: "PD Actuators",
   description:
     "Browse PD actuator models — filter by series, model, and angle to find the exact configuration you need.",
   openGraph: {

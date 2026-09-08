@@ -5,7 +5,7 @@ import { Category } from "../../Common/Products_Page/ProductCard";
 import ValvesGrid from "./ValvesGrid";
 
 export const metadata: Metadata = {
-  title: "Valves | SS316 Instrumentation & Process Valves | Valvenok",
+  title: "Valves | SS316 Instrumentation & Process Valves",
   description:
     "Valvenok supplies a complete range of SS316 valves for instrumentation and process systems. Ball valves, needle valves, check valves and relief valves engineered for high-pressure, leak-tight performance.",
 };

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Bellows Sealed Gate Valves | Valvenok",
+  title: "Bellows Sealed Gate Valves",
   description:
     "DIN and ANSI standard bellows sealed gate valves with auto-welded metal bellows and zero stem leakage.",
   openGraph: {

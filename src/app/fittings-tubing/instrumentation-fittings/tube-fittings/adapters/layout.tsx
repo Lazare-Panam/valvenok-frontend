@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Tube Fittings — Adapters | Valvenok',
+  title: 'Tube Fittings — Adapters',
   description: 'Stainless steel male and female adapter fittings. Available in Imperial and Metric tube OD with NPT, BSPT, BSPP, RP, RG and SAE/MS thread types.',
   openGraph: {
     title: 'Tube Fittings — Adapters | Valvenok',

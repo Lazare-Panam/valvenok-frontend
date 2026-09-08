@@ -5,7 +5,7 @@ import { Category } from "../../Common/Products_Page/ProductCard";
 import ElectricActuatorsGrid from "./components/ElectricActuatorsGrid";
 
 export const metadata: Metadata = {
-  title: "Electric Actuators | Rotary & Linear | Valvenok",
+  title: "Electric Actuators | Rotary & Linear",
   description:
     "Valvenok supplies a full range of electric rotary and linear actuators for precise valve automation. ITQ series quarter-turn electric actuators — ISO 5211 mounting, on-off and modulating service, IP67 protection.",
 };

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import BallValveVsGateValvePage from './blog';
 
 export const metadata: Metadata = {
-  title: 'Ball Valve vs Gate Valve: Technical Guide to Differences & Applications | Valvenok',
+  title: 'Ball Valve vs Gate Valve: Technical Guide to Differences & Applications',
   description: 'Ball valve or gate valve? This technical guide covers how each works, sealing standards, pressure ratings, real-world applications by industry, and exactly when to use each one.',
   openGraph: {
     title: 'Ball Valve vs Gate Valve: Technical Guide | Valvenok',

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'AD / AS Series Scotch Yoke Actuators | Valvenok',
+  title: 'AD / AS Series Scotch Yoke Actuators',
   description: 'Kosaplus scotch yoke pneumatic actuators for high-torque quarter-turn valve automation. Double acting and spring return configurations across 11 sizes from 50–300mm.',
   openGraph: {
     title: 'AD / AS Series Scotch Yoke Actuators | Valvenok',

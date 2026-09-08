@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "PDS Series Scotch Yoke Actuators | Valvenok",
+  title: "PDS Series Scotch Yoke Actuators",
   description:
     "Scotch-Yoke pneumatic actuators engineered for superior break-out torque. Double acting and spring return, 10–4,000 Nm, ATEX certified, SIL3 capable.",
   openGraph: {

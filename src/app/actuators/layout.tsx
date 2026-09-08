@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Actuators | Valvenok",
+  title: "Actuators",
   description:
     "Leading UK supplier of valve actuators across all technologies — pneumatic, electric, hydraulic and mechanical — for demanding industrial environments globally.",
   openGraph: {

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'PLDS Series Linear Cylinders | Valvenok',
+  title: 'PLDS Series Linear Cylinders',
   description: 'Double-acting pneumatic linear cylinders for precise motion control, valve actuation and automation. IP66, ISO mounting, multiple corrosion grades.',
   openGraph: {
     title: 'PLDS Series Linear Cylinders | Valvenok',

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Direct Water Pumps | Valvenok",
+  title: "Direct Water Pumps",
   description:
     "TP320P(T) and TP325P(T) models, each available with or without anti-microbial construction, across 50Hz and 60Hz operation.",
   openGraph: {

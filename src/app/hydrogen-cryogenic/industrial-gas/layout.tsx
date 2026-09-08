@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Youngdo Industrial Gas Valves | Valvenok",
+  title: "Youngdo Industrial Gas Valves",
   description:
     "Youngdo industrial gas cylinder valves across 7 categories — tapered and unified inlet threads, non return valves, acetylene, chlorine/ammonia, tube trailers and piping connection valves. KGS, CGA V-1, BS 341, ISO 10297 certified.",
   openGraph: {

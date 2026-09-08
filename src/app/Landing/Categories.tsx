@@ -185,11 +185,12 @@ export default function Categories() {
                     : "column",
                   minHeight: "280px",
                   overflow: "hidden",
-                  transition: "all 0.3s ease",
+                  transition: "transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease",
                   cursor: "pointer",
                   "&:hover": {
                     borderColor: accent.border,
                     boxShadow: `0 10px 25px ${accent.border}22`,
+                    transform: "translateY(-4px)",
                     "& .bg-img": { transform: "scale(1.05)" },
                     "& .explore-label": { color: accent.border },
                   },

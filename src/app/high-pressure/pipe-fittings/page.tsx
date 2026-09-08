@@ -5,7 +5,7 @@ import ProductHero from '../../Common/Products_Page/ProductHero'
 import PipeFittingsGrid from './PipeFittingsGrid'
 
 export const metadata: Metadata = {
-  title: 'High Pressure Pipe Fittings | SS 316 | Valvenok',
+  title: 'High Pressure Pipe Fittings | SS 316',
   description:
     'Valvenok supplies SS 316 high pressure pipe fittings from 10,000 to 15,000 psi. Hex couplings, hex nipples, adapters, elbows, tees, crosses, plugs and caps in NPT, ISO Parallel and 37° JIC.',
 }

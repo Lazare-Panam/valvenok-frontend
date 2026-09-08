@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Dielectric Fittings & Gaskets | Valvenok",
+  title: "Dielectric Fittings & Gaskets",
   description:
     "Stainless steel dielectric tube fittings for electrical isolation, and precision thread sealing gaskets for parallel and internal threads.",
   openGraph: {

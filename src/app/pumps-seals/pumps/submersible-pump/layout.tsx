@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "PW Series Submersible Pumps | Valvenok",
+  title: "PW Series Submersible Pumps",
   description:
     "WALRUS submersible pumps for clean water in a corrosion-resistant, compact design. IP68 rated, suitable for garden ponds, fish breeding, drainage and confined-space pumping.",
   openGraph: {

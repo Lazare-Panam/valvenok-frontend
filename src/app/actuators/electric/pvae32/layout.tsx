@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Danfoss PVE Series Electrohydraulic Actuators | Valvenok',
+  title: 'Danfoss PVE Series Electrohydraulic Actuators',
   description: 'Danfoss PVE series electrohydraulic actuators for proportional directional control valves. PVEA, PVEH, PVEM, PVEO, PVES, PVG and PVHC series available.',
   openGraph: {
     title: 'Danfoss PVE Series Electrohydraulic Actuators | Valvenok',

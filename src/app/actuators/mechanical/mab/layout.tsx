@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "MAB Series Mechanical Bevel Gear Actuators | Valvenok",
+  title: "MAB Series Mechanical Bevel Gear Actuators",
   description:
     "Heavy-duty bevel gear actuators for multi-turn valve operation. 250–18,000 Nm torque, 75–2,500 kN thrust, IP68, ISO 5210 mount, marine coating options.",
   openGraph: {

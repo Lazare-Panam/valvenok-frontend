@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Pumps & Seals | Valvenok",
+  title: "Pumps & Seals",
   description:
     "Industrial pumps and high-performance mechanical seals for demanding environments. Heavy-duty submersible pumps and precision-engineered seals for zero-leakage, maximum uptime.",
   openGraph: {

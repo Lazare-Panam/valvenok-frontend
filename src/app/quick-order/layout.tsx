@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Quick Order | Valvenok',
+  title: 'Quick Order',
   description: 'Fast procurement for Panam SS316 fittings and instrumentation components. Search by part number, add to basket, and checkout in minutes. No minimum order.',
   keywords: [
     'SS316 fittings quick order',

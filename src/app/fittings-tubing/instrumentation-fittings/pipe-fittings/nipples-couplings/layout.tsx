@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Pipe Fittings — Nipples & Couplings | Valvenok",
+  title: "Pipe Fittings — Nipples & Couplings",
   description:
     "Browse hex nipples, hex long nipples, hex reducing nipples, couplings, long pattern nipples, hex couplings and reducing hex couplings.",
   openGraph: {

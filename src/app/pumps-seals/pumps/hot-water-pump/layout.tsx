@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "TQCN / HQCN Series Hot Water Pumps | Valvenok",
+  title: "TQCN / HQCN Series Hot Water Pumps",
   description:
     "WALRUS all-in-one electronic control pumps rated for hot water up to +90°C. Automatic relief valve, anti-cycling protection, corrosion resistant construction.",
   openGraph: {

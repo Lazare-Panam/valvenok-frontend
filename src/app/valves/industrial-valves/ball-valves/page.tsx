@@ -5,7 +5,7 @@ import { Category } from "@/src/app/Common/Products_Page/ProductCard";
 import ProcessValvesGrid from "../../ProcessValvesGrid";
 
 export const metadata: Metadata = {
-  title: "Mars Ball Valves | Valvenok",
+  title: "Mars Ball Valves",
   description:
     "Valvenok supplies the full Mars ball valve range — 1-piece, 2-piece, 3-piece, multi-way diverter, wafer compact and fire-safe flanged designs in stainless steel 316 with API 607 fire-safe certification.",
 };

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "WQ_B / HQ_B / TQ_B Series Electronic Control Pumps | Valvenok",
+  title: "WQ_B / HQ_B / TQ_B Series Electronic Control Pumps",
   description:
     "WALRUS all-in-one electronic control pumps — pump, motor, pressure tank and controller in one unit. Automatic constant pressure control, 0.18–3.7 kW, up to 52M head.",
   openGraph: {

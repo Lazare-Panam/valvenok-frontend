@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Returns Policy | Valvenok",
+  title: "Returns Policy",
   description:
     "Learn about our 30-day return window, non-returnable items, faulty or damaged goods process, and how to start a return with Valvenok.",
   openGraph: {

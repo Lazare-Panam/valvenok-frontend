@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "HQC / TQC Series Automatic Flow-Controlled Pumps | Valvenok",
+  title: "HQC / TQC Series Automatic Flow-Controlled Pumps",
   description:
     "WALRUS downward-pressurization pumps for installation below a water tower. Automatic start/stop on demand, compact, quiet and corrosion resistant, up to 4.4 kg/cm² pressure.",
   openGraph: {

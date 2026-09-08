@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Automatic Flow-Controlled Pumps | Valvenok",
+  title: "Automatic Flow-Controlled Pumps",
   description:
     "HQC and TQC series pumps across 50Hz and 60Hz operation, for downward pressurization installations below a water tower.",
   openGraph: {

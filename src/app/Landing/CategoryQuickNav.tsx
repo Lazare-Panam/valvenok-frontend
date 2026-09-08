@@ -50,6 +50,7 @@ export default function CategoryQuickNav() {
               component={Link}
               href={href}
               sx={{
+                position: "relative",
                 flex: { md: 1 },
                 flexShrink: 0,
                 display: "flex",
@@ -69,6 +70,19 @@ export default function CategoryQuickNav() {
                   bgcolor: "grey.50",
                 },
                 "&:hover .quick-nav-icon": { transform: "scale(1.12)" },
+                "&::after": {
+                  content: '""',
+                  position: "absolute",
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  height: "2px",
+                  bgcolor: "primary.main",
+                  transform: "scaleX(0)",
+                  transformOrigin: "center",
+                  transition: "transform 0.25s ease",
+                },
+                "&:hover::after": { transform: "scaleX(1)" },
               }}
             >
               <Icon

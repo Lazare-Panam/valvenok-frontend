@@ -5,7 +5,7 @@ import TrustStrip from '@/src/app/Common/Products_Page/TrustStrip'
 import { Category } from '@/src/app/Common/Products_Page/ProductCard'
 
 export const metadata: Metadata = {
-  title: 'Weld Fittings | SS316 Instrumentation Weld Fittings | Valvenok',
+  title: 'Weld Fittings | SS316 Instrumentation Weld Fittings',
   description: 'Valvenok supplies SS316 instrumentation weld fittings for permanent, high-integrity process connections. Butt weld elbows and connectors across NPT, BSPT and BSPP thread standards.',
 }
 

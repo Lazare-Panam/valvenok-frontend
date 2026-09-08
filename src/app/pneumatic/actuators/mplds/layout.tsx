@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "MPLDS Series Micro Linear Actuators | Valvenok",
+  title: "MPLDS Series Micro Linear Actuators",
   description:
     "Compact double-acting pneumatic linear actuators for fine automation and precise linear motion in tight spaces. IP66, modular design, positioner and solenoid ready.",
   openGraph: {

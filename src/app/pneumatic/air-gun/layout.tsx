@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Air Blow Guns | Valvenok",
+  title: "Air Blow Guns",
   description:
     "SPAC pneumatic air blow guns for industrial cleaning and drying applications. Available in multiple nozzle configurations.",
   openGraph: {

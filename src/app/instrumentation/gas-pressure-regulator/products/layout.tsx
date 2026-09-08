@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Products Variants for Gas Pressure Regualators | Valvenok",
+  title: "Products Variants for Gas Pressure Regualators",
   description:
     "Pietro Fiorentini direct-operated gas pressure regulators for high-pressure transmission and medium pressure natural gas distribution networks. Fail Open per EN 334, Hydrogen Ready versions available.",
   openGraph: {

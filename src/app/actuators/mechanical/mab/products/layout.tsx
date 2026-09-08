@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "MAB Gearboxes | Valvenok",
+  title: "MAB Gearboxes",
   description:
     "Browse MAB gearbox models — filter by sub-series and model to find the exact configuration you need.",
   openGraph: {

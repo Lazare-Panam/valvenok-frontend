@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'TP8_PTB Series Automatic Booster Pumps | Valvenok',
+  title: 'TP8_PTB Series Automatic Booster Pumps',
   description: 'WALRUS automatic booster pumps manufactured with non-corrosive, rust proof materials. Corrosion resistant pressure tank, silent check valve, built-in thermal overload protection.',
   openGraph: {
     title: 'TP8_PTB Series Automatic Booster Pumps | Valvenok',

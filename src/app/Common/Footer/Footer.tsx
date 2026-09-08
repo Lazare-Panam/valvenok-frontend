@@ -258,7 +258,7 @@ export default function Footer() {
             variant="caption"
             sx={{ color: alpha("#fff", 0.4), letterSpacing: "0.05em" }}
           >
-            © {new Date().getFullYear()} INDUSTRIAL SUPPLIES LTD. ALL RIGHTS
+            © {new Date().getFullYear()} VALVENOK. ALL RIGHTS
             RESERVED.
           </Typography>
           <Stack direction="row" spacing={1.5}>

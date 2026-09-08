@@ -5,7 +5,7 @@ import { Category } from "../../Common/Products_Page/ProductCard";
 import CylindersGrid from "./CylindersGrid";
 
 export const metadata: Metadata = {
-  title: "Pneumatic Cylinders | ISO-15552 Profile Cylinders | Valvenok",
+  title: "Pneumatic Cylinders | ISO-15552 Profile Cylinders",
   description:
     "Valvenok supplies a full range of ISO-15552 profile pneumatic cylinders. SDNC, ESNC and ESC series across bore sizes 32mm to 320mm, magnetic and non-magnetic variants, strokes up to 1000mm.",
 };

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'KLS Series Limit Switch Boxes | Valvenok',
+  title: 'KLS Series Limit Switch Boxes',
   description: 'Kosaplus KLS series valve position indicators with IECEx & KCs explosion-proof certification. IP67/IP68, mechanical SPDT and proximity switch options, aluminium die-cast housing.',
   openGraph: {
     title: 'KLS Series Limit Switch Boxes | Valvenok',

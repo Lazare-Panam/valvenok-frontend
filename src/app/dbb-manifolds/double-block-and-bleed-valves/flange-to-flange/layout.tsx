@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "DBB Flange to Flange Valves | Valvenok",
+  title: "DBB Flange to Flange Valves",
   description:
     "Browse double block and bleed flange-to-flange valves — filter by construction type, configuration, seal and seat material, bore and inlet size, pressure class, and more.",
   openGraph: {

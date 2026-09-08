@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "TP3_PTB Series Direct Water Pumps | Valvenok",
+  title: "TP3_PTB Series Direct Water Pumps",
   description:
     "WALRUS compact direct water pumps with brass impeller for high temperature and friction resistance, hygienic plastic pump body, built-in thermal overload protection.",
   openGraph: {

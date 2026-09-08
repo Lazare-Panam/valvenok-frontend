@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Automatic Booster Pumps | Valvenok",
+  title: "Automatic Booster Pumps",
   description:
     "TP820P(T) and TP825P(T) models, each available with or without anti-microbial construction, across 50Hz and 60Hz operation.",
   openGraph: {

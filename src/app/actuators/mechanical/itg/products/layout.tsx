@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "ITG Gearboxes | Valvenok",
+  title: "ITG Gearboxes",
   description:
     "Browse ITG gearbox models — filter by sub-series and model to find the exact configuration you need.",
   openGraph: {

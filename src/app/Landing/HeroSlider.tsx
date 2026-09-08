@@ -192,11 +192,7 @@ export default function HeroSlider() {
               </motion.div>
 
               {/* Main Headline */}
-              <motion.div
-                initial={{ y: 40, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.6, duration: 0.8 }}
-              >
+              <Box sx={{ mb: 3 }}>
                 <Typography
                   variant="h1"
                   sx={{
@@ -205,22 +201,54 @@ export default function HeroSlider() {
                     fontSize: { xs: "3.5rem", md: "6rem" },
                     color: "#fff",
                     lineHeight: 0.85,
+                    letterSpacing: "-0.01em",
                     textTransform: "uppercase",
-                    mb: 3,
+                    m: 0,
                   }}
                 >
-                  {SLIDES[index].title} <br />
-                  <Box
-                    component="span"
-                    sx={{
-                      color: "#61D649",
-                      textShadow: "0px 0px 20px rgba(97, 214, 73, 0.3)",
-                    }}
-                  >
-                    {SLIDES[index].accent}
+                  <Box component="span" sx={{ display: "block", overflow: "hidden" }}>
+                    <motion.span
+                      initial={{ y: "115%" }}
+                      animate={{ y: 0 }}
+                      transition={{ delay: 0.45, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                      style={{ display: "block" }}
+                    >
+                      {SLIDES[index].title}
+                    </motion.span>
+                  </Box>
+                  <Box component="span" sx={{ display: "block", overflow: "hidden", mt: { xs: 0.5, md: 1 } }}>
+                    <motion.span
+                      initial={{ y: "115%" }}
+                      animate={{ y: 0 }}
+                      transition={{ delay: 0.6, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                      style={{
+                        display: "block",
+                        backgroundImage: "linear-gradient(90deg, #61D649 0%, #A4EF8F 100%)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                        backgroundClip: "text",
+                        filter: "drop-shadow(0px 0px 18px rgba(97, 214, 73, 0.35))",
+                      }}
+                    >
+                      {SLIDES[index].accent}
+                    </motion.span>
                   </Box>
                 </Typography>
-              </motion.div>
+
+                {/* Animated accent underline */}
+                <motion.div
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ delay: 1.05, duration: 0.6, ease: "easeOut" }}
+                  style={{
+                    transformOrigin: "left",
+                    height: 3,
+                    width: 96,
+                    background: "#61D649",
+                    marginTop: 20,
+                  }}
+                />
+              </Box>
 
               {/* Description */}
               <motion.div

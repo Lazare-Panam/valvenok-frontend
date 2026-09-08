@@ -5,7 +5,7 @@ import { Category } from "../Common/Products_Page/ProductCard";
 import ProcessValvesGrid from "./ProcessValvesGrid";
 
 export const metadata: Metadata = {
-  title: "Industrial & Marine Valves | Valvenok",
+  title: "Industrial & Marine Valves",
   description:
     "Valvenok supplies a full range of industrial, marine and instrumentation valves for process plants, offshore platforms and shipbuilding. Ball, gate, globe, check, butterfly and instrumentation valves in SS316, duplex and carbon steel.",
 };

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "FG Series Pneumatic Solenoid Valves | Valvenok",
+  title: "FG Series Pneumatic Solenoid Valves",
   description:
     '5/2 and 5/3 way pneumatic solenoid valves. Single and double solenoid configurations, BSP port sizes 1/8" to 1", center closed options available.',
   openGraph: {

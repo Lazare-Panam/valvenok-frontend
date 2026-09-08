@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "HD Series Variants | Valvenok",
+  title: "HD Series Variants",
   description:
     "Browse HD series actuator models — filter by model and ISO 5211 mounting to find the exact configuration you need.",
   openGraph: {

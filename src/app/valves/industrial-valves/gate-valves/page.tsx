@@ -5,7 +5,7 @@ import { Category } from "@/src/app/Common/Products_Page/ProductCard";
 import ProcessValvesGrid from "../../ProcessValvesGrid";
 
 export const metadata: Metadata = {
-  title: "Industrial Gate Valves | Valvenok",
+  title: "Industrial Gate Valves",
   description:
     "Valvenok supplies bolted bonnet and union bonnet gate valves from UTAM Syncercon, engineered for reliable shut-off and leak-proof isolation in marine and shipbuilding applications.",
 };

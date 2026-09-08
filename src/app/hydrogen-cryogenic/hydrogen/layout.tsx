@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Hydrogen Cylinder Valves | Valvenok",
+  title: "Hydrogen Cylinder Valves",
   description:
     "Youngdo high-pressure hydrogen cylinder valves — HE, HK, HS, EP series up to 70 MPa, YHT series up to 45 MPa, DRV-350 quick-connect and YEX-1100 explosion-proof. KGS, EC79, R134, IECEx certified.",
   openGraph: {

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "High Pressure Fitting Connectors | Valvenok",
+  title: "High Pressure Fitting Connectors",
   description:
     "Browse high pressure fitting connectors — filter by fitting type, pressure rating, thread type, and size to find the exact configuration you need.",
   openGraph: {
