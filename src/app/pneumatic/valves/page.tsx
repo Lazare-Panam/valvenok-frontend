@@ -5,6 +5,7 @@ import { Category } from "../../Common/Products_Page/ProductCard";
 import PneumaticValvesGrid from "./PneumaticValvesGrid";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/pneumatic/valves' },
   title: "Pneumatic Valves | Solenoid & Foot Pedal Valves",
   description:
     "Valvenok supplies a full range of pneumatic solenoid and foot pedal valves for industrial automation. FG series 5/2 and 5/3 way solenoid valves, TG series multi-configuration solenoid valves, and foot pedal valves for hands-free machine control.",

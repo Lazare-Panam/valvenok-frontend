@@ -5,6 +5,7 @@ import { Category } from "../Common/Products_Page/ProductCard";
 import PneumaticsGrid from "./PneumaticsGrid";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/pneumatic' },
   title: "Pneumatics & Vacuum | Cylinders, Valves & Actuators",
   description:
     "Valvenok supplies a full range of pneumatic components for industrial automation. ISO cylinders, solenoid valves, foot pedal valves, pneumatic actuators and air blow guns — engineered for reliable factory floor performance.",

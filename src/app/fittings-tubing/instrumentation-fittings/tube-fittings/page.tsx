@@ -5,6 +5,7 @@ import TrustStrip from '../../../Common/Products_Page/TrustStrip'
 import { Category } from '../../../Common/Products_Page/ProductCard'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/fittings-tubing/instrumentation-fittings/tube-fittings' },
   title: 'Tube Fittings | SS316 Instrumentation Fittings ',
   description: 'Valvenok supplies SS316 tube fittings for instrumentation and process systems. Connectors, adapters, unions, reducers and more. NPT, BSPT and BSPP thread standards.',
 }

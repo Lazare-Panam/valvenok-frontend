@@ -5,6 +5,7 @@ import TrustStrip from '@/src/app/Common/Products_Page/TrustStrip'
 import { Category } from '@/src/app/Common/Products_Page/ProductCard'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/fittings-tubing/instrumentation-fittings/jic-fittings' },
   title: 'JIC Fittings | 37° Flare SS316 Fittings',
   description: 'Valvenok supplies SS316 37° JIC flare fittings for hydraulic and instrumentation systems. Connectors, unions, elbows, tees and adapters across NPT, BSPT, BSPP and SAE/MS thread standards.',
 }

@@ -5,6 +5,7 @@ import { Category } from "../../Common/Products_Page/ProductCard";
 import PumpsGrid from "./PumpsGrid";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/pumps-seals/pumps' },
   title: "WALRUS Pumps | Water Supply & Industrial Pumping",
   description:
     "Valvenok supplies a full range of WALRUS pumps for water supply, drainage and industrial applications — electronic control, automatic booster, multistage centrifugal, direct water, submersible, and hot water series.",

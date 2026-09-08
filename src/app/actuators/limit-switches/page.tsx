@@ -5,6 +5,7 @@ import { Category } from "../../Common/Products_Page/ProductCard";
 import ElectricActuatorsGrid from "../electric/components/ElectricActuatorsGrid";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/actuators/limit-switches' },
   title: "Limit Switch Boxes | Valve Position Indicators",
   description:
     "Valvenok supplies KLS and ITS series limit switch boxes for valve position indication. Weatherproof IP67 and explosion-proof IECEx / KCs certified units with mechanical and proximity switch options for process safety systems.",

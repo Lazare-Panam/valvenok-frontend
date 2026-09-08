@@ -5,6 +5,7 @@ import { Category } from "../../Common/Products_Page/ProductCard";
 import FittingsGrid from "./FittingsGrid";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/fittings-tubing/instrumentation-fittings' },
   title: "Fittings | SS316 Instrumentation & Process Fittings",
   description:
     "Valvenok supplies a complete range of SS316 fittings for instrumentation and process systems. Tube fittings, pipe fittings, JIC flare fittings and weld fittings across NPT, BSPT, BSPP and SAE/MS standards.",

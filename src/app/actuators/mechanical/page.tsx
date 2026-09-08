@@ -5,6 +5,7 @@ import { Category } from "../../Common/Products_Page/ProductCard";
 import MechanicalActuatorsGrid from "./MechanicalActuatorsGrid";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/actuators/mechanical' },
   title: "Mechanical Actuators | Bevel & Worm Gearboxes",
   description:
     "Valvenok supplies manual bevel and worm gear actuators for multi-turn and quarter-turn valve operation. MAB bevel gear series up to 18,000 Nm and MAW worm gear series up to 32,000 Nm — ISO 5210/5211 mounting, IP68 protection, marine and offshore options.",

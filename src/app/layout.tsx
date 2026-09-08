@@ -63,6 +63,26 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${barlowCondensed.variable} ${barlow.variable}`}
     >
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Valvenok",
+              url: "https://www.valvenok.com",
+              logo: "https://pblol2.blob.core.windows.net/valvenok-images/logo-2.png",
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+44-7368-557896",
+                contactType: "sales",
+                email: "sales@valvenok.com",
+                areaServed: "GB",
+              },
+              sameAs: ["https://uk.linkedin.com/company/valvenok-ltd"],
+            }),
+          }}
+        />
         {/* This script will be placed before the closing </head> tag */}
         <script
           data-cfasync="false"

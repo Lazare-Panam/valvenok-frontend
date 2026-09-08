@@ -5,6 +5,7 @@ import { Category } from "@/src/app/Common/Products_Page/ProductCard";
 import ProcessValvesGrid from "../../ProcessValvesGrid";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/valves/industrial-valves/globe-valve' },
   title: "Industrial Globe Valves",
   description:
     "Valvenok supplies a full range of industrial globe valves — lined, welded bonnet and bolted/union bonnet designs from leading global manufacturers including Fisher, Bonney Forge and UTAM Syncercon.",

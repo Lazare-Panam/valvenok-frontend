@@ -56,6 +56,18 @@ export default function Breadcrumbs({
       return generated;
     })();
 
+  const siteUrl = 'https://www.valvenok.com';
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: crumbs.map((crumb, idx) => ({
+      '@type': 'ListItem',
+      position: idx + 1,
+      name: crumb.label,
+      ...(crumb.href ? { item: `${siteUrl}${crumb.href === '/' ? '' : crumb.href}` } : {}),
+    })),
+  };
+
   return (
     <Box
       sx={{
@@ -66,6 +78,10 @@ export default function Breadcrumbs({
         borderColor: 'divider',
       }}
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <MUIBreadcrumbs
         separator={<NavigateNextIcon fontSize="small" />}
         aria-label="breadcrumb"

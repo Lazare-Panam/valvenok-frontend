@@ -5,6 +5,7 @@ import { Category } from "../../Common/Products_Page/ProductCard";
 import ActuatorsGrid from "./ActuatorsGrid";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/pneumatic/actuators' },
   title: "Pneumatic Actuators | Spring Return & Scotch Yoke",
   description:
     "Valvenok supplies a full range of pneumatic rotary actuators for quarter-turn valve automation. SRA spring return rack-and-pinion and AD scotch yoke heavy-duty series — ISO 5211 mounting, double acting and fail-safe configurations.",

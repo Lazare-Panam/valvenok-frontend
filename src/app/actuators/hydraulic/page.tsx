@@ -5,6 +5,7 @@ import { Category } from "../../Common/Products_Page/ProductCard";
 import HydraulicActuatorsGrid from "./HydraulicActuatorsGrid";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/actuators/hydraulic' },
   title: "Hydraulic Actuators | Electro-Hydraulic Rotary",
   description:
     "Valvenok supplies electro-hydraulic rotary actuators for extreme torque and fail-safe operation. PANDA low-pressure and PA high-pressure series — ATEX Zone 1 & 2, SIL 2/3, IP67/68, ISO 5211 mounting.",

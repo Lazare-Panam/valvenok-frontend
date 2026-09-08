@@ -5,6 +5,7 @@ import ProductHero from "../../Common/Products_Page/ProductHero";
 import HPFittingsGrid from "./HPFittingsGrid";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/high-pressure/fittings' },
   title: "High Pressure Fittings | SS316 Cone & Thread",
   description:
     "Valvenok supplies SS316 high pressure cone and thread fittings from 10,000 to 60,000 psi. Adapters, connectors, unions, elbows, tees, crosses, hex nipples, caps and plugs for oil & gas and subsea applications.",

@@ -16,8 +16,11 @@ import FAQSection from "./Landing/FAQSection";
 
 // For Next.js App Router (metadata object)
 export const metadata = {
-  title:
-    "Valvenok | Trusted UK Industrial Supplier | Valves, Pumps & Pneumatics",
+  alternates: { canonical: '/' },
+  title: {
+    absolute:
+      "Valvenok | Trusted UK Industrial Supplier | Valves, Pumps & Pneumatics",
+  },
   description:
     "UK's leading supplier of high-pressure valves, SS316 fittings, and Hydrogen-ready components. Official distributor of 40+ brands.",
   openGraph: {

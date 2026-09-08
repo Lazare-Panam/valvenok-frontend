@@ -5,6 +5,7 @@ import { Category } from "@/src/app/Common/Products_Page/ProductCard";
 import ProcessValvesGrid from "../../ProcessValvesGrid";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/valves/industrial-valves/butterfly-valves' },
   title: "Industrial Butterfly Valves",
   description:
     "Valvenok supplies a full range of industrial butterfly valves — high-performance designs from Mars Valves and Pietro Fiorentini for gas distribution, oil & gas, and process applications.",

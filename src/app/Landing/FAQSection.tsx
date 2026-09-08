@@ -41,6 +41,23 @@ export default function FAQSection() {
 
   return (
     <Box component="section" sx={{ py: { xs: 8, md: 12 }, bgcolor: "grey.50" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: FAQS.map((item) => ({
+              "@type": "Question",
+              name: item.q,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: item.a,
+              },
+            })),
+          }),
+        }}
+      />
       <Container maxWidth="lg">
         <Reveal>
           <Box sx={{ mb: { xs: 5, md: 6 }, textAlign: "center" }}>

@@ -6,6 +6,7 @@ import AboutStats from "./AboutStats";
 import SEOButtons from "./SEOButtons";
 
 export const metadata = {
+  alternates: { canonical: '/about' },
   title: "About Us",
   description:
     "Valvenok is a UK industrial supplier of valves, fittings, and fluid control components. JOSCAR registered. 5,000+ products in UK stock.",

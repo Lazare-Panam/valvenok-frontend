@@ -5,6 +5,7 @@ import { Category } from "@/src/app/Common/Products_Page/ProductCard";
 import ProcessValvesGrid from "../../ProcessValvesGrid";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/valves/industrial-valves/check-valves' },
   title: "Check Valves",
   description:
     "Valvenok supplies a full range of industrial check valves — cast steel swing check, bolted bonnet and more from leading global manufacturers including Velan and Anderson Greenwood.",
