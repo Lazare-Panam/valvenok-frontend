@@ -17,9 +17,9 @@ const QUICK_LINKS = [
   { name: "Hydrogen & Cryogenic", href: "/hydrogen-cryogenic", icon: AcUnitOutlinedIcon },
   { name: "Valves", href: "/valves/instrumentation-valves/ball-valves", icon: TuneOutlinedIcon },
   { name: "Fittings & Instrumentation", href: "/fittings-tubing/instrumentation-fittings/jic-fittings", icon: BuildOutlinedIcon },
-  { name: "Filters", href: "/collections/pneumatics", icon: FilterAltOutlinedIcon },
+  { name: "Filters", href: "/filters-sight-glass", icon: FilterAltOutlinedIcon },
   { name: "Actuators", href: "/pneumatic/actuators", icon: SettingsOutlinedIcon },
-  { name: "Pumps & Mechanical Seal", href: "/collections/tormac-pumps", icon: LoopOutlinedIcon },
+  { name: "Pumps & Mechanical Seal", href: "/pumps-seals", icon: LoopOutlinedIcon },
 ];
 
 export default function CategoryQuickNav() {

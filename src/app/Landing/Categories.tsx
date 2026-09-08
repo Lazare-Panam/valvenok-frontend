@@ -79,7 +79,7 @@ const CATEGORIES = [
   {
     name: "Filters",
     img: "https://pblol2.blob.core.windows.net/valvenok-images/products/filters/DFM_Mega_Flow_Rate_Filter.png",
-    href: "/collections/pneumatics",
+    href: "/filters-sight-glass",
     tag: "Industrial",
     count: "80+",
     subs: [
@@ -99,7 +99,7 @@ const CATEGORIES = [
   {
     name: "Pumps & Mechanical Seal",
     img: "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/HQIC.webp",
-    href: "/collections/tormac-pumps",
+    href: "/pumps-seals",
     tag: "Fluid Control",
     count: "180+",
     subs: [

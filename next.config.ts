@@ -3,6 +3,25 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactCompiler: true,
   transpilePackages: ['@mui/material', '@emotion/react', '@emotion/styled'],
+  async redirects() {
+    return [
+      {
+        source: '/pages/catalogs',
+        destination: '/categories',
+        permanent: true,
+      },
+      {
+        source: '/pages/brands',
+        destination: '/brands',
+        permanent: true,
+      },
+      {
+        source: '/collections/all',
+        destination: '/categories',
+        permanent: true,
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {
