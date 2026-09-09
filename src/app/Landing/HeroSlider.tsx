@@ -37,8 +37,8 @@ const SLIDES = [
       "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/Process-valves.jpeg",
     upperTag: "ESTABLISHED 1998",
     tag: "UK Industrial Supplier",
-    title: "Precision Pumps & Valves",
-    accent: "Sourced & Supplied",
+    title: "UK Valve & Actuator Distributor —",
+    accent: "JOSCAR Registered",
     description:
       "High-performance Hydraulic and Pneumatic solutions. We leverage a Global Network to source and supply specialist instrumentation components for your specific requirements.",
     href: "/categories/mechanical-seals",
@@ -206,28 +206,48 @@ export default function HeroSlider() {
                     m: 0,
                   }}
                 >
-                  <Box component="span" sx={{ display: "block", overflow: "hidden" }}>
+                  <Box
+                    component="span"
+                    sx={{ display: "block", overflow: "hidden" }}
+                  >
                     <motion.span
                       initial={{ y: "115%" }}
                       animate={{ y: 0 }}
-                      transition={{ delay: 0.45, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                      transition={{
+                        delay: 0.45,
+                        duration: 0.7,
+                        ease: [0.16, 1, 0.3, 1],
+                      }}
                       style={{ display: "block" }}
                     >
                       {SLIDES[index].title}
                     </motion.span>
                   </Box>
-                  <Box component="span" sx={{ display: "block", overflow: "hidden", mt: { xs: 0.5, md: 1 } }}>
+                  <Box
+                    component="span"
+                    sx={{
+                      display: "block",
+                      overflow: "hidden",
+                      mt: { xs: 0.5, md: 1 },
+                    }}
+                  >
                     <motion.span
                       initial={{ y: "115%" }}
                       animate={{ y: 0 }}
-                      transition={{ delay: 0.6, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                      transition={{
+                        delay: 0.6,
+                        duration: 0.7,
+                        ease: [0.16, 1, 0.3, 1],
+                      }}
                       style={{
                         display: "block",
-                        backgroundImage: "linear-gradient(90deg, #61D649 0%, #A4EF8F 100%)",
+                        backgroundImage:
+                          "linear-gradient(90deg, #61D649 0%, #A4EF8F 100%)",
                         WebkitBackgroundClip: "text",
                         WebkitTextFillColor: "transparent",
                         backgroundClip: "text",
-                        filter: "drop-shadow(0px 0px 18px rgba(97, 214, 73, 0.35))",
+                        filter:
+                          "drop-shadow(0px 0px 18px rgba(97, 214, 73, 0.35))",
                       }}
                     >
                       {SLIDES[index].accent}
