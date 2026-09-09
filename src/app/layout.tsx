@@ -74,7 +74,7 @@ export default function RootLayout({
               logo: "https://pblol2.blob.core.windows.net/valvenok-images/logo-2.png",
               contactPoint: {
                 "@type": "ContactPoint",
-                telephone: "+44-7368-557896",
+                telephone: "+44-7775132326",
                 contactType: "sales",
                 email: "sales@valvenok.com",
                 areaServed: "GB",

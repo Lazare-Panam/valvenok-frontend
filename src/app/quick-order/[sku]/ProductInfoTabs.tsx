@@ -13,7 +13,7 @@ interface Props {
 type TabKey = "description" | "delivery";
 
 // ─── CONTACT DETAILS ───────────────────────────────────────────
-const CONTACT_PHONE = "+44 7368 557896";
+const CONTACT_PHONE = "+44 7775132326";
 const CONTACT_EMAIL = "sales@valvenok.com";
 const CONTACT_ADDRESS = "St. Edburgs Hall, Priory Rd, Bicester, OX26 6BL, United Kingdom";
 // ───────────────────────────────────────────────────────────────

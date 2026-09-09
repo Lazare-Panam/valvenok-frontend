@@ -187,7 +187,7 @@ export default function Footer() {
               <Stack direction="row" spacing={1.5} alignItems="center">
                 <PhoneIcon sx={{ fontSize: 18, color: BRAND_GREEN }} />
                 <Typography variant="body2" sx={{ color: alpha("#fff", 0.8) }}>
-                  +44 7368557896
+                  +44 7775132326
                 </Typography>
               </Stack>
 
