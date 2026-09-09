@@ -111,8 +111,8 @@ export default function ProductTable() {
       <Box sx={{ border: '1px solid', borderColor: 'divider', overflow: 'hidden' }}>
 
         {/* Header */}
-        <Box sx={{ display: 'grid', gridTemplateColumns: '88px 220px 1fr 120px 140px', px: 3, py: 2, bgcolor: 'text.primary', gap: 2.5 }}>
-          {['', 'Part Number', 'Description', 'Price', ''].map((h, i) => (
+        <Box sx={{ display: 'grid', gridTemplateColumns: '88px 200px 1fr 100px 110px 140px', px: 3, py: 2, bgcolor: 'text.primary', gap: 2.5 }}>
+          {['', 'Part Number', 'Description', 'Price', 'Stock', ''].map((h, i) => (
             <Typography key={i} sx={{ fontFamily: '"Barlow Condensed", sans-serif', fontSize: '12px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: (t) => alpha(t.palette.common.white, 0.5) }}>
               {h}
             </Typography>
@@ -128,12 +128,14 @@ export default function ProductTable() {
         ) : (
           filtered.map((product, i) => {
             const inCart = isInCart(product.sku);
+            const outOfStock = product.stockQuantity <= 0;
+            const lowStock = product.stockQuantity > 0 && product.stockQuantity <= 10;
             return (
               <Box
                 key={product.sku}
                 sx={{
                   display: 'grid',
-                  gridTemplateColumns: '88px 220px 1fr 120px 140px',
+                  gridTemplateColumns: '88px 200px 1fr 100px 110px 140px',
                   px: 3,
                   py: 2.5,
                   gap: 2.5,
@@ -196,9 +198,31 @@ export default function ProductTable() {
                   {`£${product.price.toFixed(2)}`}
                 </Typography>
 
+                {/* ── STOCK ── */}
+                <Box>
+                  <Typography
+                    sx={{
+                      fontFamily: '"Barlow Condensed", sans-serif',
+                      fontSize: '13px',
+                      fontWeight: 700,
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.04em',
+                      color: outOfStock ? 'error.main' : lowStock ? 'warning.main' : 'success.main',
+                    }}
+                  >
+                    {outOfStock ? 'Out of Stock' : lowStock ? `Low (${product.stockQuantity})` : 'In Stock'}
+                  </Typography>
+                  {!outOfStock && (
+                    <Typography sx={{ fontFamily: '"Barlow Condensed", sans-serif', fontSize: '11px', color: 'text.secondary', mt: 0.25 }}>
+                      {`${product.stockQuantity} available`}
+                    </Typography>
+                  )}
+                </Box>
+
                 {/* ── ADD BUTTON ── */}
                 <Button
                   variant={inCart ? 'contained' : 'outlined'}
+                  disabled={outOfStock}
                   onClick={() => !inCart && handleAdd(product)}
                   sx={{
                     fontFamily: '"Barlow Condensed", sans-serif',
@@ -217,7 +241,7 @@ export default function ProductTable() {
                     '&:hover': { boxShadow: 'none', borderWidth: '1px' },
                   }}
                 >
-                  {inCart ? 'Added' : 'Add'}
+                  {outOfStock ? 'Unavailable' : inCart ? 'Added' : 'Add'}
                 </Button>
               </Box>
             );

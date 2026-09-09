@@ -40,7 +40,9 @@ export default function ProductPageClient({ product, content }: Props) {
       "url": `https://www.valvenok.com/quick-order/${product.sku}`,
       "priceCurrency": "GBP",
       "price": product.price,
-      "availability": "https://schema.org/InStock",
+      "availability": product.stockQuantity > 0
+        ? "https://schema.org/InStock"
+        : "https://schema.org/OutOfStock",
       "itemCondition": "https://schema.org/NewCondition"
     }
   };
