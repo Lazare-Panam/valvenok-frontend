@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/pneumatic/valves/tg" },
   title: "TG Series Pneumatic Solenoid Valves",
   description:
     "Browse TG series pneumatic solenoid valves — 2/2, 3/2, 5/2 and 5/3 way configurations to find the exact valve you need.",

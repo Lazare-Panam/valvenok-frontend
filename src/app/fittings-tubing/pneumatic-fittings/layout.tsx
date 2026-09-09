@@ -7,7 +7,7 @@ const IMAGE =
   "https://pblol2.blob.core.windows.net/spac-images/products/fitting/p-fittings-hero.jpg";
 
 export const metadata: Metadata = {
-  title: TITLE,
+  title: { absolute: TITLE },
   description: DESCRIPTION,
   openGraph: {
     title: TITLE,

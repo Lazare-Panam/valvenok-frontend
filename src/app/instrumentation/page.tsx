@@ -3,6 +3,12 @@ import TrustStrip from "../Common/Products_Page/TrustStrip";
 import { Category } from "../Common/Products_Page/ProductCard";
 import InstrumentationGrid from "./InstrumentationGrid";
 
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  alternates: { canonical: "/instrumentation" },
+};
+
+
 const INSTRUMENTATION_FAMILIES: Category[] = [
   {
     code: "HP",

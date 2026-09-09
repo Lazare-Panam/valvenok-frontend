@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/pneumatic/cylinders/sdnu" },
   title: 'SDNU Series Cylinders',
   description: 'Double-acting ISO-6432 stainless steel round body pneumatic cylinders. Compact magnetic-piston design across bore sizes 12mm to 25mm, built for hygienic, washdown and food-grade automation.',
   openGraph: {

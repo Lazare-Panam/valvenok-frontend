@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/actuators/mechanical/itg" },
   title: 'ITG Series Industrial Gear Actuators',
   description: 'Precision-engineered ITG Series gear actuators for quarter-turn valve automation. 60–28,000 Nm torque, IP67M, ISO 5211/5210 mount, declutchable manual override.',
   openGraph: {

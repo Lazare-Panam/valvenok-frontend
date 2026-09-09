@@ -7,7 +7,8 @@ const IMAGE =
   "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure/yunshuo-qu-bqxIzrYzGaI-unsplash.jpg";
 
 export const metadata: Metadata = {
-  title: TITLE,
+  alternates: { canonical: "/high-pressure" },
+  title: { absolute: TITLE },
   description: DESCRIPTION,
   openGraph: {
     title: TITLE,

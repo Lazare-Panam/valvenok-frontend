@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/actuators/electric/iql/products" },
   title: "IQL Actuators",
   description:
     "Browse IQL actuator models — filter by model and stroke size to find the exact configuration you need.",

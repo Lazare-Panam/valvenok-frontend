@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/news" },
   title: "Engineering Insights & Technical Guides",
   description: "Deep dives into industrial flow control, mechanical seal engineering, and valve selection guides. Stay updated with technical expertise from Valvenok.",
   openGraph: {

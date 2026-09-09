@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/actuators/electric/itl" },
   title: "ITL Series Compact Linear Electric Actuators",
   description:
     "Compact linear electric actuators with 100% duty cycle motor. 1–10 kN thrust, IP66/67, universal power supply, 4–20mA / 0–10V control.",

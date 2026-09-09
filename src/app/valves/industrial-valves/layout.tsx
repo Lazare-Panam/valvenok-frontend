@@ -3,7 +3,7 @@
 import { Suspense } from 'react';
 
 export const metadata = {
-  title: 'Industrial Valves | Valvenok Limited',
+  title: { absolute: 'Industrial Valves | Valvenok Limited' },
   description: 'Browse Valvenok\'s full range of industrial valves — API 6D ball valves, DBB, trunnion, needle, check, and gas valves from Batu Valve and Atam. High-pressure rated up to 1000 bar.',
   openGraph: {
     title: 'Industrial Valves | Valvenok Limited',

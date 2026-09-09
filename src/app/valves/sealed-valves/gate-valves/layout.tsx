@@ -7,7 +7,8 @@ const IMAGE =
   "https://pblol2.blob.core.windows.net/valvenok-images/products/sealed-valves/ansi-standard-bellows-sealed-gate-valve.jpg";
 
 export const metadata: Metadata = {
-  title: TITLE,
+  alternates: { canonical: "/valves/sealed-valves/gate-valves" },
+  title: { absolute: TITLE },
   description: DESCRIPTION,
   openGraph: {
     title: TITLE,

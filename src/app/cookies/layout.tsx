@@ -3,7 +3,7 @@
 import { Suspense } from 'react';
 
 export const metadata = {
-  title: 'Cookie Policy | Valvenok Limited',
+  title: { absolute: 'Cookie Policy | Valvenok Limited' },
   description: 'Learn how Valvenok Limited uses cookies on our website. Manage your cookie preferences for analytics, functional, and marketing cookies.',
   openGraph: {
     title: 'Cookie Policy | Valvenok Limited',

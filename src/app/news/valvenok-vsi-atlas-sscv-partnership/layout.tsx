@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/news/valvenok-vsi-atlas-sscv-partnership" },
   title: "Valvenok Partners with VSI — Bringing the Atlas SSCV to Severe Service",
   description: "Valvenok partners with Valve Systems International to represent the Atlas Severe Service Control Valve — the only SSCV engineered from first principles to eliminate cavitation at the source.",
   keywords: [

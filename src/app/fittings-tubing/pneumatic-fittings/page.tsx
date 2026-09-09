@@ -3,6 +3,12 @@ import TrustStrip from "../../Common/Products_Page/TrustStrip";
 import { Category } from "../../Common/Products_Page/ProductCard";
 import FittingsGrid from "./FittingsGrid";
 
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  alternates: { canonical: "/fittings-tubing/pneumatic-fittings" },
+};
+
+
 const FITTING_FAMILIES: Category[] = [
   {
     code: "A",

@@ -7,7 +7,8 @@ const IMAGE =
   "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/mechanical/worm-gearboxes.webp";
 
 export const metadata: Metadata = {
-  title: TITLE,
+  alternates: { canonical: "/actuators/mechanical/maw" },
+  title: { absolute: TITLE },
   description: DESCRIPTION,
   openGraph: {
     title: TITLE,

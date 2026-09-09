@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/fittings-tubing/instrumentation-fittings/tube-fittings/port-connectors" },
   title: "Tube Fittings — Port Connectors",
   description:
     "Stainless steel port connectors and reducing port connectors for direct tube-to-port connections. Available in Imperial and Metric tube OD.",

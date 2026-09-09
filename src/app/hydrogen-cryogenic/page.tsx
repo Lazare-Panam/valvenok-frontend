@@ -3,6 +3,12 @@ import TrustStrip from "@/src/app/Common/Products_Page/TrustStrip";
 import { Category } from "@/src/app/Common/Products_Page/ProductCard";
 import YoungdoGrid from "./components/YoungdoGrid";
 
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  alternates: { canonical: "/hydrogen-cryogenic" },
+};
+
+
 const HYDROGEN_CRYOGENIC_SERIES: Category[] = [
   {
     code: "FIT",

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/pneumatic/valves/fg" },
   title: "FG Series Pneumatic Solenoid Valves",
   description:
     '5/2 and 5/3 way pneumatic solenoid valves. Single and double solenoid configurations, BSP port sizes 1/8" to 1", center closed options available.',

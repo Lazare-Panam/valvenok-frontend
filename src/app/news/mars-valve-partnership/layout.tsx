@@ -7,6 +7,7 @@ const IMAGE =
   "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/mars-banner.jpeg";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/news/mars-valve-partnership" },
   title: TITLE,
   description: DESCRIPTION,
   openGraph: {

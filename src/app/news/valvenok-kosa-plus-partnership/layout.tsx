@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/news/valvenok-kosa-plus-partnership" },
   title: "Valvenok Announces Strategic Partnership with Kosa Plus | Valve Automation",
   description: "Valvenok partners with Kosa Plus, a leading South Korean manufacturer of valve automation products. Expanding our portfolio with pneumatic actuators, electric actuators, positioners, solenoid valves, and more.",
   keywords: [

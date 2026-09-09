@@ -3,7 +3,7 @@
 import { Suspense } from 'react';
 
 export const metadata = {
-  title: 'Quality & Standards | Valvenok Limited',
+  title: { absolute: 'Quality & Standards | Valvenok Limited' },
   description: 'Valvenok is a JOSCAR-registered valve supplier meeting ISO 9001, PED, ATEX, and NACE standards. Full material traceability across SS316, Duplex, Hastelloy and more.',
   openGraph: {
     title: 'Quality & Standards | Valvenok Limited',

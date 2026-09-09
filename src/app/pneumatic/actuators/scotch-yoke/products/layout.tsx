@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/pneumatic/actuators/scotch-yoke/products" },
   title: "Pneumatic Actuators",
   description:
     "Scotch-Yoke and Rack & Pinion pneumatic actuators for industrial valve automation. Double acting and spring return configurations with CE, ATEX, and SIL certifications.",

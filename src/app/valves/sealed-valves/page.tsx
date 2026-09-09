@@ -3,6 +3,12 @@ import TrustStrip from "../../Common/Products_Page/TrustStrip";
 import { Category } from "../../Common/Products_Page/ProductCard";
 import ProcessValvesGrid from "../ProcessValvesGrid";
 
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  alternates: { canonical: "/valves/sealed-valves" },
+};
+
+
 const SEALED_VALVE_FAMILIES: Category[] = [
   {
     code: "BGV",

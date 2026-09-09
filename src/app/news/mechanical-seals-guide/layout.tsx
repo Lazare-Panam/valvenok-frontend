@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/news/mechanical-seals-guide" },
   title: "Guide to Sealflex Mechanical Seals | Engineering Specs",
   description: "Technical deep-dive into Sealflex mechanical seals. Explore pressure ratings up to 140 Bar, material selection guides (PTFE, Viton, Metal Bellows), and API flush plans for industrial pumps and reactors.",
   keywords: [

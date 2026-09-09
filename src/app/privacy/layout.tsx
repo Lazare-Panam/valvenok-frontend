@@ -3,7 +3,7 @@
 import { Suspense } from 'react';
 
 export const metadata = {
-  title: 'Privacy Policy | Valvenok Limited',
+  title: { absolute: 'Privacy Policy | Valvenok Limited' },
   description: 'Read Valvenok Limited\'s Privacy Policy. We are committed to handling your personal data responsibly in compliance with UK GDPR and the Data Protection Act 2018.',
   openGraph: {
     title: 'Privacy Policy | Valvenok Limited',

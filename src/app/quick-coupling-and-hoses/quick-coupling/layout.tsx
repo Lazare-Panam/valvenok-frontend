@@ -6,7 +6,8 @@ const DESCRIPTION =
 const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo-2.png";
 
 export const metadata: Metadata = {
-  title: TITLE,
+  alternates: { canonical: "/quick-coupling-and-hoses/quick-coupling" },
+  title: { absolute: TITLE },
   description: DESCRIPTION,
   openGraph: {
     title: TITLE,

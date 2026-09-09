@@ -7,6 +7,7 @@ const IMAGE =
   "https://pblol2.blob.core.windows.net/valvenok-images/blogs/pumps-blog-hero.jpg";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/news/stainless-steel-vs-cast-iron" },
   title: TITLE,
   description: DESCRIPTION,
   openGraph: {

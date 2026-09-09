@@ -7,7 +7,8 @@ const IMAGE =
   "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/YLC-2821.png";
 
 export const metadata: Metadata = {
-  title: TITLE,
+  alternates: { canonical: "/hydrogen-cryogenic/lpg" },
+  title: { absolute: TITLE },
   description: DESCRIPTION,
   openGraph: {
     title: TITLE,

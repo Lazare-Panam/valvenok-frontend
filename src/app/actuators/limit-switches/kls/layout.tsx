@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/actuators/limit-switches/kls" },
   title: 'KLS Series Limit Switch Boxes',
   description: 'Kosaplus KLS series valve position indicators with IECEx & KCs explosion-proof certification. IP67/IP68, mechanical SPDT and proximity switch options, aluminium die-cast housing.',
   openGraph: {

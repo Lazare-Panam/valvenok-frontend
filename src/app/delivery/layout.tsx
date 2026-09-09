@@ -3,7 +3,7 @@
 import { Suspense } from 'react';
 
 export const metadata = {
-  title: 'Delivery Information | Valvenok Limited',
+  title: { absolute: 'Delivery Information | Valvenok Limited' },
   description: 'Fast UK delivery on industrial valves and fittings. Standard, express, and next-day options available. Free delivery on orders over £150. Worldwide shipping available.',
   openGraph: {
     title: 'Delivery Information | Valvenok Limited',

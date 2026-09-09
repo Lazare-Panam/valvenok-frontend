@@ -7,6 +7,7 @@ const IMAGE =
   "https://pblol2.blob.core.windows.net/valvenok-images/blogs/blog4.jpg";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/news/seals-blog" },
   title: TITLE,
   description: DESCRIPTION,
   openGraph: {

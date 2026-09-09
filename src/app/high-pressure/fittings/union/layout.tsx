@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/high-pressure/fittings/union" },
   title: "High Pressure Unions",
   description:
     "Browse high pressure union fittings — filter by fitting type, pressure rating, thread type, and size to find the exact configuration you need.",

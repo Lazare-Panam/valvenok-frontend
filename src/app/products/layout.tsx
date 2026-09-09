@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/products" },
   title: "Product Under Indexing",
   description: "We are currently updating our industrial catalog with high-pressure instrumentation and engineered solutions. Contact our team for immediate technical specifications.",
   // Robots instruction: We tell search engines not to prioritize this page,

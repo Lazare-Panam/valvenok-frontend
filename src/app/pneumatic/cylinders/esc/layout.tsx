@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/pneumatic/cylinders/esc" },
   title: "ESC Series Cylinders",
   description:
     "SPAC Standard Tie Rod Profile double acting pneumatic cylinders. Available in standard and through rod configurations, magnetic and non-magnetic variants across bore sizes 32mm to 250mm.",

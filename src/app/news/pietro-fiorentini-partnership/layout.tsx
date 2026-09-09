@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/news/pietro-fiorentini-partnership" },
   title: "Valvenok Announces Partnership with Pietro Fiorentini | Flow Control Solutions",
   description: "Valvenok is now an Authorized Representative of Pietro Fiorentini — bringing world-class Italian engineering in flow control, pressure management, and valve technologies to customers across the UK and beyond.",
   keywords: [

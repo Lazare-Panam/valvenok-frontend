@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/fittings-tubing/instrumentation-fittings/tube-fittings/accessories" },
   title: 'Tube Fittings — Accessories',
   description: 'Stainless steel tube fitting accessories including tube plugs, tube caps, nuts, front ferrules, back ferrules and pipe inserts. Available in Imperial and Metric tube OD.',
   openGraph: {

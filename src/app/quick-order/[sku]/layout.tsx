@@ -10,7 +10,8 @@ export async function generateMetadata({
   const { sku } = await params;
   const product = PRODUCTS.find((p) => p.sku === sku);
   if (!product) {
-    return { title: "Valvenok — PANAM Fittings" };
+
+    return { title: { absolute: "Valvenok — PANAM Fittings" } };
   }
 
   const content = getProductContent(sku);
@@ -29,7 +30,7 @@ export async function generateMetadata({
     : "https://pblol2.blob.core.windows.net/valvenok-images/logo-2.png";
 
   return {
-    title: fullTitle,
+    title: { absolute: fullTitle },
     description: content.metaDescription,
     alternates: {
       canonical: canonicalUrl,

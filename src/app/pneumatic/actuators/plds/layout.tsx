@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/pneumatic/actuators/plds" },
   title: 'PLDS Series Linear Cylinders',
   description: 'Double-acting pneumatic linear cylinders for precise motion control, valve actuation and automation. IP66, ISO mounting, multiple corrosion grades.',
   openGraph: {

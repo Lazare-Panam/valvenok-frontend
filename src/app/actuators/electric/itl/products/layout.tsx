@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/actuators/electric/itl/products" },
   title: "Electric Actuators",
   description:
     "Browse electric valve actuators — filter by series and model to find the exact configuration you need.",

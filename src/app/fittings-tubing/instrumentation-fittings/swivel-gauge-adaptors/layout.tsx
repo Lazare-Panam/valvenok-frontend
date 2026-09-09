@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/fittings-tubing/instrumentation-fittings/swivel-gauge-adaptors" },
   title: "Swivel Gauge Adaptors",
   description:
     "Browse swivel gauge adaptors — filter by type, inlet, and outlet to find the exact configuration you need.",

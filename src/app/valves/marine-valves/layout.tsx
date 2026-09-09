@@ -3,7 +3,7 @@
 import { Suspense } from 'react';
 
 export const metadata = {
-  title: 'Marine Valves | Valvenok Limited',
+  title: { absolute: 'Marine Valves | Valvenok Limited' },
   description: 'Explore Valvenok\'s range of marine-grade valves — gate, globe, butterfly, swing check, dual plate and fire hydrant valves in NAB, Gun Metal, and Stainless Steel. Request a quote today.',
   openGraph: {
     title: 'Marine Valves | Valvenok Limited',

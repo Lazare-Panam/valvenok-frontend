@@ -10,9 +10,12 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
   const productId = searchParams.product_id;
 
   return {
-    title: productId
-      ? `Request a Quote for ${productId} | Valvenok`
-      : 'Contact Our Engineering Team | Valvenok',
+    title: {
+      absolute: productId
+        ? `Request a Quote for ${productId} | Valvenok`
+        : 'Contact Our Engineering Team | Valvenok',
+    },
+    alternates: { canonical: '/contact' },
     description: productId
       ? `Request a formal quotation for ${productId}. Our technical team will respond with pricing and availability within 24 hours.`
       : 'Get expert technical support and bulk procurement quotes. Our engineering team responds to all industrial enquiries within 24 hours.',

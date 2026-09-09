@@ -7,6 +7,7 @@ const IMAGE =
   "https://pblol2.blob.core.windows.net/valvenok-images/blogs/blog4.jpg";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/news/instrumentation-fittings-hydrogen-leak-tight-threads" },
   title: TITLE,
   description: DESCRIPTION,
   openGraph: {

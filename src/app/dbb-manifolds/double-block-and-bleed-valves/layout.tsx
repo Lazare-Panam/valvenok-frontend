@@ -7,7 +7,8 @@ const IMAGE =
   "https://pblol2.blob.core.windows.net/panam-images/products/DBB/dbb-cover.jpg";
 
 export const metadata: Metadata = {
-  title: TITLE,
+  alternates: { canonical: "/dbb-manifolds/double-block-and-bleed-valves" },
+  title: { absolute: TITLE },
   description: DESCRIPTION,
   openGraph: {
     title: TITLE,

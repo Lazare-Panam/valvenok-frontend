@@ -7,7 +7,8 @@ const IMAGE =
   "https://pblol2.blob.core.windows.net/valvenok-images/products/sight-glass/sight-glass-no-bg.png";
 
 export const metadata: Metadata = {
-  title: TITLE,
+  alternates: { canonical: "/filters-sight-glass/sight-glass" },
+  title: { absolute: TITLE },
   description: DESCRIPTION,
   openGraph: {
     title: TITLE,

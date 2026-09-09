@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/pneumatic/actuators/plds/products" },
   title: "PLDS Actuators",
   description:
     "Browse PLDS actuator models — filter by model and stem size to find the exact configuration you need.",

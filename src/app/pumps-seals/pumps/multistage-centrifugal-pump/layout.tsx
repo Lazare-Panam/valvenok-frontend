@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/pumps-seals/pumps/multistage-centrifugal-pump" },
   title: "HS / TS Series Multistage Centrifugal Pumps",
   description:
     "WALRUS multistage centrifugal pumps for pressure boosting from city mains or private water systems. Close-coupled design, corrosion resistant, thermostat dry-run protection.",

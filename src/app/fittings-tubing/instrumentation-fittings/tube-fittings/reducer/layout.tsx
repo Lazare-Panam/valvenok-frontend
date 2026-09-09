@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/fittings-tubing/instrumentation-fittings/tube-fittings/reducer" },
   title: 'Tube Fittings — Reducers',
   description: 'Stainless steel reducer fittings including standard reducers, bulkhead reducers and reducer elbows. Available in Imperial, Metric and mixed Metric × Imperial configurations.',
   openGraph: {

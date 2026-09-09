@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/pneumatic/actuators/pds" },
   title: "PDS Series Scotch Yoke Actuators",
   description:
     "Scotch-Yoke pneumatic actuators engineered for superior break-out torque. Double acting and spring return, 10–4,000 Nm, ATEX certified, SIL3 capable.",

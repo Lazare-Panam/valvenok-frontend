@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/actuators/mechanical/itg/products" },
   title: "ITG Gearboxes",
   description:
     "Browse ITG gearbox models — filter by sub-series and model to find the exact configuration you need.",

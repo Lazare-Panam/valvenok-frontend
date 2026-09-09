@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/news/butterfly-valve-guide" },
   title: "Butterfly Valve Instrumentation Packages",
   description: "Valvenok supplies precision instrumentation valves, manifolds, fittings, and auxiliaries around butterfly valve installations — triple offset, pneumatically actuated, and process butterfly valves, with UK stock and 24-hour engineering response.",
   keywords: [
