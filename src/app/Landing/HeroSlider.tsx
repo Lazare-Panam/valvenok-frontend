@@ -37,7 +37,7 @@ const SLIDES = [
       "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/Process-valves.jpeg",
     upperTag: "ESTABLISHED 1998",
     tag: "UK Industrial Supplier",
-    title: "UK Valve & Actuator Distributor —",
+    title: "UK Valve & Actuator Distributor —" ,
     accent: "JOSCAR Registered",
     description:
       "High-performance Hydraulic and Pneumatic solutions. We leverage a Global Network to source and supply specialist instrumentation components for your specific requirements.",
