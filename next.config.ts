@@ -1,5 +1,8 @@
 import type { NextConfig } from "next";
 
+const API_HOST = "https://valvenok-api-container.mangobeach-29eb5614.ukwest.azurecontainerapps.io";
+//const API_HOST = "http://localhost:5260"; 
+
 const nextConfig: NextConfig = {
   reactCompiler: true,
   transpilePackages: ["@mui/material", "@emotion/react", "@emotion/styled"],
@@ -26,8 +29,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/api/:path*",
-        destination:
-          "https://valvenok-api-container.mangobeach-29eb5614.ukwest.azurecontainerapps.io/api/:path*",
+        destination: `${API_HOST}/api/:path*`,
       },
     ];
   },
