@@ -19,6 +19,6 @@ export interface PurchaseOrderResponse {
 }
 
 export const fetchOrdersApi = async (): Promise<PurchaseOrderResponse[]> => {
-  const response = await axiosClient.get('api/orders');
+  const response = await axiosClient.get('/api/orders');
   return response.data;
 };

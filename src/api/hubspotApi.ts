@@ -21,14 +21,14 @@ export interface Deal {
   lineItems: DealLineItem[];
 }
 export const fetchDealsByNameApi = async (dealName: string): Promise<Deal[]> => {
-  const res = await axiosClient.get('api/hubspot/deals/by-name', {
+  const res = await axiosClient.get('/api/hubspot/deals/by-name', {
     params: { dealName },
   });
   return res.data;
 };
 
 export const fetchDealsByEmailApi = async (email: string): Promise<Deal[]> => {
-  const res = await axiosClient.get('api/hubspot/deals/by-email', {
+  const res = await axiosClient.get('/api/hubspot/deals/by-email', {
     params: { email },
   });
   return res.data;

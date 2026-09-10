@@ -20,7 +20,7 @@ export interface Deal {
 }
 
 export const fetchDealsApi = async (email: string): Promise<Deal[]> => {
-  const response = await axiosClient.get(`api/hubspot/deals`, {
+  const response = await axiosClient.get(`/api/hubspot/deals`, {
     params: { email },
   });
   return response.data;

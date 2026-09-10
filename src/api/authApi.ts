@@ -14,17 +14,17 @@ export interface LoginRequestDto {
 }
 export const registerUser = async (data: RegisterRequestDto) => {
   // Routes to [Route("api/[controller]")] -> UserController -> [HttpPost("register")]
-  const response = await axiosClient.post("api/User/register", data);
+  const response = await axiosClient.post("/api/User/register", data);
   return response.data;
 };
 
 export const loginUser = async (data: LoginRequestDto) => {
  
-  const response = await axiosClient.post("api/User/login", data);
+  const response = await axiosClient.post("/api/User/login", data);
   return response.data;
 };
 export const logoutUser = async (): Promise<void> => {
-  await axiosClient.post('api/user/logout');
+  await axiosClient.post('/api/user/logout');
 };
 export interface EnquiryDto {
   customerName: string;
@@ -35,6 +35,6 @@ export interface EnquiryDto {
 
 export const sendEnquiry = async (data: EnquiryDto) => {
   // Routes to api/User/enquiry
-  const response = await axiosClient.post("api/User/enquiry", data);
+  const response = await axiosClient.post("/api/User/enquiry", data);
   return response.data;
 };
