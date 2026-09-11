@@ -18,6 +18,26 @@ import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import SEOButtons from "../about/SEOButtons";
 const POSTS = [
   {
+    title: "How to Choose a Valve Actuator: Electric, Pneumatic, Hydraulic",
+    desc: "Electric, pneumatic, hydraulic or manual — compare torque, speed, fail-safe behaviour and hazardous area rating, with a sizing walkthrough and a decision framework you can work down in order.",
+    thumbnail:
+      "https://pblol2.blob.core.windows.net/panam-images/products/actuators/ac-hero.jpg",
+    author: "Valvenok Team",
+    date: "September 2026",
+    category: "Technical Guide",
+    link: "/news/how-to-choose-a-valve-actuator",
+  },
+  {
+    title: "Why Buy Valves From a UK Stockist",
+    desc: "No import lead time, no minimum order, and a company you can verify. Over 5,000 products held in UK stock from Bicester, Oxfordshire since 2018 — JOSCAR registered supply for defence, energy and process industries.",
+    thumbnail:
+      "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/ben-kupke-ew-p24CVLR0-unsplash.jpg",
+    author: "Valvenok Team",
+    date: "September 2026",
+    category: "Buyer's Guide",
+    link: "/news/uk-valve-stockist",
+  },
+  {
     title: "Butterfly Valve Instrumentation and Connection Packages",
     desc: "Triple offset, pneumatically actuated, and process butterfly valves — fully engineered from the primary isolation to the instrumentation layer, with UK stock and 24-hour engineering response.",
     thumbnail:

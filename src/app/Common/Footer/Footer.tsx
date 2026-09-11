@@ -38,7 +38,8 @@ const FOOTER_LINKS = [
     links: [
       { label: "About Us", href: "/about" },
       { label: "News & Blog", href: "/news" },
-      { label: "Quality & JOSCAR", href: "/quality" },
+      { label: "Quality & Compliance", href: "/quality" },
+      { label: "JOSCAR Registered", href: "/joscar-registered" },
       { label: "Contact", href: "/contact" },
     ],
   },
