@@ -91,6 +91,8 @@ const FAQS = [
   },
 ];
 
+const ARTICLE_URL = "https://www.valvenok.com/news/how-to-choose-a-valve-actuator";
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -101,11 +103,43 @@ const faqSchema = {
   })),
 };
 
+const blogSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: "How to Choose a Valve Actuator: Electric, Pneumatic, Hydraulic",
+  description:
+    "Electric, pneumatic or hydraulic? Compare torque, speed, fail-safe behaviour and hazardous area rating, with a sizing walkthrough and decision framework.",
+  image: "https://pblol2.blob.core.windows.net/panam-images/products/actuators/ac-hero.jpg",
+  author: { "@type": "Organization", name: "Valvenok" },
+  publisher: {
+    "@type": "Organization",
+    name: "Valvenok",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://pblol2.blob.core.windows.net/valvenok-images/logo-2.png",
+    },
+  },
+  datePublished: "2026-09-11",
+  dateModified: "2026-09-11",
+  mainEntityOfPage: { "@type": "WebPage", "@id": ARTICLE_URL },
+};
+
+// Contextual internal links — descriptive anchors to real actuator/valve pages
+const RELATED = [
+  { label: "All valve actuators", href: "/actuators" },
+  { label: "Pneumatic actuators", href: "/pneumatic/actuators" },
+  { label: "Electric actuators", href: "/actuators/electric" },
+  { label: "Hydraulic actuators", href: "/actuators/hydraulic" },
+  { label: "Manual gear operators", href: "/actuators/mechanical" },
+  { label: "Industrial valves", href: "/valves" },
+];
+
 // ── small render helpers, matching the existing /news article grammar ──
 function H2({ children }: { children: React.ReactNode }) {
   return (
     <Typography
       variant="h1"
+      component="h2"
       sx={{
         fontFamily: DISPLAY_FONT,
         fontWeight: 800,
@@ -155,6 +189,10 @@ function Bullets({ items }: { items: string[] }) {
 export default function ActuatorGuidePage() {
   return (
     <Box sx={{ bgcolor: "background.default", minHeight: "100vh", pb: 10 }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -794,6 +832,49 @@ export default function ActuatorGuidePage() {
             >
               Talk to Our Team
             </Box>
+          </Box>
+
+          {/* ── RELATED / INTERNAL LINKS ── */}
+          <Box sx={{ mt: 8 }}>
+            <Typography
+              component="h2"
+              sx={{
+                fontFamily: DISPLAY_FONT,
+                fontWeight: 800,
+                fontSize: "1rem",
+                textTransform: "uppercase",
+                letterSpacing: "0.08em",
+                color: "text.secondary",
+                mb: 2,
+              }}
+            >
+              Browse Our Actuator Range
+            </Typography>
+            <Stack direction="row" flexWrap="wrap" gap={1.5}>
+              {RELATED.map((r) => (
+                <Box
+                  key={r.href}
+                  component="a"
+                  href={r.href}
+                  sx={{
+                    fontFamily: DISPLAY_FONT,
+                    fontWeight: 700,
+                    fontSize: "13px",
+                    letterSpacing: "0.03em",
+                    textDecoration: "none",
+                    color: "primary.dark",
+                    border: "1.5px solid",
+                    borderColor: "primary.light",
+                    px: 2,
+                    py: 1,
+                    transition: "0.2s",
+                    "&:hover": { borderColor: "primary.main", bgcolor: "primary.50" },
+                  }}
+                >
+                  {r.label} →
+                </Box>
+              ))}
+            </Stack>
           </Box>
         </Box>
       </Container>

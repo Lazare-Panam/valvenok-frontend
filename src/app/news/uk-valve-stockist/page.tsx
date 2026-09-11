@@ -14,8 +14,19 @@ import Grid from "@mui/material/Grid";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import Link from "next/link";
 
 const DISPLAY_FONT = '"Barlow Condensed"';
+
+const ARTICLE_URL = "https://www.valvenok.com/news/uk-valve-stockist";
+
+// Contextual internal links — descriptive anchors to real category pages
+const RELATED = [
+  { label: "Industrial & instrumentation valves", href: "/valves" },
+  { label: "Hydrogen & cryogenic components", href: "/hydrogen-cryogenic" },
+  { label: "Quality & compliance", href: "/quality" },
+  { label: "JOSCAR registered supplier", href: "/joscar-registered" },
+];
 
 export default function UkValveStockistPage() {
   const ukBaseBenefits = [
@@ -109,8 +120,48 @@ export default function UkValveStockistPage() {
     },
   ];
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: "Why Buy Valves From a UK Stockist",
+    description:
+      "No import lead time, no minimum order, and a company you can verify. Over 5,000 products held in UK stock from Bicester, Oxfordshire since 2018.",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/ben-kupke-ew-p24CVLR0-unsplash.jpg",
+    author: { "@type": "Organization", name: "Valvenok" },
+    publisher: {
+      "@type": "Organization",
+      name: "Valvenok",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://pblol2.blob.core.windows.net/valvenok-images/logo-2.png",
+      },
+    },
+    datePublished: "2026-09-11",
+    dateModified: "2026-09-11",
+    mainEntityOfPage: { "@type": "WebPage", "@id": ARTICLE_URL },
+  };
+
   return (
     <Box sx={{ bgcolor: "background.default", minHeight: "100vh", pb: 10 }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* ── HERO ── */}
       <Box sx={{ bgcolor: "primary.main", color: "white", pt: 15, pb: 10 }}>
         <Container maxWidth="md">
@@ -268,6 +319,7 @@ export default function UkValveStockistPage() {
           {/* ── WHY A UK BASE MATTERS ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,
@@ -324,6 +376,7 @@ export default function UkValveStockistPage() {
           {/* ── WHAT WE HOLD ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,
@@ -400,6 +453,7 @@ export default function UkValveStockistPage() {
           {/* ── WHO WE SUPPLY ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,
@@ -424,6 +478,7 @@ export default function UkValveStockistPage() {
           {/* ── DELIVERY ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,
@@ -447,6 +502,7 @@ export default function UkValveStockistPage() {
           {/* ── PROCESS ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,
@@ -539,6 +595,7 @@ export default function UkValveStockistPage() {
           {/* ── FAQ ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,
@@ -553,6 +610,7 @@ export default function UkValveStockistPage() {
             {faqs.map((item) => (
               <Box key={item.q}>
                 <Typography
+                  component="h3"
                   sx={{
                     fontFamily: DISPLAY_FONT,
                     fontWeight: 800,
@@ -599,18 +657,67 @@ export default function UkValveStockistPage() {
               confirm availability, price and dispatch. If it is urgent, call
               +44 7775 132326 — that is usually faster than a form.
             </Typography>
-            <Typography
-              variant="button"
+            <Box
+              component={Link}
+              href="/contact"
               sx={{
+                display: "inline-block",
+                fontFamily: DISPLAY_FONT,
                 fontWeight: 900,
                 borderBottom: "2px solid white",
                 pb: 1,
                 cursor: "pointer",
                 color: "white",
+                textDecoration: "none",
+                textTransform: "uppercase",
+                letterSpacing: "0.05em",
               }}
             >
               Request a Quotation
+            </Box>
+          </Box>
+
+          {/* ── RELATED / INTERNAL LINKS ── */}
+          <Box sx={{ mt: 8 }}>
+            <Typography
+              component="h2"
+              sx={{
+                fontFamily: DISPLAY_FONT,
+                fontWeight: 800,
+                fontSize: "1rem",
+                textTransform: "uppercase",
+                letterSpacing: "0.08em",
+                color: "text.secondary",
+                mb: 2,
+              }}
+            >
+              Explore More From Valvenok
             </Typography>
+            <Stack direction="row" flexWrap="wrap" gap={1.5}>
+              {RELATED.map((r) => (
+                <Box
+                  key={r.href}
+                  component={Link}
+                  href={r.href}
+                  sx={{
+                    fontFamily: DISPLAY_FONT,
+                    fontWeight: 700,
+                    fontSize: "13px",
+                    letterSpacing: "0.03em",
+                    textDecoration: "none",
+                    color: "primary.dark",
+                    border: "1.5px solid",
+                    borderColor: "primary.light",
+                    px: 2,
+                    py: 1,
+                    transition: "0.2s",
+                    "&:hover": { borderColor: "primary.main", bgcolor: "primary.50" },
+                  }}
+                >
+                  {r.label} →
+                </Box>
+              ))}
+            </Stack>
           </Box>
         </Box>
       </Container>

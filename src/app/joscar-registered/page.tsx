@@ -5,6 +5,7 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Divider from '@mui/material/Divider';
+import Stack from '@mui/material/Stack';
 import Link from 'next/link';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
@@ -701,6 +702,54 @@ export default function JoscarRegisteredPage() {
               Apply for a trade credit account
             </Box>
           </Box>
+        </Box>
+
+        {/* ── RELATED / INTERNAL LINKS ── */}
+        <Box sx={{ mt: 8 }}>
+          <Typography
+            component="h2"
+            sx={{
+              fontFamily: DISPLAY_FONT,
+              fontWeight: 800,
+              fontSize: '1rem',
+              textTransform: 'uppercase',
+              letterSpacing: '0.08em',
+              color: 'text.secondary',
+              mb: 2,
+            }}
+          >
+            Explore More From Valvenok
+          </Typography>
+          <Stack direction="row" flexWrap="wrap" gap={1.5}>
+            {[
+              { label: 'Quality & compliance', href: '/quality' },
+              { label: 'Hydrogen & cryogenic', href: '/hydrogen-cryogenic' },
+              { label: 'Industrial valves', href: '/valves' },
+              { label: 'Instrumentation', href: '/instrumentation' },
+            ].map((r) => (
+              <Box
+                key={r.href}
+                component={Link}
+                href={r.href}
+                sx={{
+                  fontFamily: DISPLAY_FONT,
+                  fontWeight: 700,
+                  fontSize: '13px',
+                  letterSpacing: '0.03em',
+                  textDecoration: 'none',
+                  color: 'primary.dark',
+                  border: '1.5px solid',
+                  borderColor: 'primary.light',
+                  px: 2,
+                  py: 1,
+                  transition: '0.2s',
+                  '&:hover': { borderColor: 'primary.main', bgcolor: 'primary.50' },
+                }}
+              >
+                {r.label} →
+              </Box>
+            ))}
+          </Stack>
         </Box>
 
         {/* ── SOURCE / OUTBOUND ── */}
