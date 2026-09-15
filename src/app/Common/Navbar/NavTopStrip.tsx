@@ -30,7 +30,7 @@ export default function NavTopStrip() {
             <PhoneIcon sx={{ fontSize: 13, color: ICON_WHITE }} />
             <Typography
               component="a"
-              href="tel:+44777513232"
+              href="tel:+447368 137917"
               sx={{
                 color: "#fff",
                 fontSize: "0.78rem",
@@ -40,7 +40,7 @@ export default function NavTopStrip() {
                 "&:hover": { textDecoration: "underline", opacity: 0.85 },
               }}
             >
-              +44 7775132326
+              +44 7368 137917
             </Typography>
           </Box>
 
