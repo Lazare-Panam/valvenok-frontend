@@ -22,11 +22,21 @@ type BreadcrumbsProps = {
   hideOnHome?: boolean;
 };
 
-// Turn "ball-valves" into "Ball Valves"
+// Words that must stay fully uppercase (brand/acronym abbreviations).
+// e.g. "ag" -> "AG" (Anderson Greenwood). Extend as needed: 'jic', 'nps', 'dn'.
+const ACRONYMS = new Set(['ag', 'lpg']);
+
+// Turn "ag-fasani-check" into "AG Fasani Check"
 const humanize = (segment: string) =>
   decodeURIComponent(segment)
     .replace(/[-_]/g, ' ')
-    .replace(/\b\w/g, (c) => c.toUpperCase());
+    .split(' ')
+    .map((word) =>
+      ACRONYMS.has(word.toLowerCase())
+        ? word.toUpperCase()
+        : word.replace(/\b\w/, (c) => c.toUpperCase()),
+    )
+    .join(' ');
 
 export default function Breadcrumbs({
   items,
