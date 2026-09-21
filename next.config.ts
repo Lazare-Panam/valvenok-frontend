@@ -23,6 +23,11 @@ const nextConfig: NextConfig = {
         destination: "/categories",
         permanent: true,
       },
+      {
+        source: "/products",
+        destination: "/categories",
+        permanent: true,
+      },
     ];
   },
   async rewrites() {
