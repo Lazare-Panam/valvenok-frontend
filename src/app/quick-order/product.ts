@@ -52,7 +52,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     price: 0.98,
     stockQuantity: 100,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/BACK-FERRULE.png",
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/quick-order/PBF.webp",
     specs: {
       material: "SS316",
       tubeOD: '1/4"',
@@ -68,7 +68,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     price: 1.05,
     stockQuantity: 70,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/BACK-FERRULE.png",
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/quick-order/PBF.webp",
     specs: {
       material: "SS316",
       tubeOD: '3/8"',
@@ -84,7 +84,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     price: 1.66,
     stockQuantity: 100,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/BACK-FERRULE.png",
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/quick-order/PBF.webp",
     specs: {
       material: "SS316",
       tubeOD: '1/2"',
@@ -100,7 +100,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     price: 0.98,
     stockQuantity: 100,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/BACK-FERRULE.png",
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/quick-order/PBF.webp",
     specs: {
       material: "SS316",
       tubeOD: "6mm",
@@ -116,7 +116,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     price: 0.98,
     stockQuantity: 100,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/BACK-FERRULE.png",
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/quick-order/PBF.webp",
     specs: {
       material: "SS316",
       tubeOD: "8mm",
@@ -132,7 +132,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     price: 1.05,
     stockQuantity: 50,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/BACK-FERRULE.png",
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/quick-order/PBF.webp",
     specs: {
       material: "SS316",
       tubeOD: "10mm",
@@ -279,7 +279,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     price: 0.98,
     stockQuantity: 100,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/FRONT-FERRULE.png",
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/quick-order/PFF-M08-SS.webp",
     specs: {
       material: "SS316",
       tubeOD: '1/4"',
@@ -295,7 +295,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     price: 1.05,
     stockQuantity: 100,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/FRONT-FERRULE.png",
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/quick-order/PFF-M08-SS.webp",
     specs: {
       material: "SS316",
       tubeOD: '3/8"',
@@ -311,7 +311,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     price: 1.66,
     stockQuantity: 50,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/FRONT-FERRULE.png",
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/quick-order/PFF-M08-SS.webp",
     specs: {
       material: "SS316",
       tubeOD: '1/2"',
@@ -327,7 +327,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     price: 0.98,
     stockQuantity: 100,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/FRONT-FERRULE.png",
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/quick-order/PFF-M08-SS.webp",
     specs: {
       material: "SS316",
       tubeOD: "6mm",
@@ -343,7 +343,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     price: 0.98,
     stockQuantity: 100,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/FRONT-FERRULE.png",
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/quick-order/PFF-M08-SS.webp",
     specs: {
       material: "SS316",
       tubeOD: "8mm",
@@ -359,7 +359,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     price: 1.05,
     stockQuantity: 115,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/FRONT-FERRULE.png",
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/quick-order/PFF-M08-SS.webp",
     specs: {
       material: "SS316",
       tubeOD: "10mm",
@@ -375,7 +375,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     price: 1.66,
     stockQuantity: 55,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/FRONT-FERRULE.png",
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/quick-order/PFF-M08-SS.webp",
     specs: {
       material: "SS316",
       tubeOD: "12mm",
@@ -391,7 +391,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     price: 16.04,
     stockQuantity: 6,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/tube-fittings/FRONT-FERRULE.png",
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/quick-order/PFT.webp",
     specs: {
       material: "SS316",
       type: "Imperial",
@@ -1733,7 +1733,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     price: 12.47,
     stockQuantity: 49,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/swivel-connector.png",
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/quick-order/PSC.webp",
     specs: {
       material: "SS316",
       type: "Imperial",
@@ -1751,7 +1751,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     price: 13.4,
     stockQuantity: 50,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/swivel-connector.png",
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/quick-order/PSC.webp",
     specs: {
       material: "SS316",
       type: "Imperial",
@@ -1769,7 +1769,7 @@ export const PRODUCTS: ProductQuickOrder[] = [
     price: 11.57,
     stockQuantity: 24,
     cloudinaryId:
-      "https://pblol2.blob.core.windows.net/panam-images/products/pipe-fittings/street-elbow-45°.png",
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/quick-order/PSE-1N-SS.webp",
     specs: {
       material: "SS316",
       type: "Imperial",
