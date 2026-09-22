@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: "Valvenok",
     images: [
       {
-        url: "https://pblol2.blob.core.windows.net/valvenok-images/logo-2.png",
+        url: "https://pblol2.blob.core.windows.net/valvenok-images/logo.png",
         width: 1200,
         height: 630,
         alt: "Valvenok — JOSCAR Registered Supplier",

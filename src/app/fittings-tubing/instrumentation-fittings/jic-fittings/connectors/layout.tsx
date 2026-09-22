@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 const TITLE = "JIC Connectors | Valvenok";
 const DESCRIPTION =
   "SS316 37° JIC male and female connectors for high-pressure hydraulic lines.";
-const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo-2.png";
+const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },

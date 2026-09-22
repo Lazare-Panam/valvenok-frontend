@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   description:
     "UK's Leading Supplier of Industrial Valves, Actuators & SS316 Fittings, plus hydrogen-ready components. Official distributor for PANAM and 40+ Global Brands.",
   icons: {
-    icon: "https://pblol2.blob.core.windows.net/valvenok-images/logo-2.png",
+    icon: "https://pblol2.blob.core.windows.net/valvenok-images/logo.png",
   },
   metadataBase: new URL("https://www.valvenok.com"),
   twitter: {
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     title: "Valvenok | Industrial Valves, Fittings & Instrumentation UK",
     description:
       "UK's Leading Supplier of Industrial Valves, Actuators & SS316 Fittings, plus hydrogen-ready components. Official distributor for PANAM and 40+ Global Brands.",
-    images: ["https://pblol2.blob.core.windows.net/valvenok-images/logo-2.png"],
+    images: ["https://pblol2.blob.core.windows.net/valvenok-images/logo.png"],
   },
 };
 
@@ -71,7 +71,7 @@ export default function RootLayout({
               "@type": "Organization",
               name: "Valvenok",
               url: "https://www.valvenok.com",
-              logo: "https://pblol2.blob.core.windows.net/valvenok-images/logo-2.png",
+              logo: "https://pblol2.blob.core.windows.net/valvenok-images/logo.png",
               contactPoint: {
                 "@type": "ContactPoint",
                 telephone: "+44-7368 137917",

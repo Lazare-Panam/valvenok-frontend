@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 const TITLE = "JIC Unions & Swivels | Valvenok";
 const DESCRIPTION =
   "SS316 37° JIC union and swivel fittings for hydraulic and instrumentation lines.";
-const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo-2.png";
+const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 const TITLE = "Mars Ball Valves | Valvenok";
 const DESCRIPTION =
   "Mars ball valves across multiple series, port types and end connections.";
-const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo-2.png";
+const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/valves/mars-valves" },

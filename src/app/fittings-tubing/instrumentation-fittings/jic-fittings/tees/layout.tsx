@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 const TITLE = "JIC Tees | Valvenok";
 const DESCRIPTION =
   "SS316 37° JIC tee fittings, branch, reducing and union configurations.";
-const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo-2.png";
+const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },

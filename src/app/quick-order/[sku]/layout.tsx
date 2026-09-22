@@ -10,7 +10,6 @@ export async function generateMetadata({
   const { sku } = await params;
   const product = PRODUCTS.find((p) => p.sku === sku);
   if (!product) {
-
     return { title: { absolute: "Valvenok — PANAM Fittings" } };
   }
 
@@ -27,7 +26,7 @@ export async function generateMetadata({
   const canonicalUrl = `https://www.valvenok.com/quick-order/${sku}`;
   const image = product.cloudinaryId
     ? [product.cloudinaryId]
-    : "https://pblol2.blob.core.windows.net/valvenok-images/logo-2.png";
+    : "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
 
   return {
     title: { absolute: fullTitle },

@@ -144,7 +144,7 @@ export default function UkValveStockistPage() {
       name: "Valvenok",
       logo: {
         "@type": "ImageObject",
-        url: "https://pblol2.blob.core.windows.net/valvenok-images/logo-2.png",
+        url: "https://pblol2.blob.core.windows.net/valvenok-images/logo.png",
       },
     },
     datePublished: "2026-09-11",
@@ -193,9 +193,9 @@ export default function UkValveStockistPage() {
             variant="h5"
             sx={{ mt: 2, opacity: 0.85, fontStyle: "italic" }}
           >
-            No import lead time, no minimum order, and a company you can verify —
-            over 5,000 products held in UK stock from Bicester, Oxfordshire since
-            2018.
+            No import lead time, no minimum order, and a company you can verify
+            — over 5,000 products held in UK stock from Bicester, Oxfordshire
+            since 2018.
           </Typography>
           <Stack direction="row" spacing={3} sx={{ mt: 4, opacity: 0.8 }}>
             <Stack direction="row" alignItems="center" spacing={1}>
@@ -288,9 +288,9 @@ export default function UkValveStockistPage() {
             search by product and specification. But when a common part is
             holding up a live project, where that part ships from suddenly
             matters a great deal. A valve on an overseas order carries a
-            manufacturing lead time and customs clearance; the same valve on a UK
-            shelf ships the same working day. That single difference is the case
-            for buying from a UK-based stockist.
+            manufacturing lead time and customs clearance; the same valve on a
+            UK shelf ships the same working day. That single difference is the
+            case for buying from a UK-based stockist.
           </Typography>
           <Typography>
             Valvenok has been based in Bicester, Oxfordshire since 2018,
@@ -431,8 +431,9 @@ export default function UkValveStockistPage() {
                 fontWeight: 500,
               }}
             >
-              &quot;On a stock item there is no import lead time and no customs —
-              what is on the shelf ships the same working day it is ordered.&quot;
+              &quot;On a stock item there is no import lead time and no customs
+              — what is on the shelf ships the same working day it is
+              ordered.&quot;
             </Typography>
             <Typography
               variant="caption"
@@ -711,7 +712,10 @@ export default function UkValveStockistPage() {
                     px: 2,
                     py: 1,
                     transition: "0.2s",
-                    "&:hover": { borderColor: "primary.main", bgcolor: "primary.50" },
+                    "&:hover": {
+                      borderColor: "primary.main",
+                      bgcolor: "primary.50",
+                    },
                   }}
                 >
                   {r.label} →

@@ -16,7 +16,7 @@ import FAQSection from "./Landing/FAQSection";
 
 // For Next.js App Router (metadata object)
 export const metadata = {
-  alternates: { canonical: '/' },
+  alternates: { canonical: "/" },
   title: {
     absolute:
       "Valvenok | Trusted UK Industrial Supplier | Valves, Pumps & Pneumatics",
@@ -31,7 +31,7 @@ export const metadata = {
     siteName: "Valvenok",
     images: [
       {
-        url: "https://pblol2.blob.core.windows.net/valvenok-images/logo-2.png",
+        url: "https://pblol2.blob.core.windows.net/valvenok-images/logo.png",
         width: 1200,
         height: 630,
       },

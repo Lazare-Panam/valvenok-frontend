@@ -3,10 +3,13 @@ import type { Metadata } from "next";
 const TITLE = "Tees & Cross Fittings | Valvenok";
 const DESCRIPTION =
   "Tee and cross pipe fittings in SS316, multiple connection types for industrial piping systems.";
-const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo-2.png";
+const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
 
 export const metadata: Metadata = {
-  alternates: { canonical: "/fittings-tubing/instrumentation-fittings/pipe-fittings/tees-cross" },
+  alternates: {
+    canonical:
+      "/fittings-tubing/instrumentation-fittings/pipe-fittings/tees-cross",
+  },
   title: { absolute: TITLE },
   description: DESCRIPTION,
   openGraph: {

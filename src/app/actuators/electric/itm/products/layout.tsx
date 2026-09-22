@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 const TITLE = "ITM Actuators | Valvenok";
 const DESCRIPTION =
   "ITM pneumatic and electric valve actuators across multiple body types and models.";
-const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo-2.png";
+const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/actuators/electric/itm/products" },

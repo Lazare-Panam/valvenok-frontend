@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 const TITLE = "Tubing | Valvenok";
 const DESCRIPTION =
   "Instrumentation tubing across multiple materials, outer diameters and wall thicknesses.";
-const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo-2.png";
+const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/fittings-tubing/tubing" },

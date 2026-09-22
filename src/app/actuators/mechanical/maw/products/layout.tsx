@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 const TITLE = "MAW Gearboxes | Valvenok";
 const DESCRIPTION =
   "MAW worm gearboxes for industrial valve actuation and drive systems.";
-const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo-2.png";
+const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/actuators/mechanical/maw/products" },
