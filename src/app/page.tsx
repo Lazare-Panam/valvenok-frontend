@@ -18,8 +18,7 @@ import FAQSection from "./Landing/FAQSection";
 export const metadata = {
   alternates: { canonical: "/" },
   title: {
-    absolute:
-      "Valvenok | Trusted UK Industrial Supplier | Valves, Pumps & Pneumatics",
+    absolute: "Valvenok | Trusted UK Valves and Controls Supplier",
   },
   description:
     "UK's leading supplier of high-pressure valves, SS316 fittings, and Hydrogen-ready components. Official distributor of 40+ brands.",
@@ -43,6 +42,23 @@ export const metadata = {
 export default function Home() {
   return (
     <>
+      {/* SEO H1 — the visible hero is an animated slider whose heading cycles, so a
+          single stable H1 lives here (visually hidden, present in the DOM for crawlers). */}
+      <h1
+        style={{
+          position: "absolute",
+          width: 1,
+          height: 1,
+          padding: 0,
+          margin: -1,
+          overflow: "hidden",
+          clip: "rect(0 0 0 0)",
+          whiteSpace: "nowrap",
+          border: 0,
+        }}
+      >
+        Valves and controls from 32 leading manufacturers | Valvenok
+      </h1>
       <HeroSlider />
       <CertificationsStrip />
       <CategoryQuickNav />

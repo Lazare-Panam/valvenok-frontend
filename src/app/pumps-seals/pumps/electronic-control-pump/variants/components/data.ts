@@ -2,7 +2,7 @@ export interface ElectronicControlPumpModel {
   id: string
   modelCode: string
   baseModel: string
-  series: 'TQ_B' | 'HQ_B'
+  series: 'TQ_B' | 'HQ_B' | 'WQ_B'
   antiMicrobial: boolean
   frequencyHz: '50' | '60'
   powerKw: string
@@ -17,9 +17,24 @@ export interface ElectronicControlPumpModel {
   nwKg: string
   gwKg: string
   packQty: string
+  price?: string
 }
 
-type RawModel = Omit<ElectronicControlPumpModel, 'id' | 'modelCode' | 'antiMicrobial'> & { variantId: string }
+type RawModel = Omit<ElectronicControlPumpModel, 'id' | 'modelCode' | 'antiMicrobial' | 'price'> & { variantId: string }
+
+// Prices keyed by generated id (baseModel + "B" for anti-microbial + variantId).
+// Source list: 230V / 1-phase / 50Hz items. GBP per unit, excl. VAT & delivery.
+const PRICE_MAP: Record<string, string> = {
+  'WQ200B-50-1ph': '241.23',
+  'WQ400B-50-1ph': '262.91',
+  'WQ800B-50-1ph': '364.21',
+  'HQ200B-50-1ph': '234.24',
+  'HQ400B-50-1ph': '251.02',
+  'HQ800B-50-1ph': '317.89',
+  'TQ200B-50-1ph': '200.77',
+  'TQ400B-50-1ph': '217.51',
+  'TQ800B-50-1ph': '276.07',
+}
 
 const RAW_MODELS: RawModel[] = [
   // TQ_B — 50Hz
@@ -55,14 +70,24 @@ const RAW_MODELS: RawModel[] = [
   { baseModel: 'HQ400',  variantId: '60-1ph', series: 'HQ_B', frequencyHz: '60', powerKw: '0.37', phase: '1', voltV: '110/220', ampsA: '6.0/3.0',  inletIn: '1"', outletIn: '1"', presetKgCm2: '1.8', hMaxM: '26', qMaxLMin: '80',  nwKg: '8.3',  gwKg: '9.6',  packQty: '36' },
   { baseModel: 'HQ800',  variantId: '60-1ph', series: 'HQ_B', frequencyHz: '60', powerKw: '0.75', phase: '1', voltV: '110/220', ampsA: '10.0/5.0', inletIn: '1"', outletIn: '1"', presetKgCm2: '2.0', hMaxM: '27', qMaxLMin: '120', nwKg: '10.7', gwKg: '12.1', packQty: '36' },
   { baseModel: 'HQ800H', variantId: '60-1ph', series: 'HQ_B', frequencyHz: '60', powerKw: '0.75', phase: '1', voltV: '110/220', ampsA: '10.0/5.0', inletIn: '1"', outletIn: '1"', presetKgCm2: '2.5', hMaxM: '45', qMaxLMin: '100', nwKg: '10.8', gwKg: '12.2', packQty: '36' },
+
+  // WQ_B — 50Hz (specs: walruspump.com WQ_B series)
+  { baseModel: 'WQ200', variantId: '50-1ph', series: 'WQ_B', frequencyHz: '50', powerKw: '0.18', phase: '1', voltV: '200-240', ampsA: '1.5', inletIn: '1"', outletIn: '1"', presetKgCm2: '1.6', hMaxM: '24', qMaxLMin: '58',  nwKg: '8.9',  gwKg: '9.5',  packQty: '' },
+  { baseModel: 'WQ400', variantId: '50-1ph', series: 'WQ_B', frequencyHz: '50', powerKw: '0.37', phase: '1', voltV: '200-240', ampsA: '2.8', inletIn: '1"', outletIn: '1"', presetKgCm2: '2.0', hMaxM: '31', qMaxLMin: '87',  nwKg: '9.9',  gwKg: '10.5', packQty: '' },
+  { baseModel: 'WQ800', variantId: '50-1ph', series: 'WQ_B', frequencyHz: '50', powerKw: '0.75', phase: '1', voltV: '200-240', ampsA: '4.7', inletIn: '1"', outletIn: '1"', presetKgCm2: '2.0', hMaxM: '34', qMaxLMin: '125', nwKg: '11.8', gwKg: '12.4', packQty: '' },
 ]
 
 // Each source row becomes 2 rows: one anti-microbial (model code + "B"), one without.
 export const ELECTRONIC_CONTROL_PUMP_MODELS: ElectronicControlPumpModel[] = RAW_MODELS.flatMap((m) =>
-  ([true, false] as const).map((antiMicrobial) => ({
-    ...m,
-    antiMicrobial,
-    modelCode: `${m.baseModel}${antiMicrobial ? 'B' : ''}`,
-    id: `${m.baseModel}${antiMicrobial ? 'B' : ''}-${m.variantId}`,
-  }))
+  ([true, false] as const).map((antiMicrobial) => {
+    const modelCode = `${m.baseModel}${antiMicrobial ? 'B' : ''}`
+    const id = `${modelCode}-${m.variantId}`
+    return {
+      ...m,
+      antiMicrobial,
+      modelCode,
+      id,
+      price: PRICE_MAP[id],
+    }
+  })
 )

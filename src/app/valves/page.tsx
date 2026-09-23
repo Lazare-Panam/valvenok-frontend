@@ -6,7 +6,7 @@ import ProcessValvesGrid from "./ProcessValvesGrid";
 
 export const metadata: Metadata = {
   alternates: { canonical: '/valves' },
-  title: "Industrial & Marine Valves",
+  title: { absolute: "Industrial Valve Supplier and Valve Manufacturer Valvenok" },
   description:
     "Valvenok supplies a full range of industrial, marine and instrumentation valves for process plants, offshore platforms and shipbuilding. Ball, gate, globe, check, butterfly and instrumentation valves in SS316, duplex and carbon steel.",
 };
@@ -205,7 +205,7 @@ export default function ProcessValvesIndexPage() {
   return (
     <>
       <ProductHero
-        title="Industrial & Marine Valves"
+        title="Valve Manufacturer for Industrial, Marine and Instrumentation"
         subtitle="Flow Control for Every Industrial Environment"
         description="A complete range of industrial, marine and instrumentation valves engineered for demanding service conditions. From high-pressure process isolation to precision instrumentation lines and class society approved marine valves — Valvenok delivers the flow control you can trust."
         imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/products/industrial-valves/industiral-hero.jpg"

@@ -536,7 +536,7 @@ export default function PneumaticActuatorPage() {
           mb={1}
           sx={{ color: theme.palette.primary.main }}
         >
-          Pneumatic Actuators
+          Pneumatic Actuators for Industrial Valve Automation
         </Typography>
         <Typography
           variant="body1"

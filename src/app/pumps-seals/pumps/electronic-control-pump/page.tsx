@@ -139,6 +139,7 @@ const TQ_B_MODELS_50HZ = [
     qMax: "60",
     nw: "7.2",
     gw: "7.8",
+    price: "200.77",
   },
   {
     model: "TQ400B",
@@ -150,6 +151,7 @@ const TQ_B_MODELS_50HZ = [
     qMax: "60",
     nw: "8.7",
     gw: "9.3",
+    price: "217.51",
   },
   {
     model: "TQ800B",
@@ -161,6 +163,7 @@ const TQ_B_MODELS_50HZ = [
     qMax: "60",
     nw: "10.9",
     gw: "11.5",
+    price: "276.07",
   },
   {
     model: "TQ1500B",
@@ -172,6 +175,7 @@ const TQ_B_MODELS_50HZ = [
     qMax: "270",
     nw: "21.2",
     gw: "23.4",
+    price: "",
   },
   {
     model: "TQ2200B",
@@ -183,6 +187,7 @@ const TQ_B_MODELS_50HZ = [
     qMax: "270",
     nw: "22.2",
     gw: "24.4",
+    price: "",
   },
 ];
 
@@ -197,6 +202,7 @@ const HQ_B_MODELS_50HZ = [
     qMax: "36",
     nw: "7.4",
     gw: "8.0",
+    price: "234.24",
   },
   {
     model: "HQ400B",
@@ -208,6 +214,7 @@ const HQ_B_MODELS_50HZ = [
     qMax: "36",
     nw: "8.4",
     gw: "9.0",
+    price: "251.02",
   },
   {
     model: "HQ800B",
@@ -219,8 +226,54 @@ const HQ_B_MODELS_50HZ = [
     qMax: "36",
     nw: "10.8",
     gw: "11.4",
+    price: "317.89",
   },
 ];
+
+const WQ_B_MODELS_50HZ = [
+  {
+    model: "WQ200B",
+    power: "0.18",
+    volt: "200-240",
+    amps: "1.5",
+    preset: "1.6",
+    hMax: "24",
+    qMax: "58",
+    nw: "8.9",
+    gw: "9.5",
+    price: "241.23",
+  },
+  {
+    model: "WQ400B",
+    power: "0.37",
+    volt: "200-240",
+    amps: "2.8",
+    preset: "2.0",
+    hMax: "31",
+    qMax: "87",
+    nw: "9.9",
+    gw: "10.5",
+    price: "262.91",
+  },
+  {
+    model: "WQ800B",
+    power: "0.75",
+    volt: "200-240",
+    amps: "4.7",
+    preset: "2.0",
+    hMax: "34",
+    qMax: "125",
+    nw: "11.8",
+    gw: "12.4",
+    price: "364.21",
+  },
+];
+
+const PRICE_LIST = [
+  ...WQ_B_MODELS_50HZ,
+  ...HQ_B_MODELS_50HZ,
+  ...TQ_B_MODELS_50HZ,
+].filter((m) => m.price);
 
 const APPLICATIONS = [
   "Construction Industry",
@@ -600,6 +653,51 @@ export default function ElectronicControlPumpPage() {
               </Grid>
             ))}
           </Grid>
+        </Container>
+      </Box>
+
+      <Divider />
+
+      {/* Pricing */}
+      <Box sx={{ py: { xs: 8, md: 10 }, bgcolor: "background.default" }}>
+        <Container maxWidth="lg">
+          <Typography variant="h5" sx={{ fontWeight: 700, mb: 1 }}>
+            Pricing
+          </Typography>
+          <Typography variant="body2" sx={{ color: "text.secondary", mb: 4 }}>
+            50Hz single-phase models. Prices are per unit, excluding VAT and
+            delivery.
+          </Typography>
+          <TableContainer
+            component={Paper}
+            variant="outlined"
+            sx={{ maxWidth: 420 }}
+          >
+            <Table size="small">
+              <TableHead>
+                <TableRow sx={{ bgcolor: "background.default" }}>
+                  <TableCell sx={{ fontWeight: 700 }}>Model</TableCell>
+                  <TableCell sx={{ fontWeight: 700 }} align="right">
+                    Price (£)
+                  </TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {PRICE_LIST.map((r) => (
+                  <TableRow key={r.model} hover>
+                    <TableCell
+                      sx={{ fontWeight: 700, color: "primary.main" }}
+                    >
+                      {r.model}
+                    </TableCell>
+                    <TableCell align="right" sx={{ fontWeight: 700 }}>
+                      £{r.price}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
         </Container>
       </Box>
 

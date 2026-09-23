@@ -46,8 +46,8 @@ export default function TrackOrderPage() {
         <Box sx={{ width: 48, height: 48, bgcolor: 'primary.main', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <LocalShippingIcon sx={{ color: '#fff', fontSize: 26 }} />
         </Box>
-        <Typography variant="h4" sx={{ fontWeight: 900, textTransform: 'uppercase', letterSpacing: 1 }}>
-          Track Your Order
+        <Typography variant="h4" component="h1" sx={{ fontWeight: 900, textTransform: 'uppercase', letterSpacing: 1 }}>
+          Track Your Valvenok Order
         </Typography>
       </Box>
       <Typography variant="body1" sx={{ color: 'text.secondary', mb: 5, ml: '64px' }}>

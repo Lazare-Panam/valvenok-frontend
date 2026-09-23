@@ -81,6 +81,9 @@ function Row({ model }: { model: ElectronicControlPumpModel }) {
         <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{model.voltV} V</TableCell>
         <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{model.hMaxM} m</TableCell>
         <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{model.qMaxLMin} L/min</TableCell>
+        <TableCell sx={{ py: 1, fontWeight: 700, fontSize: '0.82rem', whiteSpace: 'nowrap' }}>
+          {model.price ? `£${model.price}` : '—'}
+        </TableCell>
         <TableCell sx={{ py: 1 }}>
           <Button size="small" variant="contained"
             onClick={e => { e.stopPropagation(); openQuote() }}
@@ -92,13 +95,14 @@ function Row({ model }: { model: ElectronicControlPumpModel }) {
 
       {open && (
         <TableRow>
-          <TableCell colSpan={10} sx={{ p: 0, borderBottom: 'none' }}>
+          <TableCell colSpan={12} sx={{ p: 0, borderBottom: 'none' }}>
             <Collapse in unmountOnExit>
               <Box sx={{ p: 3, bgcolor: alpha(theme.palette.primary.main, 0.02), borderLeft: `4px solid ${theme.palette.primary.main}`, borderBottom: `1px solid ${theme.palette.divider}` }}>
                 <Typography variant="caption" fontWeight={900} color="primary"
                   sx={{ display: 'block', mb: 2, letterSpacing: 1 }}>TECHNICAL SPECIFICATIONS</Typography>
                 <Stack direction="row" flexWrap="wrap" gap={3} mb={3}>
                   <Spec label="Model Code" value={model.modelCode} />
+                  <Spec label="Price" value={model.price ? `£${model.price}` : ''} />
                   <Spec label="Series" value={model.series} />
                   <Spec label="Anti-Microbial" value={model.antiMicrobial ? 'Yes (B)' : 'No'} />
                   <Spec label="Frequency" value={`${model.frequencyHz} Hz`} />
@@ -145,6 +149,9 @@ export default function ElectronicControlPumpTable({ models, isFetching }: { mod
   }
 
   const sorted = [...models].sort((a, b) => {
+    // Models with a price always float to the top.
+    const ap = a.price ? 0 : 1, bp = b.price ? 0 : 1
+    if (ap !== bp) return ap - bp
     const av = a[sortKey] ?? '', bv = b[sortKey] ?? ''
     if (av < bv) return sortDir === 'asc' ? -1 : 1
     if (av > bv) return sortDir === 'asc' ? 1 : -1
@@ -158,6 +165,7 @@ export default function ElectronicControlPumpTable({ models, isFetching }: { mod
     try {
       const rows = sorted.map((m) => ({
         'Model Code': m.modelCode,
+        'Price (£)': m.price ?? '',
         Series: m.series,
         'Anti-Microbial': m.antiMicrobial ? 'Yes' : 'No',
         'Frequency (Hz)': m.frequencyHz,
@@ -178,6 +186,7 @@ export default function ElectronicControlPumpTable({ models, isFetching }: { mod
       const worksheet = XLSX.utils.json_to_sheet(rows)
       worksheet['!cols'] = [
         { wch: 16 }, // Model Code
+        { wch: 12 }, // Price
         { wch: 12 }, // Series
         { wch: 14 }, // Anti-Microbial
         { wch: 14 }, // Frequency
@@ -250,6 +259,7 @@ export default function ElectronicControlPumpTable({ models, isFetching }: { mod
                 { key: null, label: 'Volt' },
                 { key: null, label: 'H max' },
                 { key: null, label: 'Q max' },
+                { key: null, label: 'Price' },
                 { key: null, label: 'Quote' },
               ]).map((h, i) => (
                 <TableCell key={i} sx={headerSx}>
@@ -265,7 +275,7 @@ export default function ElectronicControlPumpTable({ models, isFetching }: { mod
           <TableBody>
             {paginated.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={10} align="center" sx={{ py: 6 }}>
+                <TableCell colSpan={12} align="center" sx={{ py: 6 }}>
                   <Typography variant="body2" color="text.secondary">No models found.</Typography>
                 </TableCell>
               </TableRow>

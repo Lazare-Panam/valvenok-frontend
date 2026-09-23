@@ -40,7 +40,7 @@ export default function ElectronicControlPumpProductsPage() {
             Electronic Control Pump — Model Range
           </Typography>
           <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 700 }}>
-            TQ_B and HQ_B series, each available with (B) or without anti-microbial construction, across 50Hz and 60Hz operation.
+            WQ_B, HQ_B and TQ_B series, each available with (B) or without anti-microbial construction, across 50Hz and 60Hz operation.
           </Typography>
         </Box>
 

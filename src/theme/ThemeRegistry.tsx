@@ -23,6 +23,14 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: "var(--font-body), sans-serif",
+    // MUI's default h1 is 6rem (96px) — far too large. Render <h1> at an
+    // h3/h4-sized scale so page titles stay semantic <h1> without the bulk.
+    h1: {
+      fontSize: "1.9rem",
+      "@media (min-width:600px)": { fontSize: "2.5rem" },
+      fontWeight: 700,
+      lineHeight: 1.2,
+    },
   },
   components: {
     MuiCssBaseline: {

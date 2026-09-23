@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/returns-policy" },
-  title: "Returns Policy",
+  title: { absolute: "Returns Policy and Refunds – Valvenok" },
   description:
     "Learn about our 30-day return window, non-returnable items, faulty or damaged goods process, and how to start a return with Valvenok.",
   openGraph: {

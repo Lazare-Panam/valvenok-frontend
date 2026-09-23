@@ -195,6 +195,7 @@ export default function HeroSlider() {
               <Box sx={{ mb: 3 }}>
                 <Typography
                   variant="h1"
+                  component="div"
                   sx={{
                     fontFamily: '"Barlow Condensed", sans-serif',
                     fontWeight: 900,

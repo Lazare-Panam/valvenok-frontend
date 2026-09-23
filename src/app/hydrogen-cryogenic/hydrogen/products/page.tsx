@@ -255,7 +255,7 @@ export default function HydrogenProductsPage() {
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
         <Box component="img" src={YOUNGDO_LOGO} alt="Youngdo" sx={{ maxHeight: 32, maxWidth: 120, objectFit: 'contain', bgcolor: DARK_GREEN, p: 1, borderRadius: 1, mb: 2 }} />
         <Typography variant="h1" fontWeight={800} mb={1} sx={{ color: DARK_GREEN, fontFamily: PRIMARY_FONT }}>
-          Hydrogen Cylinder Valves
+          Youngdo Hydrogen Cylinder Valves 3–70 MPa | UK Supplier
         </Typography>
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 800, fontFamily: PRIMARY_FONT }}>
           Youngdo high-pressure hydrogen cylinder valves — HC, HE, HK, HS, HSL, EP, DRV, YHT and YEX series. Working pressures from 3–70 MPa with KGS, EC79, R134 and IECEx certification.

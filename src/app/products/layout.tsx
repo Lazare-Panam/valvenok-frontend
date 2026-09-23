@@ -1,14 +1,16 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/products" },
-  title: "Product Under Indexing",
-  description: "We are currently updating our industrial catalog with high-pressure instrumentation and engineered solutions. Contact our team for immediate technical specifications.",
-  // Robots instruction: We tell search engines not to prioritize this page,
-  // but if they see it, show the proper branding.
+  title: {
+    absolute:
+      "Hydraulic, Pneumatic and Instrumentation Components Product Range – Valvenok",
+  },
+  description:
+    "Explore the Valvenok product range — hydraulic, pneumatic and instrumentation components for industrial flow control, automation and process applications.",
 };
 
-export default function ComingSoonLayout({
+export default function ProductsLayout({
   children,
 }: {
   children: React.ReactNode;
