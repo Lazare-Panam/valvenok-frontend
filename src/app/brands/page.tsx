@@ -9,26 +9,49 @@ const BRANDS = [
     name: "Value Valves",
     logo: "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/logo.svg",
     desc: "Butterfly valves and flow control solutions for industrial piping systems.",
+    href: "/brands/value-valves",
   },
   {
     name: "UTAM Valves",
     logo: "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/utam-logo.png",
     desc: "Full range of industrial and marine valves engineered for reliable, leak-tight performance across demanding process and offshore environments.",
+    href: "/brands/utam-valves",
   },
   {
     name: "Walrus Pumps",
     logo: "https://pblol2.blob.core.windows.net/valvenok-images/logo/walrus_pumps.webp",
     desc: "Industrial pumps engineered for reliable fluid transfer applications.",
+    href: "/brands/walrus-pumps",
   },
   {
     name: "Hiflux",
     logo: "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/logo.png",
     desc: "Process equipment and flow solutions for industrial applications.",
+    href: "/brands/hiflux",
   },
   {
     name: "Kosaplus",
     logo: "https://pblol2.blob.core.windows.net/valvenok-images/brands/kosaplus-logo.png",
-    desc: "Industrial valve and fittings solutions for process industries.",
+    desc: "Electric and pneumatic valve actuators and explosion-proof position indicators.",
+    href: "/brands/kosaplus",
+  },
+  {
+    name: "Pietro Fiorentini",
+    logo: "https://pblol2.blob.core.windows.net/valvenok-images/products/industrial-valves/logo.svg",
+    desc: "Gas distribution valves, control ball valves and pressure regulators for natural gas and hydrogen networks.",
+    href: "/brands/pietro-fiorentini",
+  },
+  {
+    name: "Youngdo",
+    logo: "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/top_logo.png",
+    desc: "Hydrogen, LPG and industrial gas cylinder valves for high-pressure gas storage and distribution.",
+    href: "/brands/youngdo",
+  },
+  {
+    name: "Susin",
+    logo: "https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp",
+    desc: "Electric and pneumatic valve actuators and position monitoring switches for process automation.",
+    href: "/brands/susin",
   },
   {
     name: "Valve Systems International",
@@ -45,6 +68,8 @@ const BRANDS = [
     name: "PANAM Valves",
     logo: "https://pblol2.blob.core.windows.net/panam-images/panam-resize_smallest.jpg",
     desc: "Instrumentation valves and fittings for global process industries.",
+    href: "https://www.panamvalve.com",
+    external: true,
   },
   {
     name: "Cameron",
@@ -217,6 +242,8 @@ export default function BrandsPage() {
               <Box
                 component={brand.href ? "a" : "div"}
                 href={brand.href ?? undefined}
+                target={brand.external ? "_blank" : undefined}
+                rel={brand.external ? "noopener noreferrer" : undefined}
                 sx={{
                   display: "block",
                   height: "100%",
