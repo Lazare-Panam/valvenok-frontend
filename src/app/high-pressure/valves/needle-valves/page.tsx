@@ -63,7 +63,7 @@ export default function HPNeedleValvesLanding() {
                   <Chip key={s} label={s} size="small" sx={{ bgcolor: ACCENT, color: '#fff', fontWeight: 600, fontSize: '0.7rem' }} />
                 ))}
               </Box>
-              <Button component={Link} href="/high-pressure/needle-valves/products" variant="contained" size="large" endIcon={<ArrowForwardIcon />}
+              <Button component={Link} href="/high-pressure/valves/needle-valves/products" variant="contained" size="large" endIcon={<ArrowForwardIcon />}
                 sx={{ borderRadius: 0, fontWeight: 800, py: 1.75, px: 4, fontSize: '1rem', bgcolor: ACCENT, boxShadow: 'none', '&:hover': { bgcolor: '#50c23a', boxShadow: 'none' } }}>
                 View all {TOTAL} products
               </Button>
@@ -111,7 +111,7 @@ export default function HPNeedleValvesLanding() {
             ))}
           </Grid>
           <Box sx={{ mt: 6, textAlign: 'center' }}>
-            <Button component={Link} href="/high-pressure/needle-valves/products" variant="outlined" size="large" endIcon={<ArrowForwardIcon />}
+            <Button component={Link} href="/high-pressure/valves/needle-valves/products" variant="outlined" size="large" endIcon={<ArrowForwardIcon />}
               sx={{ borderRadius: 0, fontWeight: 800, py: 1.5, px: 4, borderColor: ACCENT, color: ACCENT, '&:hover': { borderColor: '#50c23a', color: '#50c23a' } }}>
               Browse the full product table
             </Button>

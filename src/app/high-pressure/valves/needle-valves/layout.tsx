@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  alternates: { canonical: "/high-pressure/needle-valves" },
+  alternates: { canonical: "/high-pressure/valves/needle-valves" },
 };
 
 export default function HighPressureNeedleValvesLayout({

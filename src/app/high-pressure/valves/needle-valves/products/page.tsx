@@ -33,7 +33,7 @@ export default function HPNeedleValveProductsPage() {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
-        <Button component={Link} href="/high-pressure/needle-valves" startIcon={<ArrowBackIcon />}
+        <Button component={Link} href="/high-pressure/valves/needle-valves" startIcon={<ArrowBackIcon />}
           sx={{ mb: 1, fontWeight: 700, color: 'text.secondary', textTransform: 'none' }}>
           Needle Valves overview
         </Button>

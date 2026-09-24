@@ -41,7 +41,7 @@ export const NAV_GROUPS: NavGroup[] = [
     columns: [
       {
         header: "Hydrogen Valves",
-        href: "/hydrogen-cryogenic",
+        href: "/high-pressure/valves",
         items: [
           {
             label: "Cryogenic Valves",
@@ -83,8 +83,20 @@ export const NAV_GROUPS: NavGroup[] = [
               },
             ],
           },
-          { label: "Ball Valves", href: "/high-pressure/ball-valves" },
-          { label: "Needle Valves", href: "/high-pressure/needle-valves" },
+          {
+            label: "Needle Valves",
+            href: "/high-pressure/valves/needle-valves",
+            children: [
+              { label: "View All Products", href: "/high-pressure/valves/needle-valves/products" },
+            ],
+          },
+          {
+            label: "Ball Valves",
+            href: "/high-pressure/valves/ball-valves",
+            children: [
+              { label: "View All Products", href: "/high-pressure/valves/ball-valves/products" },
+            ],
+          },
           { label: "DBB Valves", href: "/high-pressure/dbb" },
         ],
       },

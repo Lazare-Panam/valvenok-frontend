@@ -23,7 +23,7 @@ export default function NeedleValveDetailPage() {
     return (
       <Box sx={{ minHeight: '60vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 2 }}>
         <Typography variant="h4" fontWeight={800}>Product not found</Typography>
-        <Button startIcon={<ArrowBackIcon />} component={Link} href="/high-pressure/needle-valves/products" sx={{ fontWeight: 700 }}>
+        <Button startIcon={<ArrowBackIcon />} component={Link} href="/high-pressure/valves/needle-valves/products" sx={{ fontWeight: 700 }}>
           Back to products
         </Button>
       </Box>
@@ -59,7 +59,7 @@ export default function NeedleValveDetailPage() {
   return (
     <>
       <Container maxWidth="lg" sx={{ py: 6 }}>
-        <Button startIcon={<ArrowBackIcon />} component={Link} href="/high-pressure/needle-valves/products"
+        <Button startIcon={<ArrowBackIcon />} component={Link} href="/high-pressure/valves/needle-valves/products"
           sx={{ mb: 3, fontWeight: 700, color: 'text.secondary', textTransform: 'none' }}>
           Back to Needle Valves
         </Button>
@@ -116,7 +116,7 @@ export default function NeedleValveDetailPage() {
             <Grid container spacing={2}>
               {similar.map(s => (
                 <Grid size={{ xs: 6, sm: 3 }} key={s.id}>
-                  <Box component={Link} href={`/high-pressure/needle-valves/products/${s.id}`}
+                  <Box component={Link} href={`/high-pressure/valves/needle-valves/products/${s.id}`}
                     sx={{ display: 'block', textDecoration: 'none', color: 'inherit', border: '1px solid', borderColor: 'divider', p: 2, transition: 'border-color 0.15s', '&:hover': { borderColor: ACCENT } }}>
                     <Box component="img" src={s.imageUrl} alt={s.partNumber} sx={{ width: '100%', height: 90, objectFit: 'contain', mb: 1 }} />
                     <Typography variant="caption" sx={{ fontFamily: 'monospace', fontWeight: 700, color: ACCENT, display: 'block' }}>{s.partNumber}</Typography>

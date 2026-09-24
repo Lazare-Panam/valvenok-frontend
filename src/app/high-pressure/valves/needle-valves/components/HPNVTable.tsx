@@ -75,7 +75,7 @@ function HPNVRow({ row }: { row: HPNeedleValveDTO }) {
           </IconButton>
         </TableCell>
         <TableCell sx={{ py: 1 }}>
-          <Box component={Link} href={`/high-pressure/needle-valves/products/${row.id}`} onClick={e => e.stopPropagation()}
+          <Box component={Link} href={`/high-pressure/valves/needle-valves/products/${row.id}`} onClick={e => e.stopPropagation()}
             sx={{ fontFamily: 'monospace', fontWeight: 700, color: BRAND_GREEN, fontSize: '0.75rem', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>
             {row.partNumber}
           </Box>
