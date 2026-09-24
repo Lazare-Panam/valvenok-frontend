@@ -101,22 +101,9 @@ export const NAV_GROUPS: NavGroup[] = [
             href: "/high-pressure/fittings",
             children: [
               {
-                label: "Adapters & Reducers",
-                href: "/high-pressure/fittings/adapters",
+                label: "View All Fittings",
+                href: "/high-pressure/fittings/products",
               },
-              {
-                label: "Cone & Thread Connectors",
-                href: "/high-pressure/fittings/connectors",
-              },
-              {
-                label: "Caps & Plugs",
-                href: "/high-pressure/fittings/end-connections",
-              },
-              {
-                label: "Elbows, Tees, Crosses & Nipples",
-                href: "/high-pressure/fittings/junction-fittings",
-              },
-              { label: "Unions", href: "/high-pressure/fittings/union" },
             ],
           },
           {

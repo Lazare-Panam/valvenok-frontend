@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import Link from 'next/link'
 import {
   Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
   TablePagination, TableSortLabel, Collapse, Chip, Typography, Stack,
@@ -24,12 +25,13 @@ function Spec({ label, value }: { label: string; value?: string }) {
   )
 }
 
-function TubingRow({ row }: { row: TubingDTO }) {
+function TubingRow({ row, detailBase }: { row: TubingDTO; detailBase?: string }) {
   const [open, setOpen] = useState(false)
   const [quoteProduct, setQuoteProduct] = useState<ProductForRFQ | null>(null)
   const theme = useTheme()
   const isHP = row.productType === 'High Pressure Tubing'
   const isSupport = row.productType === 'Tube Support'
+  const isNipple = row.productType === 'Nipple'
 
   const openQuote = () => setQuoteProduct({
     id: row.partNumber,
@@ -44,14 +46,25 @@ function TubingRow({ row }: { row: TubingDTO }) {
             {open ? <KeyboardArrowUpIcon fontSize="small" /> : <KeyboardArrowDownIcon fontSize="small" />}
           </IconButton>
         </TableCell>
-        <TableCell sx={{ fontFamily: 'monospace', fontWeight: 700, color: theme.palette.primary.main, fontSize: '0.75rem', py: 1 }}>{row.partNumber}</TableCell>
+        <TableCell sx={{ py: 1 }}>
+          {detailBase ? (
+            <Box component={Link} href={`${detailBase}/${row.id}`} onClick={e => e.stopPropagation()}
+              sx={{ fontFamily: 'monospace', fontWeight: 700, color: theme.palette.primary.main, fontSize: '0.75rem', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>
+              {row.partNumber}
+            </Box>
+          ) : (
+            <Box component="span" sx={{ fontFamily: 'monospace', fontWeight: 700, color: theme.palette.primary.main, fontSize: '0.75rem' }}>{row.partNumber}</Box>
+          )}
+        </TableCell>
         <TableCell sx={{ py: 1 }}>
           <Chip label={row.brand} size="small"
             sx={{ fontSize: '0.65rem', fontWeight: 700, bgcolor: alpha(row.brand === 'Hiflux' ? '#1976d2' : theme.palette.primary.main, 0.12), color: row.brand === 'Hiflux' ? '#1976d2' : theme.palette.primary.dark }} />
         </TableCell>
         <TableCell sx={{ py: 1 }}>
-          <Chip label={isSupport ? 'Tube Support' : isHP ? 'High Pressure' : 'Standard'} size="small"
-            sx={{ fontSize: '0.65rem', fontWeight: 700, bgcolor: alpha(isSupport ? '#7B61FF' : isHP ? '#FF6B35' : theme.palette.primary.main, 0.12), color: isSupport ? '#7B61FF' : isHP ? '#FF6B35' : theme.palette.primary.dark }} />
+          <Chip label={isSupport ? 'Tube Support' : isNipple ? 'Nipple' : isHP ? 'High Pressure' : 'Standard'} size="small"
+            sx={{ fontSize: '0.65rem', fontWeight: 700,
+              bgcolor: alpha(isSupport ? '#7B61FF' : isNipple ? '#0891b2' : isHP ? '#FF6B35' : theme.palette.primary.main, 0.12),
+              color: isSupport ? '#7B61FF' : isNipple ? '#0891b2' : isHP ? '#FF6B35' : theme.palette.primary.dark }} />
         </TableCell>
         <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{row.material}</TableCell>
         <TableCell sx={{ py: 1 }}>
@@ -94,10 +107,18 @@ function TubingRow({ row }: { row: TubingDTO }) {
                       <Spec label="Unit System" value={row.unit === 'imperial' ? 'Imperial' : 'Metric'} />
                       <Spec label="Working Pressure" value={`${row.workingPressurePsi.toLocaleString()} psi / ${row.workingPressureBar} bar`} />
                     </Stack>
-                    <Button variant="contained" onClick={openQuote}
-                      sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px' }}>
-                      Request Quote
-                    </Button>
+                    <Stack direction="row" spacing={2}>
+                      <Button variant="contained" onClick={openQuote}
+                        sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px' }}>
+                        Request Quote
+                      </Button>
+                      {detailBase && (
+                        <Button component={Link} href={`${detailBase}/${row.id}`} variant="outlined"
+                          sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px' }}>
+                          View details
+                        </Button>
+                      )}
+                    </Stack>
                   </Box>
                 </Stack>
               </Box>
@@ -115,12 +136,13 @@ function TubingRow({ row }: { row: TubingDTO }) {
 
 type SortKey = 'partNumber' | 'brand' | 'productType' | 'material' | 'unit' | 'outerDiameter' | 'wallThickness' | 'workingPressurePsi'
 
-export default function TubingTable({ models, filters, setFilters, availableCounts, activeCount }: {
+export default function TubingTable({ models, filters, setFilters, availableCounts, activeCount, detailBase }: {
   models: TubingDTO[]
   filters: TubingFilters
   setFilters: React.Dispatch<React.SetStateAction<TubingFilters>>
   availableCounts: AvailableCountsTubing
   activeCount: number
+  detailBase?: string
 }) {
   const theme = useTheme()
   const isMobile = useMediaQuery('(max-width:1200px)')
@@ -178,7 +200,7 @@ export default function TubingTable({ models, filters, setFilters, availableCoun
             <TableBody>
               {paginated.length === 0
                 ? <TableRow><TableCell colSpan={11} align="center" sx={{ py: 6 }}><Typography variant="body2" color="text.secondary">No tubing found.</Typography></TableCell></TableRow>
-                : paginated.map(row => <TubingRow key={row.id} row={row} />)
+                : paginated.map(row => <TubingRow key={row.id} row={row} detailBase={detailBase} />)
               }
             </TableBody>
           </Table>

@@ -1,6 +1,7 @@
 'use client'
-import { useState, useMemo } from 'react'
+import { Suspense, useState, useMemo } from 'react'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import { Box, Typography, Button } from '@mui/material'
 import { alpha, useTheme } from '@mui/material/styles'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
@@ -12,10 +13,21 @@ import {
 } from '@/src/app/fittings-tubing/tubing/components/types'
 import { TubingActiveFilters } from '@/src/app/fittings-tubing/tubing/components/TubingActiveFilters'
 import TubingTable from '@/src/app/fittings-tubing/tubing/components/TubingTable'
+import TubeSupportsGrid from '@/src/app/fittings-tubing/tubing/components/TubeSupportsGrid'
 
-export default function HighPressureTubingProductsPage() {
+// Brands that actually exist in the data — used to validate the ?brand= query param.
+const KNOWN_BRANDS = Array.from(new Set(TUBING_DATA.map(t => t.brand)))
+
+function HighPressureTubingProducts() {
   const theme = useTheme()
-  const [filters, setFilters] = useState<TubingFilters>(EMPTY_TUBING_FILTERS)
+  const searchParams = useSearchParams()
+
+  // Pre-apply a brand filter when arriving from a brand card (?brand=Panam).
+  const initialBrand = searchParams.get('brand')
+  const [filters, setFilters] = useState<TubingFilters>(() => ({
+    ...EMPTY_TUBING_FILTERS,
+    brands: initialBrand && KNOWN_BRANDS.includes(initialBrand) ? [initialBrand] : [],
+  }))
 
   const models = useMemo(() => applyFilters(TUBING_DATA, filters, ''), [filters])
 
@@ -57,9 +69,19 @@ export default function HighPressureTubingProductsPage() {
             setFilters={setFilters}
             availableCounts={availableCounts}
             activeCount={activeCount}
+            detailBase="/high-pressure/tubing/products"
           />
         </Box>
+        <TubeSupportsGrid detailBase="/high-pressure/tubing/products" />
       </Box>
     </Box>
+  )
+}
+
+export default function HighPressureTubingProductsPage() {
+  return (
+    <Suspense>
+      <HighPressureTubingProducts />
+    </Suspense>
   )
 }

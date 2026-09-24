@@ -131,20 +131,14 @@ const GROUPS: { group: string; links: { label: string; href: string }[] }[] = [
   {
     group: "High Pressure",
     links: [
-      { label: "Fitting Adapters", href: "/high-pressure/fittings/adapters" },
       {
-        label: "Fitting Connectors",
-        href: "/high-pressure/fittings/connectors",
+        label: "High Pressure Fittings",
+        href: "/high-pressure/fittings",
       },
       {
-        label: "Fitting End Connections",
-        href: "/high-pressure/fittings/end-connections",
+        label: "All Fittings (Adapters, Connectors, Unions, Elbows…)",
+        href: "/high-pressure/fittings/products",
       },
-      {
-        label: "Junction Fittings",
-        href: "/high-pressure/fittings/junction-fittings",
-      },
-      { label: "Fitting Union", href: "/high-pressure/fittings/union" },
       {
         label: "Hex Coupling",
         href: "/high-pressure/pipe-fittings/hex-coupling",

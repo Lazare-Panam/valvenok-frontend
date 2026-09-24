@@ -3,15 +3,15 @@ import Link from 'next/link'
 import { Box, Container, Typography, Button, Chip, Paper, Divider } from '@mui/material'
 import Grid from '@mui/material/Grid'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
-import { TUBING_DATA } from '@/src/app/fittings-tubing/tubing/components/data'
+import { ALL_TUBING_DATA } from '@/src/app/fittings-tubing/tubing/components/data'
 import { TUBING_DESCRIPTION } from '@/src/app/fittings-tubing/tubing/components/types'
 
 const ACCENT = '#61D649'
 const HERO_IMG = 'https://pblol2.blob.core.windows.net/panam-images/products/tubing/tubing-1.jpg'
 
-const TOTAL = TUBING_DATA.length
-const PANAM_COUNT = TUBING_DATA.filter(v => v.brand === 'Panam').length
-const HIFLUX_COUNT = TUBING_DATA.filter(v => v.brand === 'Hiflux').length
+const TOTAL = ALL_TUBING_DATA.length
+const PANAM_COUNT = ALL_TUBING_DATA.filter(v => v.brand === 'Panam').length
+const HIFLUX_COUNT = ALL_TUBING_DATA.filter(v => v.brand === 'Hiflux').length
 
 const TECH_SPECS = [
   { label: 'Total Configurations', value: `${TOTAL} — Panam & Hiflux` },
@@ -33,7 +33,7 @@ const BRANDS = [
     name: 'Hiflux',
     logo: 'https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/logo.png',
     count: HIFLUX_COUNT,
-    blurb: 'High-pressure tube supports in STS 316 — 1, 2 and 3-line configurations for 1/4" to 9/16" tube, securing tube runs in high-pressure installations.',
+    blurb: 'STS 316 cold-formed high-pressure seamless tubes and nipples from 10,000 to 150,000 psi, plus 1, 2 and 3-line tube supports for 1/4" to 9/16" tube.',
   },
 ]
 
@@ -72,12 +72,21 @@ export default function HighPressureTubingLanding() {
           <Grid container spacing={3}>
             {BRANDS.map(b => (
               <Grid size={{ xs: 12, md: 6 }} key={b.name}>
-                <Paper variant="outlined" sx={{ p: 4, borderRadius: 2, height: '100%' }}>
+                <Paper component={Link} href={`/high-pressure/tubing/products?brand=${encodeURIComponent(b.name)}`}
+                  variant="outlined"
+                  sx={{
+                    display: 'block', p: 4, borderRadius: 2, height: '100%',
+                    textDecoration: 'none', color: 'inherit', transition: 'all 0.15s',
+                    '&:hover': { borderColor: ACCENT, boxShadow: 3, transform: 'translateY(-2px)' },
+                  }}>
                   <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
                     <Box component="img" src={b.logo} alt={b.name} sx={{ maxHeight: 40, maxWidth: 140, objectFit: 'contain' }} />
                     <Chip label={`${b.count} items`} sx={{ bgcolor: ACCENT, color: '#fff', fontWeight: 700 }} />
                   </Box>
-                  <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>{b.blurb}</Typography>
+                  <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7, mb: 2 }}>{b.blurb}</Typography>
+                  <Typography variant="button" sx={{ color: ACCENT, fontWeight: 800, display: 'inline-flex', alignItems: 'center', gap: 0.5 }}>
+                    View {b.name} tubing <ArrowForwardIcon fontSize="small" />
+                  </Typography>
                 </Paper>
               </Grid>
             ))}

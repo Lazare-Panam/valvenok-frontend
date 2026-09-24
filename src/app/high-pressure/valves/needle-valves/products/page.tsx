@@ -1,6 +1,7 @@
 'use client'
-import { useState, useMemo } from 'react'
+import { Suspense, useState, useMemo } from 'react'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import { Box, Typography, Button } from '@mui/material'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import {
@@ -14,8 +15,15 @@ import HPNVTable from '../components/HPNVTable'
 const BRAND_GREEN = '#61D649'
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 
-export default function HPNeedleValveProductsPage() {
-  const [filters, setFilters] = useState<HPNeedleValveFilters>(EMPTY_HP_FILTERS)
+const KNOWN_BRANDS = Array.from(new Set(HP_NEEDLE_VALVE_DATA.map(v => v.brand)))
+
+function HPNeedleValveProducts() {
+  const searchParams = useSearchParams()
+  const initialBrand = searchParams.get('brand')
+  const [filters, setFilters] = useState<HPNeedleValveFilters>(() => ({
+    ...EMPTY_HP_FILTERS,
+    brands: initialBrand && KNOWN_BRANDS.includes(initialBrand) ? [initialBrand] : [],
+  }))
 
   const models = useMemo(() => applyFilters(HP_NEEDLE_VALVE_DATA, filters, ''), [filters])
 
@@ -60,5 +68,13 @@ export default function HPNeedleValveProductsPage() {
         />
       </Box>
     </Box>
+  )
+}
+
+export default function HPNeedleValveProductsPage() {
+  return (
+    <Suspense>
+      <HPNeedleValveProducts />
+    </Suspense>
   )
 }

@@ -75,7 +75,14 @@ export function TubingSidebar({ filters, setFilters, availableCounts, activeCoun
 
   const brandOptions = Array.from(new Set(TUBING_DATA.map(c => c.brand)))
   const productTypeOptions = Array.from(new Set(TUBING_DATA.map(c => c.productType)))
-  const materialOptions = Array.from(new Set(TUBING_DATA.map(c => c.material))).sort()
+  // Stainless (SS 316 / STS 316) sits at the top of the material facet; everything else alphabetical.
+  const isStainless = (m: string) => /316|stainless|\bSS\b|\bSTS\b/i.test(m)
+  const materialOptions = Array.from(new Set(TUBING_DATA.map(c => c.material)))
+    .sort((a, b) => {
+      const sa = isStainless(a), sb = isStainless(b)
+      if (sa !== sb) return sa ? -1 : 1
+      return a.localeCompare(b)
+    })
   const unitOptions = ['imperial', 'metric']
   const outerDiameterOptions = Array.from(new Set(TUBING_DATA.map(c => c.outerDiameter)))
   const wallThicknessOptions = Array.from(new Set(TUBING_DATA.map(c => c.wallThickness)))

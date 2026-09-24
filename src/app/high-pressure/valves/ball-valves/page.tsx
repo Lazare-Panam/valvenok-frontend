@@ -81,12 +81,21 @@ export default function HPNeedleValvesLanding() {
           <Grid container spacing={3}>
             {BRANDS.map(b => (
               <Grid size={{ xs: 12, md: 6 }} key={b.name}>
-                <Paper variant="outlined" sx={{ p: 4, borderRadius: 2, height: '100%' }}>
+                <Paper component={Link} href={`/high-pressure/valves/ball-valves/products?brand=${encodeURIComponent(b.name)}`}
+                  variant="outlined"
+                  sx={{
+                    display: 'block', p: 4, borderRadius: 2, height: '100%',
+                    textDecoration: 'none', color: 'inherit', transition: 'all 0.15s',
+                    '&:hover': { borderColor: ACCENT, boxShadow: 3, transform: 'translateY(-2px)' },
+                  }}>
                   <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
                     <Box component="img" src={b.logo} alt={b.name} sx={{ maxHeight: 40, maxWidth: 140, objectFit: 'contain' }} />
                     <Chip label={`${b.count} models`} sx={{ bgcolor: ACCENT, color: '#fff', fontWeight: 700 }} />
                   </Box>
-                  <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>{b.blurb}</Typography>
+                  <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7, mb: 2 }}>{b.blurb}</Typography>
+                  <Typography variant="button" sx={{ color: ACCENT, fontWeight: 800, display: 'inline-flex', alignItems: 'center', gap: 0.5 }}>
+                    View {b.name} products <ArrowForwardIcon fontSize="small" />
+                  </Typography>
                 </Paper>
               </Grid>
             ))}

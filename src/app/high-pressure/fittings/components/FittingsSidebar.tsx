@@ -4,14 +4,14 @@ import {
   FormGroup, FormControlLabel, Checkbox,
 } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-import { type HPEndFittingFilters, type AvailableCountsEndFitting, EMPTY_END_FITTING_FILTERS, HP_END_FITTING_DATA } from '../hooks/hpEndFittingData'
+import { type FittingFilters, type AvailableCounts, EMPTY_FITTING_FILTERS, HP_FITTINGS_DATA } from '../hooks/hpAllFittingsData'
 
 const BRAND_GREEN = '#61D649'
 
 interface Props {
-  filters: HPEndFittingFilters
-  setFilters: React.Dispatch<React.SetStateAction<HPEndFittingFilters>>
-  availableCounts: AvailableCountsEndFitting
+  filters: FittingFilters
+  setFilters: React.Dispatch<React.SetStateAction<FittingFilters>>
+  availableCounts: AvailableCounts
   activeCount: number
 }
 
@@ -35,9 +35,9 @@ function SmartCheckList({ options, selected, onChange, counts }: {
   onChange: (v: string) => void
   counts: Record<string, number>
 }) {
-  if (!options.length) return null
+  if (!options.length) return <Typography variant="caption" color="text.disabled" sx={{ pl: 1 }}>No options</Typography>
   return (
-    <Box>
+    <Box sx={{ maxHeight: 260, overflowY: 'auto' }}>
       {options.map(opt => {
         const count = counts[opt] ?? 0
         const isSelected = selected.includes(opt)
@@ -60,8 +60,12 @@ function SmartCheckList({ options, selected, onChange, counts }: {
   )
 }
 
-export function HPEndFittingSidebar({ filters, setFilters, availableCounts, activeCount }: Props) {
-  const toggle = (key: keyof HPEndFittingFilters, val: string) =>
+// Fixed size order so the facet reads small → large instead of alphabetical.
+const SIZE_ORDER = ['1/8"', '1/4"', '3/8"', '1/2"', '9/16"', '3/4"', '1"']
+const sortSizes = (a: string, b: string) => SIZE_ORDER.indexOf(a) - SIZE_ORDER.indexOf(b)
+
+export function FittingsSidebar({ filters, setFilters, availableCounts, activeCount }: Props) {
+  const toggle = (key: keyof FittingFilters, val: string) =>
     setFilters(prev => ({
       ...prev,
       [key]: (prev[key] as string[]).includes(val)
@@ -69,10 +73,12 @@ export function HPEndFittingSidebar({ filters, setFilters, availableCounts, acti
         : [...(prev[key] as string[]), val],
     }))
 
-  const fittingTypeOptions = Array.from(new Set(HP_END_FITTING_DATA.map(c => c.fittingType)))
-  const pressureOptions    = Array.from(new Set(HP_END_FITTING_DATA.map(c => c.pressureRating)))
-  const p1ThreadOptions    = Array.from(new Set(HP_END_FITTING_DATA.map(c => c.p1Thread)))
-  const p1SizeOptions      = Array.from(new Set(HP_END_FITTING_DATA.map(c => c.p1Size)))
+  const brandOptions    = Array.from(new Set(HP_FITTINGS_DATA.map(c => c.brand)))
+  const typeOptions     = Array.from(new Set(HP_FITTINGS_DATA.map(c => c.fittingType))).sort()
+  const pressureOptions = Array.from(new Set(HP_FITTINGS_DATA.map(c => c.pressurePsi)))
+    .sort((a, b) => a - b).map(psi => HP_FITTINGS_DATA.find(c => c.pressurePsi === psi)!.pressureRating)
+  const sizeOptions     = Array.from(new Set(HP_FITTINGS_DATA.map(c => c.p1Size))).sort(sortSizes)
+  const materialOptions = Array.from(new Set(HP_FITTINGS_DATA.map(c => c.material)))
 
   return (
     <Box sx={{ width: 240, flexShrink: 0, p: 2, borderRight: '1px solid', borderColor: 'divider', bgcolor: 'background.paper', boxSizing: 'border-box' }}>
@@ -80,23 +86,27 @@ export function HPEndFittingSidebar({ filters, setFilters, availableCounts, acti
         <Typography variant="caption" fontWeight={900} letterSpacing={1} color="text.secondary">FILTER</Typography>
         {activeCount > 0 && (
           <Typography variant="caption" fontWeight={700} sx={{ cursor: 'pointer', color: BRAND_GREEN }}
-            onClick={() => setFilters(EMPTY_END_FITTING_FILTERS)}>Clear all</Typography>
+            onClick={() => setFilters(EMPTY_FITTING_FILTERS)}>Clear all</Typography>
         )}
       </Stack>
+      <FilterGroup title="BRAND" count={filters.brands.length || undefined}>
+        <SmartCheckList options={brandOptions} selected={filters.brands} onChange={v => toggle('brands', v)} counts={availableCounts.brands} />
+      </FilterGroup>
+      <Divider sx={{ my: 0.5 }} />
       <FilterGroup title="FITTING TYPE" count={filters.fittingTypes.length || undefined}>
-        <SmartCheckList options={fittingTypeOptions} selected={filters.fittingTypes} onChange={v => toggle('fittingTypes', v)} counts={availableCounts.fittingTypes} />
+        <SmartCheckList options={typeOptions} selected={filters.fittingTypes} onChange={v => toggle('fittingTypes', v)} counts={availableCounts.fittingTypes} />
       </FilterGroup>
       <Divider sx={{ my: 0.5 }} />
       <FilterGroup title="PRESSURE" count={filters.pressureRatings.length || undefined}>
         <SmartCheckList options={pressureOptions} selected={filters.pressureRatings} onChange={v => toggle('pressureRatings', v)} counts={availableCounts.pressureRatings} />
       </FilterGroup>
       <Divider sx={{ my: 0.5 }} />
-      <FilterGroup title="THREAD TYPE" count={filters.p1Threads.length || undefined}>
-        <SmartCheckList options={p1ThreadOptions} selected={filters.p1Threads} onChange={v => toggle('p1Threads', v)} counts={availableCounts.p1Threads} />
+      <FilterGroup title="SIZE" count={filters.sizes.length || undefined}>
+        <SmartCheckList options={sizeOptions} selected={filters.sizes} onChange={v => toggle('sizes', v)} counts={availableCounts.sizes} />
       </FilterGroup>
       <Divider sx={{ my: 0.5 }} />
-      <FilterGroup title="SIZE" count={filters.p1Sizes.length || undefined}>
-        <SmartCheckList options={p1SizeOptions} selected={filters.p1Sizes} onChange={v => toggle('p1Sizes', v)} counts={availableCounts.p1Sizes} />
+      <FilterGroup title="MATERIAL" count={filters.materials.length || undefined}>
+        <SmartCheckList options={materialOptions} selected={filters.materials} onChange={v => toggle('materials', v)} counts={availableCounts.materials} />
       </FilterGroup>
     </Box>
   )

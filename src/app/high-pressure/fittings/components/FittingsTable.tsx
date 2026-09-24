@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Link from 'next/link'
 import {
   Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
   TablePagination, TableSortLabel, Collapse, Chip, Typography, Stack,
@@ -8,8 +9,8 @@ import { alpha } from '@mui/material/styles'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import FilterListIcon from '@mui/icons-material/FilterList'
-import { type HPJunctionDTO, type HPJunctionFilters, type AvailableCountsJunction } from '../hooks/hpFittingsJunctionData'
-import { HPJunctionSidebar } from './HPJunctionSidebar'
+import { type FittingDTO, type FittingFilters, type AvailableCounts } from '../hooks/hpAllFittingsData'
+import { FittingsSidebar } from './FittingsSidebar'
 import RFQModal from '@/src/app/Common/RFQCard/RFQModal'
 import { type ProductForRFQ } from '@/src/app/Common/RFQCard/RequestForQuoteCard'
 
@@ -20,8 +21,14 @@ const PRESSURE_COLOR: Record<string, string> = {
   '10,000 psi': '#61D649',
   '15,000 psi': '#2db82d',
   '20,000 psi': '#FF6B35',
+  '30,000 psi': '#E91E8C',
   '60,000 psi': '#D32F2F',
+  '100,000 psi': '#8E24AA',
+  '150,000 psi': '#4A148C',
 }
+
+const connectionOf = (row: FittingDTO) =>
+  row.p2Thread ? `${row.p1Thread} → ${row.p2Thread}` : row.p1Thread
 
 function Spec({ label, value }: { label: string; value?: string }) {
   if (!value) return null
@@ -34,29 +41,29 @@ function Spec({ label, value }: { label: string; value?: string }) {
   )
 }
 
-function HPJunctionRow({ row }: { row: HPJunctionDTO }) {
+function FittingRow({ row }: { row: FittingDTO }) {
   const [open, setOpen] = useState(false)
   const [quoteProduct, setQuoteProduct] = useState<ProductForRFQ | null>(null)
   const color = PRESSURE_COLOR[row.pressureRating] ?? BRAND_GREEN
 
   const openQuote = () => setQuoteProduct({
-    id: row.id,
-    name: `Panam ${row.fittingType} — ${row.partNumber}`,
-    brand: 'Panam',
-    category: 'HP Elbows, Tees, Crosses & Hex Nipples',
-    categoryId: 'hp-junction',
+    id: row.partNumber,
+    name: `${row.brand} ${row.fittingType} — ${row.partNumber}`,
+    brand: row.brand,
+    category: 'High Pressure Fittings',
+    categoryId: 'hp-fittings',
     subCategory: row.fittingType,
     thumbnail: row.imageUrl ?? '',
     description: row.description,
     keySpecs: [
       { label: 'Part Number',     value: row.partNumber },
+      { label: 'Brand',           value: row.brand },
       { label: 'Fitting Type',    value: row.fittingType },
-      { label: 'P1 Size',         value: row.p1Size },
-      { label: 'P1 Thread',       value: row.p1Thread },
-      { label: 'P2 Size',         value: row.p2Size },
-      { label: 'P2 Thread',       value: row.p2Thread },
       { label: 'Pressure Rating', value: row.pressureRating },
       { label: 'Material',        value: row.material },
+      { label: 'P1 Size',         value: row.p1Size },
+      { label: 'P1 Connection',   value: row.p1Thread },
+      ...(row.p2Size ? [{ label: 'P2 Size', value: row.p2Size }, { label: 'P2 Connection', value: row.p2Thread }] : []),
     ],
     variantInfo: { count: 1, sizeRange: row.p1Size },
   })
@@ -73,14 +80,25 @@ function HPJunctionRow({ row }: { row: HPJunctionDTO }) {
             {open ? <KeyboardArrowUpIcon fontSize="small" /> : <KeyboardArrowDownIcon fontSize="small" />}
           </IconButton>
         </TableCell>
-        <TableCell sx={{ fontFamily: 'monospace', fontWeight: 700, color: BRAND_GREEN, fontSize: '0.75rem', py: 1 }}>{row.partNumber}</TableCell>
+        <TableCell sx={{ py: 1 }}>
+          <Box component={Link} href={`/high-pressure/fittings/products/${row.id}`} onClick={e => e.stopPropagation()}
+            sx={{ fontFamily: 'monospace', fontWeight: 700, color: BRAND_GREEN, fontSize: '0.75rem', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>
+            {row.partNumber}
+          </Box>
+        </TableCell>
+        <TableCell sx={{ py: 1 }}>
+          <Chip label={row.brand} size="small"
+            sx={{ fontSize: '0.65rem', fontWeight: 700,
+              bgcolor: row.brand === 'Hiflux' ? alpha('#1976d2', 0.12) : alpha(BRAND_GREEN, 0.12),
+              color: row.brand === 'Hiflux' ? '#1976d2' : '#2d8a1e' }} />
+        </TableCell>
         <TableCell sx={{ py: 1, fontSize: '0.82rem', fontFamily: PRIMARY_FONT }}>{row.fittingType}</TableCell>
         <TableCell sx={{ py: 1 }}>
           <Chip label={row.pressureRating} size="small"
             sx={{ fontSize: '0.65rem', fontWeight: 700, bgcolor: alpha(color, 0.12), color }} />
         </TableCell>
-        <TableCell sx={{ py: 1, fontSize: '0.82rem', fontFamily: PRIMARY_FONT }}>{row.p1Size} — {row.p1Thread}</TableCell>
-        <TableCell sx={{ py: 1, fontSize: '0.82rem', fontFamily: PRIMARY_FONT }}>{row.p2Size} — {row.p2Thread}</TableCell>
+        <TableCell sx={{ py: 1, fontSize: '0.82rem', fontFamily: PRIMARY_FONT }}>{row.p1Size}</TableCell>
+        <TableCell sx={{ py: 1, fontSize: '0.82rem', fontFamily: PRIMARY_FONT }}>{connectionOf(row)}</TableCell>
         <TableCell sx={{ py: 1 }}>
           <Button size="small" variant="contained"
             onClick={e => { e.stopPropagation(); openQuote() }}
@@ -92,7 +110,7 @@ function HPJunctionRow({ row }: { row: HPJunctionDTO }) {
 
       {open && (
         <TableRow>
-          <TableCell colSpan={7} sx={{ p: 0, borderBottom: 'none' }}>
+          <TableCell colSpan={8} sx={{ p: 0, borderBottom: 'none' }}>
             <Collapse in unmountOnExit>
               <Box sx={{ p: 3, bgcolor: alpha(BRAND_GREEN, 0.02), borderLeft: `4px solid ${BRAND_GREEN}`, borderBottom: '1px solid rgba(0,0,0,0.08)' }}>
                 <Stack direction={{ xs: 'column', md: 'row' }} spacing={4} alignItems="flex-start">
@@ -105,18 +123,25 @@ function HPJunctionRow({ row }: { row: HPJunctionDTO }) {
                     <Typography variant="caption" fontWeight={900} sx={{ letterSpacing: 1, display: 'block', mb: 2, color: BRAND_GREEN, fontFamily: PRIMARY_FONT }}>SPECIFICATIONS</Typography>
                     <Stack direction="row" flexWrap="wrap" gap={3} mb={3}>
                       <Spec label="Part Number"     value={row.partNumber} />
+                      <Spec label="Brand"           value={row.brand} />
                       <Spec label="Fitting Type"    value={row.fittingType} />
-                      <Spec label="P1 Size"         value={row.p1Size} />
-                      <Spec label="P1 Thread"       value={row.p1Thread} />
-                      <Spec label="P2 Size"         value={row.p2Size} />
-                      <Spec label="P2 Thread"       value={row.p2Thread} />
                       <Spec label="Pressure Rating" value={row.pressureRating} />
                       <Spec label="Material"        value={row.material} />
+                      <Spec label="P1 Size"         value={row.p1Size} />
+                      <Spec label="P1 Connection"   value={row.p1Thread} />
+                      <Spec label="P2 Size"         value={row.p2Size} />
+                      <Spec label="P2 Connection"   value={row.p2Thread} />
                     </Stack>
-                    <Button variant="contained" onClick={openQuote}
-                      sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_GREEN, color: '#fff', '&:hover': { bgcolor: '#50c23a' }, fontFamily: PRIMARY_FONT }}>
-                      Request Quote
-                    </Button>
+                    <Stack direction="row" spacing={2}>
+                      <Button variant="contained" onClick={openQuote}
+                        sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_GREEN, color: '#fff', '&:hover': { bgcolor: '#50c23a' }, fontFamily: PRIMARY_FONT }}>
+                        Request Quote
+                      </Button>
+                      <Button component={Link} href={`/high-pressure/fittings/products/${row.id}`} variant="outlined"
+                        sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', borderColor: BRAND_GREEN, color: BRAND_GREEN, fontFamily: PRIMARY_FONT }}>
+                        View details
+                      </Button>
+                    </Stack>
                   </Box>
                 </Stack>
               </Box>
@@ -136,13 +161,13 @@ function HPJunctionRow({ row }: { row: HPJunctionDTO }) {
   )
 }
 
-type SortKey = 'partNumber' | 'fittingType' | 'pressureRating' | 'p1Size' | 'p2Size'
+type SortKey = 'partNumber' | 'brand' | 'fittingType' | 'pressureRating' | 'p1Size'
 
-export default function HPJunctionTable({ models, filters, setFilters, availableCounts, activeCount }: {
-  models: HPJunctionDTO[]
-  filters: HPJunctionFilters
-  setFilters: React.Dispatch<React.SetStateAction<HPJunctionFilters>>
-  availableCounts: AvailableCountsJunction
+export default function FittingsTable({ models, filters, setFilters, availableCounts, activeCount }: {
+  models: FittingDTO[]
+  filters: FittingFilters
+  setFilters: React.Dispatch<React.SetStateAction<FittingFilters>>
+  availableCounts: AvailableCounts
   activeCount: number
 }) {
   const isMobile = useMediaQuery('(max-width:1200px)')
@@ -158,6 +183,9 @@ export default function HPJunctionTable({ models, filters, setFilters, available
   }
 
   const sorted = [...models].sort((a, b) => {
+    if (sortKey === 'pressureRating') {
+      return sortDir === 'asc' ? a.pressurePsi - b.pressurePsi : b.pressurePsi - a.pressurePsi
+    }
     const av = String(a[sortKey] ?? ''), bv = String(b[sortKey] ?? '')
     if (av < bv) return sortDir === 'asc' ? -1 : 1
     if (av > bv) return sortDir === 'asc' ? 1 : -1
@@ -175,7 +203,7 @@ export default function HPJunctionTable({ models, filters, setFilters, available
     fontFamily: PRIMARY_FONT,
   }
 
-  const sidebar = <HPJunctionSidebar filters={filters} setFilters={setFilters} availableCounts={availableCounts} activeCount={activeCount} />
+  const sidebar = <FittingsSidebar filters={filters} setFilters={setFilters} availableCounts={availableCounts} activeCount={activeCount} />
 
   return (
     <Box sx={{ display: 'flex', alignItems: 'stretch', border: `1px solid ${alpha(BRAND_GREEN, 0.2)}`, borderRadius: '8px', overflow: 'hidden', bgcolor: 'background.paper' }}>
@@ -189,12 +217,13 @@ export default function HPJunctionTable({ models, filters, setFilters, available
               <TableRow>
                 <TableCell sx={{ ...headerSx, width: 40 }} />
                 {([
-                  { key: 'partNumber' as SortKey,    label: 'Part Number' },
-                  { key: 'fittingType' as SortKey,   label: 'Fitting Type' },
+                  { key: 'partNumber' as SortKey,     label: 'Part Number' },
+                  { key: 'brand' as SortKey,          label: 'Brand' },
+                  { key: 'fittingType' as SortKey,    label: 'Fitting Type' },
                   { key: 'pressureRating' as SortKey, label: 'Pressure' },
-                  { key: 'p1Size' as SortKey,         label: 'P1 Size / Thread' },
-                  { key: 'p2Size' as SortKey,         label: 'P2 Size / Thread' },
-                  { key: null,                         label: 'Quote' },
+                  { key: 'p1Size' as SortKey,         label: 'Size' },
+                  { key: null,                        label: 'Connection' },
+                  { key: null,                        label: 'Quote' },
                 ]).map((h, i) => (
                   <TableCell key={i} sx={headerSx}>
                     {h.key
@@ -206,8 +235,8 @@ export default function HPJunctionTable({ models, filters, setFilters, available
             </TableHead>
             <TableBody>
               {paginated.length === 0
-                ? <TableRow><TableCell colSpan={7} align="center" sx={{ py: 6 }}><Typography variant="body2" color="text.secondary" fontFamily={PRIMARY_FONT}>No fittings found.</Typography></TableCell></TableRow>
-                : paginated.map(row => <HPJunctionRow key={row.id} row={row} />)
+                ? <TableRow><TableCell colSpan={8} align="center" sx={{ py: 6 }}><Typography variant="body2" color="text.secondary" fontFamily={PRIMARY_FONT}>No fittings found.</Typography></TableCell></TableRow>
+                : paginated.map(row => <FittingRow key={row.id} row={row} />)
               }
             </TableBody>
           </Table>
