@@ -140,8 +140,7 @@ function buildRows(
 }
 
 // ---- Hiflux high-pressure tubes & nipples (T#### / N####), STS 316 cold-formed ----
-const HF_TUBE_IMAGE = 'https://pblol2.blob.core.windows.net/panam-images/products/tubing/tubing-2.png'
-const HF_NIPPLE_IMAGE = 'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/hp-hn.png'
+const HF_TUBE_IMAGE = 'https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/tube.png'
 
 const toBar = (psi: number) => Math.round(psi / 14.5038)
 
@@ -183,38 +182,6 @@ const HIFLUX_TUBES: TubingDTO[] = HIFLUX_TUBE_SPECS.map(t => ({
   description: `Hiflux ${t.psi.toLocaleString()} psi high-pressure seamless tubing ${t.pn}, ${t.size} OD, wall ${t.wall}, STS 316 cold-formed.`,
 }))
 
-// Nipple: catalog no, pressure (psi), nominal size, wall thickness, minimum length (mm).
-const HIFLUX_NIPPLE_SPECS: Array<{ pn: string; psi: number; size: string; wall: string; minLen: number }> = [
-  { pn: 'N20S04',  psi: 20000,  size: '1/4"',  wall: '1.78 mm', minLen: 70 },
-  { pn: 'N20S06',  psi: 20000,  size: '3/8"',  wall: '2.18 mm', minLen: 88 },
-  { pn: 'N20S09',  psi: 20000,  size: '9/16"', wall: '3.18 mm', minLen: 110 },
-  { pn: 'N20S12',  psi: 20000,  size: '3/4"',  wall: '3.96 mm', minLen: 118 },
-  { pn: 'N20S16',  psi: 20000,  size: '1"',    wall: '5.56 mm', minLen: 168 },
-  { pn: 'N30S02',  psi: 30000,  size: '1/8"',  wall: '1.08 mm', minLen: 43 },
-  { pn: 'N30S16',  psi: 30000,  size: '1"',    wall: '7.15 mm', minLen: 168 },
-  { pn: 'N60S04',  psi: 60000,  size: '1/4"',  wall: '2.11 mm', minLen: 74 },
-  { pn: 'N60S06',  psi: 60000,  size: '3/8"',  wall: '3.18 mm', minLen: 104 },
-  { pn: 'N60S09',  psi: 60000,  size: '9/16"', wall: '4.75 mm', minLen: 135 },
-  { pn: 'N100S04', psi: 100000, size: '1/4"',  wall: '2.38 mm', minLen: 103 },
-  { pn: 'N150S06', psi: 150000, size: '3/8"',  wall: '3.97 mm', minLen: 135 },
-]
-
-const HIFLUX_NIPPLES: TubingDTO[] = HIFLUX_NIPPLE_SPECS.map(n => ({
-  id: n.pn,
-  partNumber: n.pn,
-  brand: 'Hiflux',
-  productType: 'Nipple',
-  material: 'STS 316',
-  tubingType: `High Pressure Nipple · Min. Length ${n.minLen} mm`,
-  outerDiameter: n.size,
-  wallThickness: n.wall,
-  unit: 'imperial',
-  workingPressurePsi: n.psi,
-  workingPressureBar: toBar(n.psi),
-  imageUrl: HF_NIPPLE_IMAGE,
-  description: `Hiflux ${n.psi.toLocaleString()} psi high-pressure nipple ${n.pn}, ${n.size}, wall ${n.wall}, min. length ${n.minLen} mm, cone & thread, STS 316.`,
-}))
-
 // ---- Hiflux high-pressure tube supports (TS{size}L{lines}) ----
 const TS_IMAGE = 'https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/tube-support.png'
 const TS_SIZES: Record<string, string> = { '04': '1/4"', '06': '3/8"', '08': '1/2"', '09': '9/16"' }
@@ -241,12 +208,12 @@ const HIFLUX_TUBE_SUPPORTS: TubingDTO[] = (['04', '06', '08', '09'] as const).fl
   }),
 )
 
-// Main tubing table — Panam tubing + Hiflux tubes & nipples (tube supports live in their own grid).
+// Main tubing table — Panam tubing + Hiflux tubes (tube supports live in their own table;
+// Hiflux nipples live in the fittings catalogue).
 export const TUBING_DATA: TubingDTO[] = [
   ...buildRows(IMPERIAL_COMBOS, 'imperial'),
   ...buildRows(METRIC_COMBOS, 'metric'),
   ...HIFLUX_TUBES,
-  ...HIFLUX_NIPPLES,
 ]
 
 // Separate grid.

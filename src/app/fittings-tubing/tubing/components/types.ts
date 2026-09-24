@@ -2,7 +2,7 @@ export interface TubingDTO {
   id: string
   partNumber: string
   brand: string
-  productType: 'Standard Tubing' | 'High Pressure Tubing' | 'Tube Support' | 'Nipple'
+  productType: 'Standard Tubing' | 'High Pressure Tubing' | 'Tube Support'
   material: string
   tubingType: string
   outerDiameter: string

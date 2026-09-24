@@ -13,7 +13,6 @@ import {
 } from '@/src/app/fittings-tubing/tubing/components/types'
 import { TubingActiveFilters } from '@/src/app/fittings-tubing/tubing/components/TubingActiveFilters'
 import TubingTable from '@/src/app/fittings-tubing/tubing/components/TubingTable'
-import TubeSupportsGrid from '@/src/app/fittings-tubing/tubing/components/TubeSupportsGrid'
 
 // Brands that actually exist in the data — used to validate the ?brand= query param.
 const KNOWN_BRANDS = Array.from(new Set(TUBING_DATA.map(t => t.brand)))
@@ -72,7 +71,6 @@ function HighPressureTubingProducts() {
             detailBase="/high-pressure/tubing/products"
           />
         </Box>
-        <TubeSupportsGrid detailBase="/high-pressure/tubing/products" />
       </Box>
     </Box>
   )

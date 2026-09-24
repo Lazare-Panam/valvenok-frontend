@@ -3,15 +3,16 @@ import Link from 'next/link'
 import { Box, Container, Typography, Button, Chip, Paper, Divider } from '@mui/material'
 import Grid from '@mui/material/Grid'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
-import { ALL_TUBING_DATA } from '@/src/app/fittings-tubing/tubing/components/data'
+import { TUBING_DATA, TUBE_SUPPORTS_DATA } from '@/src/app/fittings-tubing/tubing/components/data'
 import { TUBING_DESCRIPTION } from '@/src/app/fittings-tubing/tubing/components/types'
 
 const ACCENT = '#61D649'
 const HERO_IMG = 'https://pblol2.blob.core.windows.net/panam-images/products/tubing/tubing-1.jpg'
 
-const TOTAL = ALL_TUBING_DATA.length
-const PANAM_COUNT = ALL_TUBING_DATA.filter(v => v.brand === 'Panam').length
-const HIFLUX_COUNT = ALL_TUBING_DATA.filter(v => v.brand === 'Hiflux').length
+const TOTAL = TUBING_DATA.length
+const SUPPORT_COUNT = TUBE_SUPPORTS_DATA.length
+const PANAM_COUNT = TUBING_DATA.filter(v => v.brand === 'Panam').length
+const HIFLUX_COUNT = TUBING_DATA.filter(v => v.brand === 'Hiflux').length
 
 const TECH_SPECS = [
   { label: 'Total Configurations', value: `${TOTAL} — Panam & Hiflux` },
@@ -33,7 +34,7 @@ const BRANDS = [
     name: 'Hiflux',
     logo: 'https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/logo.png',
     count: HIFLUX_COUNT,
-    blurb: 'STS 316 cold-formed high-pressure seamless tubes and nipples from 10,000 to 150,000 psi, plus 1, 2 and 3-line tube supports for 1/4" to 9/16" tube.',
+    blurb: 'STS 316 cold-formed high-pressure seamless tubing from 10,000 to 150,000 psi. High-pressure nipples are listed in the Fittings catalogue; tube supports have their own table.',
   },
 ]
 
@@ -55,10 +56,16 @@ export default function HighPressureTubingLanding() {
               <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 4 }}>
                 {TUBING_DESCRIPTION.specs.map(s => <Chip key={s} label={s} size="small" sx={{ bgcolor: ACCENT, color: '#fff', fontWeight: 600, fontSize: '0.7rem' }} />)}
               </Box>
-              <Button component={Link} href="/high-pressure/tubing/products" variant="contained" size="large" endIcon={<ArrowForwardIcon />}
-                sx={{ borderRadius: 0, fontWeight: 800, py: 1.75, px: 4, fontSize: '1rem', bgcolor: ACCENT, boxShadow: 'none', '&:hover': { bgcolor: '#50c23a', boxShadow: 'none' } }}>
-                View all {TOTAL} products
-              </Button>
+              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
+                <Button component={Link} href="/high-pressure/tubing/products" variant="contained" size="large" endIcon={<ArrowForwardIcon />}
+                  sx={{ borderRadius: 0, fontWeight: 800, py: 1.75, px: 4, fontSize: '1rem', bgcolor: ACCENT, boxShadow: 'none', '&:hover': { bgcolor: '#50c23a', boxShadow: 'none' } }}>
+                  View all {TOTAL} tubing
+                </Button>
+                <Button component={Link} href="/high-pressure/tubing/tube-supports" variant="outlined" size="large" endIcon={<ArrowForwardIcon />}
+                  sx={{ borderRadius: 0, fontWeight: 800, py: 1.75, px: 4, fontSize: '1rem', borderColor: ACCENT, color: ACCENT, '&:hover': { borderColor: '#50c23a', color: '#50c23a' } }}>
+                  {SUPPORT_COUNT} Tube Supports
+                </Button>
+              </Box>
             </Grid>
           </Grid>
         </Container>

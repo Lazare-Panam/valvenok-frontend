@@ -146,14 +146,15 @@ export const NAV_GROUPS: NavGroup[] = [
         href: "/high-pressure/tubing",
         items: [
           {
-            label: "Tubing & Tube Supports",
+            label: "Tubing",
             href: "/high-pressure/tubing",
             children: [
-              {
-                label: "View All Products",
-                href: "/high-pressure/tubing/products",
-              },
+              { label: "View All Tubing", href: "/high-pressure/tubing/products" },
             ],
+          },
+          {
+            label: "Tube Supports",
+            href: "/high-pressure/tubing/tube-supports",
           },
         ],
       },

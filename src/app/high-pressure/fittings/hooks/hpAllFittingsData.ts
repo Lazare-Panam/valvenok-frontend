@@ -73,15 +73,9 @@ const HF_FT_TYPE: Record<string, string> = { E: 'Elbow', T: 'Tee', C: 'Cross' }
 const HF_FA_TYPE: Record<string, string> = {
   G: 'Gland', S: 'Sleeve', R: 'Collar', P: 'Plug', T: 'Collet', A: 'Anti-Set Screw',
 }
-const IMG = {
-  elbow:   'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/hp-elbow.png',
-  tee:     'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/hp-tees.jpg',
-  cross:   'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/hp-cross.jpg',
-  plug:    'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/hp-plug.png',
-  generic: 'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/hp-adaptor.jpg',
-}
-const FT_IMG: Record<string, string> = { Elbow: IMG.elbow, Tee: IMG.tee, Cross: IMG.cross }
-const FA_IMG: Record<string, string> = { Plug: IMG.plug }
+// Real Hiflux catalogue imagery (not Panam stand-ins).
+const HF_FITTING_IMG   = 'https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/reducing-fitting.png'
+const HF_ACCESSORY_IMG = 'https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/Accessory.png'
 
 // FT#### = two-ended cone & thread fitting; FA#### = single-ended accessory.
 const HIFLUX_FT = [
@@ -121,7 +115,7 @@ function decodeHiflux(pn: string): FittingDTO | null {
   if (!psi || !size || !base) return null
 
   const twoEnded = prefix === 'FT'
-  const img = (twoEnded ? FT_IMG[base] : FA_IMG[base]) ?? IMG.generic
+  const img = twoEnded ? HF_FITTING_IMG : HF_ACCESSORY_IMG
   const avNote = av ? ' Anti-Vibration Type.' : ''
   const conn = twoEnded
     ? `P1: ${size} Cone & Thread, P2: ${size} Cone & Thread`
@@ -148,10 +142,42 @@ const HIFLUX: FittingDTO[] = [...HIFLUX_FT, ...HIFLUX_FA]
   .map(decodeHiflux)
   .filter((r): r is FittingDTO => r !== null)
 
+/* ---- Hiflux high-pressure nipples (N####), cone & thread, STS 316 ---- */
+const HF_NIPPLE_IMG = 'https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/nibul.png'
+const HIFLUX_NIPPLE_SPECS: Array<{ pn: string; psi: number; size: string }> = [
+  { pn: 'N20S04',  psi: 20000,  size: '1/4"' },
+  { pn: 'N20S06',  psi: 20000,  size: '3/8"' },
+  { pn: 'N20S09',  psi: 20000,  size: '9/16"' },
+  { pn: 'N20S12',  psi: 20000,  size: '3/4"' },
+  { pn: 'N20S16',  psi: 20000,  size: '1"' },
+  { pn: 'N30S02',  psi: 30000,  size: '1/8"' },
+  { pn: 'N30S16',  psi: 30000,  size: '1"' },
+  { pn: 'N60S04',  psi: 60000,  size: '1/4"' },
+  { pn: 'N60S06',  psi: 60000,  size: '3/8"' },
+  { pn: 'N60S09',  psi: 60000,  size: '9/16"' },
+  { pn: 'N100S04', psi: 100000, size: '1/4"' },
+  { pn: 'N150S06', psi: 150000, size: '3/8"' },
+]
+const HIFLUX_NIPPLES: FittingDTO[] = HIFLUX_NIPPLE_SPECS.map(n => ({
+  id: n.pn,
+  partNumber: n.pn,
+  brand: 'Hiflux',
+  fittingType: 'Nipple',
+  p1Size: n.size,
+  p1Thread: 'Cone & Thread',
+  p2Size: n.size,
+  p2Thread: 'Cone & Thread',
+  pressureRating: PSI_LABEL[n.psi],
+  pressurePsi: n.psi,
+  material: 'STS 316',
+  imageUrl: HF_NIPPLE_IMG,
+  description: `Hiflux ${PSI_LABEL[n.psi]} high-pressure nipple ${n.pn}, ${n.size} both ends, cone & thread, STS 316.`,
+}))
+
 /* --------------------------------------------------------------- combined */
 // Dedupe by part number so every row maps to a unique detail route.
 const seen = new Set<string>()
-export const HP_FITTINGS_DATA: FittingDTO[] = [...PANAM, ...HIFLUX].filter(r => {
+export const HP_FITTINGS_DATA: FittingDTO[] = [...PANAM, ...HIFLUX, ...HIFLUX_NIPPLES].filter(r => {
   if (seen.has(r.partNumber)) return false
   seen.add(r.partNumber)
   return true

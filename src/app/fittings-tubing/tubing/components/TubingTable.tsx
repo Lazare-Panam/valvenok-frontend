@@ -31,7 +31,6 @@ function TubingRow({ row, detailBase }: { row: TubingDTO; detailBase?: string })
   const theme = useTheme()
   const isHP = row.productType === 'High Pressure Tubing'
   const isSupport = row.productType === 'Tube Support'
-  const isNipple = row.productType === 'Nipple'
 
   const openQuote = () => setQuoteProduct({
     id: row.partNumber,
@@ -61,10 +60,8 @@ function TubingRow({ row, detailBase }: { row: TubingDTO; detailBase?: string })
             sx={{ fontSize: '0.65rem', fontWeight: 700, bgcolor: alpha(row.brand === 'Hiflux' ? '#1976d2' : theme.palette.primary.main, 0.12), color: row.brand === 'Hiflux' ? '#1976d2' : theme.palette.primary.dark }} />
         </TableCell>
         <TableCell sx={{ py: 1 }}>
-          <Chip label={isSupport ? 'Tube Support' : isNipple ? 'Nipple' : isHP ? 'High Pressure' : 'Standard'} size="small"
-            sx={{ fontSize: '0.65rem', fontWeight: 700,
-              bgcolor: alpha(isSupport ? '#7B61FF' : isNipple ? '#0891b2' : isHP ? '#FF6B35' : theme.palette.primary.main, 0.12),
-              color: isSupport ? '#7B61FF' : isNipple ? '#0891b2' : isHP ? '#FF6B35' : theme.palette.primary.dark }} />
+          <Chip label={isSupport ? 'Tube Support' : isHP ? 'High Pressure' : 'Standard'} size="small"
+            sx={{ fontSize: '0.65rem', fontWeight: 700, bgcolor: alpha(isSupport ? '#7B61FF' : isHP ? '#FF6B35' : theme.palette.primary.main, 0.12), color: isSupport ? '#7B61FF' : isHP ? '#FF6B35' : theme.palette.primary.dark }} />
         </TableCell>
         <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{row.material}</TableCell>
         <TableCell sx={{ py: 1 }}>
