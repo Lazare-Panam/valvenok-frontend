@@ -40,36 +40,16 @@ export const NAV_GROUPS: NavGroup[] = [
     href: "/hydrogen-cryogenic",
     columns: [
       {
-        header: "Hydrogen & Cryogenic",
+        header: "Hydrogen Valves",
         href: "/hydrogen-cryogenic",
         items: [
           {
-            label: "Valves",
+            label: "Cryogenic Valves",
             href: "/hydrogen-cryogenic/valves",
             children: [
               {
                 label: "View All Products",
                 href: "/hydrogen-cryogenic/valves/products",
-              },
-            ],
-          },
-          {
-            label: "Fittings",
-            href: "/hydrogen-cryogenic/fittings",
-            children: [
-              {
-                label: "View All Products",
-                href: "/hydrogen-cryogenic/fittings/products",
-              },
-            ],
-          },
-          {
-            label: "Tube",
-            href: "/hydrogen-cryogenic/tube",
-            children: [
-              {
-                label: "View All Products",
-                href: "/hydrogen-cryogenic/tube/products",
               },
             ],
           },
@@ -103,12 +83,25 @@ export const NAV_GROUPS: NavGroup[] = [
               },
             ],
           },
+          { label: "Ball Valves", href: "/high-pressure/ball-valves" },
+          { label: "Needle Valves", href: "/high-pressure/needle-valves" },
+          { label: "DBB Valves", href: "/high-pressure/dbb" },
         ],
       },
       {
-        header: "High Pressure / Hydrogen",
+        header: "Hydrogen Fittings",
         href: "/high-pressure",
         items: [
+          {
+            label: "Fittings",
+            href: "/hydrogen-cryogenic/fittings",
+            children: [
+              {
+                label: "View All Products",
+                href: "/hydrogen-cryogenic/fittings/products",
+              },
+            ],
+          },
           {
             label: "High Pressure Fittings",
             href: "/high-pressure/fittings",
@@ -159,14 +152,27 @@ export const NAV_GROUPS: NavGroup[] = [
               },
             ],
           },
-          { label: "Ball Valves", href: "/high-pressure/ball-valves" },
-          { label: "Needle Valves", href: "/high-pressure/needle-valves" },
-          { label: "DBB Valves", href: "/high-pressure/dbb" },
           { label: "Manifolds", href: "/high-pressure/manifolds" },
           { label: "Seals & Glands", href: "/high-pressure/seals-glands" },
           {
             label: "Cone & Thread Nipples",
             href: "/high-pressure/cone-threaded-nipples",
+          },
+        ],
+      },
+      {
+        header: "Hydrogen Tubing",
+        href: "/hydrogen-cryogenic/tube",
+        items: [
+          {
+            label: "Tubing",
+            href: "/hydrogen-cryogenic/tube",
+            children: [
+              {
+                label: "View All Products",
+                href: "/hydrogen-cryogenic/tube/products",
+              },
+            ],
           },
         ],
       },
