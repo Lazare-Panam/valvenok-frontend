@@ -122,6 +122,7 @@ function buildRows(
         return {
           id: `${partNumber}-${unit}`,
           partNumber,
+          brand: 'Panam',
           productType,
           material: mat.label,
           tubingType: 'Seamless Tubing',
@@ -138,7 +139,34 @@ function buildRows(
   )
 }
 
+// ---- Hiflux high-pressure tube supports (TS{size}L{lines}) ----
+const TS_IMAGE = 'https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/tube-support.png'
+const TS_SIZES: Record<string, string> = { '04': '1/4"', '06': '3/8"', '08': '1/2"', '09': '9/16"' }
+
+const HIFLUX_TUBE_SUPPORTS: TubingDTO[] = (['04', '06', '08', '09'] as const).flatMap(sz =>
+  ([1, 2, 3] as const).map(lines => {
+    const pn = `TS${sz}L${lines}`
+    const od = TS_SIZES[sz]
+    return {
+      id: pn,
+      partNumber: pn,
+      brand: 'Hiflux',
+      productType: 'Tube Support' as const,
+      material: 'STS 316',
+      tubingType: `${lines}-Line Tube Support`,
+      outerDiameter: od,
+      wallThickness: '—',
+      unit: 'imperial' as const,
+      workingPressurePsi: 0,
+      workingPressureBar: 0,
+      imageUrl: TS_IMAGE,
+      description: `Hiflux ${lines}-line tube support ${pn} for ${od} OD tube, STS 316. Secures ${lines} tube line${lines > 1 ? 's' : ''} in high-pressure installations.`,
+    }
+  }),
+)
+
 export const TUBING_DATA: TubingDTO[] = [
   ...buildRows(IMPERIAL_COMBOS, 'imperial'),
   ...buildRows(METRIC_COMBOS, 'metric'),
+  ...HIFLUX_TUBE_SUPPORTS,
 ]

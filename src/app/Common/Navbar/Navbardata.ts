@@ -156,15 +156,15 @@ export const NAV_GROUPS: NavGroup[] = [
       },
       {
         header: "Hydrogen Tubing",
-        href: "/hydrogen-cryogenic/tube",
+        href: "/high-pressure/tubing",
         items: [
           {
-            label: "Tubing",
-            href: "/hydrogen-cryogenic/tube",
+            label: "Tubing & Tube Supports",
+            href: "/high-pressure/tubing",
             children: [
               {
                 label: "View All Products",
-                href: "/hydrogen-cryogenic/tube/products",
+                href: "/high-pressure/tubing/products",
               },
             ],
           },

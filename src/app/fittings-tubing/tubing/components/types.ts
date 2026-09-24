@@ -1,7 +1,8 @@
 export interface TubingDTO {
   id: string
   partNumber: string
-  productType: 'Standard Tubing' | 'High Pressure Tubing'
+  brand: string
+  productType: 'Standard Tubing' | 'High Pressure Tubing' | 'Tube Support'
   material: string
   tubingType: string
   outerDiameter: string
@@ -14,6 +15,7 @@ export interface TubingDTO {
 }
 
 export interface TubingFilters {
+  brands: string[]
   productTypes: string[]
   materials: string[]
   units: string[]
@@ -22,6 +24,7 @@ export interface TubingFilters {
 }
 
 export const EMPTY_TUBING_FILTERS: TubingFilters = {
+  brands: [],
   productTypes: [],
   materials: [],
   units: [],
@@ -30,6 +33,7 @@ export const EMPTY_TUBING_FILTERS: TubingFilters = {
 }
 
 export interface AvailableCountsTubing {
+  brands: Record<string, number>
   productTypes: Record<string, number>
   materials: Record<string, number>
   units: Record<string, number>
@@ -43,6 +47,7 @@ export function applyFilters(
   exclude: keyof TubingFilters | ''
 ): TubingDTO[] {
   return data.filter(c => {
+    if (exclude !== 'brands'          && filters.brands.length          && !filters.brands.includes(c.brand))                  return false
     if (exclude !== 'productTypes'    && filters.productTypes.length    && !filters.productTypes.includes(c.productType))      return false
     if (exclude !== 'materials'       && filters.materials.length       && !filters.materials.includes(c.material))            return false
     if (exclude !== 'units'           && filters.units.length           && !filters.units.includes(c.unit))                    return false
@@ -62,14 +67,14 @@ export function countBy<T>(items: T[], keyFn: (item: T) => string): Record<strin
 }
 
 export const TUBING_DESCRIPTION = {
-  title: 'Seamless Tubing',
+  title: 'Tubing & Tube Supports',
   description:
-    'Panam seamless tubing in standard and high-pressure ratings. Available in SS 316, Monel, Copper, Duplex, Inconel, 6Mo and Hastelloy. Imperial OD from 1/16" to 2" and metric OD from 3mm to 12mm.',
+    'Panam seamless tubing in standard and high-pressure ratings, plus Hiflux high-pressure tube supports. Tubing in SS 316, Monel, Copper, Duplex, Inconel, 6Mo and Hastelloy — imperial OD 1/16"–2" and metric 3mm–12mm; Hiflux 1/2/3-line tube supports in STS 316.',
   specs: [
-    'Standard & High Pressure',
+    'Panam · Hiflux',
+    'Standard · High Pressure · Tube Support',
     'SS 316 · Monel · Duplex · Inconel · 6Mo · Hastelloy',
-    '1/16" – 2" Imperial',
-    '3mm – 12mm Metric',
+    '1/16" – 2" Imperial · 3mm – 12mm Metric',
     'Seamless Construction',
   ],
 }

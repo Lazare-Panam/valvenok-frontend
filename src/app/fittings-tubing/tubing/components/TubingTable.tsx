@@ -29,6 +29,7 @@ function TubingRow({ row }: { row: TubingDTO }) {
   const [quoteProduct, setQuoteProduct] = useState<ProductForRFQ | null>(null)
   const theme = useTheme()
   const isHP = row.productType === 'High Pressure Tubing'
+  const isSupport = row.productType === 'Tube Support'
 
   const openQuote = () => setQuoteProduct({
     id: row.partNumber,
@@ -45,8 +46,12 @@ function TubingRow({ row }: { row: TubingDTO }) {
         </TableCell>
         <TableCell sx={{ fontFamily: 'monospace', fontWeight: 700, color: theme.palette.primary.main, fontSize: '0.75rem', py: 1 }}>{row.partNumber}</TableCell>
         <TableCell sx={{ py: 1 }}>
-          <Chip label={isHP ? 'High Pressure' : 'Standard'} size="small"
-            sx={{ fontSize: '0.65rem', fontWeight: 700, bgcolor: alpha(isHP ? '#FF6B35' : theme.palette.primary.main, 0.12), color: isHP ? '#FF6B35' : theme.palette.primary.dark }} />
+          <Chip label={row.brand} size="small"
+            sx={{ fontSize: '0.65rem', fontWeight: 700, bgcolor: alpha(row.brand === 'Hiflux' ? '#1976d2' : theme.palette.primary.main, 0.12), color: row.brand === 'Hiflux' ? '#1976d2' : theme.palette.primary.dark }} />
+        </TableCell>
+        <TableCell sx={{ py: 1 }}>
+          <Chip label={isSupport ? 'Tube Support' : isHP ? 'High Pressure' : 'Standard'} size="small"
+            sx={{ fontSize: '0.65rem', fontWeight: 700, bgcolor: alpha(isSupport ? '#7B61FF' : isHP ? '#FF6B35' : theme.palette.primary.main, 0.12), color: isSupport ? '#7B61FF' : isHP ? '#FF6B35' : theme.palette.primary.dark }} />
         </TableCell>
         <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{row.material}</TableCell>
         <TableCell sx={{ py: 1 }}>
@@ -55,8 +60,8 @@ function TubingRow({ row }: { row: TubingDTO }) {
         </TableCell>
         <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{row.outerDiameter}</TableCell>
         <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{row.wallThickness}</TableCell>
-        <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{row.workingPressurePsi.toLocaleString()} psi</TableCell>
-        <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{row.workingPressureBar} bar</TableCell>
+        <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{row.workingPressurePsi ? `${row.workingPressurePsi.toLocaleString()} psi` : '—'}</TableCell>
+        <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{row.workingPressureBar ? `${row.workingPressureBar} bar` : '—'}</TableCell>
         <TableCell sx={{ py: 1 }}>
           <Button size="small" variant="contained"
             onClick={e => { e.stopPropagation(); openQuote() }}
@@ -68,7 +73,7 @@ function TubingRow({ row }: { row: TubingDTO }) {
 
       {open && (
         <TableRow>
-          <TableCell colSpan={10} sx={{ p: 0, borderBottom: 'none' }}>
+          <TableCell colSpan={11} sx={{ p: 0, borderBottom: 'none' }}>
             <Collapse in unmountOnExit>
               <Box sx={{ p: 3, bgcolor: alpha(theme.palette.primary.main, 0.02), borderLeft: `4px solid ${theme.palette.primary.main}`, borderBottom: `1px solid ${theme.palette.divider}` }}>
                 <Stack direction={{ xs: 'column', md: 'row' }} spacing={4} alignItems="flex-start">
@@ -108,7 +113,7 @@ function TubingRow({ row }: { row: TubingDTO }) {
   )
 }
 
-type SortKey = 'partNumber' | 'productType' | 'material' | 'unit' | 'outerDiameter' | 'wallThickness' | 'workingPressurePsi'
+type SortKey = 'partNumber' | 'brand' | 'productType' | 'material' | 'unit' | 'outerDiameter' | 'wallThickness' | 'workingPressurePsi'
 
 export default function TubingTable({ models, filters, setFilters, availableCounts, activeCount }: {
   models: TubingDTO[]
@@ -154,6 +159,7 @@ export default function TubingTable({ models, filters, setFilters, availableCoun
                 <TableCell sx={{ ...headerSx, width: 40 }} />
                 {([
                   { key: 'partNumber' as SortKey,         label: 'Part Number' },
+                  { key: 'brand' as SortKey,              label: 'Brand' },
                   { key: 'productType' as SortKey,        label: 'Type' },
                   { key: 'material' as SortKey,           label: 'Material' },
                   { key: 'unit' as SortKey,               label: 'Unit' },
@@ -171,7 +177,7 @@ export default function TubingTable({ models, filters, setFilters, availableCoun
             </TableHead>
             <TableBody>
               {paginated.length === 0
-                ? <TableRow><TableCell colSpan={10} align="center" sx={{ py: 6 }}><Typography variant="body2" color="text.secondary">No tubing found.</Typography></TableCell></TableRow>
+                ? <TableRow><TableCell colSpan={11} align="center" sx={{ py: 6 }}><Typography variant="body2" color="text.secondary">No tubing found.</Typography></TableCell></TableRow>
                 : paginated.map(row => <TubingRow key={row.id} row={row} />)
               }
             </TableBody>

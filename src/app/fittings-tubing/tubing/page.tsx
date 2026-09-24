@@ -18,6 +18,7 @@ export default function TubingPage() {
   const models = useMemo(() => applyFilters(TUBING_DATA, filters, ''), [filters])
 
   const availableCounts = useMemo<AvailableCountsTubing>(() => ({
+    brands:          countBy(applyFilters(TUBING_DATA, filters, 'brands'),          c => c.brand),
     productTypes:    countBy(applyFilters(TUBING_DATA, filters, 'productTypes'),    c => c.productType),
     materials:       countBy(applyFilters(TUBING_DATA, filters, 'materials'),       c => c.material),
     units:           countBy(applyFilters(TUBING_DATA, filters, 'units'),           c => c.unit),

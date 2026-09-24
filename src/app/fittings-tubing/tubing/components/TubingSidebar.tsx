@@ -73,6 +73,7 @@ export function TubingSidebar({ filters, setFilters, availableCounts, activeCoun
         : [...(prev[key] as string[]), val],
     }))
 
+  const brandOptions = Array.from(new Set(TUBING_DATA.map(c => c.brand)))
   const productTypeOptions = Array.from(new Set(TUBING_DATA.map(c => c.productType)))
   const materialOptions = Array.from(new Set(TUBING_DATA.map(c => c.material))).sort()
   const unitOptions = ['imperial', 'metric']
@@ -88,6 +89,10 @@ export function TubingSidebar({ filters, setFilters, availableCounts, activeCoun
             onClick={() => setFilters(EMPTY_TUBING_FILTERS)}>Clear all</Typography>
         )}
       </Stack>
+      <FilterGroup title="BRAND" count={filters.brands.length || undefined}>
+        <SmartCheckList options={brandOptions} selected={filters.brands} onChange={v => toggle('brands', v)} counts={availableCounts.brands} />
+      </FilterGroup>
+      <Divider sx={{ my: 1 }} />
       <FilterGroup title="PRODUCT TYPE" count={filters.productTypes.length || undefined}>
         <SmartCheckList options={productTypeOptions} selected={filters.productTypes} onChange={v => toggle('productTypes', v)} counts={availableCounts.productTypes} />
       </FilterGroup>

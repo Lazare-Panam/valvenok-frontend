@@ -12,6 +12,7 @@ export function TubingActiveFilters({ filters, setFilters }: Props) {
   const theme = useTheme()
   const chips: { key: keyof TubingFilters; label: string; value: string }[] = []
 
+  filters.brands.forEach(v => chips.push({ key: 'brands', label: `Brand: ${v}`, value: v }))
   filters.productTypes.forEach(v => chips.push({ key: 'productTypes', label: v, value: v }))
   filters.units.forEach(v => chips.push({ key: 'units', label: v === 'imperial' ? 'Imperial' : 'Metric', value: v }))
   filters.materials.forEach(v => chips.push({ key: 'materials', label: v, value: v }))
