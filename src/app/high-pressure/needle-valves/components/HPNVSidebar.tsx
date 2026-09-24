@@ -69,6 +69,7 @@ export function HPNVSidebar({ filters, setFilters, availableCounts, activeCount 
         : [...(prev[key] as string[]), val],
     }))
 
+  const brandOptions     = Array.from(new Set(HP_NEEDLE_VALVE_DATA.map(c => c.brand)))
   const seriesOptions    = Array.from(new Set(HP_NEEDLE_VALVE_DATA.map(c => c.series)))
   const pressureOptions  = Array.from(new Set(HP_NEEDLE_VALVE_DATA.map(c => c.pressureRating)))
   const sizeOptions      = Array.from(new Set(HP_NEEDLE_VALVE_DATA.map(c => c.connectionSize)))
@@ -84,6 +85,10 @@ export function HPNVSidebar({ filters, setFilters, availableCounts, activeCount 
             onClick={() => setFilters(EMPTY_HP_FILTERS)}>Clear all</Typography>
         )}
       </Stack>
+      <FilterGroup title="BRAND" count={filters.brands.length || undefined}>
+        <SmartCheckList options={brandOptions} selected={filters.brands} onChange={v => toggle('brands', v)} counts={availableCounts.brands} />
+      </FilterGroup>
+      <Divider sx={{ my: 0.5 }} />
       <FilterGroup title="SERIES" count={filters.series.length || undefined}>
         <SmartCheckList options={seriesOptions} selected={filters.series} onChange={v => toggle('series', v)} counts={availableCounts.series} />
       </FilterGroup>

@@ -1,6 +1,7 @@
 export interface HPNeedleValveDTO {
   id: string
   partNumber: string
+  brand: string
   series: string
   pressureRating: string
   pressurePsi: number
@@ -13,6 +14,7 @@ export interface HPNeedleValveDTO {
 }
 
 export interface HPNeedleValveFilters {
+  brands: string[]
   series: string[]
   pressureRatings: string[]
   connectionSizes: string[]
@@ -21,6 +23,7 @@ export interface HPNeedleValveFilters {
 }
 
 export const EMPTY_HP_FILTERS: HPNeedleValveFilters = {
+  brands: [],
   series: [],
   pressureRatings: [],
   connectionSizes: [],
@@ -29,6 +32,7 @@ export const EMPTY_HP_FILTERS: HPNeedleValveFilters = {
 }
 
 export interface AvailableCountsHP {
+  brands: Record<string, number>
   series: Record<string, number>
   pressureRatings: Record<string, number>
   connectionSizes: Record<string, number>
@@ -42,6 +46,7 @@ export function applyFilters(
   exclude: keyof HPNeedleValveFilters | ''
 ): HPNeedleValveDTO[] {
   return data.filter(c => {
+    if (exclude !== 'brands'          && filters.brands.length          && !filters.brands.includes(c.brand))                   return false
     if (exclude !== 'series'          && filters.series.length          && !filters.series.includes(c.series))                  return false
     if (exclude !== 'pressureRatings' && filters.pressureRatings.length && !filters.pressureRatings.includes(c.pressureRating)) return false
     if (exclude !== 'connectionSizes' && filters.connectionSizes.length && !filters.connectionSizes.includes(c.connectionSize)) return false
@@ -69,10 +74,12 @@ const make = (
   pressureRating: string,
   connectionSize: string,
   connectionType: string,
-  configuration: string
+  configuration: string,
+  brand: string = 'Panam'
 ): HPNeedleValveDTO => ({
   id: pn,
   partNumber: pn,
+  brand,
   series,
   pressureRating,
   pressurePsi: psi,
@@ -84,7 +91,7 @@ const make = (
   description: `Panam HP Needle Valve ${pn}, ${series} Series (${pressureRating}), SS 316, ${connectionSize} ${connectionType}${configuration !== 'Straight' ? `, ${configuration}` : ''}.`,
 })
 
-export const HP_NEEDLE_VALVE_DATA: HPNeedleValveDTO[] = [
+const PANAM_NV_DATA: HPNeedleValveDTO[] = [
   make('PNV-HP-S-2NF',    'HP', 10000, '10,000 psi', '1/8"',   'NPT Female to Female', 'Straight'),
   make('PNV-HP-S-4NF',    'HP', 10000, '10,000 psi', '1/4"',   'NPT Female to Female', 'Straight'),
   make('PNV-HP-S-6NF',    'HP', 10000, '10,000 psi', '3/8"',   'NPT Female to Female', 'Straight'),
@@ -190,14 +197,72 @@ export const HP_NEEDLE_VALVE_DATA: HPNeedleValveDTO[] = [
   make('PNV-HP6-S-9HF-R',  'HP6', 60000, '60,000 psi', '9/16"', 'HP Cone and Thread Female', 'Replaceable Seat'),
 ]
 
+// ---- Hiflux needle valves (hydrogen catalogue) ----
+const HF_IMAGE = 'https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/needle-valve.png'
+
+const mkHF = (
+  pn: string, series: string, psi: number, pressureRating: string,
+  connectionSize: string, connectionType: string, configuration: string,
+  stem: string, cv: string, orifice: string, material: string,
+): HPNeedleValveDTO => ({
+  id: pn,
+  partNumber: pn,
+  brand: 'Hiflux',
+  series,
+  pressureRating,
+  pressurePsi: psi,
+  material,
+  connectionSize,
+  connectionType,
+  configuration,
+  imageUrl: HF_IMAGE,
+  description: `Hiflux ${configuration} Needle Valve ${pn}, ${pressureRating}, ${material}, ${connectionSize} ${connectionType}, ${stem} stem${cv ? `, Cv ${cv}` : ''}${orifice ? `, orifice ${orifice} mm` : ''}.`,
+})
+
+const HF_SIZES = [
+  { psi: 20000, rating: '20,000 psi', size: '1/4"',  code: '04', conn: 'MP Cone & Thread', cv: '0.31', orifice: '3.2' },
+  { psi: 20000, rating: '20,000 psi', size: '3/8"',  code: '06', conn: 'MP Cone & Thread', cv: '0.75', orifice: '5.5' },
+  { psi: 20000, rating: '20,000 psi', size: '9/16"', code: '09', conn: 'MP Cone & Thread', cv: '1.3',  orifice: '7.9' },
+  { psi: 60000, rating: '60,000 psi', size: '1/4"',  code: '04', conn: 'HP Cone & Thread', cv: '0.08', orifice: '2' },
+  { psi: 60000, rating: '60,000 psi', size: '3/8"',  code: '06', conn: 'HP Cone & Thread', cv: '0.09', orifice: '2' },
+  { psi: 60000, rating: '60,000 psi', size: '9/16"', code: '09', conn: 'HP Cone & Thread', cv: '0.14', orifice: '2' },
+]
+const HF_STEMS  = [{ c: 'V', name: 'Vee' }, { c: 'R', name: 'Regulating' }]
+const HF_BODIES = [
+  { c: 'S', name: 'Straight' }, { c: 'A', name: 'Angle' },
+  { c: 'O', name: '3-Way (1-on)' }, { c: 'T', name: '3-Way (2-on)' },
+]
+
+const HIFLUX_HP_DATA: HPNeedleValveDTO[] = HF_BODIES.flatMap(b =>
+  HF_STEMS.flatMap(s =>
+    HF_SIZES.map(sz =>
+      mkHF(`H-NV${sz.psi / 1000}${s.c}S${sz.code}-${b.c}`, 'H-NV', sz.psi, sz.rating,
+        sz.size, sz.conn, b.name, s.name, sz.cv, sz.orifice, 'SS 316'),
+    ),
+  ),
+)
+
+const HIFLUX_HRS_DATA: HPNeedleValveDTO[] = [
+  mkHF('HRS-NV20VS04-S', 'HRS', 70, '70 MPa (H70)', '1/4"',  'MP Cone & Thread', 'Straight', 'Vee', '', '3.2', 'STS 316CW'),
+  mkHF('HRS-NV20VS06-S', 'HRS', 70, '70 MPa (H70)', '3/8"',  'MP Cone & Thread', 'Straight', 'Vee', '', '5.5', 'STS 316CW'),
+  mkHF('HRS-NV20VS09-S', 'HRS', 70, '70 MPa (H70)', '9/16"', 'MP Cone & Thread', 'Straight', 'Vee', '', '7.9', 'STS 316CW'),
+  mkHF('HRS-NV20VS12-S', 'HRS', 70, '70 MPa (H70)', '3/4"',  'MP Cone & Thread', 'Straight', 'Vee', '', '11',  'STS 316CW'),
+]
+
+export const HP_NEEDLE_VALVE_DATA: HPNeedleValveDTO[] = [
+  ...PANAM_NV_DATA,
+  ...HIFLUX_HP_DATA,
+  ...HIFLUX_HRS_DATA,
+]
+
 export const HP_NV_DESCRIPTION = {
-  title: 'High Pressure Needle Valves',
+  title: 'Needle Valves — High Pressure & Hydrogen',
   description:
-    'Panam HP Needle Valves in SS 316 across five pressure series — HP (10,000 psi), HP1 (15,000 psi), HP2 (20,000 psi), HP3 (30,000 psi), and HP6 (60,000 psi). NPT, MP Cone, and HP Cone thread connections. Straight, Angle, 3-Way, and 2-Stem Manifold configurations.',
+    'Panam and Hiflux needle valves for high-pressure and hydrogen service. Panam SS 316 valves span the HP–HP6 series (10,000–60,000 psi) in Straight, Angle, 3-Way and 2-Stem Manifold patterns; Hiflux adds Vee and Regulating stem valves to 60,000 psi plus H70 (70 MPa) hydrogen fuel-station valves.',
   specs: [
-    'HP · HP1 · HP2 · HP3 · HP6',
-    'SS 316',
-    '10,000 – 60,000 psi',
+    'Panam · Hiflux',
+    'SS 316 / STS 316CW',
+    '10,000 – 60,000 psi + H70',
     'NPT · MP Cone · HP Cone',
     'Straight · Angle · 3-Way · Manifold',
   ],

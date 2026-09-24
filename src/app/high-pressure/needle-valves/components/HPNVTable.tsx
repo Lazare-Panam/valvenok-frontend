@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Link from 'next/link'
 import {
   Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
   TablePagination, TableSortLabel, Collapse, Chip, Typography, Stack,
@@ -42,8 +43,8 @@ function HPNVRow({ row }: { row: HPNeedleValveDTO }) {
 
   const openQuote = () => setQuoteProduct({
     id: row.partNumber,
-    name: `HP Needle Valve — ${row.partNumber}`,
-    brand: 'Panam',
+    name: `${row.brand} Needle Valve — ${row.partNumber}`,
+    brand: row.brand,
     category: 'High Pressure Needle Valves',
     categoryId: 'hp-needle-valves',
     subCategory: `${row.series} Series`,
@@ -73,7 +74,18 @@ function HPNVRow({ row }: { row: HPNeedleValveDTO }) {
             {open ? <KeyboardArrowUpIcon fontSize="small" /> : <KeyboardArrowDownIcon fontSize="small" />}
           </IconButton>
         </TableCell>
-        <TableCell sx={{ fontFamily: 'monospace', fontWeight: 700, color: BRAND_GREEN, fontSize: '0.75rem', py: 1 }}>{row.partNumber}</TableCell>
+        <TableCell sx={{ py: 1 }}>
+          <Box component={Link} href={`/high-pressure/needle-valves/products/${row.id}`} onClick={e => e.stopPropagation()}
+            sx={{ fontFamily: 'monospace', fontWeight: 700, color: BRAND_GREEN, fontSize: '0.75rem', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>
+            {row.partNumber}
+          </Box>
+        </TableCell>
+        <TableCell sx={{ py: 1 }}>
+          <Chip label={row.brand} size="small"
+            sx={{ fontSize: '0.65rem', fontWeight: 700,
+              bgcolor: row.brand === 'Hiflux' ? alpha('#1976d2', 0.12) : alpha(BRAND_GREEN, 0.12),
+              color: row.brand === 'Hiflux' ? '#1976d2' : '#2d8a1e' }} />
+        </TableCell>
         <TableCell sx={{ py: 1 }}>
           <Chip label={row.series} size="small" variant="outlined"
             sx={{ fontSize: '0.65rem', fontWeight: 700, borderColor: color, color }} />
@@ -96,7 +108,7 @@ function HPNVRow({ row }: { row: HPNeedleValveDTO }) {
 
       {open && (
         <TableRow>
-          <TableCell colSpan={8} sx={{ p: 0, borderBottom: 'none' }}>
+          <TableCell colSpan={9} sx={{ p: 0, borderBottom: 'none' }}>
             <Collapse in unmountOnExit>
               <Box sx={{ p: 3, bgcolor: alpha(BRAND_GREEN, 0.02), borderLeft: `4px solid ${BRAND_GREEN}`, borderBottom: '1px solid rgba(0,0,0,0.08)' }}>
                 <Stack direction={{ xs: 'column', md: 'row' }} spacing={4} alignItems="flex-start">
@@ -139,7 +151,7 @@ function HPNVRow({ row }: { row: HPNeedleValveDTO }) {
   )
 }
 
-type SortKey = 'partNumber' | 'series' | 'pressureRating' | 'connectionSize' | 'connectionType' | 'configuration'
+type SortKey = 'partNumber' | 'brand' | 'series' | 'pressureRating' | 'connectionSize' | 'connectionType' | 'configuration'
 
 export default function HPNVTable({ models, filters, setFilters, availableCounts, activeCount }: {
   models: HPNeedleValveDTO[]
@@ -193,6 +205,7 @@ export default function HPNVTable({ models, filters, setFilters, availableCounts
                 <TableCell sx={{ ...headerSx, width: 40 }} />
                 {([
                   { key: 'partNumber' as SortKey,    label: 'Part Number' },
+                  { key: 'brand' as SortKey,          label: 'Brand' },
                   { key: 'series' as SortKey,         label: 'Series' },
                   { key: 'pressureRating' as SortKey, label: 'Pressure' },
                   { key: 'connectionSize' as SortKey, label: 'Size' },
@@ -210,7 +223,7 @@ export default function HPNVTable({ models, filters, setFilters, availableCounts
             </TableHead>
             <TableBody>
               {paginated.length === 0
-                ? <TableRow><TableCell colSpan={8} align="center" sx={{ py: 6 }}><Typography variant="body2" color="text.secondary" fontFamily={PRIMARY_FONT}>No valves found.</Typography></TableCell></TableRow>
+                ? <TableRow><TableCell colSpan={9} align="center" sx={{ py: 6 }}><Typography variant="body2" color="text.secondary" fontFamily={PRIMARY_FONT}>No valves found.</Typography></TableCell></TableRow>
                 : paginated.map(row => <HPNVRow key={row.id} row={row} />)
               }
             </TableBody>

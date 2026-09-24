@@ -11,6 +11,7 @@ interface Props {
 export function HPNVActiveFilters({ filters, setFilters }: Props) {
   const chips: { key: keyof HPNeedleValveFilters; label: string; value: string }[] = []
 
+  filters.brands.forEach(v => chips.push({ key: 'brands', label: `Brand: ${v}`, value: v }))
   filters.series.forEach(v => chips.push({ key: 'series', label: `Series: ${v}`, value: v }))
   filters.pressureRatings.forEach(v => chips.push({ key: 'pressureRatings', label: v, value: v }))
   filters.connectionSizes.forEach(v => chips.push({ key: 'connectionSizes', label: `Size: ${v}`, value: v }))
