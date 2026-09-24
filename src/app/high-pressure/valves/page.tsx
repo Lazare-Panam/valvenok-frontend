@@ -42,6 +42,56 @@ const VALVE_CATEGORIES: Category[] = [
     href: "/high-pressure/valves/ball-valves",
     image: "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure/hp-bv.jpg",
   },
+  {
+    code: "GAS",
+    title: "Gas & Cylinder Valves",
+    subtitle: "Youngdo — Hydrogen · LPG · Industrial Gas",
+    description:
+      "Youngdo hydrogen, LPG and industrial gas cylinder valves in one filterable grid — 81 models to 70 MPa across cylinder, OPD, piping, tapered, unified, non-return, acetylene, chlorine and tube-trailer categories. KGS, EC79, CGA, BS 341 and ISO certified.",
+    specs: [
+      "Youngdo",
+      "70 MPa Max",
+      "81 Models",
+      "H₂ · LPG · Industrial Gas",
+      "KGS · CGA · ISO",
+    ],
+    applications: "Hydrogen, LPG & Industrial Gas Cylinders",
+    href: "/high-pressure/valves/gas-valves",
+    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/HE-700.png",
+  },
+  {
+    code: "CV",
+    title: "Check Valves",
+    subtitle: "Hiflux — High Pressure Anti-Backflow",
+    description:
+      "Hiflux high-pressure check valves — ball-seal and O-ring-seal types in STS 316 from 10,000 to 100,000 psi. One-directional flow prevention with cone-and-thread connections.",
+    specs: ["Hiflux", "10,000 – 100,000 psi", "Ball · O-Ring Seal", "STS 316", "Cone & Thread"],
+    applications: "Backflow Prevention, Hydrogen, High Pressure Systems",
+    href: "/high-pressure/valves/check-valves",
+    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/check-valve.png",
+  },
+  {
+    code: "AOV",
+    title: "Air Operated Valves",
+    subtitle: "Hiflux — Pneumatic Remote Control",
+    description:
+      "Hiflux pneumatically actuated valves — normally-open and normally-closed in STS 316 from 10,000 to 60,000 psi. Straight, angle and 3-way patterns for automated remote control.",
+    specs: ["Hiflux", "10,000 – 60,000 psi", "Normal Open · Closed", "STS 316", "Straight · Angle · 3-Way"],
+    applications: "Automated Shut-off, Remote Control, Hydrogen",
+    href: "/high-pressure/valves/aov",
+    image: "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/air-operated-valve.png",
+  },
+  {
+    code: "DBB",
+    title: "Double Block & Bleed",
+    subtitle: "Panam — High Pressure Isolation + Bleed",
+    description:
+      "Panam HP double block & bleed valves in SS 316 to 20,000 psi — Ball-Needle-Ball and Needle-Needle configurations with integral bleed and NPT or MP Cone & Thread connections.",
+    specs: ["Panam", "15,000 & 20,000 psi", "BNB · NN", "SS 316", "NPT · MP Cone"],
+    applications: "Instrument Isolation, Transmitter Hook-up, High Pressure Bleed",
+    href: "/high-pressure/valves/dbb-valves",
+    image: "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure/hp-dbb.jpg",
+  },
 ];
 
 const TRUST_POINTS = [

@@ -43,46 +43,7 @@ export const NAV_GROUPS: NavGroup[] = [
         header: "Hydrogen Valves",
         href: "/high-pressure/valves",
         items: [
-          {
-            label: "Cryogenic Valves",
-            href: "/hydrogen-cryogenic/valves",
-            children: [
-              {
-                label: "View All Products",
-                href: "/hydrogen-cryogenic/valves/products",
-              },
-            ],
-          },
-          {
-            label: "Hydrogen Cylinder Valves",
-            href: "/hydrogen-cryogenic/hydrogen",
-            children: [
-              {
-                label: "View All Products",
-                href: "/hydrogen-cryogenic/hydrogen/products",
-              },
-            ],
-          },
-          {
-            label: "LPG Cylinder Valves",
-            href: "/hydrogen-cryogenic/lpg",
-            children: [
-              {
-                label: "View All Products",
-                href: "/hydrogen-cryogenic/lpg/products",
-              },
-            ],
-          },
-          {
-            label: "Industrial Gas Valves",
-            href: "/hydrogen-cryogenic/industrial-gas",
-            children: [
-              {
-                label: "View All Products",
-                href: "/hydrogen-cryogenic/industrial-gas/products",
-              },
-            ],
-          },
+         
           {
             label: "Needle Valves",
             href: "/high-pressure/valves/needle-valves",
@@ -97,7 +58,28 @@ export const NAV_GROUPS: NavGroup[] = [
               { label: "View All Products", href: "/high-pressure/valves/ball-valves/products" },
             ],
           },
-          { label: "DBB Valves", href: "/high-pressure/dbb" },
+          {
+            label: "Check Valves",
+            href: "/high-pressure/valves/check-valves",
+            children: [
+              { label: "View All Products", href: "/high-pressure/valves/check-valves/products" },
+            ],
+          },
+          {
+            label: "Air Operated Valves",
+            href: "/high-pressure/valves/aov",
+            children: [
+              { label: "View All Products", href: "/high-pressure/valves/aov/products" },
+            ],
+          },
+          {
+            label: "DBB Valves",
+            href: "/high-pressure/valves/dbb-valves",
+            children: [
+              { label: "View All Products", href: "/high-pressure/valves/dbb-valves/products" },
+            ],
+          },
+          { label: "Gas & Cylinder Valves", href: "/high-pressure/valves/gas-valves" },
         ],
       },
       {

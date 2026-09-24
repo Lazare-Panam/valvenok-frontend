@@ -74,65 +74,23 @@ const HYDROGEN_CRYOGENIC_SERIES: Category[] = [
       "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/logo.png",
   },
   {
-    code: "H2",
-    title: "Hydrogen Cylinder Valves",
-    subtitle: "High-Pressure Hydrogen Service — Up to 70 MPa",
+    code: "YGD",
+    title: "Gas & Cylinder Valves",
+    subtitle: "Hydrogen · LPG · Industrial Gas — Youngdo",
     description:
-      "Youngdo high-pressure hydrogen cylinder valves across 13 models — HC, HE, HK, HS, HSL, EP, DRV, YHT and YEX series. Working pressures from 35–70 MPa with KGS, EC79, R134 and IECEx certification for hydrogen storage, refuelling stations and cylinder distribution.",
+      "The complete Youngdo range in one filterable grid — hydrogen cylinder valves to 70 MPa, LPG cylinder / OPD / piping valves, and industrial gas cylinder valves across tapered, unified, non-return, acetylene, chlorine/ammonia, tube trailer and piping categories. Filter by gas type, category, series and certification.",
     specs: [
       "70 MPa Max Working Pressure",
-      "KGS · EC79 · R134",
-      "IECEx Explosion-Proof",
-      "13 Models",
-      "H₂ Service",
+      "KGS · EC79 · R134 · CGA",
+      "BS 341 · ISO 10297",
+      "81 Models",
+      "H₂ · LPG · Industrial Gas",
     ],
     applications:
-      "Hydrogen Storage, Refuelling Stations, Cylinder Distribution, Hazardous Areas",
-    href: "/hydrogen-cryogenic/hydrogen",
+      "Hydrogen Storage & Refuelling, LPG Distribution, Industrial Gas Cylinders",
+    href: "/high-pressure/valves/gas-valves",
     image:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/HE-700.png",
-    logoUrl:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/top_logo.png",
-  },
-  {
-    code: "LPG",
-    title: "LPG Cylinder Valves",
-    subtitle: "LPG Cylinder, OPD & Piping Connection Valves",
-    description:
-      "Youngdo LPG cylinder valves, overfilling prevention devices and piping connection valves across 20 models — YLC, MT, YBC, OPD, YLG and YPC series. KGS, KS, CGA V-1 and UL certified for global LPG cylinder and distribution applications.",
-    specs: [
-      "2.43 MPa Max Pressure",
-      "KGS · KS · CGA V-1",
-      "UL 2227",
-      "20 Models",
-      "LPG Service",
-    ],
-    applications:
-      "LPG Cylinder Filling, Storage Tanks, Piping Distribution, OPD Safety",
-    href: "/hydrogen-cryogenic/lpg",
-    image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/YLC-2821.png",
-    logoUrl:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/top_logo.png",
-  },
-  {
-    code: "IGV",
-    title: "Industrial Gas Valves",
-    subtitle: "Tapered, Unified, Acetylene, Chlorine & More",
-    description:
-      "Youngdo industrial gas cylinder valves across 7 categories — tapered and unified inlet thread valves, non return valves, acetylene, chlorine/ammonia, tube trailer and piping connection valves. KGS, KS, CGA V-1, BS 341 and ISO certified for global industrial gas applications.",
-    specs: [
-      "25 MPa Max Pressure",
-      "KGS · KS · CGA V-1",
-      "BS 341 · ISO 10297",
-      "7 Categories",
-      "Industrial Gas Service",
-    ],
-    applications:
-      "Industrial Gas Cylinders, Acetylene, Chlorine, Ammonia, Tube Trailers, Piping Distribution",
-    href: "/hydrogen-cryogenic/industrial-gas",
-    image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/YOC-2820.png",
     logoUrl:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/top_logo.png",
   },
