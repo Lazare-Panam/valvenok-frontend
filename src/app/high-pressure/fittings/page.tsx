@@ -23,12 +23,14 @@ const BRANDS = [
   {
     name: 'Panam',
     logo: 'https://pblol2.blob.core.windows.net/panam-images/panam-resize_smallest.jpg',
+    href: '/high-pressure/fittings/products?brand=Panam',
     count: panamCount,
     blurb: 'SS 316 cone & thread fittings from 10,000 to 60,000 psi — adapters, reducers, male & female connectors, elbows, tees, crosses, hex nipples, unions, reducing & bulkhead unions, caps and plugs with NPT, MP and HP cone connections.',
   },
   {
     name: 'Hiflux',
     logo: 'https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/logo.png',
+    href: '/high-pressure/fittings/products?brand=Hiflux',
     count: hifluxCount,
     blurb: 'STS 316 cold-formed cone & thread fittings and dedicated accessories to 150,000 psi — elbows, tees, crosses plus glands, sleeves, collars, collets and plugs, including anti-vibration variants for high-vibration service.',
   },
@@ -79,9 +81,18 @@ export default function HighPressureFittingsLanding() {
           <Grid container spacing={3}>
             {BRANDS.map(b => (
               <Grid size={{ xs: 12, md: 6 }} key={b.name}>
-                <Paper variant="outlined" sx={{ p: 4, borderRadius: 2, height: '100%' }}>
+                <Paper
+                  variant="outlined"
+                  component={Link}
+                  href={b.href}
+                  sx={{
+                    p: 4, borderRadius: 2, height: '100%', display: 'block',
+                    textDecoration: 'none', color: 'inherit', transition: 'border-color .15s, box-shadow .15s',
+                    '&:hover': { borderColor: ACCENT, boxShadow: '0 4px 16px rgba(0,0,0,0.08)' },
+                  }}
+                >
                   <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-                    <Box component="img" src={b.logo} alt={b.name} sx={{ maxHeight: 40, maxWidth: 140, objectFit: 'contain' }} />
+                    <Box component="img" src={b.logo} alt={`${b.name} — view ${b.name} fittings`} sx={{ maxHeight: 40, maxWidth: 140, objectFit: 'contain', cursor: 'pointer' }} />
                     <Chip label={`${b.count} fittings`} sx={{ bgcolor: ACCENT, color: '#fff', fontWeight: 700 }} />
                   </Box>
                   <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>{b.blurb}</Typography>

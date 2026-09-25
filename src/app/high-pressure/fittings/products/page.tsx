@@ -1,6 +1,7 @@
 'use client'
-import { useState, useMemo } from 'react'
+import { Suspense, useState, useMemo } from 'react'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import { Box, Typography, Button } from '@mui/material'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import {
@@ -13,9 +14,16 @@ import FittingsTable from '../components/FittingsTable'
 
 const BRAND_GREEN = '#61D649'
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
+const VALID_BRANDS = ['Panam', 'Hiflux']
 
-export default function HPFittingsProductsPage() {
-  const [filters, setFilters] = useState<FittingFilters>(EMPTY_FITTING_FILTERS)
+function HPFittingsProductsInner() {
+  const searchParams = useSearchParams()
+  const brandParam = searchParams.get('brand')
+  const [filters, setFilters] = useState<FittingFilters>(
+    brandParam && VALID_BRANDS.includes(brandParam)
+      ? { ...EMPTY_FITTING_FILTERS, brands: [brandParam] }
+      : EMPTY_FITTING_FILTERS,
+  )
 
   const models = useMemo(() => applyFilters(HP_FITTINGS_DATA, filters, ''), [filters])
 
@@ -59,5 +67,13 @@ export default function HPFittingsProductsPage() {
         />
       </Box>
     </Box>
+  )
+}
+
+export default function HPFittingsProductsPage() {
+  return (
+    <Suspense fallback={null}>
+      <HPFittingsProductsInner />
+    </Suspense>
   )
 }

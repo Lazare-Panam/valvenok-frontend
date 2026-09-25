@@ -36,7 +36,7 @@ export const NAV_LINKS: NavLink[] = [
 export const NAV_GROUPS: NavGroup[] = [
   {
     id: "hydrogen-cryogenic",
-    label: "Hydrogen & Cryogenic",
+    label: "Hydrogen & Tubing",
     href: "/hydrogen-cryogenic",
     columns: [
       {
@@ -86,59 +86,12 @@ export const NAV_GROUPS: NavGroup[] = [
         header: "Hydrogen Fittings",
         href: "/high-pressure",
         items: [
-          {
-            label: "Fittings",
-            href: "/hydrogen-cryogenic/fittings",
-            children: [
-              {
-                label: "View All Products",
-                href: "/hydrogen-cryogenic/fittings/products",
-              },
-            ],
-          },
+          
           {
             label: "High Pressure Fittings",
             href: "/high-pressure/fittings",
-            children: [
-              {
-                label: "View All Fittings",
-                href: "/high-pressure/fittings/products",
-              },
-            ],
           },
-          {
-            label: "High Pressure Pipe Fittings",
-            href: "/high-pressure/pipe-fittings",
-            children: [
-              {
-                label: "Hex Couplings",
-                href: "/high-pressure/pipe-fittings/hex-coupling",
-              },
-              {
-                label: "Hex Nipples",
-                href: "/high-pressure/pipe-fittings/hex-nipples",
-              },
-              {
-                label: "Adapters",
-                href: "/high-pressure/pipe-fittings/adapters",
-              },
-              { label: "Elbows", href: "/high-pressure/pipe-fittings/elbows" },
-              {
-                label: "Plugs & Caps",
-                href: "/high-pressure/pipe-fittings/end-connections",
-              },
-              {
-                label: "Tees & Crosses",
-                href: "/high-pressure/pipe-fittings/tees-cross",
-              },
-            ],
-          },
-          { label: "Manifolds", href: "/high-pressure/manifolds" },
-          { label: "Seals & Glands", href: "/high-pressure/seals-glands" },
-          {
-            label: "Cone & Thread Nipples",
-            href: "/high-pressure/cone-threaded-nipples",
-          },
+          
         ],
       },
       {
@@ -416,14 +369,14 @@ export const NAV_GROUPS: NavGroup[] = [
         ],
       },
       {
-        header: "Quick Coupling & Tubing",
+        header: "Quick Coupling",
         href: "/quick-coupling-and-hoses",
         items: [
           {
             label: "Quick Coupling",
             href: "/quick-coupling-and-hoses/quick-coupling",
           },
-          { label: "SS Tubing", href: "/fittings-tubing/tubing" },
+         
         ],
       },
       {
