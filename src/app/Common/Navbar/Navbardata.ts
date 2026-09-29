@@ -409,46 +409,5 @@ export const NAV_GROUPS: NavGroup[] = [
       },
     ],
   },
-  {
-    id: "mechanical",
-    label: "Pumps & Seals",
-    href: "/pumps-seals",
-    columns: [
-      {
-        header: "Pumps & Seals",
-        href: "/pumps-seals",
-        items: [
-          {
-            label: "Electronic Control Pump",
-            href: "/pumps-seals/pumps/electronic-control-pump",
-          },
-          {
-            label: "Automatic Booster Pump",
-            href: "/pumps-seals/pumps/automatic-booster-pump",
-          },
-          {
-            label: "Multistage Centrifugal Pump",
-            href: "/pumps-seals/pumps/multistage-centrifugal-pump",
-          },
-          {
-            label: "Direct Water Pump",
-            href: "/pumps-seals/pumps/direct-water-pump",
-          },
-          {
-            label: "Submersible Pump",
-            href: "/pumps-seals/pumps/submersible-pump",
-          },
-          {
-            label: "Hot Water Pump",
-            href: "/pumps-seals/pumps/hot-water-pump",
-          },
-          {
-            label: "Immersible Pump",
-            href: "/pumps-seals/pumps/immersible-pump",
-          },
-          { label: "Seals", href: "/pumps-seals/seals" },
-        ],
-      },
-    ],
-  },
+ 
 ];
