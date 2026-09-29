@@ -16,20 +16,20 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // ── CONFIGURATION (Updated with custom btnText) ──────────────────────────────
 const SLIDES = [
-  {
-    id: 1,
-    duration: 12000,
-    image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/certfiicates/walurs-pumps-banner.webp",
-    upperTag: "AUTHORIZED DISTRIBUTOR",
-    title: "TAIWAN PRECISION",
-    accent: "DIRECTLY TO YOU ",
-    description:
-      "As an authorized distributor of Taiwan's leading valve manufacturers, Valvenok brings you precision-engineered solutions — directly, without the middleman. From safety relief to control valves, subsea systems to nuclear-grade components, our curated portfolio of 32 world-class brands delivers the certifications and engineering pedigree your projects demand. One trusted source. Zero compromise.",
-    href: "/brands",
-    btnText: "View Our Brands",
-    alt: "Global engineering brand logos and components",
-  },
+  // {
+  //   id: 1,
+  //   duration: 12000,
+  //   image:
+  //     "https://pblol2.blob.core.windows.net/valvenok-images/certfiicates/walurs-pumps-banner.webp",
+  //   upperTag: "AUTHORIZED DISTRIBUTOR",
+  //   title: "TAIWAN PRECISION",
+  //   accent: "DIRECTLY TO YOU ",
+  //   description:
+  //     "As an authorized distributor of Taiwan's leading valve manufacturers, Valvenok brings you precision-engineered solutions — directly, without the middleman. From safety relief to control valves, subsea systems to nuclear-grade components, our curated portfolio of 32 world-class brands delivers the certifications and engineering pedigree your projects demand. One trusted source. Zero compromise.",
+  //   href: "/brands",
+  //   btnText: "View Our Brands",
+  //   alt: "Global engineering brand logos and components",
+  // },
   {
     id: 2,
     duration: 8000,
