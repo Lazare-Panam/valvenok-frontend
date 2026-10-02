@@ -102,10 +102,10 @@ const BUTTERFLY_VALVE_SERIES: Category[] = [
   },
   {
     code: "VF-7",
-    title: "VF-7 Series Centric Butterfly Valve",
+    title: "VF-7 Series Concentric Butterfly Valve",
     subtitle: 'Centric Butterfly Valves — DN40–DN1800 (1½"–72")',
     description:
-      "Value Valves VF-7 Series centric butterfly valves. Wafer, lug and flanged end connections across DN40–DN1800. Bi-directional bubble tight shutoff, soft seat design, NSF61 & NSF 372 certified, ATEX approved and ABS certified for shipbuilding. Designed per API 609, ASME B16.34 and ISO 5208.",
+      "Value Valves VF-7 Series concentric butterfly valves. Wafer, lug and flanged end connections across DN40–DN1800. Bi-directional bubble tight shutoff, soft seat design, NSF61 & NSF 372 certified, ATEX approved and ABS certified for shipbuilding. Designed per API 609, ASME B16.34 and ISO 5208.",
     specs: [
       'DN40–DN1800 (1½"–72")',
       "10 bar (STD) / 16 bar (OPT)",
