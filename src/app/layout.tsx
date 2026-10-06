@@ -64,6 +64,11 @@ export default function RootLayout({
     >
       <head>
         <script
+          data-cfasync="false"
+          type="text/javascript"
+          src="https://cdn.seoplatform.io/injector.js?websiteId=28073"
+        />
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
@@ -84,11 +89,7 @@ export default function RootLayout({
           }}
         />
         {/* This script will be placed before the closing </head> tag */}
-        {/* <script
-          data-cfasync="false"
-          type="text/javascript"
-          src="https://cdn.seoplatform.io/injector.js?websiteId=28073"
-        /> */}
+
         <script
           type="text/javascript"
           dangerouslySetInnerHTML={{
