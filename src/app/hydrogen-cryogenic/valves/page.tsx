@@ -30,16 +30,16 @@ const HIFLUX_PRODUCT: ProductForRFQ = {
     "Hiflux high pressure valves rated up to 150,000 psi — check, needle, ball, air operated, safety and special valves for industrial, hydrogen and wellhead applications.",
   keySpecs: [
     { label: "Max Pressure", value: "~150,000 psi" },
-    { label: "Certifications", value: "KC, KGS" },
+    { label: "Certifications", value: "KC, KGS (selected models)" },
     { label: "Types", value: "Check, Needle, Ball, AOV, Safety, Special" },
     { label: "Service", value: "Industrial, Hydrogen, Wellhead" },
   ],
-  variantInfo: { count: 56, sizeRange: "3,000–150,000 psi" },
+  variantInfo: { count: 54, sizeRange: "3,000–150,000 psi" },
 };
 
 const TECH_SPECS = [
   { label: "Max Working Pressure", value: "~150,000 psi (Needle Valve)" },
-  { label: "Min Working Pressure", value: "~3,000 psi" },
+  { label: "Lowest Rated Models", value: "~3,000 psi (pipe needle & control valves)" },
   { label: "Check Valve Range", value: "~15,000 – 100,000 psi" },
   { label: "Needle Valve Range", value: "~15,000 – 150,000 psi" },
   { label: "Ball Valve Range", value: "~15,000 – 20,000 psi" },
@@ -47,9 +47,9 @@ const TECH_SPECS = [
   { label: "Safety / Relief Valve Range", value: "1,000 – 60,000 psi" },
   { label: "Rupture Disc Range", value: "~11,500 – 60,000 psi" },
   { label: "Special Valve Range", value: "~3,000 – 30,000 psi" },
-  { label: "Connection Types", value: "PT Female, NPT Female, UNF, Quick-On" },
-  { label: "Certifications", value: "KC, KGS" },
-  { label: "Total Models", value: "56 Models across 6 valve categories" },
+  { label: "Connection Types", value: "PT Female, NPT Female, UNF, Pipe" },
+  { label: "Certifications", value: "KC, KGS — varies by model" },
+  { label: "Total Models", value: "54 Models across 6 valve categories" },
 ];
 
 const FEATURES = [
@@ -60,13 +60,13 @@ const FEATURES = [
   },
   {
     letter: "B",
-    title: "KC & KGS Certified",
-    body: "Full Korean Certificate and KGS certification across the safety and relief valve range.",
+    title: "KC & KGS Certified Models",
+    body: "KC-certified proportional gas relief valves and a KGS-certified hydrogen refuelling needle valve. Certification varies by model — please confirm when requesting a quote.",
   },
   {
     letter: "C",
     title: "Check Valve Range",
-    body: "Six check valve models from 15,000 to 100,000 psi with PT and NPT female connections.",
+    body: "Six check valve models from 15,000 to 100,000 psi with PT female, NPT female and UNF connections.",
   },
   {
     letter: "D",
@@ -90,8 +90,8 @@ const FEATURES = [
   },
   {
     letter: "H",
-    title: "Hydrogen Compatible",
-    body: "KGS-certified hydrogen refueling system needle valves for H₂ station infrastructure.",
+    title: "Hydrogen Refuelling",
+    body: "KGS-certified hydrogen refuelling system needle valve for H₂ station infrastructure.",
   },
   {
     letter: "I",
@@ -110,17 +110,16 @@ const FEATURES = [
   },
   {
     letter: "L",
-    title: "56 Model Range",
+    title: "54 Model Range",
     body: "Comprehensive catalogue covering every high pressure valve need from standard check valves to ultra high pressure needle valves.",
   },
 ];
 
 const CERTIFICATIONS = [
-  "KC Certified",
-  "KGS Approved",
-  "H₂ Compatible",
+  "KC / KGS on selected models",
+  "H₂ Refuelling Needle Valve",
   "150,000 psi Max",
-  "56 Models",
+  "54 Models",
 ];
 
 export default function HifluxValvesPage() {
@@ -214,10 +213,10 @@ export default function HifluxValvesPage() {
                 sx={{ color: "text.secondary", mb: 3, lineHeight: 1.8 }}
               >
                 Hiflux manufactures a comprehensive range of high pressure
-                valves rated up to 150,000 psi. 56 models across check, needle,
-                ball, air operated, safety and special valve categories — KC and
-                KGS certified for industrial, hydrogen and wellhead applications
-                worldwide.
+                valves rated up to 150,000 psi. 54 models across check, needle,
+                ball, air operated, safety and special valve categories for
+                industrial, hydrogen and wellhead applications. Certification
+                varies by model — please confirm when requesting a quote.
               </Typography>
 
               <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mb: 4 }}>
@@ -246,8 +245,8 @@ export default function HifluxValvesPage() {
               >
                 {[
                   { label: "Max Pressure", value: "150,000 psi" },
-                  { label: "Models", value: "56 Products" },
-                  { label: "Certifications", value: "KC · KGS" },
+                  { label: "Models", value: "54 Products" },
+                  { label: "Certifications", value: "KC · KGS (by model)" },
                   { label: "Service", value: "Industrial · H₂ · Wellhead" },
                 ].map(({ label, value }) => (
                   <Box key={label}>

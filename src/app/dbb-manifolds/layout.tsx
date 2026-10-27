@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 const TITLE = "Isolation & Manifold Valves | Valvenok";
 const DESCRIPTION =
-  "DBB valves and valve manifolds, ANSI 150-2500, NACE MR-0175 sour gas certified.";
+  "DBB valves and valve manifolds, ANSI 150-2500, NACE MR-0175 sour gas option.";
 const IMAGE =
   "https://pblol2.blob.core.windows.net/panam-images/products/DBB/dbb-cover.jpg";
 
@@ -18,8 +18,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: TITLE,
-    description: DESCRIPTION,
     images: [IMAGE],
   },
 };

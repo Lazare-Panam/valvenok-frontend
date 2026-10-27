@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 const TITLE = "Hydrogen Cylinder Valve Models | Valvenok";
 const DESCRIPTION =
-  "13 Youngdo hydrogen cylinder valve models, 3-70 MPa, KGS, EC79, R134 and IECEx certified.";
+  "13 Youngdo hydrogen cylinder valve models, 3-70 MPa. Certification (KGS, EC79, R134, IECEx and others) varies by model.";
 const IMAGE =
   "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/top_logo.png";
 

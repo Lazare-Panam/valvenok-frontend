@@ -7,9 +7,9 @@ import Grid from '@mui/material/Grid';
 import { alpha } from '@mui/material/styles';
 
 const STATS = [
-  { value: '5,000+', label: 'Products in Stock' },
-  { value: '2–3',    label: 'Day UK Dispatch' },
-  { value: '6,000',  label: 'PSI Max Rating' },
+  { value: 'UK',     label: 'Based Supplier' },
+  { value: '25+',    label: 'Brands Distributed' },
+  { value: 'High',   label: 'Pressure Ratings Vary by Product' },
   { value: 'SS316',  label: 'Primary Material' },
   { value: 'JOSCAR', label: 'Registered Supplier' },
   { value: 'H₂',     label: 'Hydrogen Ready' },

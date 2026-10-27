@@ -63,8 +63,8 @@ export default function ButterflyValvePage() {
     },
     {
       num: "04",
-      title: "UK Stock Check and Dispatch Planning",
-      body: "With UK stock available and global dispatch capability, Valvenok can often support compressed project schedules and retrofit windows. Lead times and shipment options are communicated clearly for every line item.",
+      title: "Availability and Delivery Planning",
+      body: "Lead times and shipment options are confirmed for every line item on the quotation, so you can plan around project schedules and retrofit windows.",
     },
   ];
 
@@ -79,7 +79,7 @@ export default function ButterflyValvePage() {
     },
     {
       q: "Can Valvenok help with a pneumatic actuator butterfly valve system in the UK?",
-      a: "Yes. Valvenok can support pneumatic actuator butterfly valve systems with air headers, isolation valves, filters, relief valves, and the necessary stainless steel tubing and fittings. UK stock on many of these items allows rapid build-out of actuator control circuits.",
+      a: "Yes. Valvenok can support pneumatic actuator butterfly valve systems with air headers, isolation valves, filters, relief valves, and the necessary stainless steel tubing and fittings. Lead times for these items are confirmed on quotation.",
     },
     {
       q: "What information should I provide for a butterfly valve and instrumentation enquiry?",
@@ -99,7 +99,7 @@ export default function ButterflyValvePage() {
     },
     {
       q: "How quickly can Valvenok respond to a butterfly valve enquiry?",
-      a: "Valvenok aims to respond within 24 hours to specification or bill-of-material enquiries, including those that involve butterfly valve circuits. UK stock availability and global dispatch capabilities allow the team to align proposals with project schedules and required-on-site dates.",
+      a: "Valvenok aims to respond within 24 hours to specification or bill-of-material enquiries, including those that involve butterfly valve circuits. Lead times are confirmed on the quotation so proposals can be aligned with project schedules and required-on-site dates.",
     },
   ];
 
@@ -197,7 +197,7 @@ export default function ButterflyValvePage() {
               "Butterfly valves are widely used for quarter-turn shut-off and throttling in oil & gas, power, petrochemical, and hydrogen applications.",
               "The reliability of any butterfly valve installation depends on the surrounding instrumentation — manifolds, needle valves, fittings, filters, and air headers.",
               "Valvenok supplies the complete instrumentation layer around butterfly valve installations, from triple offset to pneumatically actuated variants.",
-              "UK stock available for immediate shipment on core instrumentation valves, manifolds, fittings, and accessories.",
+              "Lead times for instrumentation valves, manifolds, fittings and accessories are confirmed on every quotation.",
               "Full heat-code material traceability and NACE MR0175 available — documentation-ready support for critical projects.",
             ].map((text, i) => (
               <Grid key={i} size={{ xs: 12, sm: 6 }}>
@@ -239,8 +239,7 @@ export default function ButterflyValvePage() {
             high-integrity valves, manifolds, fittings, and auxiliaries that
             integrate seamlessly around any butterfly valve installation,
             whether for on/off isolation, flow control, or emergency shutdown.
-            With UK stock available and global dispatch capability, the
-            engineering team typically responds within 24 hours.
+            The UK-based engineering team typically responds within 24 hours.
           </Typography>
 
           {/* HERO IMAGE */}

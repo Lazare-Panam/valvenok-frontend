@@ -188,7 +188,7 @@ export default function ManufacturerSpotlightPage() {
                     variant="subtitle2"
                     sx={{ fontWeight: 700, textTransform: "uppercase" }}
                   >
-                    Kanchan
+                    Kanchan Rajput
                   </Typography>
                 </Stack>
                 <Stack direction="row" alignItems="center" spacing={1}>

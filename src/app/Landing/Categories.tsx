@@ -84,7 +84,7 @@ const CATEGORIES = [
     count: "80+",
     subs: [
       { name: "Sight Glass", href: "/filters-sight-glass/sight-glass" },
-      { name: "Filtration", href: "/filters-sight-glass/filteration" },
+      { name: "Filtration", href: "/filters-sight-glass/filtration" },
     ],
   },
 
@@ -278,6 +278,7 @@ export default function Categories() {
 
                     <Typography
                       variant="h1"
+                      component="h3"
                       sx={{
                         fontFamily: '"Barlow Condensed", sans-serif',
                         fontSize: isFeatured ? "1.8rem" : "1.2rem",

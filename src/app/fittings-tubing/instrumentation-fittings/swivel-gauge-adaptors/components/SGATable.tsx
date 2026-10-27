@@ -166,9 +166,9 @@ export default function SGATable({ models, filters, setFilters, availableCounts,
                   { key: 'inlet' as SortKey,       label: 'P1 Inlet' },
                   { key: 'outlet' as SortKey,      label: 'P2 Outlet' },
                   { key: 'length' as SortKey,      label: 'L (mm)' },
-                  { key: null,                      label: 'W' },
-                  { key: null,                      label: 'N – A/F' },
-                  { key: null,                      label: 'C – A/F' },
+                  { key: null,                      label: 'W – Width (in)' },
+                  { key: null,                      label: 'Nut A/F (in)' },
+                  { key: null,                      label: 'Cap A/F (in)' },
                   { key: null,                      label: 'Quote' },
                 ]).map((h, i) => (
                   <TableCell key={i} sx={headerSx}>

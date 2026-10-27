@@ -34,6 +34,8 @@ export const WELD_FITTING_TYPE_LABELS: Record<string, string> = {
   UT:  'Union Tee',
   MRT: 'Male Run Tee',
   MBT: 'Male Branch Tee',
+  PMRT: 'Male Run Tee',
+  PMBT: 'Male Branch Tee',
   UC:  'Union Cross',
   WA:  'Weld Adaptor',
 }

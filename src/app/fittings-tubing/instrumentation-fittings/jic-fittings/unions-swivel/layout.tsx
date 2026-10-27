@@ -1,26 +1,12 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/src/app/Common/seo";
 
-const TITLE = "JIC Unions & Swivels | Valvenok";
-const DESCRIPTION =
-  "SS316 37° JIC union and swivel fittings for hydraulic and instrumentation lines.";
-const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
-
-export const metadata: Metadata = {
-  title: { absolute: TITLE },
-  description: DESCRIPTION,
-  openGraph: {
-    title: TITLE,
-    description: DESCRIPTION,
-    type: "website",
-    images: [IMAGE],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: TITLE,
-    description: DESCRIPTION,
-    images: [IMAGE],
-  },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "JIC Unions & Swivels — 37° Flare, SS316",
+  description:
+    "316 stainless steel 37° flared JIC unions: large hex, swivel and bulkhead unions plus bulkhead lock nuts. Filter by size and request a quote.",
+  path: "/fittings-tubing/instrumentation-fittings/jic-fittings/unions-swivel",
+});
 
 export default function UnionsSwivelLayout({
   children,

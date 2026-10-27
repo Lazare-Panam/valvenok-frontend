@@ -106,7 +106,7 @@ export default function TripleOffsetButterflyValvesPage() {
     {
       num: "04",
       title: "Quotation & Lead Time",
-      body: "You receive a clear proposal with part descriptions, technical references, and indicative lead times. Many related items can be dispatched from UK stock within 2–3 days; custom or hard-to-find parts are sourced via our wider network.",
+      body: "You receive a clear proposal with part descriptions, technical references, and indicative lead times. Lead times vary by item and are confirmed on quotation; custom or hard-to-find parts are sourced via our wider network.",
     },
     {
       num: "05",
@@ -351,7 +351,7 @@ export default function TripleOffsetButterflyValvesPage() {
               "UK-based, JOSCAR-registered engineering supplier",
               "Technical support for valve selection and specification",
               "Access to butterfly valve technologies through leading global brands",
-              "Fast dispatch on stocked items and support for custom and hard-to-find parts",
+              "Support for standard, custom and hard-to-find parts",
               "Integrated packages with valve actuators, manual valves, and controls",
             ].map((item) => (
               <Typography

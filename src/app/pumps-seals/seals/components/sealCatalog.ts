@@ -346,5 +346,5 @@ export const TRUST_POINTS = [
   { value: 'Single & Double',                       label: 'Arrangements' },
   { value: 'Metric & Imperial',                     label: 'Size Standards' },
   { value: '0.5" – 160mm',                          label: 'Size Coverage' },
-  { value: 'Fast Dispatch',                         label: 'Availability' },
+  { value: 'UK Based',                              label: 'Technical Support' },
 ]

@@ -385,7 +385,7 @@ export const NAV_GROUPS: NavGroup[] = [
         items: [
           {
             label: "Gas Pressure Regulators",
-            href: "/instruementation/gas-pressure-regulator/products",
+            href: "/instrumentation/gas-pressure-regulator/products",
           },
         ],
       },
@@ -404,7 +404,7 @@ export const NAV_GROUPS: NavGroup[] = [
         href: "/filters-sight-glass",
         items: [
           { label: "Sight Glass", href: "/filters-sight-glass/sight-glass" },
-          { label: "Filtration", href: "/filters-sight-glass/filteration" },
+          { label: "Filtration", href: "/filters-sight-glass/filtration" },
         ],
       },
     ],

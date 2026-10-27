@@ -9,6 +9,13 @@ export const metadata: Metadata = {
   title: "Fittings | SS316 Instrumentation & Process Fittings",
   description:
     "Valvenok supplies a complete range of SS316 fittings for instrumentation and process systems. Tube fittings, pipe fittings, JIC flare fittings and weld fittings across NPT, BSPT, BSPP and SAE/MS standards.",
+  openGraph: {
+    title: "Fittings | SS316 Instrumentation & Process Fittings | Valvenok",
+    description: "Valvenok supplies a complete range of SS316 fittings for instrumentation and process systems. Tube fittings, pipe fittings, JIC flare fittings and weld fittings across NPT, BSPT, BSPP and SAE/MS standards.",
+    url: "/fittings-tubing/instrumentation-fittings",
+    siteName: "Valvenok",
+    type: "website",
+  },
 };
 
 const FITTING_FAMILIES: Category[] = [
@@ -83,7 +90,7 @@ const TRUST_POINTS = [
   { value: "NPT / BSPT / BSPP", label: "Thread Standards" },
   { value: "SAE/MS & Metric", label: "Also Available" },
   { value: "650+ Configurations", label: "Range" },
-  { value: "Fast Dispatch", label: "Availability" },
+  { value: "UK Based", label: "Technical Support" },
 ];
 
 export default function FittingsIndexPage() {
@@ -92,7 +99,7 @@ export default function FittingsIndexPage() {
       <ProductHero
         title="Fittings"
         subtitle="SS316 Fittings for Instrumentation & Process Systems"
-        description="UK-based supplier of instrumentation fittings and stainless steel fittings for high-pressure systems, with fast global delivery for engineers and buyers."
+        description="UK-based supplier of instrumentation fittings and stainless steel fittings for high-pressure systems, with UK and international delivery for engineers and buyers."
         imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/banner-images/fittings-hero.jpg"
         imageAlt="Valvenok SS316 Instrumentation Fittings"
         breadcrumb="Products / Fittings"

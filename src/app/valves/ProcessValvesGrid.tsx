@@ -28,7 +28,7 @@ export default function ProcessValvesGrid({ families }: { families: Category[] }
           Valvenok supplies a comprehensive range of industrial, marine and instrumentation
           valves engineered for demanding service conditions across oil & gas, petrochemical,
           power generation and marine industries. From API-rated process isolation valves to
-          class society approved marine valves and precision SS316 instrumentation valves —
+          marine valves (class approvals on selected models) and precision SS316 instrumentation valves —
           every product built for leak-tight, reliable performance.
         </Typography>
 

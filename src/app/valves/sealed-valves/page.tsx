@@ -22,7 +22,7 @@ const SEALED_VALVE_FAMILIES: Category[] = [
       "Double Seal — Bellows + Packing",
       "11 Variants",
       "Y-Type · Angle · High Pressure",
-      "CE / ISO Compliant",
+      "Certification Varies by Model",
     ],
     applications:
       "Process Plants, Chemical, Pharmaceutical, Power Generation, Industrial",
@@ -41,7 +41,7 @@ const SEALED_VALVE_FAMILIES: Category[] = [
       "Zero Stem Leakage",
       "Double Seal — Bellows + Packing",
       "Auto-Welded Bellows",
-      "CE / ISO Compliant",
+      "Certification Varies by Model",
     ],
     applications:
       "Process Plants, Chemical, Pharmaceutical, Power Generation, Industrial",
@@ -60,7 +60,7 @@ const SEALED_VALVE_FAMILIES: Category[] = [
       "Zero Stem Leakage",
       "Bellows Sealed",
       "Lift Check",
-      "CE / ISO Compliant",
+      "Certification Varies by Model",
     ],
     applications:
       "Process Plants, Chemical, Pharmaceutical, Power Generation, Industrial",
@@ -75,7 +75,7 @@ const TRUST_POINTS = [
   { value: "DIN·ANSI·JIS", label: "Standards" },
   { value: "Double Seal", label: "Bellows + Packing" },
   { value: "11 Models", label: "Full Range" },
-  { value: "CE / ISO", label: "Certified" },
+  { value: "Certification", label: "Varies by Model" },
 ];
 
 export default function SealedValvesIndexPage() {

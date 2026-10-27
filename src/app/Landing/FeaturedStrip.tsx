@@ -99,7 +99,7 @@ export default function BestSellers() {
               color: '#ffffff',
               opacity: 0.92,
             }}>
-              All products stocked in the UK — extremely low lead times, ready to ship
+              UK-based supplier — lead times confirmed on every quotation
             </Typography>
           </Box>
         </Box>

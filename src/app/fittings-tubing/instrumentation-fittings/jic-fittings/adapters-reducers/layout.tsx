@@ -1,26 +1,12 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/src/app/Common/seo";
 
-const TITLE = "JIC Adapters & Reducers | Valvenok";
-const DESCRIPTION =
-  "SS316 JIC adapters and reducers for high-pressure hydraulic connections.";
-const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
-
-export const metadata: Metadata = {
-  title: { absolute: TITLE },
-  description: DESCRIPTION,
-  openGraph: {
-    title: TITLE,
-    description: DESCRIPTION,
-    type: "website",
-    images: [IMAGE],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: TITLE,
-    description: DESCRIPTION,
-    images: [IMAGE],
-  },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "JIC Adapters & Reducers — 37° Flare, SS316",
+  description:
+    "316 stainless steel 37° flared JIC adapters, reducers and sleeves in NPT, BSPT, BSPP, SAE/MS and metric threads. Filter by size and request a quote.",
+  path: "/fittings-tubing/instrumentation-fittings/jic-fittings/adapters-reducers",
+});
 
 export default function AdaptersReducersLayout({
   children,

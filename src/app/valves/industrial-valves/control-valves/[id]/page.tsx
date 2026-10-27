@@ -29,7 +29,7 @@ export const VSI_VALVES: FeaturedValve[] = [
     categoryId: "control-valves",
     brand: "VSI – Valve Systems International",
     brandLogo:
-      "https://vsillc.com/wp-content/uploads/2026/02/Logo-2026-300x168.png",
+      "/images/brands/vsi.png",
     thumbnail:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/Atlas-15.png",
     specs: [
@@ -60,7 +60,7 @@ export const VSI_VALVES: FeaturedValve[] = [
     categoryId: "control-valves",
     brand: "VSI – Valve Systems International",
     brandLogo:
-      "https://vsillc.com/wp-content/uploads/2026/02/Logo-2026-300x168.png",
+      "/images/brands/vsi.png",
     thumbnail:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/Atlas-21.png",
     specs: [
@@ -90,7 +90,7 @@ export const VSI_VALVES: FeaturedValve[] = [
     categoryId: "control-valves",
     brand: "VSI – Valve Systems International",
     brandLogo:
-      "https://vsillc.com/wp-content/uploads/2026/02/Logo-2026-300x168.png",
+      "/images/brands/vsi.png",
     thumbnail:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/Atlas-21.png",
     specs: [
@@ -448,7 +448,7 @@ export default function VSIValveDetailPage() {
                   "Engineered for severe service and high-pressure environments",
                   "Extended 2+ year maintenance cycles vs. industry standard",
                   "Ultra-low noise — under 60 dB in choked flow",
-                  "Available for RFQ with fast lead times",
+                  "Available on request — lead time confirmed on quotation",
                 ].map((benefit, i) => (
                   <Box
                     key={i}

@@ -1,26 +1,12 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/src/app/Common/seo";
 
-const TITLE = "JIC Connectors | Valvenok";
-const DESCRIPTION =
-  "SS316 37° JIC male and female connectors for high-pressure hydraulic lines.";
-const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
-
-export const metadata: Metadata = {
-  title: { absolute: TITLE },
-  description: DESCRIPTION,
-  openGraph: {
-    title: TITLE,
-    description: DESCRIPTION,
-    type: "website",
-    images: [IMAGE],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: TITLE,
-    description: DESCRIPTION,
-    images: [IMAGE],
-  },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "JIC Connectors — 37° Flare, SS316",
+  description:
+    "316 stainless steel 37° flared JIC male and female connectors in NPT, BSPT, BSPP, SAE/MS and metric threads. Filter by size and request a quote.",
+  path: "/fittings-tubing/instrumentation-fittings/jic-fittings/connectors",
+});
 
 export default function ConnectorsLayout({
   children,

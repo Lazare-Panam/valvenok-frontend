@@ -89,7 +89,7 @@ export default function GateValvesPage() {
     {
       num: "05",
       title: "Quotation & Lead-Time Visibility",
-      body: "With UK stock available across core instrumentation lines, Valvenok can often consolidate gate valves with stocked manifolds, check valves and stainless-steel pipe fittings to reduce overall project lead time.",
+      body: "Valvenok can often consolidate gate valves with manifolds, check valves and stainless-steel pipe fittings in a single quotation, with lead times confirmed before you order.",
     },
   ];
 
@@ -120,7 +120,7 @@ export default function GateValvesPage() {
     },
     {
       q: "Can Valvenok consolidate gate valves with other instrumentation products for shipment?",
-      a: "Yes. Valvenok regularly consolidates valve and fitting packages, combining sourced gate valves with stocked instrumentation products such as needle valves, manifolds, filters and stainless steel fittings to streamline logistics and reduce handling for project sites.",
+      a: "Yes. Valvenok regularly consolidates valve and fitting packages, combining sourced gate valves with instrumentation products such as needle valves, manifolds, filters and stainless steel fittings to streamline logistics and reduce handling for project sites.",
     },
     {
       q: "How do I start a gate valve enquiry with Valvenok?",
@@ -147,7 +147,7 @@ export default function GateValvesPage() {
         url: PAGE_URL,
         name: "Gate Valves for Industrial & Process Applications | Valvenok",
         description:
-          "Gate valves for industrial and instrumentation projects with engineering support, UK stock and global shipping from Bicester-based Valvenok.",
+          "Gate valves for industrial and instrumentation projects with engineering support and international shipping from Bicester-based Valvenok.",
         inLanguage: "en-GB",
         about: { "@id": `${PAGE_URL}#service` },
         isPartOf: {
@@ -226,7 +226,7 @@ export default function GateValvesPage() {
             sx={{ mt: 2, opacity: 0.85, fontStyle: "italic" }}
           >
             Gate valves and brass gate valves for industrial and instrumentation
-            projects — with engineering support, UK stock and full documentation,
+            projects — with engineering support and full documentation,
             consolidated with your wider valve and piping package.
           </Typography>
           <Stack direction="row" spacing={3} sx={{ mt: 4, opacity: 0.8 }}>
@@ -287,7 +287,7 @@ export default function GateValvesPage() {
               "Correct configuration, material and pressure class are critical to long-term reliability and system safety.",
               "Valvenok sources gate valves — stainless or brass — as part of a complete instrumentation and piping package.",
               "Material, pressure-class and end-connection recommendations are made against your actual media and duty, not a catalogue default.",
-              "UK stock and a 24-hour technical response from Bicester, with consolidated global dispatch.",
+              "UK-based technical support from Bicester, with lead times confirmed on quotation.",
             ].map((text, i) => (
               <Grid key={i} size={{ xs: 12, sm: 6 }}>
                 <Stack direction="row" spacing={1} alignItems="flex-start">
@@ -327,9 +327,8 @@ export default function GateValvesPage() {
           <Typography>
             Valvenok focuses on high-integrity instrument and industrial valves,
             fittings, manifolds and high-pressure components for hydrogen, oil
-            &amp; gas, power, petrochemical and wider process industries — with
-            UK stock available and ready for immediate shipment across core
-            product ranges.
+            &amp; gas, power, petrochemical and wider process industries, with
+            lead times confirmed on every quotation.
           </Typography>
 
           {/* HERO IMAGE */}
@@ -637,9 +636,8 @@ export default function GateValvesPage() {
           <Typography>
             Valvenok supports UK and European projects from its UK location at
             Ground Floor, St Edburgs Hall, Priory Road, Bicester, OX26 6BL. From
-            Bicester, the team coordinates UK stock and immediate shipment on
-            core instrumentation valves, manifolds and fittings; fast-turnaround
-            responses (typically within 24 hours) on gate valve and brass gate
+            Bicester, the team coordinates supply of core instrumentation
+            valves, manifolds and fittings; responses (typically within 24 hours) on gate valve and brass gate
             valve enquiries; and consolidated consignments for international
             projects requiring both gate valves and specialist instrumentation
             packages.

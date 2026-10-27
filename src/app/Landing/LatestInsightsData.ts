@@ -23,7 +23,7 @@ export const LATEST_INSIGHTS: InsightPost[] = [
   },
   {
     title: "Butterfly Valve Instrumentation and Connection Packages",
-    desc: "Triple offset, pneumatically actuated, and process butterfly valves — fully engineered from the primary isolation to the instrumentation layer, with UK stock and 24-hour engineering response.",
+    desc: "Triple offset, pneumatically actuated, and process butterfly valves — fully engineered from the primary isolation to the instrumentation layer, with UK-based engineering support.",
     thumbnail:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/ptfe_lined_butterfly.png",
     category: "Technical Guide",

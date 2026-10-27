@@ -100,7 +100,7 @@ const TRUST_POINTS = [
   { value: "DIN · ANSI", label: "Standards" },
   { value: "Double Seal", label: "Bellows + Packing" },
   { value: "Auto-Welded", label: "Bellows Construction" },
-  { value: "CE / ISO", label: "Certified" },
+  { value: "Certification", label: "Varies by Model" },
 ];
 
 const TAGS = [

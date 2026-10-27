@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/actuators" },
   title: "Actuators",
   description:
-    "Leading UK supplier of valve actuators across all technologies — pneumatic, electric, hydraulic and mechanical — for demanding industrial environments globally.",
+    "UK supplier of valve actuators across all technologies — pneumatic, electric, hydraulic and mechanical — for demanding industrial environments globally.",
   openGraph: {
     title: "Actuators | Valvenok",
     description:

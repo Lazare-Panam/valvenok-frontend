@@ -136,14 +136,14 @@ export const PIPE_ADAPTER_DATA: PipeAdapterDTO[] = [
 ]
 
 export const PIPE_ADAPTER_DESCRIPTION = {
-  title: 'HP Pipe Fittings — Adapters',
+  title: 'HP Pipe Fittings — Size Adapters',
   description:
-    'Panam High Pressure Adapters in SS 316. NPT and ISO Parallel thread connections. 10,000 to 15,000 psi. Sizes from 1/8" to 1".',
+    'Panam High Pressure Size Adapters in SS 316. Each adapter changes size only, with the same thread type at both ends: NPT to NPT, or ISO parallel (BSPP) to ISO parallel (BSPP). 10,000 to 15,000 psi. Sizes from 1/8" to 1".',
   specs: [
-    'Adapter',
+    'Size Adapter',
     'SS 316',
     '10,000 & 15,000 psi',
-    'NPT · ISO Parallel',
+    'NPT · ISO parallel (BSPP)',
     '1/8" – 1"',
   ],
 }

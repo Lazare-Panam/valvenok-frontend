@@ -230,10 +230,10 @@ export default function LPGProductsPage() {
         <Box component="img" src={YOUNGDO_LOGO} alt="Youngdo" sx={{ maxHeight: 32, maxWidth: 120, objectFit: 'contain', bgcolor: BRAND_GREEN, p: 1, borderRadius: 1, mb: 2 }} />
         <Typography variant="h1" fontWeight={800} mb={1} sx={{ color: BRAND_GREEN, fontFamily: PRIMARY_FONT }}>LPG Cylinder Valves</Typography>
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 800, fontFamily: PRIMARY_FONT }}>
-          Youngdo LPG cylinder valves, OPD overfilling prevention devices and piping connection valves — YLC, MT, YBC, OPD, YLG and YPC series. KGS, KS, CGA V-1 and UL certified.
+          Youngdo LPG cylinder valves, OPD overfilling prevention devices and piping connection valves — YLC, LP, MT, YBC, OPD, YLG and YPC series. Certification (KGS, KS, CGA V-1, UL) varies by model — see the table.
         </Typography>
         <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
-          {['2.43 MPa Max', 'KGS · KS', 'CGA V-1', 'UL 2227', 'LPG Service', '20 Models'].map(s => (
+          {['Up to 2.35 MPa Working', 'KGS · KS · CGA V-1 · UL by model', 'LPG Service', '20 Models'].map(s => (
             <Box key={s} sx={{ px: 1.5, py: 0.5, borderRadius: '20px', fontSize: '0.75rem', fontWeight: 600, bgcolor: alpha(BRAND_GREEN, 0.08), color: '#2d8a1e', border: `1px solid ${alpha(BRAND_GREEN, 0.3)}`, fontFamily: PRIMARY_FONT }}>{s}</Box>
           ))}
         </Box>

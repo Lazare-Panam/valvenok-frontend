@@ -8,6 +8,13 @@ export const metadata: Metadata = {
   alternates: { canonical: '/fittings-tubing/instrumentation-fittings/tube-fittings' },
   title: 'Tube Fittings | SS316 Instrumentation Fittings ',
   description: 'Valvenok supplies SS316 tube fittings for instrumentation and process systems. Connectors, adapters, unions, reducers and more. NPT, BSPT and BSPP thread standards.',
+  openGraph: {
+    title: "Tube Fittings | SS316 Instrumentation Fittings  | Valvenok",
+    description: "Valvenok supplies SS316 tube fittings for instrumentation and process systems. Connectors, adapters, unions, reducers and more. NPT, BSPT and BSPP thread standards.",
+    url: "/fittings-tubing/instrumentation-fittings/tube-fittings",
+    siteName: "Valvenok",
+    type: "website",
+  },
 }
 
 const CATEGORIES: Category[] = [
@@ -95,7 +102,7 @@ const CATEGORIES: Category[] = [
 
 const INTRO = `Valvenok supplies a complete range of SS316 tube fittings for instrumentation and process systems. 
 Engineered for leak-free performance in the harshest environments — oil & gas, petrochemical, power generation, 
-and marine. Available across NPT, BSPT, and BSPP thread standards with fast dispatch from stock.`
+and marine. Available across NPT, BSPT, and BSPP thread standards — contact us to confirm availability.`
 
 export default function TubeFittingsPage() {
   return (

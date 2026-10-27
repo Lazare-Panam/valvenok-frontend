@@ -9,6 +9,13 @@ export const metadata: Metadata = {
   title: 'High Pressure Pipe Fittings | SS 316',
   description:
     'Valvenok supplies SS 316 high pressure pipe fittings from 10,000 to 15,000 psi. Hex couplings, hex nipples, adapters, elbows, tees, crosses, plugs and caps in NPT, ISO Parallel and 37° JIC.',
+  openGraph: {
+    title: "High Pressure Pipe Fittings | SS 316 | Valvenok",
+    description: "Valvenok supplies SS 316 high pressure pipe fittings from 10,000 to 15,000 psi. Hex couplings, hex nipples, adapters, elbows, tees, crosses, plugs and caps in NPT, ISO Parallel and 37° JIC.",
+    url: "/high-pressure/pipe-fittings",
+    siteName: "Valvenok",
+    type: "website",
+  },
 }
 
 const PIPE_FITTING_FAMILIES: Category[] = [
@@ -85,7 +92,7 @@ const TRUST_POINTS = [
   { value: '10,000 – 15,000 psi', label: 'Pressure Range' },
   { value: 'NPT · ISO Parallel · 37° JIC', label: 'Thread Standards' },
   { value: '1/8" – 2"', label: 'Size Range' },
-  { value: 'Fast Dispatch', label: 'Availability' },
+  { value: 'UK Based', label: 'Technical Support' },
 ]
 
 export default function PipeFittingsIndexPage() {

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 const TITLE = "Hiflux Fittings Catalog | Valvenok";
 const DESCRIPTION =
-  "27 Hiflux fittings, accessories, manifold blocks and tube caps, 15,000-150,000 psi, KC/KGS certified.";
+  "27 Hiflux fittings, accessories, manifold blocks and tube caps, 15,000-150,000 psi. Certification varies by product.";
 const IMAGE =
   "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/logo.png";
 

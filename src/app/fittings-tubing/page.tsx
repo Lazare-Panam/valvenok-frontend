@@ -52,7 +52,7 @@ export default function FittingsTubingPage() {
               textShadow: "0px 2px 10px rgba(0,0,0,0.3)",
             }}
           >
-            Instrumentation Fittings
+            Fittings & Tubing
           </Typography>
           <Typography
             sx={{
@@ -71,7 +71,7 @@ export default function FittingsTubingPage() {
           <Button
             variant="contained"
             size="large"
-            href="mailto:sales@valvenok.com"
+            href="/contact"
             sx={{
               bgcolor: "#61D649",
               color: "#000",
@@ -113,9 +113,9 @@ export default function FittingsTubingPage() {
             <Box key={iteration} sx={{ display: "flex", gap: 6, pr: 6 }}>
               {[
                 "SS316 / Monel / Hastelloy / Duplex",
-                "Pressure-rated up to 10,000 psig",
+                "Pressure Ratings Vary by Size & Material",
                 "BSPP, BSPT, NPT & JIC Threads",
-                "Same-Day UK Dispatch on Stock",
+                "UK-Based Technical Support",
               ].map((item) => (
                 <Typography
                   key={item}
@@ -170,7 +170,8 @@ export default function FittingsTubingPage() {
               including <strong>twin-ferrule compression fittings</strong> in
               imperial and metric sizes, <strong>pipe fittings</strong> in BSPP,
               BSPT and NPT, and <strong>seamless stainless steel tubing</strong>{" "}
-              in SS316 and SS304.
+              in SS316 and other alloys, including Monel, Hastelloy, Inconel,
+              6Mo, duplex and super duplex.
             </Typography>
           </Grid>
           <Grid size={{ xs: 12, md: 5 }}>
@@ -254,7 +255,7 @@ export default function FittingsTubingPage() {
                 "SS316, Monel, Hastelloy & Duplex",
                 "Imperial & Metric Sizes",
                 "BSPP, BSPT, NPT & JIC Threads",
-                "Pressure-rated up to 10,000 psig",
+                "Pressure Ratings Vary by Size & Material",
               ].map((item) => (
                 <Typography
                   key={item}
@@ -318,10 +319,120 @@ export default function FittingsTubingPage() {
 
         <Divider sx={{ mb: 10 }} />
 
+        {/* Tubing — Image on the Left */}
+        <Grid container spacing={8} alignItems="center" sx={{ mb: 10 }}>
+          <Grid size={{ xs: 12, md: 6 }} order={{ xs: 2, md: 1 }}>
+            <Box
+              sx={{
+                borderColor: "divider",
+                borderRadius: 2,
+                p: 4,
+                textAlign: "center",
+              }}
+            >
+              <img
+                src="https://pblol2.blob.core.windows.net/panam-images/products/tubing/tubing-1.jpg"
+                alt="PANAM Seamless Tubing"
+                style={{ width: "70%", height: "auto" }}
+              />
+            </Box>
+          </Grid>
+          <Grid size={{ xs: 12, md: 6 }} order={{ xs: 1, md: 2 }}>
+            <Typography
+              variant="overline"
+              sx={{
+                color: "#61D649",
+                fontWeight: 600,
+                letterSpacing: 2,
+                fontSize: 11,
+              }}
+            >
+              Conveyance
+            </Typography>
+            <Typography
+              variant="h2"
+              component="a"
+              href="/fittings-tubing/tubing"
+              sx={{
+                fontSize: { xs: 24, md: 32 },
+                fontWeight: 700,
+                mt: 1,
+                mb: 3,
+                display: "block",
+                color: "inherit",
+                textDecoration: "none",
+                "&:hover": { color: "#61D649", textDecoration: "underline" },
+              }}
+            >
+              Tubing
+            </Typography>
+            <Typography
+              sx={{ color: "text.secondary", lineHeight: 1.8, mb: 2 }}
+            >
+              PANAM seamless tubing in imperial OD from 1/16" to 2" and metric
+              OD from 3mm to 12mm, across a range of wall thicknesses, plus
+              Hiflux high-pressure tubing. Each size is listed with its working
+              pressure in psi and bar.
+            </Typography>
+            <Box
+              sx={{ display: "flex", flexDirection: "column", gap: 0.5, mb: 3 }}
+            >
+              {[
+                "Seamless Construction",
+                "SS316, Monel, Copper, Inconel, 6Mo & Hastelloy",
+                "Duplex & Super Duplex Grades",
+                "Imperial & Metric Sizes",
+              ].map((item) => (
+                <Typography
+                  key={item}
+                  sx={{
+                    fontSize: 14,
+                    color: "text.secondary",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 1.5,
+                  }}
+                >
+                  <Box
+                    component="span"
+                    sx={{
+                      width: 6,
+                      height: 6,
+                      borderRadius: "50%",
+                      bgcolor: "#61D649",
+                      flexShrink: 0,
+                    }}
+                  />
+                  {item}
+                </Typography>
+              ))}
+            </Box>
+            <Button
+              variant="outlined"
+              href="/fittings-tubing/tubing"
+              sx={{
+                borderColor: "#61D649",
+                color: "#61D649",
+                textTransform: "none",
+                fontWeight: 700,
+                "&:hover": {
+                  bgcolor: "#61D649",
+                  color: "#000",
+                  borderColor: "#61D649",
+                },
+              }}
+            >
+              Browse Tubing
+            </Button>
+          </Grid>
+        </Grid>
+
+        <Divider sx={{ mb: 10 }} />
+
         {/* Applications */}
         <Box sx={{ mb: 10 }}>
           <Typography
-            variant="h1"
+            variant="h2"
             sx={{ fontSize: { xs: 24, md: 30 }, fontWeight: 700, mb: 2 }}
           >
             Fittings & Tubing Applications
@@ -331,8 +442,8 @@ export default function FittingsTubingPage() {
               "Oil & Gas Production",
               "Chemical & Petrochemical Plants",
               "Power Generation",
-              "Semiconductor & Cleanroom Fabs",
-              "Pharmaceutical Process Lines",
+              "Process Control & Instrumentation",
+              "Marine",
               "Hydraulic & Pneumatic Systems",
             ].map((ind) => (
               <Grid key={ind} size={{ xs: 12, sm: 6, md: 4 }}>
@@ -360,7 +471,7 @@ export default function FittingsTubingPage() {
           sx={{ textAlign: "center", py: 6, borderRadius: 4, color: "#000000" }}
         >
           <Typography
-            variant="h1"
+            variant="h2"
             sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mb: 2 }}
           >
             Build Leak-Free Connections Today
@@ -379,7 +490,7 @@ export default function FittingsTubingPage() {
           </Typography>
           <Button
             variant="contained"
-            href="mailto:sales@valvenok.com"
+            href="/contact"
             sx={{
               bgcolor: "#61D649",
               color: "#000",

@@ -58,12 +58,12 @@ export default function AboutCTA() {
               mb: 3,
             }}
           >
-            5,000+ Parts.
+            Valves. Fittings.
             <br />
-            In Stock.
+            Instrumentation.
             <br />
             <Box component="span" sx={{ color: "primary.main" }}>
-              Ship Tomorrow.
+              UK Support.
             </Box>
           </Typography>
           <Typography

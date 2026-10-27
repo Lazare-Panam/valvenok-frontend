@@ -121,7 +121,7 @@ export default function GlobeValvePage() {
     {
       num: "05",
       title: "Dispatch & After-Sales Support",
-      body: "Orders are processed for rapid shipment from UK or global stock where available, with ongoing technical support for installation, commissioning and maintenance planning.",
+      body: "Lead times are confirmed on quotation, with ongoing technical support for installation, commissioning and maintenance planning.",
     },
   ];
 
@@ -248,8 +248,8 @@ export default function GlobeValvePage() {
             sx={{ mt: 2, opacity: 0.85, fontStyle: "italic" }}
           >
             Globe valve engineering, sourcing and documentation for critical
-            process and instrumentation duty — with fast quotation, UK stock and
-            a 24-hour engineering response.
+            process and instrumentation duty — with clear quotations and
+            UK-based engineering support.
           </Typography>
           <Stack direction="row" spacing={3} sx={{ mt: 4, opacity: 0.8 }}>
             <Stack direction="row" alignItems="center" spacing={1}>
@@ -309,7 +309,7 @@ export default function GlobeValvePage() {
               "Valvenok can source globe valves against a specification or bill of materials, as part of a wider instrumentation and piping package.",
               "Selection is compared against needle, ball, relief, check and manifold options so the right technology is applied at each location.",
               "Material, pressure class, end connection, seat/packing and certification are all reviewed against your actual duty.",
-              "UK stock and a 24-hour engineering response from Bicester, with global dispatch for major projects.",
+              "UK-based engineering support from Bicester, with lead times confirmed on quotation.",
             ].map((text, i) => (
               <Grid key={i} size={{ xs: 12, sm: 6 }}>
                 <Stack direction="row" spacing={1} alignItems="flex-start">
@@ -350,9 +350,9 @@ export default function GlobeValvePage() {
           </Typography>
           <Typography>
             Valvenok operates within demanding environments across hydrogen, oil
-            &amp; gas, power, petrochemical and wider process industries — with
-            UK stock available and global dispatch for a wide range of valves,
-            manifolds, filters and pipe fittings.
+            &amp; gas, power, petrochemical and wider process industries —
+            supplying a wide range of valves, manifolds, filters and pipe
+            fittings.
           </Typography>
 
           {/* HERO IMAGE */}
@@ -758,10 +758,10 @@ export default function GlobeValvePage() {
           <Typography>
             Valvenok supports UK and global projects from its UK presence at
             Ground Floor, St Edburgs Hall, Priory Road, Bicester, OX26 6BL. From
-            Bicester, the team coordinates UK stock for a wide range of
+            Bicester, the team coordinates supply of a wide range of
             instrumentation valves, stainless steel pipe fittings, manifolds,
-            filters and connection solutions, with rapid shipment across the UK
-            and international markets.
+            filters and connection solutions for UK and international
+            customers.
           </Typography>
           <Typography>
             Globe valve requirements can be integrated into wider instrumentation

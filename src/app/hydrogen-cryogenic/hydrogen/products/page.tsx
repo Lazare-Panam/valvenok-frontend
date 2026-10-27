@@ -258,10 +258,10 @@ export default function HydrogenProductsPage() {
           Youngdo Hydrogen Cylinder Valves 3–70 MPa | UK Supplier
         </Typography>
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 800, fontFamily: PRIMARY_FONT }}>
-          Youngdo high-pressure hydrogen cylinder valves — HC, HE, HK, HS, HSL, EP, DRV, YHT and YEX series. Working pressures from 3–70 MPa with KGS, EC79, R134 and IECEx certification.
+          Youngdo high-pressure hydrogen cylinder valves — HC, HE, HK, HS, HSL, EP, DRV, YHT and YEX series. Working pressures from 3–70 MPa. Certification (KGS, EC79, R134, IECEx and others) varies by model — see the table.
         </Typography>
         <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
-          {['70 MPa Max', 'KGS · EC79', 'R134', 'IECEx', 'H₂ Service', '13 Models'].map(s => (
+          {['70 MPa Max', 'KGS · EC79 · R134 · IECEx by model', 'H₂ Service', '13 Models'].map(s => (
             <Box key={s} sx={{ px: 1.5, py: 0.5, borderRadius: '20px', fontSize: '0.75rem', fontWeight: 600, bgcolor: alpha(DARK_GREEN, 0.08), color: DARK_GREEN, border: `1px solid ${alpha(DARK_GREEN, 0.3)}`, fontFamily: PRIMARY_FONT }}>
               {s}
             </Box>

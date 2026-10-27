@@ -335,11 +335,8 @@ export default function JoscarRegisteredPage() {
           </Typography>
           <Typography sx={{ color: 'text.secondary', fontSize: '15px', lineHeight: 1.85 }}>
             The register is used by buying organisations across those sectors,
-            including major primes — among them BAE Systems, Boeing, Lockheed
-            Martin, Raytheon, SAAB, Babcock and the Commonwealth of Australia — and
-            the community continues to grow, with recent reporting citing nine new
-            buyer organisations joining across the UK and Australia in a single
-            year.
+            including major prime contractors, and the buyer community continues
+            to grow across the UK and Australia.
           </Typography>
         </Box>
 

@@ -25,11 +25,8 @@ export default function InstrumentationGrid({ families }: { families: Category[]
             pl: 2,
           }}
         >
-          Valvenok supplies a complete range of instrumentation products for oil & gas,
-          petrochemical, power generation and process industries. From high pressure fittings
-          and valves rated up to 60,000 psi, to precision tube and pipe fittings, DBB and
-          manifold valves, quick couplings and stainless steel tubing — every product
-          engineered for leak-tight, reliable performance in the most demanding environments.
+          Choose a product family below to see its full specifications, sizes and
+          pressure ratings. Materials, connections and ratings vary by family and model.
         </Typography>
 
         <Box

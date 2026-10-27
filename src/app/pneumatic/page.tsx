@@ -9,6 +9,13 @@ export const metadata: Metadata = {
   title: "Pneumatics & Vacuum | Cylinders, Valves & Actuators",
   description:
     "Valvenok supplies a full range of pneumatic components for industrial automation. ISO cylinders, solenoid valves, foot pedal valves, pneumatic actuators and air blow guns — engineered for reliable factory floor performance.",
+  openGraph: {
+    title: "Pneumatics & Vacuum | Cylinders, Valves & Actuators | Valvenok",
+    description: "Valvenok supplies a full range of pneumatic components for industrial automation. ISO cylinders, solenoid valves, foot pedal valves, pneumatic actuators and air blow guns — engineered for reliable factory floor performance.",
+    url: "/pneumatic",
+    siteName: "Valvenok",
+    type: "website",
+  },
 };
 
 const PNEUMATIC_FAMILIES: Category[] = [
@@ -87,7 +94,7 @@ const TRUST_POINTS = [
   { value: "5/2 · 5/3 Way", label: "Valve Configurations" },
   { value: "ISO 5211", label: "Actuator Mounting" },
   { value: "BSP 1/8\" – 1\"", label: "Port Size Range" },
-  { value: "Fast Dispatch", label: "Availability" },
+  { value: "UK Based", label: "Technical Support" },
 ];
 
 export default function PneumaticsIndexPage() {

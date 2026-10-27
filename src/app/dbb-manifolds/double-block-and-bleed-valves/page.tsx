@@ -65,8 +65,8 @@ export default function DBBIndexPage() {
           >
             Three connection families — Flange-to-Pipe, Flange-to-Flange, and
             Pipe-to-Pipe — covering every instrument isolation application.
-            SS316 construction, ANSI 150 to 2500 Class, with full NACE MR-0175
-            sour gas certification.
+            SS316 construction, ANSI 150 to 2500 Class, with NACE MR-0175 sour
+            gas options available.
           </Typography>
           <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
             <Button
@@ -138,7 +138,7 @@ export default function DBBIndexPage() {
                 "Flange-to-Pipe · Flange-to-Flange · Pipe-to-Pipe",
                 "Stainless Steel 316 construction",
                 "ANSI 150 – 2500 Class · PN6 – PN250",
-                "NACE MR-0175 Sour Gas Certified",
+                "NACE MR-0175 Sour Gas Option",
                 "RF · RTJ · BS Flange Faces",
                 "Ball · Needle · Combination internals",
                 "Integral & Three Piece construction",
@@ -193,8 +193,8 @@ export default function DBBIndexPage() {
               needle, and combination internal configurations.
             </Typography>
             <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
-              Every DBB family is available with{" "}
-              <strong>NACE MR-0175 sour gas certification</strong>, fire-safe
+              Options available include{" "}
+              <strong>NACE MR-0175 sour gas options</strong>, fire-safe
               construction, lock handle, anti-static, gear-operated, and OS&Y
               bonnet options. Seat and seal materials cover Carbon Filled PTFE,
               PCTFE, Delrin, PEEK, PTFE, Grafoil, and FKM.

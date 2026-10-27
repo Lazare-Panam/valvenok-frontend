@@ -96,7 +96,7 @@ const LPG: LpgSrc[] = [
   ['ypc-2820','YPC-2820','YPC','Piping','N/A','N/A','N/A','N/A','N/A','YPC-2820.png'],
 ]
 
-/* ---------------- Industrial Gas (48) ---------------- */
+/* ---------------- Industrial Gas (75) ---------------- */
 type IgSrc = [id: string, model: string, category: string, inlet: string, outlet: string, wp: string, cert: string, std: string, img: string]
 const IG: IgSrc[] = [
   ['yoc-2820','YOC-2820','Tapered Inlet Threads','W28-14th, KS B 6214, V2','W23-14th','14.7 MPa','KGS, KS','KGS AA311, KS B 6214','YOC-2820.png'],
@@ -113,9 +113,9 @@ const IG: IgSrc[] = [
   ['yoc-3420-1','YOC-3420-1','Tapered Inlet Threads','1"-11 1/2 NGT','W22-14th','11.8 MPa','KGS','KGS AA311, KS B 6214','YOC-3420.png'],
   ['ycc-3420-2','YCC-3420-2','Tapered Inlet Threads','1"-11 1/2 NGT','W22-14th','11.8 MPa','KGS','KGS AA311, KS B 6214','YOC-3420.png'],
   ['yoh-2820k21','YOH-2820K21','Tapered Inlet Threads','W28-14th, KS B 6214, V2','W23-14th','14.7 MPa','KGS, KS','KGS AA311, KS B 6214','YOH-2820K21.png'],
-  ['yrh-2820k21','YRH-2820K21','Tapered Inlet Threads','W28-14th, S B 6214, V2','W22-14th','14.7 MPa','KGS, KS','KGS AA311, KS B 6214','YOH-2820K21.png'],
-  ['yhh-2820k21','YHH-2820K21','Tapered Inlet Threads','W28-14th, S B 6214, V2','W22-14th-LH','14.7 MPa','KGS, KS','KGS AA311, KS B 6214','YOH-2820K21.png'],
-  ['yoc-2820k26','YOC-2820K26','Tapered Inlet Threads','W28-14th, S B 6214, V2','W23-14th','14.7 MPa','KGS','KGS AA311, KS B 6214','YOH-2820K21.png'],
+  ['yrh-2820k21','YRH-2820K21','Tapered Inlet Threads','W28-14th, KS B 6214, V2','W22-14th','14.7 MPa','KGS, KS','KGS AA311, KS B 6214','YOH-2820K21.png'],
+  ['yhh-2820k21','YHH-2820K21','Tapered Inlet Threads','W28-14th, KS B 6214, V2','W22-14th-LH','14.7 MPa','KGS, KS','KGS AA311, KS B 6214','YOH-2820K21.png'],
+  ['yoc-2820k26','YOC-2820K26','Tapered Inlet Threads','W28-14th, KS B 6214, V2','W23-14th','14.7 MPa','KGS','KGS AA311, KS B 6214','YOH-2820K21.png'],
   ['yrc-2820k26','YRC-2820K26','Tapered Inlet Threads','W28-14th, KS B 6214, V2','W22-14th','14.7 MPa','KGS','KGS AA311, KS B 6214','YOH-2820K21.png'],
   ['yhc-2820k26','YHC-2820K26','Tapered Inlet Threads','W28-14th, KS B 6214, V2','W22-14th-LH','14.7 MPa','KGS','KGS AA311, KS B 6214','YOH-2820K21.png'],
   ['yrc-2820k27','YRC-2820K27','Tapered Inlet Threads','W28-14th, KS B 6214, V2','W22-14th','14.7 MPa','KGS','KGS AA311, KS B 6214','YOH-2820K21.png'],
@@ -194,6 +194,6 @@ export const GAS_VALVE_DATA: GasValve[] = [
 export const GAS_VALVE_DESCRIPTION = {
   title: 'Youngdo Gas & Cylinder Valves',
   description:
-    'The full Youngdo range in one place — hydrogen cylinder valves to 70 MPa, LPG cylinder / OPD / piping valves, and industrial gas cylinder valves across tapered, unified, non-return, acetylene, chlorine/ammonia, tube trailer and piping connection categories. Filter by gas type, category, series and certification.',
-  specs: ['Youngdo', 'Hydrogen · LPG · Industrial Gas', 'up to 70 MPa', 'KGS · KS · EC79 · CGA · BS 341 · ISO', `${13 + 20 + 48} Models`],
+    'Youngdo gas and cylinder valves in one place — hydrogen cylinder valves to 70 MPa, LPG cylinder / OPD / piping valves, and industrial gas cylinder valves across tapered, unified, non-return, acetylene, chlorine/ammonia, tube trailer and piping connection categories. Filter by gas type, category, series and certification. Certification varies by model — see the table.',
+  specs: ['Youngdo', 'Hydrogen · LPG · Industrial Gas', 'up to 70 MPa', 'KGS · KS · EC79 · R134 · CGA V-1 (by model)', `${GAS_VALVE_DATA.length} Models`],
 }

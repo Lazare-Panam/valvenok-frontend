@@ -3,11 +3,11 @@ import { Metadata } from 'next';
 import EnquiryForm from './Enquiry';
 
 interface Props {
-  searchParams: { product_id?: string };
+  searchParams: Promise<{ product_id?: string }>;
 }
 
 export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
-  const productId = searchParams.product_id;
+  const { product_id: productId } = await searchParams;
 
   return {
     title: {

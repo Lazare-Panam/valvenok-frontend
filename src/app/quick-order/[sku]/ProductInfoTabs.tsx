@@ -252,7 +252,7 @@ function DeliveryPanel() {
           }}
         >
           <span style={{ color: "#d32f2f", marginRight: 6 }}>❗</span>
-          Please Note – UK Stock & Lead Times
+          Please Note – Availability & Lead Times
         </Typography>
         <Typography
           sx={{
@@ -264,7 +264,7 @@ function DeliveryPanel() {
             mb: 1,
           }}
         >
-          <strong>All products are stocked in the UK</strong> — we hold inventory at our facility for fast dispatch.
+          <strong>Availability varies by product</strong> — stock levels shown on this page are a guide, and lead times are confirmed with your order.
         </Typography>
         <Typography
           sx={{
@@ -313,8 +313,7 @@ function DeliveryPanel() {
           </Typography>
           <Box component="ul" sx={{ pl: 0, m: 0, listStyle: "none" }}>
             {[
-              "Standard delivery in 1–3 working days",
-              "Orders placed before 2pm are usually dispatched same day",
+              "Delivery options and timescales are listed on our Delivery page",
               "Larger or made-to-order items may take longer",
               "Shipping costs calculated at checkout",
               "Free UK delivery on orders over £150+VAT",

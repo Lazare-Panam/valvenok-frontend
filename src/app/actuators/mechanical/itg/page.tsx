@@ -104,7 +104,7 @@ const FEATURES = [
   {
     number: "9",
     title: "Global Support & Engineering",
-    body: "Backed by global manufacturing and service presence, ensuring fast delivery, customization, and reliable technical support.",
+    body: "Backed by global manufacturing and service presence, with customisation options and technical support.",
   },
 ];
 

@@ -189,7 +189,7 @@ function FilterRow({ row }: { row: HPFilterItem }) {
                       <Spec label="Indicator Type"    value={row.indicatorType} />
                       <Spec label="Mounting"          value={row.mounting} />
                       <Spec label="Set Pressure"      value={row.setPressure ? `${row.setPressure} BAR` : undefined} />
-                      <Spec label="Price (GBP)"       value={`£${row.price.toLocaleString('en-GB', { minimumFractionDigits: 2 })}`} />
+                      <Spec label="Price (GBP, ex. VAT)" value={`£${row.price.toLocaleString('en-GB', { minimumFractionDigits: 2 })}`} />
                     </Stack>
                     <Button 
         size="small" 
@@ -310,7 +310,7 @@ export default function FilterPage() {
         )}
 
         <Typography variant="caption" fontWeight={700} color="text.secondary" sx={{ display: 'block', mb: 1 }}>
-          {filtered.length} CONFIGURATIONS
+          {filtered.length} CONFIGURATIONS · PRICES EXCLUDE VAT
         </Typography>
 
         <Box sx={{ display: 'flex', alignItems: 'stretch', border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}`, borderRadius: '8px', overflow: 'hidden', bgcolor: 'background.paper' }}>
@@ -327,7 +327,7 @@ export default function FilterPage() {
                       { key: 'subCategory',      label: 'Category' },
                       { key: 'threadConnection', label: 'Thread Connection' },
                       { key: 'housingLength',    label: 'Housing Length' },
-                      { key: 'price',            label: 'Price (GBP)' },
+                      { key: 'price',            label: 'Price (GBP, ex. VAT)' },
                       { key: null,               label: 'Quote' },
                     ].map((h, i) => (
                       <TableCell key={i} sx={headerSx}>

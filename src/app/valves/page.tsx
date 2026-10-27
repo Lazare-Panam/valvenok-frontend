@@ -162,7 +162,7 @@ const VALVE_FAMILIES: Category[] = [
       "Zero Stem Leakage",
       "Double Seal — Bellows + Packing",
       "11 Variants",
-      "CE / ISO Compliant",
+      "Certification Varies by Model",
     ],
     applications:
       "Process Plants, Chemical, Pharmaceutical, Power Generation, Industrial",
@@ -180,7 +180,7 @@ const VALVE_FAMILIES: Category[] = [
       "Danfoss OEM Quality",
       "PVG Series Compatible",
       "Mobile Hydraulics",
-      "CE / ISO Compliant",
+      "Certification Varies by Model",
       "Fast Availability",
     ],
     applications:
@@ -195,10 +195,10 @@ const VALVE_FAMILIES: Category[] = [
 
 const TRUST_POINTS = [
   { value: "API 6D / 600", label: "Industry Standards" },
-  { value: "Marine Certified", label: "LR · DNV · BV · ABS" },
+  { value: "Marine Class Approvals", label: "Selected Models" },
   { value: "SS316 · Duplex", label: "Material Options" },
   { value: "DN15 – DN600", label: "Size Range" },
-  { value: "Fast Dispatch", label: "Availability" },
+  { value: "UK Based", label: "Technical Support" },
 ];
 
 export default function ProcessValvesIndexPage() {

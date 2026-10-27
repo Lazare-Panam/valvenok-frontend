@@ -13,6 +13,13 @@ export const metadata: Metadata = {
   title: "Kosaplus Actuators & Limit Switches",
   description:
     "Valvenok supplies the Kosaplus range — KE series electric quarter-turn actuators, AD scotch yoke pneumatic actuators and KLS explosion-proof valve position indicators. ISO 5211 mounting, IECEx and KCs certified for process, oil & gas and marine automation.",
+  openGraph: {
+    title: "Kosaplus Actuators & Limit Switches | Valvenok",
+    description: "Valvenok supplies the Kosaplus range — KE series electric quarter-turn actuators, AD scotch yoke pneumatic actuators and KLS explosion-proof valve position indicators. ISO 5211 mounting, IECEx and KCs certified for process, oil & gas and marine automation.",
+    url: "/brands/kosaplus",
+    siteName: "Valvenok",
+    type: "website",
+  },
 };
 
 const KOSAPLUS_SERIES: Category[] = [

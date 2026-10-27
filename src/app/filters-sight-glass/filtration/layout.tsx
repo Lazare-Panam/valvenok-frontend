@@ -7,7 +7,7 @@ const IMAGE =
   "https://pblol2.blob.core.windows.net/valvenok-images/products/filters/DFM_Mega_Flow_Rate_Filter.png";
 
 export const metadata: Metadata = {
-  alternates: { canonical: "/filters-sight-glass/filteration" },
+  alternates: { canonical: "/filters-sight-glass/filtration" },
   title: { absolute: TITLE },
   description: DESCRIPTION,
   openGraph: {

@@ -29,7 +29,7 @@ const POSTS = [
   },
   {
     title: "Why Buy Valves From a UK Stockist",
-    desc: "No import lead time, no minimum order, and a company you can verify. Over 5,000 products held in UK stock from Bicester, Oxfordshire since 2018 — JOSCAR registered supply for defence, energy and process industries.",
+    desc: "No minimum order on standard catalogue items, and a company you can verify. A UK supplier based in Bicester, Oxfordshire since 2018 — JOSCAR registered supply for defence, energy and process industries.",
     thumbnail:
       "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/ben-kupke-ew-p24CVLR0-unsplash.jpg",
     author: "Valvenok Team",
@@ -39,7 +39,7 @@ const POSTS = [
   },
   {
     title: "Butterfly Valve Instrumentation and Connection Packages",
-    desc: "Triple offset, pneumatically actuated, and process butterfly valves — fully engineered from the primary isolation to the instrumentation layer, with UK stock and 24-hour engineering response.",
+    desc: "Triple offset, pneumatically actuated, and process butterfly valves — fully engineered from the primary isolation to the instrumentation layer, with UK-based engineering support.",
     thumbnail:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/ptfe_lined_butterfly.png",
     author: "Valvenok Team",
@@ -53,7 +53,7 @@ const POSTS = [
     desc: "Valvenok has partnered with Valve Systems International to represent the Atlas Severe Service Control Valve — engineered from first principles to eliminate cavitation at the source.",
     thumbnail:
       "https://pblol2.blob.core.windows.net/valvenok-images/blogs/vsi.jpeg",
-    author: "The Valvenok Team",
+    author: "Valvenok Team",
     date: "June 2026",
     category: "Partnership Announcement",
     link: "/news/valvenok-vsi-atlas-sscv-partnership",
@@ -73,7 +73,7 @@ const POSTS = [
     desc: "British engineering expertise meets South Korean manufacturing excellence — expanding our valve automation portfolio with pneumatic actuators, electric actuators, positioners, solenoid valves, and more.",
     thumbnail:
       "https://pblol2.blob.core.windows.net/valvenok-images/blogs/kosa_plus.jpeg",
-    author: "Sejal Raina",
+    author: "Valvenok Team",
     date: "June 2026",
     category: "Partnership Announcement",
     link: "/news/valvenok-kosa-plus-partnership",
@@ -84,7 +84,7 @@ const POSTS = [
     desc: "A strategic collaboration bringing together two companies united by a shared commitment to engineering excellence and reliable flow control — expanding our industrial valve portfolio across the UK and beyond.",
     thumbnail:
       "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/mars-banner.jpeg",
-    author: "Sejal Raina",
+    author: "Valvenok Team",
     date: "June 2026",
     category: "Partnership Announcement",
     link: "/news/mars-valve-partnership",
@@ -100,9 +100,8 @@ const POSTS = [
     link: "/news/mechanical-seals-guide",
   },
   {
-    title:
-      "Ball Valve vs Gate Valve: Technical Guide to Key Differences & How to Choose",
-    desc: "A technical breakdown of ball valves and gate valves — covering sealing performance, pressure ratings, industry applications, and a clear decision framework for engineers and procurement teams.",
+    title: "Ball Valve vs Gate Valve: Key Differences & How to Choose",
+    desc: "How ball valves and gate valves work, how they seal, where each is used by industry, and a decision framework for engineers and procurement teams.",
     thumbnail:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/apollo-valves-88a10a01.webp", // add your image here
     author: "Kanchan Rajput",
@@ -127,7 +126,7 @@ const POSTS = [
       "https://pblol2.blob.core.windows.net/valvenok-images/blogs/blog4.jpg", // add your image here
     author: "Steven Kassi",
     date: "April 2026",
-    category: "Manufacturer Profiles",
+    category: "Technical Guide",
     link: "/news/instrumentation-fittings-hydrogen-leak-tight-threads",
   },
   {
@@ -136,7 +135,7 @@ const POSTS = [
     desc: "A complete engineering guide to one of the workhorses of the process industry — how it is built, how it keeps your reactor leak-free, and where it fits among the seal types you might be considering.",
     thumbnail:
       "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/ben-kupke-ew-p24CVLR0-unsplash.jpg",
-    author: "Seal Raina",
+    author: "Sejal Raina",
     date: "May 2026",
     category: "Engineering",
     link: "/news/seals-blog",
@@ -181,9 +180,9 @@ export default function BlogPage() {
               mt: 2,
             }}
           >
-            News and technical insights on ball valve innovation and mechanical
-            seals for pumps from Valvenok, a UK supplier to global engineering
-            teams.
+            Technical guides, buyer&apos;s advice and company news from
+            Valvenok, a UK supplier of industrial valves, fittings and flow
+            control equipment.
           </Typography>
         </Container>
       </Box>
@@ -211,36 +210,26 @@ export default function BlogPage() {
               fontSize: "1.05rem",
             }}
           >
-            Stay up to date with the latest developments from Valvenok Ltd, a
-            leading UK valve manufacturer supplying high-quality flow control
-            solutions to a wide range of industries. Our news page is designed
-            to keep customers and partners informed about company updates,
-            product innovations, and key trends across the engineering and
-            industrial sectors.
+            This is where Valvenok Ltd publishes technical guides, buyer&apos;s
+            advice and company news. Valvenok is a UK supplier and distributor
+            of industrial valves, fittings, actuators and instrumentation from
+            established manufacturers.
             <br />
-            At Valvenok, we specialise in precision-engineered components,
-            including the reliable ball valve range used in demanding
-            applications where durability and performance are critical.
-            Alongside our valve solutions, we also supply high-quality
-            mechanical seals for pumps, helping to ensure efficiency, safety,
-            and long-term reliability in fluid handling systems.
             <br />
-            We regularly share updates on new product developments,
-            partnerships, and expansion initiatives as we continue to strengthen
-            our position within the UK and international markets. Our commitment
-            to Quality and customer satisfaction drives us to deliver dependable
-            solutions tailored to the needs of industries such as oil & gas,
-            manufacturing, and water treatment.
+            Our technical guides cover choosing a valve actuator (electric,
+            pneumatic, hydraulic or manual), butterfly valve instrumentation and
+            connection packages, the differences between ball valves and gate
+            valves, leak-tight thread practice for hydrogen instrumentation
+            fittings, and pumps and mechanical seals, including agitator seals
+            and submersible pump selection.
             <br />
-            In addition to company news, we provide insights into industry best
-            practices, emerging technologies, and practical guidance on
-            selecting the right components for your applications. Whether you
-            are looking for a trusted UK valve manufacturer, durable ball valve
-            solutions, or reliable mechanical seals for pumps, our updates will
-            help you stay informed and make confident decisions.
             <br />
-            Check back regularly for the latest news and expert insights from
-            Valvenok.
+            For buyers, our guide to buying from a UK stockist covers lead
+            times, minimum order quantities and how to check a supplier.
+            Company news includes our partnership announcements with Valve
+            Systems International (VSI), Pietro Fiorentini, Kosa Plus and Mars
+            Valves, and an overview of the manufacturers whose products we
+            supply.
           </Typography>
         </Container>
       </Box>

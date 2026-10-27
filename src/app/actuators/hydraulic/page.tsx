@@ -9,6 +9,13 @@ export const metadata: Metadata = {
   title: "Hydraulic Actuators | Electro-Hydraulic Rotary",
   description:
     "Valvenok supplies electro-hydraulic rotary actuators for extreme torque and fail-safe operation. PANDA low-pressure and PA high-pressure series — ATEX Zone 1 & 2, SIL 2/3, IP67/68, ISO 5211 mounting.",
+  openGraph: {
+    title: "Hydraulic Actuators | Electro-Hydraulic Rotary | Valvenok",
+    description: "Valvenok supplies electro-hydraulic rotary actuators for extreme torque and fail-safe operation. PANDA low-pressure and PA high-pressure series — ATEX Zone 1 & 2, SIL 2/3, IP67/68, ISO 5211 mounting.",
+    url: "/actuators/hydraulic",
+    siteName: "Valvenok",
+    type: "website",
+  },
 };
 
 const HYDRAULIC_FAMILIES: Category[] = [

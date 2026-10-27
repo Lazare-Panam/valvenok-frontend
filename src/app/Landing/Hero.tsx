@@ -13,8 +13,8 @@ import { alpha } from '@mui/material/styles';
 
 // ── HERO STATS ───────────────────────────────────────────────────────────────
 const STATS = [
-  { num: '2–3', suffix: '',    label: 'Day UK Dispatch'   },
-  { num: '5',   suffix: 'K+', label: 'Products In Stock'  },
+  { num: 'UK',  suffix: '',   label: 'Based Supplier'    },
+  { num: '✓',   suffix: '',   label: 'Technical Support' },
   { num: '✓',   suffix: '',   label: 'JOSCAR Registered'  },
   { num: 'SS',  suffix: '316',label: 'Material Options'   },
   { num: 'H',   suffix: '2',  label: 'Hydrogen Ready'     },

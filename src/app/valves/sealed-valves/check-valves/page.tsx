@@ -84,7 +84,7 @@ const TRUST_POINTS = [
   { value: "DIN", label: "Standard" },
   { value: "Lift Check", label: "Valve Type" },
   { value: "Bellows Sealed", label: "Construction" },
-  { value: "CE / ISO", label: "Certified" },
+  { value: "Certification", label: "Varies by Model" },
 ];
 
 const TAGS = [

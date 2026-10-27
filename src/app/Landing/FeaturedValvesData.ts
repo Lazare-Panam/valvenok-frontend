@@ -26,7 +26,7 @@ export const FEATURED_PRODUCTS: FeaturedValve[] = [
     href: "/hydrogen-cryogenic/valves",
     specs: [
       { label: "Max Pressure", value: "~150,000 psi" },
-      { label: "Certifications", value: "KC · KGS Certified" },
+      { label: "Certifications", value: "KC · KGS on selected models" },
       { label: "Range", value: "56 Models — 6 Valve Categories" },
     ],
   },

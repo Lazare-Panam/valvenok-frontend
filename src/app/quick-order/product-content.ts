@@ -57,7 +57,7 @@ function buildProductContent(product: ProductQuickOrder): ProductContent {
     .join(", ");
   const descRaw = `PANAM ${category} (${product.sku})${
     specBits ? `, ${specBits}` : ""
-  }, ${material}. Leak-tight, high-pressure rated. In stock at Valvenok.`;
+  }, ${material}. Leak-tight, high-pressure rated. Available from Valvenok.`;
   const metaDescription = truncate(descRaw, MAX_DESC);
 
   const longDescription = `The Valvenok ${product.sku} ${product.name} is a high-performance ${category.toLowerCase()} engineered for secure, leak-tight connections in pneumatic and industrial fluid systems.`;

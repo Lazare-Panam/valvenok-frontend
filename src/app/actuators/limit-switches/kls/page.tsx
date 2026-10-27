@@ -134,7 +134,7 @@ const TRUST_POINTS = [
   { value: "IECEx / KCs", label: "Explosion Proof" },
   { value: "Mech & Prox", label: "Switch Options" },
   { value: "-40°C to +60°C", label: "Temperature Range" },
-  { value: "Fast Dispatch", label: "Availability" },
+  { value: "UK Based", label: "Technical Support" },
 ];
 
 const CERTIFICATIONS = [

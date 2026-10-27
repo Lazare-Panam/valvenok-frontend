@@ -1,5 +1,6 @@
 'use client'
 import { useState, useMemo } from 'react'
+import Link from 'next/link'
 import { Box, Typography } from '@mui/material'
 import { alpha, useTheme } from '@mui/material/styles'
 import { TUBING_DATA, } from './components/data'
@@ -36,6 +37,13 @@ export default function TubingPage() {
         </Typography>
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 700 }}>
           {TUBING_DESCRIPTION.description}
+        </Typography>
+        <Typography variant="body2" color="text.secondary" mb={2} sx={{ maxWidth: 700 }}>
+          The table below lists tubing only. Hiflux tube supports are listed separately on the{' '}
+          <Link href="/high-pressure/tubing/tube-supports" style={{ color: theme.palette.primary.dark, fontWeight: 600 }}>
+            tube supports page
+          </Link>
+          .
         </Typography>
         <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
           {TUBING_DESCRIPTION.specs.map(s => (

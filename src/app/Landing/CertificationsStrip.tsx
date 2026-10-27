@@ -6,7 +6,9 @@ import VerifiedOutlinedIcon from "@mui/icons-material/VerifiedOutlined";
 import Reveal from "@/src/app/Common/Reveal";
 
 // Mirrors the real STANDARDS list in src/app/quality/page.tsx — duplicated
-// (not imported) to keep this component decoupled from that page.
+// (not imported) to keep this component decoupled from that page. These are
+// standards products in the range are supplied to; certification varies by
+// model, so the heading must not imply every product carries every mark.
 const STANDARDS = [
   "ISO 9001 Quality Management",
   "PED 2014/68/EU Pressure Equipment",
@@ -58,7 +60,7 @@ export default function CertificationsStrip() {
                   lineHeight: 1.1,
                 }}
               >
-                Every Product, Fully Certified
+                Certification Varies by Model
               </Typography>
             </Box>
 

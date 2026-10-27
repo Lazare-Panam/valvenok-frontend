@@ -153,12 +153,12 @@ export const PIPE_ELBOW_DATA: PipeElbowDTO[] = [
 export const PIPE_ELBOW_DESCRIPTION = {
   title: 'HP Pipe Fittings — Elbows',
   description:
-    'Panam High Pressure Elbows in SS 316. Male, Female, Swivel Male, Swivel Union, and Street Elbows in NPT and ISO Parallel thread connections. 10,000 to 15,000 psi. Sizes from 1/8" to 1 1/2".',
+    'Panam High Pressure Elbows in SS 316. Male, Female, Swivel Male, Swivel Union, and Street Elbows in NPT and ISO parallel (BSPP) thread connections. 10,000 to 15,000 psi. Sizes from 1/8" to 1 1/2".',
   specs: [
     'Male · Female · Street · Swivel Male · Swivel Union Elbow',
     'SS 316',
     '10,000 & 15,000 psi',
-    'NPT · ISO Parallel',
+    'NPT · ISO parallel (BSPP)',
     '1/8" – 1 1/2"',
   ],
 }

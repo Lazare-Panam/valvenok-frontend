@@ -91,7 +91,7 @@ export default function Footer() {
                 variant="body2"
                 sx={{ color: alpha("#fff", 0.7), mb: 4, lineHeight: 1.8 }}
               >
-                Leading UK supplier of Hydraulic, Pneumatic, and Instrumentation
+                UK supplier of Hydraulic, Pneumatic, and Instrumentation
                 components. Engineering excellence delivered fast to Global
                 Procurement Teams.
               </Typography>

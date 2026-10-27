@@ -1,26 +1,12 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/src/app/Common/seo";
 
-const TITLE = "JIC Tees | Valvenok";
-const DESCRIPTION =
-  "SS316 37° JIC tee fittings, branch, reducing and union configurations.";
-const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
-
-export const metadata: Metadata = {
-  title: { absolute: TITLE },
-  description: DESCRIPTION,
-  openGraph: {
-    title: TITLE,
-    description: DESCRIPTION,
-    type: "website",
-    images: [IMAGE],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: TITLE,
-    description: DESCRIPTION,
-    images: [IMAGE],
-  },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "JIC Tees & Crosses — 37° Flare, SS316",
+  description:
+    "316 stainless steel 37° flared JIC tees: male and female branch and run tees, union tees, swivel tees and union crosses. Filter by size and request a quote.",
+  path: "/fittings-tubing/instrumentation-fittings/jic-fittings/tees",
+});
 
 export default function TeesLayout({
   children,

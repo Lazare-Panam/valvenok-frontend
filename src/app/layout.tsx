@@ -38,16 +38,17 @@ export const metadata: Metadata = {
     template: "%s | Valvenok",
   },
   description:
-    "UK's Leading Supplier of Industrial Valves, Actuators & SS316 Fittings, plus hydrogen-ready components. Official distributor for PANAM and 40+ Global Brands.",
+    "UK supplier of industrial valves, actuators and SS316 instrumentation fittings, plus hydrogen components, from 25+ brands including PANAM.",
   icons: {
     icon: "https://pblol2.blob.core.windows.net/valvenok-images/logo.png",
   },
   metadataBase: new URL("https://www.valvenok.com"),
+  // No twitter title/description here on purpose: a child segment that sets
+  // openGraph but not twitter would otherwise keep these homepage values.
+  // Without them, Next.js fills twitter:title/description from each page's
+  // own openGraph (falling back to the page title/description).
   twitter: {
     card: "summary_large_image",
-    title: "Valvenok | Industrial Valves, Fittings & Instrumentation UK",
-    description:
-      "UK's Leading Supplier of Industrial Valves, Actuators & SS316 Fittings, plus hydrogen-ready components. Official distributor for PANAM and 40+ Global Brands.",
     images: ["https://pblol2.blob.core.windows.net/valvenok-images/logo.png"],
   },
 };
@@ -88,10 +89,23 @@ export default function RootLayout({
             }),
           }}
         />
-        {/* This script will be placed before the closing </head> tag */}
+      </head>
+      <body>
+        <ThemeRegistry>
+          <ScrollProgress />
+          <Providers>
+            <NotificationProvider />
+            <Navbar />
+            <Breadcrumbs />
+            {children}
+          </Providers>
+        </ThemeRegistry>
+        <Footer />
 
-        <script
-          type="text/javascript"
+        {/* Microsoft Clarity — via next/script; a raw <script> in the React tree never executes on the client */}
+        <Script
+          id="clarity-init"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
         (function(c,l,a,r,i,t,y){
@@ -102,20 +116,6 @@ export default function RootLayout({
       `,
           }}
         />
-      </head>
-      <body>
-        <ScrollProgress />
-        <ThemeRegistry>
-          {" "}
-          <Providers>
-            <NotificationProvider />
-            <Navbar />
-            <Breadcrumbs />
-            {children}
-          </Providers>
-        </ThemeRegistry>
-        <Footer />
-
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-NRCXYNLX5K"
           strategy="afterInteractive"

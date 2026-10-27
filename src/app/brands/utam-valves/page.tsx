@@ -13,6 +13,13 @@ export const metadata: Metadata = {
   title: "UTAM Syncercon Marine Valves",
   description:
     "Valvenok supplies the UTAM Syncercon marine valve range — bolted bonnet and union bonnet gate and globe valves in ASME Class 150/300, DN15 to DN600, Lloyd's Register approved for marine, shipbuilding and offshore seawater service.",
+  openGraph: {
+    title: "UTAM Syncercon Marine Valves | Valvenok",
+    description: "Valvenok supplies the UTAM Syncercon marine valve range — bolted bonnet and union bonnet gate and globe valves in ASME Class 150/300, DN15 to DN600, Lloyd's Register approved for marine, shipbuilding and offshore seawater service.",
+    url: "/brands/utam-valves",
+    siteName: "Valvenok",
+    type: "website",
+  },
 };
 
 const UTAM_VALVE_SERIES: Category[] = [

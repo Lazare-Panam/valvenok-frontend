@@ -13,6 +13,13 @@ export const metadata: Metadata = {
   title: "Susin Valve Actuators",
   description:
     "Valvenok supplies the Susin actuator range — ITQ rotary, IQL/ITL linear and ITM multi-turn electric actuators, PDS/HD scotch yoke and PLDS/MPLDS linear pneumatic actuators, and ITS position monitoring switches. ISO 5211, ATEX, SIL3 and IP67/IP68 rated for process automation.",
+  openGraph: {
+    title: "Susin Valve Actuators | Valvenok",
+    description: "Valvenok supplies the Susin actuator range — ITQ rotary, IQL/ITL linear and ITM multi-turn electric actuators, PDS/HD scotch yoke and PLDS/MPLDS linear pneumatic actuators, and ITS position monitoring switches. ISO 5211, ATEX, SIL3 and IP67/IP68 rated for process automation.",
+    url: "/brands/susin",
+    siteName: "Valvenok",
+    type: "website",
+  },
 };
 
 const SUSIN_SERIES: Category[] = [

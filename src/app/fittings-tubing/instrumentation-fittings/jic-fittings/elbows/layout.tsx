@@ -1,26 +1,12 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/src/app/Common/seo";
 
-const TITLE = "JIC Elbows | Valvenok";
-const DESCRIPTION =
-  "SS316 37° JIC elbow fittings, male, female and adjustable configurations.";
-const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
-
-export const metadata: Metadata = {
-  title: { absolute: TITLE },
-  description: DESCRIPTION,
-  openGraph: {
-    title: TITLE,
-    description: DESCRIPTION,
-    type: "website",
-    images: [IMAGE],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: TITLE,
-    description: DESCRIPTION,
-    images: [IMAGE],
-  },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "JIC Elbows — 37° Flare, SS316",
+  description:
+    "316 stainless steel 37° flared JIC elbows: adjustable male, 45° male, female and union elbows across NPT, BSPT, BSPP, SAE/MS and metric threads.",
+  path: "/fittings-tubing/instrumentation-fittings/jic-fittings/elbows",
+});
 
 export default function ElbowsLayout({
   children,

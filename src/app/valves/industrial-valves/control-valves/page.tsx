@@ -4,13 +4,14 @@ import TrustStrip from "@/src/app/Common/Products_Page/TrustStrip";
 import { Category } from "@/src/app/Common/Products_Page/ProductCard";
 import ProcessValvesGrid from "../../ProcessValvesGrid";
 import { Box } from "@mui/material";
+import { pageMetadata } from "@/src/app/Common/seo";
 
-export const metadata: Metadata = {
-  alternates: { canonical: '/valves/industrial-valves/control-valves' },
-  title: "Mars Ball Valves",
+export const metadata: Metadata = pageMetadata({
+  title: "VSI Atlas Severe Service Control Valves",
   description:
-    "Valvenok supplies the full Mars ball valve range — 1-piece, 2-piece, 3-piece, multi-way diverter, wafer compact and fire-safe flanged designs in stainless steel 316 with API 607 fire-safe certification.",
-};
+    "VSI Atlas 15, Atlas 21 and Atlas 32 severe service control valves for demanding process conditions. Supplied by Valvenok, UK. Request a quote.",
+  path: "/valves/industrial-valves/control-valves",
+});
 
 const CONTROL_VALVE_SERIES: Category[] = [
   {
@@ -33,7 +34,7 @@ const CONTROL_VALVE_SERIES: Category[] = [
     image:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/Atlas-15.png",
     logoUrl:
-      "https://vsillc.com/wp-content/uploads/2026/02/Logo-2026-300x168.png",
+      "/images/brands/vsi.png",
   },
   {
     code: "VSI-A21",
@@ -55,7 +56,7 @@ const CONTROL_VALVE_SERIES: Category[] = [
     image:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/Atlas-21.png",
     logoUrl:
-      "https://vsillc.com/wp-content/uploads/2026/02/Logo-2026-300x168.png",
+      "/images/brands/vsi.png",
   },
   {
     code: "VSI-A32",
@@ -77,7 +78,7 @@ const CONTROL_VALVE_SERIES: Category[] = [
     image:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/gas-regulator/vsi-32.JPG",
     logoUrl:
-      "https://vsillc.com/wp-content/uploads/2026/02/Logo-2026-300x168.png",
+      "/images/brands/vsi.png",
   },
 ];
 const TRUST_POINTS = [

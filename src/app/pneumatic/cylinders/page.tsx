@@ -9,6 +9,13 @@ export const metadata: Metadata = {
   title: "Pneumatic Cylinders | ISO-15552 Profile Cylinders",
   description:
     "Valvenok supplies a full range of ISO-15552 profile pneumatic cylinders. SDNC, ESNC and ESC series across bore sizes 32mm to 320mm, magnetic and non-magnetic variants, strokes up to 1000mm.",
+  openGraph: {
+    title: "Pneumatic Cylinders | ISO-15552 Profile Cylinders | Valvenok",
+    description: "Valvenok supplies a full range of ISO-15552 profile pneumatic cylinders. SDNC, ESNC and ESC series across bore sizes 32mm to 320mm, magnetic and non-magnetic variants, strokes up to 1000mm.",
+    url: "/pneumatic/cylinders",
+    siteName: "Valvenok",
+    type: "website",
+  },
 };
 
 const CYLINDER_FAMILIES: Category[] = [
@@ -67,7 +74,7 @@ const TRUST_POINTS = [
   { value: "Ø32 – Ø320 mm", label: "Full Bore Range" },
   { value: "Up to 1000 mm", label: "Stroke Length" },
   { value: "Magnetic Variants", label: "Sensor-Ready" },
-  { value: "Fast Dispatch", label: "Availability" },
+  { value: "UK Based", label: "Technical Support" },
 ];
 
 export default function CylindersIndexPage() {

@@ -362,7 +362,7 @@ export default function KosaPartnershipPage() {
             {
               num: "05",
               title: "Improved Supply Capabilities",
-              body: "Strengthened supply chain relationships and improved stock availability — helping customers meet project deadlines and reduce unplanned downtime.",
+              body: "Strengthened supply chain relationships — helping customers plan around project deadlines and reduce unplanned downtime.",
             },
             {
               num: "06",

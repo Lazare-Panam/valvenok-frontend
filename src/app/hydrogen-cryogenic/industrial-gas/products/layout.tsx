@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 const TITLE = "Industrial Gas Valves Variants | Valvenok";
 const DESCRIPTION =
-  "Youngdo industrial valves across 7 categories, KGS, CGA V-1, BS 341, ISO certified.";
+  "Youngdo industrial gas cylinder valves across 7 categories. Certification and standards vary by model.";
 const IMAGE =
   "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/top_logo.png";
 

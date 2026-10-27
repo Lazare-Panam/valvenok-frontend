@@ -111,11 +111,11 @@ export default function PumpsAndSealsPage() {
           {[1, 2].map((iteration) => (
             <Box key={iteration} sx={{ display: "flex", gap: 6, pr: 6 }}>
               {[
-                "ATEX Certified Pump Options",
-                "UK Stocked Seals & Spares",
+                "Pumps, Mechanical Seals & Spares",
+                "Certification Varies by Model",
                 "High-Chromium Wear Resistance",
                 "ISO 3069 / DIN 24960 Standard Seals",
-                "Same-Day Dispatch on Stock Items",
+                "UK-Based Technical Support",
               ].map((item) => (
                 <Typography
                   key={item}

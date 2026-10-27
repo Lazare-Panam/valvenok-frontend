@@ -3,13 +3,14 @@ import ProductHero from "@/src/app/Common/Products_Page/ProductHero";
 import TrustStrip from "@/src/app/Common/Products_Page/TrustStrip";
 import { Category } from "@/src/app/Common/Products_Page/ProductCard";
 import ProcessValvesGrid from "../../ProcessValvesGrid";
+import { pageMetadata } from "@/src/app/Common/seo";
 
-export const metadata: Metadata = {
-  alternates: { canonical: '/valves/industrial-valves/check-valves' },
-  title: "Check Valves",
+export const metadata: Metadata = pageMetadata({
+  title: "Industrial Check Valves — Swing & Dual Plate",
   description:
-    "Valvenok supplies a full range of industrial check valves — cast steel swing check, bolted bonnet and more from leading global manufacturers including Velan and Anderson Greenwood.",
-};
+    "Industrial check valves including cast steel swing check, bolted bonnet and dual plate designs from Velan, Anderson Greenwood and Value Valves.",
+  path: "/valves/industrial-valves/check-valves",
+});
 
 const CHECK_VALVE_SERIES: Category[] = [
   {

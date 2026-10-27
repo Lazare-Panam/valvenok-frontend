@@ -10,7 +10,6 @@ import HeroSlider from "./Landing/HeroSlider";
 import MarsSection from "./Landing/MarsSection";
 import ValuePropBanner from "./Landing/ValuePropBanner";
 import StatsBand from "./Landing/StatsBand";
-import TestimonialsSection from "./Landing/TestimonialsSection";
 import LatestInsights from "./Landing/LatestInsights";
 import FAQSection from "./Landing/FAQSection";
 
@@ -21,11 +20,11 @@ export const metadata = {
     absolute: "Valvenok | Trusted UK Valves and Controls Supplier",
   },
   description:
-    "UK's leading supplier of high-pressure valves, SS316 fittings, and Hydrogen-ready components. Official distributor of 40+ brands.",
+    "UK supplier of industrial valves, actuators, SS316 instrumentation fittings and hydrogen components from 25+ brands including PANAM. Request a quote today.",
   openGraph: {
     title: "Valvenok | Industrial Flow Control Experts",
     description:
-      "High-Quality valves, fittings, and instrumentation for UK industry.",
+      "Industrial valves, actuators, SS316 instrumentation fittings and hydrogen components from 25+ brands. Request a quote today.",
     url: "https://www.valvenok.com",
     siteName: "Valvenok",
     images: [
@@ -57,7 +56,7 @@ export default function Home() {
           border: 0,
         }}
       >
-        Valves and controls from 32 leading manufacturers | Valvenok
+        Industrial valves, actuators and instrumentation fittings from 25+ manufacturers
       </h1>
       <HeroSlider />
       <CertificationsStrip />
@@ -70,7 +69,8 @@ export default function Home() {
       <Brands />
       <Categories />
       <StatsBand />
-      <TestimonialsSection />
+      {/* TestimonialsSection removed until there are genuine, attributable
+          customer quotes — the previous copy was illustrative (UK ASA rules). */}
       <LatestInsights />
       <FAQSection />
       <AboutContact />

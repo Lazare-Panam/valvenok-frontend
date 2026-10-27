@@ -7,7 +7,7 @@ import Divider from '@mui/material/Divider';
 import { alpha } from '@mui/material/styles';
 
 const COMPANY = 'Valvenok Limited';
-const EMAIL = 'privacy@valvenok.co.uk';
+const EMAIL = 'sales@valvenok.com';
 const EFFECTIVE_DATE = '1 January 2025';
 
 const COOKIE_TYPES = [

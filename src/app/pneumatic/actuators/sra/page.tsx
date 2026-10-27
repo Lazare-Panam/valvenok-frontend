@@ -175,7 +175,7 @@ function DataRow({ p }: { p: ActuatorProduct }) {
                   </Typography>
                   <Stack direction="row" spacing={1} sx={{ alignItems: 'center', mb: 3 }}>
                     <Box sx={{ width: 8, height: 8, bgcolor: 'success.main', borderRadius: '50%' }} />
-                    <Typography variant="caption" fontWeight={700} color="success.main">In Stock</Typography>
+                    <Typography variant="caption" fontWeight={700} color="success.main">Available to Order</Typography>
                   </Stack>
                   <Button
                     variant="contained"
@@ -213,10 +213,10 @@ export default function ActuatorsRangePage() {
           Actuators & Valves
         </Typography>
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 700 }}>
-          Double acting pneumatic actuators and 3/2 actuator valves for industrial process control. BSP 1/8" connections, fast-response operation, in stock for fast dispatch.
+          Double acting pneumatic actuators and 3/2 actuator valves for industrial process control. BSP 1/8" connections and fast-response operation.
         </Typography>
         <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
-          {['Double Acting', 'BSP 1/8"', 'Process Control', 'In Stock'].map(s => (
+          {['Double Acting', 'BSP 1/8"', 'Process Control', '3/2 Valves'].map(s => (
             <Box key={s} sx={{
               px: 1.5, py: 0.5, borderRadius: '20px',
               fontSize: '0.75rem', fontWeight: 600,

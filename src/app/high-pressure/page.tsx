@@ -14,7 +14,7 @@ const SECTIONS = [
     overline: "Ball Valves",
     title: "HP Ball Valves",
     description:
-      'SS 316 High Pressure Ball Valves from 10,000 to 15,000 psi. HP, HP1 and HP2 series in NPT, ISO Parallel and 37° JIC connections. Sizes from 1/4" to 1". Built for demanding oil & gas and process applications.',
+      'SS 316 High Pressure Ball Valves from 10,000 to 20,000 psi. HP, HP1 and HP2 series with NPT female and MP cone & thread female connections. Sizes from 1/4" to 1". Built for demanding oil & gas and process applications.',
     href: "/high-pressure/ball-valves",
     label: "Browse Ball Valves",
     image:
@@ -60,7 +60,7 @@ const SECTIONS = [
     overline: "Cone & Thread Fittings",
     title: "HP Fittings",
     description:
-      "SS 316 High Pressure Cone & Thread Fittings from 10,000 to 60,000 psi. Adapters, connectors, unions, elbows, tees, crosses, hex nipples, caps and plugs for oil & gas and subsea applications.",
+      "Panam SS 316 High Pressure Cone & Thread Fittings from 10,000 to 60,000 psi. Adapters, connectors, unions, elbows, tees, crosses, hex nipples, caps and plugs for oil & gas and subsea applications. The pressure range shown covers the Panam range; the HP Fittings catalogue also lists Hiflux fittings with their own ratings.",
     href: "/high-pressure/fittings",
     label: "Browse HP Fittings",
     image:
@@ -165,7 +165,7 @@ export default function HighPressureIndexPage() {
           <Button
             variant="contained"
             size="large"
-            href="mailto:sales@valvenok.com"
+            href="/contact"
             sx={{
               bgcolor: "#61D649",
               color: "#000",
@@ -210,7 +210,6 @@ export default function HighPressureIndexPage() {
                 "10,000 – 60,000 psi",
                 "NPT · ISO Parallel · Cone & Thread",
                 "Oil & Gas · Subsea · Test Systems",
-                "Fast Dispatch",
               ].map((item) => (
                 <Typography
                   key={item}
@@ -356,7 +355,7 @@ export default function HighPressureIndexPage() {
           </Typography>
           <Button
             variant="contained"
-            href="mailto:sales@valvenok.com"
+            href="/contact"
             sx={{
               bgcolor: "#61D649",
               color: "#000",

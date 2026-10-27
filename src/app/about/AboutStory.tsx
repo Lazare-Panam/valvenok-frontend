@@ -25,8 +25,8 @@ const TIMELINE = [
   },
   {
     year: '2024',
-    title: '5,000+ SKUs in Stock',
-    body: 'Expanded our UK stockholding to over 5,000 products across fittings, valves, adapters, and instrumentation components — all available for immediate dispatch.',
+    title: 'Expanded Product Range',
+    body: 'Broadened our range across fittings, valves, adapters, and instrumentation components, with availability and lead times confirmed on every quotation.',
   },
 ];
 

@@ -3,13 +3,14 @@ import ProductHero from "@/src/app/Common/Products_Page/ProductHero";
 import TrustStrip from "@/src/app/Common/Products_Page/TrustStrip";
 import { Category } from "@/src/app/Common/Products_Page/ProductCard";
 import ProcessValvesGrid from "../../ProcessValvesGrid";
+import { pageMetadata } from "@/src/app/Common/seo";
 
-export const metadata: Metadata = {
-  alternates: { canonical: '/valves/industrial-valves/globe-valve' },
+export const metadata: Metadata = pageMetadata({
   title: "Industrial Globe Valves",
   description:
     "Valvenok supplies a full range of industrial globe valves — lined, welded bonnet and bolted/union bonnet designs from leading global manufacturers including Fisher, Bonney Forge and UTAM Syncercon.",
-};
+  path: "/valves/industrial-valves/globe-valve",
+});
 
 const GLOBE_VALVE_SERIES: Category[] = [
   {

@@ -13,18 +13,18 @@ import { alpha } from '@mui/material/styles';
 const VALUES = [
   {
     icon: InventoryOutlinedIcon,
-    title: 'Stock First',
-    body: 'We invest in inventory so you don\'t have to wait. If it\'s on the website, it\'s in our warehouse.',
+    title: 'Clear Availability',
+    body: 'We confirm availability and lead time up front, so you can plan your project with confidence.',
   },
   {
     icon: BoltOutlinedIcon,
-    title: 'Fast Dispatch',
-    body: 'All stocked orders are dispatched within 2–3 working days. No excuses, no delays, no minimum order.',
+    title: 'No Minimum Order',
+    body: 'Single components or full project quantities — no minimum order on standard catalogue items.',
   },
   {
     icon: VerifiedOutlinedIcon,
     title: 'Traceable Quality',
-    body: 'Every product is sourced from approved manufacturers with full material traceability and certificates on request.',
+    body: 'Products are sourced from established manufacturers, with material traceability and certificates available on request for applicable lines.',
   },
   {
     icon: HandshakeOutlinedIcon,

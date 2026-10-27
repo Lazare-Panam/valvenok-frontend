@@ -173,7 +173,7 @@ const GROUPS: { group: string; links: { label: string; href: string }[] }[] = [
         href: "/hydrogen-cryogenic/industrial-gas/products",
       },
       {
-        label: "Cryogenic Fittings",
+        label: "Hydrogen & HP Fittings",
         href: "/hydrogen-cryogenic/fittings/products",
       },
     ],

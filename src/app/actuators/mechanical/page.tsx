@@ -9,6 +9,13 @@ export const metadata: Metadata = {
   title: "Mechanical Actuators | Bevel & Worm Gearboxes",
   description:
     "Valvenok supplies manual bevel and worm gear actuators for multi-turn and quarter-turn valve operation. MAB bevel gear series up to 18,000 Nm and MAW worm gear series up to 32,000 Nm — ISO 5210/5211 mounting, IP68 protection, marine and offshore options.",
+  openGraph: {
+    title: "Mechanical Actuators | Bevel & Worm Gearboxes | Valvenok",
+    description: "Valvenok supplies manual bevel and worm gear actuators for multi-turn and quarter-turn valve operation. MAB bevel gear series up to 18,000 Nm and MAW worm gear series up to 32,000 Nm — ISO 5210/5211 mounting, IP68 protection, marine and offshore options.",
+    url: "/actuators/mechanical",
+    siteName: "Valvenok",
+    type: "website",
+  },
 };
 
 const MECHANICAL_FAMILIES: Category[] = [

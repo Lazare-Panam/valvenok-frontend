@@ -30,7 +30,7 @@ const HIFLUX_PRODUCT: ProductForRFQ = {
     "Hiflux high pressure fittings, accessories, manifold blocks, tube caps and thread lubricant rated up to 150,000 psi for industrial, hydrogen and wellhead applications.",
   keySpecs: [
     { label: "Max Pressure", value: "~150,000 psi" },
-    { label: "Certifications", value: "KC, KGS" },
+    { label: "Certifications", value: "KC, KGS (varies by product)" },
     {
       label: "Types",
       value: "Fittings, Accessories, Manifold Blocks, Tube Caps, Lubricant",
@@ -57,7 +57,7 @@ const TECH_SPECS = [
     value: "Available at 20,000 and 60,000 psi",
   },
   { label: "Thread Lubricant", value: "Oil Based — Blue Lube" },
-  { label: "Certifications", value: "KC, KGS" },
+  { label: "Certifications", value: "KC, KGS — varies by product" },
   { label: "Total Products", value: "27 Products across 5 categories" },
 ];
 
@@ -99,13 +99,13 @@ const FEATURES = [
   },
   {
     letter: "H",
-    title: "Hydrogen Compatible",
-    body: "Full fitting and accessory range compatible with hydrogen service infrastructure.",
+    title: "Hydrogen Service",
+    body: "Fittings and accessories for hydrogen service infrastructure — please confirm suitability for your specific item and conditions when requesting a quote.",
   },
   {
     letter: "I",
-    title: "KC & KGS Certified",
-    body: "Korean Certificate and KGS certification across the fitting and accessory range.",
+    title: "KC & KGS Certification",
+    body: "KC and KGS certification varies by product — please confirm the marks required for your item when requesting a quote.",
   },
   {
     letter: "J",
@@ -125,9 +125,7 @@ const FEATURES = [
 ];
 
 const CERTIFICATIONS = [
-  "KC Certified",
-  "KGS Approved",
-  "H₂ Compatible",
+  "KC / KGS by product",
   "150,000 psi Max",
   "27 Products",
 ];
@@ -224,8 +222,9 @@ export default function HifluxFittingsPage() {
                 Hiflux manufactures a comprehensive range of high pressure
                 fittings and accessories rated up to 150,000 psi. 27 products
                 across fittings, accessories, manifold blocks, tube caps and
-                thread lubricant — KC and KGS certified for industrial, hydrogen
-                and wellhead applications worldwide.
+                thread lubricant for industrial, hydrogen and wellhead
+                applications. Certification varies by product — please confirm
+                when requesting a quote.
               </Typography>
 
               <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mb: 4 }}>
@@ -255,7 +254,7 @@ export default function HifluxFittingsPage() {
                 {[
                   { label: "Max Pressure", value: "150,000 psi" },
                   { label: "Products", value: "27 Items" },
-                  { label: "Certifications", value: "KC · KGS" },
+                  { label: "Certifications", value: "KC · KGS (by product)" },
                   { label: "Service", value: "Industrial · H₂ · Wellhead" },
                 ].map(({ label, value }) => (
                   <Box key={label}>

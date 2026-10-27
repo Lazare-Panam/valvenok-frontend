@@ -24,35 +24,41 @@ const GAS_REG_PRODUCT: ProductForRFQ = {
   thumbnail:
     "https://pblol2.blob.core.windows.net/valvenok-images/products/gas-regulator/staflux-187.jpg",
   description:
-    "Pietro Fiorentini direct-operated gas pressure regulators for high-pressure transmission and medium pressure natural gas distribution. Fail Open per EN 334. Hydrogen Ready versions available.",
+    "Pietro Fiorentini direct-operated gas pressure regulators for high-pressure transmission and medium pressure natural gas distribution. Fail Open design. Hydrogen-ready versions available on selected models — contact us to confirm.",
   keySpecs: [
-    { label: "Models", value: "Dival 160 AP · Staflux 185 · 187 · Mini" },
+    {
+      label: "Models",
+      value: "Dival 160 AP · Staflux 185 · 187 · ATF 15",
+    },
     { label: "Design Pressure", value: "Up to 250 bar" },
     { label: "Inlet Pressure", value: "Up to 250 bar" },
-    { label: "Standard", value: "EN 334 — Fail Open" },
+    { label: "Fail Mode", value: "Fail Open" },
   ],
   variantInfo: {
     count: 4,
-    sizeRange: "DN 1",
+    sizeRange: "Varies by model",
   },
 };
 
 const TECH_SPECS = [
   {
     label: "Models",
-    value: "Dival 160 AP, Staflux 185, Staflux 187, Staflux Mini",
+    value: "Dival 160 AP, Staflux 185, Staflux 187, ATF 15",
   },
   { label: "Type", value: "Direct Operated — Diaphragm Controlled" },
-  { label: "Fail Mode", value: "Fail Open (EN 334)" },
-  { label: "Nominal Sizes", value: 'DN 1", 2", 3" (model dependent)' },
+  { label: "Fail Mode", value: "Fail Open" },
+  { label: "Nominal Sizes", value: "Vary by model — see products table" },
   { label: "Design Pressure", value: "Up to 250 bar (Staflux 187)" },
   { label: "Inlet Pressure", value: "1.4 – 250 bar (model dependent)" },
   { label: "Outlet Pressure", value: "0.85 – 75 bar (model dependent)" },
   { label: "Design Temperature", value: "-20°C to +60°C" },
   { label: "Accuracy Class", value: "AC up to 5" },
   { label: "Lock-Up Class", value: "SG up to 10" },
-  { label: "Connections", value: "ASME B16.5 Class 300, 600, 1500 RF / RTJ" },
-  { label: "Standard", value: "EN 334" },
+  {
+    label: "Connections",
+    value:
+      "ASME B16.5 Class 300 / 600 / 1500 RF / RTJ flanged (Dival 160 AP, Staflux 185, Staflux 187); NPT / Rp threaded (ATF 15)",
+  },
 ];
 
 const FEATURES = [
@@ -64,7 +70,7 @@ const FEATURES = [
   {
     letter: "B",
     title: "Fail Open",
-    body: "Classified Fail Open per European Standard EN 334 for safe operation in transmission and distribution networks.",
+    body: "Fail Open behaviour for safe operation in transmission and distribution networks.",
   },
   {
     letter: "C",
@@ -73,13 +79,13 @@ const FEATURES = [
   },
   {
     letter: "D",
-    title: "Wide Size Range",
-    body: 'Available in DN 1", 2", and 3" depending on model — covering a broad range of flow capacities.',
+    title: "Range of Sizes",
+    body: "Flanged and threaded models in a range of sizes and connections — sizes vary by model; see the products table.",
   },
   {
     letter: "E",
     title: "Hydrogen Ready",
-    body: "Dival 160 AP and Staflux 187 are Hydrogen Ready for NG-H2 blending service.",
+    body: "Hydrogen-ready versions available on selected models — contact us to confirm. The products table marks Dival 160 AP, Staflux 187 and ATF 15 as H2 Ready for NG-H2 blending.",
   },
   {
     letter: "F",
@@ -115,18 +121,16 @@ const FEATURES = [
 
 const TRUST_POINTS = [
   { value: "Up to 250 bar", label: "Max Design Pressure" },
-  { value: "EN 334", label: "Design Standard" },
   { value: "Fail Open", label: "Safety Classification" },
-  { value: "H2 Ready", label: "Hydrogen Compatible" },
-  { value: "4 Models", label: "Product Range" },
+  { value: "H2 Ready", label: "Selected Models" },
+  { value: `${GAS_REG_PRODUCT.variantInfo.count} Models`, label: "Product Range" },
 ];
 
 const CERTIFICATIONS = [
-  "EN 334",
   "Fail Open",
-  "H2 Ready",
-  "ASME B16.5",
-  "Biomethane Compatible",
+  "H2 Ready — Selected Models",
+  "ASME B16.5 Flanged",
+  "Biomethane Versions",
 ];
 
 export default function GasPressureRegulatorsPage() {
@@ -201,10 +205,11 @@ export default function GasPressureRegulatorsPage() {
               >
                 Pietro Fiorentini direct-operated gas pressure regulators
                 engineered for high-pressure transmission systems and medium
-                pressure natural gas distribution networks.
-                Diaphragm-controlled, classified Fail Open per EN 334. Hydrogen
-                Ready versions available across the range — Dival 160 AP,
-                Staflux 185, Staflux 187, and Staflux Mini.
+                pressure natural gas distribution networks. Four models —
+                Dival 160 AP, Staflux 185, Staflux 187 and ATF 15 —
+                diaphragm-controlled with Fail Open behaviour. Hydrogen-ready
+                versions available on selected models — contact us to confirm;
+                see the products table for each model.
               </Typography>
 
               <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mb: 4 }}>

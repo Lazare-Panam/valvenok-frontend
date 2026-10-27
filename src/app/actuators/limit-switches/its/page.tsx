@@ -122,7 +122,7 @@ const TRUST_POINTS = [
   { value: "ATEX T6", label: "Explosion Proof" },
   { value: "IECEx & CE", label: "International Cert" },
   { value: "-20°C to +80°C", label: "Temperature Range" },
-  { value: "Fast Dispatch", label: "Availability" },
+  { value: "UK Based", label: "Technical Support" },
 ];
 
 const CERTIFICATIONS = [

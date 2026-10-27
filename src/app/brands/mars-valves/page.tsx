@@ -9,7 +9,14 @@ export const metadata: Metadata = {
   alternates: { canonical: '/brands/mars-valves' },
   title: "Mars Ball Valves",
   description:
-    "Valvenok supplies the full Mars ball valve range — 1-piece, 2-piece, 3-piece, multi-way diverter, wafer compact and fire-safe flanged designs in stainless steel 316 with API 607 fire-safe certification.",
+    "Valvenok supplies Mars ball valves — 1-piece, 2-piece, 3-piece, multi-way, wafer compact and flanged designs in stainless steel, with API 607 fire-safe certified series available.",
+  openGraph: {
+    title: "Mars Ball Valves | Valvenok",
+    description: "Valvenok supplies Mars ball valves — 1-piece, 2-piece, 3-piece, multi-way, wafer compact and flanged designs in stainless steel, with API 607 fire-safe certified series available.",
+    url: "/brands/mars-valves",
+    siteName: "Valvenok",
+    type: "website",
+  },
 };
 
 const MARS_VALVE_SERIES: Category[] = [
@@ -27,11 +34,11 @@ const MARS_VALVE_SERIES: Category[] = [
   {
     code: "MV-FS",
     title: "Fire-Safe Ball Valve",
-    subtitle: "API 607 Fire-Safe Certified",
+    subtitle: "API 607 Fire-Safe Certified Series",
     description:
-      "Fire-safe ball valve certified to API 607. Designed to maintain shut-off integrity under fire conditions, suitable for critical isolation service in hazardous areas.",
-    specs: ["API 607 Fire-Safe", "Critical Isolation", "Hazardous Area Rated"],
-    applications: "Oil & Gas, Petrochemical, Refining, Hazardous Areas",
+      "Fire-safe ball valves certified to API 607 7th Edition (Series 83, 88, 90D and 91D), in 3-piece and flanged designs with CF8M or WCB bodies.",
+    specs: ["API 607 7th Edition", "3-Piece & Flanged", "CF8M / WCB Bodies"],
+    applications: "Oil & Gas, Petrochemical, Refining",
     href: "/valves/mars-valves",
     image: "https://pblol2.blob.core.windows.net/mars-valves/categories/fire-safe.jpg",
   },
@@ -47,17 +54,6 @@ const MARS_VALVE_SERIES: Category[] = [
     image: "https://pblol2.blob.core.windows.net/mars-valves/categories/flanged.jpg",
   },
   {
-    code: "MV-GV",
-    title: "Gate Valve",
-    subtitle: "Full Bore On/Off Isolation",
-    description:
-      "Gate valve for full-bore, low-restriction on/off isolation service. Suitable for applications where minimal pressure drop and straight-through flow are required.",
-    specs: ["Full Bore", "On/Off Isolation", "Rising Stem"],
-    applications: "Oil & Gas, Process Plants, Water Treatment, Utility Service",
-    href: "/valves/mars-valves",
-    image: "https://pblol2.blob.core.windows.net/mars-valves/categories/gate-valve.jpg",
-  },
-  {
     code: "MV-1P",
     title: "One-Piece Ball Valve",
     subtitle: "Compact Single-Body Design",
@@ -69,34 +65,12 @@ const MARS_VALVE_SERIES: Category[] = [
     image: "https://pblol2.blob.core.windows.net/mars-valves/categories/one-piece.png",
   },
   {
-    code: "MV-PFA",
-    title: "PFA-Lined Ball Valve",
-    subtitle: "Corrosion-Resistant PFA Lining",
-    description:
-      "PFA-lined ball valve for aggressive chemical and corrosive media service. Full PFA lining protects the valve body from chemical attack while maintaining tight shut-off.",
-    specs: ["PFA Lining", "Corrosion Resistant", "Chemical Service"],
-    applications: "Chemical Processing, Pharmaceuticals, Aggressive Media, Acid Service",
-    href: "/valves/mars-valves",
-    image: "https://pblol2.blob.core.windows.net/mars-valves/categories/pfa-lining.jpg",
-  },
-  {
-    code: "MV-SC",
-    title: "Segment Control Valve",
-    subtitle: "Throttling & Flow Control",
-    description:
-      "Segment control valve for precise throttling and flow control in demanding process applications. Segmented disc design provides accurate flow characterisation.",
-    specs: ["Segmented Disc", "Flow Throttling", "Control Service"],
-    applications: "Process Control, Chemical, Food & Beverage, Wastewater",
-    href: "/valves/mars-valves",
-    image: "https://pblol2.blob.core.windows.net/mars-valves/categories/segment-control.jpg",
-  },
-  {
     code: "MV-HP",
     title: "High-Pressure Ball Valve",
     subtitle: "High-Pressure Series",
     description:
-      "High-pressure ball valve engineered for demanding service conditions requiring elevated pressure ratings. Heavy-duty construction for reliable isolation in high-pressure systems.",
-    specs: ["High-Pressure Rated", "Heavy-Duty Body", "Tight Shut-Off"],
+      "High-pressure ball valves for elevated-pressure service, with ratings up to 6000 PSI depending on series.",
+    specs: ["Up to 6000 PSI (Series Dependent)", "CF8M / WCB Bodies", "Delrin / PEEK Seats"],
     applications: "Oil & Gas, Hydraulic Systems, High-Pressure Process Lines",
     href: "/valves/mars-valves",
     image: "https://pblol2.blob.core.windows.net/mars-valves/categories/series-hp.jpg",
@@ -136,12 +110,12 @@ const MARS_VALVE_SERIES: Category[] = [
   },
   {
     code: "MV-UF",
-    title: "Uni-Flanged Ball Valve",
-    subtitle: "Universal Flanged Series",
+    title: "Uni-Body Flanged Ball Valve",
+    subtitle: "Uni-Body Flanged Series",
     description:
-      "Uni-flanged ball valve with universal flange pattern for flexible installation across multiple pipeline standards. Compact flanged design for space-constrained applications.",
-    specs: ["Universal Flange", "Compact Design", "Multi-Standard Compatible"],
-    applications: "Process Plants, Industrial Service, Multi-Standard Pipelines",
+      "Uni-body flanged ball valve with a reduced port, rated ANSI Class 150/300 in sizes 1/2\" to 6\". The Series 91D version is API 607 fire-safe certified.",
+    specs: ["Uni-Body Flanged", "Reduced Port", "ANSI Class 150 / 300"],
+    applications: "Process Plants, Industrial Service",
     href: "/valves/mars-valves",
     image: "https://pblol2.blob.core.windows.net/mars-valves/categories/uni-flanged.png",
   },
@@ -150,8 +124,8 @@ const MARS_VALVE_SERIES: Category[] = [
     title: "V-Port Ball Valve",
     subtitle: "Characterised V-Port Control",
     description:
-      "V-port ball valve for characterised flow control and throttling service. V-shaped ball provides equal percentage flow characteristics for precise process control.",
-    specs: ["V-Port Ball", "Equal % Flow Characteristic", "Control & Throttling"],
+      "V-port ball valve for flow control and throttling service, with 30°, 60° or 90° V-port balls across 3-piece, flanged and wafer series.",
+    specs: ["V-Port Ball", "30° / 60° / 90° V-Port", "Control & Throttling"],
     applications: "Process Control, Chemical, Power Generation, Flow Regulation",
     href: "/valves/mars-valves",
     image: "https://pblol2.blob.core.windows.net/mars-valves/categories/v-port.png",
@@ -162,8 +136,8 @@ const TRUST_POINTS = [
   { value: "API 607", label: "Fire Safe Certified" },
   { value: "SS316 (CF8M)", label: "Material Standard" },
   { value: '1/8" – 12"', label: "Size Range" },
-  { value: "Up to 2000 PSI", label: "Pressure Rating" },
-  { value: "11 Series", label: "Ball Valve Range" },
+  { value: "Up to 6000 PSI", label: "Pressure Rating (Series Dependent)" },
+  { value: "ISO 9001", label: "Manufacturer Quality System" },
 ];
 
 export default function MarsValvesIndexPage() {
@@ -171,8 +145,8 @@ export default function MarsValvesIndexPage() {
     <>
       <ProductHero
         title="Mars Ball Valves"
-        subtitle="Industrial Ball Valve Range — 11 Series"
-        description="The complete Mars ball valve range — 1-piece, 2-piece, 3-piece, multi-way diverter, wafer compact and fire-safe flanged designs. Stainless steel 316 (CF8M) construction, API 607 fire-safe certified, NACE MR-0175 sour-gas service available."
+        subtitle="Industrial Ball Valve Range"
+        description="Mars ball valves — 1-piece, 2-piece, 3-piece, multi-way, wafer compact and fire-safe flanged designs. Stainless steel (CF8M) construction, with API 607 fire-safe certified series available."
         imageSrc="https://pblol2.blob.core.windows.net/mars-valves/ball-valves/series90D.jpg"
         imageAlt="Mars Ball Valves"
         breadcrumb="Products / Valves / Mars Ball Valves"

@@ -188,7 +188,7 @@ export default function SealDetailPage() {
 
             {/* Trust badges */}
             <Stack direction="row" flexWrap="wrap" gap={2} mb={4}>
-              {['OEM Compatible', 'Quality Assured', 'In Stock'].map(badge => (
+              {['OEM Compatible', 'Quality Assured', 'UK Technical Support'].map(badge => (
                 <Stack key={badge} direction="row" alignItems="center" spacing={0.5}>
                   <VerifiedIcon sx={{ fontSize: 16, color: 'primary.main' }} />
                   <Typography variant="caption" fontWeight={600} color="text.secondary">{badge}</Typography>

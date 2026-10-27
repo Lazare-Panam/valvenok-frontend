@@ -46,7 +46,7 @@ const TECH_SPECS = [
     label: "Compatibility",
     value: "Danfoss PVG, PVE & associated valve series",
   },
-  { label: "Certifications", value: "CE, ISO compliant" },
+  { label: "Certification", value: "Varies by part — contact us to confirm" },
 ];
 
 const FEATURES = [
@@ -77,8 +77,8 @@ const FEATURES = [
   },
   {
     letter: "F",
-    title: "Fast Availability",
-    body: "Stocked for prompt dispatch to support urgent maintenance, repair and overhaul requirements across the Danfoss valve platform.",
+    title: "Technical Support",
+    body: "Our UK team can help identify the right Danfoss PVG component for your application — send us your part number or system details.",
   },
 ];
 
@@ -86,11 +86,11 @@ const TRUST_POINTS = [
   { value: "Danfoss", label: "Original Brand" },
   { value: "PVG Series", label: "Compatibility" },
   { value: "Original Parts", label: "Genuine Supply" },
-  { value: "CE / ISO", label: "Certified" },
-  { value: "In Stock", label: "Fast Dispatch" },
+  { value: "MRO", label: "Service Supply" },
+  { value: "UK Based", label: "Technical Support" },
 ];
 
-const TAGS = ["Valve Components", "PVG Series", "Original Parts", "CE", "ISO"];
+const TAGS = ["Valve Components", "PVG Series", "Original Parts", "Danfoss", "MRO"];
 
 export default function DanfossValveComponentsPage() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -209,7 +209,7 @@ export default function DanfossValveComponentsPage() {
                   { label: "Brand", value: "Danfoss" },
                   { label: "Supply", value: "Original Parts" },
                   { label: "Compatible", value: "PVG Series" },
-                  { label: "Dispatch", value: "Fast Availability" },
+                  { label: "Support", value: "UK Technical Team" },
                 ].map(({ label, value }) => (
                   <Box key={label}>
                     <Typography

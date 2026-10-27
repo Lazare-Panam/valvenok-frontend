@@ -27,12 +27,12 @@ const HIFLUX_PRODUCT: ProductForRFQ = {
   thumbnail:
     "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/tube.png",
   description:
-    "Hiflux high pressure tubes and nipples rated up to 100,000 psi, with a full tooling set range and tube supports for industrial, hydrogen and wellhead applications.",
+    "Hiflux high pressure tubes and nipples rated up to 100,000 psi, with tooling sets and tube supports for cone and thread high-pressure systems. Certification varies by product.",
   keySpecs: [
     { label: "Max Pressure", value: "~100,000 psi" },
-    { label: "Certifications", value: "KC, KGS" },
+    { label: "Certifications", value: "Varies by product" },
     { label: "Types", value: "Tube, Nipple, Tooling Set, Tube Support" },
-    { label: "Service", value: "Industrial, Hydrogen, Wellhead" },
+    { label: "System", value: "Cone & thread high pressure" },
   ],
   variantInfo: { count: 18, sizeRange: "20,000–100,000 psi" },
 };
@@ -55,14 +55,9 @@ const TECH_SPECS = [
   { label: "Threading Dies", value: "HSS Ground Threading Tool Dies" },
   { label: "Guide Busing", value: "Threading Tool Guide Busing" },
   { label: "Tube Supports", value: "1 Line, 2 Line, 3 Line" },
-  { label: "Certifications", value: "KC, KGS" },
   {
-    label: "H₂ Compatible",
-    value: "Yes — suitable for hydrogen service infrastructure",
-  },
-  {
-    label: "Applications",
-    value: "Industrial, Wellhead, Research & Test, Hydrogen",
+    label: "Certifications",
+    value: "Certification varies by product; certificates on request",
   },
   { label: "Total Products", value: "18 Products across 4 categories" },
 ];
@@ -115,13 +110,13 @@ const FEATURES = [
   },
   {
     letter: "J",
-    title: "Hydrogen Compatible",
-    body: "Full tube and nipple range suitable for hydrogen service applications and H₂ station infrastructure.",
+    title: "Tube or Nipple",
+    body: "Plain tube is coned and threaded on site with a tooling set; nipples are supplied pre-coned and threaded to the length you specify.",
   },
   {
     letter: "K",
-    title: "KC & KGS Certified",
-    body: "Korean Certificate and KGS certification across the tube and nipple range for industrial compliance.",
+    title: "Certificates on Request",
+    body: "Certification varies by product. Ask us for the documentation available for the specific tube, nipple or support you need.",
   },
   {
     letter: "L",
@@ -131,10 +126,8 @@ const FEATURES = [
 ];
 
 const CERTIFICATIONS = [
-  "KC Certified",
-  "KGS Approved",
-  "H₂ Compatible",
   "100,000 psi Max",
+  "Cone & Thread",
   "18 Products",
 ];
 
@@ -230,9 +223,9 @@ export default function HifluxTubingPage() {
                 Hiflux manufactures a comprehensive range of high pressure tubes
                 and nipples rated up to 100,000 psi, paired with a full tooling
                 set range — coning, threading, reseating tools, HSS dies, spare
-                cutters and collets — and 1, 2 and 3 line tube supports. KC and
-                KGS certified for industrial, hydrogen and wellhead applications
-                worldwide.
+                cutters and collets — and 1, 2 and 3 line tube supports.
+                Certification varies by product; certificates are available on
+                request.
               </Typography>
 
               <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mb: 4 }}>
@@ -262,8 +255,8 @@ export default function HifluxTubingPage() {
                 {[
                   { label: "Max Pressure", value: "100,000 psi" },
                   { label: "Products", value: "18 Items" },
-                  { label: "Certifications", value: "KC · KGS" },
-                  { label: "Service", value: "Industrial · H₂ · Wellhead" },
+                  { label: "Certifications", value: "Varies by product" },
+                  { label: "System", value: "Cone & thread" },
                 ].map(({ label, value }) => (
                   <Box key={label}>
                     <Typography

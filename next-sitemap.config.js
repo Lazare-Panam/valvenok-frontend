@@ -5,7 +5,21 @@ module.exports = {
   changefreq: 'weekly',
   priority: 0.7,
   sitemapSize: 5000,
-  exclude: ['/api/*', '/_not-found'],
+  exclude: [
+    '/api/*',
+    '/_not-found',
+    // Account, cart and utility pages carry noindex; keep them out of the sitemap too
+    '/account',
+    '/account/*',
+    '/cart',
+    '/cart/*',
+    '/login',
+    '/register',
+    '/track-order',
+    '/sample',
+    '/products',
+    '/categories/valves',
+  ],
   transform: async (config, path) => {
     const priorities = {
       '/': 1.0,

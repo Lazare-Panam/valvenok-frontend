@@ -44,7 +44,7 @@ export default function ValuePropBanner() {
             <Typography sx={{ color: "rgba(255,255,255,0.75)", fontSize: "0.95rem", maxWidth: 560 }}>
               As an authorised distributor working directly with leading
               manufacturers, we cut out the reseller markup — the same
-              certified components, without paying twice.
+              genuine manufacturer components, without paying twice.
             </Typography>
           </Box>
 

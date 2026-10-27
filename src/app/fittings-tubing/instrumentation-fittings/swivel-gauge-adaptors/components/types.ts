@@ -28,7 +28,7 @@ export const EMPTY_SGA_FILTERS: SGAFilters = {
 export const SGA_DESCRIPTION = {
   title: 'Swivel Gauge Adaptors — PSGA',
   description:
-    'Panam Swivel Gauge Adaptors with 360° adjustable gauge positioning and silver-plated anti-gall threads. Available in Type M (Standard Metal-to-Metal Sealing, without O-ring) and Type S (Soft Sealing with PTFE/Grafoil). Compatible with 1/2" NPT, BSPP, BSPT, and M20×1.5 thread standards. Stainless Steel 316 construction.',
+    'Panam Swivel Gauge Adaptors (also known as swivel gauge adapters) with 360° adjustable gauge positioning and silver-plated anti-gall threads. Available in Type M (Standard Metal-to-Metal Sealing, without O-ring) and Type S (Soft Sealing with PTFE/Grafoil). Compatible with 1/2" NPT, BSPP, BSPT, and M20×1.5 thread standards. Stainless Steel 316 construction. Length (L) is in mm; width (W) and across-flats (A/F) dimensions are in inches.',
   specs: [
     '360° Swivel Positioning',
     'Stainless Steel 316',

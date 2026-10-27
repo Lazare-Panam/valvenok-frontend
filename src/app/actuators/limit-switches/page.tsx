@@ -9,6 +9,13 @@ export const metadata: Metadata = {
   title: "Limit Switch Boxes | Valve Position Indicators",
   description:
     "Valvenok supplies KLS and ITS series limit switch boxes for valve position indication. Weatherproof IP67 and explosion-proof IECEx / KCs certified units with mechanical and proximity switch options for process safety systems.",
+  openGraph: {
+    title: "Limit Switch Boxes | Valve Position Indicators | Valvenok",
+    description: "Valvenok supplies KLS and ITS series limit switch boxes for valve position indication. Weatherproof IP67 and explosion-proof IECEx / KCs certified units with mechanical and proximity switch options for process safety systems.",
+    url: "/actuators/limit-switches",
+    siteName: "Valvenok",
+    type: "website",
+  },
 };
 
 const LIMIT_SWITCH_FAMILIES: Category[] = [
@@ -63,7 +70,7 @@ const TRUST_POINTS = [
   { value: "IECEx / KCs", label: "Explosion Proof" },
   { value: "ATEX T6", label: "Hazardous Area" },
   { value: "Mech & Prox", label: "Switch Options" },
-  { value: "Fast Dispatch", label: "Availability" },
+  { value: "UK Based", label: "Technical Support" },
 ];
 
 export default function LimitSwitchesPage() {

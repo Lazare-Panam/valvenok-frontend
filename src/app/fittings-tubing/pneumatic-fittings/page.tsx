@@ -41,7 +41,7 @@ const TRUST_POINTS = [
   { value: "Ø4 – Ø16 mm", label: "Tube Size Range" },
   { value: "M5, 1/8\", 1/4\", 3/8\", 1/2\"", label: "BSP Threads" },
   { value: "280+ Configurations", label: "E Series Range" },
-  { value: "Fast Dispatch", label: "Availability" },
+  { value: "UK Based", label: "Technical Support" },
 ];
 
 export default function FittingsIndexPage() {

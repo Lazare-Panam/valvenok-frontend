@@ -9,6 +9,13 @@ export const metadata: Metadata = {
   title: "Electric Actuators | Rotary & Linear",
   description:
     "Valvenok supplies a full range of electric rotary and linear actuators for precise valve automation. ITQ series quarter-turn electric actuators — ISO 5211 mounting, on-off and modulating service, IP67 protection.",
+  openGraph: {
+    title: "Electric Actuators | Rotary & Linear | Valvenok",
+    description: "Valvenok supplies a full range of electric rotary and linear actuators for precise valve automation. ITQ series quarter-turn electric actuators — ISO 5211 mounting, on-off and modulating service, IP67 protection.",
+    url: "/actuators/electric",
+    siteName: "Valvenok",
+    type: "website",
+  },
 };
 
 const ELECTRIC_FAMILIES: Category[] = [
@@ -149,7 +156,7 @@ const TRUST_POINTS = [
   { value: "IP67", label: "Ingress Protection" },
   { value: "100–9,000 Nm", label: "Torque Range" },
   { value: "Self-Locking", label: "Double Worm Gear" },
-  { value: "Fast Dispatch", label: "Availability" },
+  { value: "UK Based", label: "Technical Support" },
 ];
 
 export default function ElectricActuatorsIndexPage() {

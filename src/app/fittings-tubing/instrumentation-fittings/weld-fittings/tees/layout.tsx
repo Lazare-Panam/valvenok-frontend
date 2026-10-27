@@ -1,26 +1,12 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/src/app/Common/seo";
 
-const TITLE = "Weld Fitting Tees | Valvenok";
-const DESCRIPTION =
-  "SS316 weld fitting tees, male reducing and branch tee types for industrial piping.";
-const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
-
-export const metadata: Metadata = {
-  title: { absolute: TITLE },
-  description: DESCRIPTION,
-  openGraph: {
-    title: TITLE,
-    description: DESCRIPTION,
-    type: "website",
-    images: [IMAGE],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: TITLE,
-    description: DESCRIPTION,
-    images: [IMAGE],
-  },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Tube Socket Weld Tees — SS316",
+  description:
+    "SS316 male run tees and male branch tees with tube socket weld (TSW) and NPT male ends, for permanent three-way connections in instrumentation tubing.",
+  path: "/fittings-tubing/instrumentation-fittings/weld-fittings/tees",
+});
 
 export default function WeldFittingTeesLayout({
   children,

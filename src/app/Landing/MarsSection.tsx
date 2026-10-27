@@ -66,9 +66,8 @@ export default function MarsSection() {
 
             <Typography sx={bodyText}>
               We work closely with manufacturers to deliver valves that meet
-              demanding industry standards. Every product we supply is traceable
-              and quality-assured, with the documentation engineers and
-              procurement teams expect.
+              demanding industry standards, with documentation and traceability
+              available on request — certification varies by model.
             </Typography>
 
             <Typography component="h3" sx={heading}>
@@ -77,7 +76,7 @@ export default function MarsSection() {
 
             <Typography sx={bodyText}>
               Whether you need a single valve or a complete project supply, we
-              offer competitive pricing, fast delivery, and expert technical
+              offer competitive pricing and expert technical
               guidance — with knowledgeable support from enquiry through to
               delivery.
             </Typography>

@@ -12,7 +12,14 @@ export const metadata: Metadata = {
   alternates: { canonical: "/brands/pietro-fiorentini" },
   title: "Pietro Fiorentini Gas Valves & Regulators",
   description:
-    "Valvenok supplies the Pietro Fiorentini range — Deltaflux trunnion control ball valves, BF 31 and BF 32 gas distribution butterfly valves, and direct-operated gas pressure regulators rated to 250 bar. Hydrogen ready, EN 334 fail-open, for natural gas transmission and distribution.",
+    "Valvenok supplies the Pietro Fiorentini range — Deltaflux trunnion control ball valves, BF 31 and BF 32 gas distribution butterfly valves, and direct-operated gas pressure regulators rated to 250 bar, Fail Open, with hydrogen-ready versions on selected models, for natural gas transmission and distribution.",
+  openGraph: {
+    title: "Pietro Fiorentini Gas Valves & Regulators | Valvenok",
+    description: "Valvenok supplies the Pietro Fiorentini range — Deltaflux trunnion control ball valves, BF 31 and BF 32 gas distribution butterfly valves, and direct-operated gas pressure regulators rated to 250 bar, Fail Open, with hydrogen-ready versions on selected models, for natural gas transmission and distribution.",
+    url: "/brands/pietro-fiorentini",
+    siteName: "Valvenok",
+    type: "website",
+  },
 };
 
 const PIETRO_FIORENTINI_SERIES: Category[] = [
@@ -80,13 +87,13 @@ const PIETRO_FIORENTINI_SERIES: Category[] = [
   {
     code: "PF-REG",
     title: "Gas Pressure Regulators",
-    subtitle: "Direct Operated — Dival 160 AP · Staflux 185 / 187 / Mini",
+    subtitle: "Direct Operated — Dival 160 AP · Staflux 185 / 187 · ATF 15",
     description:
-      "Pietro Fiorentini direct-operated gas pressure regulators for high-pressure transmission systems and medium pressure natural gas distribution networks. Diaphragm-controlled and classified Fail Open per EN 334, with Hydrogen Ready and 100% H₂ versions available across the range.",
+      "Pietro Fiorentini direct-operated gas pressure regulators for high-pressure transmission systems and medium pressure natural gas distribution networks. Diaphragm-controlled with Fail Open behaviour. Hydrogen-ready versions available on selected models, plus a 100% H₂ version of Staflux 187 — contact us to confirm.",
     specs: [
       "Up to 250 bar Design Pressure",
-      "EN 334 — Fail Open",
-      "H₂ Ready / 100% H₂ Option",
+      "Fail Open",
+      "H₂ Ready — Selected Models",
       "ASME B16.5 CL 300 / 600 / 1500",
       "Biomethane Compatible",
       "4 Models",
@@ -103,8 +110,8 @@ const PIETRO_FIORENTINI_SERIES: Category[] = [
 const TRUST_POINTS = [
   { value: "Up to 250 bar", label: "Max Design Pressure" },
   { value: "ANSI CL 150–2500", label: "Pressure Classes" },
-  { value: "EN 334 · API 6D", label: "Design Standards" },
-  { value: "H₂ Ready", label: "Hydrogen Compatible" },
+  { value: "API 6D / 6A", label: "Deltaflux Standards" },
+  { value: "H₂ Ready", label: "Selected Models" },
   { value: "Ball · Butterfly · Regulator", label: "Product Range" },
 ];
 
@@ -114,7 +121,7 @@ export default function PietroFiorentiniBrandPage() {
       <ProductHero
         title="Pietro Fiorentini"
         subtitle="Gas Distribution Valves & Pressure Regulators"
-        description="The Pietro Fiorentini range for natural gas transmission and distribution — Deltaflux trunnion mounted control ball valves rated to ANSI Class 2500, BF 31 and BF 32 gas distribution butterfly valves with hermetic sealing, and direct-operated gas pressure regulators up to 250 bar. Hydrogen ready and EN 334 fail-open, engineered by Pietro Fiorentini and operating in over 100 countries since 1940."
+        description="The Pietro Fiorentini range for natural gas transmission and distribution — Deltaflux trunnion mounted control ball valves rated to ANSI Class 2500, BF 31 and BF 32 gas distribution butterfly valves with hermetic sealing, and direct-operated gas pressure regulators up to 250 bar. Hydrogen-ready versions available on selected models, engineered by Pietro Fiorentini and operating in over 100 countries since 1940."
         imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/products/valves/ball-valves/deltaflux.jpg"
         imageAlt="Pietro Fiorentini Gas Valves & Regulators"
         breadcrumb="Products / Gas Distribution / Pietro Fiorentini"

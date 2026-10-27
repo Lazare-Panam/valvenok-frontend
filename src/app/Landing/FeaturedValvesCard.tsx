@@ -74,8 +74,7 @@ export default function FeaturedValveCard({ valve }: FeaturedValveCardProps) {
           />
         </Box>
 
-        {/* Clickable image */}
-        <Link href={valve.href} style={{ textDecoration: 'none' }}>
+        {/* Image (the whole card is already a link) */}
           <Box sx={{
             height: 300,
             display: 'flex',
@@ -100,7 +99,6 @@ export default function FeaturedValveCard({ valve }: FeaturedValveCardProps) {
               }}
             />
           </Box>
-        </Link>
 
         {/* Content */}
         <Box sx={{ p: 3, display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
@@ -118,8 +116,7 @@ export default function FeaturedValveCard({ valve }: FeaturedValveCardProps) {
             {valve.category}
           </Typography>
 
-          {/* Clickable title */}
-          <Link href={valve.href} style={{ textDecoration: 'none' }}>
+          {/* Title */}
             <Typography sx={{
               fontFamily: '"Barlow Condensed", sans-serif',
               fontWeight: 200,
@@ -134,7 +131,6 @@ export default function FeaturedValveCard({ valve }: FeaturedValveCardProps) {
             }}>
               {valve.name}
             </Typography>
-          </Link>
 
           {/* Specs */}
           <Box sx={{ mb: 2.5 }}>

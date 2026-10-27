@@ -437,7 +437,7 @@ export default function GlobeValveDetailPage() {
                   "Precise flow regulation across full operating range",
                   "High-pressure and corrosive media capability",
                   "Sourced from trusted global manufacturers",
-                  "Available for RFQ with fast lead times",
+                  "Available on request — lead time confirmed on quotation",
                 ].map((benefit, i) => (
                   <Box
                     key={i}

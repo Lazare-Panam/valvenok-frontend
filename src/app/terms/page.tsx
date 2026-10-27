@@ -8,7 +8,7 @@ import { alpha } from '@mui/material/styles';
 
 const COMPANY = 'Valvenok Limited';
 const ADDRESS = 'Ground Floor, St Edburgs Hall, Priory Road, Bicester, OX26 6BL, United Kingdom';
-const EMAIL = 'legal@valvenok.co.uk';
+const EMAIL = 'sales@valvenok.com';
 const EFFECTIVE_DATE = '1 January 2025';
 
 const SECTIONS = [

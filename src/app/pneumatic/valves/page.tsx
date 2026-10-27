@@ -9,6 +9,13 @@ export const metadata: Metadata = {
   title: "Pneumatic Valves | Solenoid & Foot Pedal Valves",
   description:
     "Valvenok supplies a full range of pneumatic solenoid and foot pedal valves for industrial automation. FG series 5/2 and 5/3 way solenoid valves, TG series multi-configuration solenoid valves, and foot pedal valves for hands-free machine control.",
+  openGraph: {
+    title: "Pneumatic Valves | Solenoid & Foot Pedal Valves | Valvenok",
+    description: "Valvenok supplies a full range of pneumatic solenoid and foot pedal valves for industrial automation. FG series 5/2 and 5/3 way solenoid valves, TG series multi-configuration solenoid valves, and foot pedal valves for hands-free machine control.",
+    url: "/pneumatic/valves",
+    siteName: "Valvenok",
+    type: "website",
+  },
 };
 
 const VALVE_FAMILIES: Category[] = [
@@ -70,7 +77,7 @@ const TRUST_POINTS = [
   { value: "BSP 1/8\" – 1\"", label: "Port Size Range" },
   { value: "Single & Double", label: "Solenoid Options" },
   { value: "High Pressure", label: "Specialist Variants" },
-  { value: "Fast Dispatch", label: "Availability" },
+  { value: "UK Based", label: "Technical Support" },
 ];
 
 export default function ValvesIndexPage() {

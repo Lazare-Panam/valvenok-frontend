@@ -1,5 +1,6 @@
 'use client'
 import { useState, useMemo } from 'react'
+import Link from 'next/link'
 import { Box, Typography } from '@mui/material'
 import { alpha } from '@mui/material/styles'
 import {
@@ -37,6 +38,13 @@ export default function PipeAdapterPage() {
         </Typography>
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 800, fontFamily: PRIMARY_FONT }}>
           {PIPE_ADAPTER_DESCRIPTION.description}
+        </Typography>
+        <Typography variant="body2" color="text.secondary" mb={2} sx={{ maxWidth: 800, fontFamily: PRIMARY_FONT }}>
+          Need to change thread type, for example NPT to BSPP or NPT to 37° JIC? See our{' '}
+          <Link href="/high-pressure/pipe-fittings/hex-nipples" style={{ color: '#2d8a1e', fontWeight: 600 }}>
+            high pressure hex nipples
+          </Link>
+          .
         </Typography>
         <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
           {PIPE_ADAPTER_DESCRIPTION.specs.map(s => (

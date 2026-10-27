@@ -479,7 +479,7 @@ export default function BallValveDetailPage() {
                   "Engineered for demanding industrial environments",
                   "Reliable leak-tight isolation across full pressure range",
                   "Sourced from trusted global manufacturers",
-                  "Available for RFQ with fast lead times",
+                  "Available on request — lead time confirmed on quotation",
                 ].map((benefit, i) => (
                   <Box
                     key={i}

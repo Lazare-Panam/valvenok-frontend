@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/src/app/Common/seo";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/valves/instrumentation-valves/ball-valves" },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Instrumentation Ball Valves — 2-Way, 3-Way, SS316",
+  description:
+    "316 stainless steel instrumentation ball valves in 2-way, 3-way and high-bore designs with NPT, ISO, metric and tube fitting ends. Filter and request a quote.",
+  path: "/valves/instrumentation-valves/ball-valves",
+});
 
 export default function ValvesInstrumentationValvesBallValvesLayout({
   children,

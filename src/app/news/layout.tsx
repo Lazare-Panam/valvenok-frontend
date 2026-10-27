@@ -3,10 +3,10 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   alternates: { canonical: "/news" },
   title: "Engineering Insights & Technical Guides",
-  description: "Deep dives into industrial flow control, mechanical seal engineering, and valve selection guides. Stay updated with technical expertise from Valvenok.",
+  description: "Technical guides and company news from Valvenok: valve actuators, butterfly, ball and gate valves, hydrogen fittings, pumps, seals and supplier partnerships.",
   openGraph: {
     title: 'Engineering Insights | Valvenok Knowledge Base',
-    description: 'Technical articles and industrial guides for engineers and procurement teams.',
+    description: 'Technical guides, buyer\'s advice and partnership news for engineers and procurement teams.',
     url: 'https://www.valvenok.com/news',
     siteName: 'Valvenok',
     images: [

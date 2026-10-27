@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
-const TITLE = "Pipe Adapter Fittings | Valvenok";
+const TITLE = "High Pressure Pipe Size Adapters | Valvenok";
 const DESCRIPTION =
-  "SS316 pipe adapter fittings in multiple pressure ratings and thread configurations.";
+  "SS316 high pressure pipe size adapters, NPT to NPT and BSPP to BSPP, 10,000 to 15,000 psi. For thread-changing parts see our hex nipples.";
 const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
 
 export const metadata: Metadata = {

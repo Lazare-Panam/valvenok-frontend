@@ -31,8 +31,8 @@ const RELATED = [
 export default function UkValveStockistPage() {
   const ukBaseBenefits = [
     {
-      label: "No Import Lead Time",
-      desc: "What is on the shelf ships the same working day it is ordered. There is no customs clearance and no manufacturing lead time on stock items — the single biggest cause of project slippage on a common part.",
+      label: "Shorter Supply Chain",
+      desc: "Buying from a UK supplier avoids handling import paperwork yourself. Availability and lead time vary by item and are confirmed on every quotation.",
     },
     {
       label: "A Company You Can Verify",
@@ -40,7 +40,7 @@ export default function UkValveStockistPage() {
     },
     {
       label: "Technical Answers In Your Timezone",
-      desc: "Specification questions — line size, pressure class, material, media — get answered the same day, by an engineer, not overnight through a distant call centre.",
+      desc: "Specification questions — line size, pressure class, material, media — are answered by people who know the product, in UK working hours — not through a distant call centre.",
     },
     {
       label: "Sterling Pricing, No FX Exposure",
@@ -74,8 +74,8 @@ export default function UkValveStockistPage() {
     },
     {
       num: "02",
-      title: "Stock Check and Engineering Review",
-      body: "Valvenok confirms what is held in UK stock and maps anything non-stock to an appropriate product. Where a spec is open, the engineering team recommends a fit rather than sending a catalogue link.",
+      title: "Availability Check and Engineering Review",
+      body: "Valvenok confirms availability and maps anything not readily available to an appropriate product. Where a spec is open, the engineering team recommends a fit rather than sending a catalogue link.",
     },
     {
       num: "03",
@@ -84,35 +84,35 @@ export default function UkValveStockistPage() {
     },
     {
       num: "04",
-      title: "Dispatch From UK Stock",
-      body: "Stock items are dispatched from the UK warehouse. For urgent requirements, call before ordering and the team will tell you honestly whether it can be with you quickly.",
+      title: "Order and Delivery",
+      body: "Orders are shipped from the UK once confirmed. For urgent requirements, call before ordering and the team will tell you honestly what lead time is achievable.",
     },
   ];
 
   const faqs = [
     {
       q: "Where is Valvenok based?",
-      a: "Valvenok Ltd is based at St. Edburgs Hall, Priory Road, Bicester, Oxfordshire, OX26 6BL. The company has operated from Bicester since 2018 and dispatches from UK stock.",
+      a: "Valvenok Ltd is based at St. Edburgs Hall, Priory Road, Bicester, Oxfordshire, OX26 6BL. The company has operated from Bicester since 2018.",
     },
     {
       q: "Do you supply valves across Oxfordshire and the rest of the UK?",
-      a: "Yes. Bicester sits between Oxford, Milton Keynes and Banbury with quick access to the M40 and A34, so courier coverage across Oxfordshire and the surrounding counties is straightforward. Valvenok dispatches nationwide from the same UK stock.",
+      a: "Yes. Bicester sits between Oxford, Milton Keynes and Banbury with quick access to the M40 and A34, so courier coverage across Oxfordshire and the surrounding counties is straightforward. Valvenok supplies customers nationwide.",
     },
     {
       q: "Is there a minimum order?",
       a: "No. Valvenok was founded specifically to solve the problem of sourcing quality components without minimum order quantities, so a single item is as welcome as scheduled supply against a frame contract.",
     },
     {
-      q: "How many products do you hold in UK stock?",
-      a: "Over 5,000 products across fittings, valves, adapters and components — built up deliberately so that a common item does not carry a manufacturing lead time.",
+      q: "What product ranges do you supply?",
+      a: "Fittings, valves, adapters, actuators, instrumentation and related components. Availability varies by item, so the team confirms it on every quotation.",
     },
     {
       q: "Can I speak to someone technical rather than a call centre?",
       a: "Yes. Specification questions go to people who know the products. Call +44 7775 132326 or email sales@valvenok.com with the line size, pressure class, material and media, and you will get a straight answer rather than a catalogue link.",
     },
     {
-      q: "Why does buying from a UK stockist matter for lead time?",
-      a: "On a stock item there is no import lead time and no customs clearance — what is on the shelf ships the same working day it is ordered. For a common part on a live project, that is the difference between a same-week fix and a multi-week wait on an overseas order.",
+      q: "Why does buying from a UK supplier matter for lead time?",
+      a: "A UK supplier handles import and customs on your behalf and can tell you up front what lead time to expect. Lead times vary by item and are confirmed on quotation.",
     },
     {
       q: "Is Valvenok a verified supplier for defence and aerospace work?",
@@ -135,7 +135,7 @@ export default function UkValveStockistPage() {
     "@type": "BlogPosting",
     headline: "Why Buy Valves From a UK Stockist",
     description:
-      "No import lead time, no minimum order, and a company you can verify. Over 5,000 products held in UK stock from Bicester, Oxfordshire since 2018.",
+      "No minimum order on standard catalogue items, and a company you can verify — a UK supplier based in Bicester, Oxfordshire since 2018.",
     image:
       "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/ben-kupke-ew-p24CVLR0-unsplash.jpg",
     author: { "@type": "Organization", name: "Valvenok" },
@@ -193,9 +193,8 @@ export default function UkValveStockistPage() {
             variant="h5"
             sx={{ mt: 2, opacity: 0.85, fontStyle: "italic" }}
           >
-            No import lead time, no minimum order, and a company you can verify
-            — over 5,000 products held in UK stock from Bicester, Oxfordshire
-            since 2018.
+            No minimum order on standard catalogue items, and a company you can
+            verify — a UK supplier based in Bicester, Oxfordshire since 2018.
           </Typography>
           <Stack direction="row" spacing={3} sx={{ mt: 4, opacity: 0.8 }}>
             <Stack direction="row" alignItems="center" spacing={1}>
@@ -251,8 +250,8 @@ export default function UkValveStockistPage() {
           </Typography>
           <Grid container spacing={2}>
             {[
-              "A UK stockist removes import lead time and customs on stock items — what is on the shelf ships the same working day.",
-              "Valvenok holds over 5,000 products in UK stock from Bicester, Oxfordshire, and has done since 2018.",
+              "A UK supplier handles import and customs for you, and confirms lead times up front on every quotation.",
+              "Valvenok has been based in Bicester, Oxfordshire since 2018.",
               "No minimum order — single items and scheduled frame-contract supply are treated the same.",
               "JOSCAR registered since 2020, supplying defence, aerospace, oil & gas, energy and process industries.",
               "A registered UK company with a named address and an engineer on the phone — verifiable before a first purchase order.",
@@ -288,14 +287,14 @@ export default function UkValveStockistPage() {
             search by product and specification. But when a common part is
             holding up a live project, where that part ships from suddenly
             matters a great deal. A valve on an overseas order carries a
-            manufacturing lead time and customs clearance; the same valve on a
-            UK shelf ships the same working day. That single difference is the
-            case for buying from a UK-based stockist.
+            manufacturing lead time and customs clearance that you have to
+            manage yourself. A UK-based supplier takes that on and tells you up
+            front what to expect.
           </Typography>
           <Typography>
             Valvenok has been based in Bicester, Oxfordshire since 2018,
             supplying valves, actuators, instrumentation fittings, pumps and
-            seals from UK stock to engineers and procurement teams across the
+            seals to engineers and procurement teams across the
             country. This guide sets out what a UK base actually buys you — on
             lead time, on documentation, and on the simple question of whether
             you are dealing with a company you can verify.
@@ -306,7 +305,7 @@ export default function UkValveStockistPage() {
             <Box
               component="img"
               src="https://pblol2.blob.core.windows.net/valvenok-images/banner-images/ben-kupke-ew-p24CVLR0-unsplash.jpg"
-              alt="Industrial valves and fittings held in UK stock"
+              alt="Industrial valves and fittings from a UK supplier"
               sx={{
                 width: "100%",
                 maxWidth: 700,
@@ -386,12 +385,11 @@ export default function UkValveStockistPage() {
               color: "primary.main",
             }}
           >
-            What We Hold in UK Stock
+            What We Supply
           </Typography>
           <Typography>
-            Valvenok&apos;s UK stockholding runs to over 5,000 products across
-            fittings, valves, adapters and components — built up deliberately so
-            that a common item does not carry a manufacturing lead time. The
+            Valvenok supplies fittings, valves, adapters and components —
+            availability varies by item and is confirmed on quotation. The
             range spans:
           </Typography>
           <Box sx={{ pl: 3, mb: 4, mt: 2 }}>
@@ -431,9 +429,8 @@ export default function UkValveStockistPage() {
                 fontWeight: 500,
               }}
             >
-              &quot;On a stock item there is no import lead time and no customs
-              — what is on the shelf ships the same working day it is
-              ordered.&quot;
+              &quot;Ask for the lead time up front — a good supplier will
+              confirm it on the quotation, not after the order.&quot;
             </Typography>
             <Typography
               variant="caption"
@@ -495,8 +492,8 @@ export default function UkValveStockistPage() {
             Bicester sits between Oxford, Milton Keynes and Banbury, within easy
             reach of the M40 and A34 — so courier coverage across Oxfordshire,
             Buckinghamshire, Northamptonshire and Warwickshire is
-            straightforward, and Valvenok dispatches nationwide from the same UK
-            stock. For urgent requirements, a quick call before ordering is
+            straightforward, and Valvenok supplies customers nationwide. For
+            urgent requirements, a quick call before ordering is
             usually the fastest way to confirm what can be with you and when.
           </Typography>
 
@@ -517,7 +514,7 @@ export default function UkValveStockistPage() {
           </Typography>
           <Typography sx={{ mb: 4 }}>
             Valvenok operates as a technical extension of your procurement and
-            design teams. A stock enquiry follows four clear steps.
+            design teams. An enquiry follows four clear steps.
           </Typography>
 
           {processSteps.map((item, i) => (
@@ -651,11 +648,11 @@ export default function UkValveStockistPage() {
                 color: "white",
               }}
             >
-              NEED SOMETHING FROM UK STOCK?
+              NEED A PART OR A QUOTATION?
             </Typography>
             <Typography sx={{ color: "white !important", mb: 3, opacity: 0.9 }}>
               Send Valvenok the part or the specification and the team will
-              confirm availability, price and dispatch. If it is urgent, call
+              confirm availability, price and lead time. If it is urgent, call
               +44 7775 132326 — that is usually faster than a form.
             </Typography>
             <Box

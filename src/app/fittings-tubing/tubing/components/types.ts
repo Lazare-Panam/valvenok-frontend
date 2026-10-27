@@ -69,11 +69,11 @@ export function countBy<T>(items: T[], keyFn: (item: T) => string): Record<strin
 export const TUBING_DESCRIPTION = {
   title: 'Tubing & Tube Supports',
   description:
-    'Panam seamless tubing in standard and high-pressure ratings, plus Hiflux high-pressure tube supports. Tubing in SS 316, Monel, Copper, Duplex, Inconel, 6Mo and Hastelloy — imperial OD 1/16"–2" and metric 3mm–12mm; Hiflux 1/2/3-line tube supports in STS 316.',
+    'Panam seamless tubing in standard and high-pressure ratings, plus Hiflux high-pressure tube supports. Tubing in SS 316, Monel, Copper, duplex (UNS S31803, S32205), super duplex (UNS S32550, S32750, S32760), Inconel 625/825, 6Mo and Hastelloy — imperial OD 1/16"–2" and metric 3mm–12mm; Hiflux 1/2/3-line tube supports in STS 316.',
   specs: [
     'Panam · Hiflux',
     'Standard · High Pressure · Tube Support',
-    'SS 316 · Monel · Duplex · Inconel · 6Mo · Hastelloy',
+    'SS 316 · Monel · Duplex & Super Duplex · Inconel · 6Mo · Hastelloy',
     '1/16" – 2" Imperial · 3mm – 12mm Metric',
     'Seamless Construction',
   ],

@@ -26,12 +26,12 @@ import {
 import { alpha } from "@mui/material/styles";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import EmailIcon from "@mui/icons-material/Email";
+import ContactSupportIcon from "@mui/icons-material/ContactSupport";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import FilterListIcon from "@mui/icons-material/FilterList";
 
 const BRAND_GREEN = "#61D649";
-const QUOTE_EMAIL = "sales@valvenok.com";
+const CONTACT_HREF = "/contact";
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif';
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
@@ -48,7 +48,6 @@ interface GasRegulatorDTO {
   connections: string;
   accuracyClass: string;
   lockUpClass: string;
-  standard: string;
   failMode: string;
   hydrogenReady: string;
   image: string;
@@ -61,7 +60,7 @@ const GAS_REGULATORS: GasRegulatorDTO[] = [
     id: "dival-160-ap",
     model: "Dival 160 AP",
     type: "Direct Operated",
-    nominalSizes: 'DN 1"',
+    nominalSizes: '1"',
     designPressure: "85 bar",
     inletPressure: "1.4 – 85 bar",
     outletPressure: "0.85 – 4.5 bar",
@@ -69,19 +68,17 @@ const GAS_REGULATORS: GasRegulatorDTO[] = [
     connections: "ASME B16.5 Class 300 & 600 RF / RTJ",
     accuracyClass: "AC up to 5",
     lockUpClass: "SG up to 10",
-    standard: "EN 334",
     failMode: "Fail Open",
     hydrogenReady: "Yes — NG-H2 blending",
     image:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/gas-regulator/dival-160-ap.jpg",
     description:
-      "Dival 160 AP is a direct-operated gas pressure regulator controlled by a diaphragm and contrasting regulated spring action. Classified as Fail Open per EN 334. Suitable for high-pressure transmission systems and medium pressure natural gas distribution networks. Hydrogen Ready for NG-H2 blending.",
+      "Dival 160 AP is a direct-operated gas pressure regulator controlled by a diaphragm and contrasting regulated spring action. Fail Open design. Suitable for high-pressure transmission systems and medium pressure natural gas distribution networks. Hydrogen Ready for NG-H2 blending.",
     badges: [
       "Direct Operated",
       "Fail Open",
-      "EN 334",
       "H2 Ready",
-      'DN 1"',
+      '1"',
       "85 bar",
     ],
   },
@@ -89,7 +86,7 @@ const GAS_REGULATORS: GasRegulatorDTO[] = [
     id: "staflux-185",
     model: "Staflux 185",
     type: "Direct Operated",
-    nominalSizes: 'DN 1", 2", 3"',
+    nominalSizes: '1", 2", 3"',
     designPressure: "Up to 100 bar",
     inletPressure: "2 – 85 bar",
     outletPressure: "1 – 75 bar",
@@ -97,20 +94,19 @@ const GAS_REGULATORS: GasRegulatorDTO[] = [
     connections: "ASME B16.5 Class 300 & 600 RF / RTJ",
     accuracyClass: "AC up to 5",
     lockUpClass: "SG up to 10",
-    standard: "EN 334",
     failMode: "Fail Open",
     hydrogenReady: "—",
     image:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/gas-regulator/staflux-185.jpg",
     description:
-      'Staflux 185 is a direct-operated gas pressure regulator controlled by a diaphragm and contrasting regulated counter pressure action. Suitable for high-pressure transmission systems and medium pressure natural gas distribution networks. Classified as Fail Open per EN 334. Available in DN 1", 2" and 3".',
-    badges: ["Direct Operated", "Fail Open", "EN 334", 'DN 1"–3"', "100 bar"],
+      'Staflux 185 is a direct-operated gas pressure regulator controlled by a diaphragm and contrasting regulated counter pressure action. Suitable for high-pressure transmission systems and medium pressure natural gas distribution networks. Fail Open design. Available in 1", 2" and 3" nominal sizes.',
+    badges: ["Direct Operated", "Fail Open", '1"–3"', "100 bar"],
   },
   {
     id: "staflux-187",
     model: "Staflux 187",
     type: "Direct Operated",
-    nominalSizes: 'DN 1"',
+    nominalSizes: '1"',
     designPressure: "Up to 250 bar",
     inletPressure: "2 – 250 bar",
     outletPressure: "1 – 75 bar",
@@ -118,48 +114,25 @@ const GAS_REGULATORS: GasRegulatorDTO[] = [
     connections: "ASME B16.5 Class 1500 RF / RTJ",
     accuracyClass: "AC up to 5",
     lockUpClass: "SG up to 10",
-    standard: "EN 334",
     failMode: "Fail Open",
     hydrogenReady: "Yes — NG-H2 blending",
     image:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/gas-regulator/staflux-187.jpg",
     description:
-      "Staflux 187 is a direct-operated pressure regulator controlled by a diaphragm and contrasting regulated counter pressure action. Suitable for high-pressure transmission systems and medium pressure natural gas distribution networks up to 250 bar. Classified as Fail Open per EN 334. Hydrogen Ready for NG-H2 blending. 100% hydrogen version available separately.",
+      "Staflux 187 is a direct-operated pressure regulator controlled by a diaphragm and contrasting regulated counter pressure action. Suitable for high-pressure transmission systems and medium pressure natural gas distribution networks up to 250 bar. Fail Open design. Hydrogen Ready for NG-H2 blending. 100% hydrogen version available separately.",
     badges: [
       "Direct Operated",
       "Fail Open",
-      "EN 334",
       "H2 Ready",
-      'DN 1"',
+      '1"',
       "250 bar",
     ],
-  },
-  {
-    id: "staflux-mini",
-    model: "Staflux Mini",
-    type: "Direct Operated",
-    nominalSizes: "—",
-    designPressure: "—",
-    inletPressure: "—",
-    outletPressure: "—",
-    designTemp: "—",
-    connections: "—",
-    accuracyClass: "—",
-    lockUpClass: "—",
-    standard: "EN 334",
-    failMode: "Fail Open",
-    hydrogenReady: "—",
-    image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/gas-regulator/staflux-mini.jpg",
-    description:
-      "Staflux Mini is a compact direct-operated gas pressure regulator by Pietro Fiorentini for high and medium pressure natural gas distribution service. Contact us for full technical specifications.",
-    badges: ["Direct Operated", "Fail Open", "EN 334", "Compact"],
   },
   {
     id: "atf-15",
     model: "ATF 15",
     type: "Direct Operated",
-    nominalSizes: 'DN 1/4"',
+    nominalSizes: "See connections",
     designPressure: "Up to 220 barg",
     inletPressure: "2 – 250 barg",
     outletPressure: "1.5 – 60 barg",
@@ -167,7 +140,6 @@ const GAS_REGULATORS: GasRegulatorDTO[] = [
     connections: '1" NPT (pipe) / Rp ¼" ISO 7/1 (outlet)',
     accuracyClass: "AC up to 5",
     lockUpClass: "SG up to 10",
-    standard: "EN 334",
     failMode: "Fail Open",
     hydrogenReady: "Yes — NG-H2 blending",
     image:
@@ -177,9 +149,7 @@ const GAS_REGULATORS: GasRegulatorDTO[] = [
     badges: [
       "Direct Operated",
       "Fail Open",
-      "EN 334",
       "H2 Ready",
-      'DN 1/4"',
       "Anti-Freeze",
     ],
   },
@@ -194,6 +164,10 @@ interface Filters {
 
 const EMPTY_FILTERS: Filters = { types: [], hydrogenReady: [] };
 
+// "—" in the data means hydrogen suitability is not listed for that model
+// (not that it is unsuitable) — shown as "On request" with a footnote.
+const H2_NOT_CONFIRMED = "On request";
+
 function applyFilters(
   data: GasRegulatorDTO[],
   filters: Filters,
@@ -202,37 +176,13 @@ function applyFilters(
     if (filters.types.length && !filters.types.includes(v.type)) return false;
     if (
       filters.hydrogenReady.length &&
-      !filters.hydrogenReady.includes(v.hydrogenReady === "—" ? "No" : "Yes")
+      !filters.hydrogenReady.includes(
+        v.hydrogenReady === "—" ? H2_NOT_CONFIRMED : "Yes",
+      )
     )
       return false;
     return true;
   });
-}
-
-// ─── MAILTO ──────────────────────────────────────────────────────────────────
-
-function buildMailto(v: GasRegulatorDTO) {
-  const subject = encodeURIComponent(`Quote Request — ${v.model}`);
-  const body = encodeURIComponent(
-    [
-      `Hello,`,
-      ``,
-      `I would like to request a quote for the following gas pressure regulator:`,
-      ``,
-      `Model:            ${v.model}`,
-      `Type:             ${v.type}`,
-      `Nominal Sizes:    ${v.nominalSizes}`,
-      `Design Pressure:  ${v.designPressure}`,
-      `Inlet Pressure:   ${v.inletPressure}`,
-      `Outlet Pressure:  ${v.outletPressure}`,
-      `Connections:      ${v.connections}`,
-      ``,
-      `Please provide availability and lead time.`,
-      ``,
-      `Kind regards`,
-    ].join("\n"),
-  );
-  return `mailto:${QUOTE_EMAIL}?subject=${subject}&body=${body}`;
 }
 
 // ─── SPEC CELL ───────────────────────────────────────────────────────────────
@@ -348,7 +298,7 @@ function RegulatorRow({ row }: { row: GasRegulatorDTO }) {
             />
           ) : (
             <Typography variant="caption" color="text.disabled">
-              —
+              {H2_NOT_CONFIRMED}
             </Typography>
           )}
         </TableCell>
@@ -356,9 +306,9 @@ function RegulatorRow({ row }: { row: GasRegulatorDTO }) {
           <Button
             size="small"
             variant="contained"
-            startIcon={<EmailIcon sx={{ fontSize: 13 }} />}
+            startIcon={<ContactSupportIcon sx={{ fontSize: 13 }} />}
             component="a"
-            href={buildMailto(row)}
+            href={CONTACT_HREF}
             onClick={(e) => e.stopPropagation()}
             sx={{
               fontSize: "0.7rem",
@@ -470,15 +420,21 @@ function RegulatorRow({ row }: { row: GasRegulatorDTO }) {
                     <Spec label="Connections" value={row.connections} />
                     <Spec label="Accuracy Class" value={row.accuracyClass} />
                     <Spec label="Lock-Up Class" value={row.lockUpClass} />
-                    <Spec label="Standard" value={row.standard} />
                     <Spec label="Fail Mode" value={row.failMode} />
-                    <Spec label="Hydrogen Ready" value={row.hydrogenReady} />
+                    <Spec
+                      label="Hydrogen Ready"
+                      value={
+                        row.hydrogenReady === "—"
+                          ? H2_NOT_CONFIRMED
+                          : row.hydrogenReady
+                      }
+                    />
                   </Stack>
                   <Button
                     variant="contained"
-                    startIcon={<EmailIcon />}
+                    startIcon={<ContactSupportIcon />}
                     component="a"
-                    href={buildMailto(row)}
+                    href={CONTACT_HREF}
                     sx={{
                       textTransform: "none",
                       fontWeight: 700,
@@ -709,7 +665,7 @@ function Sidebar({
         </AccordionSummary>
         <AccordionDetails sx={{ px: 0, pt: 0 }}>
           <FormGroup>
-            {["Yes", "No"].map((opt) => (
+            {["Yes", H2_NOT_CONFIRMED].map((opt) => (
               <FormControlLabel
                 key={opt}
                 control={
@@ -837,16 +793,18 @@ export default function GasRegulatorPage() {
           >
             Pietro Fiorentini direct-operated gas pressure regulators for
             high-pressure transmission systems and medium pressure natural gas
-            distribution networks. Diaphragm-controlled, Fail Open per EN 334.
-            Hydrogen Ready versions available.
+            distribution networks. Diaphragm-controlled with Fail Open
+            behaviour. Dival 160 AP, Staflux 187 and ATF 15 are marked Hydrogen
+            Ready for NG-H2 blending — see the H2 Ready column below. For other
+            models, contact us to confirm hydrogen suitability.
           </Typography>
           <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
             {[
-              "Dival 160 AP · Staflux 185 · 187 · Mini",
+              "Dival 160 AP · Staflux 185 · 187 · ATF 15",
               "Direct Operated",
-              "Fail Open — EN 334",
+              "Fail Open",
               "Up to 250 bar",
-              "H2 Ready",
+              "H2 Ready — Selected Models",
             ].map((s) => (
               <Box
                 key={s}
@@ -899,6 +857,13 @@ export default function GasRegulatorPage() {
             </Drawer>
             <RegulatorTable models={models} />
           </Box>
+          <Typography
+            variant="caption"
+            color="text.secondary"
+            sx={{ display: "block", mt: 1.5, fontFamily: PRIMARY_FONT }}
+          >
+            {`${H2_NOT_CONFIRMED}: hydrogen suitability is not listed for this model — contact us to confirm.`}
+          </Typography>
         </Box>
       </Box>
     </>

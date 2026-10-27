@@ -53,8 +53,8 @@ const FAQS = [
 const PILLARS = [
   {
     icon: WarehouseOutlinedIcon,
-    title: 'UK Stock',
-    body: 'Over 5,000 products held in UK stock, ready for immediate dispatch. No waiting on overseas lead times.',
+    title: 'UK Based',
+    body: 'UK-based supplier. Availability and lead times are confirmed on every quotation.',
   },
   {
     icon: LocalShippingOutlinedIcon,
@@ -397,7 +397,7 @@ export default function DeliveryInformationPage() {
           </Box>
           <Box
             component="a"
-            href="mailto:sales@valvenok.co.uk"
+            href="mailto:sales@valvenok.com"
             sx={{
               display: 'inline-flex',
               alignItems: 'center',

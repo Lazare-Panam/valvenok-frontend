@@ -1,10 +1,11 @@
 import WeldFittingPage from "../all/page"
 
-import type { Metadata } from "next";
-export const metadata: Metadata = {
-  alternates: { canonical: "/fittings-tubing/instrumentation-fittings/weld-fittings/elbows" },
-};
-
 export default function WeldFittingElbows() {
-  return <WeldFittingPage defaultFittingTypes={['ME', 'FE']} />
+  return (
+    <WeldFittingPage
+      defaultFittingTypes={['ME', 'FE']}
+      heading="Weld Elbows"
+      intro="SS316 male and female elbows with a tube socket weld (TSW) end and an NPT threaded end, for permanent changes of direction in instrumentation tubing."
+    />
+  )
 }   

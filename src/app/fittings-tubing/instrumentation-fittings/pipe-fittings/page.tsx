@@ -9,6 +9,13 @@ export const metadata: Metadata = {
   alternates: { canonical: '/fittings-tubing/instrumentation-fittings/pipe-fittings' },
   title: 'Pipe Fittings | SS316 Instrumentation Fittings ',
   description: 'Valvenok supplies SS316 pipe fittings for instrumentation and process systems. Nipples, elbows, tees, unions and adapters across NPT, BSPT, BSPP and metric thread standards. 650+ configurations.',
+  openGraph: {
+    title: "Pipe Fittings | SS316 Instrumentation Fittings  | Valvenok",
+    description: "Valvenok supplies SS316 pipe fittings for instrumentation and process systems. Nipples, elbows, tees, unions and adapters across NPT, BSPT, BSPP and metric thread standards. 650+ configurations.",
+    url: "/fittings-tubing/instrumentation-fittings/pipe-fittings",
+    siteName: "Valvenok",
+    type: "website",
+  },
 }
 
 const CATEGORIES: Category[] = [
@@ -83,7 +90,7 @@ const TRUST_POINTS = [
   { value: 'NPT / BSPT / BSPP', label: 'Thread Standards' },
   { value: '650+ Configurations', label: 'Range' },
   { value: 'Metric / SAE', label: 'Also Available' },
-  { value: 'Fast Dispatch', label: 'Availability' },
+  { value: 'UK Based', label: 'Technical Support' },
 ]
 
 export default function PipeFittingsPage() {

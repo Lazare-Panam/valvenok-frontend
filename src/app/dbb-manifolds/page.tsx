@@ -64,8 +64,8 @@ export default function InstrumentationIndexPage() {
             }}
           >
             Double Block & Bleed Valves and Valve Manifolds — SS316
-            construction, ANSI 150 to 2500 Class, with full NACE MR-0175 sour
-            gas certification.
+            construction, ANSI 150 to 2500 Class, with NACE MR-0175 sour gas options
+            available.
           </Typography>
           <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
             <Button
@@ -138,7 +138,7 @@ export default function InstrumentationIndexPage() {
                 "2-Valve · 3-Valve · 5-Valve Manifolds",
                 "Stainless Steel 316 construction",
                 "ANSI 150 – 2500 Class · PN6 – PN250",
-                "NACE MR-0175 Sour Gas Certified",
+                "NACE MR-0175 Sour Gas Option",
                 "RF · RTJ · BS Flange Faces",
                 "Integral & Three Piece construction",
                 "Fire Safe · Gear Operated · Lock Handle options",

@@ -65,8 +65,8 @@ export default function ManifoldsIndexPage() {
           >
             2-Valve, 3-Valve, and 5-Valve configurations — covering every
             differential pressure and instrument isolation application. SS316
-            construction, ANSI 150 to 2500 Class, with full NACE MR-0175 sour
-            gas certification.
+            construction, ANSI 150 to 2500 Class, with NACE MR-0175 sour gas options
+            available.
           </Typography>
           <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
             <Button
@@ -138,7 +138,7 @@ export default function ManifoldsIndexPage() {
                 "2-Valve · 3-Valve · 5-Valve Manifolds",
                 "Stainless Steel 316 construction",
                 "ANSI 150 – 2500 Class · PN6 – PN250",
-                "NACE MR-0175 Sour Gas Certified",
+                "NACE MR-0175 Sour Gas Option",
                 "RF · RTJ · BS Flange Faces",
                 "Direct Mount · Remote Mount options",
                 "Integral & Three Piece construction",
@@ -193,8 +193,8 @@ export default function ManifoldsIndexPage() {
               options.
             </Typography>
             <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
-              Every manifold family is available with{" "}
-              <strong>NACE MR-0175 sour gas certification</strong>, fire-safe
+              Options available include{" "}
+              <strong>NACE MR-0175 sour gas options</strong>, fire-safe
               construction, lock handle, anti-static, gear-operated, and OS&Y
               bonnet options. Seat and seal materials cover Carbon Filled PTFE,
               PCTFE, Delrin, PEEK, PTFE, Grafoil, and FKM.

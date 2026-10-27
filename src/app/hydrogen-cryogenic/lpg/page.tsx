@@ -28,18 +28,19 @@ const LPG_PRODUCT: ProductForRFQ = {
   thumbnail:
     "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/YLC-2821.png",
   description:
-    "Youngdo LPG cylinder valves — cylinder series, OPD overfilling prevention devices and piping connection valves. KGS, KS, CGA V-1 and UL certified.",
+    "Youngdo LPG cylinder valves — cylinder series, OPD overfilling prevention devices and piping connection valves. Certification (KGS, KS, CGA V-1, UL) varies by model.",
   keySpecs: [
-    { label: "Working Pressure", value: "1.8 – 2.43 MPa" },
-    { label: "Certifications", value: "KGS, KS, CGA V-1, UL" },
-    { label: "Series", value: "YLC, MT, YBC, OPD, YLG, YPC" },
+    { label: "Working Pressure", value: "Up to 2.35 MPa" },
+    { label: "Spring Working Pressure", value: "Up to 2.43 MPa" },
+    { label: "Certifications", value: "KGS, KS, CGA V-1, UL (varies by model)" },
+    { label: "Series", value: "YLC, LP, MT, YBC, OPD, YLG, YPC" },
     { label: "Service", value: "LPG Cylinder & Distribution" },
   ],
-  variantInfo: { count: 16, sizeRange: "1.8–2.43 MPa" },
+  variantInfo: { count: 20, sizeRange: "0.7–2.35 MPa" },
 };
 
 const TECH_SPECS = [
-  { label: "Cylinder Valve Pressure", value: "1.8 – 2.43 MPa" },
+  { label: "Cylinder Valve Working Pressure", value: "0.7 – 1.83 MPa (250 psi on CGA 510 models)" },
   { label: "OPD Working Pressure", value: "250 psi (OPD-3000)" },
   { label: "Piping Connection Pressure", value: "2.35 MPa (YLG Series)" },
   {
@@ -53,14 +54,14 @@ const TECH_SPECS = [
   { label: "Fuse Metal Temp", value: "97.8°C – 105.7°C (where applicable)" },
   {
     label: "Spring Working Pressure",
-    value: "2.03 – 2.43 MPa (cylinder series)",
+    value: "1.96 – 2.43 MPa (KGS cylinder series)",
   },
   { label: "OPD Spring Pressure", value: "375 psi" },
   { label: "Standards", value: "KS B 6212, KGS AA312, KGS AA335, UL 2227" },
-  { label: "Certifications", value: "KGS, KS, CGA V-1, UL, IECEx" },
+  { label: "Certifications", value: "KGS, KS, CGA V-1, UL (varies by model)" },
   {
     label: "Total Models",
-    value: "16 Models — YLC, MT, YBC, OPD, Y2700, Y1800, YLG, YPC Series",
+    value: "20 Models — YLC, LP, MT, YBC, OPD (incl. Y2700, Y1800), YLG, YPC Series",
   },
   {
     label: "Applications",
@@ -76,8 +77,8 @@ const FEATURES = [
   },
   {
     letter: "B",
-    title: "KGS & KS Certified",
-    body: "Full KGS and KS certification to KS B 6212 and KGS AA312 standards for Korean and international compliance.",
+    title: "KGS & KS Models",
+    body: "KGS certification on selected cylinder and piping valves, and KS on selected YLC models, to KS B 6212, KGS AA312 and KGS AA335. Certification varies by model — see the product table.",
   },
   {
     letter: "C",
@@ -86,13 +87,13 @@ const FEATURES = [
   },
   {
     letter: "D",
-    title: "CGA V-1 Approved",
-    body: "CGA V-1 certification for North American cylinder valve compatibility and compliance.",
+    title: "CGA V-1 Models",
+    body: "Selected YLC and MT cylinder valves with CGA 510 outlets are listed to CGA V-1 for North American cylinder connections.",
   },
   {
     letter: "E",
     title: "UL Listed",
-    body: "UL 2227 listed OPD and piping connection valves for North American market requirements.",
+    body: "UL listing on the OPD-3000 and Y2700 overfilling prevention devices (UL 2227) for North American market requirements.",
   },
   {
     letter: "F",
@@ -116,26 +117,26 @@ const FEATURES = [
   },
   {
     letter: "J",
-    title: "16 Model Range",
+    title: "20 Model Range",
     body: "Comprehensive range covering cylinder valves, OPD devices and piping connections for all LPG applications.",
   },
   {
     letter: "K",
-    title: "Proven Quality",
-    body: "Youngdo LPG valves are deployed globally in LPG cylinder filling stations and distribution systems.",
+    title: "LPG Applications",
+    body: "Valves for LPG cylinders, filling and distribution systems — please confirm suitability for your application when requesting a quote.",
   },
   {
     letter: "L",
-    title: "Fast Lead Times",
-    body: "Stock availability across the range for rapid dispatch to UK, European and global projects.",
+    title: "Technical Support",
+    body: "Our UK team can help confirm model suitability, certification and lead time for your application — contact us with your requirements.",
   },
 ];
 
 const TRUST_POINTS = [
-  { value: "2.43 MPa", label: "Max Working Pressure" },
-  { value: "KGS · KS", label: "Certifications" },
+  { value: "2.43 MPa", label: "Max Spring Working Pressure" },
+  { value: "KGS · KS", label: "Certifications (by model)" },
   { value: "CGA V-1 · UL", label: "International Approvals" },
-  { value: "16 Models", label: "Product Range" },
+  { value: "20 Models", label: "Product Range" },
   { value: "LPG Ready", label: "Service" },
 ];
 
@@ -238,10 +239,10 @@ export default function LPGValvesPage() {
                 sx={{ color: "text.secondary", mb: 3, lineHeight: 1.8 }}
               >
                 Youngdo supplies a comprehensive range of LPG cylinder valves,
-                overfilling prevention devices and piping connection valves. 16
-                models across the YLC, MT, YBC, OPD, YLG and YPC series — KGS,
-                KS, CGA V-1 and UL certified for global LPG cylinder and
-                distribution applications.
+                overfilling prevention devices and piping connection valves. 20
+                models across the YLC, LP, MT, YBC, OPD, YLG and YPC series for
+                LPG cylinder and distribution applications. Certification
+                (KGS, KS, CGA V-1, UL) varies by model — see the product table.
               </Typography>
 
               <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mb: 4 }}>
@@ -269,9 +270,9 @@ export default function LPGValvesPage() {
                 }}
               >
                 {[
-                  { label: "Max Pressure", value: "2.43 MPa" },
-                  { label: "Models", value: "16 Series" },
-                  { label: "Certifications", value: "KGS · KS · CGA · UL" },
+                  { label: "Spring Working Pressure", value: "Up to 2.43 MPa" },
+                  { label: "Models", value: "20 (7 Series)" },
+                  { label: "Certifications", value: "KGS · KS · CGA · UL (by model)" },
                   { label: "Service", value: "LPG Cylinder & Distribution" },
                 ].map(({ label, value }) => (
                   <Box key={label}>

@@ -8,7 +8,7 @@ import Reveal from "@/src/app/Common/Reveal";
 const FAQS = [
   {
     q: "What's your typical dispatch and delivery time?",
-    a: "In-stock items dispatch within 2–3 business days, with free UK delivery on orders over £150. Non-stock or custom items are quoted individually with a confirmed lead time before you order.",
+    a: "Lead times depend on the product and quantity, so we confirm them on your quotation before you order. Free UK delivery applies to orders over £150 — see our Delivery page for full details.",
   },
   {
     q: "Do you supply custom sizes or non-standard specifications?",
@@ -20,7 +20,7 @@ const FAQS = [
   },
   {
     q: "Do you ship outside the UK?",
-    a: "We're a UK-based supplier and our stocked delivery promise applies to UK orders. For international enquiries, get in touch and we'll confirm shipping options and lead times.",
+    a: "We're a UK-based supplier and our standard delivery terms apply to UK orders. For international enquiries, get in touch and we'll confirm shipping options and lead times.",
   },
   {
     q: "What if I can't find the exact part I need online?",

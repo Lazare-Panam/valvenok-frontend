@@ -252,7 +252,7 @@ export default function PumpsGrid({ families }: { families: Category[] }) {
             >
               <Image
                 src={BPMA_LOGO_URL}
-                alt="BPMA Certification"
+                alt="BPMA Member"
                 fill
                 style={{ objectFit: "contain", padding: "16px" }}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -277,7 +277,7 @@ export default function PumpsGrid({ families }: { families: Category[] }) {
                   color: "text.secondary",
                 }}
               >
-                Certified Member — View Certificate
+                BPMA Member — View Certificate
               </Typography>
             </Box>
           </Card>

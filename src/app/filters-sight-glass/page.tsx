@@ -112,7 +112,7 @@ export default function SightGlassFiltrationPage() {
             <Box key={iteration} sx={{ display: "flex", gap: 6, pr: 6 }}>
               {[
                 "Borosilicate & Tempered Glass",
-                "High-speed 24h Dispatch",
+                "UK-Based Technical Support",
                 "SS304 / SS316 Construction",
                 "ANSI & DIN Flange Standards",
               ].map((item) => (
@@ -315,7 +315,7 @@ export default function SightGlassFiltrationPage() {
             <Typography
               variant="h1"
               component="a"
-              href="/filters-sight-glass/filteration"
+              href="/filters-sight-glass/filtration"
               sx={{
                 fontSize: { xs: 24, md: 32 },
                 fontWeight: 700,
@@ -335,8 +335,8 @@ export default function SightGlassFiltrationPage() {
               Complete Steed Machinery hydraulic filtration range for demanding
               industrial applications. High pressure filters rated to 350 bar,
               aluminium body filters, return line filters, duplex assemblies,
-              suction strainers and clogging indicators — all available to order
-              with fast UK dispatch.
+              suction strainers and clogging indicators — contact us to confirm
+              availability and lead time.
             </Typography>
             <Box
               sx={{ display: "flex", flexDirection: "column", gap: 0.5, mb: 3 }}
@@ -375,7 +375,7 @@ export default function SightGlassFiltrationPage() {
             </Box>
             <Button
               variant="outlined"
-              href="/filters-sight-glass/filteration"
+              href="/filters-sight-glass/filtration"
               sx={{
                 borderColor: "#61D649",
                 color: "#61D649",

@@ -29,40 +29,40 @@ const IGV_PRODUCT: ProductForRFQ = {
   thumbnail:
     "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/YOC-2820.png",
   description:
-    "Youngdo industrial gas cylinder valves across 7 categories — tapered and unified inlet threads, non return valves, acetylene, chlorine/ammonia, tube trailers and piping connection valves. KGS, CGA V-1, BS 341, ISO 10297 certified.",
+    "Youngdo industrial gas cylinder valves across 7 categories — tapered and unified inlet threads, non return valves, acetylene, chlorine/ammonia, tube trailers and piping connection valves. Certification and standards vary by model.",
   keySpecs: [
     { label: "Max Working Pressure", value: "25 MPa" },
-    { label: "Certifications", value: "KGS, CGA V-1, BS 341, ISO 10297" },
+    { label: "Certifications", value: "KGS, KS (varies by model)" },
     { label: "Categories", value: "7 Application Categories" },
     { label: "Service", value: "Industrial Gas Cylinder & Distribution" },
   ],
-  variantInfo: { count: 60, sizeRange: "Up to 25 MPa" },
+  variantInfo: { count: 75, sizeRange: "Up to 25 MPa" },
 };
 
 const TECH_SPECS = [
   { label: "Tapered Inlet Pressure", value: "11.8 – 19.6 MPa" },
-  { label: "Unified Inlet Pressure", value: "1800 – 2400 psi / 12.3 – 20 MPa" },
+  { label: "Unified Inlet Category Pressure", value: "11.8 – 25 MPa (1800 – 2400 psi ≈ 12.4 – 16.5 MPa on CGA models)" },
   { label: "Non Return Valve Pressure", value: "11.76 – 20 MPa" },
-  { label: "Acetylene Pressure", value: "420 – 500 psi / 2.9 MPa" },
-  { label: "Chlorine/Ammonia Pressure", value: "500 psi – 1.76 MPa" },
+  { label: "Acetylene Pressure", value: "420 – 500 psi / 2.9 – 3.4 MPa" },
+  { label: "Chlorine/Ammonia Pressure", value: "1.3 – 1.76 MPa (KGS models); 500 psi ≈ 3.4 MPa (CGA 820 models)" },
   { label: "Tube Trailer Pressure", value: "17.2 – 25 MPa" },
   { label: "Piping Connection Pressure", value: "14.7 – 19.6 MPa" },
   {
     label: "Inlet Thread Standards",
-    value: "W28, W20, W39, 3/4-14 NGT, 1-11 1/2 NGT, BS 341, DIN477, UNI 11144",
+    value: "W28, W28.8 (25E), W39, 3/8-18 NGT, 3/4-14 NGT, 1-11 1/2 NGT, 1.125-12 UNF, 0.750-16 UNF, BS 341, PF 3/4",
   },
   {
     label: "Outlet Thread Standards",
     value:
-      "W22-14th, W23-14th, CGA 320/350/510/540/580/820, BS 341, W22.5-14-LH",
+      "W22-14th, W23-14th, W26-14th, W22.5-14-LH, CGA 200/320/326/350/510/520/540/580/820, BS 341, DIN477, UNI 11144",
   },
   {
     label: "Standards",
-    value: "KGS AA311, KS B 6214, BS 341, ISO 10297, DIN477, UNI 11144",
+    value: "KGS AA311, KS B 6214, CGA V-1, CGA V-9, BS 341, ISO 10297, DIN477, UNI 11144 (varies by model)",
   },
   {
     label: "Certifications",
-    value: "KGS, KS, CGA V-1, CGA V-9, BS 341, ISO 10297",
+    value: "KGS, KS (varies by model — see the product table)",
   },
   {
     label: "Total Categories",
@@ -80,7 +80,7 @@ const FEATURES = [
   {
     letter: "B",
     title: "Unified Inlet Thread Series",
-    body: "NH, NH6, YKC series with 1.125-12 UNF and 0.625-18 UNF unified inlet threads for high-pressure gas service.",
+    body: "NH, NH6 and YKC series. NH6 and YKC models use 1.125-12 UNF or 0.750-16 UNF inlets; NH models use 3/4-14 NGT (tapered), BS 341 or W28.8 inlets — check the inlet thread for each model.",
   },
   {
     letter: "C",
@@ -90,7 +90,7 @@ const FEATURES = [
   {
     letter: "D",
     title: "Acetylene Service",
-    body: "YAC series dedicated acetylene cylinder valves with CGA V-9, CGA S1.1 and ISO 10297 certification.",
+    body: "YAC series dedicated acetylene cylinder valves, with CGA V-9, CGA V-1, CGA S-1.1 and ISO 10297 listed as design standards on most models — see the product table.",
   },
   {
     letter: "E",
@@ -109,46 +109,44 @@ const FEATURES = [
   },
   {
     letter: "H",
-    title: "KGS & KS Certified",
-    body: "Full KGS and KS certification to KGS AA311 and KS B 6214 for Korean and international compliance.",
+    title: "KGS & KS Models",
+    body: "KGS certification on selected models, and KS on selected W28 inlet models, to KGS AA311 and KS B 6214. Certification varies by model — see the product table.",
   },
   {
     letter: "I",
-    title: "CGA V-1 Approved",
-    body: "CGA V-1, V-9 and S1.1 certifications for North American cylinder valve and gas service compatibility.",
+    title: "CGA Standards",
+    body: "CGA V-1, V-9 and S-1.1 are listed as design standards on CGA-outlet models for North American cylinder compatibility.",
   },
   {
     letter: "J",
-    title: "BS 341 Compliant",
-    body: "BS 341 certified valves for European and international industrial gas cylinder applications.",
+    title: "BS 341 Connections",
+    body: "Selected NH and RP1 models with connections to BS 341 for UK industrial gas cylinder applications.",
   },
   {
     letter: "K",
-    title: "ISO 10297 Listed",
-    body: "ISO 10297 compliance across the unified inlet thread series for global cylinder valve interoperability.",
+    title: "ISO 10297 Models",
+    body: "ISO 10297 is listed as a design standard on selected NH, NH6, RP1 and YAC models — see the product table.",
   },
   {
     letter: "L",
-    title: "Fast Lead Times",
-    body: "Stock availability across the full range for rapid dispatch to UK, European and global projects.",
+    title: "Technical Support",
+    body: "Our UK team can help confirm model suitability, certification and lead time for your application — contact us with your requirements.",
   },
 ];
 
 const TRUST_POINTS = [
   { value: "25 MPa", label: "Max Working Pressure" },
-  { value: "KGS · CGA V-1", label: "Certifications" },
-  { value: "BS 341 · ISO 10297", label: "International Standards" },
+  { value: "KGS · KS", label: "Certifications (by model)" },
+  { value: "BS 341 · ISO 10297", label: "Standards (selected models)" },
   { value: "7 Categories", label: "Application Range" },
   { value: "Youngdo", label: "Manufacturer" },
 ];
 
 const CERTIFICATIONS = [
-  "KGS",
-  "KS",
-  "CGA V-1",
-  "CGA V-9",
-  "BS 341",
-  "ISO 10297",
+  "KGS · KS by model",
+  "To CGA V-1 / V-9",
+  "To BS 341",
+  "To ISO 10297",
   "DIN477",
   "UNI 11144",
 ];
@@ -246,8 +244,8 @@ export default function IndustrialGasValvesPage() {
                 cylinder valves across 7 application categories — tapered and
                 unified inlet thread valves, non return valves, acetylene,
                 chlorine/ammonia, tube trailer and piping connection valves.
-                KGS, CGA V-1, BS 341 and ISO 10297 certified for global
-                industrial gas service.
+                Certification (KGS, KS) and design standards (CGA, BS 341, ISO
+                10297) vary by model — see the product table.
               </Typography>
 
               <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mb: 4 }}>
@@ -275,9 +273,9 @@ export default function IndustrialGasValvesPage() {
                 }}
               >
                 {[
-                  { label: "Max Pressure", value: "25 MPa" },
+                  { label: "Max Pressure", value: "25 MPa (Tube Trailers)" },
                   { label: "Categories", value: "7 Application Types" },
-                  { label: "Certifications", value: "KGS · CGA · BS 341" },
+                  { label: "Certifications", value: "KGS · KS (by model)" },
                   { label: "Service", value: "Industrial Gas Cylinders" },
                 ].map(({ label, value }) => (
                   <Box key={label}>

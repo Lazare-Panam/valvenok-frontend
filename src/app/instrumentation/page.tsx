@@ -13,9 +13,9 @@ const INSTRUMENTATION_FAMILIES: Category[] = [
   {
     code: "HP",
     title: "High Pressure / Hydrogen",
-    subtitle: "Fittings, Valves & Connectors up to 60,000 psi",
+    subtitle: "Fittings, Valves & Connectors — ratings vary by product",
     description:
-      "A comprehensive range of high pressure fittings, pipe fittings, ball valves, needle valves, DBB valves, manifolds and seals engineered for hydrogen, oil & gas and high pressure process applications up to 60,000 psi.",
+      "A comprehensive range of high pressure fittings, pipe fittings, ball valves, needle valves, DBB valves, manifolds and seals engineered for hydrogen, oil & gas and high pressure process applications. Ratings vary by product, up to 60,000 psi on selected needle valves.",
     specs: [
       "Up to 60,000 psi",
       "SS 316",
@@ -83,8 +83,8 @@ const INSTRUMENTATION_FAMILIES: Category[] = [
   title: "Gas Pressure Regulators",
   subtitle: "Direct Operated — Pietro Fiorentini",
   description:
-    "Pietro Fiorentini direct-operated gas pressure regulators for high-pressure transmission systems and medium pressure natural gas distribution networks. Diaphragm-controlled, Fail Open per EN 334. Hydrogen Ready versions available across the range.",
-  specs: ["EN 334 — Fail Open", "Up to 250 bar", "DN 1\"–3\"", "H2 Ready"],
+    "Pietro Fiorentini direct-operated gas pressure regulators for high-pressure transmission systems and medium pressure natural gas distribution networks. Four diaphragm-controlled models with Fail Open behaviour. Hydrogen-ready versions available on selected models — contact us to confirm.",
+  specs: ["Fail Open", "Up to 250 bar", "4 Models", "H2 Ready — Selected Models"],
   applications: "Natural Gas Transmission, Medium Pressure Distribution, Hydrogen Blending, Industrial Gas",
   href: "/instrumentation/gas-pressure-regulator",
   image: "https://pblol2.blob.core.windows.net/valvenok-images/products/gas-regulator/staflux-187.jpg",
@@ -92,11 +92,10 @@ const INSTRUMENTATION_FAMILIES: Category[] = [
 ];
 
 const TRUST_POINTS = [
-  { value: "60,000 psi", label: "Max Pressure Rating" },
-  { value: "SS 316", label: "Material Standard" },
+  { value: "60,000 psi", label: "Max Rating — High Pressure Range" },
   { value: "Cone & Thread", label: "HP Connection Type" },
   { value: "2, 3 & 5-Valve", label: "Manifold Options" },
-  { value: "Fast Dispatch", label: "Availability" },
+  { value: "5", label: "Product Families" },
 ];
 
 export default function InstrumentationIndexPage() {
@@ -105,7 +104,7 @@ export default function InstrumentationIndexPage() {
       <ProductHero
         title="Instrumentation"
         subtitle="High Pressure Fittings, Valves & Instrumentation Products"
-        description="A complete range of instrumentation products engineered for oil & gas, petrochemical and process industries. High pressure fittings and valves up to 60,000 psi, instrumentation tube and pipe fittings, DBB and manifold valves, quick couplings and SS tubing."
+        description="A complete range of instrumentation products engineered for oil & gas, petrochemical and process industries. High pressure fittings and valves (ratings vary by product, up to 60,000 psi on selected models), instrumentation tube and pipe fittings, DBB and manifold valves, quick couplings and SS tubing."
         imageSrc="https://pblol2.blob.core.windows.net/panam-images/products/high-pressure/hp-nv.jpg"
         imageAlt="Valvenok Instrumentation Products"
         breadcrumb="Products / Instrumentation"

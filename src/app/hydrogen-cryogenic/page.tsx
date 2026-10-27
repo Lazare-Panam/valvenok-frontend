@@ -15,12 +15,12 @@ const HYDROGEN_CRYOGENIC_SERIES: Category[] = [
     title: "High Pressure Fittings",
     subtitle: "Fittings, Accessories, Manifold Blocks & Tube Caps",
     description:
-      "Hiflux high pressure fittings and accessories rated up to 150,000 psi — reducing fittings, standard fittings, anti-vibration accessories, manifold blocks, tube caps and thread lubricant. KC and KGS certified for industrial, hydrogen and wellhead applications.",
+      "Hiflux high pressure fittings and accessories rated up to 150,000 psi — reducing fittings, standard fittings, anti-vibration accessories, manifold blocks, tube caps and thread lubricant for industrial, hydrogen and wellhead applications. Certification varies by product.",
     specs: [
       "150,000 psi Max Pressure",
-      "KC · KGS Certified",
+      "KC · KGS by Product",
       "27 Products",
-      "H₂ Compatible",
+      "Hydrogen Service Options",
       "Industrial & Wellhead",
     ],
     applications:
@@ -36,12 +36,12 @@ const HYDROGEN_CRYOGENIC_SERIES: Category[] = [
     title: "High Pressure Valves",
     subtitle: "Check, Needle, Ball, AOV, Safety & Special Valves",
     description:
-      "Hiflux high pressure valves rated up to 150,000 psi across 56 models — check, needle, ball, air operated, safety and special valves. KC and KGS certified for industrial, hydrogen and wellhead applications worldwide.",
+      "Hiflux high pressure valves rated up to 150,000 psi across 54 models — check, needle, ball, air operated, safety and special valves for industrial, hydrogen and wellhead applications. Certification varies by model.",
     specs: [
       "150,000 psi Max Pressure",
-      "KC · KGS Certified",
-      "56 Models",
-      "H₂ Compatible",
+      "KC · KGS on Selected Models",
+      "54 Models",
+      "H₂ Refuelling Needle Valve",
       "Industrial & Wellhead",
     ],
     applications:
@@ -59,15 +59,14 @@ const HYDROGEN_CRYOGENIC_SERIES: Category[] = [
     description:
       "Hiflux high pressure tubes and nipples rated up to 100,000 psi, with a full tooling set range — coning, threading, reseating tools, HSS dies, spare cutters and collets — plus 1, 2 and 3 line tube supports for secure installation.",
     specs: [
-      "100,000 psi Max Pressure",
-      "KC · KGS Certified",
+      "100,000 psi Max Pressure (Tubes)",
       "18 Products",
-      "H₂ Compatible",
+      "Tubes, Nipples & Tooling",
       "Industrial & Wellhead",
     ],
     applications:
       "Industrial High Pressure, Hydrogen Refuelling, Wellhead, Research & Test",
-    href: "/hydrogen-cryogenic/",
+    href: "/hydrogen-cryogenic/tube",
     image:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/tube.png",
     logoUrl:
@@ -78,12 +77,11 @@ const HYDROGEN_CRYOGENIC_SERIES: Category[] = [
     title: "Gas & Cylinder Valves",
     subtitle: "Hydrogen · LPG · Industrial Gas — Youngdo",
     description:
-      "The complete Youngdo range in one filterable grid — hydrogen cylinder valves to 70 MPa, LPG cylinder / OPD / piping valves, and industrial gas cylinder valves across tapered, unified, non-return, acetylene, chlorine/ammonia, tube trailer and piping categories. Filter by gas type, category, series and certification.",
+      "Youngdo gas and cylinder valves in one filterable grid — hydrogen cylinder valves to 70 MPa, LPG cylinder / OPD / piping valves, and industrial gas cylinder valves across tapered, unified, non-return, acetylene, chlorine/ammonia, tube trailer and piping categories. Filter by gas type, category, series and certification. Certification varies by model.",
     specs: [
-      "70 MPa Max Working Pressure",
-      "KGS · EC79 · R134 · CGA",
-      "BS 341 · ISO 10297",
-      "81 Models",
+      "70 MPa Max Working Pressure (H₂)",
+      "KGS · KS · EC79 · R134 · CGA V-1 by Model",
+      "108 Models",
       "H₂ · LPG · Industrial Gas",
     ],
     applications:
@@ -97,7 +95,7 @@ const HYDROGEN_CRYOGENIC_SERIES: Category[] = [
 ];
 
 const TRUST_POINTS = [
-  { value: "Youngdo", label: "Manufacturer" },
+  { value: "Hiflux · Youngdo", label: "Manufacturers" },
   { value: "70 MPa", label: "Max H₂ Pressure" },
   { value: "KGS · EC79", label: "H₂ Certifications" },
   { value: "CGA · UL", label: "LPG Certifications" },
@@ -109,10 +107,10 @@ export default function HydrogenCryogenicIndexPage() {
     <>
       <ProductHero
         title="Hydrogen & Cryogenic"
-        subtitle="Youngdo Cylinder Valves — H₂ & LPG"
-        description="Valvenok supplies the full Youngdo range of hydrogen and LPG cylinder valves engineered for high-pressure gas storage and distribution. From hydrogen cylinder valves rated to 70 MPa with KGS, EC79 and IECEx certification, to LPG cylinder valves, OPD overfilling prevention devices and piping connection valves — every product certified for safe, reliable gas service worldwide."
+        subtitle="Hiflux High Pressure Products & Youngdo Gas Valves"
+        description="Valvenok supplies Hiflux high pressure fittings, valves and tubing rated up to 150,000 psi, alongside Youngdo hydrogen, LPG and industrial gas cylinder valves — hydrogen cylinder valves to 70 MPa, LPG cylinder valves, OPD overfilling prevention devices, piping connection valves and industrial gas cylinder valves. Certification varies by model — see each product table for details."
         imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/HE-700.png"
-        imageAlt="Youngdo Hydrogen & LPG Cylinder Valves"
+        imageAlt="Hiflux high pressure products and Youngdo gas cylinder valves"
         breadcrumb="Products / Hydrogen & Cryogenic"
       />
       <YoungdoGrid families={HYDROGEN_CRYOGENIC_SERIES} />

@@ -1,26 +1,12 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/src/app/Common/seo";
 
-const TITLE = "Weld Fitting Connectors | Valvenok";
-const DESCRIPTION =
-  "SS316 weld fitting connectors, multiple connection types for industrial piping.";
-const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
-
-export const metadata: Metadata = {
-  title: { absolute: TITLE },
-  description: DESCRIPTION,
-  openGraph: {
-    title: TITLE,
-    description: DESCRIPTION,
-    type: "website",
-    images: [IMAGE],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: TITLE,
-    description: DESCRIPTION,
-    images: [IMAGE],
-  },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Tube Socket Weld Connectors — SS316",
+  description:
+    "SS316 male and female weld connectors with a tube socket weld (TSW) end and an NPT threaded end, for joining instrumentation tubing to threaded ports.",
+  path: "/fittings-tubing/instrumentation-fittings/weld-fittings/connectors",
+});
 
 export default function WeldFittingConnectorsLayout({
   children,

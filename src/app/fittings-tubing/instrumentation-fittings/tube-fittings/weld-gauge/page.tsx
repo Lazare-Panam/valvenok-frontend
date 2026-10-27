@@ -30,6 +30,13 @@ const THREAD_TYPE_LABELS: Record<string, string> = {
 const IMPERIAL_ODS = ['1/8', '3/16', '1/4', '5/16', '3/8', '1/2', '5/8', '3/4', '1', '1-1/4', '1-1/2', '2']
 const METRIC_ODS = ['3', '4', '6', '8', '10', '12', '14', '15', '16', '18', '20', '22', '25', '32', '38']
 
+// Tube OD filter keys carry the unit so values such as 2" and 2 mm stay distinct
+const odKey = (unit: string, od: string) => `${unit}:${od}`
+const odLabel = (key: string) => {
+  const [unit, od] = key.split(':')
+  return unit === 'Imperial' ? `${od}"` : `${od} mm`
+}
+
 interface Filters {
   fittingTypes: string[]
   tubeODs: string[]
@@ -71,7 +78,9 @@ function Sidebar({ filters, setFilters, activeCount }: { filters: Filters; setFi
   }
 
   const selectedUnit = filters.tubeODUnits[0] ?? 'all'
-  const visibleODs = selectedUnit === 'Imperial' ? IMPERIAL_ODS : selectedUnit === 'Metric' ? METRIC_ODS : [...IMPERIAL_ODS, ...METRIC_ODS]
+  const imperialKeys = IMPERIAL_ODS.map(od => odKey('Imperial', od))
+  const metricKeys = METRIC_ODS.map(od => odKey('Metric', od))
+  const visibleODs = selectedUnit === 'Imperial' ? imperialKeys : selectedUnit === 'Metric' ? metricKeys : [...imperialKeys, ...metricKeys]
 
   return (
     <Box sx={{ width: 260, flexShrink: 0, p: 2, borderRight: '1px solid', borderColor: 'divider', bgcolor: 'background.paper', overflowY: 'auto', boxSizing: 'border-box' }}>
@@ -103,7 +112,7 @@ function Sidebar({ filters, setFilters, activeCount }: { filters: Filters; setFi
         {visibleODs.map(opt => (
           <FormControlLabel key={opt}
             control={<Checkbox size="small" checked={filters.tubeODs.includes(opt)} onChange={() => toggle('tubeODs', opt)} sx={{ py: 0.25, '&.Mui-checked': { color: theme.palette.primary.main } }} />}
-            label={<Typography variant="body2" fontSize="0.78rem">{opt}</Typography>}
+            label={<Typography variant="body2" fontSize="0.78rem">{odLabel(opt)}</Typography>}
           />
         ))}
       </FilterGroup>
@@ -207,14 +216,15 @@ export default function WeldGaugeConnectorPage() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [page, setPage] = useState(0)
   const [rowsPerPage, setRowsPerPage] = useState(25)
-  const [sortKey, setSortKey] = useState('partNumber')
+  // Default to catalogue (data) order so the first page reflects the range order, not part-number prefixes
+  const [sortKey, setSortKey] = useState('id')
   const [sortDir, setSortDir] = useState<'asc' | 'desc'>('asc')
 
   const filtered = useMemo(() => {
     return WELD_GAUGE_DATA.filter(r => {
       if (filters.fittingTypes.length && !filters.fittingTypes.includes(r.fittingType)) return false
       if (filters.tubeODUnits.length && !filters.tubeODUnits.includes(r.tubeODUnit)) return false
-      if (filters.tubeODs.length && !filters.tubeODs.includes(r.tubeOD)) return false
+      if (filters.tubeODs.length && !filters.tubeODs.includes(odKey(r.tubeODUnit, r.tubeOD))) return false
       if (filters.threadTypes.length && (!r.threadType || !filters.threadTypes.includes(r.threadType))) return false
       return true
     })
@@ -269,7 +279,7 @@ export default function WeldGaugeConnectorPage() {
             <Typography variant="caption" color="text.secondary" fontWeight={700}>ACTIVE FILTERS:</Typography>
             {filters.fittingTypes.map(v => <Chip key={v} label={FITTING_TYPE_LABELS[v] ?? v} size="small" variant="outlined" sx={{ borderColor: theme.palette.primary.main, color: theme.palette.primary.main }} onDelete={() => setFilters(p => ({ ...p, fittingTypes: p.fittingTypes.filter(x => x !== v) }))} />)}
             {filters.tubeODUnits.map(v => <Chip key={v} label={v} size="small" variant="outlined" sx={{ borderColor: theme.palette.primary.main, color: theme.palette.primary.main }} onDelete={() => setFilters(p => ({ ...p, tubeODUnits: p.tubeODUnits.filter(x => x !== v), tubeODs: [] }))} />)}
-            {filters.tubeODs.map(v => <Chip key={v} label={`OD: ${v}`} size="small" variant="outlined" sx={{ borderColor: theme.palette.primary.main, color: theme.palette.primary.main }} onDelete={() => setFilters(p => ({ ...p, tubeODs: p.tubeODs.filter(x => x !== v) }))} />)}
+            {filters.tubeODs.map(v => <Chip key={v} label={`OD: ${odLabel(v)}`} size="small" variant="outlined" sx={{ borderColor: theme.palette.primary.main, color: theme.palette.primary.main }} onDelete={() => setFilters(p => ({ ...p, tubeODs: p.tubeODs.filter(x => x !== v) }))} />)}
             {filters.threadTypes.map(v => <Chip key={v} label={THREAD_TYPE_LABELS[v] ?? v} size="small" variant="outlined" sx={{ borderColor: theme.palette.primary.main, color: theme.palette.primary.main }} onDelete={() => setFilters(p => ({ ...p, threadTypes: p.threadTypes.filter(x => x !== v) }))} />)}
           </Stack>
         )}

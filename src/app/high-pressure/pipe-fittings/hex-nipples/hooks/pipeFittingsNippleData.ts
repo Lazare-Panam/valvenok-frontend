@@ -193,7 +193,7 @@ export const PIPE_NIPPLE_DATA: PipeFittingNippleDTO[] = [
 ]
 
 export const PIPE_NIPPLE_DESCRIPTION = {
-  title: "HP Pipe Fittings — Hex Nipples & Reducing Hex Nipples",
-  description: 'Panam High Pressure Hex Nipples and Reducing Hex Nipples in SS 316. NPT, ISO Parallel, and 37° JIC thread combinations. Standard and Swivel variants. 10,000 to 15,000 psi. Sizes from 1/8" to 2".',
-  specs: ["Hex Nipple · Reducing Hex Nipple · Swivel", "SS 316", "10,000 & 15,000 psi", "NPT · ISO Parallel · 37° JIC", '1/8" – 2"'],
+  title: "HP Pipe Fittings — Hex Nipples",
+  description: 'Panam High Pressure Hex Nipples in SS 316, in standard and swivel variants. Equal and unequal sizes, including thread-changing combinations between NPT, ISO parallel (BSPP) and 37° JIC (e.g. NPT to BSPP). The Reducing Hex Nipple type (PRHN part numbers) covers NPT-to-NPT size reductions. 10,000 to 15,000 psi. Sizes from 1/8" to 2".',
+  specs: ["Hex Nipple · Reducing Hex Nipple (NPT) · Swivel", "SS 316", "10,000 & 15,000 psi", "NPT · ISO parallel (BSPP) · 37° JIC", '1/8" – 2"'],
 }

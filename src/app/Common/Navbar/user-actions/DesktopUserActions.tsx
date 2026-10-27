@@ -69,7 +69,7 @@ export default function DesktopUserActions({ barHeight }: Props) {
 
   return (
     <Box sx={{ display: "flex", alignItems: "center", ml: "auto" }}>
-      {/* BPMA CERTIFICATE */}
+      {/* BPMA MEMBERSHIP */}
       <Box
         component="a"
         href={BPMA_PDF_URL}
@@ -91,7 +91,7 @@ export default function DesktopUserActions({ barHeight }: Props) {
         <Box
           component="img"
           src={BPMA_LOGO_URL}
-          alt="BPMA Certificate"
+          alt="BPMA Member"
           sx={{
             height: Math.min(barHeight - 16, 36),
             width: "auto",

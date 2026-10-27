@@ -21,17 +21,17 @@ const PILLARS = [
   {
     icon: EngineeringOutlinedIcon,
     title: 'Rigorous Product Selection',
-    body: 'Every product in our catalogue is sourced from approved manufacturers. We evaluate technical specifications, material certifications, pressure ratings, and traceability before a product is listed for sale.',
+    body: 'Products in our catalogue are sourced from established manufacturers. We evaluate technical specifications, material certifications, pressure ratings, and traceability before a product is listed for sale.',
   },
   {
     icon: InventoryOutlinedIcon,
-    title: 'Traceable Stock',
-    body: 'All stocked items are held with full material traceability. Certificates of conformity, material test reports, and pressure test records are available on request for applicable product lines.',
+    title: 'Traceable Supply',
+    body: 'Material traceability documentation is available for applicable product lines. Certificates of conformity, material test reports, and pressure test records can be requested — availability varies by product.',
   },
   {
     icon: HandshakeOutlinedIcon,
     title: 'Trusted Manufacturer Partners',
-    body: 'We work exclusively with manufacturers who operate certified quality management systems. Our supplier approval process includes documented audits, certification review, and ongoing performance monitoring.',
+    body: 'We work with established manufacturers and review their quality and certification documentation as part of supplier selection. Certification varies by manufacturer and model.',
   },
 ];
 

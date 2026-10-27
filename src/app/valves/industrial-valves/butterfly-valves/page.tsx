@@ -3,13 +3,14 @@ import ProductHero from "@/src/app/Common/Products_Page/ProductHero";
 import TrustStrip from "@/src/app/Common/Products_Page/TrustStrip";
 import { Category } from "@/src/app/Common/Products_Page/ProductCard";
 import ProcessValvesGrid from "../../ProcessValvesGrid";
+import { pageMetadata } from "@/src/app/Common/seo";
 
-export const metadata: Metadata = {
-  alternates: { canonical: '/valves/industrial-valves/butterfly-valves' },
+export const metadata: Metadata = pageMetadata({
   title: "Industrial Butterfly Valves",
   description:
-    "Valvenok supplies a full range of industrial butterfly valves — high-performance designs from Mars Valves and Pietro Fiorentini for gas distribution, oil & gas, and process applications.",
-};
+    "Industrial butterfly valves from Mars Valves, Pietro Fiorentini and Value Valves: centric, double offset, triple offset, lined, cryogenic and marine designs.",
+  path: "/valves/industrial-valves/butterfly-valves",
+});
 
 const BUTTERFLY_VALVE_SERIES: Category[] = [
   {

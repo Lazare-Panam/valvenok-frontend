@@ -12,15 +12,15 @@ import VerifiedIcon from '@mui/icons-material/Verified';
 const PILLS = [
   'Swagelok Compatible',
   'Parker Compatible',
-  'H2 Certified',
+  'Hydrogen Service — Selected Models',
 ];
 
 const SPECS = [
   { key: 'Max Pressure',  val: '6,000 PSI'                  },
   { key: 'Materials',     val: 'SS316 · Duplex · Hastelloy'  },
   { key: 'Connections',   val: 'BSP · NPT · Double Ferrule'  },
-  { key: 'H2 Certified',  val: 'Compliant'                   },
-  { key: 'Lead Time',     val: 'UK Stock · 48hr Dispatch'    },
+  { key: 'Hydrogen',      val: 'Selected models — ask us'    },
+  { key: 'Lead Time',     val: 'Confirmed on quotation'      },
 ];
 
 export default function PanamBanner() {

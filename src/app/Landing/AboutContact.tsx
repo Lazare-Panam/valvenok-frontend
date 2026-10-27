@@ -14,7 +14,7 @@ const JOSCAR_POINTS = [
   "Pre-qualified supplier recognised across the UK defence & aerospace sector",
   "Reduces procurement risk for Tier 1 contractors and MoD supply chains",
   "Demonstrates compliance with industry-standard due diligence requirements",
-  "Accepted by BAE Systems, Rolls-Royce, Airbus, Leonardo and hundreds more",
+  "Used by buying organisations across UK aerospace, defence, security and space",
   "Covers financial health, quality management, legal & ethical trading standards",
   "Annual audit process ensures ongoing compliance — not a one-time tick-box",
 ];

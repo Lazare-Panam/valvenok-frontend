@@ -10,8 +10,8 @@ const DEFAULT_POINTS: TrustPoint[] = [
   { value: 'SS316', label: 'Material Standard' },
   { value: 'Twin Ferrule', label: 'Fitting System' },
   { value: 'NPT / BSPT / BSPP', label: 'Thread Standards' },
-  { value: 'Fast Dispatch', label: 'Availability' },
-  { value: 'ISO Certified', label: 'Quality' },
+  { value: 'UK Based', label: 'Technical Support' },
+  { value: 'Certification', label: 'Varies by Model' },
 ]
 
 export default function TrustStrip({ points = DEFAULT_POINTS }: { points?: TrustPoint[] }) {

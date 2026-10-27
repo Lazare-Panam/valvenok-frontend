@@ -9,6 +9,13 @@ export const metadata: Metadata = {
   title: "Pneumatic Actuators | Spring Return & Scotch Yoke",
   description:
     "Valvenok supplies a full range of pneumatic rotary actuators for quarter-turn valve automation. SRA spring return rack-and-pinion and AD scotch yoke heavy-duty series — ISO 5211 mounting, double acting and fail-safe configurations.",
+  openGraph: {
+    title: "Pneumatic Actuators | Spring Return & Scotch Yoke | Valvenok",
+    description: "Valvenok supplies a full range of pneumatic rotary actuators for quarter-turn valve automation. SRA spring return rack-and-pinion and AD scotch yoke heavy-duty series — ISO 5211 mounting, double acting and fail-safe configurations.",
+    url: "/pneumatic/actuators",
+    siteName: "Valvenok",
+    type: "website",
+  },
 };
 
 const ACTUATOR_FAMILIES: Category[] = [
@@ -103,7 +110,7 @@ const TRUST_POINTS = [
   { value: "90° Rotation", label: "Quarter-Turn" },
   { value: "Fail-Safe", label: "Spring Return Variants" },
   { value: "High Torque", label: "Scotch Yoke Variants" },
-  { value: "Fast Dispatch", label: "Availability" },
+  { value: "UK Based", label: "Technical Support" },
 ];
 
 export default function ActuatorsIndexPage() {

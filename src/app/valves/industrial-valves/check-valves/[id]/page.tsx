@@ -419,7 +419,7 @@ export default function CheckValveDetailPage() {
                   "Engineered for reliable non-return service",
                   "High-pressure and high-temperature capability",
                   "Sourced from trusted global manufacturers",
-                  "Available for RFQ with fast lead times",
+                  "Available on request — lead time confirmed on quotation",
                 ].map((benefit, i) => (
                   <Box
                     key={i}

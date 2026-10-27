@@ -182,12 +182,13 @@ export default function MarsSeriesDetailPage() {
               </Typography>
               <Stack gap={1} mb={4}>
                 {[
-                  'CF8M stainless steel construction for corrosion resistance',
-                  'PTFE / RTFE seats for chemical compatibility across process fluids',
-                  'Full range of end connections for flexible installation',
-                  isFireSafe ? 'API 607 7th Edition fire-safe certified for hazardous-area service' : 'Available with locking devices and V-port flow control options',
-                  'Fast lead times — request a quote for pricing and availability',
-                ].map((b, i) => (
+                  `Body: ${series.body}`,
+                  `Seats: ${series.seats}`,
+                  `End connections: ${series.ends}`,
+                  isFireSafe ? 'API 607 7th Edition fire-safe certified' : null,
+                  series.options.length ? `Options: ${series.options.join(', ')}` : null,
+                  'Request a quote for pricing and lead time',
+                ].filter((b): b is string => Boolean(b)).map((b, i) => (
                   <Box key={i} sx={{ display: 'flex', alignItems: 'flex-start', gap: 1 }}>
                     <CheckCircleOutlineIcon sx={{ color: 'primary.main', fontSize: 18, mt: '2px', flexShrink: 0 }} />
                     <Typography variant="body2" color="text.secondary">{b}</Typography>

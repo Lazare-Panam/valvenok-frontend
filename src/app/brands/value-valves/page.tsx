@@ -13,6 +13,13 @@ export const metadata: Metadata = {
   title: "Value Valves Butterfly Valves",
   description:
     "Valvenok supplies the full Value Valves butterfly valve range — triple offset, centric, double eccentric, AWWA double flanged, cryogenic, PTFE/PFA lined, marine and damper designs. API 607 fire safe, SIL 2/3, ATEX and class-society certified from DN40 to DN2600.",
+  openGraph: {
+    title: "Value Valves Butterfly Valves | Valvenok",
+    description: "Valvenok supplies the full Value Valves butterfly valve range — triple offset, centric, double eccentric, AWWA double flanged, cryogenic, PTFE/PFA lined, marine and damper designs. API 607 fire safe, SIL 2/3, ATEX and class-society certified from DN40 to DN2600.",
+    url: "/brands/value-valves",
+    siteName: "Valvenok",
+    type: "website",
+  },
 };
 
 const VALUE_VALVE_SERIES: Category[] = [

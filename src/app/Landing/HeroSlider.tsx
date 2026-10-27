@@ -35,15 +35,15 @@ const SLIDES = [
     duration: 8000,
     image:
       "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/Process-valves.jpeg",
-    upperTag: "ESTABLISHED 1998",
+    upperTag: "UK DISTRIBUTOR",
     tag: "UK Industrial Supplier",
     title: "UK Valve & Actuator Distributor —" ,
     accent: "JOSCAR Registered",
     description:
       "High-performance Hydraulic and Pneumatic solutions. We leverage a Global Network to source and supply specialist instrumentation components for your specific requirements.",
-    href: "/categories/mechanical-seals",
-    btnText: "View Pumps",
-    alt: "Industrial precision pump assembly",
+    href: "/actuators",
+    btnText: "View Actuators",
+    alt: "Industrial process valves and actuators",
   },
   {
     id: 3,

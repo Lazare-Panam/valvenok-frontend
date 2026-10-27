@@ -121,8 +121,8 @@ const FEATURES = [
   },
   {
     letter: "L",
-    title: "Fast Dispatch",
-    body: "Stock availability across the full AD and AS size range for fast lead times.",
+    title: "Technical Support",
+    body: "Our UK team can help size AD and AS actuators to your valve torque and confirm lead time on quotation.",
   },
 ];
 

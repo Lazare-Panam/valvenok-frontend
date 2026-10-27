@@ -8,6 +8,13 @@ export const metadata: Metadata = {
   alternates: { canonical: '/fittings-tubing/instrumentation-fittings/jic-fittings' },
   title: 'JIC Fittings | 37° Flare SS316 Fittings',
   description: 'Valvenok supplies SS316 37° JIC flare fittings for hydraulic and instrumentation systems. Connectors, unions, elbows, tees and adapters across NPT, BSPT, BSPP and SAE/MS thread standards.',
+  openGraph: {
+    title: "JIC Fittings | 37° Flare SS316 Fittings | Valvenok",
+    description: "Valvenok supplies SS316 37° JIC flare fittings for hydraulic and instrumentation systems. Connectors, unions, elbows, tees and adapters across NPT, BSPT, BSPP and SAE/MS thread standards.",
+    url: "/fittings-tubing/instrumentation-fittings/jic-fittings",
+    siteName: "Valvenok",
+    type: "website",
+  },
 }
 
 const CATEGORIES: Category[] = [
@@ -75,14 +82,14 @@ const CATEGORIES: Category[] = [
 
 const INTRO = `Valvenok supplies a complete range of SS316 37° JIC flare fittings for hydraulic and instrumentation systems. 
 Engineered for high-pressure performance in oil & gas, heavy equipment, marine and petrochemical applications. 
-Available across NPT, BSPT, BSPP, SAE/MS and metric thread standards with fast dispatch from stock.`
+Available across NPT, BSPT, BSPP, SAE/MS and metric thread standards — contact us to confirm availability.`
 
 const TRUST_POINTS = [
   { value: 'SS316', label: 'Material Standard' },
   { value: '37° JIC Flare', label: 'Fitting Standard' },
   { value: 'NPT / BSPT / BSPP', label: 'Thread Standards' },
   { value: 'SAE/MS', label: 'Also Available' },
-  { value: 'Fast Dispatch', label: 'Availability' },
+  { value: 'UK Based', label: 'Technical Support' },
 ]
 
 export default function JICFittingsPage() {

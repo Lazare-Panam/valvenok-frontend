@@ -1,15 +1,7 @@
-import type { Metadata } from "next";
 import ProductHero from "../../Common/Products_Page/ProductHero";
 import TrustStrip from "../../Common/Products_Page/TrustStrip";
 import { Category } from "../../Common/Products_Page/ProductCard";
 import ValvesGrid from "./ValvesGrid";
-
-export const metadata: Metadata = {
-  alternates: { canonical: '/valves/instrumentation-valves' },
-  title: "Valves | SS316 Instrumentation & Process Valves",
-  description:
-    "Valvenok supplies a complete range of SS316 valves for instrumentation and process systems. Ball valves, needle valves, check valves and relief valves engineered for high-pressure, leak-tight performance.",
-};
 
 const VALVE_FAMILIES: Category[] = [
   {
@@ -69,7 +61,7 @@ const TRUST_POINTS = [
   { value: "NPT / BSPT / BSPP", label: "Thread Standards" },
   { value: "Safety Critical", label: "Design Grade" },
   { value: "4 Valve Families", label: "Range" },
-  { value: "Fast Dispatch", label: "Availability" },
+  { value: "UK Based", label: "Technical Support" },
 ];
 
 export default function ValvesIndexPage() {
@@ -78,7 +70,7 @@ export default function ValvesIndexPage() {
       <ProductHero
         title="Valves"
         subtitle="SS316 Valves for Instrumentation & Process Systems"
-        description="UK-based supplier of precision instrumentation and process valves engineered for high-pressure, leak-tight performance — with fast global delivery for engineers and buyers."
+        description="UK-based supplier of precision instrumentation and process valves engineered for high-pressure, leak-tight performance — with UK and international delivery for engineers and buyers."
         imageSrc="https://pblol2.blob.core.windows.net/panam-images/products/ball-valves/ball-valves-hero.jpg"
         imageAlt="Valvenok SS316 Instrumentation Valves"
         breadcrumb="Products / Valves"

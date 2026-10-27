@@ -91,7 +91,7 @@ export default function CryogenicValvesPage() {
     {
       num: "05",
       title: "Lead Time & Logistics",
-      body: "With UK stock available for a wide range of instrumentation valves, manifolds, fittings and accessories, Valvenok helps compress lead times. Global dispatch supports international projects and multi-site roll-outs.",
+      body: "Valvenok quotes instrumentation valves, manifolds, fittings and accessories together, with lead times confirmed on quotation. International shipping can be arranged for overseas and multi-site projects — contact us to confirm options.",
     },
   ];
 
@@ -106,7 +106,7 @@ export default function CryogenicValvesPage() {
     },
     {
       q: "Do you support cryogenic valve projects across the UK?",
-      a: "Yes. Valvenok supports clients in Bicester, across the United Kingdom, and globally. From the Bicester office the team provides technical support, documentation and rapid shipment of associated instrumentation valves, fittings, manifolds and filters that interface with cryogenic valve installations.",
+      a: "Yes. Valvenok supports clients in Bicester, across the United Kingdom, and globally. From the Bicester office the team provides technical support, documentation and supply of associated instrumentation valves, fittings, manifolds and filters that interface with cryogenic valve installations.",
     },
     {
       q: "How do cryogenic valves integrate with instrumentation and safety systems?",
@@ -122,7 +122,7 @@ export default function CryogenicValvesPage() {
     },
     {
       q: "How quickly can Valvenok respond to a cryogenic valve enquiry in the UK?",
-      a: "Valvenok targets a 24-hour response time for specification and bill-of-material enquiries, including those involving cryogenic valves. With UK stock available for a wide range of instrumentation valves, manifolds and fittings, the team can often support compressed project schedules and urgent requirements.",
+      a: "Valvenok targets a 24-hour response time for specification and bill-of-material enquiries, including those involving cryogenic valves. For urgent requirements, contact the team and lead times will be confirmed on quotation.",
     },
     {
       q: "Can Valvenok consolidate cryogenic valves with other industrial valve requirements?",
@@ -161,7 +161,7 @@ export default function CryogenicValvesPage() {
         url: PAGE_URL,
         name: "Cryogenic valves",
         description:
-          "Cryogenic valves for LNG, hydrogen and liquefied gases, with UK stock, engineering support, documentation and integration with instrumentation packages.",
+          "Cryogenic valves for LNG, hydrogen and liquefied gases, with engineering support, documentation and integration with instrumentation packages.",
         about: { "@id": `${PAGE_URL}#service` },
         isPartOf: { "@id": "https://www.valvenok.com/#localbusiness" },
       },
@@ -218,7 +218,7 @@ export default function CryogenicValvesPage() {
             sx={{ mt: 2, opacity: 0.85, fontStyle: "italic" }}
           >
             Precision cryogenic valves for LNG, hydrogen and liquefied gases —
-            with UK stock, engineering support and full documentation,
+            with engineering support and full documentation,
             integrated with your instrumentation and fitting packages.
           </Typography>
           <Stack direction="row" spacing={3} sx={{ mt: 4, opacity: 0.8 }}>
@@ -279,7 +279,7 @@ export default function CryogenicValvesPage() {
               "Valvenok integrates cryogenic valve selection with matching instrumentation valves, manifolds, fittings and connection hardware.",
               "Materials such as SS316, Duplex, Monel and Hastelloy, with NACE MR0175 available on request across relevant ranges.",
               "Full technical documentation and material traceability — heat-code traceability and certification where applicable.",
-              "UK stock and 24-hour technical response from Bicester, with global dispatch for international and multi-site projects.",
+              "UK-based technical support from Bicester, with lead times confirmed on quotation.",
             ].map((text, i) => (
               <Grid key={i} size={{ xs: 12, sm: 6 }}>
                 <Stack direction="row" spacing={1} alignItems="flex-start">
@@ -639,8 +639,8 @@ export default function CryogenicValvesPage() {
           <Typography>
             Valvenok supports UK and international clients from its UK base at
             Ground Floor, St Edburgs Hall, Priory Road, Bicester, OX26 6BL. From
-            Bicester, the team coordinates UK stock, immediate shipment of
-            instrumentation and industrial valves, and engineering support for
+            Bicester, the team coordinates supply of instrumentation and
+            industrial valves, and engineering support for
             cryogenic, hydrogen, oil &amp; gas, petrochemical, power, offshore,
             subsea and general process applications.
           </Typography>

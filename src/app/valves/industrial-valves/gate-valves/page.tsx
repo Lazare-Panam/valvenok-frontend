@@ -3,13 +3,14 @@ import ProductHero from "@/src/app/Common/Products_Page/ProductHero";
 import TrustStrip from "@/src/app/Common/Products_Page/TrustStrip";
 import { Category } from "@/src/app/Common/Products_Page/ProductCard";
 import ProcessValvesGrid from "../../ProcessValvesGrid";
+import { pageMetadata } from "@/src/app/Common/seo";
 
-export const metadata: Metadata = {
-  alternates: { canonical: '/valves/industrial-valves/gate-valves' },
+export const metadata: Metadata = pageMetadata({
   title: "Industrial Gate Valves",
   description:
     "Valvenok supplies bolted bonnet and union bonnet gate valves from UTAM Syncercon, engineered for reliable shut-off and leak-proof isolation in marine and shipbuilding applications.",
-};
+  path: "/valves/industrial-valves/gate-valves",
+});
 
 const GATE_VALVE_SERIES: Category[] = [
   {

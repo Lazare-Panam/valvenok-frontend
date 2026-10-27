@@ -62,7 +62,7 @@ export default function MechanicalSealsPage() {
                 variant="subtitle2"
                 sx={{ fontWeight: 700, textTransform: "uppercase" }}
               >
-                Seal Raina
+                Sejal Raina
               </Typography>
             </Stack>
             <Stack direction="row" alignItems="center" spacing={1}>

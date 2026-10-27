@@ -3,13 +3,14 @@ import ProductHero from "@/src/app/Common/Products_Page/ProductHero";
 import TrustStrip from "@/src/app/Common/Products_Page/TrustStrip";
 import { Category } from "@/src/app/Common/Products_Page/ProductCard";
 import ProcessValvesGrid from "../../ProcessValvesGrid";
+import { pageMetadata } from "@/src/app/Common/seo";
 
-export const metadata: Metadata = {
-  alternates: { canonical: '/valves/industrial-valves/ball-valves' },
-  title: "Mars Ball Valves",
+export const metadata: Metadata = pageMetadata({
+  title: "Industrial Ball Valves — Mars, Cameron & PF",
   description:
-    "Valvenok supplies the full Mars ball valve range — 1-piece, 2-piece, 3-piece, multi-way diverter, wafer compact and fire-safe flanged designs in stainless steel 316 with API 607 fire-safe certification.",
-};
+    "Industrial ball valves from Mars Valves, Cameron WKM and Pietro Fiorentini: 2-piece, 3-piece, flanged, trunnion-mounted control and actuated ball valves.",
+  path: "/valves/industrial-valves/ball-valves",
+});
 
 const MARS_VALVE_SERIES: Category[] = [
   {

@@ -8,7 +8,9 @@ function CountUp({ target }: { target: string }) {
   const numericPart = parseFloat(target.replace(/[^0-9.]/g, ""));
   const prefix = target.match(/^[^0-9]*/)?.[0] ?? "";
   const suffix = target.match(/[^0-9.]*$/)?.[0] ?? "";
-  const [value, setValue] = useState(0);
+  // Start at the real figure so the server-rendered HTML (what Google reads)
+  // shows it; the count-up only resets to 0 once the band scrolls into view.
+  const [value, setValue] = useState(numericPart);
   const ref = useRef<HTMLSpanElement>(null);
   const hasRun = useRef(false);
 
@@ -19,6 +21,7 @@ function CountUp({ target }: { target: string }) {
       ([entry]) => {
         if (entry.isIntersecting && !hasRun.current) {
           hasRun.current = true;
+          setValue(0);
           const duration = 1400;
           const start = performance.now();
 
@@ -52,15 +55,14 @@ function CountUp({ target }: { target: string }) {
 }
 
 // All figures pulled from claims already published elsewhere on the site
-// (HeroSlider "ESTABLISHED 1998" tag, site metadata "40+ brands", the
-// DeliveryBanner's "2-3 Day Dispatch", and the sum of the minimum product
-// counts already shown per-category in Categories.tsx) — nothing new is
-// asserted here that isn't already stated on the site.
+// (the 29 brands listed on /brands, the Bicester address, and the sum of the
+// minimum product counts already shown per-category in Categories.tsx).
+// No dispatch, lead-time or stock promises are made here.
 const STATS = [
   { num: "2022", unit: "", label: "TRUSTED SINCE" },
-  { num: "40", unit: "+", label: "BRANDS DISTRIBUTED" },
-  { num: "2", unit: "-3 DAY", label: "UK DISPATCH" },
-  { num: "1000", unit: "+", label: "PRODUCTS IN STOCK" },
+  { num: "25", unit: "+", label: "BRANDS DISTRIBUTED" },
+  { num: "UK", unit: "", label: "BASED SUPPLIER" },
+  { num: "1000", unit: "+", label: "PRODUCTS IN RANGE" },
 ];
 
 export default function StatsBand() {

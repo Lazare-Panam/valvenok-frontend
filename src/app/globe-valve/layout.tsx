@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/globe-valve" },
   title: "Globe Valve Sourcing & Instrumentation Support",
   description:
-    "Globe valve engineering, sourcing and documentation from Valvenok in Bicester, supporting critical process and instrumentation projects worldwide. 24-hour engineering response with UK stock and global dispatch.",
+    "Globe valve engineering, sourcing and documentation from Valvenok in Bicester, supporting critical process and instrumentation projects worldwide. UK-based engineering support.",
   keywords: [
     "globe valve",
     "globe valve supplier UK",

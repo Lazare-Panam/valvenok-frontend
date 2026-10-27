@@ -6,7 +6,9 @@ import { useWeldFittingFilterOptions, useWeldFittings } from '../hooks/types'
 import WeldFittingTable from '../components/WeldfittingTable'
 import { WeldFittingActiveFilters } from '../components/WeldFittingActiveFilters'
 import { type WeldFittingFilters, EMPTY_WELD_FITTING_FILTERS } from '../hooks/types'
-export default function WeldFittingPage({ defaultFittingTypes }: { defaultFittingTypes?: string[] } = {}) {
+const DEFAULT_INTRO = 'SS316 tube socket weld (TSW) fittings: male and female connectors, male and female elbows, and male run and male branch tees, with NPT threaded ends.'
+
+export default function WeldFittingPage({ defaultFittingTypes, heading = 'Weld Fittings', intro = DEFAULT_INTRO }: { defaultFittingTypes?: string[]; heading?: string; intro?: string } = {}) {
   const theme = useTheme()
   const [filters, setFilters] = useState<WeldFittingFilters>({
     ...EMPTY_WELD_FITTING_FILTERS,
@@ -28,17 +30,16 @@ export default function WeldFittingPage({ defaultFittingTypes }: { defaultFittin
         <Box sx={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', flexWrap: 'wrap', gap: 2 }}>
           <Box>
             <Typography variant="h1" fontWeight={800} mb={1} color="primary">
-              Weld Fittings{' '}
+              {heading}{' '}
               <Box component="span" sx={{ color: 'text.primary', fontWeight: 400 }}>
                 — 316 Stainless Steel
               </Box>
             </Typography>
             <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 700 }}>
-              Tube socket weld, tube butt weld and pipe socket weld fittings.
-              Available in NPT, BSPT and BSPP thread standards.
+              {intro}
             </Typography>
             <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
-              {['SS316', 'TSW / TBW / PSW', 'NPT / BSPT / BSPP', '1/8" – 2" / 6mm – 38mm'].map(s => (
+              {['SS316', 'Tube Socket Weld (TSW)', 'NPT', '1/8" – 2" / 6mm – 38mm'].map(s => (
                 <Box key={s} sx={{
                   px: 1.5, py: 0.5, borderRadius: '20px', fontSize: '0.75rem', fontWeight: 600,
                   bgcolor: alpha(theme.palette.primary.main, 0.08),

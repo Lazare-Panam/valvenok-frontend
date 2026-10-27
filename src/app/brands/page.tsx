@@ -123,7 +123,7 @@ const BRANDS = [
   },
   {
     name: "Endress Hauser",
-    logo: "https://www.uk.endress.com/images/logo/EH_Logo-d9672165.svg",
+    logo: "/images/brands/endress-hauser.svg",
     desc: "Laboratory and process automation instrumentation.",
   },
   {
@@ -213,9 +213,9 @@ export default function BrandsPage() {
             >
               By collaborating with recognized industry brands, we offer a
               comprehensive product range—from precision-engineered ball valves
-              to advanced actuation technologies. We ensure every product meets
-              strict quality standards for demanding environments like oil & gas
-              and process engineering.
+              to advanced actuation technologies. Products are selected for demanding
+              environments like oil & gas and process engineering, with
+              certification varying by model.
             </Typography>
 
             <Typography

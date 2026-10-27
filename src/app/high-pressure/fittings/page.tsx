@@ -15,7 +15,7 @@ const TECH_SPECS = [
   { label: 'Pressure Range', value: '10,000 – 150,000 psi' },
   { label: 'Material', value: 'SS 316 / STS 316' },
   { label: 'Connections', value: 'Cone & Thread · NPT' },
-  { label: 'Size Range', value: '1/8" – 1"' },
+  { label: 'Size Range', value: '1/8" – 1" (cone & thread catalogue)' },
   { label: 'Types', value: 'Adapters · Connectors · Elbows · Tees · Crosses · Unions · Nipples · Caps · Plugs · Accessories' },
 ]
 
@@ -55,8 +55,17 @@ export default function HighPressureFittingsLanding() {
               <Typography variant="h1" sx={{ fontWeight: 800, mt: 1, mb: 2, lineHeight: 1.15, fontSize: { xs: '2rem', md: '2.6rem' } }}>
                 {HP_FITTINGS_DESCRIPTION.title}
               </Typography>
-              <Typography variant="body1" sx={{ color: 'text.secondary', mb: 3, lineHeight: 1.8 }}>
+              <Typography variant="body1" sx={{ color: 'text.secondary', mb: 2, lineHeight: 1.8 }}>
                 {HP_FITTINGS_DESCRIPTION.description}
+              </Typography>
+              <Typography variant="body2" sx={{ color: 'text.secondary', mb: 3, lineHeight: 1.7 }}>
+                This catalogue covers cone &amp; thread tube fittings from 1/8&quot; to 1&quot;. Threaded
+                pipe fittings (NPT, ISO Parallel and 37° JIC hex nipples, couplings, adapters, elbows,
+                tees, plugs and caps, 10,000 – 15,000 psi, 1/8&quot; to 2&quot;) are a separate range — see{' '}
+                <Box component={Link} href="/high-pressure/pipe-fittings" sx={{ color: ACCENT, fontWeight: 700 }}>
+                  High Pressure Pipe Fittings
+                </Box>
+                .
               </Typography>
               <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 4 }}>
                 {HP_FITTINGS_DESCRIPTION.specs.map(s => (

@@ -8,12 +8,12 @@ const categoryMetadata: Record<string, { title: string; description: string }> =
   "instrumentation-fittings": {
     title: "Instrumentation Fittings, Compression Fitting and Tube Fittings Range",
     description:
-      "UK-based supplier of instrumentation fittings and stainless steel fittings for high-pressure systems, with fast global delivery for engineers and buyers.",
+      "UK-based supplier of instrumentation fittings and stainless steel fittings for high-pressure systems, with UK and international delivery for engineers and buyers.",
   },
   "actuators": {
     title: "Valve Actuators and Pneumatic Actuator Solutions for Industrial Use",
     description:
-      "Browse Valvenok's pneumatic actuator and valve actuators range, with engineering-grade torque options for automated valve control and fast UK dispatch.",
+      "Browse Valvenok's pneumatic actuator and valve actuators range, with engineering-grade torque options for automated valve control, with UK-based technical support.",
   },
 };
 
@@ -33,6 +33,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description,
+    // Without this the route inherits /categories' canonical
+    alternates: { canonical: `/categories/${categoryId}` },
     openGraph: {
       title: `${title} | Valvenok Engineering`,
       description,

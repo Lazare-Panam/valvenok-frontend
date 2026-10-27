@@ -58,9 +58,16 @@ export default function BallValveVsGateValvePage() {
             variant="h5"
             sx={{ mt: 2, opacity: 0.85, fontStyle: "italic" }}
           >
-            Key Differences, Real-World Uses &amp; How to Choose
+            Key Differences &amp; How to Choose
           </Typography>
           <Stack direction="row" spacing={3} sx={{ mt: 4, opacity: 0.8 }}>
+            <Typography
+              variant="subtitle2"
+              sx={{ fontWeight: 700, textTransform: "uppercase" }}
+            >
+              By Valvenok Team · Updated{" "}
+              <time dateTime="2026-10-27">27 October 2026</time>
+            </Typography>
             <Stack direction="row" alignItems="center" spacing={1}>
               <AccessTimeIcon fontSize="small" />
               <Typography
@@ -120,7 +127,7 @@ export default function BallValveVsGateValvePage() {
           <Grid container spacing={2}>
             {[
               "Ball valves use a quarter-turn mechanism for instant, bubble-tight shut-off — gate valves require 10–15 full turns.",
-              "PTFE seats give ball valves ANSI Class VI sealing — making them the default choice for gas and hazardous fluid isolation.",
+              "Soft (PTFE) seats let ball valves meet ANSI/FCI 70-2 Class VI, the tightest standard seat leakage class — which is why they are widely used for gas and hazardous fluid isolation.",
               "Gate valves retain a role in large-diameter (DN300+) low-cycle water applications where upfront cost is the primary driver.",
               "Ball valves are actuator-ready by design — quarter-turn output matches pneumatic actuator output directly.",
               "Never throttle a standard ball valve — partial opening causes irreversible seat erosion.",
@@ -163,6 +170,7 @@ export default function BallValveVsGateValvePage() {
           {/* ── WHAT IS A BALL VALVE ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,
@@ -192,8 +200,9 @@ export default function BallValveVsGateValvePage() {
             The sealing mechanism is what sets them apart. Ball valves use{" "}
             <strong>soft seats</strong> — typically PTFE or Nylon — that press
             against the ball surface to form a{" "}
-            <strong>bubble-tight seal</strong> (to ANSI Class VI leakage
-            standards). This makes them particularly suitable for gas systems,
+            <strong>bubble-tight seal</strong> (soft-seated valves are typically
+            specified to ANSI/FCI 70-2 Class VI, the tightest standard seat
+            leakage class). This makes them particularly suitable for gas systems,
             where even minor leakage is unacceptable.
           </Typography>
 
@@ -239,7 +248,8 @@ export default function BallValveVsGateValvePage() {
           <Typography>
             Seat material directly dictates performance limits.{" "}
             <strong>PTFE seats</strong> are the most common — chemically inert,
-            low friction, and suitable up to around 180°C. For higher
+            low friction, and suited to moderate temperatures (limits depend
+            on the seat grade and manufacturer). For higher
             temperatures or abrasive media,{" "}
             <strong>metal-seated ball valves</strong> (typically stainless or
             tungsten carbide-coated) extend operating range considerably, used
@@ -342,6 +352,7 @@ export default function BallValveVsGateValvePage() {
           {/* ── WHAT IS A GATE VALVE ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,
@@ -401,6 +412,7 @@ export default function BallValveVsGateValvePage() {
           {/* ── COMPARISON TABLE ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,
@@ -424,7 +436,7 @@ export default function BallValveVsGateValvePage() {
             <Box sx={{ flex: 1, textAlign: "center" }}>
               <Box
                 component="img"
-                src="https://pblol2.blob.core.windows.net/valvenok-images/products/valves/apollo-valves-88a10a01.webp"
+                src="https://pblol2.blob.core.windows.net/valvenok-images/products/valves/bolted-gate-valve.png"
                 alt="Gate Valve"
                 sx={{
                   width: "100%",
@@ -533,12 +545,12 @@ export default function BallValveVsGateValvePage() {
                   },
                   {
                     f: "Pressure range",
-                    b: "Up to 700 bar (trunnion type)",
-                    g: "Moderate — lower pressure ratings",
+                    b: "Very high pressure possible in trunnion designs — varies by model",
+                    g: "Wide — also used in high-pressure service (e.g. API 6A wellhead valves)",
                   },
                   {
                     f: "Temperature range",
-                    b: "-29°C to +180°C (PTFE seats)",
+                    b: "Depends on seat material — check the model datasheet",
                     g: "Wider range with metal seats",
                   },
                   {
@@ -636,6 +648,7 @@ export default function BallValveVsGateValvePage() {
           {/* ── INDUSTRY BY INDUSTRY ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,
@@ -661,15 +674,16 @@ export default function BallValveVsGateValvePage() {
             Oil &amp; Gas
           </Typography>
           <Typography>
-            Ball valves are the <strong>dominant isolation valve</strong> in
+            Ball valves are a <strong>widely used isolation valve</strong> in
             upstream, midstream, and downstream oil and gas. Full-bore
-            trunnion-mounted ball valves are specified on trunk pipelines to
-            allow <strong>pigging</strong> (pipeline inspection and cleaning) —
-            a requirement that gate valves, with their cavity between the ball
-            and body, cannot reliably satisfy. High-pressure subsea wellhead
-            systems routinely use{" "}
-            <strong>metal-seated trunnion ball valves</strong> rated to ASME
-            2500# class (approximately 425 bar at ambient temperature).
+            trunnion-mounted ball valves are commonly specified on trunk
+            pipelines because their unobstructed bore allows{" "}
+            <strong>pigging</strong> (pipeline inspection and cleaning);
+            through-conduit gate valves are also used where a piggable bore is
+            needed. In high-pressure and subsea service,{" "}
+            <strong>metal-seated trunnion ball valves</strong> are one option
+            alongside gate valves, with ratings up to ASME Class 2500
+            (approximately 425 bar at ambient temperature).
           </Typography>
 
           <Typography
@@ -767,6 +781,7 @@ export default function BallValveVsGateValvePage() {
           {/* ── TYPES TABLE ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,
@@ -928,6 +943,7 @@ export default function BallValveVsGateValvePage() {
           {/* ── ADVANTAGES ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,
@@ -942,7 +958,7 @@ export default function BallValveVsGateValvePage() {
           {[
             {
               bold: "Bubble-tight sealing",
-              text: " — PTFE seats achieve ANSI Class VI (zero detectable leakage under test conditions), making them suitable for gas and hazardous fluid isolation",
+              text: " — PTFE seats can meet ANSI/FCI 70-2 Class VI, the tightest standard seat leakage class (a small, specified allowable leakage rather than zero), making them suitable for gas and hazardous fluid isolation",
             },
             {
               bold: "Fast operation",
@@ -1001,6 +1017,7 @@ export default function BallValveVsGateValvePage() {
           {/* ── LIMITATIONS ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,
@@ -1112,6 +1129,7 @@ export default function BallValveVsGateValvePage() {
           {/* ── DECISION FRAMEWORK ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,
@@ -1247,6 +1265,7 @@ export default function BallValveVsGateValvePage() {
           {/* ── FINAL THOUGHTS ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,

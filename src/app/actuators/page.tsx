@@ -23,7 +23,7 @@ const ACTUATOR_CATEGORIES: Category[] = [
       "Scotch Yoke",
       "Spring Return",
       "ISO 5211",
-      "ATEX Certified",
+      "ATEX — Selected Models",
       "Double Acting",
     ],
     applications: "Oil & Gas, Petrochemical, Power Generation, Process Plants",
@@ -164,7 +164,7 @@ export default function ActuatorsPage() {
               lineHeight: 1.7,
             }}
           >
-            Leading UK supplier of valve actuators across all technologies —
+            UK supplier of valve actuators across all technologies —
             pneumatic, electric, hydraulic and mechanical — for demanding
             industrial environments globally.
           </Typography>
@@ -212,12 +212,12 @@ export default function ActuatorsPage() {
           {[1, 2].map((i) => (
             <Box key={i} sx={{ display: "flex", gap: 6, pr: 6 }}>
               {[
-                "ATEX & IECEx Compliant",
-                "24h Fast Dispatch",
+                "ATEX / IECEx Options on Selected Models",
+                "UK-Based Technical Support",
                 "Pneumatic · Electric · Hydraulic · Mechanical",
                 "ISO 5211 Mounting Standard",
-                "ATEX Zone 1 & 2 Certified",
-                "SIL2 / SIL3 Capable",
+                "Certification Varies by Model",
+                "Spring Return & Double Acting",
               ].map((item) => (
                 <Typography
                   key={item}

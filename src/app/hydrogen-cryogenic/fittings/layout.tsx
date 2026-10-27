@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 const TITLE = "High Pressure Fittings | Valvenok";
 const DESCRIPTION =
-  "Hiflux high pressure fittings, accessories and manifold blocks rated up to 150,000 psi, KC and KGS certified.";
+  "Hiflux high pressure fittings, accessories and manifold blocks rated up to 150,000 psi for industrial, hydrogen and wellhead service.";
 const IMAGE =
   "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/reducing-fitting.png";
 
@@ -18,8 +18,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: TITLE,
-    description: DESCRIPTION,
     images: [IMAGE],
   },
 };

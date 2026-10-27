@@ -168,7 +168,7 @@ export default function VSIPartnershipPage() {
                 variant="subtitle2"
                 sx={{ fontWeight: 700, textTransform: "uppercase" }}
               >
-                The Valvenok Team
+                Valvenok Team
               </Typography>
             </Stack>
             <Stack direction="row" alignItems="center" spacing={1}>

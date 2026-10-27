@@ -12,21 +12,28 @@ export const metadata: Metadata = {
   alternates: { canonical: "/brands/walrus-pumps" },
   title: "WALRUS Pumps",
   description:
-    "Valvenok supplies the full WALRUS pump range — electronic control, automatic booster, multistage centrifugal, direct water, submersible, hot water, automatic flow-controlled and immersible series for water supply, drainage and industrial pumping.",
+    "Valvenok supplies WALRUS pumps — electronic control, automatic booster, multistage centrifugal, direct water, submersible, hot water, automatic flow-controlled and immersible series for water supply, drainage and industrial pumping.",
+  openGraph: {
+    title: "WALRUS Pumps | Valvenok",
+    description: "Valvenok supplies WALRUS pumps — electronic control, automatic booster, multistage centrifugal, direct water, submersible, hot water, automatic flow-controlled and immersible series for water supply, drainage and industrial pumping.",
+    url: "/brands/walrus-pumps",
+    siteName: "Valvenok",
+    type: "website",
+  },
 };
 
 const WALRUS_PUMP_FAMILIES: Category[] = [
   {
-    code: "LMP",
+    code: "WQB",
     title: "Electronic Control Pump",
-    subtitle: "LMP / Atomizer / PSI / PW / PK Series",
+    subtitle: "WQ_B / HQ_B / TQ_B Series",
     description:
-      "WALRUS specialised pumps including high-head screw pumps, atomizer pumps and general utility pumps for agriculture, construction and manufacturing applications.",
+      "WALRUS all-in-one electronic control pumps — pump, motor, pressure tank and electronic controller in a single compact unit. Constant pressure control starts the pump automatically on demand, with dry-run and anti-cycling protection.",
     specs: [
-      "0.1 – 7.5 kW",
-      "Up to 800M Head",
-      "Up to 1,000 L/min",
-      "Up to 30 kg/cm²",
+      "0.18 – 3.7 kW",
+      "Up to 52M Head",
+      "Up to 270 L/min",
+      "Max. 8.3 bar (8.5 kg/cm²) system pressure",
     ],
     applications:
       "Manufacturing, Agriculture, Construction, Water Supply & Pollution Control, Entertainment & Leisure",
@@ -82,7 +89,7 @@ const WALRUS_PUMP_FAMILIES: Category[] = [
     title: "Submersible Pump",
     subtitle: "PW_A / PW_E Series",
     description:
-      "WALRUS submersible pumps for clean water in a corrosion-resistant, compact design. IP68 rated with thermal overload protection, suitable for garden ponds, fish breeding, drainage and confined-space pumping.",
+      "WALRUS submersible pumps for clean water in a corrosion-resistant, compact design. IP68 rated with thermal overload protection, suitable for drainage, fish breeding and confined-space pumping.",
     specs: ["100 – 800 W", "50Hz / 60Hz", "Up to 14M Head", "Up to 440 L/min"],
     applications:
       "Construction, Electricity & New Energy, Wholesale & Retail, Agriculture & Fishing, Entertainment & Leisure, Water Supply & Pollution Control, Manufacturing, Accommodation & Food Service, Service",
@@ -114,7 +121,7 @@ const WALRUS_PUMP_FAMILIES: Category[] = [
     specs: [
       "0.18 – 0.75 kW",
       "50Hz / 60Hz",
-      "Up to 4.4 kg/cm²",
+      "Up to 4.3 bar (4.4 kg/cm²)",
       "Up to 120 L/min",
     ],
     applications:
@@ -148,9 +155,9 @@ const WALRUS_PUMP_FAMILIES: Category[] = [
 const TRUST_POINTS = [
   { value: "8 Series", label: "Pump Families" },
   { value: "50Hz / 60Hz", label: "Frequency Support" },
-  { value: "Up to 800M", label: "Max Head" },
-  { value: "Up to 1,000 L/min", label: "Max Flow" },
-  { value: "WALRUS", label: "OEM Brand" },
+  { value: "Up to 267M", label: "Max Head" },
+  { value: "Up to 650 L/min", label: "Max Flow" },
+  { value: "WALRUS", label: "Brand" },
 ];
 
 export default function WalrusPumpsBrandPage() {
@@ -159,7 +166,7 @@ export default function WalrusPumpsBrandPage() {
       <ProductHero
         title="WALRUS Pumps"
         subtitle="Water Supply, Drainage & Industrial Pumping — 8 Series"
-        description="The complete WALRUS pump range — electronic control, automatic booster, multistage centrifugal, direct water, submersible, hot water, automatic flow-controlled and immersible series. Engineered for reliable water supply and industrial pumping across demanding commercial and industrial use, with 50Hz/60Hz support and heads up to 800M."
+        description="WALRUS pumps — electronic control, automatic booster, multistage centrifugal, direct water, submersible, hot water, automatic flow-controlled and immersible series. Engineered for reliable water supply and industrial pumping across demanding commercial and industrial use, with 50Hz/60Hz support and heads up to 267M."
         imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/products/walrus-pumps/WQ_B.webp"
         imageAlt="WALRUS Pumps"
         breadcrumb="Products / Pumps / WALRUS Pumps"
