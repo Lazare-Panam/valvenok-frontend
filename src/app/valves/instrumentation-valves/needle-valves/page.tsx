@@ -53,7 +53,7 @@ export default function NeedleValvesPage() {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
       <Box sx={{ p: 4, borderBottom: `1px solid ${theme.palette.divider}`, bgcolor: 'background.paper' }}>
-        <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: theme.palette.primary.main }}>
+        <Typography variant="h4" component="h1" fontWeight={800} mb={1} sx={{ color: theme.palette.primary.main }}>
           Needle Valves
         </Typography>
         <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 700 }}>

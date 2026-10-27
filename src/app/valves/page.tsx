@@ -214,7 +214,7 @@ export default function ProcessValvesIndexPage() {
         breadcrumb="Products / Valves"
       />
       <ProcessValvesGrid families={VALVE_FAMILIES} />
-      <RelatedLinks links={[{ label: "Marine Valves", href: "/valves/marine-valves" }, { label: "All Product Categories", href: "/categories" }]} />
+      <RelatedLinks links={[{ label: "Marine Valves", href: "/valves/marine-valves" }, { label: "All Product Categories", href: "/categories" }, { label: "Why Buy Valves From a UK Stockist", href: "/news/uk-valve-stockist" }]} />
       <TrustStrip points={TRUST_POINTS} />
     </>
   );

@@ -19,7 +19,7 @@ export default function BallValvePage() {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
       <Box sx={{ p: 4, borderBottom: `1px solid ${theme.palette.divider}`, bgcolor: 'background.paper' }}>
-        <Typography variant="h4" fontWeight={800} mb={1} color="primary">
+        <Typography variant="h4" component="h1" fontWeight={800} mb={1} color="primary">
           Ball Valves{' '}
           <Box component="span" sx={{ color: 'text.primary', fontWeight: 400 }}>
             — 2-Way, 3-Way & High Bore

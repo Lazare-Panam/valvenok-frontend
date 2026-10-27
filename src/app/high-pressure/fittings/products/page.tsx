@@ -16,6 +16,25 @@ const BRAND_GREEN = '#61D649'
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 const VALID_BRANDS = ['Panam', 'Hiflux']
 
+// Static heading, also used as the Suspense fallback so it is server-rendered
+// (useSearchParams below makes everything inside Suspense client-only).
+function PageHeader() {
+  return (
+    <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
+      <Button component={Link} href="/high-pressure/fittings" startIcon={<ArrowBackIcon />}
+        sx={{ mb: 1, fontWeight: 700, color: 'text.secondary', textTransform: 'none' }}>
+        Fittings overview
+      </Button>
+      <Typography variant="h1" fontWeight={800} mb={1} sx={{ color: BRAND_GREEN, fontFamily: PRIMARY_FONT, fontSize: '1.8rem' }}>
+        {HP_FITTINGS_DESCRIPTION.title} — Products
+      </Typography>
+      <Typography variant="body2" color="text.secondary" sx={{ fontFamily: PRIMARY_FONT }}>
+        {HP_FITTINGS_DATA.length} fittings across Panam &amp; Hiflux — filter by brand, type, pressure, size &amp; material.
+      </Typography>
+    </Box>
+  )
+}
+
 function HPFittingsProductsInner() {
   const searchParams = useSearchParams()
   const brandParam = searchParams.get('brand')
@@ -39,18 +58,7 @@ function HPFittingsProductsInner() {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
-      <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
-        <Button component={Link} href="/high-pressure/fittings" startIcon={<ArrowBackIcon />}
-          sx={{ mb: 1, fontWeight: 700, color: 'text.secondary', textTransform: 'none' }}>
-          Fittings overview
-        </Button>
-        <Typography variant="h1" fontWeight={800} mb={1} sx={{ color: BRAND_GREEN, fontFamily: PRIMARY_FONT, fontSize: '1.8rem' }}>
-          {HP_FITTINGS_DESCRIPTION.title} — Products
-        </Typography>
-        <Typography variant="body2" color="text.secondary" sx={{ fontFamily: PRIMARY_FONT }}>
-          {HP_FITTINGS_DATA.length} fittings across Panam &amp; Hiflux — filter by brand, type, pressure, size &amp; material.
-        </Typography>
-      </Box>
+      <PageHeader />
 
       <Box sx={{ p: { xs: 2, md: 3 }, flex: 1 }}>
         <FittingsActiveFilters filters={filters} setFilters={setFilters} />
@@ -72,7 +80,7 @@ function HPFittingsProductsInner() {
 
 export default function HPFittingsProductsPage() {
   return (
-    <Suspense fallback={null}>
+    <Suspense fallback={<PageHeader />}>
       <HPFittingsProductsInner />
     </Suspense>
   )

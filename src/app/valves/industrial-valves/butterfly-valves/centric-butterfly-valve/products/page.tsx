@@ -55,7 +55,7 @@ export default function VF7Page() {
           display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start'
         }}>
           <Box>
-            <Typography variant="h4" fontWeight={800} mb={1} color="primary">
+            <Typography variant="h4" component="h1" fontWeight={800} mb={1} color="primary">
               Concentric Butterfly Valves — VF-730A
             </Typography>
             <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 700 }}>

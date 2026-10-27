@@ -215,7 +215,7 @@ export default function AWWAProductsPage() {
             sx={{ height: 28, objectFit: "contain" }}
           />
         </Box>
-        <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_GREEN, fontFamily: PRIMARY_FONT }}>
+        <Typography variant="h4" component="h1" fontWeight={800} mb={1} sx={{ color: BRAND_GREEN, fontFamily: PRIMARY_FONT }}>
           VF-264 — AWWA Double Flanged Butterfly Valves
         </Typography>
         <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 800, fontFamily: PRIMARY_FONT }}>

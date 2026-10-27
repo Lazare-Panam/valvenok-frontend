@@ -17,6 +17,25 @@ const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 
 const KNOWN_BRANDS = Array.from(new Set(HP_NEEDLE_VALVE_DATA.map(v => v.brand)))
 
+// Static heading, also used as the Suspense fallback so it is server-rendered
+// (useSearchParams below makes everything inside Suspense client-only).
+function PageHeader() {
+  return (
+    <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
+      <Button component={Link} href="/high-pressure/valves/ball-valves" startIcon={<ArrowBackIcon />}
+        sx={{ mb: 1, fontWeight: 700, color: 'text.secondary', textTransform: 'none' }}>
+        Ball Valves overview
+      </Button>
+      <Typography variant="h1" fontWeight={800} mb={1} sx={{ color: BRAND_GREEN, fontFamily: PRIMARY_FONT, fontSize: '1.8rem' }}>
+        {HP_NV_DESCRIPTION.title} — Products
+      </Typography>
+      <Typography variant="body2" color="text.secondary" sx={{ fontFamily: PRIMARY_FONT }}>
+        {HP_NEEDLE_VALVE_DATA.length} models across Panam & Hiflux — filter by brand, series, pressure, connection & configuration.
+      </Typography>
+    </Box>
+  )
+}
+
 function HPNeedleValveProducts() {
   const searchParams = useSearchParams()
   const initialBrand = searchParams.get('brand')
@@ -40,18 +59,7 @@ function HPNeedleValveProducts() {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
-      <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
-        <Button component={Link} href="/high-pressure/valves/ball-valves" startIcon={<ArrowBackIcon />}
-          sx={{ mb: 1, fontWeight: 700, color: 'text.secondary', textTransform: 'none' }}>
-          Ball Valves overview
-        </Button>
-        <Typography variant="h1" fontWeight={800} mb={1} sx={{ color: BRAND_GREEN, fontFamily: PRIMARY_FONT, fontSize: '1.8rem' }}>
-          {HP_NV_DESCRIPTION.title} — Products
-        </Typography>
-        <Typography variant="body2" color="text.secondary" sx={{ fontFamily: PRIMARY_FONT }}>
-          {HP_NEEDLE_VALVE_DATA.length} models across Panam & Hiflux — filter by brand, series, pressure, connection & configuration.
-        </Typography>
-      </Box>
+      <PageHeader />
 
       <Box sx={{ p: { xs: 2, md: 3 }, flex: 1 }}>
         <HPNVActiveFilters filters={filters} setFilters={setFilters} />
@@ -73,7 +81,7 @@ function HPNeedleValveProducts() {
 
 export default function HPNeedleValveProductsPage() {
   return (
-    <Suspense>
+    <Suspense fallback={<PageHeader />}>
       <HPNeedleValveProducts />
     </Suspense>
   )

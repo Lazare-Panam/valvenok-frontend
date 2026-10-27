@@ -1,6 +1,5 @@
 'use client';
 
-import { useParams } from 'next/navigation';
 import { Container, Box, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid'; // Using Grid2 for the 'size' prop
 import RequestForQuoteCard, { ProductForRFQ } from  '../../Common/RFQCard/RequestForQuoteCard';
@@ -290,7 +289,6 @@ const DUMMY_RFQ_PRODUCTS: ProductForRFQ[] = [
 ];
 
 export default function CategoryListingPage() {
-  const { categoryId } = useParams();
   const products = DUMMY_RFQ_PRODUCTS;
 
   return (
@@ -311,7 +309,7 @@ export default function CategoryListingPage() {
             Commercial Inquiry Portfolio
           </Typography>
           <Typography 
-            variant="h2" 
+            variant="h2" component="h1" 
             sx={{ 
               fontFamily: '"Barlow Condensed"', 
               fontWeight: 900, 
@@ -319,7 +317,7 @@ export default function CategoryListingPage() {
               lineHeight: 1
             }}
           >
-            {categoryId?.toString().replace(/-/g, ' ') || "Collection"}
+            Marine Valves
           </Typography>
         </Container>
       </Box>

@@ -17,6 +17,26 @@ import TubingTable from '@/src/app/fittings-tubing/tubing/components/TubingTable
 // Brands that actually exist in the data — used to validate the ?brand= query param.
 const KNOWN_BRANDS = Array.from(new Set(TUBING_DATA.map(t => t.brand)))
 
+// Static heading, also used as the Suspense fallback so it is server-rendered
+// (useSearchParams below makes everything inside Suspense client-only).
+function PageHeader() {
+  const theme = useTheme()
+  return (
+    <Box sx={{ p: 4, borderBottom: `1px solid ${theme.palette.divider}`, bgcolor: 'background.paper' }}>
+      <Button component={Link} href="/high-pressure/tubing" startIcon={<ArrowBackIcon />}
+        sx={{ mb: 1, fontWeight: 700, color: 'text.secondary', textTransform: 'none' }}>
+        Tubing overview
+      </Button>
+      <Typography variant="h1" fontWeight={800} mb={1} color="primary" sx={{ fontSize: '1.8rem' }}>
+        {TUBING_DESCRIPTION.title} — Products
+      </Typography>
+      <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 760 }}>
+        {`${TUBING_DATA.length} configurations across Panam & Hiflux — filter by brand, type, material, size & wall.`}
+      </Typography>
+    </Box>
+  )
+}
+
 function HighPressureTubingProducts() {
   const theme = useTheme()
   const searchParams = useSearchParams()
@@ -43,18 +63,7 @@ function HighPressureTubingProducts() {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
-      <Box sx={{ p: 4, borderBottom: `1px solid ${theme.palette.divider}`, bgcolor: 'background.paper' }}>
-        <Button component={Link} href="/high-pressure/tubing" startIcon={<ArrowBackIcon />}
-          sx={{ mb: 1, fontWeight: 700, color: 'text.secondary', textTransform: 'none' }}>
-          Tubing overview
-        </Button>
-        <Typography variant="h1" fontWeight={800} mb={1} color="primary" sx={{ fontSize: '1.8rem' }}>
-          {TUBING_DESCRIPTION.title} — Products
-        </Typography>
-        <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 760 }}>
-          {`${TUBING_DATA.length} configurations across Panam & Hiflux — filter by brand, type, material, size & wall.`}
-        </Typography>
-      </Box>
+      <PageHeader />
 
       <Box sx={{ p: { xs: 2, md: 3 }, flex: 1, display: 'flex', flexDirection: 'column' }}>
         <TubingActiveFilters filters={filters} setFilters={setFilters} />
@@ -78,7 +87,7 @@ function HighPressureTubingProducts() {
 
 export default function HighPressureTubingProductsPage() {
   return (
-    <Suspense>
+    <Suspense fallback={<PageHeader />}>
       <HighPressureTubingProducts />
     </Suspense>
   )

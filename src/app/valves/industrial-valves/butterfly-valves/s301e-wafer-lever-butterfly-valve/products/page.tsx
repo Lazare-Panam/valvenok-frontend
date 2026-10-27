@@ -36,7 +36,7 @@ export default function S301EWaferLeverProductsPage() {
             sx={{ height: 28, objectFit: 'contain' }}
           />
         </Box>
-        <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: BRAND_GREEN, fontFamily: PRIMARY_FONT }}>
+        <Typography variant="h4" component="h1" fontWeight={800} mb={1} sx={{ color: BRAND_GREEN, fontFamily: PRIMARY_FONT }}>
           {S301E_WAFER_LEVER_DESCRIPTION.title}
         </Typography>
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 800, fontFamily: PRIMARY_FONT }}>

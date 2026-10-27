@@ -279,7 +279,7 @@ export default function HifluxTubingPage() {
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
       <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
         <Box component="img" src={HIFLUX_LOGO} alt="Hiflux" sx={{ maxHeight: 32, maxWidth: 120, objectFit: 'contain', bgcolor: ACCENT, p: 1, borderRadius: 1, mb: 2 }} />
-        <Typography variant="h4" fontWeight={800} mb={1} sx={{ color: ACCENT, fontFamily: PRIMARY_FONT }}>
+        <Typography variant="h4" component="h1" fontWeight={800} mb={1} sx={{ color: ACCENT, fontFamily: PRIMARY_FONT }}>
           High Pressure Tubing & Tooling
         </Typography>
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 800, fontFamily: PRIMARY_FONT }}>

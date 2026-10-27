@@ -98,7 +98,7 @@ export default function ProductsPage() {
                 fontWeight: 500,
               }}
             />
-            <Typography variant="h2" sx={{ fontWeight: 700, fontSize: { xs: 36, md: 52 } }}>
+            <Typography variant="h2" component="h1" sx={{ fontWeight: 700, fontSize: { xs: 36, md: 52 } }}>
               Products & solutions
             </Typography>
             <Typography sx={{ fontSize: { xs: 16, md: 18 }, opacity: 0.95, maxWidth: 600 }}>

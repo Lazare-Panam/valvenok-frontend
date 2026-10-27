@@ -44,6 +44,20 @@ const FOOTER_LINKS = [
     ],
   },
   {
+    title: "Brands",
+    links: [
+      { label: "Hiflux", href: "/brands/hiflux" },
+      { label: "Kosaplus", href: "/brands/kosaplus" },
+      { label: "Mars Valves", href: "/brands/mars-valves" },
+      { label: "Pietro Fiorentini", href: "/brands/pietro-fiorentini" },
+      { label: "Susin", href: "/brands/susin" },
+      { label: "UTAM Valves", href: "/brands/utam-valves" },
+      { label: "Value Valves", href: "/brands/value-valves" },
+      { label: "Walrus Pumps", href: "/brands/walrus-pumps" },
+      { label: "Youngdo", href: "/brands/youngdo" },
+    ],
+  },
+  {
     title: "Legal",
     links: [
       { label: "Terms & Conditions", href: "/terms" },

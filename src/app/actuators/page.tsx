@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { Category } from "@/src/app/Common/Products_Page/ProductCard";
 import ProcessValvesGrid from "../valves/ProcessValvesGrid";
+import RelatedLinks from "@/src/app/Common/Products_Page/RelatedLinks";
 
 const ACTUATOR_CATEGORIES: Category[] = [
   {
@@ -249,6 +250,7 @@ export default function ActuatorsPage() {
 
       {/* ── Product Cards ── */}
       <ProcessValvesGrid families={ACTUATOR_CATEGORIES} />
+      <RelatedLinks title="Guides" links={[{ label: "How to Choose a Valve Actuator", href: "/news/how-to-choose-a-valve-actuator" }]} />
     </Box>
   );
 }
