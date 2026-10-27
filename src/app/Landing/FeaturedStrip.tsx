@@ -23,7 +23,7 @@ const BRAND_TILES = [
     name: 'Mars Valves',
     logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/mars.png',
     desc: 'Industrial valve solutions for a wide range of flow control applications.',
-    href: 'https://www.marsvalveuk.com/products/one-piece-ball-valves/variants',
+    href: 'https://www.marsvalvenok.com/',
     external: true,
   },
 ];
