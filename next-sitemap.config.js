@@ -16,7 +16,7 @@ module.exports = {
     '/login',
     '/register',
     '/track-order',
-    '/sample',
+    '/sample', '/checkout', '/checkout/*', '/high-pressure/valves/needle-valves/products',
     '/products',
     '/categories/valves',
   ],

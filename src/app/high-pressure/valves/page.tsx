@@ -2,10 +2,13 @@ import ProductHero from "@/src/app/Common/Products_Page/ProductHero";
 import TrustStrip from "@/src/app/Common/Products_Page/TrustStrip";
 import ProductCard, { Category } from "@/src/app/Common/Products_Page/ProductCard";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/src/app/Common/seo";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/high-pressure/valves" },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "High Pressure Valves — Needle, Ball, Check & Gas",
+  description: "High pressure needle, ball, check, DBB and air-operated valves plus hydrogen gas valves from Panam, Hiflux and Youngdo. Request a quote from Valvenok.",
+  path: "/high-pressure/valves",
+});
 
 const VALVE_CATEGORIES: Category[] = [
   {

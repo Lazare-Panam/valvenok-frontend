@@ -4,6 +4,7 @@ import TrustStrip from "@/src/app/Common/Products_Page/TrustStrip";
 import { Category } from "@/src/app/Common/Products_Page/ProductCard";
 import ProcessValvesGrid from "../../ProcessValvesGrid";
 import { pageMetadata } from "@/src/app/Common/seo";
+import RelatedLinks from "@/src/app/Common/Products_Page/RelatedLinks";
 
 export const metadata: Metadata = pageMetadata({
   title: "Industrial Globe Valves",
@@ -121,6 +122,7 @@ export default function GlobeValvesIndexPage() {
         breadcrumb="Products / Valves / Globe Valves"
       />
       <ProcessValvesGrid families={GLOBE_VALVE_SERIES} />
+      <RelatedLinks links={[{ label: "Globe Valve Sourcing & Instrumentation Support", href: "/globe-valve" }]} />
       <TrustStrip points={TRUST_POINTS} />
     </>
   );

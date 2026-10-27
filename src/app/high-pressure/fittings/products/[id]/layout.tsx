@@ -1,24 +1,17 @@
 import type { Metadata } from "next";
+import { detailRouteMetadata } from "@/src/app/Common/seo";
 
-// Each fitting detail page canonicalises to itself, rather than inheriting the
-// listing's canonical from the parent layout.
-export async function generateMetadata({
-  params,
-}: {
+type Props = {
   params: Promise<{ id: string }>;
-}): Promise<Metadata> {
+};
+
+// Each fitting detail page gets its own title and canonical rather than
+// inheriting the listing's.
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
-  return {
-    alternates: {
-      canonical: `/high-pressure/fittings/products/${encodeURIComponent(id)}`,
-    },
-  };
+  return detailRouteMetadata("/high-pressure/fittings/products", id, "High Pressure Fittings");
 }
 
-export default function HighPressureFittingDetailLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function HighPressureFittingDetailLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

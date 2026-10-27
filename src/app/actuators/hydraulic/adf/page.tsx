@@ -270,7 +270,7 @@ export default function ADFPage() {
                   variant="outlined"
                   size="large"
                   fullWidth
-                  href="/pneumatic/actuators/hd/products"
+                  href="/actuators/hydraulic/adf/products"
                   onClick={(e) => e.stopPropagation()}
                   sx={{
                     borderRadius: 0,

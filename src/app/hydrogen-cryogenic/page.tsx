@@ -4,6 +4,7 @@ import { Category } from "@/src/app/Common/Products_Page/ProductCard";
 import YoungdoGrid from "./components/YoungdoGrid";
 
 import type { Metadata } from "next";
+import RelatedLinks from "@/src/app/Common/Products_Page/RelatedLinks";
 export const metadata: Metadata = {
   alternates: { canonical: "/hydrogen-cryogenic" },
 };
@@ -114,6 +115,7 @@ export default function HydrogenCryogenicIndexPage() {
         breadcrumb="Products / Hydrogen & Cryogenic"
       />
       <YoungdoGrid families={HYDROGEN_CRYOGENIC_SERIES} />
+      <RelatedLinks links={[{ label: "Cryogenic Valves", href: "/cryogenic-valves" }, { label: "Youngdo Hydrogen, LPG & Gas Cylinder Valves", href: "/hydrogen-cryogenic/gas-valves" }]} />
       <TrustStrip points={TRUST_POINTS} />
     </>
   );

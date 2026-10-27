@@ -3,6 +3,7 @@ import ProductHero from "../../Common/Products_Page/ProductHero";
 import TrustStrip from "../../Common/Products_Page/TrustStrip";
 import { Category } from "../../Common/Products_Page/ProductCard";
 import ActuatorsGrid from "./ActuatorsGrid";
+import RelatedLinks from "@/src/app/Common/Products_Page/RelatedLinks";
 
 export const metadata: Metadata = {
   alternates: { canonical: '/pneumatic/actuators' },
@@ -125,6 +126,7 @@ export default function ActuatorsIndexPage() {
         breadcrumb="Products / Actuators"
       />
       <ActuatorsGrid families={ACTUATOR_FAMILIES} />
+      <RelatedLinks links={[{ label: "SRA Double Acting Actuators & 3/2 Valves", href: "/pneumatic/actuators/sra" }]} />
       <TrustStrip points={TRUST_POINTS} />
     </>
   );

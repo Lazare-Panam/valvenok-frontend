@@ -7,7 +7,9 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
-  return detailRouteMetadata("/high-pressure/valves/needle-valves/products", id, "High Pressure Needle Valves");
+  // Same products as /high-pressure/needle-valves/products/[id]; point search
+  // engines at that URL so the two aren't reported as duplicate titles.
+  return detailRouteMetadata("/high-pressure/needle-valves/products", id, "High Pressure Needle Valves");
 }
 
 export default function HighPressureValvesNeedleValvesProductsIdLayout({ children }: { children: React.ReactNode }) {

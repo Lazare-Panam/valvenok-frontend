@@ -38,7 +38,7 @@ const UTAM_VALVE_SERIES: Category[] = [
       "Lloyd's Register Approved",
     ],
     applications: "Marine, Shipbuilding, Offshore, Seawater Service",
-    href: "/valves/gate-valves/utam-bolted-bonnet-gate-valve",
+    href: "/valves/industrial-valves/gate-valves/utam-bolted-bonnet-gate-valve",
     image:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/bolted-gate-valve.png",
     logoUrl: UTAM_LOGO,
@@ -58,7 +58,7 @@ const UTAM_VALVE_SERIES: Category[] = [
       "Lloyd's Register Approved",
     ],
     applications: "Marine, Shipbuilding, Offshore, Seawater Service",
-    href: "/valves/gate-valves/utam-union-bonnet-gate-valve",
+    href: "/valves/industrial-valves/gate-valves/utam-union-bonnet-gate-valve",
     image:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/union-bonnet-gate.png",
     logoUrl: UTAM_LOGO,

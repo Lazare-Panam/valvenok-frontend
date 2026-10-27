@@ -4,6 +4,7 @@ import TrustStrip from "@/src/app/Common/Products_Page/TrustStrip";
 import { Category } from "@/src/app/Common/Products_Page/ProductCard";
 import ProcessValvesGrid from "../../ProcessValvesGrid";
 import { pageMetadata } from "@/src/app/Common/seo";
+import RelatedLinks from "@/src/app/Common/Products_Page/RelatedLinks";
 
 export const metadata: Metadata = pageMetadata({
   title: "Industrial Butterfly Valves",
@@ -301,6 +302,7 @@ export default function ButterflyValvesIndexPage() {
         breadcrumb="Products / Valves / Butterfly Valves"
       />
       <ProcessValvesGrid families={BUTTERFLY_VALVE_SERIES} />
+      <RelatedLinks links={[{ label: "Triple Offset Butterfly Valves", href: "/triple-offset-butterfly-valves" }, { label: "401N Wafer Double Offset Butterfly Valve", href: "/valves/industrial-valves/butterfly-valves/401n-wafer-double-offset-butterfly-valve" }]} />
       <TrustStrip points={TRUST_POINTS} />
     </>
   );

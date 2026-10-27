@@ -3,6 +3,7 @@ import ProductHero from '@/src/app/Common/Products_Page/ProductHero'
 import ProductGrid from '@/src/app/Common/Products_Page/ProductGrid'
 import TrustStrip from '@/src/app/Common/Products_Page/TrustStrip'
 import { Category } from '@/src/app/Common/Products_Page/ProductCard'
+import RelatedLinks from '@/src/app/Common/Products_Page/RelatedLinks'
 
 export const metadata: Metadata = {
   alternates: { canonical: '/fittings-tubing/instrumentation-fittings/weld-fittings' },
@@ -75,6 +76,7 @@ export default function WeldFittingsPage() {
         breadcrumb="Products / Weld Fittings"
       />
       <ProductGrid categories={CATEGORIES} intro={INTRO} />
+      <RelatedLinks links={[{ label: "View All Weld Fittings", href: "/fittings-tubing/instrumentation-fittings/weld-fittings/all" }]} />
       <TrustStrip points={TRUST_POINTS} />
     </>
   )

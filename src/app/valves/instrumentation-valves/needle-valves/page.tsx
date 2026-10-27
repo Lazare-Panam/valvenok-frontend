@@ -2,7 +2,7 @@
 import { Box, Typography, Card, CardContent, CardActionArea } from '@mui/material'
 import Grid from '@mui/material/Grid'
 import { alpha, useTheme } from '@mui/material/styles'
-import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 
 const SERIES = [
   {
@@ -49,7 +49,6 @@ const SERIES = [
 
 export default function NeedleValvesPage() {
   const theme = useTheme()
-  const router = useRouter()
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
@@ -77,7 +76,7 @@ export default function NeedleValvesPage() {
                   transform: 'translateY(-2px)',
                 },
               }}>
-                <CardActionArea onClick={() => router.push(s.href)} sx={{ height: '100%', alignItems: 'flex-start', p: 0 }}>
+                <CardActionArea component={Link} href={s.href} sx={{ height: '100%', alignItems: 'flex-start', p: 0 }}>
                   <Box sx={{
                     width: '100%', height: 180, overflow: 'hidden',
                     bgcolor: 'white',

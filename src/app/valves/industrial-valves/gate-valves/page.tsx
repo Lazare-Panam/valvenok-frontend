@@ -4,6 +4,7 @@ import TrustStrip from "@/src/app/Common/Products_Page/TrustStrip";
 import { Category } from "@/src/app/Common/Products_Page/ProductCard";
 import ProcessValvesGrid from "../../ProcessValvesGrid";
 import { pageMetadata } from "@/src/app/Common/seo";
+import RelatedLinks from "@/src/app/Common/Products_Page/RelatedLinks";
 
 export const metadata: Metadata = pageMetadata({
   title: "Industrial Gate Valves",
@@ -28,7 +29,7 @@ const GATE_VALVE_SERIES: Category[] = [
       "Lloyd's Register Approved",
     ],
     applications: "Marine, Shipbuilding, Offshore, Seawater Service",
-    href: "/valves/gate-valves/utam-bolted-bonnet-gate-valve",
+    href: "/valves/industrial-valves/gate-valves/utam-bolted-bonnet-gate-valve",
     image:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/bolted-gate-valve.png",
     logoUrl:
@@ -49,7 +50,7 @@ const GATE_VALVE_SERIES: Category[] = [
       "Lloyd's Register Approved",
     ],
     applications: "Marine, Shipbuilding, Offshore, Seawater Service",
-    href: "/valves/gate-valves/utam-union-bonnet-gate-valve",
+    href: "/valves/industrial-valves/gate-valves/utam-union-bonnet-gate-valve",
     image:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/union-bonnet-gate.png",
     logoUrl:
@@ -77,6 +78,7 @@ export default function GateValvesIndexPage() {
         breadcrumb="Products / Valves / Gate Valves"
       />
       <ProcessValvesGrid families={GATE_VALVE_SERIES} />
+      <RelatedLinks links={[{ label: "Gate Valve Sourcing & Specification Support", href: "/gate-valves" }]} />
       <TrustStrip points={TRUST_POINTS} />
     </>
   );

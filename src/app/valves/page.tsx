@@ -3,6 +3,7 @@ import ProductHero from "../Common/Products_Page/ProductHero";
 import TrustStrip from "../Common/Products_Page/TrustStrip";
 import { Category } from "../Common/Products_Page/ProductCard";
 import ProcessValvesGrid from "./ProcessValvesGrid";
+import RelatedLinks from "@/src/app/Common/Products_Page/RelatedLinks";
 
 export const metadata: Metadata = {
   alternates: { canonical: '/valves' },
@@ -213,6 +214,7 @@ export default function ProcessValvesIndexPage() {
         breadcrumb="Products / Valves"
       />
       <ProcessValvesGrid families={VALVE_FAMILIES} />
+      <RelatedLinks links={[{ label: "Marine Valves", href: "/valves/marine-valves" }, { label: "All Product Categories", href: "/categories" }]} />
       <TrustStrip points={TRUST_POINTS} />
     </>
   );

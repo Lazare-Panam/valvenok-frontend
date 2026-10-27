@@ -1,5 +1,6 @@
 import ProductHero from "../../Common/Products_Page/ProductHero";
 import TrustStrip from "../../Common/Products_Page/TrustStrip";
+import RelatedLinks from "../../Common/Products_Page/RelatedLinks";
 import { Category } from "../../Common/Products_Page/ProductCard";
 import FittingsGrid from "./FittingsGrid";
 
@@ -56,6 +57,7 @@ export default function FittingsIndexPage() {
         breadcrumb="Products / Fittings"
       />
       <FittingsGrid families={FITTING_FAMILIES} />
+      <RelatedLinks links={[{ label: "SPAC Pneumatic Tubing", href: "/fittings-tubing/pneumatic-tubing" }]} />
       <TrustStrip points={TRUST_POINTS} />
     </>
   );
