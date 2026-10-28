@@ -17,12 +17,12 @@ const BRANDS = [
     desc: "Full range of industrial and marine valves engineered for reliable, leak-tight performance across demanding process and offshore environments.",
     href: "/brands/utam-valves",
   },
-  {
-    name: "Walrus Pumps",
-    logo: "https://pblol2.blob.core.windows.net/valvenok-images/logo/walrus_pumps.webp",
-    desc: "Industrial pumps engineered for reliable fluid transfer applications.",
-    href: "/brands/walrus-pumps",
-  },
+  // {
+  //   name: "Walrus Pumps",
+  //   logo: "https://pblol2.blob.core.windows.net/valvenok-images/logo/walrus_pumps.webp",
+  //   desc: "Industrial pumps engineered for reliable fluid transfer applications.",
+  //   href: "/brands/walrus-pumps",
+  // },
   {
     name: "Hiflux",
     logo: "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/logo.png",

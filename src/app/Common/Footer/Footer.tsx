@@ -53,7 +53,7 @@ const FOOTER_LINKS = [
       { label: "Susin", href: "/brands/susin" },
       { label: "UTAM Valves", href: "/brands/utam-valves" },
       { label: "Value Valves", href: "/brands/value-valves" },
-      { label: "Walrus Pumps", href: "/brands/walrus-pumps" },
+      // { label: "Walrus Pumps", href: "/brands/walrus-pumps" },
       { label: "Youngdo", href: "/brands/youngdo" },
     ],
   },
