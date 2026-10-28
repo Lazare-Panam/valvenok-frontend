@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 
 const TITLE = "ITM Series Electric Multi-Turn Actuators — Models | Valvenok";
 const DESCRIPTION =
@@ -28,5 +29,5 @@ export default function ITMActuatorLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return <>{children}<RangeCopy path="/actuators/electric/itm/products" /></>;
 }

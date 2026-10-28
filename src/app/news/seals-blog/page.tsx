@@ -46,8 +46,7 @@ export default function MechanicalSealsPage() {
               mt: 1,
             }}
           >
-            Single Agitator Mechanical Seals: Design, Working Principle &
-            Industrial Applications
+            Single Agitator Mechanical Seals: Design & Working Principle
           </Typography>
           <Typography
             variant="h5"

@@ -6,7 +6,7 @@ import ProcessValvesGrid from "../../ProcessValvesGrid";
 import { pageMetadata } from "@/src/app/Common/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Industrial Ball Valves — Mars, Cameron & PF",
+  title: "Industrial Ball Valves — Mars, Cameron WKM & PF | Valvenok",
   description:
     "Industrial ball valves from Mars Valves, Cameron WKM and Pietro Fiorentini: 2-piece, 3-piece, flanged, trunnion-mounted control and actuated ball valves.",
   path: "/valves/industrial-valves/ball-valves",

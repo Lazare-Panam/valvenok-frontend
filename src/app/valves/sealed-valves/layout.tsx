@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const TITLE = "Bellows Sealed Valves — Globe, Gate & Check | Valvenok";
+const TITLE = "Bellows Sealed Valves — Globe, Gate & Check Valves | Valvenok";
 const DESCRIPTION =
   "Bellows sealed globe, gate and check valves to DIN, ANSI and JIS standards, designed to prevent stem leakage. Browse the range and request a quote.";
 const IMAGE =

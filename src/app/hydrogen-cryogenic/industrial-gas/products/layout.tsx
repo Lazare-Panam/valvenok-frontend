@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 
 const TITLE = "Youngdo Industrial Gas Cylinder Valve Models | Valvenok";
 const DESCRIPTION =
@@ -29,5 +30,5 @@ export default function IndustrialGasProductsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return <>{children}<RangeCopy path="/hydrogen-cryogenic/industrial-gas/products" /></>;
 }

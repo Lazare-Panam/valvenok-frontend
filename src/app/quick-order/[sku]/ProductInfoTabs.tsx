@@ -142,6 +142,21 @@ function DescriptionPanel({ content }: { content: ProductContent }) {
         </Typography>
       )}
 
+      {content.overview?.map((para, i) => (
+        <Typography
+          key={i}
+          sx={{
+            fontSize: "17px",
+            lineHeight: 1.75,
+            color: "text.secondary",
+            mb: 2.5,
+            textTransform: "none",
+          }}
+        >
+          {para}
+        </Typography>
+      ))}
+
       {content.keyFeatures.length > 0 && (
         <Box sx={{ mb: 4 }}>
           <Typography

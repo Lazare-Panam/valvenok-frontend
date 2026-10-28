@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/instrumentation/gas-pressure-regulator/products" },
@@ -18,5 +19,5 @@ export default function GasRegulatorLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return <>{children}<RangeCopy path="/instrumentation/gas-pressure-regulator/products" /></>;
 }

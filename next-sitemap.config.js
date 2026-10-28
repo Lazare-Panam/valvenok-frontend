@@ -19,6 +19,7 @@ module.exports = {
     '/sample', '/checkout', '/checkout/*', '/high-pressure/valves/needle-valves/products',
     '/products',
     '/categories/valves',
+    '/high-pressure/valves/gas-valves',
   ],
   transform: async (config, path) => {
     const priorities = {

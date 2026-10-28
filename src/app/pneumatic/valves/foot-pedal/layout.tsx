@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/pneumatic/valves/foot-pedal" },
@@ -18,5 +19,5 @@ export default function FootPedalValvesLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return <>{children}<RangeCopy path="/pneumatic/valves/foot-pedal" /></>;
 }

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
-const TITLE = "Mechanical Seals | Valvenok";
+const TITLE = "Mechanical Seals for Agitators, Reactors & Mixers | Valvenok";
 const DESCRIPTION =
-  "Single and double agitator mechanical seals for reactors and mixing vessels.";
+  "Single and double agitator mechanical seals for reactors and mixing vessels in chemical and process plants. View the range and request a quote.";
 const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
 
 export const metadata: Metadata = {

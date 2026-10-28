@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 
-const TITLE = "Mars Valve Stock Lands in the UK in November";
+const TITLE = "Mars Valve Stock Lands in the UK This November | Valvenok";
 const DESCRIPTION =
   "Mars Valve stock lands in the UK this November. Send your RFQ now for priority on the V77, V88, V22 and MARS ball valves.";
 const IMAGE =
-  "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/mars-banner.jpeg";
+  "https://pblol2.blob.core.windows.net/mars-valves/mars-stock-coming.jpeg";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/news/mars-valve-stock-uk-november" },
-  title: TITLE,
+  title: { absolute: TITLE },
   description: DESCRIPTION,
   keywords: [
     "Mars valves UK",
@@ -19,11 +19,11 @@ export const metadata: Metadata = {
     "Valvenok",
   ],
   openGraph: {
-    title: `${TITLE} | Valvenok`,
+    title: "Mars Valve Stock Lands in the UK This November | Valvenok",
     description: DESCRIPTION,
     url: "/news/mars-valve-stock-uk-november",
     siteName: "Valvenok",
-    images: [{ url: IMAGE, width: 1200, height: 630, alt: "Mars Valves" }],
+    images: [{ url: IMAGE, width: 1536, height: 1024, alt: "MARS valve stock arriving in the UK" }],
     locale: "en_GB",
     type: "article",
     authors: ["Valvenok Team"],

@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/news/mechanical-seals-guide" },
-  title: "Guide to Sealflex Mechanical Seals | Engineering Specs",
+  title: { absolute: "Guide to Sealflex Mechanical Seals: Engineering Specs | Valvenok" },
   description: "A technical guide to Sealflex mechanical seals: pressure ratings to 140 bar, PTFE, Viton and metal bellows materials, and API flush plans for pumps.",
   keywords: [
     "Mechanical Seals Guide", 
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "Valvenok Engineering"
   ],
   openGraph: {
-    title: 'Unlocking the Secrets of Sealflex Mechanical Seals | Valvenok',
+    title: "Guide to Sealflex Mechanical Seals: Engineering Specs | Valvenok",
     description: "A technical guide to Sealflex mechanical seals: pressure ratings to 140 bar, PTFE, Viton and metal bellows materials, and API flush plans for pumps.",
     url: 'https://www.valvenok.com/news/mechanical-seals-guide',
     siteName: 'Valvenok Knowledge Base',

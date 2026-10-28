@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/src/app/Common/seo";
+import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 
 export const metadata: Metadata = pageMetadata({
   title: "High Pressure Pipe Plugs & Caps — SS316, to 15,000 psi | Valvenok",
@@ -13,5 +14,5 @@ export default function EndConnectionsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return <>{children}<RangeCopy path="/high-pressure/pipe-fittings/end-connections" /></>;
 }

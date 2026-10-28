@@ -7,7 +7,7 @@ import { Box } from "@mui/material";
 import { pageMetadata } from "@/src/app/Common/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "VSI Atlas Severe Service Control Valves",
+  title: "VSI Atlas Severe Service Control Valves — UK Supply | Valvenok",
   description:
     "VSI Atlas 15, Atlas 21 and Atlas 32 severe service control valves for demanding process conditions. Supplied by Valvenok, UK. Request a quote.",
   path: "/valves/industrial-valves/control-valves",

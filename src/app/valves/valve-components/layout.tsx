@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/src/app/Common/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Danfoss PVG Valve Components",
+  title: "Danfoss PVG Valve Components — Proportional Valves | Valvenok",
   description:
-    "Original Danfoss components for PVG proportional and directional control valves, for mobile hydraulics, agricultural, construction and industrial equipment.",
+    "Original Danfoss components for PVG proportional and directional control valves, used in mobile hydraulics, agricultural and construction equipment.",
   path: "/valves/valve-components",
 });
 

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/pumps-seals/pumps/direct-water-pump/variants" },
@@ -18,5 +19,5 @@ export default function DirectWaterPumpProductsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return <>{children}<RangeCopy path="/pumps-seals/pumps/direct-water-pump/variants" /></>;
 }

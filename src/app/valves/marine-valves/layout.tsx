@@ -1,21 +1,22 @@
 // app/marine-valves/layout.tsx
 
 import { Suspense } from 'react';
+import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 
 export const metadata = {
-  title: { absolute: 'Marine Valves | Valvenok Limited' },
-  description: 'Explore Valvenok\'s range of marine-grade valves — gate, globe, butterfly, swing check, dual plate and fire hydrant valves in NAB, Gun Metal, and Stainless Steel. Request a quote today.',
+  title: { absolute: "Marine Valves — Gate, Globe, Butterfly & Check Valves | Valvenok" },
+  description: "Marine valves in NAB, gunmetal and stainless steel: gate, globe, butterfly, swing check, dual plate and fire hydrant valves. Request a quote today.",
   openGraph: {
-    title: 'Marine Valves | Valvenok Limited',
-    description: 'NAB, Gun Metal, and SS marine valves compliant with NES 375, BS 5155, API 594, and BS 1868. Gate, butterfly, check, and fire hydrant series.',
+    title: "Marine Valves — Gate, Globe, Butterfly & Check Valves | Valvenok",
+    description: "Marine valves in NAB, gunmetal and stainless steel: gate, globe, butterfly, swing check, dual plate and fire hydrant valves. Request a quote today.",
     url: 'https://www.valvenok.com/valves/marine-valves',
     siteName: 'Valvenok',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Marine Valves | Valvenok Limited',
-    description: 'Marine-grade gate, butterfly, check and fire hydrant valves. NES 375, BS 5155 compliant.',
+    title: "Marine Valves — Gate, Globe, Butterfly & Check Valves | Valvenok",
+    description: "Marine valves in NAB, gunmetal and stainless steel: gate, globe, butterfly, swing check, dual plate and fire hydrant valves. Request a quote today.",
   },
   alternates: {
     canonical: 'https://www.valvenok.com/valves/marine-valves',
@@ -26,6 +27,7 @@ export default function MarineValvesLayout({ children }: { children: React.React
   return (
     <Suspense>
       {children}
+      <RangeCopy path="/valves/marine-valves" />
     </Suspense>
   );
 }

@@ -8,10 +8,10 @@ export const metadata: Metadata = {
   alternates: { canonical: '/pneumatic' },
   title: "Pneumatics & Vacuum | Cylinders, Valves & Actuators",
   description:
-    "Valvenok supplies a full range of pneumatic components for industrial automation. ISO cylinders, solenoid valves, foot pedal valves, pneumatic actuators and air blow guns — engineered for reliable factory floor performance.",
+    "Pneumatic components for industrial automation: ISO cylinders, solenoid valves, foot pedal valves, pneumatic actuators and air blow guns. Request a quote.",
   openGraph: {
     title: "Pneumatics & Vacuum | Cylinders, Valves & Actuators | Valvenok",
-    description: "Valvenok supplies a full range of pneumatic components for industrial automation. ISO cylinders, solenoid valves, foot pedal valves, pneumatic actuators and air blow guns — engineered for reliable factory floor performance.",
+    description: "Pneumatic components for industrial automation: ISO cylinders, solenoid valves, foot pedal valves, pneumatic actuators and air blow guns. Request a quote.",
     url: "/pneumatic",
     siteName: "Valvenok",
     type: "website",
@@ -24,7 +24,7 @@ const PNEUMATIC_FAMILIES: Category[] = [
     title: "Cylinders",
     subtitle: "ISO & Round Body Pneumatic Cylinders",
     description:
-      "Standard and extended bore range pneumatic cylinders in ISO tie rod, round body and compact short stroke configurations. Bore sizes 32–250mm, strokes up to 1000mm, magnetic and non-magnetic piston options for position sensing.",
+      "Pneumatic components for industrial automation: ISO cylinders, solenoid valves, foot pedal valves, pneumatic actuators and air blow guns. Request a quote.",
     specs: [
       "ISO 15552 & VDMA",
       "32 – 250mm Bore",
@@ -41,7 +41,7 @@ const PNEUMATIC_FAMILIES: Category[] = [
     title: "Pneumatic Valves",
     subtitle: "Solenoid & Foot Pedal Control Valves",
     description:
-      "FG and TG series solenoid valves in 2/2, 3/2, 5/2 and 5/3 way configurations, plus heavy-duty foot pedal valves for hands-free machine control. Single solenoid, double solenoid, center closed and high pressure variants across BSP 1/8\" to 1\" port sizes.",
+      "Pneumatic components for industrial automation: ISO cylinders, solenoid valves, foot pedal valves, pneumatic actuators and air blow guns. Request a quote.",
     specs: [
       "2/2 · 3/2 · 5/2 · 5/3 Way",
       "BSP 1/8\" – 1\"",
@@ -58,7 +58,7 @@ const PNEUMATIC_FAMILIES: Category[] = [
     title: "Pneumatic Actuators",
     subtitle: "Quarter-Turn Rotary Actuators",
     description:
-      "Double-acting and spring-return pneumatic actuators for quarter-turn valve automation. Rack-and-pinion and scotch yoke designs for ball, butterfly and plug valves — ISO 5211 mounting, fail-safe spring return configurations for process control.",
+      "Pneumatic components for industrial automation: ISO cylinders, solenoid valves, foot pedal valves, pneumatic actuators and air blow guns. Request a quote.",
     specs: [
       "Rack & Pinion · Scotch Yoke",
       "Double Acting · Spring Return",
@@ -75,7 +75,7 @@ const PNEUMATIC_FAMILIES: Category[] = [
     title: "Air Blow Guns",
     subtitle: "Industrial Pneumatic Air Guns",
     description:
-      "Industrial pneumatic air blow guns for cleaning and drying applications. Metal body construction with multiple nozzle configurations — short, small, long angled and long bead nozzles for different industrial cleaning and blowing requirements.",
+      "Pneumatic components for industrial automation: ISO cylinders, solenoid valves, foot pedal valves, pneumatic actuators and air blow guns. Request a quote.",
     specs: [
       "Metal Body",
       "Multiple Nozzle Types",

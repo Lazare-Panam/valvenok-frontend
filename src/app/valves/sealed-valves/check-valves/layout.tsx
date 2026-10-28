@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 
 const PRODUCT_TITLE = "Sealed Lift Check Valve | Valvenok";
 const PRODUCT_DESCRIPTION =
-  "Sealed lift check valve with zero stem leakag for chemical and industrial applications.";
+  "Bellows sealed lift check valves designed to prevent stem leakage in chemical and industrial applications. View specifications and request a quote.";
 const PRODUCT_IMAGE =
   "https://pblol2.blob.core.windows.net/valvenok-images/products/sealed-valves/din-standard-lift-check-valve-300x300.jpg";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/valves/sealed-valves/check-valves" },
-  title: { absolute: PRODUCT_TITLE },
+  title: { absolute: "Bellows Sealed Lift Check Valves — Zero Stem Leakage | Valvenok" },
   description: PRODUCT_DESCRIPTION,
   openGraph: {
     title: PRODUCT_TITLE,

@@ -17,7 +17,7 @@ const MARS_LINKS = {
   v22: `${MARS}/series/3`,
 };
 const HEADING_FONT = '"Barlow Condensed"';
-const BANNER_IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/mars-banner.jpeg";
+const BANNER_IMAGE = "https://pblol2.blob.core.windows.net/mars-valves/mars-stock-coming.jpeg";
 
 const KEY_POINTS = [
   "MARS valve stock lands in the UK this November.",
@@ -184,7 +184,7 @@ export default function MarsStockNovemberPage() {
           <Box
             component="img"
             src={BANNER_IMAGE}
-            alt="Valvenok and Mars Valve Co. partnership — MARS valves from Taiwan to the UK"
+            alt="MARS valve stock arriving in the UK, November 2026 — RFQs now open"
             sx={{ width: "100%", display: "block", border: "1px solid", borderColor: "divider" }}
           />
         </Box>

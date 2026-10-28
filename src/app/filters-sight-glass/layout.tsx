@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 const TITLE = "Sight Glasses, Strainers & Industrial Filtration | Valvenok";
 const DESCRIPTION =
-  "Flanged sight glasses, strainers and machinery filtration for industrial pipelines and hydraulic systems. Browse the range and request a quote from Valvenok.";
+  "Flanged sight glasses, strainers and machinery filtration for industrial pipelines and hydraulic systems. Browse the range and request a quote.";
 const IMAGE =
   "https://pblol2.blob.core.windows.net/valvenok-images/products/sight-glass/sight-glass-hero.jpg";
 

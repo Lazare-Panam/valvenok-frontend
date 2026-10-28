@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/src/app/Common/seo";
+import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 
 export const metadata: Metadata = pageMetadata({
   title: "Tube Socket Weld Elbows — SS316, Male & Female NPT | Valvenok",
@@ -13,5 +14,5 @@ export default function WeldFittingElbowsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return <>{children}<RangeCopy path="/fittings-tubing/instrumentation-fittings/weld-fittings/elbows" /></>;
 }

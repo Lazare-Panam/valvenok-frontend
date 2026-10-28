@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/fittings-tubing/instrumentation-fittings/tube-fittings/weld-gauge" },
@@ -18,5 +19,5 @@ export default function WeldGaugeConnectorLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return <>{children}<RangeCopy path="/fittings-tubing/instrumentation-fittings/tube-fittings/weld-gauge" /></>;
 }

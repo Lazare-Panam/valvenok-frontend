@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/src/app/Common/seo";
+import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 
 export const metadata: Metadata = pageMetadata({
   title: "Double Acting Pneumatic Actuators & 3/2 Valves",
@@ -13,5 +14,5 @@ export default function PneumaticActuatorsSraLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return <>{children}<RangeCopy path="/pneumatic/actuators/sra" /></>;
 }

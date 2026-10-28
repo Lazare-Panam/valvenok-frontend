@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 
 const TITLE = "High Pressure Hex Nipples — SS316 Pipe Fittings | Valvenok";
 const DESCRIPTION =
@@ -28,5 +29,5 @@ export default function PipeNippleLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return <>{children}<RangeCopy path="/high-pressure/pipe-fittings/hex-nipples" /></>;
 }

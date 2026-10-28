@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/valves' },
   title: { absolute: "Industrial Valve Supplier and Valve Manufacturer Valvenok" },
   description:
-    "Valvenok supplies a full range of industrial, marine and instrumentation valves for process plants, offshore platforms and shipbuilding. Ball, gate, globe, check, butterfly and instrumentation valves in SS316, duplex and carbon steel.",
+    "Industrial, marine and instrumentation valves for process plants, offshore and shipbuilding: ball, gate, globe, check and butterfly valves. Get a quote.",
 };
 
 const VALVE_FAMILIES: Category[] = [
@@ -19,7 +19,7 @@ const VALVE_FAMILIES: Category[] = [
     subtitle:
       "Industrial Ball Valve Range — 1-Piece, 2-Piece, 3-Piece & Fire-Safe",
     description:
-      "Industrial ball valve range across 11 distinct series — 1-piece, 2-piece, 3-piece, multi-way diverter, wafer compact and fire-safe flanged designs. Stainless steel 316 (CF8M) construction with PTFE / RTFE seat options, API 607 fire-safe certification on select ranges, and NACE MR-0175 sour-gas service available.",
+      "Industrial, marine and instrumentation valves for process plants, offshore and shipbuilding: ball, gate, globe, check and butterfly valves. Get a quote.",
     specs: [
       "11 Ball Valve Series",
       "Stainless Steel 316 (CF8M)",
@@ -39,7 +39,7 @@ const VALVE_FAMILIES: Category[] = [
     title: "Globe Valves",
     subtitle: "Industrial Globe Valve Range — Multi-Brand",
     description:
-      "Industrial globe valve range for precise flow regulation and throttling across demanding process applications. Lined, welded bonnet, bolted bonnet and union bonnet designs from Fisher, Bonney Forge and UTAM Syncercon, suited for high-pressure, corrosive and marine service.",
+      "Industrial, marine and instrumentation valves for process plants, offshore and shipbuilding: ball, gate, globe, check and butterfly valves. Get a quote.",
     specs: [
       "Lined, Welded, Bolted & Union Bonnet",
       "CL 150 – Class 4500",
@@ -59,7 +59,7 @@ const VALVE_FAMILIES: Category[] = [
     title: "Gate Valves",
     subtitle: "Industrial Gate Valve Range — UTAM Syncercon",
     description:
-      "Bolted bonnet and union bonnet gate valves engineered for reliable shut-off performance, leak-proof operation and long service life in marine, shipbuilding and offshore environments.",
+      "Industrial, marine and instrumentation valves for process plants, offshore and shipbuilding: ball, gate, globe, check and butterfly valves. Get a quote.",
     specs: [
       "Bolted & Union Bonnet",
       "ASME Class 150 / 300",
@@ -78,7 +78,7 @@ const VALVE_FAMILIES: Category[] = [
     title: "Control Valves",
     subtitle: "Severe Service Control Valves — Atlas Series",
     description:
-      "VSI Atlas Series severe service control valves engineered for the most demanding high-pressure, high-noise and erosive process conditions. Precise flow control, extended maintenance cycles and 700:1 control range at ±3% accuracy.",
+      "Industrial, marine and instrumentation valves for process plants, offshore and shipbuilding: ball, gate, globe, check and butterfly valves. Get a quote.",
     specs: [
       '2" – 4" NPS',
       "Cv Up to 300",
@@ -98,7 +98,7 @@ const VALVE_FAMILIES: Category[] = [
     title: "Check Valves",
     subtitle: "Non-Return Valves — Swing & Bolted Bonnet",
     description:
-      "Cast steel swing check valves rated to ASME Class 1500 across NPS 2–48, and high-integrity bolted bonnet designs rated to CL2500 for high-temperature and high-pressure service. Sourced from Velan and Anderson Greenwood.",
+      "Industrial, marine and instrumentation valves for process plants, offshore and shipbuilding: ball, gate, globe, check and butterfly valves. Get a quote.",
     specs: [
       "NPS 2–48 | DN 50–1200",
       "ASME Class 150–2500",
@@ -118,7 +118,7 @@ const VALVE_FAMILIES: Category[] = [
     title: "Butterfly Valves",
     subtitle: "Industrial Butterfly Valve Range",
     description:
-      "Industrial butterfly valves for on/off and throttling service across process plant, water treatment and marine applications. Wafer, lug and double flanged configurations in a range of materials.",
+      "Industrial, marine and instrumentation valves for process plants, offshore and shipbuilding: ball, gate, globe, check and butterfly valves. Get a quote.",
     specs: [
       "NPS 2–48 | DN 50–1200",
       "ASME 150–1500",
@@ -138,7 +138,7 @@ const VALVE_FAMILIES: Category[] = [
     title: "Instrumentation Valves",
     subtitle: "Precision SS316 Instrumentation",
     description:
-      "SS316 instrumentation valves for precise flow control and leak-tight isolation on high-pressure gauge, sampling and process measurement lines. Ball, needle, check and relief variants across NPT, BSPT and BSPP standards for oil & gas, petrochemical and power generation.",
+      "Industrial, marine and instrumentation valves for process plants, offshore and shipbuilding: ball, gate, globe, check and butterfly valves. Get a quote.",
     specs: [
       "Ball · Needle · Check · Relief",
       "SS316",
@@ -157,7 +157,7 @@ const VALVE_FAMILIES: Category[] = [
     title: "Sealed Valves",
     subtitle: "Bellows Sealed Globe Valves — DIN · ANSI · JIS",
     description:
-      "A complete range of bellows sealed globe valves across DIN, ANSI and JIS standards. Double seal design with bellows plus packing backup ensures zero stem leakage across demanding process, chemical and industrial applications.",
+      "Industrial, marine and instrumentation valves for process plants, offshore and shipbuilding: ball, gate, globe, check and butterfly valves. Get a quote.",
     specs: [
       "DIN · ANSI · JIS",
       "Zero Stem Leakage",
@@ -176,7 +176,7 @@ const VALVE_FAMILIES: Category[] = [
     title: "Danfoss Valve Components",
     subtitle: " Valve Components",
     description:
-      "Danfoss valve components for proportional and directional control valve systems. Full OEM and aftermarket supply across the Danfoss PVG valve range — supporting mobile hydraulics, agricultural machinery, construction equipment and industrial hydraulic applications.",
+      "Industrial, marine and instrumentation valves for process plants, offshore and shipbuilding: ball, gate, globe, check and butterfly valves. Get a quote.",
     specs: [
       "Danfoss OEM Quality",
       "PVG Series Compatible",

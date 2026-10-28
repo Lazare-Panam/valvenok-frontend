@@ -19,6 +19,13 @@ interface Props {
   content: ProductContent;
 }
 
+// Long reducing-fitting names ("3/8" M ISO Tapered x 1/4" M ISO Tapered")
+// make an over-long H1; the BSPT/BSPP shorthand says the same thing.
+function headingName(name: string): string {
+  if (name.length <= 62) return name;
+  return name.replace(/ISO Tapered/g, "BSPT").replace(/ISO Parallel/g, "BSPP");
+}
+
 export default function ProductPageClient({ product, content }: Props) {
   const router = useRouter();
 
@@ -88,7 +95,7 @@ export default function ProductPageClient({ product, content }: Props) {
                   mb: 0.5,
                 }}
               >
-                PANAM {product.name}
+                PANAM {headingName(product.name)}
               </Typography>
               <Typography
                 sx={{

@@ -15,7 +15,6 @@ import FAQSection from "./Landing/FAQSection";
 
 // For Next.js App Router (metadata object)
 export const metadata = {
-  alternates: { canonical: "/" },
   title: {
     absolute: "Valvenok | Industrial Valves, Actuators & Fittings UK Supplier",
   },
@@ -41,6 +40,10 @@ export const metadata = {
 export default function Home() {
   return (
     <>
+      {/* Canonical written by hand: Next.js metadata strips the trailing slash
+          from the root URL, and crawlers then report a canonical mismatch for
+          https://www.valvenok.com/. React hoists this <link> into <head>. */}
+      <link rel="canonical" href="https://www.valvenok.com/" />
       {/* SEO H1 — the visible hero is an animated slider whose heading cycles, so a
           single stable H1 lives here (visually hidden, present in the DOM for crawlers). */}
       <h1

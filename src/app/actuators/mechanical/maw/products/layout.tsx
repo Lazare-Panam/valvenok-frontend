@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 
 const TITLE = "MAW Series Worm Gearboxes for Valves — Models & Sizes | Valvenok";
 const DESCRIPTION =
@@ -28,5 +29,5 @@ export default function MAWGearboxLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return <>{children}<RangeCopy path="/actuators/mechanical/maw/products" /></>;
 }

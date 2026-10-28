@@ -60,10 +60,18 @@ export function detailRouteMetadata(basePath: string, slug: string, category: st
   const base = `${name} — ${category}`;
   // Pad short titles so they aren't flagged as thin, but keep the full
   // "<title> | Valvenok" within ~68 characters.
-  const padded = `${base}: Specs & Quote`;
+  const fits = (t: string) => t.length + " | Valvenok".length <= 68;
+  const title =
+    [`${base}: Specifications & Quote`, `${base}: Specs & Quote`, base].find(fits) ?? base;
+  const lead = `${name} from Valvenok's ${category.toLowerCase()} range.`;
+  const tails = [
+    " View the specifications, sizes and options, then request a quote from our UK team.",
+    " View specifications and options, then request a quote from our UK team.",
+    " View specifications and request a quote.",
+  ];
   return pageMetadata({
-    title: padded.length + " | Valvenok".length <= 68 ? padded : base,
-    description: `${name} from Valvenok's ${category.toLowerCase()} range. View the specifications, sizes and options, then request a quote from our UK engineering team.`,
+    title,
+    description: lead + (tails.find((t) => (lead + t).length <= 155) ?? tails[tails.length - 1]),
     path: `${basePath}/${slug}`,
   });
 }

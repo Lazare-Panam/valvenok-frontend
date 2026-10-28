@@ -151,8 +151,7 @@ export default function VSIPartnershipPage() {
               mt: 1,
             }}
           >
-            Valvenok joins forces with VSI to bring the Atlas SSCV to severe
-            service operations
+            Valvenok partners with VSI on the Atlas SSCV
           </Typography>
           <Typography
             variant="h5"

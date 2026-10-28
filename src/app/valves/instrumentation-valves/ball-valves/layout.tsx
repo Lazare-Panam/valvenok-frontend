@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/src/app/Common/seo";
+import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 
 export const metadata: Metadata = pageMetadata({
   title: "Instrumentation Ball Valves — 2-Way, 3-Way, SS316 | Valvenok",
@@ -13,5 +14,5 @@ export default function ValvesInstrumentationValvesBallValvesLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return <>{children}<RangeCopy path="/valves/instrumentation-valves/ball-valves" /></>;
 }

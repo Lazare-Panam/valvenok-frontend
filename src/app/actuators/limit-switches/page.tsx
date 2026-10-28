@@ -8,10 +8,10 @@ export const metadata: Metadata = {
   alternates: { canonical: '/actuators/limit-switches' },
   title: { absolute: "Limit Switch Boxes & Valve Position Indicators | Valvenok" },
   description:
-    "KLS and ITS series limit switch boxes for valve position indication. IP67 weatherproof and IECEx explosion-proof units with mechanical or proximity switches.",
+    "KLS and ITS limit switch boxes for valve position indication: IP67 weatherproof and IECEx explosion-proof units with mechanical or proximity switches.",
   openGraph: {
     title: "Limit Switch Boxes & Valve Position Indicators | Valvenok",
-    description: "KLS and ITS series limit switch boxes for valve position indication. IP67 weatherproof and IECEx explosion-proof units with mechanical or proximity switches.",
+    description: "KLS and ITS limit switch boxes for valve position indication: IP67 weatherproof and IECEx explosion-proof units with mechanical or proximity switches.",
     url: "/actuators/limit-switches",
     siteName: "Valvenok",
     type: "website",
@@ -24,7 +24,7 @@ const LIMIT_SWITCH_FAMILIES: Category[] = [
     title: "Limit Switch Boxes & Valve Position Indicators | Valvenok",
     subtitle: "Weatherproof & Explosion-Proof Limit Switch Box",
     description:
-      "KLS and ITS series limit switch boxes for valve position indication. IP67 weatherproof and IECEx explosion-proof units with mechanical or proximity switches.",
+      "KLS and ITS limit switch boxes for valve position indication: IP67 weatherproof and IECEx explosion-proof units with mechanical or proximity switches.",
     specs: [
       "IP67 / IP68",
       "IECEx Certified",
@@ -46,7 +46,7 @@ const LIMIT_SWITCH_FAMILIES: Category[] = [
     title: "Limit Switch Boxes & Valve Position Indicators | Valvenok",
     subtitle: "Precision Position Monitoring Switch Box",
     description:
-      "KLS and ITS series limit switch boxes for valve position indication. IP67 weatherproof and IECEx explosion-proof units with mechanical or proximity switches.",
+      "KLS and ITS limit switch boxes for valve position indication: IP67 weatherproof and IECEx explosion-proof units with mechanical or proximity switches.",
     specs: [
       "IP67 / IP68",
       "ATEX Ex d IIC T6",

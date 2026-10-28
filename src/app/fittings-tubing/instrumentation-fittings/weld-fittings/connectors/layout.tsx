@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/src/app/Common/seo";
+import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 
 export const metadata: Metadata = pageMetadata({
   title: "Tube Socket Weld Connectors — SS316, NPT Ends | Valvenok",
@@ -13,5 +14,5 @@ export default function WeldFittingConnectorsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return <>{children}<RangeCopy path="/fittings-tubing/instrumentation-fittings/weld-fittings/connectors" /></>;
 }

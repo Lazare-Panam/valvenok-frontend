@@ -47,8 +47,7 @@ export default function ValvenokMarsPartnershipPage() {
               mt: 1,
             }}
           >
-            Valvenok Partners with Mars Valves to Expand Industrial Solutions
-            Across the UK
+            Valvenok Partners with Mars Valves Across the UK
           </Typography>
           <Typography
             variant="h5"

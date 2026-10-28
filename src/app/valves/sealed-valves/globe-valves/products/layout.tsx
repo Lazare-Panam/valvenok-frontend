@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/valves/sealed-valves/globe-valves/products" },
@@ -17,5 +18,5 @@ export default function BellowsValveLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return <>{children}<RangeCopy path="/valves/sealed-valves/globe-valves/products" /></>;
 }

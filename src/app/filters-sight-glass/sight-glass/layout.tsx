@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 
 const TITLE = "Flanged Sight Glasses — PN16/PN40, DN15–DN150 | Valvenok";
 const DESCRIPTION =
@@ -29,5 +30,5 @@ export default function FlangedSightGlassLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return <>{children}<RangeCopy path="/filters-sight-glass/sight-glass" /></>;
 }

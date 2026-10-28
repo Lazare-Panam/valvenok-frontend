@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 
 const TITLE = "Pipe Tees & Cross Fittings — SS316 Instrumentation | Valvenok";
 const DESCRIPTION =
@@ -31,5 +32,5 @@ export default function TeesCrossLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return <>{children}<RangeCopy path="/fittings-tubing/instrumentation-fittings/pipe-fittings/tees-cross" /></>;
 }

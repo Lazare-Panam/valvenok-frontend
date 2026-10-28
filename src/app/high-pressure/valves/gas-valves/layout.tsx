@@ -5,7 +5,9 @@ const DESCRIPTION =
   "Youngdo hydrogen, LPG and industrial gas cylinder valves in one filterable table. Compare models and request a quote. Certification varies by model.";
 
 export const metadata: Metadata = {
-  alternates: { canonical: "/high-pressure/valves/gas-valves" },
+  // Same table as /hydrogen-cryogenic/gas-valves; point search engines at
+  // that copy so the two aren't treated as duplicates.
+  alternates: { canonical: "/hydrogen-cryogenic/gas-valves" },
   title: { absolute: TITLE },
   description: DESCRIPTION,
   openGraph: {

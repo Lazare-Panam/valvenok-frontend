@@ -2,16 +2,16 @@ import type { Metadata } from 'next';
 import BallValveVsGateValvePage from './blog';
 
 const ARTICLE_URL = 'https://www.valvenok.com/news/ball-valve-vs-gate-valve';
-const TITLE = 'Ball Valve vs Gate Valve: Key Differences';
+const TITLE = "Ball Valve vs Gate Valve: Key Differences Explained | Valvenok";
 const DESCRIPTION =
   'Ball valve or gate valve? How each works and seals, where each is used by industry, and how to choose the right one for your line.';
 
 export const metadata: Metadata = {
   alternates: { canonical: '/news/ball-valve-vs-gate-valve' },
-  title: TITLE,
+  title: { absolute: TITLE },
   description: DESCRIPTION,
   openGraph: {
-    title: `${TITLE} | Valvenok`,
+    title: "Ball Valve vs Gate Valve: Key Differences Explained | Valvenok",
     description: DESCRIPTION,
     url: ARTICLE_URL,
     type: 'article',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 const blogSchema = {
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
-  headline: TITLE,
+  headline: "Ball Valve vs Gate Valve: Key Differences",
   description: DESCRIPTION,
   author: { '@type': 'Organization', name: 'Valvenok' },
   publisher: {

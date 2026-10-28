@@ -184,7 +184,7 @@ export default function BrandsPage() {
             variant="h1"
             sx={{
               fontFamily: '"Barlow Condensed"',
-              fontSize: { xs: "3.5rem", md: "5.5rem" },
+              fontSize: { xs: "2.6rem", md: "4.5rem" },
               fontWeight: 900,
               textTransform: "uppercase",
               lineHeight: 0.9,
@@ -192,7 +192,7 @@ export default function BrandsPage() {
               mb: 4,
             }}
           >
-            Partners
+            Valve Brands & Manufacturer Partners
           </Typography>
 
           <Box sx={{ maxWidth: "700px" }}>

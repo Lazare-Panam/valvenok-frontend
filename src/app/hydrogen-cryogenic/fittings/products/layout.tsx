@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 
 const TITLE = "Hiflux High Pressure Fittings & Manifold Blocks | Valvenok";
 const DESCRIPTION =
@@ -29,5 +30,5 @@ export default function HifluxFittingsCatalogLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return <>{children}<RangeCopy path="/hydrogen-cryogenic/fittings/products" /></>;
 }

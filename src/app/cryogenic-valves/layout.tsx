@@ -2,9 +2,9 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/cryogenic-valves" },
-  title: "Cryogenic Valves for Low-Temperature Service",
+  title: { absolute: "Cryogenic Valves for LNG & Low-Temperature Service | Valvenok" },
   description:
-    "Cryogenic valves for LNG, hydrogen and liquefied gases — with engineering support, full documentation and integration with instrumentation, manifold and fitting packages. 24-hour response from Bicester, Oxfordshire.",
+    "Cryogenic valves for LNG, hydrogen and liquefied gases, with engineering support, full documentation and matching instrumentation and fitting packages.",
   keywords: [
     "cryogenic valves",
     "cryogenic valve supplier UK",
@@ -18,9 +18,9 @@ export const metadata: Metadata = {
     "Valvenok",
   ],
   openGraph: {
-    title: "Cryogenic Valves for Low-Temperature Service | Valvenok",
+    title: "Cryogenic Valves for LNG & Low-Temperature Service | Valvenok",
     description:
-      "Cryogenic valves for LNG, hydrogen and liquefied gases, with engineering support, documentation and integration with instrumentation packages.",
+      "Cryogenic valves for LNG, hydrogen and liquefied gases, with engineering support, full documentation and matching instrumentation and fitting packages.",
     url: "https://www.valvenok.com/cryogenic-valves",
     siteName: "Valvenok",
     images: [

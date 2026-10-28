@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/src/app/Common/seo";
+import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 
 export const metadata: Metadata = pageMetadata({
   title: "Pipe Adapters, Bushings & Plugs — SS316 Instrumentation | Valvenok",
@@ -13,5 +14,5 @@ export default function FittingsTubingInstrumentationFittingsPipeFittingsAdapter
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return <>{children}<RangeCopy path="/fittings-tubing/instrumentation-fittings/pipe-fittings/adapters-plugs" /></>;
 }

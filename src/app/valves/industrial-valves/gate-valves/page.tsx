@@ -7,9 +7,9 @@ import { pageMetadata } from "@/src/app/Common/seo";
 import RelatedLinks from "@/src/app/Common/Products_Page/RelatedLinks";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Industrial Gate Valves",
+  title: "Industrial Gate Valves — Bolted & Union Bonnet | Valvenok",
   description:
-    "Valvenok supplies bolted bonnet and union bonnet gate valves from UTAM Syncercon, engineered for reliable shut-off and leak-proof isolation in marine and shipbuilding applications.",
+    "Bolted bonnet and union bonnet gate valves from UTAM Syncercon for reliable shut-off and isolation in marine, shipbuilding and industrial service.",
   path: "/valves/industrial-valves/gate-valves",
 });
 

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 
 const TITLE = "Youngdo Hydrogen Cylinder Valve Models, 3–70 MPa | Valvenok";
 const DESCRIPTION =
@@ -29,5 +30,5 @@ export default function HydrogenProductsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return <>{children}<RangeCopy path="/hydrogen-cryogenic/hydrogen/products" /></>;
 }

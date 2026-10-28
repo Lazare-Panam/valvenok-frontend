@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/pneumatic/cylinders/sdnu" },
@@ -12,5 +13,5 @@ export const metadata: Metadata = {
 }
 
 export default function SDNUCylinderLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>
+  return <>{children}<RangeCopy path="/pneumatic/cylinders/sdnu" /></>
 }

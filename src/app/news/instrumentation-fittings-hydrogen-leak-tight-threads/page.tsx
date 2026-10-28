@@ -46,8 +46,7 @@ export default function InstrumentationFittingsPage() {
               mt: 1,
             }}
           >
-            Thread Truths & Leak-Tight Builds: Instrumentation Fittings For
-            Hydrogen And High-Integrity Service
+            Leak-Tight Instrumentation Fittings for Hydrogen Service
           </Typography>
           <Typography
             variant="h5"

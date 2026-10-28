@@ -21,7 +21,7 @@ const POSTS = [
     title: "Mars Valve Stock Lands in the UK in November",
     desc: "MARS valve stock lands in the UK this November and we're taking RFQs now. Early requests get priority on the first allocation — including the most-requested Series 77 (V77).",
     thumbnail:
-      "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/mars-banner.jpeg",
+      "https://pblol2.blob.core.windows.net/mars-valves/mars-stock-coming.jpeg",
     author: "Valvenok Team",
     date: "October 2026",
     category: "Stock Update",

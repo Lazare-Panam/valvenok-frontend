@@ -46,8 +46,7 @@ export default function SubmersiblePumpsPage() {
               mt: 1,
             }}
           >
-            Stainless Steel vs Cast Iron: Choosing the Right Submersible Pump
-            for Your Industry
+            Stainless Steel vs Cast Iron Submersible Pumps
           </Typography>
           <Typography
             variant="h5"

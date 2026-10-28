@@ -7,10 +7,10 @@ import RelatedLinks from '@/src/app/Common/Products_Page/RelatedLinks'
 
 export const metadata: Metadata = {
   alternates: { canonical: '/fittings-tubing/instrumentation-fittings/weld-fittings' },
-  title: 'Weld Fittings | SS316 Instrumentation Weld Fittings',
+  title: { absolute: "SS316 Instrumentation Weld Fittings — Socket Weld | Valvenok" },
   description: "SS316 instrumentation weld fittings for permanent process connections: tube socket weld connectors, elbows and tees with NPT threaded ends.",
   openGraph: {
-    title: "Weld Fittings | SS316 Instrumentation Weld Fittings | Valvenok",
+    title: "SS316 Instrumentation Weld Fittings — Socket Weld | Valvenok",
     description: "SS316 instrumentation weld fittings for permanent process connections: tube socket weld connectors, elbows and tees with NPT threaded ends.",
     url: "/fittings-tubing/instrumentation-fittings/weld-fittings",
     siteName: "Valvenok",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 const CATEGORIES: Category[] = [
   {
     code: 'WE',
-    title: 'Elbows',
+    title: "SS316 Instrumentation Weld Fittings — Socket Weld | Valvenok",
     subtitle: 'WE · Male · Female',
     description: "SS316 instrumentation weld fittings for permanent process connections: tube socket weld connectors, elbows and tees with NPT threaded ends.",
     specs: ['SS316', 'Tube Socket Weld', '1/8" – 2" / 6mm – 38mm OD'],
@@ -31,7 +31,7 @@ const CATEGORIES: Category[] = [
   },
   {
     code: 'WC',
-    title: 'Connectors',
+    title: "SS316 Instrumentation Weld Fittings — Socket Weld | Valvenok",
     subtitle: 'WC · Male · Female',
     description: "SS316 instrumentation weld fittings for permanent process connections: tube socket weld connectors, elbows and tees with NPT threaded ends.",
     specs: ['SS316', 'Tube Socket Weld · NPT', '1/8" – 2" / 6mm – 38mm OD'],

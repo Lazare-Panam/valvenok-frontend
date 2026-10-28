@@ -2,11 +2,11 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/brands" },
-  title: { absolute: "Our Brands & Manufacturer Partners — 25+ Brands | Valvenok" }, // Becomes "Authorized Partners & Brands | Valvenok"
-  description: "Valvenok supplies 25+ industrial brands including PANAM, Hiflux, Mars Valves, Pietro Fiorentini, Susin, Kosaplus and Youngdo. Browse each brand's range.",
+  title: { absolute: "Valve Brands & Manufacturers We Supply — 25+ Brands | Valvenok" }, // Becomes "Authorized Partners & Brands | Valvenok"
+  description: "Valve brands and manufacturers supplied by Valvenok: PANAM, Hiflux, Mars Valves, Pietro Fiorentini, Susin, Kosaplus, Youngdo and more. Browse each brand.",
   openGraph: {
-    title: "Our Brands & Manufacturer Partners — 25+ Brands | Valvenok",
-    description: "Valvenok supplies 25+ industrial brands including PANAM, Hiflux, Mars Valves, Pietro Fiorentini, Susin, Kosaplus and Youngdo. Browse each brand's range.",
+    title: "Valve Brands & Manufacturers We Supply — 25+ Brands | Valvenok",
+    description: "Valve brands and manufacturers supplied by Valvenok: PANAM, Hiflux, Mars Valves, Pietro Fiorentini, Susin, Kosaplus, Youngdo and more. Browse each brand.",
     url: "/brands",
     siteName: "Valvenok",
     type: "website",
