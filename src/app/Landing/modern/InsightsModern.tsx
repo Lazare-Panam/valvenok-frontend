@@ -1,0 +1,91 @@
+'use client'
+
+import Link from "next/link";
+import { Box, Typography } from "@mui/material";
+import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
+import { LATEST_INSIGHTS } from "../LatestInsightsData";
+import { T, textReset } from "./tokens";
+import SectionHeader from "./SectionHeader";
+import PillButton from "./Buttons";
+
+export default function InsightsModern() {
+  return (
+    <Box component="section" sx={{ ...textReset, width: "100%", boxSizing: "border-box", maxWidth: T.maxWidth, mx: "auto", px: { xs: 2, md: 4 }, py: { xs: 8, md: 12 } }}>
+      <SectionHeader
+        eyebrow="Engineering Insights"
+        title="Latest From The Team"
+        action={
+          <PillButton href="/news" variant="secondary">
+            View All Articles
+          </PillButton>
+        }
+      />
+      <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", lg: "repeat(4, 1fr)" }, gap: 2.5 }}>
+        {LATEST_INSIGHTS.slice(0, 4).map((post) => (
+          <Box
+            key={post.link}
+            component={Link}
+            href={post.link}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              bgcolor: "#fff",
+              border: `1px solid ${T.border}`,
+              borderRadius: T.radius,
+              overflow: "hidden",
+              textDecoration: "none",
+              transition: "all .25s ease",
+              "&:hover": { boxShadow: T.shadowHover, transform: "translateY(-3px)" },
+              "&:hover img": { transform: "scale(1.04)" },
+              "&:hover .read": { color: T.greenDark },
+            }}
+          >
+            <Box sx={{ height: 170, overflow: "hidden", bgcolor: T.surface }}>
+              <Box
+                component="img"
+                src={post.thumbnail}
+                alt={post.title}
+                loading="lazy"
+                sx={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform .4s ease" }}
+              />
+            </Box>
+            <Box sx={{ p: 2.5, display: "flex", flexDirection: "column", flex: 1 }}>
+              <Box sx={{ display: "flex", alignItems: "center", gap: 1, fontSize: "0.75rem" }}>
+                <Box component="span" sx={{ px: 1, py: 0.25, borderRadius: 999, bgcolor: T.greenSoft, color: T.greenDark, fontWeight: 600 }}>
+                  {post.category}
+                </Box>
+                <Box component="span" sx={{ color: T.muted }}>
+                  {post.date}
+                </Box>
+              </Box>
+              <Typography component="h3" sx={{ mt: 1.5, fontWeight: 700, fontSize: "1rem", lineHeight: 1.4, color: T.ink }}>
+                {post.title}
+              </Typography>
+              <Typography
+                sx={{
+                  mt: 1,
+                  flex: 1,
+                  fontSize: "0.88rem",
+                  lineHeight: 1.6,
+                  color: T.body,
+                  display: "-webkit-box",
+                  WebkitLineClamp: 3,
+                  WebkitBoxOrient: "vertical",
+                  overflow: "hidden",
+                }}
+              >
+                {post.desc}
+              </Typography>
+              <Box
+                className="read"
+                sx={{ mt: 2, display: "inline-flex", alignItems: "center", gap: 0.5, fontWeight: 600, fontSize: "0.88rem", color: T.ink, transition: "color .2s" }}
+              >
+                Read article <ArrowForwardRoundedIcon sx={{ fontSize: 16 }} />
+              </Box>
+            </Box>
+          </Box>
+        ))}
+      </Box>
+    </Box>
+  );
+}

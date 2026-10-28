@@ -43,24 +43,22 @@ export default function DesktopUserActions({ barHeight }: Props) {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    height: barHeight,
-    px: 2,
-    gap: 1,
-    color: "text.primary",
-    fontFamily: '"Barlow Condensed", sans-serif',
-    fontSize: "16px",
-    fontWeight: 800,
-    letterSpacing: "0.1em",
-    textTransform: "uppercase",
+    px: 1.5,
+    py: 1,
+    gap: 0.75,
+    borderRadius: 999,
+    color: "#0E1B12",
+    fontSize: "0.9rem",
+    fontWeight: 500,
     cursor: "pointer",
+    whiteSpace: "nowrap",
     transition: "all 0.2s ease-in-out",
     "&:hover": {
-      color: "primary.main",
-      bgcolor: alpha(theme.palette.primary.main, 0.06),
+      color: "#2E8B1E",
+      bgcolor: alpha(theme.palette.primary.main, 0.1),
     },
   };
-
-  const iconSx = { fontSize: 24, flexShrink: 0 };
+  const iconSx = { fontSize: 20, flexShrink: 0 };
 
   const BPMA_LOGO_URL =
     "https://pblol2.blob.core.windows.net/valvenok-images/certfiicates/bpma-logo.jpg";
@@ -69,6 +67,26 @@ export default function DesktopUserActions({ barHeight }: Props) {
 
   return (
     <Box sx={{ display: "flex", alignItems: "center", ml: "auto" }}>
+      {/* JOSCAR REGISTRATION */}
+      <Box
+        component="a"
+        href="/joscar-registered"
+        aria-label="JOSCAR registered supplier"
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          px: 1.5,
+          transition: "opacity 0.2s ease-in-out",
+          "&:hover": { opacity: 0.75 },
+        }}
+      >
+        <Box
+          component="img"
+          src="/badges/joscar-registered.png"
+          alt="JOSCAR Registered"
+          sx={{ height: Math.min(barHeight - 24, 52), width: "auto", display: "block" }}
+        />
+      </Box>
       {/* BPMA MEMBERSHIP */}
       <Box
         component="a"
@@ -93,7 +111,7 @@ export default function DesktopUserActions({ barHeight }: Props) {
           src={BPMA_LOGO_URL}
           alt="BPMA Member"
           sx={{
-            height: Math.min(barHeight - 16, 36),
+            height: Math.min(barHeight - 40, 30),
             width: "auto",
             display: "block",
           }}
@@ -108,10 +126,10 @@ export default function DesktopUserActions({ barHeight }: Props) {
 
       {/* QUICK ORDER */}
       <Box
-        sx={{ ...itemSx, color: "primary.main" }}
+        sx={{ ...itemSx, color: "#2E8B1E" }}
         onClick={() => router.push("/quick-order")}
       >
-        <BoltIcon sx={{ ...iconSx, color: "primary.main" }} />
+        <BoltIcon sx={{ ...iconSx, color: "#2E8B1E" }} />
         Quick Order
       </Box>
 
@@ -123,8 +141,7 @@ export default function DesktopUserActions({ barHeight }: Props) {
           color="primary"
           sx={{
             "& .MuiBadge-badge": {
-              borderRadius: 0,
-              fontWeight: 900,
+              fontWeight: 700,
               height: 18,
               minWidth: 18,
               fontSize: "11px",
@@ -147,8 +164,7 @@ export default function DesktopUserActions({ barHeight }: Props) {
                 bgcolor: "primary.main",
                 color: "white",
                 fontSize: "12px",
-                fontWeight: 900,
-                borderRadius: 0,
+                fontWeight: 700,
               }}
             >
               {user.firstName[0]}

@@ -1,16 +1,9 @@
 "use client";
 
 import Box from "@mui/material/Box";
-import { alpha, useTheme } from "@mui/material/styles";
 import { NAV_LINKS } from "./Navbardata";
 
-interface Props {
-  barHeight: number;
-}
-
-export default function NavLinks({ barHeight }: Props) {
-  const theme = useTheme();
-
+export default function NavLinks() {
   return (
     <>
       {NAV_LINKS.map((link) => (
@@ -21,21 +14,16 @@ export default function NavLinks({ barHeight }: Props) {
           sx={{
             display: "flex",
             alignItems: "center",
-            height: barHeight,
-            px: 2,
-            color: "text.primary",
-            fontFamily: '"Barlow Condensed", sans-serif',
-            fontSize: "20x",
-            fontWeight: 700,
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
+            px: 1.5,
+            py: 0.75,
+            borderRadius: 999,
+            color: "#0E1B12",
+            fontSize: "0.92rem",
+            fontWeight: 500,
             textDecoration: "none",
             whiteSpace: "nowrap",
             transition: "all 0.15s",
-            "&:hover": {
-              color: "primary.main",
-              bgcolor: "#ffff",
-            },
+            "&:hover": { color: "#2E8B1E", bgcolor: "#EEF9EA" },
           }}
         >
           {link.label}

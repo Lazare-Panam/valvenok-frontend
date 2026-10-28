@@ -1,17 +1,17 @@
-import AboutContact from "./Landing/AboutContact";
-import Brands from "./Landing/Brands";
-import Categories from "./Landing/Categories";
-import CategoryQuickNav from "./Landing/CategoryQuickNav";
-import CertificationsStrip from "./Landing/CertificationsStrip";
-import DeliveryBanner from "./Landing/DeliveryBanner";
-import FeaturedStrip from "./Landing/FeaturedStrip";
-import FeaturedValves from "./Landing/FeaturedValves";
-import HeroSlider from "./Landing/HeroSlider";
-import MarsSection from "./Landing/MarsSection";
-import ValuePropBanner from "./Landing/ValuePropBanner";
-import StatsBand from "./Landing/StatsBand";
-import LatestInsights from "./Landing/LatestInsights";
-import FAQSection from "./Landing/FAQSection";
+import BrandStrip from "./Landing/modern/BrandStrip";
+import HeroModern from "./Landing/modern/HeroModern";
+import TrustBar from "./Landing/modern/TrustBar";
+import QuickNavModern from "./Landing/modern/QuickNavModern";
+import CertificationsModern from "./Landing/modern/CertificationsModern";
+import FeaturedBrands from "./Landing/modern/FeaturedBrands";
+import ValuePropModern from "./Landing/modern/ValuePropModern";
+import WhoWeAreModern from "./Landing/modern/WhoWeAreModern";
+import FeaturedProductsModern from "./Landing/modern/FeaturedProductsModern";
+import CoreProducts from "./Landing/modern/CoreProducts";
+import StatsModern from "./Landing/modern/StatsModern";
+import InsightsModern from "./Landing/modern/InsightsModern";
+import FaqModern from "./Landing/modern/FaqModern";
+import JoscarModern from "./Landing/modern/JoscarModern";
 
 // For Next.js App Router (metadata object)
 export const metadata = {
@@ -61,22 +61,22 @@ export default function Home() {
       >
         Industrial valves, actuators and fittings from 25+ manufacturers
       </h1>
-      <HeroSlider />
-      <CertificationsStrip />
-      <CategoryQuickNav />
-      <DeliveryBanner />
-      <FeaturedStrip />
-      <ValuePropBanner />
-      <MarsSection />
-      <FeaturedValves />
-      <Brands />
-      <Categories />
-      <StatsBand />
+      <HeroModern />
+      <TrustBar />
+      <BrandStrip />
+      <CertificationsModern />
+      <QuickNavModern />
+      <FeaturedBrands />
+      <ValuePropModern />
+      <WhoWeAreModern />
+      <FeaturedProductsModern />
+      <CoreProducts />
+      <StatsModern />
       {/* TestimonialsSection removed until there are genuine, attributable
           customer quotes — the previous copy was illustrative (UK ASA rules). */}
-      <LatestInsights />
-      <FAQSection />
-      <AboutContact />
+      <InsightsModern />
+      <FaqModern />
+      <JoscarModern />
     </>
   );
 }

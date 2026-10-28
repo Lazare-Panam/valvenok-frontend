@@ -8,12 +8,9 @@ import {
   Drawer,
   useTheme,
   useMediaQuery,
-  Typography,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import PhoneIcon from "@mui/icons-material/Phone";
-import EmailIcon from "@mui/icons-material/EmailOutlined";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import NavLogo from "./Navlogo";
 import NavLinks from "./NavLinks";
@@ -23,12 +20,15 @@ import DesktopUserActions from "./user-actions/DesktopUserActions";
 import { NAV_GROUPS, NavGroup } from "./Navbardata";
 import NavTopStrip from "./NavTopStrip";
 
-const NAV_BAR_BG = "#61D649";
 const BRAND_GREEN = "#61D649";
-const LOGO_HEIGHT = 120;
-const NAV_HEIGHT = 56;
+const GREEN_DARK = "#2E8B1E";
+const GREEN_DEEP = "#123D17";
+const INK = "#0E1B12";
+const BORDER = "#E5EBE6";
+const FONT = "var(--font-geist-sans), Inter, system-ui, sans-serif";
+const LOGO_HEIGHT = 76;
+const NAV_HEIGHT = 48;
 const CLOSE_DELAY = 150;
-const LOGO_BG = "#F9F7F3";
 export default function Navbar() {
   const [activeGroup, setActiveGroup] = React.useState<NavGroup | null>(null);
   const [triggerLeft, setTriggerLeft] = React.useState(0);
@@ -56,42 +56,66 @@ export default function Navbar() {
   }, []);
 
   return (
-    <Box sx={{ position: "relative", zIndex: 200 }}>
-      {/* ── BAR 1: dark green, phone + email + RFQ right-aligned ── */}
+    <Box
+      sx={{
+        position: "sticky",
+        top: 0,
+        zIndex: 200,
+        fontFamily: FONT,
+        "& *": { fontFamily: `${FONT} !important` },
+      }}
+    >
+      {/* ── Top strip: contact details ── */}
       <NavTopStrip />
-      {/* ── BAR 2: white, logo left + cart/auth right ── */}
-      {/* ── BAR 2: logo left + cart/auth right ── */}
+
+      {/* ── Main bar: logo, account actions, quote CTA ── */}
       <Box
         sx={{
-          bgcolor: LOGO_BG, // was "#ffffff"
-          borderBottom: "1px solid #e8e8e8",
+          bgcolor: "rgba(255,255,255,0.96)",
+          backdropFilter: "saturate(180%) blur(10px)",
+          borderBottom: `1px solid ${BORDER}`,
           height: LOGO_HEIGHT,
         }}
       >
-        <Container maxWidth="xl" sx={{ px: { xs: 2, md: 3 }, height: "100%" }}>
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              height: "100%",
-            }}
-          >
+        <Container maxWidth="xl" sx={{ px: { xs: 2, md: 4 }, height: "100%" }}>
+          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "100%", gap: 2 }}>
             <NavLogo />
 
-            <Box
-              sx={{ display: { xs: "none", md: "flex" }, alignItems: "center" }}
-            >
+            <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center", gap: 1 }}>
               <DesktopUserActions barHeight={LOGO_HEIGHT} />
+              <Box
+                component="a"
+                href="/contact"
+                sx={{
+                  ml: 1,
+                  display: "inline-flex",
+                  alignItems: "center",
+                  px: 2.25,
+                  py: 1.1,
+                  borderRadius: 999,
+                  bgcolor: BRAND_GREEN,
+                  color: GREEN_DEEP,
+                  fontSize: "0.9rem",
+                  fontWeight: 600,
+                  textDecoration: "none",
+                  whiteSpace: "nowrap",
+                  transition: "background-color .2s",
+                  "&:hover": { bgcolor: "#55C93E" },
+                }}
+              >
+                Request a quote
+              </Box>
             </Box>
 
             <IconButton
               onClick={() => setMobileOpen(true)}
+              aria-label="Open menu"
               sx={{
                 display: { md: "none" },
-                color: "#333",
-                transition: "background-color 0.2s ease, color 0.2s ease",
-                "&:hover": { bgcolor: "rgba(97,214,73,0.1)", color: NAV_BAR_BG },
+                color: INK,
+                border: `1px solid ${BORDER}`,
+                borderRadius: "12px",
+                "&:hover": { bgcolor: "rgba(97,214,73,0.1)", color: GREEN_DARK },
               }}
             >
               <MenuIcon />
@@ -100,66 +124,64 @@ export default function Navbar() {
         </Container>
       </Box>
 
-      {/* ── BAR 3: green nav bar ── */}
+      {/* ── Nav row: product menus + page links ── */}
       <Box
         ref={navBarRef}
         sx={{
-          bgcolor: NAV_BAR_BG,
+          bgcolor: "rgba(255,255,255,0.96)",
+          backdropFilter: "saturate(180%) blur(10px)",
+          borderBottom: `1px solid ${BORDER}`,
           display: { xs: "none", md: "block" },
           position: "relative",
         }}
       >
-        <Container maxWidth="xl" sx={{ px: { xs: 2, md: 3 } }}>
-          <Box
-            sx={{ display: "flex", alignItems: "center", height: NAV_HEIGHT }}
-          >
-            {NAV_GROUPS.map((group) => (
-              <Box
-                key={group.id}
-                component="a"
-                href={group.href ?? "#"}
-                onMouseEnter={(e) => {
-                  const el = e.currentTarget as HTMLElement;
-                  setTriggerLeft(el.offsetLeft);
-                  openGroup(group);
-                }}
-                onMouseLeave={scheduleClose}
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 0.4,
-                  height: NAV_HEIGHT,
-                  px: 2,
-                  color: "#fff",
-                  fontFamily: '"Barlow Condensed", sans-serif',
-                  fontSize: "1rem",
-                  fontWeight: 700,
-                  letterSpacing: "0.07em",
-                  textTransform: "uppercase",
-                  textDecoration: "none",
-                  whiteSpace: "nowrap",
-                  borderBottom: `3px solid ${
-                    activeGroup?.id === group.id ? BRAND_GREEN : "transparent"
-                  }`,
-                  transition: "all 0.15s",
-                  "&:hover": { color: "#fff", bgcolor: "rgba(255,255,255,0.08)" },
-                }}
-              >
-                {group.label}
-                <KeyboardArrowDownIcon
-                  sx={{
-                    fontSize: 18,
-                    transition: "transform 0.2s",
-                    transform:
-                      activeGroup?.id === group.id
-                        ? "rotate(180deg)"
-                        : "rotate(0deg)",
+        <Container maxWidth="xl" sx={{ px: { xs: 2, md: 4 } }}>
+          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", height: NAV_HEIGHT, gap: 0.5 }}>
+            {NAV_GROUPS.map((group) => {
+              const active = activeGroup?.id === group.id;
+              return (
+                <Box
+                  key={group.id}
+                  component="a"
+                  href={group.href ?? "#"}
+                  onMouseEnter={(e) => {
+                    const el = e.currentTarget as HTMLElement;
+                    setTriggerLeft(el.offsetLeft);
+                    openGroup(group);
                   }}
-                />
-              </Box>
-            ))}
+                  onMouseLeave={scheduleClose}
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 0.25,
+                    px: 1.5,
+                    py: 0.75,
+                    borderRadius: 999,
+                    color: active ? GREEN_DARK : INK,
+                    bgcolor: active ? "#EEF9EA" : "transparent",
+                    fontSize: "0.92rem",
+                    fontWeight: 500,
+                    textDecoration: "none",
+                    whiteSpace: "nowrap",
+                    transition: "all 0.15s",
+                    "&:hover": { color: GREEN_DARK, bgcolor: "#EEF9EA" },
+                  }}
+                >
+                  {group.label}
+                  <KeyboardArrowDownIcon
+                    sx={{
+                      fontSize: 18,
+                      transition: "transform 0.2s",
+                      transform: active ? "rotate(180deg)" : "rotate(0deg)",
+                    }}
+                  />
+                </Box>
+              );
+            })}
 
-            <NavLinks barHeight={NAV_HEIGHT} />
+            <Box sx={{ width: "1px", height: 20, bgcolor: BORDER, mx: 1 }} />
+
+            <NavLinks />
           </Box>
         </Container>
 
@@ -175,10 +197,7 @@ export default function Navbar() {
               pointerEvents: "auto",
             }}
           >
-            <MegaMenu
-              group={activeGroup}
-              onClose={() => setActiveGroup(null)}
-            />
+            <MegaMenu group={activeGroup} onClose={() => setActiveGroup(null)} />
           </Box>
         )}
       </Box>

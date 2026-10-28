@@ -1,86 +1,44 @@
 "use client";
 
-import { Box, Container, Typography } from "@mui/material";
-import PhoneIcon from "@mui/icons-material/Phone";
+import { Box, Container } from "@mui/material";
+import PhoneIcon from "@mui/icons-material/PhoneOutlined";
 import EmailIcon from "@mui/icons-material/EmailOutlined";
+import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
 
-const DARK_GREEN = "#61D649";
-const ICON_WHITE = "#fff";
+const BODY = "#4B5A50";
+
+const linkSx = {
+  display: "inline-flex",
+  alignItems: "center",
+  gap: 0.75,
+  color: BODY,
+  fontSize: "0.8rem",
+  fontWeight: 500,
+  textDecoration: "none",
+  transition: "color 0.2s ease",
+  "&:hover": { color: "#2E8B1E" },
+};
 
 export default function NavTopStrip() {
   return (
-    <Box
-      sx={{
-        bgcolor: DARK_GREEN,
-        display: { xs: "none", md: "block" },
-        borderBottomLeftRadius: "50vw",
-      }}
-    >
-      <Container maxWidth="xl" sx={{ px: { xs: 2, md: 3 } }}>
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "flex-end",
-            height: 40,
-            gap: 3,
-          }}
-        >
-          <Box sx={{ display: "flex", alignItems: "center", gap: 0.75 }}>
-            <PhoneIcon sx={{ fontSize: 13, color: ICON_WHITE }} />
-            <Typography
-              component="a"
-              href="tel:+447368 137917"
-              sx={{
-                color: "#fff",
-                fontSize: "0.78rem",
-                fontWeight: 500,
-                textDecoration: "none",
-                transition: "opacity 0.2s ease",
-                "&:hover": { textDecoration: "underline", opacity: 0.85 },
-              }}
-            >
+    <Box sx={{ bgcolor: "#F5F8F5", borderBottom: "1px solid #E5EBE6", display: { xs: "none", md: "block" } }}>
+      <Container maxWidth="xl" sx={{ px: { xs: 2, md: 4 } }}>
+        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 40, gap: 3 }}>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 3 }}>
+            <Box sx={{ ...linkSx, "&:hover": {} }}>
+              <LocalShippingOutlinedIcon sx={{ fontSize: 16, color: "#2E8B1E" }} />
+              Free UK delivery on orders over £150
+            </Box>
+          </Box>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 3 }}>
+            <Box component="a" href="tel:+447368137917" sx={linkSx}>
+              <PhoneIcon sx={{ fontSize: 15 }} />
               +44 7368 137917
-            </Typography>
-          </Box>
-
-          <Box sx={{ display: "flex", alignItems: "center", gap: 0.75 }}>
-            <EmailIcon sx={{ fontSize: 13, color: ICON_WHITE }} />
-            <Typography
-              component="a"
-              href="mailto:sales@valvenok.com"
-              sx={{
-                color: "#fff",
-                fontSize: "0.78rem",
-                fontWeight: 500,
-                textDecoration: "none",
-                transition: "opacity 0.2s ease",
-                "&:hover": { textDecoration: "underline", opacity: 0.85 },
-              }}
-            >
+            </Box>
+            <Box component="a" href="mailto:sales@valvenok.com" sx={linkSx}>
+              <EmailIcon sx={{ fontSize: 15 }} />
               sales@valvenok.com
-            </Typography>
-          </Box>
-
-          <Box
-            component="a"
-            href="/contact"
-            sx={{
-              px: 2,
-              py: 0.4,
-              border: "1px solid rgba(255,255,255,0.5)",
-              color: "#fff",
-              fontFamily: '"Barlow Condensed", sans-serif',
-              fontSize: "0.72rem",
-              fontWeight: 700,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              textDecoration: "none",
-              transition: "all 0.2s",
-              "&:hover": { bgcolor: "#fff", color: DARK_GREEN, borderColor: "#fff" },
-            }}
-          >
-            Request a Quote
+            </Box>
           </Box>
         </Box>
       </Container>

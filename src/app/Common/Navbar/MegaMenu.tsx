@@ -98,10 +98,12 @@ export default function MegaMenu({ group, onClose }: Props) {
     <Fade in>
       <Box
         sx={{
+          mt: 1,
           bgcolor: "white",
-          boxShadow: "0px 8px 24px rgba(0,0,0,0.12)",
-          borderTop: `2px solid ${BRAND_GREEN}`,
-          borderBottom: "1px solid #e8e8e8",
+          boxShadow: "0 2px 4px rgba(14,27,18,0.05), 0 20px 48px rgba(14,27,18,0.14)",
+          border: "1px solid #E5EBE6",
+          borderRadius: "16px",
+          overflow: "hidden",
           display: "flex",
           minWidth: 660,
         }}
@@ -110,9 +112,9 @@ export default function MegaMenu({ group, onClose }: Props) {
         <Box
           sx={{
             minWidth: 200,
-            borderRight: "1px solid #e8e8e8",
-            py: 2,
-            bgcolor: "#f9f9f9",
+            borderRight: "1px solid #E5EBE6",
+            py: 1.5,
+            bgcolor: "#F5F8F5",
           }}
         >
           {group.columns.map((col, i) => (
@@ -123,8 +125,10 @@ export default function MegaMenu({ group, onClose }: Props) {
                 px: 2.5,
                 py: 1,
                 cursor: "pointer",
+                mx: 1,
+                borderRadius: "10px",
                 bgcolor: activeColIndex === i ? "white" : "transparent",
-                borderLeft: activeColIndex === i ? `3px solid ${BRAND_GREEN}` : "3px solid transparent",
+                boxShadow: activeColIndex === i ? "0 1px 3px rgba(14,27,18,0.08)" : "none",
                 transition: "all 0.1s",
               }}
             >
@@ -136,11 +140,10 @@ export default function MegaMenu({ group, onClose }: Props) {
               >
                 <Typography
                   sx={{
-                    fontSize: "0.72rem",
-                    fontWeight: 800,
-                    color: activeColIndex === i ? HEADER_COLOR : "#555",
-                    letterSpacing: "0.1em",
-                    textTransform: "uppercase",
+                    fontSize: "0.88rem",
+                    fontWeight: 600,
+                    color: activeColIndex === i ? "#2E8B1E" : "#0E1B12",
+                    textTransform: "none",
                     transition: "color 0.1s",
                   }}
                 >

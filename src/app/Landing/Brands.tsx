@@ -12,7 +12,7 @@ const marqueFwd = keyframes`
   100% { transform: translateX(-50%); }
 `;
 
-const BRANDS = [
+export const BRANDS = [
   { name: 'PANAM Valves', logo: 'https://pblol2.blob.core.windows.net/panam-images/panam-resize_smallest.jpg' },
   { name: 'Cameron', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/cameron-logo.png' },
   { name: 'Baker Hughes', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/baker-hughes-logo.png' },
@@ -153,24 +153,20 @@ export default function Brands() {
     >
       <Container maxWidth="lg">
         <Reveal>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 4 }}>
-          <Box sx={{ flex: 1, height: '1px', bgcolor: 'divider' }} />
-          <Typography
-            sx={{
-              textAlign: 'center',
-              fontFamily: '"Barlow Condensed", sans-serif',
-              fontSize: '22px',
-              fontWeight: 800,
-              letterSpacing: '0.18em',
-              textTransform: 'uppercase',
-              color: 'text.primary',
-              whiteSpace: 'nowrap',
-            }}
-          >
-            Trusted Brands We Supply
-          </Typography>
-          <Box sx={{ flex: 1, height: '1px', bgcolor: 'divider' }} />
-        </Box>
+        <Typography
+          sx={{
+            textAlign: 'center',
+            fontFamily: 'var(--font-geist-sans), Inter, system-ui, sans-serif',
+            fontSize: '0.8rem',
+            fontWeight: 600,
+            letterSpacing: '0.08em',
+            textTransform: 'uppercase',
+            color: '#7A877F',
+            mb: 4,
+          }}
+        >
+          Trusted brands we supply
+        </Typography>
         </Reveal>
       </Container>
 

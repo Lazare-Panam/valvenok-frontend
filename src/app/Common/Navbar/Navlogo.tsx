@@ -15,7 +15,7 @@ export default function NavLogo() {
         alignItems: "center",
         justifyContent: "center",
         flexShrink: 0,
-        px: { xs: 1, md: 3 },
+        px: 0,
         height: "100%",
       }}
     >
@@ -29,8 +29,8 @@ export default function NavLogo() {
           src={LOGO_URL}
           alt="Valvenok"
           sx={{
-            height: { xs: 44, sm: 56, md: 116 },
-            width: { xs: 130, sm: 170, md: 240 },
+            height: { xs: 48, sm: 56, md: 70 },
+            width: "auto",
             display: "block",
             objectFit: "contain",
             cursor: "pointer",

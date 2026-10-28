@@ -5,7 +5,7 @@ import { Box, Container, Typography, Accordion, AccordionSummary, AccordionDetai
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Reveal from "@/src/app/Common/Reveal";
 
-const FAQS = [
+export const FAQS = [
   {
     q: "What's your typical dispatch and delivery time?",
     a: "Lead times depend on the product and quantity, so we confirm them on your quotation before you order. Free UK delivery applies to orders over £150 — see our Delivery page for full details.",
