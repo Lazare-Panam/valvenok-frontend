@@ -17,7 +17,7 @@ import FAQSection from "./Landing/FAQSection";
 export const metadata = {
   alternates: { canonical: "/" },
   title: {
-    absolute: "Valvenok | Trusted UK Valves and Controls Supplier",
+    absolute: "Valvenok | Industrial Valves, Actuators & Fittings UK Supplier",
   },
   description:
     "UK supplier of industrial valves, actuators, SS316 instrumentation fittings and hydrogen components from 25+ brands including PANAM. Request a quote today.",
@@ -56,7 +56,7 @@ export default function Home() {
           border: 0,
         }}
       >
-        Industrial valves, actuators and instrumentation fittings from 25+ manufacturers
+        Industrial valves, actuators and fittings from 25+ manufacturers
       </h1>
       <HeroSlider />
       <CertificationsStrip />

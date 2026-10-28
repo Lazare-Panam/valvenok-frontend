@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/pneumatic/actuators/scotch-yoke/products" },
-  title: "Pneumatic Actuators",
+  title: { absolute: "Scotch Yoke & Rack and Pinion Pneumatic Actuators | Valvenok" },
   description:
-    "Scotch-Yoke and Rack & Pinion pneumatic actuators for industrial valve automation. Double acting and spring return configurations with CE, ATEX, and SIL certifications.",
+    "Scotch yoke and rack and pinion pneumatic actuators for valve automation, double acting or spring return. CE, ATEX and SIL certification varies by model.",
   openGraph: {
-    title: "Pneumatic Actuators | Valvenok",
+    title: "Scotch Yoke & Rack and Pinion Pneumatic Actuators | Valvenok",
     description:
-      "Scotch-Yoke and Rack & Pinion pneumatic actuators for industrial valve automation, CE, ATEX, and SIL certified.",
+      "Scotch yoke and rack and pinion pneumatic actuators for valve automation, double acting or spring return. CE, ATEX and SIL certification varies by model.",
     type: "website",
   },
 };

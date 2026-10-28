@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
-const TITLE = "Isolation & Manifold Valves | Valvenok";
+const TITLE = "DBB Valves & Instrument Manifolds — ANSI 150–2500 | Valvenok";
 const DESCRIPTION =
-  "DBB valves and valve manifolds, ANSI 150-2500, NACE MR-0175 sour gas option.";
+  "Double block and bleed valves and instrument manifold valves, ANSI Class 150 to 2500, with NACE MR0175 sour gas options. Request a quote from Valvenok.";
 const IMAGE =
   "https://pblol2.blob.core.windows.net/panam-images/products/DBB/dbb-cover.jpg";
 

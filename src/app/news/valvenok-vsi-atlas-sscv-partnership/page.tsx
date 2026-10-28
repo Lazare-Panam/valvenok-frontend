@@ -279,6 +279,7 @@ export default function VSIPartnershipPage() {
           {/* ── WHY VSI ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,
@@ -348,6 +349,7 @@ export default function VSIPartnershipPage() {
           {/* ── THE PROBLEM ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,
@@ -378,6 +380,7 @@ export default function VSIPartnershipPage() {
           {/* ── HOW IT'S DIFFERENT ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,
@@ -481,6 +484,7 @@ export default function VSIPartnershipPage() {
           {/* ── COMPARISON TABLE ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,
@@ -571,6 +575,7 @@ export default function VSIPartnershipPage() {
           {/* ── MODELS ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,
@@ -647,6 +652,7 @@ export default function VSIPartnershipPage() {
           {/* ── APPLICATIONS ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,
@@ -728,6 +734,7 @@ export default function VSIPartnershipPage() {
           {/* ── WHAT THIS MEANS ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,

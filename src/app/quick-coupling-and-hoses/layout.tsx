@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/quick-coupling-and-hoses" },
-  title: "Quick Couplings & Tubing",
+  title: { absolute: "Hydraulic Quick Couplings & Stainless Tubing | Valvenok" },
   description:
-    'Six hydraulic quick coupling series — ISO-A, ISO 16028, ISO 7241A, ISO 7241B, ISO 5675, and Screw Type — plus stainless steel tubing. Carbon Steel construction, BSPP and NPT threads from 1/4" to 1".',
+    "Hydraulic quick couplings in ISO-A, ISO 16028, ISO 7241A/B, ISO 5675 and screw types, BSPP and NPT 1/4\" to 1\", plus stainless steel tubing.",
   openGraph: {
-    title: "Quick Couplings & Tubing | Valvenok",
+    title: "Hydraulic Quick Couplings & Stainless Tubing | Valvenok",
     description:
-      'Six hydraulic quick coupling series plus stainless steel tubing, Carbon Steel construction, BSPP and NPT threads from 1/4" to 1".',
+      "Hydraulic quick couplings in ISO-A, ISO 16028, ISO 7241A/B, ISO 5675 and screw types, BSPP and NPT 1/4\" to 1\", plus stainless steel tubing.",
     type: "website",
   },
 };

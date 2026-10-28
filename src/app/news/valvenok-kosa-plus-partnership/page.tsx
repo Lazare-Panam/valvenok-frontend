@@ -168,6 +168,7 @@ export default function KosaPartnershipPage() {
           {/* ── ABOUT THE PARTNERSHIP ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,
@@ -200,6 +201,7 @@ export default function KosaPartnershipPage() {
           {/* ── EXPANDING PORTFOLIO ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,
@@ -321,6 +323,7 @@ export default function KosaPartnershipPage() {
           {/* ── VALUE FOR CUSTOMERS ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,
@@ -419,6 +422,7 @@ export default function KosaPartnershipPage() {
           {/* ── ABOUT KOSA PLUS ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,
@@ -479,6 +483,7 @@ export default function KosaPartnershipPage() {
           {/* ── LOOKING AHEAD ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,

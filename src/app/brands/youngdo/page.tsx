@@ -12,10 +12,10 @@ export const metadata: Metadata = {
   alternates: { canonical: "/brands/youngdo" },
   title: "Youngdo Cylinder Valves — Hydrogen, LPG & Industrial Gas",
   description:
-    "Valvenok supplies Youngdo cylinder valves — hydrogen cylinder valves to 70 MPa, LPG cylinder valves and OPD safety devices, and industrial gas valves. Certification varies by model.",
+    "Youngdo hydrogen cylinder valves to 70 MPa, LPG cylinder valves, OPD safety devices and industrial gas valves. Certification varies by model.",
   openGraph: {
     title: "Youngdo Cylinder Valves — Hydrogen, LPG & Industrial Gas | Valvenok",
-    description: "Valvenok supplies Youngdo cylinder valves — hydrogen cylinder valves to 70 MPa, LPG cylinder valves and OPD safety devices, and industrial gas valves. Certification varies by model.",
+    description: "Youngdo hydrogen cylinder valves to 70 MPa, LPG cylinder valves, OPD safety devices and industrial gas valves. Certification varies by model.",
     url: "/brands/youngdo",
     siteName: "Valvenok",
     type: "website",
@@ -28,7 +28,7 @@ const YOUNGDO_SERIES: Category[] = [
     title: "Hydrogen Cylinder Valves",
     subtitle: "High-Pressure Hydrogen Service — 3–70 MPa",
     description:
-      "Youngdo high-pressure hydrogen cylinder valves across 13 models — HC, HE, HK, HS, HSL, EP, DRV, YHT and YEX series. Working pressures from 3–70 MPa for hydrogen storage, refuelling stations and cylinder distribution. Certification (KGS, EC79, R134, IECEx and others) varies by model.",
+      "Youngdo hydrogen cylinder valves to 70 MPa, LPG cylinder valves, OPD safety devices and industrial gas valves. Certification varies by model.",
     specs: [
       "70 MPa Max Working Pressure",
       "KGS · EC79 · R134 by Model",
@@ -48,7 +48,7 @@ const YOUNGDO_SERIES: Category[] = [
     title: "LPG Cylinder Valves",
     subtitle: "LPG Cylinder, OPD & Piping Connection Valves",
     description:
-      "Youngdo LPG cylinder valves, overfilling prevention devices and piping connection valves across 20 models — YLC, LP, MT, YBC, OPD, YLG and YPC series for LPG cylinder and distribution applications. Certification (KGS, KS, CGA V-1, UL) varies by model.",
+      "Youngdo hydrogen cylinder valves to 70 MPa, LPG cylinder valves, OPD safety devices and industrial gas valves. Certification varies by model.",
     specs: [
       "Up to 2.35 MPa Working Pressure",
       "2.43 MPa Max Spring Working Pressure",
@@ -68,7 +68,7 @@ const YOUNGDO_SERIES: Category[] = [
     title: "Industrial Gas Valves",
     subtitle: "Tapered, Unified, Acetylene, Chlorine & More",
     description:
-      "Youngdo industrial gas cylinder valves across 7 categories — tapered and unified inlet thread valves, non return valves, acetylene, chlorine/ammonia, tube trailer and piping connection valves. Certification (KGS, KS) and design standards (CGA, BS 341, ISO 10297) vary by model.",
+      "Youngdo hydrogen cylinder valves to 70 MPa, LPG cylinder valves, OPD safety devices and industrial gas valves. Certification varies by model.",
     specs: [
       "25 MPa Max Pressure (Tube Trailers)",
       "KGS · KS by Model",

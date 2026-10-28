@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/actuators/electric/itl/products" },
-  title: "Electric Actuators",
+  title: { absolute: "ITL Series Electric Linear Actuators — Models | Valvenok" },
   description:
-    "Browse electric valve actuators — filter by series and model to find the exact configuration you need.",
+    "Browse ITL series electric linear valve actuators. Filter by series and model to find the configuration you need, then request a quote from Valvenok.",
   openGraph: {
-    title: "Electric Actuators | Valvenok",
+    title: "ITL Series Electric Linear Actuators — Models | Valvenok",
     description:
-      "Browse electric valve actuators — filter by series and model.",
+      "Browse ITL series electric linear valve actuators. Filter by series and model to find the configuration you need, then request a quote from Valvenok.",
     type: "website",
   },
 };

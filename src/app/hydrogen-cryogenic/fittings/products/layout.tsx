@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
-const TITLE = "Hiflux Fittings Catalog | Valvenok";
+const TITLE = "Hiflux High Pressure Fittings & Manifold Blocks | Valvenok";
 const DESCRIPTION =
-  "27 Hiflux fittings, accessories, manifold blocks and tube caps, 15,000-150,000 psi. Certification varies by product.";
+  "27 Hiflux high pressure fittings, accessories, manifold blocks and tube caps rated 15,000 to 150,000 psi. Certification varies by product.";
 const IMAGE =
   "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/logo.png";
 

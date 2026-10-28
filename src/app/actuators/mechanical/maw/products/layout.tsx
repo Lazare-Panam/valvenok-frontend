@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
-const TITLE = "MAW Gearboxes | Valvenok";
+const TITLE = "MAW Series Worm Gearboxes for Valves — Models & Sizes | Valvenok";
 const DESCRIPTION =
-  "MAW worm gearboxes for industrial valve actuation and drive systems.";
+  "Browse MAW series worm gearboxes for quarter-turn valve actuation and drive systems. Filter by sub-series and model, then request a quote from Valvenok.";
 const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
 
 export const metadata: Metadata = {

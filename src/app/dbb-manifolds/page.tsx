@@ -392,6 +392,7 @@ export default function InstrumentationIndexPage() {
         <Box sx={{ textAlign: "center", py: 6 }}>
           <Typography
             variant="h1"
+            component="h2"
             sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mb: 2 }}
           >
             Specify your instrumentation valve

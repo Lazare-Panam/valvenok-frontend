@@ -3,19 +3,19 @@
 import { Suspense } from 'react';
 
 export const metadata = {
-  title: { absolute: 'Quality & Standards | Valvenok Limited' },
-  description: 'Valvenok is a JOSCAR-registered valve supplier. Products are available to standards including PED, ATEX and NACE MR0175 — certification varies by model. Material traceability available for applicable lines.',
+  title: { absolute: "Quality & Standards — JOSCAR Registered Supplier | Valvenok" },
+  description: "Valvenok is a JOSCAR-registered valve supplier. Products are available to PED, ATEX and NACE MR0175; certification and traceability vary by product.",
   openGraph: {
-    title: 'Quality & Standards | Valvenok Limited',
-    description: 'JOSCAR-registered valve supplier. Certification and traceability documentation vary by model — ask us for what your project needs.',
+    title: "Quality & Standards — JOSCAR Registered Supplier | Valvenok",
+    description: "Valvenok is a JOSCAR-registered valve supplier. Products are available to PED, ATEX and NACE MR0175; certification and traceability vary by product.",
     url: 'https://www.valvenok.com/quality',
     siteName: 'Valvenok',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Quality & Standards | Valvenok Limited',
-    description: 'JOSCAR-registered valve supplier. Certification varies by model.',
+    title: "Quality & Standards — JOSCAR Registered Supplier | Valvenok",
+    description: "Valvenok is a JOSCAR-registered valve supplier. Products are available to PED, ATEX and NACE MR0175; certification and traceability vary by product.",
   },
   alternates: {
     canonical: 'https://www.valvenok.com/quality',

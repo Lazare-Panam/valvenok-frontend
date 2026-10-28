@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const TITLE = "High Pressure Fittings | Valvenok";
+const TITLE = "Hiflux High Pressure Fittings to 150,000 psi | Valvenok";
 const DESCRIPTION =
   "Hiflux high pressure fittings, accessories and manifold blocks rated up to 150,000 psi for industrial, hydrogen and wellhead service.";
 const IMAGE =

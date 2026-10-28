@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
-const TITLE = "Tees & Cross Fittings | Valvenok";
+const TITLE = "Pipe Tees & Cross Fittings — SS316 Instrumentation | Valvenok";
 const DESCRIPTION =
-  "Tee and cross pipe fittings in SS316, multiple connection types for industrial piping systems.";
+  "316 stainless steel instrumentation pipe tees and crosses in NPT, ISO and SAE/MS threads for branching process and instrument lines. Filter by size.";
 const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
 
 export const metadata: Metadata = {

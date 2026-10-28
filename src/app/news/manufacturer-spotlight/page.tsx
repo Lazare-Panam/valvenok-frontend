@@ -253,6 +253,7 @@ export default function ManufacturerSpotlightPage() {
 
             <Typography
               variant="h1"
+            component="h2"
               sx={{
                 fontFamily: '"Barlow Condensed"',
                 fontWeight: 800,
@@ -363,6 +364,7 @@ export default function ManufacturerSpotlightPage() {
 
             <Typography
               variant="h1"
+            component="h2"
               sx={{
                 fontFamily: '"Barlow Condensed"',
                 fontWeight: 800,

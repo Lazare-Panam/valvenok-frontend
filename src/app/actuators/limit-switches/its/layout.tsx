@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/actuators/limit-switches/its" },
-  title: "ITS Series Limit Switch Boxes",
+  title: { absolute: "ITS Series Limit Switch Boxes — Position Monitoring | Valvenok" },
   description:
-    "Susin ITS series precision position monitoring switches for rotary actuators. ATEX Ex d IIC T6, IECEx & CE certified, IP67/IP68, aluminium or stainless steel housing.",
+    "Susin ITS series position monitoring switches for rotary actuators. ATEX Ex d IIC T6, IECEx and CE certified, IP67/IP68, aluminium or stainless housing.",
   openGraph: {
-    title: "ITS Series Limit Switch Boxes | Valvenok",
+    title: "ITS Series Limit Switch Boxes — Position Monitoring | Valvenok",
     description:
-      "Susin ITS series precision position monitoring switches for rotary actuators. ATEX Ex d IIC T6, IECEx & CE certified, IP67/IP68 protection.",
+      "Susin ITS series position monitoring switches for rotary actuators. ATEX Ex d IIC T6, IECEx and CE certified, IP67/IP68, aluminium or stainless housing.",
     type: "website",
   },
 };

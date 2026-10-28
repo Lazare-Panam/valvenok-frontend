@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/hydrogen-cryogenic/valves/products" },
-  title: "High Pressure Valves",
+  title: { absolute: "Hiflux High Pressure Valve Models — Compare Range | Valvenok" },
   description:
-    "Hiflux high pressure valves rated up to 150,000 psi — check, needle, ball, air operated, safety and special valves for industrial, hydrogen and wellhead applications.",
+    "Compare Hiflux high pressure check, needle, ball, air-operated, safety and special valve models rated up to 150,000 psi, then request a quote.",
   openGraph: {
-    title: "High Pressure Valves | Valvenok",
+    title: "Hiflux High Pressure Valve Models — Compare Range | Valvenok",
     description:
-      "Hiflux high pressure valves rated up to 150,000 psi — check, needle, ball, air operated, safety and special valves. Certification varies by model.",
+      "Compare Hiflux high pressure check, needle, ball, air-operated, safety and special valve models rated up to 150,000 psi, then request a quote.",
     type: "website",
   },
 };

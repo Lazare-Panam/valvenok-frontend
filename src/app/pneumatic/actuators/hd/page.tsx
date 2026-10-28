@@ -109,7 +109,7 @@ export default function HDPage() {
               </Typography>
 
               <Typography variant="h1" sx={{ fontWeight: 800, mt: 1, mb: 1, lineHeight: 1.2 }}>
-                HD Series
+                HD Series Scotch Yoke Actuators
               </Typography>
               <Typography variant="h6" sx={{ color: "text.secondary", fontWeight: 400, mb: 3 }}>
                 Heavy-Duty Scotch Yoke Pneumatic Rotary Actuator

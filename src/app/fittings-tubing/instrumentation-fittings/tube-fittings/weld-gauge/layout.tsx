@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/fittings-tubing/instrumentation-fittings/tube-fittings/weld-gauge" },
-  title: "Tube Fittings — Weld & Gauge Connectors",
+  title: { absolute: "Tube Weld & Gauge Connectors — SS316 Fittings | Valvenok" },
   description:
-    "Stainless steel weld and gauge connector fittings including male pipe weld connectors, male pipe weld elbows, tube socket weld connectors, tube socket weld elbows and gauge connectors.",
+    "Stainless steel male pipe weld connectors and elbows, tube socket weld connectors and elbows, and gauge connectors for instrumentation tubing.",
   openGraph: {
-    title: "Tube Fittings — Weld & Gauge Connectors | Valvenok",
+    title: "Tube Weld & Gauge Connectors — SS316 Fittings | Valvenok",
     description:
-      "Stainless steel weld and gauge connector fittings for pipe butt weld, socket weld, and gauge connections.",
+      "Stainless steel male pipe weld connectors and elbows, tube socket weld connectors and elbows, and gauge connectors for instrumentation tubing.",
     type: "website",
   },
 };

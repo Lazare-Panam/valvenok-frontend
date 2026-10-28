@@ -10,12 +10,12 @@ const WALRUS_LOGO =
 
 export const metadata: Metadata = {
   alternates: { canonical: "/brands/walrus-pumps" },
-  title: "WALRUS Pumps",
+  title: { absolute: "WALRUS Pumps — Booster, Centrifugal & Submersible | Valvenok" },
   description:
-    "Valvenok supplies WALRUS pumps — electronic control, automatic booster, multistage centrifugal, direct water, submersible, hot water, automatic flow-controlled and immersible series for water supply, drainage and industrial pumping.",
+    "WALRUS booster, multistage centrifugal, submersible, hot water and electronic control pumps for water supply, drainage and industrial pumping.",
   openGraph: {
-    title: "WALRUS Pumps | Valvenok",
-    description: "Valvenok supplies WALRUS pumps — electronic control, automatic booster, multistage centrifugal, direct water, submersible, hot water, automatic flow-controlled and immersible series for water supply, drainage and industrial pumping.",
+    title: "WALRUS Pumps — Booster, Centrifugal & Submersible | Valvenok",
+    description: "WALRUS booster, multistage centrifugal, submersible, hot water and electronic control pumps for water supply, drainage and industrial pumping.",
     url: "/brands/walrus-pumps",
     siteName: "Valvenok",
     type: "website",
@@ -25,10 +25,10 @@ export const metadata: Metadata = {
 const WALRUS_PUMP_FAMILIES: Category[] = [
   {
     code: "WQB",
-    title: "Electronic Control Pump",
+    title: "WALRUS Pumps — Booster, Centrifugal & Submersible | Valvenok",
     subtitle: "WQ_B / HQ_B / TQ_B Series",
     description:
-      "WALRUS all-in-one electronic control pumps — pump, motor, pressure tank and electronic controller in a single compact unit. Constant pressure control starts the pump automatically on demand, with dry-run and anti-cycling protection.",
+      "WALRUS booster, multistage centrifugal, submersible, hot water and electronic control pumps for water supply, drainage and industrial pumping.",
     specs: [
       "0.18 – 3.7 kW",
       "Up to 52M Head",
@@ -44,10 +44,10 @@ const WALRUS_PUMP_FAMILIES: Category[] = [
   },
   {
     code: "TP8B",
-    title: "Automatic Booster Pump",
+    title: "WALRUS Pumps — Booster, Centrifugal & Submersible | Valvenok",
     subtitle: "TP8 / GQB / GQCN_B Series",
     description:
-      "WALRUS peripheral booster pumps for domestic, light industrial and manufacturing applications. Six series across 50Hz and 60Hz operation.",
+      "WALRUS booster, multistage centrifugal, submersible, hot water and electronic control pumps for water supply, drainage and industrial pumping.",
     specs: ["0.18 – 0.98 kW", "50Hz / 60Hz", "Up to 62M Head", "Up to 85 L/min"],
     applications:
       "Construction, Agriculture, Entertainment & Leisure, Accommodation & Food Service, Wholesale & Retail, Manufacturing",
@@ -58,10 +58,10 @@ const WALRUS_PUMP_FAMILIES: Category[] = [
   },
   {
     code: "HSTS",
-    title: "Multistage Centrifugal Pump",
+    title: "WALRUS Pumps — Booster, Centrifugal & Submersible | Valvenok",
     subtitle: "HS / TS Series",
     description:
-      "WALRUS multistage centrifugal pumps for pressure boosting from city mains or private water systems. Close-coupled, corrosion resistant construction with steady, quiet, vibration-free operation.",
+      "WALRUS booster, multistage centrifugal, submersible, hot water and electronic control pumps for water supply, drainage and industrial pumping.",
     specs: ["0.18 – 3.7 kW", "50Hz / 60Hz", "Up to 50M Head", "Up to 270 L/min"],
     applications:
       "Construction, Electricity & New Energy, Wholesale & Retail, Manufacturing, Accommodation & Food Service, Service, Agriculture & Fishing, Entertainment & Leisure, Water Supply & Pollution Control",
@@ -72,10 +72,10 @@ const WALRUS_PUMP_FAMILIES: Category[] = [
   },
   {
     code: "TP3B",
-    title: "Direct Water Pump",
+    title: "WALRUS Pumps — Booster, Centrifugal & Submersible | Valvenok",
     subtitle: "TP3_PTB Series",
     description:
-      "WALRUS direct water pumps with a brass-made impeller for high temperature and friction resistance, and a plastic pump body for safe, hygienic water quality. Compact, low-noise construction for domestic and light industrial use.",
+      "WALRUS booster, multistage centrifugal, submersible, hot water and electronic control pumps for water supply, drainage and industrial pumping.",
     specs: ["0.18 – 0.37 kW", "50Hz / 60Hz", "Up to 40M Head", "Up to 42 L/min"],
     applications:
       "Construction, Electricity & New Energy, Wholesale & Retail, Manufacturing, Accommodation & Food Service, Service, Agriculture & Fishing, Entertainment & Leisure, Water Supply & Pollution Control",
@@ -86,10 +86,10 @@ const WALRUS_PUMP_FAMILIES: Category[] = [
   },
   {
     code: "PWA",
-    title: "Submersible Pump",
+    title: "WALRUS Pumps — Booster, Centrifugal & Submersible | Valvenok",
     subtitle: "PW_A / PW_E Series",
     description:
-      "WALRUS submersible pumps for clean water in a corrosion-resistant, compact design. IP68 rated with thermal overload protection, suitable for drainage, fish breeding and confined-space pumping.",
+      "WALRUS booster, multistage centrifugal, submersible, hot water and electronic control pumps for water supply, drainage and industrial pumping.",
     specs: ["100 – 800 W", "50Hz / 60Hz", "Up to 14M Head", "Up to 440 L/min"],
     applications:
       "Construction, Electricity & New Energy, Wholesale & Retail, Agriculture & Fishing, Entertainment & Leisure, Water Supply & Pollution Control, Manufacturing, Accommodation & Food Service, Service",
@@ -100,10 +100,10 @@ const WALRUS_PUMP_FAMILIES: Category[] = [
   },
   {
     code: "TQCN",
-    title: "Hot Water Pump",
+    title: "WALRUS Pumps — Booster, Centrifugal & Submersible | Valvenok",
     subtitle: "TQCN / HQCN Series",
     description:
-      "WALRUS all-in-one electronic control pumps rated for hot water up to +90°C. Pump, motor, pressure tank and controller in a single unit, with automatic relief valve and anti-cycling protection.",
+      "WALRUS booster, multistage centrifugal, submersible, hot water and electronic control pumps for water supply, drainage and industrial pumping.",
     specs: ["0.18 – 3.7 kW", "50Hz / 60Hz", "Up to 50M Head", "Up to 270 L/min"],
     applications:
       "Construction, Electricity & New Energy, Wholesale & Retail, Manufacturing, Accommodation & Food Service, Service, Agriculture & Fishing, Entertainment & Leisure, Water Supply & Pollution Control",
@@ -114,10 +114,10 @@ const WALRUS_PUMP_FAMILIES: Category[] = [
   },
   {
     code: "HQC",
-    title: "Automatic Flow-Controlled Pump",
+    title: "WALRUS Pumps — Booster, Centrifugal & Submersible | Valvenok",
     subtitle: "HQC / TQC Series",
     description:
-      "WALRUS automatic flow-controlled pumps designed to install below a water tower for downward pressurization. The pump automatically starts and increases pressure when water is used, and shuts off automatically when demand stops.",
+      "WALRUS booster, multistage centrifugal, submersible, hot water and electronic control pumps for water supply, drainage and industrial pumping.",
     specs: [
       "0.18 – 0.75 kW",
       "50Hz / 60Hz",
@@ -133,10 +133,10 @@ const WALRUS_PUMP_FAMILIES: Category[] = [
   },
   {
     code: "TPRKE",
-    title: "Immersible Pump",
+    title: "WALRUS Pumps — Booster, Centrifugal & Submersible | Valvenok",
     subtitle: "TPRK_E / TPHK / TPK Series",
     description:
-      "WALRUS vertical multistage centrifugal immersible pumps for industrial use, especially machine tools. Self-priming, stainless steel construction across three series for water, coolant, light oil and other clean, non-aggressive fluids.",
+      "WALRUS booster, multistage centrifugal, submersible, hot water and electronic control pumps for water supply, drainage and industrial pumping.",
     specs: [
       "0.22 – 18.5 kW",
       "50Hz / 60Hz",

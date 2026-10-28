@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
-const TITLE = "LPG Valve Models | Valvenok";
+const TITLE = "Youngdo LPG Cylinder Valve Models — Compare Range | Valvenok";
 const DESCRIPTION =
-  "20 Youngdo LPG cylinder, OPD and piping valves. Certification (KGS, KS, CGA V-1, UL) varies by model.";
+  "Compare 20 Youngdo LPG cylinder valves, OPD devices and piping valves, then request a quote. Certification (KGS, KS, CGA V-1, UL) varies by model.";
 const IMAGE =
   "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/top_logo.png";
 

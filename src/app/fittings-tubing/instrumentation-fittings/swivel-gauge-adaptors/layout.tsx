@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/fittings-tubing/instrumentation-fittings/swivel-gauge-adaptors" },
-  title: "Swivel Gauge Adaptors",
+  title: { absolute: "Swivel Gauge Adaptors (PSGA) — SS316 Fittings | Valvenok" },
   description:
-    "Browse swivel gauge adaptors — filter by type, inlet, and outlet to find the exact configuration you need.",
+    "PSGA swivel gauge adaptors for mounting pressure gauges without twisting the line. Filter by type, inlet and outlet thread, then request a quote.",
   openGraph: {
-    title: "Swivel Gauge Adaptors | Valvenok",
+    title: "Swivel Gauge Adaptors (PSGA) — SS316 Fittings | Valvenok",
     description:
-      "Browse swivel gauge adaptors — filter by type, inlet, and outlet.",
+      "PSGA swivel gauge adaptors for mounting pressure gauges without twisting the line. Filter by type, inlet and outlet thread, then request a quote.",
     type: "website",
   },
 };

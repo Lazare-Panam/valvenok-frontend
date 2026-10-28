@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
-const TITLE = "LPG Cylinder Valves | Valvenok";
+const TITLE = "Youngdo LPG Cylinder Valves & OPD Safety Devices | Valvenok";
 const DESCRIPTION =
-  "20 Youngdo LPG cylinder valves, OPD devices and piping valves. Certification (KGS, KS, CGA V-1, UL) varies by model.";
+  "20 Youngdo LPG cylinder valves, OPD safety devices and piping valves. Certification (KGS, KS, CGA V-1, UL) varies by model. Request a quote from Valvenok.";
 const IMAGE =
   "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/YLC-2821.png";
 

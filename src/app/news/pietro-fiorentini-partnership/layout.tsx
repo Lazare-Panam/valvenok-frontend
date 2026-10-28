@@ -2,8 +2,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/news/pietro-fiorentini-partnership" },
-  title: "Valvenok Announces Partnership with Pietro Fiorentini | Flow Control Solutions",
-  description: "Valvenok is now an Authorized Representative of Pietro Fiorentini — bringing world-class Italian engineering in flow control, pressure management, and valve technologies to customers across the UK and beyond.",
+  title: { absolute: "Pietro Fiorentini Partnership — Flow Control Products | Valvenok" },
+  description: "Valvenok is now an Authorised Representative of Pietro Fiorentini, bringing Italian flow control and pressure management products to UK customers.",
   keywords: [
     "Pietro Fiorentini",
     "Pressure Regulators UK",
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
     "Energy Sector Valves"
   ],
   openGraph: {
-    title: "Italian Innovation. Delivered Through Valvenok. | Pietro Fiorentini Partnership",
-    description: "Valvenok is proud to be an Authorized Representative of Pietro Fiorentini — bringing world-class Italian engineering closer to our customers.",
+    title: "Pietro Fiorentini Partnership — Flow Control Products | Valvenok",
+    description: "Valvenok is now an Authorised Representative of Pietro Fiorentini, bringing Italian flow control and pressure management products to UK customers.",
     url: "https://www.valvenok.com/news/pietro-fiorentini-partnership",
     siteName: "Valvenok",
     images: [

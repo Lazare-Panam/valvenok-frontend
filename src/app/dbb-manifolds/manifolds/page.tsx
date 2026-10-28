@@ -589,6 +589,7 @@ export default function ManifoldsIndexPage() {
         <Box sx={{ mb: 10 }}>
           <Typography
             variant="h1"
+            component="h2"
             sx={{ fontSize: { xs: 24, md: 30 }, fontWeight: 700, mb: 2 }}
           >
             Valve Manifold Applications
@@ -646,6 +647,7 @@ export default function ManifoldsIndexPage() {
         <Box sx={{ textAlign: "center", py: 6 }}>
           <Typography
             variant="h1"
+            component="h2"
             sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mb: 2 }}
           >
             Specify your valve manifold

@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/instrumentation/gas-pressure-regulator/products" },
-  title: "Gas Pressure Regulator Models",
+  title: { absolute: "Pietro Fiorentini Gas Regulator Models — Compare 4 | Valvenok" },
   description:
-    "Pietro Fiorentini direct-operated gas pressure regulators for gas transmission and distribution. Compare 4 models; Dival 160 AP, Staflux 187 and ATF 15 are Hydrogen Ready.",
+    "Compare 4 Pietro Fiorentini gas pressure regulators. Dival 160 AP, Staflux 187 and ATF 15 are hydrogen ready. Request a quote from Valvenok.",
   openGraph: {
-    title: "Gas Pressure Regulator Models | Valvenok",
+    title: "Pietro Fiorentini Gas Regulator Models — Compare 4 | Valvenok",
     description:
-      "Pietro Fiorentini direct-operated gas pressure regulators for high-pressure transmission and medium pressure natural gas distribution networks. Compare 4 models by size, pressure and hydrogen readiness.",
+      "Compare 4 Pietro Fiorentini gas pressure regulators. Dival 160 AP, Staflux 187 and ATF 15 are hydrogen ready. Request a quote from Valvenok.",
     type: "website",
   },
 };

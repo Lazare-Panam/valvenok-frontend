@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/fittings-tubing/instrumentation-fittings/pipe-fittings/nipples-couplings" },
-  title: "Pipe Fittings — Nipples & Couplings",
+  title: { absolute: "Pipe Nipples & Couplings — SS316 Instrumentation | Valvenok" },
   description:
-    "Browse hex nipples, hex long nipples, hex reducing nipples, couplings, long pattern nipples, hex couplings and reducing hex couplings.",
+    "316 stainless steel hex nipples, long nipples, reducing nipples, couplings and hex couplings for instrumentation piping. Filter by size and thread.",
   openGraph: {
-    title: "Pipe Fittings — Nipples & Couplings | Valvenok",
+    title: "Pipe Nipples & Couplings — SS316 Instrumentation | Valvenok",
     description:
-      "Browse hex nipples, hex long nipples, hex reducing nipples, couplings, and reducing hex couplings.",
+      "316 stainless steel hex nipples, long nipples, reducing nipples, couplings and hex couplings for instrumentation piping. Filter by size and thread.",
     type: "website",
   },
 };

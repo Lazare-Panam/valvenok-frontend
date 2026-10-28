@@ -45,20 +45,37 @@ function buildProductContent(product: ProductQuickOrder): ProductContent {
   // The SKU is reserved space up front so truncation can never cut it off —
   // only the descriptive part (PANAM/category/size/material) gets shortened.
   const skuPart = `(${product.sku})`;
-  const descriptivePart = ["PANAM", category, size, material]
+  const availableForDescriptive = Math.max(MAX_TITLE - skuPart.length - 1, 0);
+  // Include the thread type when it fits; otherwise fall back to the shorter
+  // form rather than cutting the thread name off half-way.
+  const withConnection = ["PANAM", category, size, material, connection]
     .filter(Boolean)
     .join(" ");
-  const availableForDescriptive = Math.max(MAX_TITLE - skuPart.length - 1, 0);
-  const metaTitle =
+  const descriptivePart =
+    withConnection.length <= availableForDescriptive
+      ? withConnection
+      : ["PANAM", category, size, material].filter(Boolean).join(" ");
+  const baseTitle =
     `${truncate(descriptivePart, availableForDescriptive)} ${skuPart}`.trim();
+  // Very short titles (e.g. ferrules with no thread type) read as thin in
+  // search results, so pad them with the call to action when it fits.
+  const buySuffix = [" – Buy Online", " – Buy Now"].find(
+    (sfx) => baseTitle.length + sfx.length <= MAX_TITLE,
+  );
+  const metaTitle =
+    baseTitle.length < 46 && buySuffix ? `${baseTitle}${buySuffix}` : baseTitle;
 
   const specBits = [size && `${size} size`, connection]
     .filter(Boolean)
     .join(", ");
-  const descRaw = `PANAM ${category} (${product.sku})${
+  const descLead = `PANAM ${category} (${product.sku})${
     specBits ? `, ${specBits}` : ""
-  }, ${material}. Leak-tight, high-pressure rated. Available from Valvenok.`;
-  const metaDescription = truncate(descRaw, MAX_DESC);
+  }, ${material}. Leak-tight, high-pressure rated.`;
+  const descLong = `${descLead} Order online from Valvenok, UK supplier of PANAM fittings.`;
+  const metaDescription =
+    descLong.length <= MAX_DESC
+      ? descLong
+      : truncate(`${descLead} Available from Valvenok.`, MAX_DESC);
 
   const longDescription = `The Valvenok ${product.sku} ${product.name} is a high-performance ${category.toLowerCase()} engineered for secure, leak-tight connections in pneumatic and industrial fluid systems.`;
 

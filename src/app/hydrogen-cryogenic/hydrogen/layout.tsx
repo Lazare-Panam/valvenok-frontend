@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/hydrogen-cryogenic/hydrogen" },
-  title: "Hydrogen Cylinder Valves",
+  title: { absolute: "Youngdo Hydrogen Cylinder Valves, 45 & 70 MPa Series | Valvenok" },
   description:
-    "Youngdo high-pressure hydrogen cylinder valves — HC, HE, HK, HS, HSL and EP series to 70 MPa, YHT series at 45 MPa, DRV-350 quick-connect and YEX-1100 explosion-proof. Certification varies by model.",
+    "Youngdo hydrogen cylinder valves: HC, HE, HK, HS, HSL and EP series to 70 MPa, YHT series at 45 MPa, plus quick-connect and explosion-proof models.",
   openGraph: {
-    title: "Hydrogen Cylinder Valves | Valvenok",
+    title: "Youngdo Hydrogen Cylinder Valves, 45 & 70 MPa Series | Valvenok",
     description:
-      "Youngdo high-pressure hydrogen cylinder valves rated 3–70 MPa. Certification (KGS, EC79, R134, IECEx and others) varies by model.",
+      "Youngdo hydrogen cylinder valves: HC, HE, HK, HS, HSL and EP series to 70 MPa, YHT series at 45 MPa, plus quick-connect and explosion-proof models.",
     type: "website",
   },
   twitter: {

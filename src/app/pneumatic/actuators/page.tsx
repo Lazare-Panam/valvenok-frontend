@@ -9,10 +9,10 @@ export const metadata: Metadata = {
   alternates: { canonical: '/pneumatic/actuators' },
   title: "Pneumatic Actuators | Spring Return & Scotch Yoke",
   description:
-    "Valvenok supplies a full range of pneumatic rotary actuators for quarter-turn valve automation. SRA spring return rack-and-pinion and AD scotch yoke heavy-duty series — ISO 5211 mounting, double acting and fail-safe configurations.",
+    "Pneumatic rotary actuators for quarter-turn valve automation: spring return rack-and-pinion and scotch yoke series, double acting or fail-safe, ISO 5211.",
   openGraph: {
     title: "Pneumatic Actuators | Spring Return & Scotch Yoke | Valvenok",
-    description: "Valvenok supplies a full range of pneumatic rotary actuators for quarter-turn valve automation. SRA spring return rack-and-pinion and AD scotch yoke heavy-duty series — ISO 5211 mounting, double acting and fail-safe configurations.",
+    description: "Pneumatic rotary actuators for quarter-turn valve automation: spring return rack-and-pinion and scotch yoke series, double acting or fail-safe, ISO 5211.",
     url: "/pneumatic/actuators",
     siteName: "Valvenok",
     type: "website",
@@ -26,7 +26,7 @@ const ACTUATOR_FAMILIES: Category[] = [
     title: "Scotch Yoke",
     subtitle: "Scotch Yoke Heavy-Duty Actuator",
     description:
-      "Scotch yoke pneumatic actuators engineered for high-torque quarter-turn valve automation. Symmetric and canted yoke designs deliver superior breakaway torque for heavy-duty oil & gas, pipeline and offshore applications.",
+      "Pneumatic rotary actuators for quarter-turn valve automation: spring return rack-and-pinion and scotch yoke series, double acting or fail-safe, ISO 5211.",
     specs: ["Scotch Yoke", "High Torque", "Double Acting & Spring Return", "90° Rotation"],
     applications: "Oil & Gas, Pipeline, Offshore, Heavy Industry",
     href: "/pneumatic/actuators/scotch-yoke",

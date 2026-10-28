@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/pumps-seals/pumps/electronic-control-pump/variants" },
-  title: "Electronic Control Pumps",
+  title: { absolute: "Electronic Control Pumps — TQ_B & HQ_B Models | Valvenok" },
   description:
-    "TQ_B and HQ_B series, each available with or without anti-microbial construction, across 50Hz and 60Hz operation.",
+    "TQ_B and HQ_B series electronic control pumps, each available with or without anti-microbial construction, for 50Hz and 60Hz operation. Request a quote.",
   openGraph: {
-    title: "Electronic Control Pumps | Valvenok",
+    title: "Electronic Control Pumps — TQ_B & HQ_B Models | Valvenok",
     description:
-      "TQ_B and HQ_B series, each available with or without anti-microbial construction, across 50Hz and 60Hz operation.",
+      "TQ_B and HQ_B series electronic control pumps, each available with or without anti-microbial construction, for 50Hz and 60Hz operation. Request a quote.",
     type: "website",
   },
 };

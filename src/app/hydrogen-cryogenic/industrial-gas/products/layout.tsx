@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
-const TITLE = "Industrial Gas Valves Variants | Valvenok";
+const TITLE = "Youngdo Industrial Gas Cylinder Valve Models | Valvenok";
 const DESCRIPTION =
-  "Youngdo industrial gas cylinder valves across 7 categories. Certification and standards vary by model.";
+  "Compare Youngdo industrial gas cylinder valve models across 7 categories and request a quote from Valvenok. Certification and standards vary by model.";
 const IMAGE =
   "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/top_logo.png";
 

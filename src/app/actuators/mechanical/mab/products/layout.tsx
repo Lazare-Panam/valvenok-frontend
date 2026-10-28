@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/actuators/mechanical/mab/products" },
-  title: "MAB Gearboxes",
+  title: { absolute: "MAB Series Bevel Gearboxes — Models & Sizes | Valvenok" },
   description:
-    "Browse MAB gearbox models — filter by sub-series and model to find the exact configuration you need.",
+    "Browse MAB series bevel gearboxes for multi-turn valve operation. Filter by sub-series and model to find the configuration you need, then request a quote.",
   openGraph: {
-    title: "MAB Gearboxes | Valvenok",
-    description: "Browse MAB gearbox models — filter by sub-series and model.",
+    title: "MAB Series Bevel Gearboxes — Models & Sizes | Valvenok",
+    description: "Browse MAB series bevel gearboxes for multi-turn valve operation. Filter by sub-series and model to find the configuration you need, then request a quote.",
     type: "website",
   },
 };

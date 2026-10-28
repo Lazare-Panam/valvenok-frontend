@@ -6,12 +6,12 @@ import ElectricActuatorsGrid from "./components/ElectricActuatorsGrid";
 
 export const metadata: Metadata = {
   alternates: { canonical: '/actuators/electric' },
-  title: "Electric Actuators | Rotary & Linear",
+  title: { absolute: "Electric Valve Actuators — Rotary, Linear & Multi-Turn | Valvenok" },
   description:
-    "Valvenok supplies a full range of electric rotary and linear actuators for precise valve automation. ITQ series quarter-turn electric actuators — ISO 5211 mounting, on-off and modulating service, IP67 protection.",
+    "Electric rotary, linear and multi-turn valve actuators for on-off and modulating service, with ISO 5211 mounting and IP67 protection. Request a quote.",
   openGraph: {
-    title: "Electric Actuators | Rotary & Linear | Valvenok",
-    description: "Valvenok supplies a full range of electric rotary and linear actuators for precise valve automation. ITQ series quarter-turn electric actuators — ISO 5211 mounting, on-off and modulating service, IP67 protection.",
+    title: "Electric Valve Actuators — Rotary, Linear & Multi-Turn | Valvenok",
+    description: "Electric rotary, linear and multi-turn valve actuators for on-off and modulating service, with ISO 5211 mounting and IP67 protection. Request a quote.",
     url: "/actuators/electric",
     siteName: "Valvenok",
     type: "website",
@@ -21,10 +21,10 @@ export const metadata: Metadata = {
 const ELECTRIC_FAMILIES: Category[] = [
   {
     code: "KP",
-    title: "KE Series",
+    title: "Electric Valve Actuators — Rotary, Linear & Multi-Turn | Valvenok",
     subtitle: "Compact Electric Quarter-Turn Actuator",
     description:
-      "Kosaplus compact electric quarter-turn actuators engineered for precise on-off and modulating valve automation. Robust construction with integrated control electronics for direct valve mounting across process plant and industrial service.",
+      "Electric rotary, linear and multi-turn valve actuators for on-off and modulating service, with ISO 5211 mounting and IP67 protection. Request a quote.",
     specs: [
       "Quarter-Turn",
       "On-Off & Modulating",
@@ -42,10 +42,10 @@ const ELECTRIC_FAMILIES: Category[] = [
   },
   {
     code: "ITQ",
-    title: "ITQ SERIES (Rotary)",
+    title: "Electric Valve Actuators — Rotary, Linear & Multi-Turn | Valvenok",
     subtitle: "Rotary Electric Actuator",
     description:
-      "High-performance rotary electric actuators with torque from 100–9,000 Nm. Hard-anodized aluminum housing with IP67/NEMA 4X protection, double worm self-locking gear, auto-declutching handwheel and mechanical torque sensing for safe, reliable valve automation.",
+      "Electric rotary, linear and multi-turn valve actuators for on-off and modulating service, with ISO 5211 mounting and IP67 protection. Request a quote.",
     specs: [
       "100 – 9,000 Nm",
       "IP67 / NEMA 4X & 6",
@@ -64,10 +64,10 @@ const ELECTRIC_FAMILIES: Category[] = [
   },
   {
     code: "IQL",
-    title: "IQL SERIES (Linear)",
+    title: "Electric Valve Actuators — Rotary, Linear & Multi-Turn | Valvenok",
     subtitle: "Linear Electric Actuator",
     description:
-      "Robust linear electric actuators engineered for precise modulating control of globe, gate valves and dampers. High thrust capacity from 4–25 kN, IP67 protection, battery backup fail-safe, and full modulating control via 4–20mA / 0–10V for demanding industrial automation.",
+      "Electric rotary, linear and multi-turn valve actuators for on-off and modulating service, with ISO 5211 mounting and IP67 protection. Request a quote.",
     specs: [
       "4 – 25 kN Thrust",
       "40 – 100 mm Stroke",
@@ -86,10 +86,10 @@ const ELECTRIC_FAMILIES: Category[] = [
   },
   {
     code: "ITL",
-    title: "ITL Series (Linear)",
+    title: "Electric Valve Actuators — Rotary, Linear & Multi-Turn | Valvenok",
     subtitle: "Compact Linear Electric Actuator — 100% Duty Cycle",
     description:
-      "Compact and powerful linear electric actuators with 100% duty cycle motor engineered for high-frequency modulating control. 1–10 kN thrust, IP66/67 protection, universal power supply and full 4–20mA / 0–10V control signal compatibility for demanding process automation.",
+      "Electric rotary, linear and multi-turn valve actuators for on-off and modulating service, with ISO 5211 mounting and IP67 protection. Request a quote.",
     specs: [
       "1 – 10 kN Thrust",
       "15 – 50 mm Stroke",
@@ -108,10 +108,10 @@ const ELECTRIC_FAMILIES: Category[] = [
   },
   {
     code: "ITM",
-    title: "ITM Series  (Multiturn)",
+    title: "Electric Valve Actuators — Rotary, Linear & Multi-Turn | Valvenok",
     subtitle: "Heavy-Duty Multi-Turn Electric Actuator",
     description:
-      "Heavy-duty multi-turn electric actuators engineered for gate, globe and sluice valves requiring multi-revolution operation. Exceptional torque capability, IP68 waterproof protection, Hall incremental encoder feedback and smart local control for demanding Oil & Gas, Water Treatment and Petrochemical applications.",
+      "Electric rotary, linear and multi-turn valve actuators for on-off and modulating service, with ISO 5211 mounting and IP67 protection. Request a quote.",
     specs: [
       "Multi-Turn",
       "IP68 Waterproof",
@@ -130,10 +130,10 @@ const ELECTRIC_FAMILIES: Category[] = [
   },
   {
     code: "DFE",
-    title: "Danfoss PVE Series",
+    title: "Electric Valve Actuators — Rotary, Linear & Multi-Turn | Valvenok",
     subtitle: "Electrohydraulic Actuators for Proportional Valves",
     description:
-      "Danfoss PVE series electrohydraulic actuators for precise proportional control of PVG directional valves. PVEA, PVEH, PVEM, PVEO, PVES, PVG and PVHC series with active and passive fault monitoring, Isobus communication and 12V / 24V operation.",
+      "Electric rotary, linear and multi-turn valve actuators for on-off and modulating service, with ISO 5211 mounting and IP67 protection. Request a quote.",
     specs: [
       "PVEA / PVEH / PVEM / PVEO / PVES",
       "Active & Passive Fault Mon.",

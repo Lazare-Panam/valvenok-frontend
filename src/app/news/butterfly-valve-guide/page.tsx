@@ -260,6 +260,7 @@ export default function ButterflyValvePage() {
           {/* ── INTEGRATED SOLUTIONS ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,
@@ -316,6 +317,7 @@ export default function ButterflyValvePage() {
           {/* ── TRIPLE OFFSET ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,
@@ -399,6 +401,7 @@ export default function ButterflyValvePage() {
           {/* ── PNEUMATIC ACTUATOR ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,
@@ -436,6 +439,7 @@ export default function ButterflyValvePage() {
           {/* ── PROCESS ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,
@@ -497,6 +501,7 @@ export default function ButterflyValvePage() {
           {/* ── VALVE PORTFOLIO ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,
@@ -572,6 +577,7 @@ export default function ButterflyValvePage() {
           {/* ── FAQ ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,

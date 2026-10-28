@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/actuators/electric/ke-series/variants" },
-  title: "KE Series",
+  title: { absolute: "KE Series Electric Actuators — KE001 to KE120 Models | Valvenok" },
   description:
-    "KE001 through KE120, each available in standard or reduced-torque (#) variants, covering 4–1200 Nm.",
+    "KE series electric quarter-turn actuators, KE001 to KE120, in standard or reduced-torque variants covering 4–1200 Nm. Compare models and request a quote.",
   openGraph: {
-    title: "KE Series | Valvenok",
+    title: "KE Series Electric Actuators — KE001 to KE120 Models | Valvenok",
     description:
-      "KE001 through KE120, each available in standard or reduced-torque (#) variants, covering 4–1200 Nm.",
+      "KE series electric quarter-turn actuators, KE001 to KE120, in standard or reduced-torque variants covering 4–1200 Nm. Compare models and request a quote.",
     type: "website",
   },
 };

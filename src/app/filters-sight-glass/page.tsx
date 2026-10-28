@@ -399,6 +399,7 @@ export default function SightGlassFiltrationPage() {
         <Box sx={{ mb: 10 }}>
           <Typography
             variant="h1"
+            component="h2"
             sx={{ fontSize: { xs: 24, md: 30 }, fontWeight: 700, mb: 2 }}
           >
             Sight Glass & Filtration Applications
@@ -438,6 +439,7 @@ export default function SightGlassFiltrationPage() {
         >
           <Typography
             variant="h1"
+            component="h2"
             sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mb: 2 }}
           >
             Protect Your Process Lines Today

@@ -148,6 +148,7 @@ export default function MechanicalSealsPage() {
           {/* Understanding Mechanical Seals */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -208,6 +209,7 @@ export default function MechanicalSealsPage() {
           {/* Anatomy */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -283,6 +285,7 @@ export default function MechanicalSealsPage() {
           {/* How They Work */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -315,6 +318,7 @@ export default function MechanicalSealsPage() {
           {/* Seal Range */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -434,6 +438,7 @@ export default function MechanicalSealsPage() {
           {/* Selecting */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -530,6 +535,7 @@ export default function MechanicalSealsPage() {
           {/* Installation & Maintenance */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -620,6 +626,7 @@ export default function MechanicalSealsPage() {
           {/* Summary */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -647,6 +654,7 @@ export default function MechanicalSealsPage() {
           {/* FAQ */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,

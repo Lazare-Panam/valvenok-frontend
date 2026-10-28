@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/pneumatic/cylinders/esc" },
-  title: "ESC Series Cylinders",
+  title: { absolute: "ESC Series Tie Rod Pneumatic Cylinders, 32–250mm Bore | Valvenok" },
   description:
-    "SPAC Standard Tie Rod Profile double acting pneumatic cylinders. Available in standard and through rod configurations, magnetic and non-magnetic variants across bore sizes 32mm to 250mm.",
+    "SPAC ESC tie rod double-acting pneumatic cylinders in standard and through-rod versions, magnetic or non-magnetic, bore sizes 32mm to 250mm.",
   openGraph: {
-    title: "ESC Series Cylinders | Valvenok",
+    title: "ESC Series Tie Rod Pneumatic Cylinders, 32–250mm Bore | Valvenok",
     description:
-      "SPAC Standard Tie Rod Profile double acting pneumatic cylinders. Standard and through rod configurations, magnetic and non-magnetic variants.",
+      "SPAC ESC tie rod double-acting pneumatic cylinders in standard and through-rod versions, magnetic or non-magnetic, bore sizes 32mm to 250mm.",
     type: "website",
   },
 };

@@ -169,6 +169,7 @@ export default function PietroFiorentiniPage() {
           {/* ── ABOUT PIETRO FIORENTINI ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,
@@ -239,6 +240,7 @@ export default function PietroFiorentiniPage() {
           {/* ── EXPANDING ACCESS ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,
@@ -312,6 +314,7 @@ export default function PietroFiorentiniPage() {
           {/* ── PRODUCT SPOTLIGHT ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,
@@ -431,6 +434,7 @@ export default function PietroFiorentiniPage() {
           {/* ── DELIVERING VALUE ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,
@@ -515,6 +519,7 @@ export default function PietroFiorentiniPage() {
           {/* ── LOOKING AHEAD ── */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: DISPLAY_FONT,
               fontWeight: 800,

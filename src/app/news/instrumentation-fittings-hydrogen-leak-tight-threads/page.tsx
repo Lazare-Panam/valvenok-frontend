@@ -175,6 +175,7 @@ export default function InstrumentationFittingsPage() {
           {/* What instrumentation fittings are and why they fail */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -222,6 +223,7 @@ export default function InstrumentationFittingsPage() {
           {/* Compression tube fittings vs threaded adapters */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -259,6 +261,7 @@ export default function InstrumentationFittingsPage() {
           {/* Thread forms */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -304,6 +307,7 @@ export default function InstrumentationFittingsPage() {
           {/* How to identify threads */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -346,6 +350,7 @@ export default function InstrumentationFittingsPage() {
           {/* Sealant best practice */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -385,6 +390,7 @@ export default function InstrumentationFittingsPage() {
           {/* Galling */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -425,6 +431,7 @@ export default function InstrumentationFittingsPage() {
           {/* Torque vs turn-of-nut */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -470,6 +477,7 @@ export default function InstrumentationFittingsPage() {
           {/* Hydrogen-specific */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -514,6 +522,7 @@ export default function InstrumentationFittingsPage() {
           {/* Quick compatibility matrix */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -572,6 +581,7 @@ export default function InstrumentationFittingsPage() {
           {/* Do and do not */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -656,6 +666,7 @@ export default function InstrumentationFittingsPage() {
           {/* FAQ */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -709,6 +720,7 @@ export default function InstrumentationFittingsPage() {
           {/* Related components */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -743,6 +755,7 @@ export default function InstrumentationFittingsPage() {
           {/* Next steps */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,

@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 
-const TITLE = "Single Agitator Mechanical Seals Guide";
+const TITLE = "Single Agitator Mechanical Seals: Design Guide | Valvenok";
 const DESCRIPTION =
-  "How single agitator mechanical seals work, operating limits, and common failure modes.";
+  "How single agitator mechanical seals work: design, components, operating limits, materials, common failure modes, selection and maintenance tips.";
 const IMAGE =
   "https://pblol2.blob.core.windows.net/valvenok-images/blogs/blog4.jpg";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/news/seals-blog" },
-  title: TITLE,
+  title: { absolute: TITLE },
   description: DESCRIPTION,
   openGraph: {
     title: TITLE,

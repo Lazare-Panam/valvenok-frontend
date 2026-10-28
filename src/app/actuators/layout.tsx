@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/actuators" },
-  title: "Actuators",
+  title: { absolute: "Valve Actuators — Pneumatic, Electric & Hydraulic | Valvenok" },
   description:
-    "UK supplier of valve actuators across all technologies — pneumatic, electric, hydraulic and mechanical — for demanding industrial environments globally.",
+    "UK supplier of pneumatic, electric, hydraulic and mechanical valve actuators, with ISO 5211 mounting and ATEX and SIL certified options by model.",
   openGraph: {
-    title: "Actuators | Valvenok",
+    title: "Valve Actuators — Pneumatic, Electric & Hydraulic | Valvenok",
     description:
-      "Pneumatic, electric, hydraulic and mechanical actuators for demanding industrial environments — ISO 5211 mounting, ATEX and SIL certified.",
+      "UK supplier of pneumatic, electric, hydraulic and mechanical valve actuators, with ISO 5211 mounting and ATEX and SIL certified options by model.",
     type: "website",
   },
 };

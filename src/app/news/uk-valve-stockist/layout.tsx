@@ -2,9 +2,9 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/news/uk-valve-stockist" },
-  title: "Why Buy Valves From a UK Stockist",
+  title: { absolute: "Why Buy Valves From a UK Stockist — Buyer's Guide | Valvenok" },
   description:
-    "Buying valves and fittings from a UK-based stockist means no minimum order on standard catalogue items and a company you can verify. Valvenok has been based in Bicester, Oxfordshire since 2018 and is JOSCAR registered.",
+    "Buying valves from a UK stockist: no minimum order on standard catalogue items and a company you can verify. Valvenok is based in Bicester, Oxfordshire.",
   keywords: [
     "UK valve stockist",
     "valve stockist UK",
@@ -17,9 +17,9 @@ export const metadata: Metadata = {
     "Valvenok",
   ],
   openGraph: {
-    title: "Why Buy Valves From a UK Stockist | Valvenok",
+    title: "Why Buy Valves From a UK Stockist — Buyer's Guide | Valvenok",
     description:
-      "No minimum order on standard catalogue items, and a UK company you can verify — based in Bicester, Oxfordshire since 2018.",
+      "Buying valves from a UK stockist: no minimum order on standard catalogue items and a company you can verify. Valvenok is based in Bicester, Oxfordshire.",
     url: "https://www.valvenok.com/news/uk-valve-stockist",
     siteName: "Valvenok",
     images: [

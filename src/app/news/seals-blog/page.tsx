@@ -176,6 +176,7 @@ export default function MechanicalSealsPage() {
           {/* What it is */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -219,6 +220,7 @@ export default function MechanicalSealsPage() {
           {/* Design and components */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -261,6 +263,7 @@ export default function MechanicalSealsPage() {
           {/* Working principle */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -317,6 +320,7 @@ export default function MechanicalSealsPage() {
           {/* Operating envelope */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -357,6 +361,7 @@ export default function MechanicalSealsPage() {
           {/* Single vs Double comparison */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -439,6 +444,7 @@ export default function MechanicalSealsPage() {
           {/* Materials */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -477,6 +483,7 @@ export default function MechanicalSealsPage() {
           {/* Industrial applications */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -539,6 +546,7 @@ export default function MechanicalSealsPage() {
           {/* Advantages and limitations */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -623,6 +631,7 @@ export default function MechanicalSealsPage() {
           {/* Common failure modes */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -705,6 +714,7 @@ export default function MechanicalSealsPage() {
           {/* Selection guide */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -745,6 +755,7 @@ export default function MechanicalSealsPage() {
           {/* Maintenance best practices */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -781,6 +792,7 @@ export default function MechanicalSealsPage() {
           {/* FAQ */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -838,6 +850,7 @@ export default function MechanicalSealsPage() {
           {/* Related components */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -873,6 +886,7 @@ export default function MechanicalSealsPage() {
           {/* Next steps */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,

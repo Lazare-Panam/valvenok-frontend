@@ -10,12 +10,12 @@ const SUSIN_LOGO =
 
 export const metadata: Metadata = {
   alternates: { canonical: "/brands/susin" },
-  title: "Susin Valve Actuators",
+  title: { absolute: "Susin Electric & Pneumatic Valve Actuators — UK Supply | Valvenok" },
   description:
-    "Valvenok supplies the Susin actuator range — ITQ rotary, IQL/ITL linear and ITM multi-turn electric actuators, PDS/HD scotch yoke and PLDS/MPLDS linear pneumatic actuators, and ITS position monitoring switches. ISO 5211, ATEX, SIL3 and IP67/IP68 rated for process automation.",
+    "Susin ITQ rotary, IQL/ITL linear and ITM multi-turn electric actuators, scotch yoke and linear pneumatic actuators, and ITS limit switch boxes.",
   openGraph: {
-    title: "Susin Valve Actuators | Valvenok",
-    description: "Valvenok supplies the Susin actuator range — ITQ rotary, IQL/ITL linear and ITM multi-turn electric actuators, PDS/HD scotch yoke and PLDS/MPLDS linear pneumatic actuators, and ITS position monitoring switches. ISO 5211, ATEX, SIL3 and IP67/IP68 rated for process automation.",
+    title: "Susin Electric & Pneumatic Valve Actuators — UK Supply | Valvenok",
+    description: "Susin ITQ rotary, IQL/ITL linear and ITM multi-turn electric actuators, scotch yoke and linear pneumatic actuators, and ITS limit switch boxes.",
     url: "/brands/susin",
     siteName: "Valvenok",
     type: "website",
@@ -25,10 +25,10 @@ export const metadata: Metadata = {
 const SUSIN_SERIES: Category[] = [
   {
     code: "ITQ",
-    title: "ITQ Series Rotary Electric Actuator",
+    title: "Susin Electric & Pneumatic Valve Actuators — UK Supply | Valvenok",
     subtitle: "Rotary Electric Actuator — 100–9,000 Nm",
     description:
-      "High-performance rotary electric actuators with torque from 100–9,000 Nm. Hard-anodized aluminum housing with IP67/NEMA 4X protection, double worm self-locking gear, auto-declutching handwheel and mechanical torque sensing for safe, reliable valve automation.",
+      "Susin ITQ rotary, IQL/ITL linear and ITM multi-turn electric actuators, scotch yoke and linear pneumatic actuators, and ITS limit switch boxes.",
     specs: [
       "100 – 9,000 Nm",
       "IP67 / NEMA 4X & 6",
@@ -46,10 +46,10 @@ const SUSIN_SERIES: Category[] = [
   },
   {
     code: "ITM",
-    title: "ITM Series Multi-Turn Electric Actuator",
+    title: "Susin Electric & Pneumatic Valve Actuators — UK Supply | Valvenok",
     subtitle: "Heavy-Duty Multi-Turn Electric Actuator",
     description:
-      "Heavy-duty multi-turn electric actuators engineered for gate, globe and sluice valves requiring multi-revolution operation. Exceptional torque capability, IP68 waterproof protection, Hall incremental encoder feedback and smart local control for demanding Oil & Gas, Water Treatment and Petrochemical applications.",
+      "Susin ITQ rotary, IQL/ITL linear and ITM multi-turn electric actuators, scotch yoke and linear pneumatic actuators, and ITS limit switch boxes.",
     specs: [
       "Multi-Turn",
       "IP68 Waterproof",
@@ -67,10 +67,10 @@ const SUSIN_SERIES: Category[] = [
   },
   {
     code: "IQL",
-    title: "IQL Series Linear Electric Actuator",
+    title: "Susin Electric & Pneumatic Valve Actuators — UK Supply | Valvenok",
     subtitle: "Linear Electric Actuator — 4–25 kN",
     description:
-      "Robust linear electric actuators engineered for precise modulating control of globe, gate valves and dampers. High thrust capacity from 4–25 kN, IP67 protection, battery backup fail-safe, and full modulating control via 4–20mA / 0–10V for demanding industrial automation.",
+      "Susin ITQ rotary, IQL/ITL linear and ITM multi-turn electric actuators, scotch yoke and linear pneumatic actuators, and ITS limit switch boxes.",
     specs: [
       "4 – 25 kN Thrust",
       "40 – 100 mm Stroke",
@@ -88,10 +88,10 @@ const SUSIN_SERIES: Category[] = [
   },
   {
     code: "ITL",
-    title: "ITL Series Compact Linear Electric Actuator",
+    title: "Susin Electric & Pneumatic Valve Actuators — UK Supply | Valvenok",
     subtitle: "Compact Linear Electric Actuator — 100% Duty Cycle",
     description:
-      "Compact and powerful linear electric actuators with 100% duty cycle motor engineered for high-frequency modulating control. 1–10 kN thrust, IP66/67 protection, universal power supply and full 4–20mA / 0–10V control signal compatibility for demanding process automation.",
+      "Susin ITQ rotary, IQL/ITL linear and ITM multi-turn electric actuators, scotch yoke and linear pneumatic actuators, and ITS limit switch boxes.",
     specs: [
       "1 – 10 kN Thrust",
       "15 – 50 mm Stroke",
@@ -109,10 +109,10 @@ const SUSIN_SERIES: Category[] = [
   },
   {
     code: "HD",
-    title: "HD Scotch Yoke Pneumatic Actuator",
+    title: "Susin Electric & Pneumatic Valve Actuators — UK Supply | Valvenok",
     subtitle: "Heavy-Duty Scotch Yoke — IS & IC Series",
     description:
-      "Heavy-duty scotch yoke pneumatic actuators in Symmetric (IS) and Canted (IC) configurations, engineered for demanding industrial valve automation. Wide torque range for ball, butterfly and plug valves — on-off and modulating service. ATEX, SIL3 and PED certified.",
+      "Susin ITQ rotary, IQL/ITL linear and ITM multi-turn electric actuators, scotch yoke and linear pneumatic actuators, and ITS limit switch boxes.",
     specs: [
       "Scotch Yoke IS & IC",
       "132 – 120,867 Nm",
@@ -130,10 +130,10 @@ const SUSIN_SERIES: Category[] = [
   },
   {
     code: "PDS",
-    title: "PDS Scotch Yoke Pneumatic Actuator",
+    title: "Susin Electric & Pneumatic Valve Actuators — UK Supply | Valvenok",
     subtitle: "Scotch Yoke Pneumatic Actuator — Double & Single Acting",
     description:
-      "Scotch-Yoke pneumatic actuators engineered for superior break-out torque in demanding flow control environments. Available in double acting (PD) and single acting spring return (PS) configurations with hard anodized aluminum construction for corrosion resistance.",
+      "Susin ITQ rotary, IQL/ITL linear and ITM multi-turn electric actuators, scotch yoke and linear pneumatic actuators, and ITS limit switch boxes.",
     specs: [
       "Scotch Yoke",
       "3.5–8 Bar",
@@ -150,10 +150,10 @@ const SUSIN_SERIES: Category[] = [
   },
   {
     code: "PLDS",
-    title: "PLDS Linear Pneumatic Actuator",
+    title: "Susin Electric & Pneumatic Valve Actuators — UK Supply | Valvenok",
     subtitle: "Pneumatic Linear Double Acting Cylinder",
     description:
-      "Double-acting pneumatic linear cylinders engineered for precise motion control in automation systems and valve actuation. Low-friction seals, universal ISO mounting, and multiple corrosion protection grades for demanding industrial environments.",
+      "Susin ITQ rotary, IQL/ITL linear and ITM multi-turn electric actuators, scotch yoke and linear pneumatic actuators, and ITS limit switch boxes.",
     specs: [
       "Double Acting",
       "3 – 7 bar",
@@ -171,10 +171,10 @@ const SUSIN_SERIES: Category[] = [
   },
   {
     code: "MPLDS",
-    title: "MPLDS Micro Linear Pneumatic Actuator",
+    title: "Susin Electric & Pneumatic Valve Actuators — UK Supply | Valvenok",
     subtitle: "Micro Pneumatic Double Acting Linear Actuator",
     description:
-      "Compact double-acting pneumatic linear actuators engineered for fine automation and precise linear motion in tight spaces. Modular design, IP66 protection, and wide pressure range with support for positioners, solenoids and limit switches.",
+      "Susin ITQ rotary, IQL/ITL linear and ITM multi-turn electric actuators, scotch yoke and linear pneumatic actuators, and ITS limit switch boxes.",
     specs: [
       "Double Acting",
       "2.1 – 6.2 bar (30–90 PSIG)",
@@ -192,10 +192,10 @@ const SUSIN_SERIES: Category[] = [
   },
   {
     code: "ITS",
-    title: "ITS Series Position Monitoring Switch",
+    title: "Susin Electric & Pneumatic Valve Actuators — UK Supply | Valvenok",
     subtitle: "Precision Position Monitoring Switch Box",
     description:
-      "The ITS series from Susin are precision-engineered position monitoring switches for rotary actuators. Robust weatherproof and explosion-proof aluminium or stainless steel housings with a visual dome indicator covering 0°–90° travel. Available in mechanical 2-SPDT and proximity sensor configurations with NAMUR standard shaft mounting and corrosion-resistant epoxy-polyester coating.",
+      "Susin ITQ rotary, IQL/ITL linear and ITM multi-turn electric actuators, scotch yoke and linear pneumatic actuators, and ITS limit switch boxes.",
     specs: [
       "IP67 / IP68",
       "ATEX Ex d IIC T6",

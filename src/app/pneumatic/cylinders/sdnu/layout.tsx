@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   alternates: { canonical: "/pneumatic/cylinders/sdnu" },
-  title: 'SDNU Series Cylinders',
-  description: 'Double-acting ISO-6432 stainless steel round body pneumatic cylinders. Compact magnetic-piston design across bore sizes 12mm to 25mm, built for hygienic, washdown and food-grade automation.',
+  title: { absolute: "SDNU Series Stainless ISO 6432 Round Cylinders | Valvenok" },
+  description: "Double-acting ISO 6432 stainless steel round body pneumatic cylinders with magnetic pistons, 12mm to 25mm bore, for washdown and food-grade automation.",
   openGraph: {
-    title: 'SDNU Series Cylinders | Valvenok',
-    description: 'Double-acting ISO-6432 stainless steel round body pneumatic cylinders, bore sizes 12mm to 25mm, for hygienic and washdown environments.',
+    title: "SDNU Series Stainless ISO 6432 Round Cylinders | Valvenok",
+    description: "Double-acting ISO 6432 stainless steel round body pneumatic cylinders with magnetic pistons, 12mm to 25mm bore, for washdown and food-grade automation.",
     type: 'website',
   },
 }

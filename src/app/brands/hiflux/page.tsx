@@ -10,12 +10,12 @@ const HIFLUX_LOGO =
 
 export const metadata: Metadata = {
   alternates: { canonical: "/brands/hiflux" },
-  title: "Hiflux High Pressure Valves, Fittings & Tubing",
+  title: { absolute: "Hiflux High Pressure Valves, Fittings & Tubing | Valvenok" },
   description:
-    "Valvenok supplies Hiflux high pressure valves rated to 150,000 psi, high pressure fittings and accessories, plus tubing, nipples and tooling. Certification varies by product.",
+    "Hiflux high pressure valves rated to 150,000 psi, cone and thread fittings, tubing, nipples and tooling, supplied in the UK by Valvenok.",
   openGraph: {
     title: "Hiflux High Pressure Valves, Fittings & Tubing | Valvenok",
-    description: "Valvenok supplies Hiflux high pressure valves rated to 150,000 psi, high pressure fittings and accessories, plus tubing, nipples and tooling. Certification varies by product.",
+    description: "Hiflux high pressure valves rated to 150,000 psi, cone and thread fittings, tubing, nipples and tooling, supplied in the UK by Valvenok.",
     url: "/brands/hiflux",
     siteName: "Valvenok",
     type: "website",
@@ -25,10 +25,10 @@ export const metadata: Metadata = {
 const HIFLUX_SERIES: Category[] = [
   {
     code: "HFX",
-    title: "High Pressure Valves",
+    title: "Hiflux High Pressure Valves, Fittings & Tubing | Valvenok",
     subtitle: "Check, Needle, Ball, AOV, Safety & Special Valves",
     description:
-      "Hiflux high pressure valves rated up to 150,000 psi — needle, check, ball, air operated, safety/relief and control valves for industrial, hydrogen and extreme service. Hiflux manual valves for hydrogen refuelling stations hold KS certification from the Korea Gas Safety Corporation (KS B ISO 19880-3); certification varies by product.",
+      "Hiflux high pressure valves rated to 150,000 psi, cone and thread fittings, tubing, nipples and tooling, supplied in the UK by Valvenok.",
     specs: [
       "150,000 psi Max Pressure",
       "6 Series",
@@ -44,10 +44,10 @@ const HIFLUX_SERIES: Category[] = [
   },
   {
     code: "FIT",
-    title: "High Pressure Fittings",
+    title: "Hiflux High Pressure Valves, Fittings & Tubing | Valvenok",
     subtitle: "Fittings, Accessories, Manifold Blocks & Tube Caps",
     description:
-      "Hiflux high pressure fittings and accessories rated from 10,000 to 150,000 psi — fittings, fitting accessories including anti-vibration sets, manifold blocks, tube caps and thread lubricant. Certification varies by product.",
+      "Hiflux high pressure valves rated to 150,000 psi, cone and thread fittings, tubing, nipples and tooling, supplied in the UK by Valvenok.",
     specs: [
       "150,000 psi Max Pressure",
       "316 Stainless Steel",
@@ -63,10 +63,10 @@ const HIFLUX_SERIES: Category[] = [
   },
   {
     code: "TUB",
-    title: "High Pressure Tubing & Tooling",
+    title: "Hiflux High Pressure Valves, Fittings & Tubing | Valvenok",
     subtitle: "Tubes, Nipples, Tooling Sets & Tube Supports",
     description:
-      "Hiflux high pressure tubes and nipples for cone and thread systems rated up to 100,000 psi, with tooling sets — coning, threading, reseating tools, HSS dies, spare cutters and collets — plus 1, 2 and 3 line tube supports. Certification varies by product; certificates on request.",
+      "Hiflux high pressure valves rated to 150,000 psi, cone and thread fittings, tubing, nipples and tooling, supplied in the UK by Valvenok.",
     specs: [
       "100,000 psi Max Pressure",
       "316 Stainless Steel",

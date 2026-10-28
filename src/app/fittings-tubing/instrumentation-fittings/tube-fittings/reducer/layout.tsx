@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   alternates: { canonical: "/fittings-tubing/instrumentation-fittings/tube-fittings/reducer" },
-  title: 'Tube Fittings — Reducers',
-  description: 'Stainless steel reducer fittings including standard reducers, bulkhead reducers and reducer elbows. Available in Imperial, Metric and mixed Metric × Imperial configurations.',
+  title: { absolute: "Tube Fitting Reducers & Bulkhead Reducers — SS316 | Valvenok" },
+  description: "Stainless steel tube reducers, bulkhead reducers and reducer elbows in imperial, metric and mixed metric-imperial sizes. Filter by size and request a quote.",
   openGraph: {
-    title: 'Tube Fittings — Reducers | Valvenok',
-    description: 'Stainless steel reducer fittings including standard reducers, bulkhead reducers and reducer elbows.',
+    title: "Tube Fitting Reducers & Bulkhead Reducers — SS316 | Valvenok",
+    description: "Stainless steel tube reducers, bulkhead reducers and reducer elbows in imperial, metric and mixed metric-imperial sizes. Filter by size and request a quote.",
     type: 'website',
   },
 }

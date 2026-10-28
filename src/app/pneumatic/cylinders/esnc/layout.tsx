@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/pneumatic/cylinders/esnc" },
-  title: "ESNC Series Cylinders",
+  title: { absolute: "ESNC Series ISO 15552 Tie Rod Pneumatic Cylinders | Valvenok" },
   description:
-    "Double-acting ISO-15552 tie rod profile pneumatic cylinders. Non-magnetic construction across bore sizes 32mm to 200mm with strokes from 25mm to 1000mm, built for heavy-duty industrial automation.",
+    "Double-acting ISO 15552 tie rod pneumatic cylinders, non-magnetic, 32mm to 200mm bore and 25mm to 1000mm stroke, for heavy-duty industrial automation.",
   openGraph: {
-    title: "ESNC Series Cylinders | Valvenok",
+    title: "ESNC Series ISO 15552 Tie Rod Pneumatic Cylinders | Valvenok",
     description:
-      "Double-acting ISO-15552 tie rod profile pneumatic cylinders. Non-magnetic construction across bore sizes 32mm to 200mm with strokes from 25mm to 1000mm.",
+      "Double-acting ISO 15552 tie rod pneumatic cylinders, non-magnetic, 32mm to 200mm bore and 25mm to 1000mm stroke, for heavy-duty industrial automation.",
     type: "website",
   },
 };

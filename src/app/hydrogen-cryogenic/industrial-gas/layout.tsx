@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/hydrogen-cryogenic/industrial-gas" },
-  title: "Youngdo Industrial Gas Valves",
+  title: { absolute: "Youngdo Industrial Gas Cylinder Valves — 7 Categories | Valvenok" },
   description:
-    "Youngdo industrial gas cylinder valves across 7 categories — tapered and unified inlet threads, non return valves, acetylene, chlorine/ammonia, tube trailers and piping connection valves. Certification and standards vary by model.",
+    "Youngdo industrial gas cylinder valves: tapered and unified inlet threads, non-return, acetylene, chlorine/ammonia, tube trailer and piping valves.",
   openGraph: {
-    title: "Youngdo Industrial Gas Valves | Valvenok",
+    title: "Youngdo Industrial Gas Cylinder Valves — 7 Categories | Valvenok",
     description:
-      "Youngdo industrial gas cylinder valves rated up to 25 MPa. Certification and standards vary by model.",
+      "Youngdo industrial gas cylinder valves: tapered and unified inlet threads, non-return, acetylene, chlorine/ammonia, tube trailer and piping valves.",
     type: "website",
   },
 };

@@ -2,8 +2,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/news/valvenok-vsi-atlas-sscv-partnership" },
-  title: "Valvenok Partners with VSI — Bringing the Atlas SSCV to Severe Service",
-  description: "Valvenok partners with Valve Systems International to represent the Atlas Severe Service Control Valve — the only SSCV engineered from first principles to eliminate cavitation at the source.",
+  title: { absolute: "Valvenok Partners with VSI on the Atlas SSCV | Valvenok" },
+  description: "Valvenok partners with Valve Systems International to represent the Atlas Severe Service Control Valve, designed to tackle cavitation at the source.",
   keywords: [
     "Atlas SSCV",
     "Severe Service Control Valve",
@@ -15,8 +15,8 @@ export const metadata: Metadata = {
     "Severe Service Valves UK",
   ],
   openGraph: {
-    title: "Valvenok × VSI | Atlas SSCV Partnership Announcement",
-    description: "Putting the Atlas Severe Service Control Valve — and a smarter answer to cavitation — within reach of the operators who need it most.",
+    title: "Valvenok Partners with VSI on the Atlas SSCV | Valvenok",
+    description: "Valvenok partners with Valve Systems International to represent the Atlas Severe Service Control Valve, designed to tackle cavitation at the source.",
     url: "https://www.valvenok.com/news/valvenok-vsi-atlas-sscv-partnership",
     siteName: "Valvenok",
     images: [

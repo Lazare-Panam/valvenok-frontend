@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/pneumatic/valves/foot-pedal" },
-  title: "Foot Pedal Valves",
+  title: { absolute: "Pneumatic Foot Pedal Valves — 3/2, 4/2 & 5/2 Way | Valvenok" },
   description:
-    'Heavy-duty pneumatic foot pedal valves for hands-free machine control. 3/2, 4/2 and 5/2 way configurations with BSP 1/4" connections, plus locking and guard variants.',
+    "Heavy-duty pneumatic foot pedal valves for hands-free machine control: 3/2, 4/2 and 5/2 way, BSP 1/4\" ports, with locking and guarded versions.",
   openGraph: {
-    title: "Foot Pedal Valves | Valvenok",
+    title: "Pneumatic Foot Pedal Valves — 3/2, 4/2 & 5/2 Way | Valvenok",
     description:
-      "Heavy-duty pneumatic foot pedal valves for hands-free machine control, 3/2, 4/2 and 5/2 way configurations.",
+      "Heavy-duty pneumatic foot pedal valves for hands-free machine control: 3/2, 4/2 and 5/2 way, BSP 1/4\" ports, with locking and guarded versions.",
     type: "website",
   },
 };

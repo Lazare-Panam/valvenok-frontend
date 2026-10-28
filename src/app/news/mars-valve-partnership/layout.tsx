@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 
-const TITLE = "Valvenok Partners with Mars Valves";
+const TITLE = "Valvenok Partners with Mars Valves to Expand UK Supply | Valvenok";
 const DESCRIPTION =
-  "Valvenok partners with Mars Valves to expand industrial valve solutions across the UK.";
+  "Valvenok has partnered with Mars Valves to bring Mars ball valves and industrial valve solutions to customers across the UK. Read the announcement.";
 const IMAGE =
   "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/mars-banner.jpeg";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/news/mars-valve-partnership" },
-  title: TITLE,
+  title: { absolute: TITLE },
   description: DESCRIPTION,
   openGraph: {
     title: TITLE,

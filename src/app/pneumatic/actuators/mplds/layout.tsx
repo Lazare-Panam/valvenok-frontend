@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/pneumatic/actuators/mplds" },
-  title: "MPLDS Series Micro Linear Actuators",
+  title: { absolute: "MPLDS Micro Linear Pneumatic Actuators — Compact | Valvenok" },
   description:
-    "Compact double-acting pneumatic linear actuators for fine automation and precise linear motion in tight spaces. IP66, modular design, positioner and solenoid ready.",
+    "Compact double-acting pneumatic linear actuators for precise linear motion in tight spaces. IP66, modular design, positioner and solenoid ready.",
   openGraph: {
-    title: "MPLDS Series Micro Linear Actuators | Valvenok",
+    title: "MPLDS Micro Linear Pneumatic Actuators — Compact | Valvenok",
     description:
-      "Compact double-acting pneumatic linear actuators for fine automation in tight spaces. IP66, modular design, positioner and solenoid ready.",
+      "Compact double-acting pneumatic linear actuators for precise linear motion in tight spaces. IP66, modular design, positioner and solenoid ready.",
     type: "website",
   },
 };

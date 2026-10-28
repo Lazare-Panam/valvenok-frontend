@@ -2,8 +2,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/news/valvenok-kosa-plus-partnership" },
-  title: "Valvenok Announces Strategic Partnership with Kosa Plus | Valve Automation",
-  description: "Valvenok partners with Kosa Plus, a leading South Korean manufacturer of valve automation products. Expanding our portfolio with pneumatic actuators, electric actuators, positioners, solenoid valves, and more.",
+  title: { absolute: "Valvenok Announces Partnership with Kosa Plus | Valvenok" },
+  description: "Valvenok partners with Kosa Plus, a South Korean maker of valve automation products: pneumatic and electric actuators, positioners and solenoid valves.",
   keywords: [
     "Kosa Plus Partnership",
     "Valve Automation Products",
@@ -15,8 +15,8 @@ export const metadata: Metadata = {
     "Valve Automation Accessories"
   ],
   openGraph: {
-    title: "Valvenok × Kosa Plus | Strategic Partnership Announcement",
-    description: "British engineering expertise meets South Korean manufacturing excellence — a new collaboration built around reliability, innovation, and long-term customer success.",
+    title: "Valvenok Announces Partnership with Kosa Plus | Valvenok",
+    description: "Valvenok partners with Kosa Plus, a South Korean maker of valve automation products: pneumatic and electric actuators, positioners and solenoid valves.",
     url: "https://www.valvenok.com/news/valvenok-kosa-plus-partnership",
     siteName: "Valvenok",
     images: [

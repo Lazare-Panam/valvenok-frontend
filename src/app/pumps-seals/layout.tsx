@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/pumps-seals" },
-  title: "Pumps & Seals",
+  title: { absolute: "Industrial Pumps & Mechanical Seals — UK Supply | Valvenok" },
   description:
-    "Industrial pumps and high-performance mechanical seals for demanding environments. Heavy-duty submersible pumps and precision-engineered seals for zero-leakage, maximum uptime.",
+    "Industrial pumps and mechanical seals: submersible, booster, centrifugal and hot water pumps plus mechanical seals for process and water applications.",
   openGraph: {
-    title: "Pumps & Seals | Valvenok",
+    title: "Industrial Pumps & Mechanical Seals — UK Supply | Valvenok",
     description:
-      "Industrial pumps and high-performance mechanical seals — submersible pumps and precision-engineered seals for zero-leakage fluid handling.",
+      "Industrial pumps and mechanical seals: submersible, booster, centrifugal and hot water pumps plus mechanical seals for process and water applications.",
     type: "website",
   },
 };

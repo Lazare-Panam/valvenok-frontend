@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
-const TITLE = "Pipe Elbow Fittings | Valvenok";
+const TITLE = "High Pressure Pipe Elbows — SS316 Threaded Fittings | Valvenok";
 const DESCRIPTION =
-  "SS316 pipe elbow fittings in multiple pressure ratings and thread configurations.";
+  "SS316 high pressure pipe elbow fittings across pressure ratings and thread configurations for instrumentation and process lines. Request a quote.";
 const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
 
 export const metadata: Metadata = {

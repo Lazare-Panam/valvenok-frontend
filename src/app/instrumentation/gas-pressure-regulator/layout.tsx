@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/instrumentation/gas-pressure-regulator" },
-  title: "Gas Pressure Regulators",
+  title: { absolute: "Pietro Fiorentini Gas Pressure Regulators — UK Supply | Valvenok" },
   description:
-    "Pietro Fiorentini direct-operated gas pressure regulators for high-pressure transmission and medium pressure natural gas distribution. Fail Open design; hydrogen-ready versions available on selected models.",
+    "Pietro Fiorentini direct-operated gas pressure regulators for transmission and distribution networks, with hydrogen-ready versions on selected models.",
   openGraph: {
-    title: "Gas Pressure Regulators | Valvenok",
+    title: "Pietro Fiorentini Gas Pressure Regulators — UK Supply | Valvenok",
     description:
-      "Pietro Fiorentini direct-operated gas pressure regulators. Fail Open design; hydrogen-ready versions available on selected models.",
+      "Pietro Fiorentini direct-operated gas pressure regulators for transmission and distribution networks, with hydrogen-ready versions on selected models.",
     type: "website",
   },
 };

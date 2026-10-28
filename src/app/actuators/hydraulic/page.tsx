@@ -6,12 +6,12 @@ import HydraulicActuatorsGrid from "./HydraulicActuatorsGrid";
 
 export const metadata: Metadata = {
   alternates: { canonical: '/actuators/hydraulic' },
-  title: "Hydraulic Actuators | Electro-Hydraulic Rotary",
+  title: { absolute: "Hydraulic Actuators — Electro-Hydraulic Rotary Series | Valvenok" },
   description:
-    "Valvenok supplies electro-hydraulic rotary actuators for extreme torque and fail-safe operation. PANDA low-pressure and PA high-pressure series — ATEX Zone 1 & 2, SIL 2/3, IP67/68, ISO 5211 mounting.",
+    "Electro-hydraulic rotary actuators for high-torque and fail-safe valve operation. PANDA and PA series, ATEX Zone 1 & 2, SIL 2/3, ISO 5211 mounting.",
   openGraph: {
-    title: "Hydraulic Actuators | Electro-Hydraulic Rotary | Valvenok",
-    description: "Valvenok supplies electro-hydraulic rotary actuators for extreme torque and fail-safe operation. PANDA low-pressure and PA high-pressure series — ATEX Zone 1 & 2, SIL 2/3, IP67/68, ISO 5211 mounting.",
+    title: "Hydraulic Actuators — Electro-Hydraulic Rotary Series | Valvenok",
+    description: "Electro-hydraulic rotary actuators for high-torque and fail-safe valve operation. PANDA and PA series, ATEX Zone 1 & 2, SIL 2/3, ISO 5211 mounting.",
     url: "/actuators/hydraulic",
     siteName: "Valvenok",
     type: "website",
@@ -21,10 +21,10 @@ export const metadata: Metadata = {
 const HYDRAULIC_FAMILIES: Category[] = [
   {
     code: "ADF",
-    title: "Electro-Hydraulic Rotary Actuator",
+    title: "Hydraulic Actuators — Electro-Hydraulic Rotary Series | Valvenok",
     subtitle: "Electro-Hydraulic Rotary Actuator — PANDA & PA Series",
     description:
-      "Electro-hydraulic rotary actuators delivering 46–10,000 Nm with extremely high torque density in compact dimensions. PANDA low-pressure and PA high-pressure variants with spring return fail-safe, ATEX Zone 1 & 2 certification and IP67/68 protection for severe-duty and hazardous area applications.",
+      "Electro-hydraulic rotary actuators for high-torque and fail-safe valve operation. PANDA and PA series, ATEX Zone 1 & 2, SIL 2/3, ISO 5211 mounting.",
     specs: [
       "46 – 10,000 Nm",
       "Low (8 bar) & High (180 bar) Pressure",

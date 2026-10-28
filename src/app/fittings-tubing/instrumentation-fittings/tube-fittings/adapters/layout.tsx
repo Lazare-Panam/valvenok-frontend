@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   alternates: { canonical: "/fittings-tubing/instrumentation-fittings/tube-fittings/adapters" },
-  title: 'Tube Fittings — Adapters',
-  description: 'Stainless steel male and female adapter fittings. Available in Imperial and Metric tube OD with NPT, BSPT, BSPP, RP, RG and SAE/MS thread types.',
+  title: { absolute: "Tube Fitting Adapters — Male & Female, SS316 | Valvenok" },
+  description: "Stainless steel male and female tube adapter fittings in imperial and metric tube OD, with NPT, BSPT, BSPP, RP, RG and SAE/MS thread types.",
   openGraph: {
-    title: 'Tube Fittings — Adapters | Valvenok',
-    description: 'Stainless steel male and female adapter fittings, available in Imperial and Metric tube OD with a range of thread types.',
+    title: "Tube Fitting Adapters — Male & Female, SS316 | Valvenok",
+    description: "Stainless steel male and female tube adapter fittings in imperial and metric tube OD, with NPT, BSPT, BSPP, RP, RG and SAE/MS thread types.",
     type: 'website',
   },
 }

@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   alternates: { canonical: "/quick-order" },
-  title: 'Quick Order',
+  title: { absolute: "Quick Order — Buy PANAM SS316 Fittings Online | Valvenok" },
   description: 'Fast procurement for Panam SS316 fittings and instrumentation components. Search by part number, add to basket, and checkout in minutes. No minimum order.',
   keywords: [
     'SS316 fittings quick order',
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     'BSPP NPT fittings UK',
   ],
   openGraph: {
-    title: 'Quick Order — SS316 Panam Fittings | Valvenok',
+    title: "Quick Order — Buy PANAM SS316 Fittings Online | Valvenok",
     description: 'Search Panam SS316 fittings by part number. Add to basket and check out online. No minimum order.',
     url: 'https://www.valvenok.com/quick-order',
     siteName: 'Valvenok',

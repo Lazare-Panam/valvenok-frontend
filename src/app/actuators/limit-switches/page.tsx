@@ -6,12 +6,12 @@ import ElectricActuatorsGrid from "../electric/components/ElectricActuatorsGrid"
 
 export const metadata: Metadata = {
   alternates: { canonical: '/actuators/limit-switches' },
-  title: "Limit Switch Boxes | Valve Position Indicators",
+  title: { absolute: "Limit Switch Boxes & Valve Position Indicators | Valvenok" },
   description:
-    "Valvenok supplies KLS and ITS series limit switch boxes for valve position indication. Weatherproof IP67 and explosion-proof IECEx / KCs certified units with mechanical and proximity switch options for process safety systems.",
+    "KLS and ITS series limit switch boxes for valve position indication. IP67 weatherproof and IECEx explosion-proof units with mechanical or proximity switches.",
   openGraph: {
-    title: "Limit Switch Boxes | Valve Position Indicators | Valvenok",
-    description: "Valvenok supplies KLS and ITS series limit switch boxes for valve position indication. Weatherproof IP67 and explosion-proof IECEx / KCs certified units with mechanical and proximity switch options for process safety systems.",
+    title: "Limit Switch Boxes & Valve Position Indicators | Valvenok",
+    description: "KLS and ITS series limit switch boxes for valve position indication. IP67 weatherproof and IECEx explosion-proof units with mechanical or proximity switches.",
     url: "/actuators/limit-switches",
     siteName: "Valvenok",
     type: "website",
@@ -21,10 +21,10 @@ export const metadata: Metadata = {
 const LIMIT_SWITCH_FAMILIES: Category[] = [
   {
     code: "KLS",
-    title: "Valve Position Indicator",
+    title: "Limit Switch Boxes & Valve Position Indicators | Valvenok",
     subtitle: "Weatherproof & Explosion-Proof Limit Switch Box",
     description:
-      "The KLS series from Kosaplus are valve position indicators that detect fully open/closed valve status and transmit it to the control system. Rugged aluminium die-cast housing with IP67/IP68 protection, IECEx and KCs explosion-proof certification, and a quick-set dual cam mechanism. Available in mechanical SPDT and proximity switch variants (PNP, NPN, 2-wire, P&F, SOLDO).",
+      "KLS and ITS series limit switch boxes for valve position indication. IP67 weatherproof and IECEx explosion-proof units with mechanical or proximity switches.",
     specs: [
       "IP67 / IP68",
       "IECEx Certified",
@@ -43,10 +43,10 @@ const LIMIT_SWITCH_FAMILIES: Category[] = [
   },
   {
     code: "ITS",
-    title: "ITS Series Components",
+    title: "Limit Switch Boxes & Valve Position Indicators | Valvenok",
     subtitle: "Precision Position Monitoring Switch Box",
     description:
-      "The ITS series from Susin are precision-engineered position monitoring switches for rotary actuators. Robust weatherproof and explosion-proof aluminium or stainless steel housings with a visual dome indicator covering 0°–90° travel. Available in mechanical 2-SPDT and proximity sensor configurations with NAMUR standard shaft mounting and corrosion-resistant epoxy-polyester coating.",
+      "KLS and ITS series limit switch boxes for valve position indication. IP67 weatherproof and IECEx explosion-proof units with mechanical or proximity switches.",
     specs: [
       "IP67 / IP68",
       "ATEX Ex d IIC T6",

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
-const TITLE = "Sealed Valves | Valvenok";
+const TITLE = "Bellows Sealed Valves — Globe, Gate & Check | Valvenok";
 const DESCRIPTION =
-  "Bellows sealed globe, gate and check valves in DIN, ANSI and JIS standards with zero stem leakage.";
+  "Bellows sealed globe, gate and check valves to DIN, ANSI and JIS standards, designed to prevent stem leakage. Browse the range and request a quote.";
 const IMAGE =
   "https://pblol2.blob.core.windows.net/valvenok-images/products/sealed-valves/din-standard-bellows-sealed-globe-valve-plus.jpg";
 

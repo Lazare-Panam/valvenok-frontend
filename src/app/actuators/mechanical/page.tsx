@@ -6,12 +6,12 @@ import MechanicalActuatorsGrid from "./MechanicalActuatorsGrid";
 
 export const metadata: Metadata = {
   alternates: { canonical: '/actuators/mechanical' },
-  title: "Mechanical Actuators | Bevel & Worm Gearboxes",
+  title: { absolute: "Mechanical Actuators — Bevel & Worm Gearboxes | Valvenok" },
   description:
-    "Valvenok supplies manual bevel and worm gear actuators for multi-turn and quarter-turn valve operation. MAB bevel gear series up to 18,000 Nm and MAW worm gear series up to 32,000 Nm — ISO 5210/5211 mounting, IP68 protection, marine and offshore options.",
+    "Manual bevel and worm gear actuators for multi-turn and quarter-turn valves. MAB bevel series to 18,000 Nm and MAW worm series to 32,000 Nm, IP68.",
   openGraph: {
-    title: "Mechanical Actuators | Bevel & Worm Gearboxes | Valvenok",
-    description: "Valvenok supplies manual bevel and worm gear actuators for multi-turn and quarter-turn valve operation. MAB bevel gear series up to 18,000 Nm and MAW worm gear series up to 32,000 Nm — ISO 5210/5211 mounting, IP68 protection, marine and offshore options.",
+    title: "Mechanical Actuators — Bevel & Worm Gearboxes | Valvenok",
+    description: "Manual bevel and worm gear actuators for multi-turn and quarter-turn valves. MAB bevel series to 18,000 Nm and MAW worm series to 32,000 Nm, IP68.",
     url: "/actuators/mechanical",
     siteName: "Valvenok",
     type: "website",
@@ -21,10 +21,10 @@ export const metadata: Metadata = {
 const MECHANICAL_FAMILIES: Category[] = [
   {
     code: "MAB",
-    title: "MAB Series",
+    title: "Mechanical Actuators — Bevel & Worm Gearboxes | Valvenok",
     subtitle: "Mechanical Actuator Bevel — Multi-Turn Bevel Gear",
     description:
-      "Heavy-duty bevel gear actuators for multi-turn gate, globe and linear valve operation. Torque up to 18,000 Nm and thrust up to 2,500 kN. Ductile iron housing, IP68 protection and marine coating options for critical valve stations in Oil & Gas and Power Generation.",
+      "Manual bevel and worm gear actuators for multi-turn and quarter-turn valves. MAB bevel series to 18,000 Nm and MAW worm series to 32,000 Nm, IP68.",
     specs: [
       "250 – 18,000 Nm",
       "75 – 2,500 kN Thrust",
@@ -40,10 +40,10 @@ const MECHANICAL_FAMILIES: Category[] = [
   },
   {
     code: "MAW",
-    title: "MAW Series",
+    title: "Mechanical Actuators — Bevel & Worm Gearboxes | Valvenok",
     subtitle: "Manual Actuator Worm — Quarter-Turn Worm Gear",
     description:
-      "Self-locking worm gear actuators for quarter-turn ball, butterfly and plug valve operation. Torque from 100–32,000 Nm, ±5° fine stroke adjustment, ISO 5211 direct mount and MOV compatible for electrical actuator upgrade without machining.",
+      "Manual bevel and worm gear actuators for multi-turn and quarter-turn valves. MAB bevel series to 18,000 Nm and MAW worm series to 32,000 Nm, IP68.",
     specs: [
       "100 – 32,000 Nm",
       "IP54 / IP55 / IP65 / IP67M",
@@ -59,10 +59,10 @@ const MECHANICAL_FAMILIES: Category[] = [
   },
   {
     code: "ITG",
-    title: "ITG Series",
+    title: "Mechanical Actuators — Bevel & Worm Gearboxes | Valvenok",
     subtitle: "Industrial Gear Actuator — Quarter-Turn",
     description:
-      "Precision-engineered quarter-turn gear actuators for ball, butterfly and plug valves. Torque from 60–28,000 Nm, self-locking design, declutchable manual override, ISO 5211/5210 mounting and full actuator integration compatibility for pneumatic, hydraulic and electric automation.",
+      "Manual bevel and worm gear actuators for multi-turn and quarter-turn valves. MAB bevel series to 18,000 Nm and MAW worm series to 32,000 Nm, IP68.",
     specs: [
       "60 – 28,000 Nm",
       "IP54 / IP55 / IP65 / IP67M",

@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/valves/sealed-valves/globe-valves/products" },
-  title: "Bellows Sealed Valves",
+  title: { absolute: "Bellows Sealed Globe Valves — DIN & ANSI Models | Valvenok" },
   description:
-    "Browse bellows sealed valves — filter by standard and type to find the exact zero-leakage valve you need.",
+    "Browse bellows sealed globe valves by standard and type. Welded metal bellows prevent stem leakage. Compare models and request a quote from Valvenok.",
   openGraph: {
-    title: "Bellows Sealed Valves | Valvenok",
-    description: "Browse bellows sealed valves, filter by standard and type.",
+    title: "Bellows Sealed Globe Valves — DIN & ANSI Models | Valvenok",
+    description: "Browse bellows sealed globe valves by standard and type. Welded metal bellows prevent stem leakage. Compare models and request a quote from Valvenok.",
     type: "website",
   },
 };

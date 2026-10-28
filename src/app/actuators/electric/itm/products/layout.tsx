@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
-const TITLE = "ITM Actuators | Valvenok";
+const TITLE = "ITM Series Electric Multi-Turn Actuators — Models | Valvenok";
 const DESCRIPTION =
-  "ITM pneumatic and electric valve actuators across multiple body types and models.";
+  "Browse ITM series electric multi-turn valve actuators across body types and models. Filter to find the configuration you need and request a quote.";
 const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
 
 export const metadata: Metadata = {

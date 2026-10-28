@@ -18,12 +18,16 @@ type PageMetaInput = {
  * duplicates of their parent. Setting every field here stops that leak.
  */
 export function pageMetadata({ title, description, path, index = true }: PageMetaInput): Metadata {
+  // Always emit the full branded title. Relying on the root "%s | Valvenok"
+  // template isn't safe: any ancestor layout with a plain string title resets
+  // it, which left some pages without the brand suffix.
+  const fullTitle = title.endsWith("| Valvenok") ? title : `${title} | Valvenok`;
   return {
-    title,
+    title: { absolute: fullTitle },
     description,
     alternates: { canonical: path },
     openGraph: {
-      title: `${title} | Valvenok`,
+      title: fullTitle,
       description,
       url: path,
       siteName: "Valvenok",
@@ -53,9 +57,13 @@ function humanizeSlug(slug: string): string {
  */
 export function detailRouteMetadata(basePath: string, slug: string, category: string): Metadata {
   const name = humanizeSlug(slug);
+  const base = `${name} — ${category}`;
+  // Pad short titles so they aren't flagged as thin, but keep the full
+  // "<title> | Valvenok" within ~68 characters.
+  const padded = `${base}: Specs & Quote`;
   return pageMetadata({
-    title: `${name} — ${category}`,
-    description: `${name} from Valvenok's ${category.toLowerCase()} range. View specifications and request a quote from our UK team.`,
+    title: padded.length + " | Valvenok".length <= 68 ? padded : base,
+    description: `${name} from Valvenok's ${category.toLowerCase()} range. View the specifications, sizes and options, then request a quote from our UK engineering team.`,
     path: `${basePath}/${slug}`,
   });
 }

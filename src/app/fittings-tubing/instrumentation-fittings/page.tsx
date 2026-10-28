@@ -6,12 +6,12 @@ import FittingsGrid from "./FittingsGrid";
 
 export const metadata: Metadata = {
   alternates: { canonical: '/fittings-tubing/instrumentation-fittings' },
-  title: "Fittings | SS316 Instrumentation & Process Fittings",
+  title: { absolute: "SS316 Instrumentation Fittings — Tube, Pipe, JIC & Weld | Valvenok" },
   description:
-    "Valvenok supplies a complete range of SS316 fittings for instrumentation and process systems. Tube fittings, pipe fittings, JIC flare fittings and weld fittings across NPT, BSPT, BSPP and SAE/MS standards.",
+    "SS316 tube, pipe, JIC flare and weld fittings for instrumentation and process systems, in NPT, BSPT, BSPP and SAE/MS thread standards.",
   openGraph: {
-    title: "Fittings | SS316 Instrumentation & Process Fittings | Valvenok",
-    description: "Valvenok supplies a complete range of SS316 fittings for instrumentation and process systems. Tube fittings, pipe fittings, JIC flare fittings and weld fittings across NPT, BSPT, BSPP and SAE/MS standards.",
+    title: "SS316 Instrumentation Fittings — Tube, Pipe, JIC & Weld | Valvenok",
+    description: "SS316 tube, pipe, JIC flare and weld fittings for instrumentation and process systems, in NPT, BSPT, BSPP and SAE/MS thread standards.",
     url: "/fittings-tubing/instrumentation-fittings",
     siteName: "Valvenok",
     type: "website",
@@ -21,10 +21,10 @@ export const metadata: Metadata = {
 const FITTING_FAMILIES: Category[] = [
   {
     code: "TF",
-    title: "Tube Fittings",
+    title: "SS316 Instrumentation Fittings — Tube, Pipe, JIC & Weld | Valvenok",
     subtitle: "Twin Ferrule Instrumentation Fittings",
     description:
-      "SS316 twin ferrule tube fittings for leak-free instrumentation and process connections. Connectors, adapters, unions, reducers and more across NPT, BSPT and BSPP standards.",
+      "SS316 tube, pipe, JIC flare and weld fittings for instrumentation and process systems, in NPT, BSPT, BSPP and SAE/MS thread standards.",
     specs: ["SS316", "Twin Ferrule", "NPT / BSPT / BSPP", "Full Size Range"],
     applications: "Oil & Gas, Petrochemical, Power Generation",
     href: "/fittings-tubing/instrumentation-fittings/tube-fittings",
@@ -33,10 +33,10 @@ const FITTING_FAMILIES: Category[] = [
   },
   {
     code: "PF",
-    title: "Pipe Fittings",
+    title: "SS316 Instrumentation Fittings — Tube, Pipe, JIC & Weld | Valvenok",
     subtitle: "SS316 Instrumentation Pipe Fittings",
     description:
-      "Over 650 SS316 pipe fitting configurations — nipples, elbows, tees, unions and adapters across NPT, BSPT, BSPP, Metric and SAE thread standards.",
+      "SS316 tube, pipe, JIC flare and weld fittings for instrumentation and process systems, in NPT, BSPT, BSPP and SAE/MS thread standards.",
     specs: [
       "SS316",
       "NPT / BSPT / BSPP",
@@ -50,10 +50,10 @@ const FITTING_FAMILIES: Category[] = [
   },
   {
     code: "JIC",
-    title: "JIC Fittings",
+    title: "SS316 Instrumentation Fittings — Tube, Pipe, JIC & Weld | Valvenok",
     subtitle: "37° Flare Hydraulic Fittings",
     description:
-      "SS316 37° JIC flare fittings for high-pressure hydraulic and instrumentation systems. Connectors, unions, elbows, tees and adapters across NPT, BSPT, BSPP and SAE/MS.",
+      "SS316 tube, pipe, JIC flare and weld fittings for instrumentation and process systems, in NPT, BSPT, BSPP and SAE/MS thread standards.",
     specs: ["SS316", "37° JIC Flare", "NPT / BSPT / BSPP", "SAE/MS"],
     applications: "Hydraulics, Oil & Gas, Heavy Equipment, Marine",
     href: "/fittings-tubing/instrumentation-fittings/jic-fittings",
@@ -62,10 +62,10 @@ const FITTING_FAMILIES: Category[] = [
   },
   {
     code: "WF",
-    title: "Weld Fittings",
+    title: "SS316 Instrumentation Fittings — Tube, Pipe, JIC & Weld | Valvenok",
     subtitle: "SS316 Butt Weld Instrumentation Fittings",
     description:
-      "SS316 butt weld fittings for permanent, high-integrity process connections. Elbows and connectors engineered for the most demanding oil & gas and petrochemical applications.",
+      "SS316 tube, pipe, JIC flare and weld fittings for instrumentation and process systems, in NPT, BSPT, BSPP and SAE/MS thread standards.",
     specs: ["SS316", "Butt Weld", "NPT / BSPT / BSPP", "2mm – 25mm OD"],
     applications: "Oil & Gas, Petrochemical, Power Generation, Offshore",
     href: "/fittings-tubing/instrumentation-fittings/weld-fittings",
@@ -97,7 +97,7 @@ export default function FittingsIndexPage() {
   return (
     <>
       <ProductHero
-        title="Fittings"
+        title="Instrumentation Fittings"
         subtitle="SS316 Fittings for Instrumentation & Process Systems"
         description="UK-based supplier of instrumentation fittings and stainless steel fittings for high-pressure systems, with UK and international delivery for engineers and buyers."
         imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/banner-images/fittings-hero.jpg"

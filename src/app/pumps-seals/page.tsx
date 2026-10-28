@@ -335,6 +335,7 @@ export default function PumpsAndSealsPage() {
         <Box sx={{ mb: 10 }}>
           <Typography
             variant="h1"
+            component="h2"
             sx={{ fontSize: { xs: 24, md: 30 }, fontWeight: 700, mb: 4 }}
           >
             Industries & Applications
@@ -386,6 +387,7 @@ export default function PumpsAndSealsPage() {
         >
           <Typography
             variant="h1"
+            component="h2"
             sx={{ fontSize: { xs: 26, md: 36 }, fontWeight: 800, mb: 2 }}
           >
             Fluid Problems? Engineered Solutions.

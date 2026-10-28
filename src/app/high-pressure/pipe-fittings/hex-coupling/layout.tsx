@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
-const TITLE = "Pipe Coupling Fittings | Valvenok";
+const TITLE = "High Pressure Hex Couplings & Reducing Couplings | Valvenok";
 const DESCRIPTION =
-  "SS316 pipe coupling fittings in multiple pressure ratings and thread configurations.";
+  "SS316 high pressure hex couplings and reducing hex couplings across pressure ratings and thread configurations for instrumentation and process lines.";
 const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
 
 export const metadata: Metadata = {

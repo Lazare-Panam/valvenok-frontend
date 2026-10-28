@@ -173,6 +173,7 @@ export default function ValvenokMarsPartnershipPage() {
           {/* About Mars Valves */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -242,6 +243,7 @@ export default function ValvenokMarsPartnershipPage() {
           {/* More than a product range */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -266,6 +268,7 @@ export default function ValvenokMarsPartnershipPage() {
           {/* Industries */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -315,6 +318,7 @@ export default function ValvenokMarsPartnershipPage() {
           {/* Key Benefits */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -365,6 +369,7 @@ export default function ValvenokMarsPartnershipPage() {
             >
               <Typography
                 variant="h1"
+            component="h2"
                 sx={{
                   fontFamily: '"Barlow Condensed"',
                   fontWeight: 900,
@@ -397,6 +402,7 @@ export default function ValvenokMarsPartnershipPage() {
           {/* Looking Ahead */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,

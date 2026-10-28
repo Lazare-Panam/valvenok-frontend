@@ -10,12 +10,12 @@ const UTAM_LOGO =
 
 export const metadata: Metadata = {
   alternates: { canonical: "/brands/utam-valves" },
-  title: "UTAM Syncercon Marine Valves",
+  title: { absolute: "UTAM Marine Gate & Globe Valves — ASME Class 150/300 | Valvenok" },
   description:
-    "Valvenok supplies the UTAM Syncercon marine valve range — bolted bonnet and union bonnet gate and globe valves in ASME Class 150/300, DN15 to DN600, Lloyd's Register approved for marine, shipbuilding and offshore seawater service.",
+    "UTAM Syncercon marine gate and globe valves, ASME Class 150/300, DN15 to DN600, Lloyd's Register approved for shipbuilding and offshore seawater service.",
   openGraph: {
-    title: "UTAM Syncercon Marine Valves | Valvenok",
-    description: "Valvenok supplies the UTAM Syncercon marine valve range — bolted bonnet and union bonnet gate and globe valves in ASME Class 150/300, DN15 to DN600, Lloyd's Register approved for marine, shipbuilding and offshore seawater service.",
+    title: "UTAM Marine Gate & Globe Valves — ASME Class 150/300 | Valvenok",
+    description: "UTAM Syncercon marine gate and globe valves, ASME Class 150/300, DN15 to DN600, Lloyd's Register approved for shipbuilding and offshore seawater service.",
     url: "/brands/utam-valves",
     siteName: "Valvenok",
     type: "website",
@@ -25,10 +25,10 @@ export const metadata: Metadata = {
 const UTAM_VALVE_SERIES: Category[] = [
   {
     code: "UTM-BBG",
-    title: "Gate Valve — Bolted Bonnet",
+    title: "UTAM Marine Gate & Globe Valves — ASME Class 150/300 | Valvenok",
     subtitle: "Bolted Bonnet Gate Valve — DN15 to DN600",
     description:
-      "UTAM Syncercon bolted bonnet gate valve designed for marine and shipbuilding applications, offering reliable shut-off performance, leak-proof operation, and long service life in seawater and offshore environments. Available with rising and non-rising stem in ASME Class 150/300 across DN15 to DN600.",
+      "UTAM Syncercon marine gate and globe valves, ASME Class 150/300, DN15 to DN600, Lloyd's Register approved for shipbuilding and offshore seawater service.",
     specs: [
       '½" to 24" (DN15 to DN600)',
       "ASME Class 150 / 300",
@@ -45,10 +45,10 @@ const UTAM_VALVE_SERIES: Category[] = [
   },
   {
     code: "UTM-UBG",
-    title: "Gate Valve — Union Bonnet",
+    title: "UTAM Marine Gate & Globe Valves — ASME Class 150/300 | Valvenok",
     subtitle: "Union Bonnet Gate Valve — DN15 to DN100",
     description:
-      "UTAM Syncercon union bonnet gate valve, a linear motion valve providing secure sealing and easy maintenance, used to start or stop fluid flow in marine and shipbuilding applications. Handwheel operated with rising stem, in ASME Class 150/300 & PN32 across DN15 to DN100.",
+      "UTAM Syncercon marine gate and globe valves, ASME Class 150/300, DN15 to DN600, Lloyd's Register approved for shipbuilding and offshore seawater service.",
     specs: [
       '½" to 4" (DN15 to DN100)',
       "ASME Class 150 / 300 & PN32",
@@ -65,10 +65,10 @@ const UTAM_VALVE_SERIES: Category[] = [
   },
   {
     code: "UTM-BBV",
-    title: "Globe Valve — Bolted Bonnet",
+    title: "UTAM Marine Gate & Globe Valves — ASME Class 150/300 | Valvenok",
     subtitle: "Bolted Bonnet Globe Valve — DN15 to DN600",
     description:
-      "UTAM Syncercon globe valve designed for marine and shipbuilding applications, providing precise flow control and reliable performance in seawater and offshore environments. Bolted bonnet with outside screw & yoke, rising stem, in ASME Class 150/300 across DN15 to DN600.",
+      "UTAM Syncercon marine gate and globe valves, ASME Class 150/300, DN15 to DN600, Lloyd's Register approved for shipbuilding and offshore seawater service.",
     specs: [
       '½" to 24" (DN15 to DN600)',
       "ASME Class 150 / 300",
@@ -85,10 +85,10 @@ const UTAM_VALVE_SERIES: Category[] = [
   },
   {
     code: "UTM-UBV",
-    title: "Globe Valve — Union Bonnet",
+    title: "UTAM Marine Gate & Globe Valves — ASME Class 150/300 | Valvenok",
     subtitle: "Union Bonnet Globe Valve — DN15 to DN100",
     description:
-      "UTAM Syncercon globe valve, a linear motion valve with a union bonnet design, used to regulate or stop fluid flow with precise control in marine and shipbuilding applications. Handwheel operated with rising stem, in ASME Class 150/300 & PN32 across DN15 to DN100.",
+      "UTAM Syncercon marine gate and globe valves, ASME Class 150/300, DN15 to DN600, Lloyd's Register approved for shipbuilding and offshore seawater service.",
     specs: [
       '½" to 4" (DN15 to DN100)',
       "ASME Class 150 / 300 & PN32",

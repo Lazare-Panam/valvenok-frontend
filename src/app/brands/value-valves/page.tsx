@@ -10,12 +10,12 @@ const VALUE_LOGO =
 
 export const metadata: Metadata = {
   alternates: { canonical: "/brands/value-valves" },
-  title: "Value Valves Butterfly Valves",
+  title: { absolute: "Value Valves Butterfly Valves — Triple Offset & Centric | Valvenok" },
   description:
-    "Valvenok supplies the full Value Valves butterfly valve range — triple offset, centric, double eccentric, AWWA double flanged, cryogenic, PTFE/PFA lined, marine and damper designs. API 607 fire safe, SIL 2/3, ATEX and class-society certified from DN40 to DN2600.",
+    "Value Valves triple offset, centric, double eccentric, lined, cryogenic and marine butterfly valves from DN40 to DN2600. Certification varies by model.",
   openGraph: {
-    title: "Value Valves Butterfly Valves | Valvenok",
-    description: "Valvenok supplies the full Value Valves butterfly valve range — triple offset, centric, double eccentric, AWWA double flanged, cryogenic, PTFE/PFA lined, marine and damper designs. API 607 fire safe, SIL 2/3, ATEX and class-society certified from DN40 to DN2600.",
+    title: "Value Valves Butterfly Valves — Triple Offset & Centric | Valvenok",
+    description: "Value Valves triple offset, centric, double eccentric, lined, cryogenic and marine butterfly valves from DN40 to DN2600. Certification varies by model.",
     url: "/brands/value-valves",
     siteName: "Valvenok",
     type: "website",
@@ -25,10 +25,10 @@ export const metadata: Metadata = {
 const VALUE_VALVE_SERIES: Category[] = [
   {
     code: "VF-8A",
-    title: "VF-8A Triple Offset Butterfly Valve",
+    title: "Value Valves Butterfly Valves — Triple Offset & Centric | Valvenok",
     subtitle: "High Performance Triple Offset — ANSI 150 / 300 / 600LB",
     description:
-      "Value Valves VF-8A Series high performance triple offset butterfly valves. ANSI 150LB, 300LB and 600LB pressure classes, DN100–DN1200, API 607 fire safe, SIL 3 capable and rated from -100°C to +760°C for the most demanding process applications.",
+      "Value Valves triple offset, centric, double eccentric, lined, cryogenic and marine butterfly valves from DN40 to DN2600. Certification varies by model.",
     specs: [
       "ANSI 150 / 300 / 600LB",
       'DN100–DN1200 (4"–48")',
@@ -46,10 +46,10 @@ const VALUE_VALVE_SERIES: Category[] = [
   },
   {
     code: "VF-7",
-    title: "VF-7 Series Centric Butterfly Valve",
+    title: "Value Valves Butterfly Valves — Triple Offset & Centric | Valvenok",
     subtitle: 'Centric Butterfly Valves — DN40–DN1800 (1½"–72")',
     description:
-      "Value Valves VF-7 Series centric butterfly valves. Wafer, lug and flanged end connections across DN40–DN1800. Bi-directional bubble tight shutoff, soft seat design, NSF61 & NSF 372 certified, ATEX approved and ABS certified for shipbuilding. Designed per API 609, ASME B16.34 and ISO 5208.",
+      "Value Valves triple offset, centric, double eccentric, lined, cryogenic and marine butterfly valves from DN40 to DN2600. Certification varies by model.",
     specs: [
       'DN40–DN1800 (1½"–72")',
       "10 bar (STD) / 16 bar (OPT)",
@@ -67,10 +67,10 @@ const VALUE_VALVE_SERIES: Category[] = [
   },
   {
     code: "VF-264",
-    title: "VF-264 AWWA Double Flanged Butterfly Valve",
+    title: "Value Valves Butterfly Valves — Triple Offset & Centric | Valvenok",
     subtitle: 'AWWA C504 & C516 Double Flanged — 14"–104"',
     description:
-      'Value Valves VF-264 Series AWWA double flanged type butterfly valves. DN350–DN2600 (14"–104"), AWWA C504 and C516, pressure classes 25B, 75B and 150B. Double eccentric disc design, bi-directional tight shutoff, hard rubber lining available for seawater service.',
+      "Value Valves triple offset, centric, double eccentric, lined, cryogenic and marine butterfly valves from DN40 to DN2600. Certification varies by model.",
     specs: [
       'DN350–DN2600 (14"–104")',
       "AWWA C504 & C516",
@@ -88,10 +88,10 @@ const VALUE_VALVE_SERIES: Category[] = [
   },
   {
     code: "VF-9A",
-    title: "VF-9A Series High Performance Double Eccentric Butterfly Valve",
+    title: "Value Valves Butterfly Valves — Triple Offset & Centric | Valvenok",
     subtitle: 'Double Eccentric — ANSI 150LB & 300LB — 2"–48"',
     description:
-      'Value Valves VF-9A Series high performance double eccentric butterfly valves. Six series across ANSI 150LB and 300LB — soft seat, metal seat + PTFE and metal seat configurations. DN50–DN1200 (2"–48"), SIL 2 certified, API 607 fire safe, ATEX approved and leakage Class IV/V.',
+      "Value Valves triple offset, centric, double eccentric, lined, cryogenic and marine butterfly valves from DN40 to DN2600. Certification varies by model.",
     specs: [
       "ANSI 150LB & 300LB",
       'DN50–DN1200 (2"–48")',
@@ -109,10 +109,10 @@ const VALUE_VALVE_SERIES: Category[] = [
   },
   {
     code: "VF-265A",
-    title: "VF-265A Ship-Building Butterfly Valve",
+    title: "Value Valves Butterfly Valves — Triple Offset & Centric | Valvenok",
     subtitle: 'Marine Flanged Butterfly Valve — DN50–DN600 (2"–24")',
     description:
-      'Value Valves VF-265A Series ship-building butterfly valves. Flanged type, 10 bar and 16 bar pressure ratings, DN50–DN600 (2"–24"), soft seat, JIS 10K face to face. ABS, LR, BV, DNV, CR and CCS class society certified. Used on over 1,000 ships worldwide since 1980.',
+      "Value Valves triple offset, centric, double eccentric, lined, cryogenic and marine butterfly valves from DN40 to DN2600. Certification varies by model.",
     specs: [
       'DN50–DN600 (2"–24")',
       "10 bar & 16 bar",
@@ -129,11 +129,11 @@ const VALUE_VALVE_SERIES: Category[] = [
   },
   {
     code: "VF-9A-AC",
-    title: "VF-9A Anti-Condensation Double Eccentric Butterfly Valve",
+    title: "Value Valves Butterfly Valves — Triple Offset & Centric | Valvenok",
     subtitle:
       'Double Eccentric With Jacket Option — ANSI 150LB & 300LB — 2"–48"',
     description:
-      'Value Valves VF-9A Series high-performance double eccentric butterfly valves with anti-condensation jacket option. ANSI 150LB and 300LB, DN50–DN1200 (2"–48"), soft seat, fire safe metal seat and full metal seat. SIL2 certified, TUV PED(H) and ATEX approved for oil, gas, petrochemical and industrial process applications.',
+      "Value Valves triple offset, centric, double eccentric, lined, cryogenic and marine butterfly valves from DN40 to DN2600. Certification varies by model.",
     specs: [
       "ANSI 150LB & 300LB",
       'DN50–DN1200 (2"–48")',
@@ -151,11 +151,11 @@ const VALUE_VALVE_SERIES: Category[] = [
   },
   {
     code: "VF-CRYO",
-    title: "Cryogenic Butt Welded Butterfly Valve",
+    title: "Value Valves Butterfly Valves — Triple Offset & Centric | Valvenok",
     subtitle:
       'Cryogenic Double Eccentric & Triple Offset — ANSI 150LB — 2"–36"',
     description:
-      "Value Valves cryogenic butterfly valves — double eccentric and triple offset designs for LNG, LPG, petrochemical and nuclear power service. ANSI 150LB, -196°C to +760°C, butt welding, lugged and short flanged end connections. API 609 Monogram, API 607 fire safe, SIL2/SIL3, TUV PED(H) and ATEX certified.",
+      "Value Valves triple offset, centric, double eccentric, lined, cryogenic and marine butterfly valves from DN40 to DN2600. Certification varies by model.",
     specs: [
       "ANSI 150LB",
       'DN50–DN900 (2"–36")',
@@ -173,10 +173,10 @@ const VALUE_VALVE_SERIES: Category[] = [
   },
   {
     code: "VF-75",
-    title: "VF-75 PTFE / PFA Lined Centric Butterfly Valve",
+    title: "Value Valves Butterfly Valves — Triple Offset & Centric | Valvenok",
     subtitle: 'PTFE & PFA Lined — DN50–DN600 (2"–24") — Up To 16 Bar',
     description:
-      "Value Valves VF-75 Series centric butterfly valves with full PTFE or PFA lined disc and body seat. DN50–DN600, up to 16 bar, -35°C to +200°C. Wafer, lugged and flanged end connections. EN 593, API 609 and BS 5155 design standard for chemical, petrochemical, water treatment and food processing applications.",
+      "Value Valves triple offset, centric, double eccentric, lined, cryogenic and marine butterfly valves from DN40 to DN2600. Certification varies by model.",
     specs: [
       'DN50–DN600 (2"–24")',
       "Up To 16 Bar",
@@ -194,10 +194,10 @@ const VALUE_VALVE_SERIES: Category[] = [
   },
   {
     code: "VF-3",
-    title: "VF-3 Series Butterfly Damper Valve",
+    title: "Value Valves Butterfly Valves — Triple Offset & Centric | Valvenok",
     subtitle: 'Damper Valves — Centric, Double & Triple Eccentric — 2"–96"',
     description:
-      'Value Valves VF-3 Series butterfly damper valves — centric, double eccentric and triple eccentric designs. Metal, rubber and PTFE seat options. 2"–96", up to 1093°C. Wafer, short body flange and long body flange. For HVAC, water treatment, flue gas and industrial gas damper applications.',
+      "Value Valves triple offset, centric, double eccentric, lined, cryogenic and marine butterfly valves from DN40 to DN2600. Certification varies by model.",
     specs: [
       '2"–96" Size Range',
       "-46°C to +1093°C",

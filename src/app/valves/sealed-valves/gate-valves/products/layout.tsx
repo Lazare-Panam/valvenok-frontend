@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/valves/sealed-valves/gate-valves/products" },
-  title: "Bellows Sealed Gate Valves",
+  title: { absolute: "Bellows Sealed Gate Valves — DIN & ANSI Models | Valvenok" },
   description:
-    "DIN and ANSI standard bellows sealed gate valves with auto-welded metal bellows and zero stem leakage.",
+    "DIN and ANSI bellows sealed gate valves with welded metal bellows to prevent stem leakage. Compare models by size and standard, then request a quote.",
   openGraph: {
-    title: "Bellows Sealed Gate Valves | Valvenok",
+    title: "Bellows Sealed Gate Valves — DIN & ANSI Models | Valvenok",
     description:
-      "DIN and ANSI standard bellows sealed gate valves with auto-welded metal bellows and zero stem leakage.",
+      "DIN and ANSI bellows sealed gate valves with welded metal bellows to prevent stem leakage. Compare models by size and standard, then request a quote.",
     type: "website",
   },
 };

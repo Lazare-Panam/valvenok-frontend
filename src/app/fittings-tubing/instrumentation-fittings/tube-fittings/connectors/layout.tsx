@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   alternates: { canonical: "/fittings-tubing/instrumentation-fittings/tube-fittings/connectors" },
-  title: 'Tube Fittings — Connectors & Elbows',
-  description: 'Stainless steel tube fittings including male connectors, female connectors, elbows, tees and bulkhead fittings. Available in Imperial and Metric tube OD with NPT, BSPT, BSPP, RP, Metric, SAE/MS and Flare 37° thread types.',
+  title: { absolute: "Tube Fitting Connectors, Elbows & Tees — SS316 | Valvenok" },
+  description: "Stainless steel male and female connectors, elbows, tees and bulkhead tube fittings in imperial and metric OD, with NPT, BSPT, BSPP and SAE/MS threads.",
   openGraph: {
-    title: 'Tube Fittings — Connectors & Elbows | Valvenok',
-    description: 'Stainless steel male and female connectors, elbows, tees and bulkhead fittings, available in Imperial and Metric tube OD.',
+    title: "Tube Fitting Connectors, Elbows & Tees — SS316 | Valvenok",
+    description: "Stainless steel male and female connectors, elbows, tees and bulkhead tube fittings in imperial and metric OD, with NPT, BSPT, BSPP and SAE/MS threads.",
     type: 'website',
   },
 }

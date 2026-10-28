@@ -7,9 +7,9 @@ import { pageMetadata } from "@/src/app/Common/seo";
 import RelatedLinks from "@/src/app/Common/Products_Page/RelatedLinks";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Industrial Globe Valves",
+  title: "Industrial Globe Valves — Bolted, Welded & Lined | Valvenok",
   description:
-    "Valvenok supplies a full range of industrial globe valves — lined, welded bonnet and bolted/union bonnet designs from leading global manufacturers including Fisher, Bonney Forge and UTAM Syncercon.",
+    "Lined, welded bonnet and bolted or union bonnet industrial globe valves from manufacturers including Fisher, Bonney Forge and UTAM Syncercon.",
   path: "/valves/industrial-valves/globe-valve",
 });
 

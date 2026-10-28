@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/actuators/mechanical/itg/products" },
-  title: "ITG Gearboxes",
+  title: { absolute: "ITG Series Valve Gearboxes — Models & Sizes | Valvenok" },
   description:
-    "Browse ITG gearbox models — filter by sub-series and model to find the exact configuration you need.",
+    "Browse ITG series valve gearbox models. Filter by sub-series and model to find the configuration you need for manual valve operation, then request a quote.",
   openGraph: {
-    title: "ITG Gearboxes | Valvenok",
-    description: "Browse ITG gearbox models — filter by sub-series and model.",
+    title: "ITG Series Valve Gearboxes — Models & Sizes | Valvenok",
+    description: "Browse ITG series valve gearbox models. Filter by sub-series and model to find the configuration you need for manual valve operation, then request a quote.",
     type: "website",
   },
 };

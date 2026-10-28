@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
-const TITLE = "High Pressure Valves & Fittings | Valvenok";
+const TITLE = "High Pressure Valves & Fittings, 10,000–60,000 psi | Valvenok";
 const DESCRIPTION =
-  "SS316 high pressure valves, fittings and manifolds, 10,000-60,000 psi.";
+  "SS316 high pressure needle valves, ball valves, cone and thread fittings, tubing and manifolds rated from 10,000 to 60,000 psi. Request a quote.";
 const IMAGE =
   "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure/yunshuo-qu-bqxIzrYzGaI-unsplash.jpg";
 

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
-const TITLE = "Pipe Nipple Fittings | Valvenok";
+const TITLE = "High Pressure Hex Nipples — SS316 Pipe Fittings | Valvenok";
 const DESCRIPTION =
-  "SS316 pipe nipple fittings in multiple pressure ratings and thread configurations.";
+  "SS316 high pressure hex nipples across pressure ratings and thread configurations, including thread-changing nipples. Filter by size, then request a quote.";
 const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
 
 export const metadata: Metadata = {

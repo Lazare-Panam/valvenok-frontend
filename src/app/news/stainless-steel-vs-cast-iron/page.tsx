@@ -184,6 +184,7 @@ export default function SubmersiblePumpsPage() {
           </Typography>
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -392,6 +393,7 @@ export default function SubmersiblePumpsPage() {
           </Typography>
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -510,6 +512,7 @@ export default function SubmersiblePumpsPage() {
           </Typography>
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -761,6 +764,7 @@ export default function SubmersiblePumpsPage() {
           </Typography>
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -880,6 +884,7 @@ export default function SubmersiblePumpsPage() {
           {/* Stainless vs Cast Iron Comparison */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -961,6 +966,7 @@ export default function SubmersiblePumpsPage() {
           {/* Advantages and Limitations */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -1045,6 +1051,7 @@ export default function SubmersiblePumpsPage() {
           {/* Selection Guide */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -1085,6 +1092,7 @@ export default function SubmersiblePumpsPage() {
           {/* Industrial Applications */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -1147,6 +1155,7 @@ export default function SubmersiblePumpsPage() {
           {/* FAQ */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -1204,6 +1213,7 @@ export default function SubmersiblePumpsPage() {
           {/* Maintenance Best Practices */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -1240,6 +1250,7 @@ export default function SubmersiblePumpsPage() {
           {/* Related Products */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,
@@ -1275,6 +1286,7 @@ export default function SubmersiblePumpsPage() {
           {/* Next Steps */}
           <Typography
             variant="h1"
+            component="h2"
             sx={{
               fontFamily: '"Barlow Condensed"',
               fontWeight: 800,

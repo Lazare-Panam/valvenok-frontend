@@ -5,26 +5,17 @@ import { useQuery } from '@tanstack/react-query';
 import { fetchProductsByCategory } from '@/src/api/productApi'; // Ensure path is correct
 import { Grid, Container, Box, CircularProgress, Typography } from '@mui/material';
 import ProductListingCard from './ProductListingCard';
+import { categoryDescription } from './categoryMeta';
 
 export default function CategoryListingPage() {
   // 1. Pull categoryId from URL params
   const { categoryId } = useParams();
-console.log(categoryId)
   // 2. TanStack Query using your specific fetch function
   const { data: products, isLoading, isError } = useQuery({
     queryKey: ['products', categoryId],
     queryFn: () => fetchProductsByCategory(categoryId as string),
     enabled: !!categoryId, // Only fire when the param is ready
   });
-
-  // 3. Simple Loading State
-  if (isLoading) {
-    return (
-      <Box sx={{ display: 'flex', justifyContent: 'center', py: 20 }}>
-        <CircularProgress sx={{ color: '#61D649' }} />
-      </Box>
-    );
-  }
 
   // 4. Error State
   if (isError) {
@@ -53,11 +44,19 @@ console.log(categoryId)
           >
             {categoryId?.toString().replace(/-/g, ' ')}
           </Typography>
+          <Typography sx={{ mt: 2, maxWidth: 720, opacity: 0.85 }}>
+            {categoryDescription(String(categoryId ?? ''))}
+          </Typography>
         </Container>
       </Box>
 
       {/* Product Grid */}
       <Container maxWidth="lg">
+        {isLoading && (
+          <Box sx={{ display: 'flex', justifyContent: 'center', py: 10 }}>
+            <CircularProgress sx={{ color: '#61D649' }} />
+          </Box>
+        )}
         <Grid container spacing={3}>
           {products?.map((item) => (
             <Grid key={item.id} size={{ xs: 12, sm: 6, md: 4 }}>

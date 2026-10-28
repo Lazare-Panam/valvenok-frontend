@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/pneumatic/actuators/pds/products" },
-  title: "PD Actuators",
+  title: { absolute: "PDS Series Scotch Yoke Pneumatic Actuator Models | Valvenok" },
   description:
-    "Browse PD actuator models — filter by series, model, and angle to find the exact configuration you need.",
+    "Browse PDS series scotch yoke pneumatic actuator models. Filter by series, model and angle to find the configuration you need, then request a quote.",
   openGraph: {
-    title: "PD Actuators | Valvenok",
+    title: "PDS Series Scotch Yoke Pneumatic Actuator Models | Valvenok",
     description:
-      "Browse PD actuator models — filter by series, model, and angle.",
+      "Browse PDS series scotch yoke pneumatic actuator models. Filter by series, model and angle to find the configuration you need, then request a quote.",
     type: "website",
   },
 };

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
-const TITLE = "Tubing | Valvenok";
+const TITLE = "Instrumentation Tubing & Tube Supports — SS316 | Valvenok";
 const DESCRIPTION =
-  "Instrumentation tubing across multiple materials, outer diameters and wall thicknesses.";
+  "Instrumentation tubing in a range of materials, outside diameters and wall thicknesses, plus tube supports. Browse the range and request a quote.";
 const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
 
 export const metadata: Metadata = {

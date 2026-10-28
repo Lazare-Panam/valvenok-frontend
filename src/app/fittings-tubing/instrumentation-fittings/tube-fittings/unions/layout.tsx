@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   alternates: { canonical: "/fittings-tubing/instrumentation-fittings/tube-fittings/unions" },
-  title: 'Tube Fittings — Unions',
-  description: 'Stainless steel tube-to-tube union fittings including standard unions, reducing unions, bulkhead unions, union elbows, union tees, reducing union tees and union crosses. Available in Imperial and Metric tube OD.',
+  title: { absolute: "Tube Unions, Union Elbows & Union Tees — SS316 | Valvenok" },
+  description: "Stainless steel unions, reducing unions, bulkhead unions, union elbows, union tees and union crosses in imperial and metric tube OD. Request a quote.",
   openGraph: {
-    title: 'Tube Fittings — Unions | Valvenok',
-    description: 'Stainless steel tube-to-tube union fittings, including reducing, bulkhead, elbow, tee and cross configurations.',
+    title: "Tube Unions, Union Elbows & Union Tees — SS316 | Valvenok",
+    description: "Stainless steel unions, reducing unions, bulkhead unions, union elbows, union tees and union crosses in imperial and metric tube OD. Request a quote.",
     type: 'website',
   },
 }
