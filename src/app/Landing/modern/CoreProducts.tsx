@@ -120,7 +120,7 @@ export default function CoreProducts() {
       <SectionHeader eyebrow="Browse by Category" title="Explore Our Catalog" />
 
       {/* Tabs */}
-      <Box role="tablist" sx={{ display: "flex", flexWrap: "wrap", gap: 1, mb: 3 }}>
+      <Box role="tablist" sx={{ display: { xs: "none", md: "flex" }, flexWrap: "wrap", gap: 1, mb: 3 }}>
         {CATEGORIES.map((cat, i) => (
           <Box
             key={cat.name}
@@ -166,7 +166,7 @@ export default function CoreProducts() {
                 border: `1px solid ${isActive ? "#CFE6C8" : T.border}`,
                 flex: { md: isActive ? "6 1 0" : "1 1 0" },
                 minWidth: 0,
-                minHeight: { xs: isActive ? 520 : 96, md: "auto" },
+                minHeight: { xs: isActive ? 640 : 84, md: "auto" },
                 transition: "flex .6s cubic-bezier(.2,.8,.2,1), min-height .4s ease, box-shadow .3s",
                 boxShadow: isActive ? "0 24px 48px rgba(14,27,18,0.12)" : "none",
                 "&:hover": isActive ? {} : { borderColor: "#CFE6C8" },
@@ -194,8 +194,16 @@ export default function CoreProducts() {
                   boxShadow: "0 16px 40px rgba(14,27,18,0.12)",
                   transition: "all .6s cubic-bezier(.2,.8,.2,1)",
                   ...(isActive
-                    ? { width: { xs: 220, md: 340 }, height: { xs: 220, md: 340 }, right: { xs: "50%", md: 56 }, top: { xs: 40, md: "50%" }, transform: { xs: "translateX(50%)", md: "translateY(-50%)" } }
-                    : { width: 72, height: 72, right: "50%", top: { xs: 12, md: 28 }, transform: "translateX(50%)" }),
+                    ? { width: { xs: 170, md: 340 }, height: { xs: 170, md: 340 }, right: { xs: "50%", md: 56 }, top: { xs: 24, md: "50%" }, transform: { xs: "translateX(50%)", md: "translateY(-50%)" } }
+                    : {
+                        width: { xs: 56, md: 72 },
+                        height: { xs: 56, md: 72 },
+                        // Phones: thumbnail on the left of a horizontal row.
+                        right: { xs: "auto", md: "50%" },
+                        left: { xs: 14, md: "auto" },
+                        top: { xs: 14, md: 28 },
+                        transform: { xs: "none", md: "translateX(50%)" },
+                      }),
                 }}
               >
                 <Box
@@ -232,8 +240,9 @@ export default function CoreProducts() {
                 sx={{
                   display: { xs: isActive ? "none" : "block", md: "none" },
                   position: "absolute",
-                  left: 110,
-                  top: 36,
+                  left: 86,
+                  top: "50%",
+                  transform: "translateY(-50%)",
                   color: T.ink,
                   fontWeight: 700,
                   fontSize: "1.05rem",
@@ -323,7 +332,7 @@ export default function CoreProducts() {
                     color: "#fff",
                     fontWeight: 700,
                     fontSize: "0.95rem",
-                    whiteSpace: "nowrap",
+                    whiteSpace: { xs: "normal", md: "nowrap" },
                     textDecoration: "none",
                     transition: "all .2s",
                     "&:hover": { bgcolor: T.greenDark },

@@ -5,11 +5,14 @@ import {
   Box,
   Container,
   IconButton,
+  Badge,
   Drawer,
   useTheme,
   useMediaQuery,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import BoltIcon from "@mui/icons-material/Bolt";
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import CloseIcon from "@mui/icons-material/Close";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import NavLogo from "./Navlogo";
@@ -19,6 +22,8 @@ import MobileMenu from "./MobileMenu";
 import DesktopUserActions from "./user-actions/DesktopUserActions";
 import { NAV_GROUPS, NavGroup } from "./Navbardata";
 import NavTopStrip from "./NavTopStrip";
+import { useCartStore } from "@/src/app/cart/hooks/useCartStore";
+import { useHydrated } from "./user-actions/useHydrated";
 
 const BRAND_GREEN = "#61D649";
 const GREEN_DARK = "#2E8B1E";
@@ -37,6 +42,8 @@ export default function Navbar() {
   const navBarRef = React.useRef<HTMLDivElement>(null);
 
   const theme = useTheme();
+  const hydrated = useHydrated();
+  const totalItems = useCartStore((st) => st.getTotalItems());
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const openGroup = (group: NavGroup) => {
@@ -78,8 +85,10 @@ export default function Navbar() {
         }}
       >
         <Container maxWidth="xl" sx={{ px: { xs: 2, md: 4 }, height: "100%" }}>
-          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "100%", gap: 2 }}>
-            <NavLogo />
+          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "100%", gap: 1 }}>
+            <Box sx={{ mr: "auto" }}>
+              <NavLogo />
+            </Box>
 
             <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center", gap: 1 }}>
               <DesktopUserActions barHeight={LOGO_HEIGHT} />
@@ -107,15 +116,45 @@ export default function Navbar() {
               </Box>
             </Box>
 
+            {/* Mobile: quick actions + menu */}
+            <Box sx={{ display: { xs: "flex", md: "none" }, alignItems: "center", gap: 1 }}>
+              <IconButton
+                component="a"
+                href="/quick-order"
+                aria-label="Quick order"
+                sx={{ color: GREEN_DARK, border: `1px solid ${BORDER}`, borderRadius: "12px", width: 44, height: 44 }}
+              >
+                <BoltIcon />
+              </IconButton>
+              <IconButton
+                component="a"
+                href="/cart"
+                aria-label="Cart"
+                sx={{ color: INK, border: `1px solid ${BORDER}`, borderRadius: "12px", width: 44, height: 44 }}
+              >
+                <Badge
+                  badgeContent={hydrated ? totalItems : 0}
+                  invisible={!hydrated || totalItems === 0}
+                  color="primary"
+                  sx={{ "& .MuiBadge-badge": { fontWeight: 700, fontSize: "10px", height: 17, minWidth: 17 } }}
+                >
+                  <ShoppingCartOutlinedIcon />
+                </Badge>
+              </IconButton>
+            </Box>
+
             <IconButton
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
               sx={{
                 display: { md: "none" },
-                color: INK,
-                border: `1px solid ${BORDER}`,
+                border: `1px solid ${GREEN_DEEP}`,
                 borderRadius: "12px",
-                "&:hover": { bgcolor: "rgba(97,214,73,0.1)", color: GREEN_DARK },
+                width: 44,
+                height: 44,
+                bgcolor: GREEN_DEEP,
+                color: "#fff",
+                "&:hover": { bgcolor: GREEN_DARK, color: "#fff" },
               }}
             >
               <MenuIcon />

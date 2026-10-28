@@ -21,7 +21,7 @@ export default function TrustBar() {
       <Box
         sx={{
           display: "grid",
-          gridTemplateColumns: { xs: "1fr 1fr", md: "repeat(4, 1fr)" },
+          gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", md: "repeat(4, 1fr)" },
           bgcolor: "#fff",
           border: `1px solid ${T.border}`,
           borderRadius: T.radius,
@@ -37,10 +37,10 @@ export default function TrustBar() {
               alignItems: "center",
               gap: 1.75,
               px: { xs: 2, md: 3 },
-              py: { xs: 2, md: 2.75 },
+              py: { xs: 1.5, md: 2.75 },
               borderLeft: { md: i === 0 ? "none" : `1px solid ${T.border}` },
-              borderTop: { xs: i > 1 ? `1px solid ${T.border}` : "none", md: "none" },
-              borderRight: { xs: i % 2 === 0 ? `1px solid ${T.border}` : "none", md: "none" },
+              borderTop: { xs: i > 0 ? `1px solid ${T.border}` : "none", sm: i > 1 ? `1px solid ${T.border}` : "none", md: "none" },
+              borderRight: { xs: "none", sm: i % 2 === 0 ? `1px solid ${T.border}` : "none", md: "none" },
             }}
           >
             <Box

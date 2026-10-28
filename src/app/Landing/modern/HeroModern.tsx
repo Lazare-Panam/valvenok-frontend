@@ -66,7 +66,7 @@ export default function HeroModern() {
           position: "relative",
           overflow: "hidden",
           borderRadius: { xs: "20px", md: "28px" },
-          minHeight: { xs: 580, md: 640 },
+          minHeight: { xs: 560, md: 640 },
           display: "flex",
           alignItems: "center",
           bgcolor: T.greenDeep,
@@ -108,7 +108,7 @@ export default function HeroModern() {
           }}
         />
 
-        <Box sx={{ position: "relative", width: "100%", maxWidth: T.maxWidth, mx: "auto", px: { xs: 2.5, md: 4 }, py: { xs: 7, md: 10 } }}>
+        <Box sx={{ position: "relative", width: "100%", maxWidth: T.maxWidth, mx: "auto", px: { xs: 2.5, md: 4 }, py: { xs: 9, md: 10 } }}>
           <Box key={slide.id} sx={{ maxWidth: 660, animation: `${rise} .7s ease both` }}>
             <Box
               sx={{
@@ -138,7 +138,7 @@ export default function HeroModern() {
                 fontWeight: 700,
                 letterSpacing: "-0.035em",
                 lineHeight: 1.05,
-                fontSize: { xs: "2.4rem", sm: "3.1rem", md: "3.75rem" },
+                fontSize: { xs: "2.1rem", sm: "3.1rem", md: "3.75rem" },
                 color: "#fff",
               }}
             >
@@ -148,7 +148,7 @@ export default function HeroModern() {
               </Box>
             </Typography>
 
-            <Typography sx={{ mt: 2.5, fontSize: { xs: "1.02rem", md: "1.12rem" }, lineHeight: 1.7, color: "rgba(255,255,255,0.8)", maxWidth: 560 }}>
+            <Typography sx={{ mt: 2.5, fontSize: { xs: "0.98rem", md: "1.12rem" }, lineHeight: 1.7, color: "rgba(255,255,255,0.8)", maxWidth: 560 }}>
               {slide.description}
             </Typography>
 
@@ -163,7 +163,10 @@ export default function HeroModern() {
           sx={{
             position: "absolute",
             right: { xs: 16, md: 32 },
-            bottom: { xs: 40, md: 72 },
+            // On phones the controls sit in the top-right corner so they never
+            // overlap the slide's button.
+            top: { xs: 18, md: "auto" },
+            bottom: { xs: "auto", md: 72 },
             display: "flex",
             alignItems: "center",
             gap: 1.5,
@@ -214,8 +217,8 @@ export default function HeroModern() {
               aria-label={b.label}
               onClick={b.onClick}
               sx={{
-                width: 44,
-                height: 44,
+                width: { xs: 36, md: 44 },
+                height: { xs: 36, md: 44 },
                 color: "#fff",
                 border: "1px solid rgba(255,255,255,0.35)",
                 bgcolor: "rgba(255,255,255,0.08)",
