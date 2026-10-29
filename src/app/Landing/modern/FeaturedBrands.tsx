@@ -7,7 +7,7 @@ import { T, textReset } from "./tokens";
 import SectionHeader from "./SectionHeader";
 import PillButton from "./Buttons";
 
-// Same brands, copy and links as the original FeaturedStrip.
+// The original FeaturedStrip brands, plus our Hiflux and Kosa Plus sister sites.
 const BRANDS = [
   {
     name: "Panam",
@@ -33,6 +33,24 @@ const BRANDS = [
     external: true,
     accent: "#E3262B",
   },
+  {
+    name: "Hiflux",
+    logo: "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/logo.png",
+    desc: "High pressure valves, cone and thread fittings, tubing and tooling.",
+    href: "https://www.hiflux.uk.com/",
+    external: true,
+    accent: "#1D8FD8",
+  },
+  {
+    name: "Kosa Plus",
+    // The logo file has wide margins, so it is shown larger to match the others.
+    logo: "https://pblol2.blob.core.windows.net/valvenok-images/brands/kosaplus-logo.png",
+    logoScale: 1.9,
+    desc: "Pneumatic and electric valve actuators and position indicators.",
+    href: "https://www.kosaplus.co.uk/",
+    external: true,
+    accent: "#1F4E9C",
+  },
 ];
 
 export default function FeaturedBrands() {
@@ -49,7 +67,7 @@ export default function FeaturedBrands() {
             </PillButton>
           }
         />
-        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "repeat(3, 1fr)" }, gap: 2.5 }}>
+        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)", md: "repeat(3, 1fr)", lg: "repeat(5, 1fr)" }, gap: 2.5 }}>
           {BRANDS.map((b) => (
             <Box
               key={b.name}
@@ -66,14 +84,14 @@ export default function FeaturedBrands() {
                 textDecoration: "none",
                 transition: "all .3s ease",
                 "&:hover": { boxShadow: T.shadowHover, transform: "translateY(-4px)" },
-                "&:hover .brand-logo": { transform: "scale(1.06)" },
+                "&:hover .brand-logo": { scale: "1.06" },
                 "&:hover .brand-cta": { bgcolor: T.ink, color: "#fff", borderColor: T.ink },
               }}
             >
               <Box
                 sx={{
                   position: "relative",
-                  height: 190,
+                  height: 170,
                   display: "grid",
                   placeItems: "center",
                   background: `radial-gradient(260px 160px at 50% 60%, #fff 0%, ${T.surface} 100%)`,
@@ -87,7 +105,14 @@ export default function FeaturedBrands() {
                   src={b.logo}
                   alt={`${b.name} logo`}
                   loading="lazy"
-                  sx={{ maxHeight: 92, maxWidth: "62%", objectFit: "contain", mixBlendMode: "multiply", transition: "transform .4s ease" }}
+                  sx={{
+                    maxHeight: 92,
+                    maxWidth: "62%",
+                    objectFit: "contain",
+                    mixBlendMode: "multiply",
+                    transition: "transform .4s ease",
+                    ...("logoScale" in b && { transform: `scale(${b.logoScale})` }),
+                  }}
                 />
               </Box>
               <Box sx={{ p: 3, display: "flex", flexDirection: "column", flex: 1 }}>

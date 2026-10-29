@@ -17,6 +17,23 @@ import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 
 const DISPLAY_FONT = '"Barlow Condensed"';
 
+const KOSAPLUS = "https://www.kosaplus.co.uk";
+
+// In-text link to a page on the Kosaplus UK site (our sister site for the Kosa Plus range).
+function KosaLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <Box
+      component="a"
+      href={`${KOSAPLUS}${href}`}
+      target="_blank"
+      rel="noopener"
+      sx={{ color: "primary.dark", fontWeight: 700, textDecoration: "underline", textUnderlineOffset: "3px" }}
+    >
+      {children}
+    </Box>
+  );
+}
+
 export default function KosaPartnershipPage() {
   return (
     <Box sx={{ bgcolor: "background.default", minHeight: "100vh", pb: 10 }}>
@@ -141,8 +158,8 @@ export default function KosaPartnershipPage() {
         >
           {/* INTRO */}
           <Typography>
-            Valvenok is pleased to announce a new strategic partnership with
-            Kosa Plus, a leading manufacturer of valve automation products based
+            Valvenok is pleased to announce a new strategic partnership with{" "}
+            <KosaLink href="/">Kosa Plus</KosaLink>, a leading manufacturer of valve automation products based
             in South Korea. This partnership brings together Valvenok's
             engineering expertise and customer-focused approach with Kosa Plus's
             extensive manufacturing capabilities and proven product portfolio —
@@ -225,36 +242,51 @@ export default function KosaPartnershipPage() {
             {[
               {
                 label: "Pneumatic Actuators",
+                href: "/products/pneumatic-actuator",
                 desc: "Quarter-turn and multi-turn pneumatic actuators for automated valve control in process plant and utilities.",
               },
               {
                 label: "Electric Actuators",
+                href: "/products/electric-actuator",
                 desc: "Compact, reliable electric actuators for applications where pneumatic supply is unavailable or impractical.",
               },
               {
                 label: "Positioners",
+                href: "/products",
                 desc: "Smart and analogue positioners for precise control valve positioning in modulating duty.",
               },
               {
                 label: "Limit Switch Boxes",
+                href: "/products/valve-position-indicator",
                 desc: "Valve position monitoring and feedback for safety systems and control room indication.",
               },
               {
                 label: "Solenoid Valves",
+                href: "/products/other-control-units",
                 desc: "Pilot solenoid valves for pneumatic actuator control — available in a wide range of voltages and protection ratings.",
               },
               {
                 label: "Valve Automation Accessories",
+                href: "/products",
                 desc: "Mounting kits, manual overrides, speed controllers, and ancillaries for complete automation packages.",
               },
             ].map((item, i) => (
               <Grid key={i} size={{ xs: 12, sm: 6 }}>
                 <Box
+                  component="a"
+                  href={`${KOSAPLUS}${item.href}`}
+                  target="_blank"
+                  rel="noopener"
                   sx={{
+                    display: "block",
                     p: 3,
                     border: "1.5px solid",
                     borderColor: "primary.light",
                     height: "100%",
+                    textDecoration: "none",
+                    transition: "border-color .2s, background-color .2s",
+                    "&:hover": { borderColor: "primary.main", bgcolor: "rgba(97,214,73,0.05)" },
+                    "&:hover .more": { color: "primary.main" },
                   }}
                 >
                   <Typography
@@ -274,6 +306,19 @@ export default function KosaPartnershipPage() {
                     sx={{ color: "text.secondary", lineHeight: 1.7 }}
                   >
                     {item.desc}
+                  </Typography>
+                  <Typography
+                    className="more"
+                    sx={{
+                      mt: 1.5,
+                      mb: "0 !important",
+                      fontSize: "0.8rem !important",
+                      fontWeight: 700,
+                      color: "primary.dark",
+                      transition: "color .2s",
+                    }}
+                  >
+                    View on Kosaplus UK →
                   </Typography>
                 </Box>
               </Grid>
@@ -438,7 +483,8 @@ export default function KosaPartnershipPage() {
             Kosa Plus has built a strong reputation for manufacturing
             high-quality valve automation products that are trusted across
             international markets. Their manufacturing facilities operate to
-            rigorous quality standards, with a product portfolio that has been
+            rigorous quality standards (see the{" "}
+            <KosaLink href="/certificates">Kosa Plus certificates</KosaLink>), with a product portfolio that has been
             proven across oil and gas, chemical processing, water treatment,
             pharmaceutical, power generation, and industrial automation
             applications globally.
@@ -453,17 +499,22 @@ export default function KosaPartnershipPage() {
           {/* INDUSTRY CHIPS */}
           <Stack direction="row" flexWrap="wrap" gap={1.5} sx={{ my: 4 }}>
             {[
-              "Oil & Gas",
-              "Chemical Processing",
-              "Water Treatment",
-              "Pharmaceutical",
-              "Power Generation",
-              "Industrial Automation",
+              { label: "Oil & Gas", href: "/applications#oil-gas" },
+              { label: "Chemical Processing", href: "/applications#chemicals" },
+              { label: "Water Treatment", href: "/applications#water-treatment" },
+              { label: "Pharmaceutical", href: "/applications" },
+              { label: "Power Generation", href: "/applications#power-plants" },
+              { label: "Industrial Automation", href: "/applications#factory-automation" },
             ].map((ind) => (
               <Chip
-                key={ind}
-                label={ind}
+                key={ind.label}
+                label={ind.label}
                 size="small"
+                component="a"
+                href={`${KOSAPLUS}${ind.href}`}
+                target="_blank"
+                rel="noopener"
+                clickable
                 sx={{
                   fontFamily: DISPLAY_FONT,
                   fontWeight: 700,
@@ -473,6 +524,7 @@ export default function KosaPartnershipPage() {
                   height: 28,
                   bgcolor: "primary.main",
                   color: "white",
+                  "&:hover": { bgcolor: "primary.dark" },
                 }}
               />
             ))}
@@ -502,8 +554,8 @@ export default function KosaPartnershipPage() {
             businesses with an even broader range of valve automation solutions.
           </Typography>
           <Typography>
-            If you would like to learn more about the Kosa Plus product range,
-            or discuss how these products could support your application, our
+            If you would like to learn more about the{" "}
+            <KosaLink href="/products">Kosa Plus product range</KosaLink>, or discuss how these products could support your application, our
             team would be delighted to arrange a conversation and explore the
             opportunities available.
           </Typography>
@@ -534,18 +586,31 @@ export default function KosaPartnershipPage() {
               valve automation requirements — from single actuator supply
               through to complete turnkey automation packages.
             </Typography>
-            <Typography
-              variant="button"
-              sx={{
-                fontWeight: 900,
-                borderBottom: "2px solid white",
-                pb: 1,
-                cursor: "pointer",
-                color: "white",
-              }}
-            >
-              Get in Touch with Valvenok
-            </Typography>
+            <Stack direction={{ xs: "column", sm: "row" }} spacing={{ xs: 2, sm: 4 }} justifyContent="center" alignItems="center">
+              {[
+                { label: "Get in Touch with Valvenok", href: "/contact", external: false },
+                { label: "Visit Kosaplus UK", href: `${KOSAPLUS}/`, external: true },
+              ].map((b) => (
+                <Typography
+                  key={b.label}
+                  component="a"
+                  href={b.href}
+                  {...(b.external ? { target: "_blank", rel: "noopener" } : {})}
+                  variant="button"
+                  sx={{
+                    fontWeight: 900,
+                    borderBottom: "2px solid white",
+                    pb: 1,
+                    cursor: "pointer",
+                    color: "white",
+                    textDecoration: "none",
+                    "&:hover": { opacity: 0.85 },
+                  }}
+                >
+                  {b.label}
+                </Typography>
+              ))}
+            </Stack>
           </Box>
         </Box>
       </Container>
