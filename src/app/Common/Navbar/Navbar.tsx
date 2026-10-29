@@ -66,7 +66,8 @@ export default function Navbar() {
     <Box
       sx={{
         position: "sticky",
-        top: 0,
+        // Let the 41px contact strip scroll away; the logo bar and menu stay pinned
+        top: { xs: 0, md: -41 },
         zIndex: 200,
         fontFamily: FONT,
         "& *": { fontFamily: `${FONT} !important` },

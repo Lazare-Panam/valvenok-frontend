@@ -250,7 +250,7 @@ export default function ActuatorsPage() {
 
       {/* ── Product Cards ── */}
       <ProcessValvesGrid families={ACTUATOR_CATEGORIES} />
-      <RelatedLinks title="Guides" links={[{ label: "How to Choose a Valve Actuator", href: "/news/how-to-choose-a-valve-actuator" }]} />
+      <RelatedLinks title="Guides" links={[{ label: "How to Choose a Valve Actuator", href: "/news/how-to-choose-a-valve-actuator" }, { label: "Valve Actuator Sizing Explained", href: "/news/valve-actuator-sizing-torque-guide" }]} />
     </Box>
   );
 }

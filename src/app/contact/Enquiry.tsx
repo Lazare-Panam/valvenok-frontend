@@ -7,19 +7,20 @@ import {
   Button,
   Typography,
   CircularProgress,
-  Container,
   Stack,
   Link as MuiLink,
 } from "@mui/material";
-import Grid from "@mui/material/Grid";
 import NextLink from "next/link";
 import { useSearchParams } from "next/navigation";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import PhoneIcon from "@mui/icons-material/Phone";
-import EmailIcon from "@mui/icons-material/Email";
+import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
+import PhoneOutlinedIcon from "@mui/icons-material/PhoneOutlined";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import { EnquiryDto } from "@/src/api/authApi";
 import { useSendEnquiry } from "./hooks/useEnquiry";
 import { useNotificationStore } from "@/src/store/useNotificationStore";
+import { T, textReset } from "../Landing/modern/tokens";
+import { Eyebrow } from "../Landing/modern/SectionHeader";
 
 export default function EnquiryForm() {
   // "Request a Quote" links pass ?product_id=... — carry it into the subject
@@ -66,192 +67,250 @@ export default function EnquiryForm() {
   };
 
   return (
-    <Container maxWidth="lg" sx={{ py: 8 }}>
-      <Box sx={{ maxWidth: 1100, mx: "auto", mb: 6 }}>
-        <Typography
-          component="h1"
-          variant="h1"
-          sx={{
-            fontWeight: 900,
-            mb: 1,
-            color: "primary.main",
-            textTransform: "uppercase",
-            letterSpacing: "2px",
-            fontFamily: '"Barlow Condensed"',
-          }}
-        >
-          Contact Valvenok
-        </Typography>
-
-        <Typography
-          variant="body1"
-          sx={{ color: "text.secondary", maxWidth: 800, lineHeight: 1.7 }}
-        >
-          Use this form for quotation requests, product availability and
-          technical questions on valves, fittings, actuators and
-          instrumentation. Include part numbers, quantities and operating
-          conditions where you have them, and we'll get back to you within 24
-          hours.
-        </Typography>
-      </Box>
-
-      <Grid container spacing={6} sx={{ maxWidth: 1100, mx: "auto" }}>
-        <Grid size={{ xs: 12, md: 8 }}>
-          <Box component="form" onSubmit={handleSubmit}>
-            <Grid container spacing={3}>
-              <Grid size={{ xs: 12, md: 6 }}>
-                <TextField
-                  fullWidth
-                  label="Name"
-                  name="customerName"
-                  required
-                  value={formData.customerName}
-                  onChange={handleChange}
-                  sx={inputStyles}
-                />
-              </Grid>
-              <Grid size={{ xs: 12, md: 6 }}>
-                <TextField
-                  fullWidth
-                  label="Email"
-                  name="customerEmail"
-                  type="email"
-                  required
-                  value={formData.customerEmail}
-                  onChange={handleChange}
-                  sx={inputStyles}
-                />
-              </Grid>
-              <Grid size={{ xs: 12 }}>
-                <TextField
-                  fullWidth
-                  label="Subject"
-                  name="subject"
-                  required
-                  value={formData.subject}
-                  onChange={handleChange}
-                  sx={inputStyles}
-                />
-              </Grid>
-              <Grid size={{ xs: 12 }}>
-                <TextField
-                  fullWidth
-                  label="Message"
-                  name="message"
-                  multiline
-                  rows={6}
-                  required
-                  value={formData.message}
-                  onChange={handleChange}
-                  sx={inputStyles}
-                />
-              </Grid>
-              <Grid size={{ xs: 12 }}>
-                <Typography variant="body2" sx={{ color: "text.secondary" }}>
-                  We use the details you submit to respond to your enquiry. See
-                  our{" "}
-                  <MuiLink component={NextLink} href="/privacy">
-                    Privacy Policy
-                  </MuiLink>{" "}
-                  for how we handle personal data.
-                </Typography>
-              </Grid>
-              <Grid size={{ xs: 12 }}>
-                <Button
-                  type="submit"
-                  variant="contained"
-                  disabled={isPending}
-                  sx={{
-                    bgcolor: "#1c2e1a",
-                    color: "#fff",
-                    px: 8,
-                    py: 2,
-                    borderRadius: 0,
-                    fontWeight: 900,
-                    fontSize: "0.9rem",
-                    textTransform: "uppercase",
-                    letterSpacing: "1px",
-                    "&:hover": { bgcolor: "#4a9a3a" },
-                  }}
-                >
-                  {isPending ? (
-                    <CircularProgress size={24} color="inherit" />
-                  ) : (
-                    "Send Message"
-                  )}
-                </Button>
-              </Grid>
-            </Grid>
-          </Box>
-        </Grid>
-
-        <Grid size={{ xs: 12, md: 4 }}>
-          <Box
-            component="address"
+    <Box
+      component="section"
+      sx={{
+        ...textReset,
+        position: "relative",
+        overflow: "hidden",
+        bgcolor: "#fff",
+        // Soft brand glow behind the heading, as on the homepage hero cards
+        "&::before": {
+          content: '""',
+          position: "absolute",
+          top: -320,
+          left: -240,
+          width: 900,
+          height: 700,
+          background: "radial-gradient(closest-side, rgba(97,214,73,0.16), transparent)",
+          pointerEvents: "none",
+        },
+      }}
+    >
+      <Box
+        sx={{
+          position: "relative",
+          width: "100%",
+          boxSizing: "border-box",
+          maxWidth: 1240,
+          mx: "auto",
+          px: { xs: 2, md: 4 },
+          py: { xs: 6, md: 11 },
+          display: "grid",
+          gridTemplateColumns: { xs: "1fr", md: "1fr 1.1fr" },
+          gap: { xs: 5, md: 10 },
+          alignItems: "start",
+        }}
+      >
+        {/* ── Left: heading + details ── */}
+        <Box>
+          <Eyebrow>Contact</Eyebrow>
+          <Typography
+            component="h1"
             sx={{
-              fontStyle: "normal",
-              p: 4,
-              border: "1px solid",
-              borderColor: "divider",
-              bgcolor: "#fff",
+              mt: 2.5,
+              fontWeight: 700,
+              letterSpacing: "-0.035em",
+              lineHeight: 1.02,
+              fontSize: { xs: "2.6rem", md: "4rem" },
+              color: T.ink,
             }}
           >
-            <Typography
-              component="h2"
-              sx={{
-                fontFamily: '"Barlow Condensed"',
-                fontWeight: 800,
-                fontSize: "1.5rem",
-                textTransform: "uppercase",
-                mb: 3,
-              }}
-            >
-              Contact Details
-            </Typography>
-            <Stack spacing={2.5}>
-              <Stack direction="row" spacing={1.5} alignItems="flex-start">
-                <LocationOnIcon sx={{ fontSize: 20, color: "primary.main", mt: 0.3 }} />
-                <Typography variant="body2" sx={{ lineHeight: 1.7 }}>
-                  <strong>Valvenok Ltd.</strong>
-                  <br />
-                  St. Edburgs Hall, Priory Rd
-                  <br />
-                  Bicester, OX26 6BL
-                  <br />
-                  United Kingdom
-                </Typography>
-              </Stack>
-              <Stack direction="row" spacing={1.5} alignItems="center">
-                <PhoneIcon sx={{ fontSize: 20, color: "primary.main" }} />
-                <MuiLink href="tel:+447368137917" variant="body2" underline="hover">
-                  +44 7368 137917
-                </MuiLink>
-              </Stack>
-              <Stack direction="row" spacing={1.5} alignItems="center">
-                <EmailIcon sx={{ fontSize: 20, color: "primary.main" }} />
-                <MuiLink
-                  href="mailto:sales@valvenok.com"
-                  variant="body2"
-                  underline="hover"
-                >
-                  sales@valvenok.com
-                </MuiLink>
-              </Stack>
-            </Stack>
+            Contact{" "}
+            <Box component="span" sx={{ color: T.greenDark }}>
+              Valvenok
+            </Box>
+          </Typography>
+          <Typography sx={{ mt: 2.5, maxWidth: 520, fontSize: "1.08rem", lineHeight: 1.75, color: T.body }}>
+            Use this form for quotation requests, product availability and
+            technical questions on valves, fittings, actuators and
+            instrumentation. Include part numbers, quantities and operating
+            conditions where you have them, and we&apos;ll get back to you within 24
+            hours.
+          </Typography>
+
+          <Box component="address" sx={{ fontStyle: "normal", mt: { xs: 4, md: 6 }, maxWidth: 520 }}>
+            <DetailRow icon={<EmailOutlinedIcon />} label="Email" href="mailto:sales@valvenok.com">
+              sales@valvenok.com
+            </DetailRow>
+            <DetailRow icon={<PhoneOutlinedIcon />} label="Phone" href="tel:+447368137917">
+              +44 7368 137917
+            </DetailRow>
+            <DetailRow icon={<LocationOnOutlinedIcon />} label="Office">
+              Valvenok Ltd., St. Edburgs Hall, Priory Rd, Bicester, OX26 6BL, United Kingdom
+            </DetailRow>
           </Box>
-        </Grid>
-      </Grid>
-    </Container>
+        </Box>
+
+        {/* ── Right: form ── */}
+        <Box
+          component="form"
+          onSubmit={handleSubmit}
+          sx={{
+            bgcolor: "#fff",
+            borderRadius: "20px",
+            border: `1px solid ${T.border}`,
+            boxShadow: "0 1px 2px rgba(14,27,18,0.04), 0 24px 60px -12px rgba(14,27,18,0.12)",
+            p: { xs: 3, md: 4.5 },
+          }}
+        >
+          <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" }, gap: 2.5 }}>
+            <Field id="customerName" label="Name">
+              <TextField
+                id="customerName"
+                fullWidth
+                name="customerName"
+                required
+                placeholder="Your name"
+                value={formData.customerName}
+                onChange={handleChange}
+                sx={inputStyles}
+              />
+            </Field>
+            <Field id="customerEmail" label="Email">
+              <TextField
+                id="customerEmail"
+                fullWidth
+                name="customerEmail"
+                type="email"
+                required
+                placeholder="you@company.com"
+                value={formData.customerEmail}
+                onChange={handleChange}
+                sx={inputStyles}
+              />
+            </Field>
+            <Field id="subject" label="Subject" full>
+              <TextField
+                id="subject"
+                fullWidth
+                name="subject"
+                required
+                value={formData.subject}
+                onChange={handleChange}
+                sx={inputStyles}
+              />
+            </Field>
+            <Field id="message" label="Message" full>
+              <TextField
+                id="message"
+                fullWidth
+                name="message"
+                multiline
+                rows={6}
+                required
+                value={formData.message}
+                onChange={handleChange}
+                sx={inputStyles}
+              />
+            </Field>
+          </Box>
+
+          <Button
+            type="submit"
+            variant="contained"
+            fullWidth
+            disabled={isPending}
+            disableElevation
+            endIcon={!isPending && <ArrowForwardRoundedIcon />}
+            sx={{
+              mt: 3.5,
+              py: 1.6,
+              borderRadius: "12px",
+              bgcolor: T.ink,
+              color: "#fff",
+              fontWeight: 600,
+              fontSize: "1rem",
+              textTransform: "none",
+              transition: "background-color .2s",
+              "&:hover": { bgcolor: T.greenDeep },
+              "& .MuiButton-endIcon": { transition: "transform .2s" },
+              "&:hover .MuiButton-endIcon": { transform: "translateX(3px)" },
+            }}
+          >
+            {isPending ? <CircularProgress size={24} color="inherit" /> : "Send Message"}
+          </Button>
+          <Typography sx={{ mt: 2, fontSize: "0.85rem", lineHeight: 1.6, color: T.muted, textAlign: "center" }}>
+            We use the details you submit to respond to your enquiry. See our{" "}
+            <MuiLink component={NextLink} href="/privacy" underline="hover" sx={{ color: T.greenDark, fontWeight: 600 }}>
+              Privacy Policy
+            </MuiLink>{" "}
+            for how we handle personal data.
+          </Typography>
+        </Box>
+      </Box>
+    </Box>
+  );
+}
+
+function Field({ id, label, full, children }: { id: string; label: string; full?: boolean; children: React.ReactNode }) {
+  return (
+    <Box sx={{ gridColumn: full ? "1 / -1" : undefined }}>
+      <Box component="label" htmlFor={id} sx={{ display: "block", mb: 0.75, fontSize: "0.88rem", fontWeight: 600, color: T.ink }}>
+        {label} <Box component="span" sx={{ color: T.greenDark }}>*</Box>
+      </Box>
+      {children}
+    </Box>
+  );
+}
+
+function DetailRow({ icon, label, href, children }: { icon: React.ReactNode; label: string; href?: string; children: React.ReactNode }) {
+  return (
+    <Box
+      component={href ? "a" : "div"}
+      href={href}
+      sx={{
+        display: "flex",
+        gap: 2,
+        alignItems: "center",
+        py: 2.25,
+        borderTop: `1px solid ${T.border}`,
+        "&:last-of-type": { borderBottom: `1px solid ${T.border}` },
+        textDecoration: "none",
+        color: T.ink,
+        "&:hover .dr-icon": href ? { bgcolor: T.green, color: T.greenDeep } : {},
+        "&:hover .dr-value": href ? { color: T.greenDark } : {},
+      }}
+    >
+      <Box
+        className="dr-icon"
+        sx={{
+          flexShrink: 0,
+          width: 44,
+          height: 44,
+          borderRadius: "12px",
+          display: "grid",
+          placeItems: "center",
+          bgcolor: T.greenSoft,
+          color: T.greenDark,
+          transition: "background-color .2s, color .2s",
+          "& svg": { fontSize: 21 },
+        }}
+      >
+        {icon}
+      </Box>
+      <Box>
+        <Box component="span" sx={{ display: "block", fontSize: "0.78rem", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase !important", color: T.muted }}>
+          {label}
+        </Box>
+        <Box component="span" className="dr-value" sx={{ display: "block", mt: 0.25, fontSize: "1rem", fontWeight: 500, lineHeight: 1.5, transition: "color .2s" }}>
+          {children}
+        </Box>
+      </Box>
+    </Box>
   );
 }
 
 const inputStyles = {
   "& .MuiOutlinedInput-root": {
-    borderRadius: 0,
+    borderRadius: "10px",
     backgroundColor: "#fff",
-    "& fieldset": { borderColor: "#e0e0e0" },
-    "&:hover fieldset": { borderColor: "#61D649" },
-    "&.Mui-focused fieldset": { borderColor: "#1c2e1a", borderWidth: "1px" },
+    fontSize: "0.98rem",
+    transition: "box-shadow .2s",
+    "& input, & textarea": { "&::placeholder": { color: T.muted, opacity: 1 } },
+    "& fieldset": { borderColor: "#D9E2DB" },
+    "&:hover fieldset": { borderColor: "#B9C7BC" },
+    "&.Mui-focused": { boxShadow: "0 0 0 4px rgba(97,214,73,0.18)" },
+    "&.Mui-focused fieldset": { borderColor: T.greenDark, borderWidth: "1px" },
   },
-  "& .MuiInputLabel-root.Mui-focused": { color: "#1c2e1a" },
 };

@@ -82,7 +82,7 @@ export default function DesktopUserActions({ barHeight }: Props) {
       >
         <Box
           component="img"
-          src="/badges/joscar-registered.png"
+          src="https://pblol2.blob.core.windows.net/valvenok-images/joscar-registered.png"
           alt="JOSCAR Registered"
           sx={{ height: Math.min(barHeight - 24, 52), width: "auto", display: "block" }}
         />

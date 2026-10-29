@@ -12,6 +12,15 @@ export interface InsightPost {
 // decoupled from the news page's local POSTS array.
 export const LATEST_INSIGHTS: InsightPost[] = [
   {
+    title: "Valve Actuator Sizing Explained: Torque, Safety Factors and Why Actuators Fail to Seat",
+    desc: "How to size a pneumatic valve actuator: breakaway, running and seating torque, safety factors, minimum air supply, spring-return checks and common mistakes.",
+    thumbnail:
+      "https://pblol2.blob.core.windows.net/valvenok-images/valve-actuator-torque-curves.png",
+    date: "October 2026",
+    category: "Technical Guide",
+    link: "/news/valve-actuator-sizing-torque-guide",
+  },
+  {
     title:
       "Ball Valve vs Gate Valve: Technical Guide to Key Differences & How to Choose",
     desc: "A technical breakdown of ball valves and gate valves — covering sealing performance, pressure ratings, industry applications, and a clear decision framework for engineers and procurement teams.",

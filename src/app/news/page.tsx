@@ -18,6 +18,16 @@ import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import SEOButtons from "../about/SEOButtons";
 const POSTS = [
   {
+    title: "Valve Actuator Sizing Explained: Torque, Safety Factors and Why Actuators Fail to Seat",
+    desc: "How to size a pneumatic valve actuator: breakaway, running and seating torque, safety factors, minimum air supply, spring-return checks and common mistakes.",
+    thumbnail:
+      "https://pblol2.blob.core.windows.net/valvenok-images/valve-actuator-torque-curves.png",
+    author: "Valvenok Team",
+    date: "October 2026",
+    category: "Technical Guide",
+    link: "/news/valve-actuator-sizing-torque-guide",
+  },
+  {
     title: "Mars Valve Stock Lands in the UK in November",
     desc: "MARS valve stock lands in the UK this November and we're taking RFQs now. Early requests get priority on the first allocation — including the most-requested Series 77 (V77).",
     thumbnail:
