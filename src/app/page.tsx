@@ -11,6 +11,7 @@ import CoreProducts from "./Landing/modern/CoreProducts";
 import StatsModern from "./Landing/modern/StatsModern";
 import InsightsModern from "./Landing/modern/InsightsModern";
 import FaqModern from "./Landing/modern/FaqModern";
+import SocialWall from "./Landing/modern/SocialWall";
 import JoscarModern from "./Landing/modern/JoscarModern";
 
 // For Next.js App Router (metadata object)
@@ -75,6 +76,7 @@ export default function Home() {
       {/* TestimonialsSection removed until there are genuine, attributable
           customer quotes — the previous copy was illustrative (UK ASA rules). */}
       <InsightsModern />
+      <SocialWall />
       <FaqModern />
       <JoscarModern />
     </>
