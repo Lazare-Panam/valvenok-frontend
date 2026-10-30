@@ -36,7 +36,6 @@ const NAV_HEIGHT = 48;
 const CLOSE_DELAY = 150;
 export default function Navbar() {
   const [activeGroup, setActiveGroup] = React.useState<NavGroup | null>(null);
-  const [triggerLeft, setTriggerLeft] = React.useState(0);
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const closeTimer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
   const navBarRef = React.useRef<HTMLDivElement>(null);
@@ -184,11 +183,7 @@ export default function Navbar() {
                   key={group.id}
                   component="a"
                   href={group.href ?? "#"}
-                  onMouseEnter={(e) => {
-                    const el = e.currentTarget as HTMLElement;
-                    setTriggerLeft(el.offsetLeft);
-                    openGroup(group);
-                  }}
+                  onMouseEnter={() => openGroup(group)}
                   onMouseLeave={scheduleClose}
                   sx={{
                     display: "flex",
@@ -232,7 +227,9 @@ export default function Navbar() {
             sx={{
               position: "absolute",
               top: "100%",
-              left: triggerLeft,
+              // The three-column panel is wide, so it sits centred under the menu
+              left: "50%",
+              transform: "translateX(-50%)",
               zIndex: 300,
               pointerEvents: "auto",
             }}
