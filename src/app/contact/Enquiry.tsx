@@ -21,6 +21,7 @@ import { useSendEnquiry } from "./hooks/useEnquiry";
 import { useNotificationStore } from "@/src/store/useNotificationStore";
 import { T, textReset } from "../Landing/modern/tokens";
 import { Eyebrow } from "../Landing/modern/SectionHeader";
+import GroupSites from "../Common/GroupSites";
 
 export default function EnquiryForm() {
   // "Request a Quote" links pass ?product_id=... — carry it into the subject
@@ -238,6 +239,9 @@ export default function EnquiryForm() {
             for how we handle personal data.
           </Typography>
         </Box>
+      </Box>
+      <Box sx={{ position: "relative", borderTop: `1px solid ${T.border}`, bgcolor: T.surface }}>
+        <GroupSites compact title="Other group companies" subtitle="Looking for a specific range? These group websites specialise in it." />
       </Box>
     </Box>
   );

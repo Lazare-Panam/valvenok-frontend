@@ -1,5 +1,6 @@
 "use client";
 
+import RelatedLinks from "@/src/app/Common/Products_Page/RelatedLinks";
 import { useState } from "react";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
@@ -429,6 +430,13 @@ export default function ADSeriesPage() {
         open={modalOpen}
         onClose={() => setModalOpen(false)}
         product={AD_PRODUCT}
+      />
+      <RelatedLinks
+        title="More from Kosaplus"
+        links={[
+          { label: "All Kosaplus actuators", href: "/brands/kosaplus" },
+          { label: "KOSAPLUS pneumatic actuators at KOSAPLUS UK", href: "https://www.kosaplus.co.uk/products/pneumatic-actuator", external: true },
+        ]}
       />
     </>
   );

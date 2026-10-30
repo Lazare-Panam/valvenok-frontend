@@ -1,3 +1,4 @@
+import RelatedLinks from "@/src/app/Common/Products_Page/RelatedLinks";
 import type { Metadata } from "next";
 import ProductHero from "@/src/app/Common/Products_Page/ProductHero";
 import TrustStrip from "@/src/app/Common/Products_Page/TrustStrip";
@@ -279,6 +280,13 @@ export default function MarsValvesIndexPage() {
       />
       <ProcessValvesGrid families={MARS_VALVE_SERIES} />
       <TrustStrip points={TRUST_POINTS} />
+      <RelatedLinks
+        title="More on ball valves"
+        links={[
+          { label: "Ball Valve vs Gate Valve guide", href: "/news/ball-valve-vs-gate-valve" },
+          { label: "MARS ball valves at Mars Valve", href: "https://www.marsvalvenok.com/", external: true },
+        ]}
+      />
     </>
   );
 }

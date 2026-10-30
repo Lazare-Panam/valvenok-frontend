@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import ThemeRegistry from "../theme/ThemeRegistry";
 import Navbar from "./Common/Navbar/Navbar";
+import { GROUP_SITES } from "./Common/group";
 import Providers from "./providers";
 import { NotificationProvider } from "../components/NotificationProvider";
 import Footer from "./Common/Footer/Footer";
@@ -75,7 +76,9 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
+              "@id": "https://www.valvenok.com/#organization",
               name: "Valvenok",
+              legalName: "Valvenok Ltd",
               url: "https://www.valvenok.com",
               logo: "https://pblol2.blob.core.windows.net/valvenok-images/logo.png",
               contactPoint: {
@@ -86,6 +89,12 @@ export default function RootLayout({
                 areaServed: "GB",
               },
               sameAs: ["https://uk.linkedin.com/company/valvenok-ltd"],
+              // Group sites run by Valvenok Ltd itself
+              subOrganization: GROUP_SITES.filter((g) => g.operatedByValvenok).map((g) => ({
+                "@type": "Organization",
+                name: g.name,
+                url: g.url,
+              })),
             }),
           }}
         />

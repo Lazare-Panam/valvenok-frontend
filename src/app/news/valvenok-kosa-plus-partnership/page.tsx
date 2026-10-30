@@ -1,5 +1,6 @@
 "use client";
 
+import RelatedLinks from "@/src/app/Common/Products_Page/RelatedLinks";
 import React from "react";
 import {
   Box,
@@ -614,6 +615,15 @@ export default function KosaPartnershipPage() {
           </Box>
         </Box>
       </Container>
+      <RelatedLinks
+        title="Kosaplus at Valvenok"
+        links={[
+          { label: "Kosaplus actuators", href: "/brands/kosaplus" },
+          { label: "KE electric actuators", href: "/actuators/electric/ke-series" },
+          { label: "AD scotch yoke pneumatic actuators", href: "/pneumatic/actuators/scotch-yoke" },
+          { label: "KLS position indicators", href: "/actuators/limit-switches/kls" },
+        ]}
+      />
     </Box>
   );
 }

@@ -250,7 +250,8 @@ export default function ActuatorsPage() {
 
       {/* ── Product Cards ── */}
       <ProcessValvesGrid families={ACTUATOR_CATEGORIES} />
-      <RelatedLinks title="Guides" links={[{ label: "How to Choose a Valve Actuator", href: "/news/how-to-choose-a-valve-actuator" }, { label: "Valve Actuator Sizing Explained", href: "/news/valve-actuator-sizing-torque-guide" }]} />
+      <RelatedLinks title="Guides" links={[{ label: "How to Choose a Valve Actuator", href: "/news/how-to-choose-a-valve-actuator" }, { label: "Valve Actuator Sizing Explained", href: "/news/valve-actuator-sizing-torque-guide" }, { label: "Kosaplus Actuators", href: "/brands/kosaplus" }]} />
+      <RelatedLinks title="Group companies" links={[{ label: "KOSAPLUS actuators at KOSAPLUS UK", href: "https://www.kosaplus.co.uk/", external: true }]} />
     </Box>
   );
 }

@@ -136,6 +136,8 @@ const nextConfig: NextConfig = {
     ];
   },
   images: {
+    // 80 is used by the homepage hero slider
+    qualities: [75, 80],
     remotePatterns: [
       {
         protocol: "https",

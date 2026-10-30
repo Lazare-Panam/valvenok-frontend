@@ -1,5 +1,6 @@
 "use client";
 
+import RelatedLinks from "@/src/app/Common/Products_Page/RelatedLinks";
 import React from "react";
 import {
   Box,
@@ -1395,12 +1396,16 @@ export default function SubmersiblePumpsPage() {
               day.
             </Typography>
             <Typography
+              component="a"
+              href="/contact"
               variant="button"
               sx={{
                 fontWeight: 900,
                 borderBottom: "2px solid",
                 pb: 1,
                 cursor: "pointer",
+                color: "inherit",
+                textDecoration: "none",
               }}
             >
               Contact Our Engineering Team
@@ -1408,6 +1413,14 @@ export default function SubmersiblePumpsPage() {
           </Box>
         </Box>
       </Container>
+      <RelatedLinks
+        title="Related"
+        links={[
+          { label: "Submersible pumps", href: "/pumps-seals/pumps/submersible-pump" },
+          { label: "All pumps", href: "/pumps-seals/pumps" },
+          { label: "Mechanical seals", href: "/pumps-seals/seals" },
+        ]}
+      />
     </Box>
   );
 }

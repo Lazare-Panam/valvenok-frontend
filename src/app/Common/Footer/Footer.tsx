@@ -17,6 +17,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import VerifiedUserOutlinedIcon from "@mui/icons-material/VerifiedUserOutlined";
 import WorkspacePremiumOutlinedIcon from "@mui/icons-material/WorkspacePremiumOutlined";
+import { GROUP_SITES } from "../group";
 
 const BRAND_GREEN = "#61D649";
 const FONT = "var(--font-geist-sans), Inter, system-ui, sans-serif";
@@ -31,6 +32,7 @@ const FOOTER_LINKS = [
       { label: "Actuators", href: "/actuators" },
       { label: "Instrumentation", href: "/instrumentation" },
       { label: "Pumps & Seals", href: "/pumps-seals" },
+      { label: "Industrial Pumps", href: "/pumps-seals/pumps" },
     ],
   },
   {
@@ -225,7 +227,47 @@ export default function Footer() {
           ))}
         </Grid>
 
-        <Divider sx={{ mt: { xs: 6, md: 8 }, mb: 3, borderColor: alpha("#fff", 0.18) }} />
+        {/* ── Group companies: brand-name anchors only ── */}
+        <Box
+          sx={{
+            mt: { xs: 6, md: 8 },
+            pt: 3,
+            borderTop: "1px solid",
+            borderColor: alpha("#fff", 0.18),
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "center",
+            gap: { xs: 1.5, md: 1 },
+          }}
+        >
+          <Typography sx={{ ...headSx, mb: 0, mr: { md: 2 }, width: { xs: "100%", md: "auto" } }}>Group companies</Typography>
+          {GROUP_SITES.map((g) => (
+            <Box
+              key={g.url}
+              component="a"
+              href={g.url}
+              target="_blank"
+              rel="noopener"
+              sx={{
+                px: 1.75,
+                py: 0.75,
+                borderRadius: 999,
+                border: "1px solid",
+                borderColor: alpha("#fff", 0.25),
+                color: alpha("#fff", 0.88),
+                fontSize: "0.88rem",
+                fontWeight: 500,
+                textDecoration: "none",
+                transition: "all .2s",
+                "&:hover": { bgcolor: "#fff", color: "#123D17", borderColor: "#fff" },
+              }}
+            >
+              {g.name}
+            </Box>
+          ))}
+        </Box>
+
+        <Divider sx={{ mt: 3, mb: 3, borderColor: alpha("#fff", 0.18) }} />
 
         {/* ── Bottom bar ── */}
         <Stack direction={{ xs: "column", md: "row" }} justifyContent="space-between" alignItems="center" spacing={2}>

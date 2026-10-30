@@ -1,5 +1,6 @@
 "use client";
 
+import RelatedLinks from "@/src/app/Common/Products_Page/RelatedLinks";
 import React from "react";
 import {
   Box,
@@ -998,12 +999,16 @@ export default function MechanicalSealsPage() {
               and we will respond within one working day.
             </Typography>
             <Typography
+              component="a"
+              href="/contact"
               variant="button"
               sx={{
                 fontWeight: 900,
                 borderBottom: "2px solid",
                 pb: 1,
                 cursor: "pointer",
+                color: "inherit",
+                textDecoration: "none",
               }}
             >
               Contact Our Engineering Team
@@ -1011,6 +1016,14 @@ export default function MechanicalSealsPage() {
           </Box>
         </Box>
       </Container>
+      <RelatedLinks
+        title="Related"
+        links={[
+          { label: "Mechanical seals", href: "/pumps-seals/seals" },
+          { label: "Industrial pumps", href: "/pumps-seals/pumps" },
+          { label: "Mechanical seals guide", href: "/news/mechanical-seals-guide" },
+        ]}
+      />
     </Box>
   );
 }

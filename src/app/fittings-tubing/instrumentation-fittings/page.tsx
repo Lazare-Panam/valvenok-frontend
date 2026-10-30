@@ -1,3 +1,4 @@
+import RelatedLinks from "@/src/app/Common/Products_Page/RelatedLinks";
 import type { Metadata } from "next";
 import ProductHero from "../../Common/Products_Page/ProductHero";
 import TrustStrip from "../../Common/Products_Page/TrustStrip";
@@ -106,6 +107,7 @@ export default function FittingsIndexPage() {
       />
       <FittingsGrid families={FITTING_FAMILIES} />
       <TrustStrip points={TRUST_POINTS} />
+      <RelatedLinks title="Group companies" links={[{ label: "Instrumentation fittings at Panam Valves", href: "https://www.panamvalve.com/", external: true }]} />
     </>
   );
 }

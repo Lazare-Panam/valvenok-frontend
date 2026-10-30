@@ -90,6 +90,8 @@ export default function HeroModern() {
               alt={s.alt}
               fill
               priority={i === 0}
+              // Both slides can be the LCP element as they crossfade, so neither is lazy
+              loading={i === 0 ? undefined : "eager"}
               sizes="100vw"
               quality={80}
               style={{ objectFit: "cover", objectPosition: s.position }}

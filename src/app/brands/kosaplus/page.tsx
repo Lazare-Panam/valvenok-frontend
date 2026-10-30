@@ -1,3 +1,4 @@
+import RelatedLinks from "@/src/app/Common/Products_Page/RelatedLinks";
 import type { Metadata } from "next";
 import ProductHero from "../../Common/Products_Page/ProductHero";
 import TrustStrip from "../../Common/Products_Page/TrustStrip";
@@ -105,6 +106,22 @@ export default function KosaplusBrandPage() {
       />
       <ProcessValvesGrid families={KOSAPLUS_SERIES} />
       <TrustStrip points={TRUST_POINTS} />
+      <RelatedLinks
+        title="Guides"
+        links={[
+          { label: "Valvenok and Kosa Plus partnership", href: "/news/valvenok-kosa-plus-partnership" },
+          { label: "How to choose a valve actuator", href: "/news/how-to-choose-a-valve-actuator" },
+          { label: "Valve actuator sizing explained", href: "/news/valve-actuator-sizing-torque-guide" },
+        ]}
+      />
+      <RelatedLinks
+        title="Full range at KOSAPLUS UK"
+        links={[
+          { label: "KOSAPLUS pneumatic actuators", href: "https://www.kosaplus.co.uk/products/pneumatic-actuator", external: true },
+          { label: "KOSAPLUS electric actuators", href: "https://www.kosaplus.co.uk/products/electric-actuator", external: true },
+          { label: "KOSAPLUS valve position indicators", href: "https://www.kosaplus.co.uk/products/valve-position-indicator", external: true },
+        ]}
+      />
     </>
   );
 }

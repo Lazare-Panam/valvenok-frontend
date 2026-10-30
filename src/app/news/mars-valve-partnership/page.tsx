@@ -1,5 +1,6 @@
 "use client";
 
+import RelatedLinks from "@/src/app/Common/Products_Page/RelatedLinks";
 import React from "react";
 import {
   Box,
@@ -448,12 +449,16 @@ export default function ValvenokMarsPartnershipPage() {
               Valves collaboration can benefit your next project.
             </Typography>
             <Typography
+              component="a"
+              href="/contact"
               variant="button"
               sx={{
                 fontWeight: 900,
                 borderBottom: "2px solid",
                 pb: 1,
                 cursor: "pointer",
+                color: "inherit",
+                textDecoration: "none",
               }}
             >
               Contact Us Today
@@ -461,6 +466,13 @@ export default function ValvenokMarsPartnershipPage() {
           </Box>
         </Box>
       </Container>
+      <RelatedLinks
+        title="Related"
+        links={[
+          { label: "Industrial ball valves", href: "/valves/industrial-valves/ball-valves" },
+          { label: "MARS ball valves at Mars Valve", href: "https://www.marsvalvenok.com/", external: true },
+        ]}
+      />
     </Box>
   );
 }

@@ -127,6 +127,13 @@ export default function ActuatorsIndexPage() {
       />
       <ActuatorsGrid families={ACTUATOR_FAMILIES} />
       <RelatedLinks links={[{ label: "SRA Double Acting Actuators & 3/2 Valves", href: "/pneumatic/actuators/sra" }]} />
+      <RelatedLinks
+        title="Group companies"
+        links={[
+          { label: "KOSAPLUS pneumatic actuators", href: "https://www.kosaplus.co.uk/products/pneumatic-actuator", external: true },
+          { label: "Pneumatic cylinders at SPAC Pneumatic", href: "https://www.spacpneumatic.co.uk/", external: true },
+        ]}
+      />
       <TrustStrip points={TRUST_POINTS} />
     </>
   );

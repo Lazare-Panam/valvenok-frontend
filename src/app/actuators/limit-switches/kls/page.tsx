@@ -1,5 +1,6 @@
 "use client";
 
+import RelatedLinks from "@/src/app/Common/Products_Page/RelatedLinks";
 import { useState } from "react";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
@@ -419,6 +420,13 @@ export default function KLSPage() {
         open={modalOpen}
         onClose={() => setModalOpen(false)}
         product={KLS_PRODUCT}
+      />
+      <RelatedLinks
+        title="More from Kosaplus"
+        links={[
+          { label: "All Kosaplus actuators", href: "/brands/kosaplus" },
+          { label: "KOSAPLUS valve position indicators at KOSAPLUS UK", href: "https://www.kosaplus.co.uk/products/valve-position-indicator", external: true },
+        ]}
       />
     </>
   );

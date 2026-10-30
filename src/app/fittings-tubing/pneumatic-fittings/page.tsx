@@ -58,6 +58,7 @@ export default function FittingsIndexPage() {
       />
       <FittingsGrid families={FITTING_FAMILIES} />
       <RelatedLinks links={[{ label: "SPAC Pneumatic Tubing", href: "/fittings-tubing/pneumatic-tubing" }]} />
+      <RelatedLinks title="Group companies" links={[{ label: "Pneumatic fittings at SPAC Pneumatic", href: "https://www.spacpneumatic.co.uk/", external: true }]} />
       <TrustStrip points={TRUST_POINTS} />
     </>
   );

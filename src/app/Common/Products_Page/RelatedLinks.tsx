@@ -7,6 +7,8 @@ import Typography from '@mui/material/Typography'
 interface RelatedLink {
   label: string
   href: string
+  // Group-company website: opens in a new tab with an arrow
+  external?: boolean
 }
 
 // Plain crawlable links to pages that aren't reachable from the product grids
@@ -21,8 +23,9 @@ export default function RelatedLinks({ title = 'Related', links }: { title?: str
         {links.map(link => (
           <Box component="li" key={link.href}>
             <Box
-              component={Link}
+              component={link.external ? 'a' : Link}
               href={link.href}
+              {...(link.external ? { target: '_blank', rel: 'noopener' } : {})}
               sx={{
                 display: 'inline-block',
                 px: 2,
@@ -37,6 +40,7 @@ export default function RelatedLinks({ title = 'Related', links }: { title?: str
               }}
             >
               {link.label}
+              {link.external && ' ↗'}
             </Box>
           </Box>
         ))}

@@ -4,6 +4,7 @@ import AboutStory from "./AboutStory";
 import AboutValues from "./AboutValves";
 import AboutStats from "./AboutStats";
 import SEOButtons from "./SEOButtons";
+import GroupSites from "../Common/GroupSites";
 
 export const metadata = {
   alternates: { canonical: '/about' },
@@ -27,6 +28,10 @@ export default function AboutPage() {
       <AboutStory />
       <AboutCTA />
       <AboutValues />
+      <GroupSites
+        title="Our group"
+        subtitle="Valvenok works alongside specialist websites across the group. Each one focuses on a single range, so you can go straight to the experts for that product."
+      />
       <SEOButtons />
     </>
   );

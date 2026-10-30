@@ -116,6 +116,7 @@ export default function HydrogenCryogenicIndexPage() {
       />
       <YoungdoGrid families={HYDROGEN_CRYOGENIC_SERIES} />
       <RelatedLinks links={[{ label: "Cryogenic Valves", href: "/cryogenic-valves" }, { label: "Youngdo Hydrogen, LPG & Gas Cylinder Valves", href: "/hydrogen-cryogenic/gas-valves" }]} />
+      <RelatedLinks title="Group companies" links={[{ label: "Hydrogen and high-pressure fittings at Hiflux UK", href: "https://www.hiflux.uk.com/", external: true }]} />
       <TrustStrip points={TRUST_POINTS} />
     </>
   );

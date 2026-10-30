@@ -1,5 +1,6 @@
 "use client";
 
+import RelatedLinks from "@/src/app/Common/Products_Page/RelatedLinks";
 import React from "react";
 import {
   Box,
@@ -867,12 +868,16 @@ export default function InstrumentationFittingsPage() {
               and instrument take-offs.
             </Typography>
             <Typography
+              component="a"
+              href="/contact"
               variant="button"
               sx={{
                 fontWeight: 900,
                 borderBottom: "2px solid",
                 pb: 1,
                 cursor: "pointer",
+                color: "inherit",
+                textDecoration: "none",
               }}
             >
               Contact Our Engineering Team
@@ -880,6 +885,15 @@ export default function InstrumentationFittingsPage() {
           </Box>
         </Box>
       </Container>
+      <RelatedLinks
+        title="Related"
+        links={[
+          { label: "Instrumentation fittings", href: "/fittings-tubing/instrumentation-fittings" },
+          { label: "Hydrogen & cryogenic", href: "/hydrogen-cryogenic" },
+          { label: "Hydrogen instrumentation fittings at Panam Valves", href: "https://www.panamvalve.com/", external: true },
+          { label: "High-pressure fittings at Hiflux UK", href: "https://www.hiflux.uk.com/", external: true },
+        ]}
+      />
     </Box>
   );
 }

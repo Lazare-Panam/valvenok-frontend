@@ -1,5 +1,6 @@
 "use client";
 
+import RelatedLinks from "@/src/app/Common/Products_Page/RelatedLinks";
 import {
   Box,
   Container,
@@ -370,6 +371,7 @@ export default function HighPressureIndexPage() {
           </Button>
         </Box>
       </Container>
+      <RelatedLinks title="Group companies" links={[{ label: "HIFLUX high-pressure valves at Hiflux UK", href: "https://www.hiflux.uk.com/", external: true }]} />
     </Box>
   );
 }
