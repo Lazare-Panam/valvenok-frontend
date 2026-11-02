@@ -6,11 +6,11 @@ import HydraulicActuatorsGrid from "./HydraulicActuatorsGrid";
 
 export const metadata: Metadata = {
   alternates: { canonical: '/actuators/hydraulic' },
-  title: { absolute: "Hydraulic Actuators — Electro-Hydraulic Rotary Series | Valvenok" },
+  title: { absolute: "Hydraulic Actuators: Electro-Hydraulic Rotary | Valvenok" },
   description:
     "Electro-hydraulic rotary actuators for high-torque and fail-safe valve operation. PANDA and PA series, ATEX Zone 1 & 2, SIL 2/3, ISO 5211 mounting.",
   openGraph: {
-    title: "Hydraulic Actuators — Electro-Hydraulic Rotary Series | Valvenok",
+    title: "Hydraulic Actuators: Electro-Hydraulic Rotary | Valvenok",
     description: "Electro-hydraulic rotary actuators for high-torque and fail-safe valve operation. PANDA and PA series, ATEX Zone 1 & 2, SIL 2/3, ISO 5211 mounting.",
     url: "/actuators/hydraulic",
     siteName: "Valvenok",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 const HYDRAULIC_FAMILIES: Category[] = [
   {
     code: "ADF",
-    title: "Hydraulic Actuators — Electro-Hydraulic Rotary Series | Valvenok",
+    title: "Hydraulic Actuators: Electro-Hydraulic Rotary | Valvenok",
     subtitle: "Electro-Hydraulic Rotary Actuator — PANDA & PA Series",
     description:
       "Electro-hydraulic rotary actuators for high-torque and fail-safe valve operation. PANDA and PA series, ATEX Zone 1 & 2, SIL 2/3, ISO 5211 mounting.",

@@ -1,5 +1,14 @@
-import JICProductPage from "../all/page"
+import View from "../all/View";
+import Prefetched from "@/src/app/Common/ssr/Prefetched";
+import { jicQueries } from "@/src/app/Common/ssr/listingQueries";
 
-export default function Elbows() {
-  return <JICProductPage defaultFittingTypes={['ME', 'AME', 'LME', 'FE', 'UE']} />
+// Server-loads the model table so it is in the HTML search engines read
+export const revalidate = 3600;
+
+export default function Page() {
+  return (
+    <Prefetched queries={jicQueries(['ME', 'AME', 'LME', 'FE', 'UE'])}>
+      <View defaultFittingTypes={['ME', 'AME', 'LME', 'FE', 'UE']} />
+    </Prefetched>
+  );
 }

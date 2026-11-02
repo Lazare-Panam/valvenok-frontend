@@ -55,12 +55,12 @@ function CountUp({ target }: { target: string }) {
 }
 
 // All figures pulled from claims already published elsewhere on the site
-// (the 29 brands listed on /brands, the Bicester address, and the sum of the
+// (the 32 brands listed on /brands, the Bicester address, and the sum of the
 // minimum product counts already shown per-category in Categories.tsx).
 // No dispatch, lead-time or stock promises are made here.
 const STATS = [
   { num: "2022", unit: "", label: "TRUSTED SINCE" },
-  { num: "25", unit: "+", label: "BRANDS DISTRIBUTED" },
+  { num: "32", unit: "", label: "BRANDS DISTRIBUTED" },
   { num: "UK", unit: "", label: "BASED SUPPLIER" },
   { num: "1000", unit: "+", label: "PRODUCTS IN RANGE" },
 ];

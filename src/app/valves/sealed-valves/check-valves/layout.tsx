@@ -8,7 +8,7 @@ const PRODUCT_IMAGE =
 
 export const metadata: Metadata = {
   alternates: { canonical: "/valves/sealed-valves/check-valves" },
-  title: { absolute: "Bellows Sealed Lift Check Valves — Zero Stem Leakage | Valvenok" },
+  title: { absolute: "Bellows Sealed Lift Check Valves | Valvenok" },
   description: PRODUCT_DESCRIPTION,
   openGraph: {
     title: PRODUCT_TITLE,

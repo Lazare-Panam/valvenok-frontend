@@ -8,7 +8,7 @@ import { alpha } from '@mui/material/styles';
 
 const STATS = [
   { value: 'UK',     label: 'Based Supplier' },
-  { value: '25+',    label: 'Brands Distributed' },
+  { value: '32',     label: 'Brands distributed' },
   { value: 'High',   label: 'Pressure Ratings Vary by Product' },
   { value: 'SS316',  label: 'Primary Material' },
   { value: 'JOSCAR', label: 'Registered Supplier' },

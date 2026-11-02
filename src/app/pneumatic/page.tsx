@@ -6,11 +6,11 @@ import PneumaticsGrid from "./PneumaticsGrid";
 
 export const metadata: Metadata = {
   alternates: { canonical: '/pneumatic' },
-  title: "Pneumatics & Vacuum | Cylinders, Valves & Actuators",
+  title: "Pneumatics: Cylinders, Valves & Actuators",
   description:
     "Pneumatic components for industrial automation: ISO cylinders, solenoid valves, foot pedal valves, pneumatic actuators and air blow guns. Request a quote.",
   openGraph: {
-    title: "Pneumatics & Vacuum | Cylinders, Valves & Actuators | Valvenok",
+    title: "Pneumatics: Cylinders, Valves & Actuators | Valvenok",
     description: "Pneumatic components for industrial automation: ISO cylinders, solenoid valves, foot pedal valves, pneumatic actuators and air blow guns. Request a quote.",
     url: "/pneumatic",
     siteName: "Valvenok",

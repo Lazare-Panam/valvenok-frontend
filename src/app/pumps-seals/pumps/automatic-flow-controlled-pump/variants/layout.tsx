@@ -3,11 +3,11 @@ import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/pumps-seals/pumps/automatic-flow-controlled-pump/variants" },
-  title: { absolute: "Automatic Flow-Controlled Pumps — HQC & TQC Models | Valvenok" },
+  title: { absolute: "Automatic Flow-Controlled Pumps: HQC & TQC | Valvenok" },
   description:
     "HQC and TQC series automatic flow-controlled pumps for 50Hz and 60Hz operation, for downward pressurisation installations below a water tower.",
   openGraph: {
-    title: "Automatic Flow-Controlled Pumps — HQC & TQC Models | Valvenok",
+    title: "Automatic Flow-Controlled Pumps: HQC & TQC | Valvenok",
     description:
       "HQC and TQC series automatic flow-controlled pumps for 50Hz and 60Hz operation, for downward pressurisation installations below a water tower.",
     type: "website",

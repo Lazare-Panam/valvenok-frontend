@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/news/how-to-choose-a-valve-actuator" },
-  title: "How to Choose a Valve Actuator: Electric, Pneumatic, Hydraulic",
+  title: "How to Choose a Valve Actuator",
   description:
     "Electric, pneumatic or hydraulic? Compare torque, speed, fail-safe behaviour and hazardous area rating, with a sizing walkthrough and decision framework.",
   keywords: [

@@ -26,6 +26,11 @@ type BreadcrumbsProps = {
 // e.g. "ag" -> "AG" (Anderson Greenwood). Extend as needed: 'jic', 'nps', 'dn'.
 const ACRONYMS = new Set(['ag', 'lpg']);
 
+// Segments whose label isn't just the words in the URL
+const DEFAULT_LABELS: Record<string, string> = {
+  'hydrogen-cryogenic': 'Hydrogen & Cryogenic',
+};
+
 // Turn "ag-fasani-check" into "AG Fasani Check"
 const humanize = (segment: string) =>
   decodeURIComponent(segment)
@@ -58,7 +63,7 @@ export default function Breadcrumbs({
         const href = '/' + segments.slice(0, i + 1).join('/');
         const isLast = i === segments.length - 1;
         generated.push({
-          label: labelMap[segment] ?? humanize(segment),
+          label: labelMap[segment] ?? DEFAULT_LABELS[segment] ?? humanize(segment),
           href: isLast ? undefined : href,
         });
       });

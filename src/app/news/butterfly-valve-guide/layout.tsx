@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/news/butterfly-valve-guide" },
-  title: { absolute: "Butterfly Valve Instrumentation & Connection Packages | Valvenok" },
+  title: { absolute: "Butterfly Valve Instrumentation Packages | Valvenok" },
   description: "Instrumentation valves, manifolds, fittings and auxiliaries for triple offset, actuated and process butterfly valve installations, with UK support.",
   keywords: [
     "Butterfly Valve",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "PTFE Lined Butterfly Valve",
   ],
   openGraph: {
-    title: "Butterfly Valve Instrumentation & Connection Packages | Valvenok",
+    title: "Butterfly Valve Instrumentation Packages | Valvenok",
     description: "Instrumentation valves, manifolds, fittings and auxiliaries for triple offset, actuated and process butterfly valve installations, with UK support.",
     url: "https://www.valvenok.com/news/butterfly-valve-guide",
     siteName: "Valvenok",

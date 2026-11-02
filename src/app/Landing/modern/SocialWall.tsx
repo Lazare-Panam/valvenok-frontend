@@ -14,8 +14,8 @@ import { Eyebrow } from "./SectionHeader";
 // with one call to action floating over each row.
 
 const BLOB = "https://pblol2.blob.core.windows.net";
-// Social posters, served from /public/social until they are uploaded to blob storage.
-const SOCIAL = "/social";
+// Social posters in blob storage
+const SOCIAL = "https://pblol2.blob.core.windows.net/valvenok-images/social";
 
 // Decorative only: the tiles are not links, the two buttons are the calls to action.
 type Tile = { src: string; alt: string };

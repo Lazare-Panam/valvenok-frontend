@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/cryogenic-valves" },
-  title: { absolute: "Cryogenic Valves for LNG & Low-Temperature Service | Valvenok" },
+  title: { absolute: "Cryogenic Valves for LNG & Low-Temperature Use | Valvenok" },
   description:
     "Cryogenic valves for LNG, hydrogen and liquefied gases, with engineering support, full documentation and matching instrumentation and fitting packages.",
   keywords: [
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     "Valvenok",
   ],
   openGraph: {
-    title: "Cryogenic Valves for LNG & Low-Temperature Service | Valvenok",
+    title: "Cryogenic Valves for LNG & Low-Temperature Use | Valvenok",
     description:
       "Cryogenic valves for LNG, hydrogen and liquefied gases, with engineering support, full documentation and matching instrumentation and fitting packages.",
     url: "https://www.valvenok.com/cryogenic-valves",

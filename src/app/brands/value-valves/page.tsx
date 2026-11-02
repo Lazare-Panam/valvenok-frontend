@@ -10,11 +10,11 @@ const VALUE_LOGO =
 
 export const metadata: Metadata = {
   alternates: { canonical: "/brands/value-valves" },
-  title: { absolute: "Value Valves Butterfly Valves — Triple Offset & Centric | Valvenok" },
+  title: { absolute: "Value Valves: Triple Offset & Centric Butterfly | Valvenok" },
   description:
     "Value Valves triple offset, centric, double eccentric, lined, cryogenic and marine butterfly valves from DN40 to DN2600. Certification varies by model.",
   openGraph: {
-    title: "Value Valves Butterfly Valves — Triple Offset & Centric | Valvenok",
+    title: "Value Valves: Triple Offset & Centric Butterfly | Valvenok",
     description: "Value Valves triple offset, centric, double eccentric, lined, cryogenic and marine butterfly valves from DN40 to DN2600. Certification varies by model.",
     url: "/brands/value-valves",
     siteName: "Valvenok",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 const VALUE_VALVE_SERIES: Category[] = [
   {
     code: "VF-8A",
-    title: "Value Valves Butterfly Valves — Triple Offset & Centric | Valvenok",
+    title: "Value Valves: Triple Offset & Centric Butterfly | Valvenok",
     subtitle: "High Performance Triple Offset — ANSI 150 / 300 / 600LB",
     description:
       "Value Valves triple offset, centric, double eccentric, lined, cryogenic and marine butterfly valves from DN40 to DN2600. Certification varies by model.",
@@ -46,7 +46,7 @@ const VALUE_VALVE_SERIES: Category[] = [
   },
   {
     code: "VF-7",
-    title: "Value Valves Butterfly Valves — Triple Offset & Centric | Valvenok",
+    title: "Value Valves: Triple Offset & Centric Butterfly | Valvenok",
     subtitle: 'Centric Butterfly Valves — DN40–DN1800 (1½"–72")',
     description:
       "Value Valves triple offset, centric, double eccentric, lined, cryogenic and marine butterfly valves from DN40 to DN2600. Certification varies by model.",
@@ -67,7 +67,7 @@ const VALUE_VALVE_SERIES: Category[] = [
   },
   {
     code: "VF-264",
-    title: "Value Valves Butterfly Valves — Triple Offset & Centric | Valvenok",
+    title: "Value Valves: Triple Offset & Centric Butterfly | Valvenok",
     subtitle: 'AWWA C504 & C516 Double Flanged — 14"–104"',
     description:
       "Value Valves triple offset, centric, double eccentric, lined, cryogenic and marine butterfly valves from DN40 to DN2600. Certification varies by model.",
@@ -88,7 +88,7 @@ const VALUE_VALVE_SERIES: Category[] = [
   },
   {
     code: "VF-9A",
-    title: "Value Valves Butterfly Valves — Triple Offset & Centric | Valvenok",
+    title: "Value Valves: Triple Offset & Centric Butterfly | Valvenok",
     subtitle: 'Double Eccentric — ANSI 150LB & 300LB — 2"–48"',
     description:
       "Value Valves triple offset, centric, double eccentric, lined, cryogenic and marine butterfly valves from DN40 to DN2600. Certification varies by model.",
@@ -109,7 +109,7 @@ const VALUE_VALVE_SERIES: Category[] = [
   },
   {
     code: "VF-265A",
-    title: "Value Valves Butterfly Valves — Triple Offset & Centric | Valvenok",
+    title: "Value Valves: Triple Offset & Centric Butterfly | Valvenok",
     subtitle: 'Marine Flanged Butterfly Valve — DN50–DN600 (2"–24")',
     description:
       "Value Valves triple offset, centric, double eccentric, lined, cryogenic and marine butterfly valves from DN40 to DN2600. Certification varies by model.",
@@ -129,7 +129,7 @@ const VALUE_VALVE_SERIES: Category[] = [
   },
   {
     code: "VF-9A-AC",
-    title: "Value Valves Butterfly Valves — Triple Offset & Centric | Valvenok",
+    title: "Value Valves: Triple Offset & Centric Butterfly | Valvenok",
     subtitle:
       'Double Eccentric With Jacket Option — ANSI 150LB & 300LB — 2"–48"',
     description:
@@ -151,7 +151,7 @@ const VALUE_VALVE_SERIES: Category[] = [
   },
   {
     code: "VF-CRYO",
-    title: "Value Valves Butterfly Valves — Triple Offset & Centric | Valvenok",
+    title: "Value Valves: Triple Offset & Centric Butterfly | Valvenok",
     subtitle:
       'Cryogenic Double Eccentric & Triple Offset — ANSI 150LB — 2"–36"',
     description:
@@ -173,7 +173,7 @@ const VALUE_VALVE_SERIES: Category[] = [
   },
   {
     code: "VF-75",
-    title: "Value Valves Butterfly Valves — Triple Offset & Centric | Valvenok",
+    title: "Value Valves: Triple Offset & Centric Butterfly | Valvenok",
     subtitle: 'PTFE & PFA Lined — DN50–DN600 (2"–24") — Up To 16 Bar',
     description:
       "Value Valves triple offset, centric, double eccentric, lined, cryogenic and marine butterfly valves from DN40 to DN2600. Certification varies by model.",
@@ -194,7 +194,7 @@ const VALUE_VALVE_SERIES: Category[] = [
   },
   {
     code: "VF-3",
-    title: "Value Valves Butterfly Valves — Triple Offset & Centric | Valvenok",
+    title: "Value Valves: Triple Offset & Centric Butterfly | Valvenok",
     subtitle: 'Damper Valves — Centric, Double & Triple Eccentric — 2"–96"',
     description:
       "Value Valves triple offset, centric, double eccentric, lined, cryogenic and marine butterfly valves from DN40 to DN2600. Certification varies by model.",

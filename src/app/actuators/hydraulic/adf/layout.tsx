@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const TITLE = "ADF Electro-Hydraulic Rotary Actuators, 46–10,000 Nm | Valvenok";
+const TITLE = "ADF Electro-Hydraulic Actuators, 46–10,000 Nm | Valvenok";
 const DESCRIPTION =
   "ADF electro-hydraulic rotary actuators from 46 to 10,000 Nm, ATEX Zone 1/2 and SIL 2/3 certified, for fail-safe quarter-turn valve automation.";
 const IMAGE =

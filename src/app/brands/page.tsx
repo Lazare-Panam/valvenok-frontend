@@ -123,7 +123,7 @@ const BRANDS = [
   },
   {
     name: "Endress Hauser",
-    logo: "/images/brands/endress-hauser.svg",
+    logo: "https://pblol2.blob.core.windows.net/valvenok-images/brands/endress-hauser.svg",
     desc: "Laboratory and process automation instrumentation.",
   },
   {

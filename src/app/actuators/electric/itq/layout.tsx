@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const TITLE = "ITQ Series Electric Rotary Actuators, 100–9,000 Nm | Valvenok";
+const TITLE = "ITQ Electric Rotary Actuators, 100–9,000 Nm | Valvenok";
 const DESCRIPTION =
   "ITQ series quarter-turn electric rotary actuators from 100 to 9,000 Nm, IP67 / NEMA 4X, ISO 5211 mounting, for on-off and modulating valve service.";
 const IMAGE =

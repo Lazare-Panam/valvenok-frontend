@@ -10,11 +10,11 @@ const PF_LOGO =
 
 export const metadata: Metadata = {
   alternates: { canonical: "/brands/pietro-fiorentini" },
-  title: { absolute: "Pietro Fiorentini Gas Valves & Pressure Regulators | Valvenok" },
+  title: { absolute: "Pietro Fiorentini Gas Valves & Regulators | Valvenok" },
   description:
     "Pietro Fiorentini trunnion ball valves, BF 31 and BF 32 butterfly valves and gas pressure regulators to 250 bar, with hydrogen-ready models available.",
   openGraph: {
-    title: "Pietro Fiorentini Gas Valves & Pressure Regulators | Valvenok",
+    title: "Pietro Fiorentini Gas Valves & Regulators | Valvenok",
     description: "Pietro Fiorentini trunnion ball valves, BF 31 and BF 32 butterfly valves and gas pressure regulators to 250 bar, with hydrogen-ready models available.",
     url: "/brands/pietro-fiorentini",
     siteName: "Valvenok",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 const PIETRO_FIORENTINI_SERIES: Category[] = [
   {
     code: "PF-DFX",
-    title: "Pietro Fiorentini Gas Valves & Pressure Regulators | Valvenok",
+    title: "Pietro Fiorentini Gas Valves & Regulators | Valvenok",
     subtitle: "Trunnion Mounted — ANSI Class 150–2500",
     description:
       "Pietro Fiorentini trunnion ball valves, BF 31 and BF 32 butterfly valves and gas pressure regulators to 250 bar, with hydrogen-ready models available.",
@@ -46,7 +46,7 @@ const PIETRO_FIORENTINI_SERIES: Category[] = [
   },
   {
     code: "PF-BF31",
-    title: "Pietro Fiorentini Gas Valves & Pressure Regulators | Valvenok",
+    title: "Pietro Fiorentini Gas Valves & Regulators | Valvenok",
     subtitle: "Large Bore Butterfly Valve — DN 300–600",
     description:
       "Pietro Fiorentini trunnion ball valves, BF 31 and BF 32 butterfly valves and gas pressure regulators to 250 bar, with hydrogen-ready models available.",
@@ -66,7 +66,7 @@ const PIETRO_FIORENTINI_SERIES: Category[] = [
   },
   {
     code: "PF-BF32",
-    title: "Pietro Fiorentini Gas Valves & Pressure Regulators | Valvenok",
+    title: "Pietro Fiorentini Gas Valves & Regulators | Valvenok",
     subtitle: "Medium Bore Butterfly Valve — DN 50–250",
     description:
       "Pietro Fiorentini trunnion ball valves, BF 31 and BF 32 butterfly valves and gas pressure regulators to 250 bar, with hydrogen-ready models available.",
@@ -86,7 +86,7 @@ const PIETRO_FIORENTINI_SERIES: Category[] = [
   },
   {
     code: "PF-REG",
-    title: "Pietro Fiorentini Gas Valves & Pressure Regulators | Valvenok",
+    title: "Pietro Fiorentini Gas Valves & Regulators | Valvenok",
     subtitle: "Direct Operated — Dival 160 AP · Staflux 185 / 187 · ATF 15",
     description:
       "Pietro Fiorentini trunnion ball valves, BF 31 and BF 32 butterfly valves and gas pressure regulators to 250 bar, with hydrogen-ready models available.",

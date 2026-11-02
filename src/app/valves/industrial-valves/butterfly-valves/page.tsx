@@ -7,7 +7,7 @@ import { pageMetadata } from "@/src/app/Common/seo";
 import RelatedLinks from "@/src/app/Common/Products_Page/RelatedLinks";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Industrial Butterfly Valves — Centric & Triple Offset | Valvenok",
+  title: "Butterfly Valves: Centric & Triple Offset | Valvenok",
   description:
     "Industrial butterfly valves from Mars Valves, Pietro Fiorentini and Value Valves: centric, double and triple offset, lined, cryogenic and marine designs.",
   path: "/valves/industrial-valves/butterfly-valves",

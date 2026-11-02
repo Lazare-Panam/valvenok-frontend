@@ -3,11 +3,11 @@ import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/actuators/electric/ke-series/variants" },
-  title: { absolute: "KE Series Electric Actuators — KE001 to KE120 Models | Valvenok" },
+  title: { absolute: "KE Electric Actuators: KE001 to KE120 Models | Valvenok" },
   description:
     "KE series electric quarter-turn actuators, KE001 to KE120, in standard or reduced-torque variants covering 4–1200 Nm. Compare models and request a quote.",
   openGraph: {
-    title: "KE Series Electric Actuators — KE001 to KE120 Models | Valvenok",
+    title: "KE Electric Actuators: KE001 to KE120 Models | Valvenok",
     description:
       "KE series electric quarter-turn actuators, KE001 to KE120, in standard or reduced-torque variants covering 4–1200 Nm. Compare models and request a quote.",
     type: "website",

@@ -6,11 +6,11 @@ import ElectricActuatorsGrid from "./components/ElectricActuatorsGrid";
 
 export const metadata: Metadata = {
   alternates: { canonical: '/actuators/electric' },
-  title: { absolute: "Electric Valve Actuators — Rotary, Linear & Multi-Turn | Valvenok" },
+  title: { absolute: "Electric Actuators: Rotary, Linear & Multi-Turn | Valvenok" },
   description:
     "Electric rotary, linear and multi-turn valve actuators for on-off and modulating service, with ISO 5211 mounting and IP67 protection. Request a quote.",
   openGraph: {
-    title: "Electric Valve Actuators — Rotary, Linear & Multi-Turn | Valvenok",
+    title: "Electric Actuators: Rotary, Linear & Multi-Turn | Valvenok",
     description: "Electric rotary, linear and multi-turn valve actuators for on-off and modulating service, with ISO 5211 mounting and IP67 protection. Request a quote.",
     url: "/actuators/electric",
     siteName: "Valvenok",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 const ELECTRIC_FAMILIES: Category[] = [
   {
     code: "KP",
-    title: "Electric Valve Actuators — Rotary, Linear & Multi-Turn | Valvenok",
+    title: "Electric Actuators: Rotary, Linear & Multi-Turn | Valvenok",
     subtitle: "Compact Electric Quarter-Turn Actuator",
     description:
       "Electric rotary, linear and multi-turn valve actuators for on-off and modulating service, with ISO 5211 mounting and IP67 protection. Request a quote.",
@@ -42,7 +42,7 @@ const ELECTRIC_FAMILIES: Category[] = [
   },
   {
     code: "ITQ",
-    title: "Electric Valve Actuators — Rotary, Linear & Multi-Turn | Valvenok",
+    title: "Electric Actuators: Rotary, Linear & Multi-Turn | Valvenok",
     subtitle: "Rotary Electric Actuator",
     description:
       "Electric rotary, linear and multi-turn valve actuators for on-off and modulating service, with ISO 5211 mounting and IP67 protection. Request a quote.",
@@ -64,7 +64,7 @@ const ELECTRIC_FAMILIES: Category[] = [
   },
   {
     code: "IQL",
-    title: "Electric Valve Actuators — Rotary, Linear & Multi-Turn | Valvenok",
+    title: "Electric Actuators: Rotary, Linear & Multi-Turn | Valvenok",
     subtitle: "Linear Electric Actuator",
     description:
       "Electric rotary, linear and multi-turn valve actuators for on-off and modulating service, with ISO 5211 mounting and IP67 protection. Request a quote.",
@@ -86,7 +86,7 @@ const ELECTRIC_FAMILIES: Category[] = [
   },
   {
     code: "ITL",
-    title: "Electric Valve Actuators — Rotary, Linear & Multi-Turn | Valvenok",
+    title: "Electric Actuators: Rotary, Linear & Multi-Turn | Valvenok",
     subtitle: "Compact Linear Electric Actuator — 100% Duty Cycle",
     description:
       "Electric rotary, linear and multi-turn valve actuators for on-off and modulating service, with ISO 5211 mounting and IP67 protection. Request a quote.",
@@ -108,7 +108,7 @@ const ELECTRIC_FAMILIES: Category[] = [
   },
   {
     code: "ITM",
-    title: "Electric Valve Actuators — Rotary, Linear & Multi-Turn | Valvenok",
+    title: "Electric Actuators: Rotary, Linear & Multi-Turn | Valvenok",
     subtitle: "Heavy-Duty Multi-Turn Electric Actuator",
     description:
       "Electric rotary, linear and multi-turn valve actuators for on-off and modulating service, with ISO 5211 mounting and IP67 protection. Request a quote.",
@@ -130,7 +130,7 @@ const ELECTRIC_FAMILIES: Category[] = [
   },
   {
     code: "DFE",
-    title: "Electric Valve Actuators — Rotary, Linear & Multi-Turn | Valvenok",
+    title: "Electric Actuators: Rotary, Linear & Multi-Turn | Valvenok",
     subtitle: "Electrohydraulic Actuators for Proportional Valves",
     description:
       "Electric rotary, linear and multi-turn valve actuators for on-off and modulating service, with ISO 5211 mounting and IP67 protection. Request a quote.",

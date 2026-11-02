@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const TITLE = "Valvenok Partners with Mars Valves to Expand UK Supply | Valvenok";
+const TITLE = "Valvenok and Mars Valves Partner on UK Supply | Valvenok";
 const DESCRIPTION =
   "Valvenok has partnered with Mars Valves to bring Mars ball valves and industrial valve solutions to customers across the UK. Read the announcement.";
 const IMAGE =

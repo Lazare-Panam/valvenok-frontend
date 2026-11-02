@@ -15,6 +15,15 @@ import { Eyebrow } from "../Landing/modern/SectionHeader";
 
 const POSTS = [
   {
+    title: "Pump Materials Compared: Cast Iron, Bronze, Stainless Steel and Engineered Plastic",
+    desc: "The fluid decides the material, not the price list. Cast iron, bronze, 304, 316 and 904L stainless and PPS plastic compared for pump casings and impellers.",
+    thumbnail: "https://pblol2.blob.core.windows.net/valvenok-images/blogs/pump-materials-comparison.jpg",
+    author: "Valvenok Team",
+    date: "November 2026",
+    category: "Technical Guide",
+    link: "/news/pump-materials-comparison",
+  },
+  {
     title: "Valve Actuator Sizing Explained: Torque, Safety Factors and Why Actuators Fail to Seat",
     desc: "How to size a pneumatic valve actuator: breakaway, running and seating torque, safety factors, minimum air supply, spring-return checks and common mistakes.",
     thumbnail:

@@ -4,10 +4,10 @@ import { Suspense } from 'react';
 import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 
 export const metadata = {
-  title: { absolute: "Marine Valves — Gate, Globe, Butterfly & Check Valves | Valvenok" },
+  title: { absolute: "Marine Gate, Globe, Butterfly & Check Valves | Valvenok" },
   description: "Marine valves in NAB, gunmetal and stainless steel: gate, globe, butterfly, swing check, dual plate and fire hydrant valves. Request a quote today.",
   openGraph: {
-    title: "Marine Valves — Gate, Globe, Butterfly & Check Valves | Valvenok",
+    title: "Marine Gate, Globe, Butterfly & Check Valves | Valvenok",
     description: "Marine valves in NAB, gunmetal and stainless steel: gate, globe, butterfly, swing check, dual plate and fire hydrant valves. Request a quote today.",
     url: 'https://www.valvenok.com/valves/marine-valves',
     siteName: 'Valvenok',
@@ -15,7 +15,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Marine Valves — Gate, Globe, Butterfly & Check Valves | Valvenok",
+    title: "Marine Gate, Globe, Butterfly & Check Valves | Valvenok",
     description: "Marine valves in NAB, gunmetal and stainless steel: gate, globe, butterfly, swing check, dual plate and fire hydrant valves. Request a quote today.",
   },
   alternates: {

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 
-const TITLE = "MAW Series Worm Gearboxes for Valves — Models & Sizes | Valvenok";
+const TITLE = "MAW Worm Gearboxes for Valves: Models & Sizes | Valvenok";
 const DESCRIPTION =
   "Browse MAW series worm gearboxes for quarter-turn valve actuation and drive systems. Filter by sub-series and model, then request a quote from Valvenok.";
 const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";

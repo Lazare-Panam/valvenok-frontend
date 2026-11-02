@@ -78,7 +78,7 @@ export const VALVES: FeaturedValve[] = [
     categoryId: "control-valves",
     brand: "VSI – Valve Systems International",
     brandLogo:
-      "/images/brands/vsi.png",
+      "https://pblol2.blob.core.windows.net/valvenok-images/brands/vsi.png",
     thumbnail:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/Atlas-15.png",
     specs: [

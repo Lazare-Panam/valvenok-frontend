@@ -11,9 +11,9 @@ export const metadata: Metadata = {
     siteName: 'Valvenok',
     images: [
       {
-        url: 'https://res.cloudinary.com/dm9rmmemx/image/upload/v1775564688/28788ab3-a6d7-4876-b8a3-8e4afd5ac9da_dyi0qw.jpg', 
-        width: 1200,
-        height: 630,
+        url: 'https://pblol2.blob.core.windows.net/valvenok-images/blogs/blog4.jpg', 
+        width: 5184,
+        height: 3456,
         alt: 'Valvenok Engineering Insights',
       },
     ],

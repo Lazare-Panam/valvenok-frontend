@@ -32,6 +32,8 @@ module.exports = {
       loc: path,
       changefreq: config.changefreq,
       priority: priorities[path] ?? 0.6,
+      // Build date, so Google sees when pages were last deployed
+      lastmod: config.autoLastmod ? new Date().toISOString() : undefined,
     }
   },
 }

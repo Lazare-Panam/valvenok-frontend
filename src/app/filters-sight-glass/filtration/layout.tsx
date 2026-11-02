@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 
-const TITLE = "Machinery Filtration — Hydraulic Filters & Strainers | Valvenok";
+const TITLE = "Hydraulic Filters & Strainers for Machinery | Valvenok";
 const DESCRIPTION =
   "High pressure, aluminium, return line and duplex hydraulic filters, plus suction strainers, for machinery and industrial systems. Request a quote.";
 const IMAGE =

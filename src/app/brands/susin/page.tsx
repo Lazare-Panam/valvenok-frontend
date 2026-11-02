@@ -10,11 +10,11 @@ const SUSIN_LOGO =
 
 export const metadata: Metadata = {
   alternates: { canonical: "/brands/susin" },
-  title: { absolute: "Susin Electric & Pneumatic Valve Actuators — UK Supply | Valvenok" },
+  title: { absolute: "Susin Electric & Pneumatic Valve Actuators | Valvenok" },
   description:
     "Susin ITQ rotary, IQL/ITL linear and ITM multi-turn electric actuators, scotch yoke and linear pneumatic actuators, and ITS limit switch boxes.",
   openGraph: {
-    title: "Susin Electric & Pneumatic Valve Actuators — UK Supply | Valvenok",
+    title: "Susin Electric & Pneumatic Valve Actuators | Valvenok",
     description: "Susin ITQ rotary, IQL/ITL linear and ITM multi-turn electric actuators, scotch yoke and linear pneumatic actuators, and ITS limit switch boxes.",
     url: "/brands/susin",
     siteName: "Valvenok",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 const SUSIN_SERIES: Category[] = [
   {
     code: "ITQ",
-    title: "Susin Electric & Pneumatic Valve Actuators — UK Supply | Valvenok",
+    title: "Susin Electric & Pneumatic Valve Actuators | Valvenok",
     subtitle: "Rotary Electric Actuator — 100–9,000 Nm",
     description:
       "Susin ITQ rotary, IQL/ITL linear and ITM multi-turn electric actuators, scotch yoke and linear pneumatic actuators, and ITS limit switch boxes.",
@@ -46,7 +46,7 @@ const SUSIN_SERIES: Category[] = [
   },
   {
     code: "ITM",
-    title: "Susin Electric & Pneumatic Valve Actuators — UK Supply | Valvenok",
+    title: "Susin Electric & Pneumatic Valve Actuators | Valvenok",
     subtitle: "Heavy-Duty Multi-Turn Electric Actuator",
     description:
       "Susin ITQ rotary, IQL/ITL linear and ITM multi-turn electric actuators, scotch yoke and linear pneumatic actuators, and ITS limit switch boxes.",
@@ -67,7 +67,7 @@ const SUSIN_SERIES: Category[] = [
   },
   {
     code: "IQL",
-    title: "Susin Electric & Pneumatic Valve Actuators — UK Supply | Valvenok",
+    title: "Susin Electric & Pneumatic Valve Actuators | Valvenok",
     subtitle: "Linear Electric Actuator — 4–25 kN",
     description:
       "Susin ITQ rotary, IQL/ITL linear and ITM multi-turn electric actuators, scotch yoke and linear pneumatic actuators, and ITS limit switch boxes.",
@@ -88,7 +88,7 @@ const SUSIN_SERIES: Category[] = [
   },
   {
     code: "ITL",
-    title: "Susin Electric & Pneumatic Valve Actuators — UK Supply | Valvenok",
+    title: "Susin Electric & Pneumatic Valve Actuators | Valvenok",
     subtitle: "Compact Linear Electric Actuator — 100% Duty Cycle",
     description:
       "Susin ITQ rotary, IQL/ITL linear and ITM multi-turn electric actuators, scotch yoke and linear pneumatic actuators, and ITS limit switch boxes.",
@@ -109,7 +109,7 @@ const SUSIN_SERIES: Category[] = [
   },
   {
     code: "HD",
-    title: "Susin Electric & Pneumatic Valve Actuators — UK Supply | Valvenok",
+    title: "Susin Electric & Pneumatic Valve Actuators | Valvenok",
     subtitle: "Heavy-Duty Scotch Yoke — IS & IC Series",
     description:
       "Susin ITQ rotary, IQL/ITL linear and ITM multi-turn electric actuators, scotch yoke and linear pneumatic actuators, and ITS limit switch boxes.",
@@ -130,7 +130,7 @@ const SUSIN_SERIES: Category[] = [
   },
   {
     code: "PDS",
-    title: "Susin Electric & Pneumatic Valve Actuators — UK Supply | Valvenok",
+    title: "Susin Electric & Pneumatic Valve Actuators | Valvenok",
     subtitle: "Scotch Yoke Pneumatic Actuator — Double & Single Acting",
     description:
       "Susin ITQ rotary, IQL/ITL linear and ITM multi-turn electric actuators, scotch yoke and linear pneumatic actuators, and ITS limit switch boxes.",
@@ -150,7 +150,7 @@ const SUSIN_SERIES: Category[] = [
   },
   {
     code: "PLDS",
-    title: "Susin Electric & Pneumatic Valve Actuators — UK Supply | Valvenok",
+    title: "Susin Electric & Pneumatic Valve Actuators | Valvenok",
     subtitle: "Pneumatic Linear Double Acting Cylinder",
     description:
       "Susin ITQ rotary, IQL/ITL linear and ITM multi-turn electric actuators, scotch yoke and linear pneumatic actuators, and ITS limit switch boxes.",
@@ -171,7 +171,7 @@ const SUSIN_SERIES: Category[] = [
   },
   {
     code: "MPLDS",
-    title: "Susin Electric & Pneumatic Valve Actuators — UK Supply | Valvenok",
+    title: "Susin Electric & Pneumatic Valve Actuators | Valvenok",
     subtitle: "Micro Pneumatic Double Acting Linear Actuator",
     description:
       "Susin ITQ rotary, IQL/ITL linear and ITM multi-turn electric actuators, scotch yoke and linear pneumatic actuators, and ITS limit switch boxes.",
@@ -192,7 +192,7 @@ const SUSIN_SERIES: Category[] = [
   },
   {
     code: "ITS",
-    title: "Susin Electric & Pneumatic Valve Actuators — UK Supply | Valvenok",
+    title: "Susin Electric & Pneumatic Valve Actuators | Valvenok",
     subtitle: "Precision Position Monitoring Switch Box",
     description:
       "Susin ITQ rotary, IQL/ITL linear and ITM multi-turn electric actuators, scotch yoke and linear pneumatic actuators, and ITS limit switch boxes.",

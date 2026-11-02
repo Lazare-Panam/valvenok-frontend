@@ -12,7 +12,7 @@ export interface ProductContent {
 
 // Google truncates around here — keep title's own text (before " | Valvenok"
 // is appended by the layout) under this, and description under this.
-const MAX_TITLE = 54; // 65 (Google's stated ceiling) minus 11 chars for " | Valvenok"
+const MAX_TITLE = 49; // 60 (site rule; Google cuts off around there) minus 11 chars for " | Valvenok"
 const MAX_DESC = 155;
 
 // Optional hand-tuned overrides for specific SKUs that deserve bespoke copy

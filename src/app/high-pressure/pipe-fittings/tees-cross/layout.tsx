@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 
-const TITLE = "High Pressure Pipe Tees & Crosses — SS316 Fittings | Valvenok";
+const TITLE = "High Pressure Pipe Tees & Crosses, SS316 | Valvenok";
 const DESCRIPTION =
   "SS316 high pressure tee and cross pipe fittings across pressure ratings and thread sizes for branching instrumentation and process lines. Request a quote.";
 const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";

@@ -7,7 +7,7 @@ import { T, textReset } from "./tokens";
 // Same figures as the original StatsBand.
 const STATS = [
   { num: "2022", unit: "", label: "Trusted since" },
-  { num: "25", unit: "+", label: "Brands distributed" },
+  { num: "32", unit: "", label: "Brands distributed" },
   { num: "UK", unit: "", label: "Based supplier" },
   { num: "1000", unit: "+", label: "Products in range" },
 ];

@@ -5,12 +5,46 @@ import YoungdoGrid from "./components/YoungdoGrid";
 
 import type { Metadata } from "next";
 import RelatedLinks from "@/src/app/Common/Products_Page/RelatedLinks";
+import { HubIntro, HubGuide } from "./components/HubContent";
+
+const TITLE = "Hydrogen & Cryogenic Valves, Fittings & Tubing UK | Valvenok";
+const DESCRIPTION =
+  "High-pressure hydrogen valves, fittings, tubing and cylinder valves to 70 MPa, with KGS, EC79 and R134 approved models. UK stock and technical support.";
+
 export const metadata: Metadata = {
-  alternates: { canonical: "/hydrogen-cryogenic" },
+  title: { absolute: TITLE },
+  description: DESCRIPTION,
+  alternates: { canonical: "https://www.valvenok.com/hydrogen-cryogenic" },
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: "/hydrogen-cryogenic",
+    type: "website",
+    images: ["https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/HE-700.png"],
+  },
 };
 
 
 const HYDROGEN_CRYOGENIC_SERIES: Category[] = [
+  {
+    code: "H2",
+    title: "Hydrogen Cylinder Valves",
+    subtitle: "35 & 70 MPa Cylinder Valves — Youngdo",
+    description:
+      "Youngdo hydrogen cylinder valves for 35 MPa and 70 MPa storage, vehicles and tube trailers, with thermal relief on selected models and an IECEx explosion-proof option. Certification varies by model.",
+    specs: [
+      "70 MPa Max Working Pressure",
+      "KGS · EC79 · R134 on Selected Models",
+      "Thermal Relief Options",
+      "IECEx Model (YEX-1100)",
+    ],
+    applications: "Hydrogen Storage, Fuel Cell Vehicles, Tube Trailers",
+    href: "/hydrogen-cryogenic/hydrogen",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/HE-700.png",
+    logoUrl:
+      "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/top_logo.png",
+  },
   {
     code: "FIT",
     title: "High Pressure Fittings",
@@ -87,7 +121,7 @@ const HYDROGEN_CRYOGENIC_SERIES: Category[] = [
     ],
     applications:
       "Hydrogen Storage & Refuelling, LPG Distribution, Industrial Gas Cylinders",
-    href: "/high-pressure/valves/gas-valves",
+    href: "/hydrogen-cryogenic/gas-valves",
     image:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/HE-700.png",
     logoUrl:
@@ -99,7 +133,7 @@ const TRUST_POINTS = [
   { value: "Hiflux · Youngdo", label: "Manufacturers" },
   { value: "70 MPa", label: "Max H₂ Pressure" },
   { value: "KGS · EC79", label: "H₂ Certifications" },
-  { value: "CGA · UL", label: "LPG Certifications" },
+  { value: "CGA V-1", label: "Gas Cylinder Standard" },
   { value: "H₂ & LPG", label: "Service Range" },
 ];
 
@@ -107,15 +141,16 @@ export default function HydrogenCryogenicIndexPage() {
   return (
     <>
       <ProductHero
-        title="Hydrogen & Cryogenic"
-        subtitle="Hiflux High Pressure Products & Youngdo Gas Valves"
-        description="Valvenok supplies Hiflux high pressure fittings, valves and tubing rated up to 150,000 psi, alongside Youngdo hydrogen, LPG and industrial gas cylinder valves — hydrogen cylinder valves to 70 MPa, LPG cylinder valves, OPD overfilling prevention devices, piping connection valves and industrial gas cylinder valves. Certification varies by model — see each product table for details."
+        title="Hydrogen & Cryogenic Valves, Fittings and Tubing"
+        subtitle="Hiflux high-pressure products and Youngdo gas and cylinder valves"
+        description="Valvenok supplies valves, fittings, tubing and cylinder valves for hydrogen and other high-pressure gas service, from 3 MPa cylinder connections up to 150,000 psi test systems. We stock two specialist ranges: Hiflux high-pressure fittings, valves and tubing, and Youngdo gas and cylinder valves, including hydrogen cylinder valves rated to 70 MPa with KGS, EC79 and R134 approved models."
         imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/HE-700.png"
         imageAlt="Hiflux high pressure products and Youngdo gas cylinder valves"
         breadcrumb="Products / Hydrogen & Cryogenic"
       />
+      <HubIntro />
       <YoungdoGrid families={HYDROGEN_CRYOGENIC_SERIES} />
-      <RelatedLinks links={[{ label: "Cryogenic Valves", href: "/cryogenic-valves" }, { label: "Youngdo Hydrogen, LPG & Gas Cylinder Valves", href: "/hydrogen-cryogenic/gas-valves" }]} />
+      <HubGuide />
       <RelatedLinks title="Group companies" links={[{ label: "Hydrogen and high-pressure fittings at Hiflux UK", href: "https://www.hiflux.uk.com/", external: true }]} />
       <TrustStrip points={TRUST_POINTS} />
     </>

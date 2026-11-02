@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 
-const TITLE = "All JIC Fittings — 37° Flare SS316 Hydraulic Fittings | Valvenok";
+const TITLE = "JIC Fittings: 37° Flare SS316 Hydraulic | Valvenok";
 const DESCRIPTION =
   "The full range of SS316 37° JIC flare fittings in NPT, BSPT, BSPP, SAE and metric threads: connectors, elbows, tees, unions, plugs and adapters.";
 const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";

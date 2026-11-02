@@ -102,7 +102,7 @@ export default function PipeFittingsIndexPage() {
         title="High Pressure Pipe Fittings"
         subtitle="SS 316 Pipe Fittings from 10,000 to 15,000 psi"
         description="Valvenok supplies a complete range of SS 316 high pressure pipe fittings for oil & gas and process applications — hex couplings, hex nipples, adapters, elbows, tees, crosses, plugs and caps."
-        imageSrc="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1600&q=80&fit=crop"
+        imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/products/high-pressure/high-pressure-hero.jpg"
         imageAlt="High pressure pipe fittings"
         breadcrumb="Products / High Pressure / Pipe Fittings"
       />

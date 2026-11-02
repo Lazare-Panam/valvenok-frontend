@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const TITLE = "Hydrogen Instrumentation Fittings: Leak-Tight Threads | Valvenok";
+const TITLE = "Hydrogen Fittings: Leak-Tight Thread Guide | Valvenok";
 const DESCRIPTION =
   "Thread identification, sealant choice and ferrule best practice for leak-tight instrumentation fittings in hydrogen and high-integrity service.";
 const IMAGE =

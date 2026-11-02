@@ -3,14 +3,15 @@ import ProductHero from "@/src/app/Common/Products_Page/ProductHero";
 import TrustStrip from "@/src/app/Common/Products_Page/TrustStrip";
 import { Category } from "../../Common/Products_Page/ProductCard";
 import PumpsGrid from "./PumpsGrid";
+import RelatedLinks from "@/src/app/Common/Products_Page/RelatedLinks";
 
 export const metadata: Metadata = {
   alternates: { canonical: '/pumps-seals/pumps' },
-  title: { absolute: "WALRUS Pumps — Water Supply, Booster & Industrial Pumps | Valvenok" },
+  title: { absolute: "WALRUS Water Supply, Booster & Industrial Pumps | Valvenok" },
   description:
     "WALRUS pumps for water supply, drainage and industrial use: booster, multistage centrifugal, submersible, hot water and electronic control pumps.",
   openGraph: {
-    title: "WALRUS Pumps — Water Supply, Booster & Industrial Pumps | Valvenok",
+    title: "WALRUS Water Supply, Booster & Industrial Pumps | Valvenok",
     description: "WALRUS pumps for water supply, drainage and industrial use: booster, multistage centrifugal, submersible, hot water and electronic control pumps.",
     url: "/pumps-seals/pumps",
     siteName: "Valvenok",
@@ -23,7 +24,7 @@ const WALRUS_LOGO =
 const PUMP_FAMILIES: Category[] = [
   {
     code: "WQB",
-    title: "WALRUS Pumps — Water Supply, Booster & Industrial Pumps | Valvenok",
+    title: "WALRUS Water Supply, Booster & Industrial Pumps | Valvenok",
     subtitle: "WQ_B / HQ_B / TQ_B Series",
     description:
       "WALRUS pumps for water supply, drainage and industrial use: booster, multistage centrifugal, submersible, hot water and electronic control pumps.",
@@ -43,7 +44,7 @@ const PUMP_FAMILIES: Category[] = [
 
   {
     code: "TP8B",
-    title: "WALRUS Pumps — Water Supply, Booster & Industrial Pumps | Valvenok",
+    title: "WALRUS Water Supply, Booster & Industrial Pumps | Valvenok",
     subtitle: "TP8 / GQB / GQCN_B Series",
     description:
       "WALRUS pumps for water supply, drainage and industrial use: booster, multistage centrifugal, submersible, hot water and electronic control pumps.",
@@ -62,7 +63,7 @@ const PUMP_FAMILIES: Category[] = [
   },
   {
     code: "HSTS",
-    title: "WALRUS Pumps — Water Supply, Booster & Industrial Pumps | Valvenok",
+    title: "WALRUS Water Supply, Booster & Industrial Pumps | Valvenok",
     subtitle: "HS / TS Series",
     description:
       "WALRUS pumps for water supply, drainage and industrial use: booster, multistage centrifugal, submersible, hot water and electronic control pumps.",
@@ -81,7 +82,7 @@ const PUMP_FAMILIES: Category[] = [
   },
   {
     code: "TP3B",
-    title: "WALRUS Pumps — Water Supply, Booster & Industrial Pumps | Valvenok",
+    title: "WALRUS Water Supply, Booster & Industrial Pumps | Valvenok",
     subtitle: "TP3_PTB Series",
     description:
       "WALRUS pumps for water supply, drainage and industrial use: booster, multistage centrifugal, submersible, hot water and electronic control pumps.",
@@ -100,7 +101,7 @@ const PUMP_FAMILIES: Category[] = [
   },
   {
     code: "PWA",
-    title: "WALRUS Pumps — Water Supply, Booster & Industrial Pumps | Valvenok",
+    title: "WALRUS Water Supply, Booster & Industrial Pumps | Valvenok",
     subtitle: "PW_A / PW_E Series",
     description:
       "WALRUS pumps for water supply, drainage and industrial use: booster, multistage centrifugal, submersible, hot water and electronic control pumps.",
@@ -114,7 +115,7 @@ const PUMP_FAMILIES: Category[] = [
   },
   {
     code: "TQCN",
-    title: "WALRUS Pumps — Water Supply, Booster & Industrial Pumps | Valvenok",
+    title: "WALRUS Water Supply, Booster & Industrial Pumps | Valvenok",
     subtitle: "TQCN / HQCN Series",
     description:
       "WALRUS pumps for water supply, drainage and industrial use: booster, multistage centrifugal, submersible, hot water and electronic control pumps.",
@@ -133,7 +134,7 @@ const PUMP_FAMILIES: Category[] = [
   },
   {
     code: "HQC",
-    title: "WALRUS Pumps — Water Supply, Booster & Industrial Pumps | Valvenok",
+    title: "WALRUS Water Supply, Booster & Industrial Pumps | Valvenok",
     subtitle: "HQC / TQC Series",
     description:
       "WALRUS pumps for water supply, drainage and industrial use: booster, multistage centrifugal, submersible, hot water and electronic control pumps.",
@@ -152,7 +153,7 @@ const PUMP_FAMILIES: Category[] = [
   },
   {
     code: "TPRKE",
-    title: "WALRUS Pumps — Water Supply, Booster & Industrial Pumps | Valvenok",
+    title: "WALRUS Water Supply, Booster & Industrial Pumps | Valvenok",
     subtitle: "TPRK_E / TPHK / TPK Series",
     description:
       "WALRUS pumps for water supply, drainage and industrial use: booster, multistage centrifugal, submersible, hot water and electronic control pumps.",
@@ -191,6 +192,13 @@ export default function WalrusPumpsIndexPage() {
         breadcrumb="Products / Pumps"
       />
       <PumpsGrid families={PUMP_FAMILIES} />
+      <RelatedLinks
+        title="Pump guides"
+        links={[
+          { label: "Pump materials compared: cast iron, bronze, stainless and plastic", href: "/news/pump-materials-comparison" },
+          { label: "Stainless steel vs cast iron submersible pumps", href: "/news/stainless-steel-vs-cast-iron" },
+        ]}
+      />
       <TrustStrip points={TRUST_POINTS} />
     </>
   );

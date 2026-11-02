@@ -7,10 +7,10 @@ import { Category } from '@/src/app/Common/Products_Page/ProductCard'
 
 export const metadata: Metadata = {
   alternates: { canonical: '/fittings-tubing/instrumentation-fittings/pipe-fittings' },
-  title: { absolute: "SS316 Instrumentation Pipe Fittings — NPT, BSPT & BSPP | Valvenok" },
+  title: { absolute: "SS316 Pipe Fittings: NPT, BSPT & BSPP Threads | Valvenok" },
   description: "SS316 pipe fittings for instrumentation and process systems: nipples, elbows, tees, unions and adapters in NPT, BSPT, BSPP and metric threads.",
   openGraph: {
-    title: "SS316 Instrumentation Pipe Fittings — NPT, BSPT & BSPP | Valvenok",
+    title: "SS316 Pipe Fittings: NPT, BSPT & BSPP Threads | Valvenok",
     description: "SS316 pipe fittings for instrumentation and process systems: nipples, elbows, tees, unions and adapters in NPT, BSPT, BSPP and metric threads.",
     url: "/fittings-tubing/instrumentation-fittings/pipe-fittings",
     siteName: "Valvenok",
@@ -21,27 +21,27 @@ export const metadata: Metadata = {
 const CATEGORIES: Category[] = [
   {
     code: 'N&C',
-    title: "SS316 Instrumentation Pipe Fittings — NPT, BSPT & BSPP | Valvenok",
+    title: "SS316 Pipe Fittings: NPT, BSPT & BSPP Threads | Valvenok",
     subtitle: 'HN · HLN · HRN · CN · LPN · HC · RHC',
     description: "SS316 pipe fittings for instrumentation and process systems: nipples, elbows, tees, unions and adapters in NPT, BSPT, BSPP and metric threads.",
     specs: ['SS316', 'NPT / BSPT / BSPP', 'Metric / SAE', '1/16" – 2"'],
     applications: 'Oil & Gas, Process Piping, Offshore',
     href: '/fittings-tubing/instrumentation-fittings/pipe-fittings/nipples-couplings',
-    image: 'https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/pipe-fittings/hex%20nipples%20-%20bspp%20x%20bspp%20-%20png.png',
+    image: 'https://pblol2.blob.core.windows.net/valvenok-images/products/pipe-fittings/hex-nipples-bspp-x-bspp-png.png',
   },
   {
     code: 'A&P',
-    title: "SS316 Instrumentation Pipe Fittings — NPT, BSPT & BSPP | Valvenok",
+    title: "SS316 Pipe Fittings: NPT, BSPT & BSPP Threads | Valvenok",
     subtitle: 'A · RA · RB · HP · HHP · PC',
     description: "SS316 pipe fittings for instrumentation and process systems: nipples, elbows, tees, unions and adapters in NPT, BSPT, BSPP and metric threads.",
     specs: ['SS316', 'NPT / BSPT / BSPP', 'Metric / SAE', '1/16" – 2"'],
     applications: 'Instrumentation, Chemical, Power Generation',
     href: '/fittings-tubing/instrumentation-fittings/pipe-fittings/adapters-plugs',
-    image: 'https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/pipe-fittings/adaptors.jpg',
+    image: 'https://pblol2.blob.core.windows.net/valvenok-images/products/pipe-fittings/adaptors.jpg',
   },
   {
     code: 'ELB',
-    title: "SS316 Instrumentation Pipe Fittings — NPT, BSPT & BSPP | Valvenok",
+    title: "SS316 Pipe Fittings: NPT, BSPT & BSPP Threads | Valvenok",
     subtitle: 'FE · ME · SE · UE',
     description: "SS316 pipe fittings for instrumentation and process systems: nipples, elbows, tees, unions and adapters in NPT, BSPT, BSPP and metric threads.",
     specs: ['SS316', 'NPT / BSPT / BSPP', '1/16" – 1½"'],
@@ -51,7 +51,7 @@ const CATEGORIES: Category[] = [
   },
   {
     code: 'U&C',
-    title: "SS316 Instrumentation Pipe Fittings — NPT, BSPT & BSPP | Valvenok",
+    title: "SS316 Pipe Fittings: NPT, BSPT & BSPP Threads | Valvenok",
     subtitle: 'U · BHU · SU · SC · UE',
     description: "SS316 pipe fittings for instrumentation and process systems: nipples, elbows, tees, unions and adapters in NPT, BSPT, BSPP and metric threads.",
     specs: ['SS316', 'BSPP / ISO Parallel', '1/8" – 1½"'],
@@ -61,7 +61,7 @@ const CATEGORIES: Category[] = [
   },
   {
     code: 'T&C',
-    title: "SS316 Instrumentation Pipe Fittings — NPT, BSPT & BSPP | Valvenok",
+    title: "SS316 Pipe Fittings: NPT, BSPT & BSPP Threads | Valvenok",
     subtitle: 'FT · MT · FBT · FRT · ST · BT · RT · UT · C',
     description: "SS316 pipe fittings for instrumentation and process systems: nipples, elbows, tees, unions and adapters in NPT, BSPT, BSPP and metric threads.",
     specs: ['SS316', 'NPT / BSPP', '1/16" – 1½"'],
@@ -71,13 +71,13 @@ const CATEGORIES: Category[] = [
   },
   {
     code: 'ALL',
-    title: "SS316 Instrumentation Pipe Fittings — NPT, BSPT & BSPP | Valvenok",
+    title: "SS316 Pipe Fittings: NPT, BSPT & BSPP Threads | Valvenok",
     subtitle: 'Browse the complete range',
     description: "SS316 pipe fittings for instrumentation and process systems: nipples, elbows, tees, unions and adapters in NPT, BSPT, BSPP and metric threads.",
     specs: ['SS316', 'NPT / BSPT / BSPP', 'Metric / SAE', '650+ configurations'],
     applications: 'All Industries & Applications',
     href: '/fittings-tubing/instrumentation-fittings/pipe-fittings/all',
-    image: 'https://cdn.jsdelivr.net/gh/Lazare-Panam/panam-images@main/products/pipe-fittings/adaptors.jpg',
+    image: 'https://pblol2.blob.core.windows.net/valvenok-images/products/pipe-fittings/adaptors.jpg',
   },
 ]
 

@@ -1419,6 +1419,7 @@ export default function SubmersiblePumpsPage() {
           { label: "Submersible pumps", href: "/pumps-seals/pumps/submersible-pump" },
           { label: "All pumps", href: "/pumps-seals/pumps" },
           { label: "Mechanical seals", href: "/pumps-seals/seals" },
+          { label: "Pump materials compared: cast iron, bronze, stainless and plastic", href: "/news/pump-materials-comparison" },
         ]}
       />
     </Box>

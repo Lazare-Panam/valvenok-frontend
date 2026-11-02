@@ -3,11 +3,11 @@ import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/pneumatic/air-gun" },
-  title: { absolute: "SPAC Pneumatic Air Blow Guns — Industrial Cleaning | Valvenok" },
+  title: { absolute: "SPAC Pneumatic Air Blow Guns | Valvenok" },
   description:
     "SPAC pneumatic air blow guns for industrial cleaning and drying applications. Available in multiple nozzle configurations.",
   openGraph: {
-    title: "SPAC Pneumatic Air Blow Guns — Industrial Cleaning | Valvenok",
+    title: "SPAC Pneumatic Air Blow Guns | Valvenok",
     description:
       "SPAC pneumatic air blow guns for industrial cleaning and drying applications. Available in multiple nozzle configurations.",
     type: "website",

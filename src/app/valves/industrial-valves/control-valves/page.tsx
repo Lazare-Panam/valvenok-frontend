@@ -7,7 +7,7 @@ import { Box } from "@mui/material";
 import { pageMetadata } from "@/src/app/Common/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "VSI Atlas Severe Service Control Valves — UK Supply | Valvenok",
+  title: "VSI Atlas Severe Service Control Valves | Valvenok",
   description:
     "VSI Atlas 15, Atlas 21 and Atlas 32 severe service control valves for demanding process conditions. Supplied by Valvenok, UK. Request a quote.",
   path: "/valves/industrial-valves/control-valves",
@@ -34,7 +34,7 @@ const CONTROL_VALVE_SERIES: Category[] = [
     image:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/Atlas-15.png",
     logoUrl:
-      "/images/brands/vsi.png",
+      "https://pblol2.blob.core.windows.net/valvenok-images/brands/vsi.png",
   },
   {
     code: "VSI-A21",
@@ -56,7 +56,7 @@ const CONTROL_VALVE_SERIES: Category[] = [
     image:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/Atlas-21.png",
     logoUrl:
-      "/images/brands/vsi.png",
+      "https://pblol2.blob.core.windows.net/valvenok-images/brands/vsi.png",
   },
   {
     code: "VSI-A32",
@@ -78,7 +78,7 @@ const CONTROL_VALVE_SERIES: Category[] = [
     image:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/gas-regulator/vsi-32.JPG",
     logoUrl:
-      "/images/brands/vsi.png",
+      "https://pblol2.blob.core.windows.net/valvenok-images/brands/vsi.png",
   },
 ];
 const TRUST_POINTS = [

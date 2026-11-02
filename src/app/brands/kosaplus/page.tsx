@@ -11,11 +11,11 @@ const KOSAPLUS_LOGO =
 
 export const metadata: Metadata = {
   alternates: { canonical: "/brands/kosaplus" },
-  title: { absolute: "Kosaplus Actuators & Limit Switch Boxes — UK Supply | Valvenok" },
+  title: { absolute: "Kosaplus Actuators & Limit Switch Boxes | Valvenok" },
   description:
     "Kosaplus KE electric actuators, AD scotch yoke pneumatic actuators and KLS explosion-proof position indicators. ISO 5211 mounting, IECEx certified.",
   openGraph: {
-    title: "Kosaplus Actuators & Limit Switch Boxes — UK Supply | Valvenok",
+    title: "Kosaplus Actuators & Limit Switch Boxes | Valvenok",
     description: "Kosaplus KE electric actuators, AD scotch yoke pneumatic actuators and KLS explosion-proof position indicators. ISO 5211 mounting, IECEx certified.",
     url: "/brands/kosaplus",
     siteName: "Valvenok",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 const KOSAPLUS_SERIES: Category[] = [
   {
     code: "KE",
-    title: "Kosaplus Actuators & Limit Switch Boxes — UK Supply | Valvenok",
+    title: "Kosaplus Actuators & Limit Switch Boxes | Valvenok",
     subtitle: "Compact Electric Quarter-Turn Actuator",
     description:
       "Kosaplus KE electric actuators, AD scotch yoke pneumatic actuators and KLS explosion-proof position indicators. ISO 5211 mounting, IECEx certified.",
@@ -46,7 +46,7 @@ const KOSAPLUS_SERIES: Category[] = [
   },
   {
     code: "AD",
-    title: "Kosaplus Actuators & Limit Switch Boxes — UK Supply | Valvenok",
+    title: "Kosaplus Actuators & Limit Switch Boxes | Valvenok",
     subtitle: "Scotch Yoke Heavy-Duty Actuator",
     description:
       "Kosaplus KE electric actuators, AD scotch yoke pneumatic actuators and KLS explosion-proof position indicators. ISO 5211 mounting, IECEx certified.",
@@ -64,7 +64,7 @@ const KOSAPLUS_SERIES: Category[] = [
   },
   {
     code: "KLS",
-    title: "Kosaplus Actuators & Limit Switch Boxes — UK Supply | Valvenok",
+    title: "Kosaplus Actuators & Limit Switch Boxes | Valvenok",
     subtitle: "Weatherproof & Explosion-Proof Limit Switch Box",
     description:
       "Kosaplus KE electric actuators, AD scotch yoke pneumatic actuators and KLS explosion-proof position indicators. ISO 5211 mounting, IECEx certified.",
