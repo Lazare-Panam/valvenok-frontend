@@ -189,14 +189,14 @@ export default function MobileMenu({ onClose }: Props) {
             )}
             {current.children.map((child) => (
               <ListItemButton
-                key={child.label}
+                key={child.href ?? child.label}
                 component="a"
                 href={child.href}
                 onClick={onClose}
                 sx={{ px: 2, py: 1, borderBottom: "1px solid #f5f5f5" }}
               >
                 <ListItemText
-                  primary={child.label}
+                  primary={child.brand ? `${child.brand} · ${child.label}` : child.label}
                   primaryTypographyProps={{ fontSize: "0.85rem", color: "#444" }}
                 />
               </ListItemButton>

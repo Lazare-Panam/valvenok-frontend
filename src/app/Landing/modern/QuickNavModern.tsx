@@ -11,11 +11,11 @@ import LoopOutlinedIcon from "@mui/icons-material/LoopOutlined";
 import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
 import { T, textReset } from "./tokens";
 
-// Same links as the original CategoryQuickNav.
+// Each card opens its category page (not a deep sub-page).
 const QUICK_LINKS = [
   { name: "Hydrogen & Cryogenic", href: "/hydrogen-cryogenic", icon: AcUnitOutlinedIcon },
-  { name: "Valves", href: "/valves/instrumentation-valves/ball-valves", icon: TuneOutlinedIcon },
-  { name: "Fittings & Instrumentation", href: "/fittings-tubing/instrumentation-fittings/jic-fittings", icon: BuildOutlinedIcon },
+  { name: "Valves", href: "/valves", icon: TuneOutlinedIcon },
+  { name: "Fittings & Instrumentation", href: "/fittings-tubing", icon: BuildOutlinedIcon },
   { name: "Filters", href: "/filters-sight-glass", icon: FilterAltOutlinedIcon },
   { name: "Actuators", href: "/pneumatic/actuators", icon: SettingsOutlinedIcon },
   { name: "Pumps & Mechanical Seal", href: "/pumps-seals", icon: LoopOutlinedIcon },

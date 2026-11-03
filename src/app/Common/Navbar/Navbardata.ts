@@ -2,6 +2,8 @@
 
 export interface NavItem {
   label: string;
+  /** Manufacturer shown above the label on series tiles */
+  brand?: string;
   href?: string;
   external?: boolean;
   children?: NavItem[];
@@ -48,6 +50,8 @@ export const NAV_GROUPS: NavGroup[] = [
             label: "Needle Valves",
             href: "/high-pressure/valves/needle-valves",
             children: [
+              { brand: "Panam", label: "High Pressure Needle Valves", href: "/high-pressure/valves/needle-valves/products?brand=Panam" },
+              { brand: "Hiflux", label: "High Pressure Needle Valves", href: "/high-pressure/valves/needle-valves/products?brand=Hiflux" },
               { label: "View All Products", href: "/high-pressure/valves/needle-valves/products" },
             ],
           },
@@ -55,6 +59,8 @@ export const NAV_GROUPS: NavGroup[] = [
             label: "Ball Valves",
             href: "/high-pressure/valves/ball-valves",
             children: [
+              { brand: "Panam", label: "High Pressure Ball Valves", href: "/high-pressure/valves/ball-valves/products?brand=Panam" },
+              { brand: "Hiflux", label: "High Pressure Ball Valves", href: "/high-pressure/valves/ball-valves/products?brand=Hiflux" },
               { label: "View All Products", href: "/high-pressure/valves/ball-valves/products" },
             ],
           },
@@ -90,6 +96,11 @@ export const NAV_GROUPS: NavGroup[] = [
           {
             label: "High Pressure Fittings",
             href: "/high-pressure/fittings",
+            children: [
+              { brand: "Panam", label: "High Pressure Fittings", href: "/high-pressure/fittings/products?brand=Panam" },
+              { brand: "Hiflux", label: "High Pressure Fittings", href: "/high-pressure/fittings/products?brand=Hiflux" },
+              { label: "View All Models", href: "/high-pressure/fittings/products" },
+            ],
           },
           
         ],
@@ -102,6 +113,8 @@ export const NAV_GROUPS: NavGroup[] = [
             label: "Tubing",
             href: "/high-pressure/tubing",
             children: [
+              { brand: "Panam", label: "High Pressure Tubing", href: "/high-pressure/tubing/products?brand=Panam" },
+              { brand: "Hiflux", label: "High Pressure Tubing", href: "/high-pressure/tubing/products?brand=Hiflux" },
               { label: "View All Tubing", href: "/high-pressure/tubing/products" },
             ],
           },
@@ -144,23 +157,50 @@ export const NAV_GROUPS: NavGroup[] = [
           {
             label: "Ball Valves",
             href: "/valves/industrial-valves/ball-valves",
+            children: [
+              { brand: "Mars", label: "Ball Valves — Standard Two-Piece", href: "/brands/mars-valves" },
+              { brand: "Cameron", label: "WKM 370D Flanged Ball Valve", href: "/valves/industrial-valves/ball-valves/cameron-wkm-370d" },
+              { brand: "Pietro Fiorentini", label: "Deltaflux Control Ball Valve", href: "/valves/industrial-valves/ball-valves/pf-deltaflux" },
+              { brand: "Value Valves", label: "2-Piece Ball Valve", href: "/valves/industrial-valves/ball-valves/two-piece-ball-valve" },
+              { brand: "Bettis", label: "Actuated Ball Valves", href: "/valves/industrial-valves/ball-valves/bettis-rpx" },
+            ],
           },
           {
             label: "Globe Valves",
             href: "/valves/industrial-valves/globe-valve",
+            children: [
+              { brand: "Fisher", label: "Lined Globe Valve", href: "/valves/industrial-valves/globe-valve/fisher-rss-lined" },
+              { brand: "Bonney Forge", label: "Globe Valves — Welded Bonnet", href: "/valves/industrial-valves/globe-valve/bonney-forge-welded-bonnet" },
+              { brand: "UTAM", label: "Globe Valve — Bolted Bonnet", href: "/valves/industrial-valves/globe-valve/utam-bolted-bonnet-globe-valve" },
+              { brand: "UTAM", label: "Globe Valve — Union Bonnet", href: "/valves/industrial-valves/globe-valve/utam-union-bonnet-globe-valve" },
+            ],
           },
           {
             label: "Gate Valves",
             href: "/valves/industrial-valves/gate-valves",
+            children: [
+              { brand: "UTAM", label: "Gate Valve — Bolted Bonnet", href: "/valves/industrial-valves/gate-valves/utam-bolted-bonnet-gate-valve" },
+              { brand: "UTAM", label: "Gate Valve — Union Bonnet", href: "/valves/industrial-valves/gate-valves/utam-union-bonnet-gate-valve" },
+            ],
           },
           {
             label: "Check Valves",
             href: "/valves/industrial-valves/check-valves",
+            children: [
+              { brand: "Velan", label: "Cast Steel Swing Check Valves", href: "/valves/industrial-valves/check-valves/velan-swing-check" },
+              { brand: "Anderson Greenwood", label: "Bolted Bonnet Check Valves", href: "/valves/industrial-valves/check-valves/ag-fasani-check" },
+              { brand: "Value Valves", label: "Dual Plate Check Valve", href: "/valves/industrial-valves/check-valves/dual-plate-check-valve" },
+            ],
           },
 
           {
             label: "Control Valves",
             href: "/valves/industrial-valves/control-valves",
+            children: [
+              { brand: "VSI", label: "Atlas 15 Severe Service Control Valve", href: "/valves/industrial-valves/control-valves/vsi-atlas-15" },
+              { brand: "VSI", label: "Atlas 21 Severe Service Control Valve", href: "/valves/industrial-valves/control-valves/vsi-atlas-21" },
+              { brand: "VSI", label: "Atlas 32 Severe Service Control Valve", href: "/valves/industrial-valves/control-valves/vsi-atlas-32" },
+            ],
           },
         ],
       },
@@ -208,8 +248,8 @@ export const NAV_GROUPS: NavGroup[] = [
         header: "Sealed Valves",
         href: "/valves/sealed-valves",
         items: [
-          { label: "Globe Valve", href: "/valves/sealed-valves/globe-valves" },
-          { label: "Gate Valve", href: "/valves/sealed-valves/gate-valves" },
+          { label: "Globe Valve", href: "/valves/sealed-valves/globe-valves", children: [{ label: "View All Models", href: "/valves/sealed-valves/globe-valves/products" }] },
+          { label: "Gate Valve", href: "/valves/sealed-valves/gate-valves", children: [{ label: "View All Models", href: "/valves/sealed-valves/gate-valves/products" }] },
           { label: "Check Valve", href: "/valves/sealed-valves/check-valves" },
         ],
       },
@@ -238,18 +278,30 @@ export const NAV_GROUPS: NavGroup[] = [
           {
             label: "AD Series — Scotch Yoke Heavy-Duty",
             href: "/pneumatic/actuators/scotch-yoke",
+            children: [
+              { label: "View All Models", href: "/pneumatic/actuators/scotch-yoke/products" },
+            ],
           },
           {
             label: "PDS Series — Double & Single Acting",
             href: "/pneumatic/actuators/pds",
+            children: [
+              { label: "View All Models", href: "/pneumatic/actuators/pds/products" },
+            ],
           },
           {
             label: "HD Series — Heavy-Duty IS & IC",
             href: "/pneumatic/actuators/hd",
+            children: [
+              { label: "View All Models", href: "/pneumatic/actuators/hd/products" },
+            ],
           },
           {
             label: "PLDS Series — Linear Double Acting",
             href: "/pneumatic/actuators/plds",
+            children: [
+              { label: "View All Models", href: "/pneumatic/actuators/plds/products" },
+            ],
           },
           {
             label: "MPLDS Series — Micro Linear Double Acting",
@@ -268,18 +320,30 @@ export const NAV_GROUPS: NavGroup[] = [
           {
             label: "IQL Series — Linear Electric Actuator",
             href: "/actuators/electric/iql",
+            children: [
+              { label: "View All Models", href: "/actuators/electric/iql/products" },
+            ],
           },
           {
             label: "ITL Series — Compact Linear 100% Duty Cycle",
             href: "/actuators/electric/itl",
+            children: [
+              { label: "View All Models", href: "/actuators/electric/itl/products" },
+            ],
           },
           {
             label: "ITM Series — Multi-Turn Heavy-Duty",
             href: "/actuators/electric/itm",
+            children: [
+              { label: "View All Models", href: "/actuators/electric/itm/products" },
+            ],
           },
           {
             label: "Danfoss PVAE Acutator",
             href: "/actuators/electric/pvae32",
+            children: [
+              { label: "View All Models", href: "/actuators/electric/pvae32/products" },
+            ],
           },
         ],
       },
@@ -290,6 +354,9 @@ export const NAV_GROUPS: NavGroup[] = [
           {
             label: "Electro-Hydraulic Rotary",
             href: "/actuators/hydraulic/adf",
+            children: [
+              { label: "View All Models", href: "/actuators/hydraulic/adf/products" },
+            ],
           },
         ],
       },
@@ -300,14 +367,23 @@ export const NAV_GROUPS: NavGroup[] = [
           {
             label: "MAB Series — Bevel Gear Multi-Turn",
             href: "/actuators/mechanical/mab",
+            children: [
+              { label: "View All Models", href: "/actuators/mechanical/mab/products" },
+            ],
           },
           {
             label: "MAW Series — Worm Gear Quarter-Turn",
             href: "/actuators/mechanical/maw",
+            children: [
+              { label: "View All Models", href: "/actuators/mechanical/maw/products" },
+            ],
           },
           {
             label: "ITG Series — Industrial Gear Quarter-Turn",
             href: "/actuators/mechanical/itg",
+            children: [
+              { label: "View All Models", href: "/actuators/mechanical/itg/products" },
+            ],
           },
         ],
       },

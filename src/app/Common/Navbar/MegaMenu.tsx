@@ -149,7 +149,7 @@ export default function MegaMenu({ group, onClose }: Props) {
                 <Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1.25 }}>
                   {series.map((s) => (
                     <Box
-                      key={s.label}
+                      key={s.href ?? s.label}
                       component="a"
                       href={s.href}
                       onClick={onClose}
@@ -172,8 +172,15 @@ export default function MegaMenu({ group, onClose }: Props) {
                         "&:hover svg": { color: GREEN, transform: "translateX(2px)" },
                       }}
                     >
-                      {s.label}
-                      <ArrowForwardRoundedIcon />
+                      <Box component="span" sx={{ minWidth: 0 }}>
+                        {s.brand && (
+                          <Box component="span" sx={{ display: "block", fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase !important", color: GREEN, mb: 0.25 }}>
+                            {s.brand}
+                          </Box>
+                        )}
+                        {s.label}
+                      </Box>
+                      <ArrowForwardRoundedIcon sx={{ flexShrink: 0 }} />
                     </Box>
                   ))}
                 </Box>
@@ -181,7 +188,7 @@ export default function MegaMenu({ group, onClose }: Props) {
                 // No series listed for this category yet: one clear link to its page
                 <Box
                   component="a"
-                  href={item.href}
+                  href={seriesAll}
                   onClick={onClose}
                   sx={{
                     display: "flex",
@@ -198,7 +205,7 @@ export default function MegaMenu({ group, onClose }: Props) {
                     "&:hover": { bgcolor: SOFT },
                   }}
                 >
-                  View all {item.label} <ArrowForwardRoundedIcon sx={{ fontSize: 16 }} />
+                  View all models <ArrowForwardRoundedIcon sx={{ fontSize: 16 }} />
                 </Box>
               )}
             </>
