@@ -1,13 +1,23 @@
 "use client";
 
-import React from "react";
-import { Box, Container, Typography, Stack, Paper, Divider } from "@mui/material";
-import Grid from "@mui/material/Grid";
-import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
-import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import {
+  ArticleLayout,
+  Lead,
+  H2,
+  P,
+  UL,
+  KeyTakeaways,
+  DataTable,
+  Figure,
+  FAQ,
+  RelatedLinks,
+  Finder,
+} from "../components/Article";
+import { useId, useState, type ChangeEvent } from "react";
+import { Box } from "@mui/material";
+import { T } from "@/src/app/Landing/modern/tokens";
 
-const DISPLAY_FONT = '"Barlow Condensed"';
+const SLUG = "/news/valve-actuator-sizing-torque-guide";
 const IMG = "https://pblol2.blob.core.windows.net/valvenok-images";
 const ARTICLE_URL = "https://www.valvenok.com/news/valve-actuator-sizing-torque-guide";
 const HEADLINE = "Valve Actuator Sizing Explained: Torque, Safety Factors and Why Actuators Fail to Seat";
@@ -298,407 +308,272 @@ const schema = {
   ],
 };
 
-// ── small render helpers, matching the existing /news article grammar ──
-function H2({ children }: { children: React.ReactNode }) {
-  return (
-    <Typography
-      variant="h1"
-      component="h2"
-      sx={{
-        fontFamily: DISPLAY_FONT,
-        fontWeight: 800,
-        mb: 2,
-        mt: 6,
-        textTransform: "uppercase",
-        color: "primary.main",
-      }}
-    >
-      {children}
-    </Typography>
-  );
-}
+// ───────────── Torque sizing check (the worked-illustration method) ─────────────
+const num = (v: string) => {
+  const n = parseFloat(v);
+  return Number.isFinite(n) && n >= 0 ? n : null;
+};
+const fmt = (n: number) => String(Math.round(n * 100) / 100);
 
-function Bullets({ items }: { items: string[] }) {
+function TorqueField({ label, unit, value, onChange, hint }: { label: string; unit?: string; value: string; onChange: (v: string) => void; hint?: string }) {
+  const id = useId();
   return (
-    <Box sx={{ pl: 3, mb: 4, mt: 2 }}>
-      {items.map((item) => (
-        <Typography key={item} sx={{ mb: 1, color: "#000", fontSize: "1.1rem" }}>
-          • {item}
-        </Typography>
-      ))}
-    </Box>
-  );
-}
-
-function Table({ head, rows }: { head: string[]; rows: string[][] }) {
-  const cols = head.length === 2 ? "1fr 2.4fr" : `1.1fr repeat(${head.length - 1}, 1.4fr)`;
-  return (
-    <Box sx={{ overflowX: "auto", my: 4, border: "1px solid", borderColor: "divider" }}>
-      <Box sx={{ minWidth: head.length === 2 ? 520 : 680 }}>
-        <Box sx={{ display: "grid", gridTemplateColumns: cols, bgcolor: "primary.main" }}>
-          {head.map((h, i) => (
-            <Typography
-              key={i}
-              sx={{
-                fontFamily: DISPLAY_FONT,
-                fontWeight: 800,
-                fontSize: "0.8rem",
-                textTransform: "uppercase",
-                letterSpacing: "0.05em",
-                color: "white !important",
-                mb: "0 !important",
-                px: 2,
-                py: 1.5,
-              }}
-            >
-              {h}
-            </Typography>
-          ))}
-        </Box>
-        {rows.map((row, ri) => (
-          <Box
-            key={row[0]}
-            sx={{
-              display: "grid",
-              gridTemplateColumns: cols,
-              bgcolor: ri % 2 === 0 ? "background.default" : "rgba(97,214,73,0.05)",
-              borderTop: "1px solid",
-              borderColor: "divider",
-            }}
-          >
-            {row.map((cell, ci) => (
-              <Typography
-                key={ci}
-                sx={{
-                  px: 2,
-                  py: 1.5,
-                  fontSize: "0.85rem !important",
-                  lineHeight: 1.5,
-                  mb: "0 !important",
-                  fontWeight: ci === 0 ? 800 : 500,
-                  fontFamily: ci === 0 ? DISPLAY_FONT : undefined,
-                  textTransform: ci === 0 ? "uppercase" : "none",
-                  letterSpacing: ci === 0 ? "0.03em" : undefined,
-                  color: ci === 0 ? "primary.dark" : "text.primary",
-                }}
-              >
-                {cell}
-              </Typography>
-            ))}
-          </Box>
-        ))}
+    <Box>
+      <Box component="label" htmlFor={id} sx={{ display: "block", fontSize: "0.85rem", fontWeight: 700, color: T.ink, mb: 0.75, lineHeight: 1.35 }}>
+        {label}
+      </Box>
+      <Box sx={{ display: "flex", alignItems: "center", border: `1px solid ${T.border}`, borderRadius: "12px", bgcolor: "#fff", overflow: "hidden", transition: "border-color .15s", "&:focus-within": { borderColor: T.greenDark, boxShadow: `0 0 0 3px ${T.greenSoft}` } }}>
+        <Box
+          component="input"
+          id={id}
+          type="number"
+          inputMode="decimal"
+          min={0}
+          step="any"
+          value={value}
+          placeholder={hint}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}
+          sx={{ flex: 1, minWidth: 0, border: 0, outline: 0, px: 1.75, py: 1.25, fontSize: "1rem", fontFamily: "inherit", color: T.ink, bgcolor: "transparent", fontVariantNumeric: "tabular-nums", "&::placeholder": { color: T.muted, fontSize: "0.85rem" } }}
+        />
+        {unit && <Box component="span" sx={{ px: 1.5, fontSize: "0.85rem", fontWeight: 700, color: T.muted }}>{unit}</Box>}
       </Box>
     </Box>
   );
 }
 
-function Figure({ file, alt, caption }: { file: string; alt: string; caption?: string }) {
+function TorqueCheck() {
+  const [breakaway, setBreakaway] = useState("100");
+  const [factor, setFactor] = useState("1.25");
+  const [maxOut, setMaxOut] = useState("");
+  const [mast, setMast] = useState("300");
+  const b = num(breakaway);
+  const f = num(factor);
+  const m = num(maxOut);
+  const limit = num(mast);
+  const required = b !== null && f !== null ? b * f : null;
+  const pass = m !== null && limit !== null ? m < limit : null;
   return (
-    <Box component="figure" sx={{ my: 5, mx: 0, textAlign: "center" }}>
-      <Box
-        component="img"
-        src={`${IMG}/${file}`}
-        alt={alt}
-        loading="lazy"
-        sx={{ width: "100%", maxWidth: 760, height: "auto", border: "1px solid", borderColor: "divider" }}
-      />
-      {caption && (
-        <Typography
-          component="figcaption"
-          sx={{ mt: 1.5, fontSize: "0.9rem !important", fontStyle: "italic", color: "text.secondary !important" }}
+    <Box sx={{ my: 4.5, p: { xs: 2.5, md: 3.5 }, borderRadius: T.radius, border: `1px solid ${T.border}`, bgcolor: "#fff", boxShadow: T.shadow }}>
+      <Box sx={{ mb: 2.5 }}>
+        <Box sx={{ fontSize: "0.72rem", fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase !important", color: T.greenDark, mb: 0.75 }}>Calculator</Box>
+        <Box sx={{ fontSize: { xs: "1.15rem", md: "1.3rem" }, fontWeight: 800, color: T.ink, lineHeight: 1.3 }}>Torque sizing check</Box>
+        <Box sx={{ mt: 0.5, fontSize: "0.9rem", color: T.muted }}>Illustrative — always use your manufacturers&apos; torque data.</Box>
+      </Box>
+      <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" }, gap: 2 }}>
+        <TorqueField label="Valve breakaway torque (from the valve maker)" unit="Nm" value={breakaway} onChange={setBreakaway} />
+        <TorqueField label="Safety factor recommended for the pairing" unit="×" value={factor} onChange={setFactor} />
+        <TorqueField label="Actuator maximum output at maximum supply pressure" unit="Nm" value={maxOut} onChange={setMaxOut} hint="From the actuator's torque table" />
+        <TorqueField label="Valve MAST (from the valve maker)" unit="Nm" value={mast} onChange={setMast} />
+      </Box>
+      <Box aria-live="polite" sx={{ mt: 2.5, display: "grid", gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" }, gap: 1.5 }}>
+        <Box sx={{ p: { xs: 2, md: 2.5 }, borderRadius: T.radiusSm, bgcolor: T.surface, border: `1px solid ${T.border}` }}>
+          <Box sx={{ fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase !important", color: T.muted }}>Required torque</Box>
+          <Box sx={{ mt: 0.5, fontSize: { xs: "1.6rem", md: "1.9rem" }, fontWeight: 800, color: T.greenDark, lineHeight: 1.15, fontVariantNumeric: "tabular-nums" }}>
+            {required !== null ? `${fmt(required)} Nm` : "—"}
+          </Box>
+          <Box sx={{ mt: 0.75, fontSize: "0.88rem", lineHeight: 1.55, color: T.body }}>
+            {required !== null
+              ? `${fmt(b!)} × ${fmt(f!)} = ${fmt(required)} Nm. The chosen actuator must deliver at least this at the minimum air pressure at the valve, at the stroke position where the valve needs it.`
+              : "Enter the breakaway torque and safety factor."}
+          </Box>
+        </Box>
+        <Box
+          sx={{
+            p: { xs: 2, md: 2.5 },
+            borderRadius: T.radiusSm,
+            bgcolor: pass === null ? T.surface : pass ? T.greenSoft : "#FDECEC",
+            border: `1px solid ${pass === null ? T.border : pass ? "#CFEBC6" : "#E9A7A1"}`,
+          }}
         >
-          {caption}
-        </Typography>
-      )}
+          <Box sx={{ fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase !important", color: T.muted }}>Upper limit (MAST)</Box>
+          <Box sx={{ mt: 0.5, fontSize: { xs: "1.6rem", md: "1.9rem" }, fontWeight: 800, lineHeight: 1.15, color: pass === null ? T.muted : pass ? T.greenDark : "#B42318" }}>
+            {pass === null ? "—" : pass ? "✓ Pass" : "✗ Fail"}
+          </Box>
+          <Box sx={{ mt: 0.75, fontSize: "0.88rem", lineHeight: 1.55, color: T.body }}>
+            {pass === null
+              ? "Enter the actuator's maximum output at the maximum supply pressure. It must be below the valve's MAST."
+              : pass
+                ? `${fmt(m!)} Nm is below the ${fmt(limit!)} Nm MAST.`
+                : `${fmt(m!)} Nm is not below the ${fmt(limit!)} Nm MAST. An oversized actuator can break the stem.`}
+          </Box>
+        </Box>
+      </Box>
+      <Box sx={{ mt: 2, fontSize: "0.85rem", lineHeight: 1.6, color: T.muted }}>
+        The same check is then made for the running and seating torques, each at its own position in the stroke.
+      </Box>
     </Box>
   );
 }
 
 export default function ActuatorSizingPage() {
   return (
-    <Box
-      sx={{
-        bgcolor: "background.default",
-        minHeight: "100vh",
-        pb: 10,
-        // The theme capitalises every word in Typography; this is long-form prose
-        "& p, & h5, & figcaption": { textTransform: "none !important" },
+    <ArticleLayout
+      schema={schema}
+      meta={{
+        slug: SLUG,
+        category: "Technical Guide",
+        title: "Valve Actuator Sizing Explained",
+        dek: "Torque, safety factors and why actuators fail to seat.",
+        author: "Valvenok Team",
+        date: "October 2026",
+        readMinutes: 11,
       }}
     >
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <Lead>
+        Most actuator problems are sizing problems. An actuator that has enough torque to open a valve but not to
+        close it, or that has plenty of torque on paper but not at the air pressure the valve really sees, will
+        stick, leak or fail to seat. Getting the sizing right means knowing what torque the valve demands, what
+        torque the actuator really delivers at each point in the stroke, and how much margin sits between them.
+      </Lead>
+      <P>
+        This guide explains the three torques a valve demands, how actuator torque is produced and how it varies
+        through the stroke, a step-by-step sizing procedure with a worked illustration, how spring-return actuators
+        differ, and why published safety factors vary so much. It ends with fault-finding for an actuator that
+        won&apos;t seat a valve. It focuses on pneumatic quarter-turn actuators, with notes on electric.
+      </P>
 
-      {/* ── HERO ── */}
-      <Box sx={{ bgcolor: "primary.main", color: "white", pt: 15, pb: 10 }}>
-        <Container maxWidth="md">
-          <Typography
-            variant="overline"
-            sx={{ fontFamily: DISPLAY_FONT, fontWeight: 800, letterSpacing: "0.4em", opacity: 0.8 }}
-          >
-            Technical Guide
-          </Typography>
-          <Typography
-            variant="h1"
-            sx={{
-              fontFamily: DISPLAY_FONT,
-              fontSize: { xs: "2.5rem", md: "4.5rem" },
-              fontWeight: 900,
-              textTransform: "uppercase",
-              lineHeight: 1,
-              mt: 1,
-            }}
-          >
-            Valve Actuator Sizing Explained
-          </Typography>
-          <Typography variant="h5" sx={{ mt: 2, opacity: 0.85, fontStyle: "italic" }}>
-            Torque, safety factors and why actuators fail to seat.
-          </Typography>
-          <Stack direction="row" spacing={3} sx={{ mt: 4, opacity: 0.8 }}>
-            <Stack direction="row" alignItems="center" spacing={1}>
-              <PersonOutlineIcon fontSize="small" />
-              <Typography variant="subtitle2" sx={{ fontWeight: 700, textTransform: "uppercase" }}>
-                Valvenok Team
-              </Typography>
-            </Stack>
-            <Stack direction="row" alignItems="center" spacing={1}>
-              <AccessTimeIcon fontSize="small" />
-              <Typography variant="subtitle2" sx={{ fontWeight: 700, textTransform: "uppercase" }}>
-                October 2026
-              </Typography>
-            </Stack>
-            <Typography variant="subtitle2" sx={{ fontWeight: 700, textTransform: "uppercase" }}>
-              11 min read
-            </Typography>
-          </Stack>
-        </Container>
-      </Box>
+      <KeyTakeaways title="Key Takeaways" items={KEY_TAKEAWAYS} />
 
-      <Container maxWidth="md" sx={{ mt: -5 }}>
-        {/* ── KEY TAKEAWAYS ── */}
-        <Paper
-          elevation={10}
-          sx={{ p: 4, borderRadius: 0, borderLeft: "8px solid", borderColor: "primary.main", mb: 8 }}
-        >
-          <Typography variant="h4" sx={{ fontFamily: DISPLAY_FONT, fontWeight: 900, mb: 3, textTransform: "uppercase" }}>
-            Key Takeaways
-          </Typography>
-          <Grid container spacing={2}>
-            {KEY_TAKEAWAYS.map((text) => (
-              <Grid key={text} size={{ xs: 12, sm: 6 }}>
-                <Stack direction="row" spacing={1} alignItems="flex-start">
-                  <CheckCircleOutlineIcon sx={{ color: "primary.main", fontSize: 20, mt: 0.3 }} />
-                  <Typography variant="body2" sx={{ fontWeight: 600 }}>
-                    {text}
-                  </Typography>
-                </Stack>
-              </Grid>
-            ))}
-          </Grid>
-        </Paper>
+      <H2>What is valve actuator sizing?</H2>
+      <P>{FAQS[0].a}</P>
+      <P>
+        Sizing means matching the actuator&apos;s output to the valve&apos;s demand at every point in the stroke,
+        with margin to spare. The mismatch can go either way. An undersized actuator sticks, leaks or fails to
+        seat. An oversized one wastes air and money, and the extra torque can damage the stem or the valve&apos;s
+        internals.
+      </P>
 
-        {/* ── ARTICLE BODY ── */}
-        <Box sx={{ "& p": { mb: 3, lineHeight: 1.8, color: "#000000", fontSize: "1.1rem" } }}>
-          <Typography>
-            Most actuator problems are sizing problems. An actuator that has enough torque to open a valve but not to
-            close it, or that has plenty of torque on paper but not at the air pressure the valve really sees, will
-            stick, leak or fail to seat. Getting the sizing right means knowing what torque the valve demands, what
-            torque the actuator really delivers at each point in the stroke, and how much margin sits between them.
-          </Typography>
-          <Typography>
-            This guide explains the three torques a valve demands, how actuator torque is produced and how it varies
-            through the stroke, a step-by-step sizing procedure with a worked illustration, how spring-return actuators
-            differ, and why published safety factors vary so much. It ends with fault-finding for an actuator that
-            won&apos;t seat a valve. It focuses on pneumatic quarter-turn actuators, with notes on electric.
-          </Typography>
+      <H2>What torque does a valve need?</H2>
+      <DataTable {...VALVE_TORQUES} />
+      <P>
+        Different valve types have different torque signatures, so the numbers must come from the valve
+        manufacturer, for your conditions. Torque rises with:
+      </P>
+      <UL items={TORQUE_RISES} />
+      <P>
+        Manufacturers often publish torque for a given pressure in clean water service. Treat that as a starting
+        point, and ask for your service conditions.
+      </P>
 
-          <H2>What is valve actuator sizing?</H2>
-          <Typography>{FAQS[0].a}</Typography>
-          <Typography>
-            Sizing means matching the actuator&apos;s output to the valve&apos;s demand at every point in the stroke,
-            with margin to spare. The mismatch can go either way. An undersized actuator sticks, leaks or fails to
-            seat. An oversized one wastes air and money, and the extra torque can damage the stem or the valve&apos;s
-            internals.
-          </Typography>
+      <H2>How is actuator torque produced?</H2>
+      <P>
+        A pneumatic actuator turns air pressure into rotation. The piston force is pressure multiplied by piston
+        area, and torque is that force multiplied by the distance over which it acts about the shaft. In simple
+        terms, torque scales with supply pressure and piston area, and the geometry decides how the distance
+        changes through the stroke.
+      </P>
+      <P>That geometry gives two common torque patterns:</P>
+      <DataTable {...PATTERNS} minWidth={680} />
+      <Figure
+        src={`${IMG}/valve-actuator-torque-curves.png`}
+        alt="Torque curves: rack and pinion is flat across the 90° stroke; scotch yoke is high at both ends and lowest mid-stroke, above the valve’s torque demand."
+      />
 
-          <H2>What torque does a valve need?</H2>
-          <Table {...VALVE_TORQUES} />
-          <Typography>
-            Different valve types have different torque signatures, so the numbers must come from the valve
-            manufacturer, for your conditions. Torque rises with:
-          </Typography>
-          <Bullets items={TORQUE_RISES} />
-          <Typography>
-            Manufacturers often publish torque for a given pressure in clean water service. Treat that as a starting
-            point, and ask for your service conditions.
-          </Typography>
+      <H2>How do you size a pneumatic actuator?</H2>
+      <P>
+        Work through the steps below. Always use the manufacturers&apos; own torque tables and recommendations,
+        because torque curves, safety factors and limits differ between products.
+      </P>
+      <DataTable {...STEPS} minWidth={680} />
+      <Figure
+        src={`${IMG}/compressor-vs-valve-air-pressure.png`}
+        alt="Air pressure falls from 7.0 bar at the compressor to 5.5 bar at the actuator after the filter, pipe run and fittings."
+        caption="Step 3: pressure at the compressor compared with pressure at the valve. Illustrative values."
+      />
 
-          <H2>How is actuator torque produced?</H2>
-          <Typography>
-            A pneumatic actuator turns air pressure into rotation. The piston force is pressure multiplied by piston
-            area, and torque is that force multiplied by the distance over which it acts about the shaft. In simple
-            terms, torque scales with supply pressure and piston area, and the geometry decides how the distance
-            changes through the stroke.
-          </Typography>
-          <Typography>That geometry gives two common torque patterns:</Typography>
-          <Table {...PATTERNS} />
-          <Figure
-            file="valve-actuator-torque-curves.png"
-            alt="Torque curves: rack and pinion is flat across the 90° stroke; scotch yoke is high at both ends and lowest mid-stroke, above the valve’s torque demand."
-          />
+      <H2>A worked illustration</H2>
+      <P>
+        The numbers below are invented to show the method. Never size from them. Use your manufacturers&apos;
+        data.
+      </P>
+      <DataTable {...WORKED} minWidth={680} />
+      <Figure
+        src={`${IMG}/actuator-sizing-worked-example.png`}
+        alt="Worked sizing example: 100 Nm breakaway torque × 1.25 safety factor gives 125 Nm required at 5.5 bar; maximum output at 6.5 bar must stay below the 300 Nm MAST."
+        caption="Illustrative numbers. Never size from them."
+      />
+      <P>
+        The chosen actuator must deliver at least 125 Nm at 5.5 bar at the stroke position where the valve needs
+        it, and no more than the MAST at 6.5 bar. The same check is then made for the running and seating
+        torques, each at its own position in the stroke.
+      </P>
+      <TorqueCheck />
 
-          <H2>How do you size a pneumatic actuator?</H2>
-          <Typography>
-            Work through the steps below. Always use the manufacturers&apos; own torque tables and recommendations,
-            because torque curves, safety factors and limits differ between products.
-          </Typography>
-          <Table {...STEPS} />
-          <Figure
-            file="compressor-vs-valve-air-pressure.png"
-            alt="Air pressure falls from 7.0 bar at the compressor to 5.5 bar at the actuator after the filter, pipe run and fittings."
-            caption="Step 3: pressure at the compressor compared with pressure at the valve. Illustrative values."
-          />
+      <H2>How does sizing a spring-return actuator differ?</H2>
+      <P>
+        A spring-return, or single-acting, actuator uses air to move the valve one way and springs to move it
+        back, so it can drive the valve to a fail-open or fail-closed position when air is lost. That adds a
+        second torque check, because the springs oppose the air on one stroke and provide the force on the other.
+      </P>
+      <Figure
+        src={`${IMG}/spring-return-actuator-torque.png`}
+        alt="Spring-return actuator torque: air stroke torque falls as the springs compress; spring stroke torque is weakest at the end of the spring stroke."
+      />
+      <DataTable {...SPRING_TERMS} minWidth={520} />
+      <P>
+        For a valve that must close by spring on loss of air, the check that matters is the spring torque with
+        the springs fully extended, because that is what is available to seat the valve with no air. The
+        valve&apos;s torque must be lower than each corresponding actuator torque, and the actuator&apos;s highest
+        torque must stay below the MAST.
+      </P>
 
-          <H2>A worked illustration</H2>
-          <Typography>
-            The numbers below are invented to show the method. Never size from them. Use your manufacturers&apos;
-            data.
-          </Typography>
-          <Table {...WORKED} />
-          <Figure
-            file="actuator-sizing-worked-example.png"
-            alt="Worked sizing example: 100 Nm breakaway torque × 1.25 safety factor gives 125 Nm required at 5.5 bar; maximum output at 6.5 bar must stay below the 300 Nm MAST."
-            caption="Illustrative numbers. Never size from them."
-          />
-          <Typography>
-            The chosen actuator must deliver at least 125 Nm at 5.5 bar at the stroke position where the valve needs
-            it, and no more than the MAST at 6.5 bar. The same check is then made for the running and seating
-            torques, each at its own position in the stroke.
-          </Typography>
+      <H2>Why do safety factors vary so much?</H2>
+      <P>
+        Published sizing guidance doesn&apos;t agree on one safety factor. One manufacturer&apos;s guide suggests
+        at least 15% for double-acting and 10% for spring-return actuators. Another uses 20%. A worked example
+        from a third uses 1.2 for double-acting and 1.5 for spring-return. Another recommends at least 30%.
+        Differences like these come from the actuator type, how well the valve&apos;s torque is known, and the
+        service.
+      </P>
+      <P>
+        The practical rule is simple. Use the factor that the valve and actuator manufacturers recommend for your
+        pairing and service, apply it to the valve&apos;s published torque, and record which factor you used.
+      </P>
 
-          <H2>How does sizing a spring-return actuator differ?</H2>
-          <Typography>
-            A spring-return, or single-acting, actuator uses air to move the valve one way and springs to move it
-            back, so it can drive the valve to a fail-open or fail-closed position when air is lost. That adds a
-            second torque check, because the springs oppose the air on one stroke and provide the force on the other.
-          </Typography>
-          <Figure
-            file="spring-return-actuator-torque.png"
-            alt="Spring-return actuator torque: air stroke torque falls as the springs compress; spring stroke torque is weakest at the end of the spring stroke."
-          />
-          <Table {...SPRING_TERMS} />
-          <Typography>
-            For a valve that must close by spring on loss of air, the check that matters is the spring torque with
-            the springs fully extended, because that is what is available to seat the valve with no air. The
-            valve&apos;s torque must be lower than each corresponding actuator torque, and the actuator&apos;s highest
-            torque must stay below the MAST.
-          </Typography>
+      <H2>What about electric actuators and fail action?</H2>
+      <DataTable {...FAIL_ACTION} minWidth={680} />
+      <P>
+        Fail action is a process safety decision, so settle it with the process requirements first, then size
+        for it. On modulating duty, add a positioner. On safety valves, partial-stroke testing can confirm an
+        actuator isn&apos;t stuck without taking the valve out of service.
+      </P>
 
-          <H2>Why do safety factors vary so much?</H2>
-          <Typography>
-            Published sizing guidance doesn&apos;t agree on one safety factor. One manufacturer&apos;s guide suggests
-            at least 15% for double-acting and 10% for spring-return actuators. Another uses 20%. A worked example
-            from a third uses 1.2 for double-acting and 1.5 for spring-return. Another recommends at least 30%.
-            Differences like these come from the actuator type, how well the valve&apos;s torque is known, and the
-            service.
-          </Typography>
-          <Typography>
-            The practical rule is simple. Use the factor that the valve and actuator manufacturers recommend for your
-            pairing and service, apply it to the valve&apos;s published torque, and record which factor you used.
-          </Typography>
+      <H2>When should you re-check the sizing?</H2>
+      <UL items={RECHECK} />
 
-          <H2>What about electric actuators and fail action?</H2>
-          <Table {...FAIL_ACTION} />
-          <Typography>
-            Fail action is a process safety decision, so settle it with the process requirements first, then size
-            for it. On modulating duty, add a positioner. On safety valves, partial-stroke testing can confirm an
-            actuator isn&apos;t stuck without taking the valve out of service.
-          </Typography>
+      <H2>Why won&apos;t my actuator seat the valve?</H2>
+      <P>
+        Actuator failures rarely come without warning. Slow stroke times, air leakage, positioner drift and
+        rising breakaway torque as seats wear are the usual early signs.
+      </P>
+      <Finder
+        kicker="Fault finder"
+        title="What symptom do you see?"
+        hint="Pick a symptom to see the likely cause and what to check."
+        options={FAULTS.rows.map(([symptom, cause, check]) => ({
+          label: symptom,
+          result: (
+            <>
+              <strong>Likely cause:</strong> {cause}.
+              <br />
+              <strong>What to check:</strong> {check}.
+            </>
+          ),
+        }))}
+      />
+      <Figure
+        src={`${IMG}/actuator-wont-seat-fault-finding.png`}
+        alt="Fault-finding flow chart for an actuator that won’t seat a valve: check air pressure, leaks, positioner, end-of-stroke torque, then seat wear."
+      />
+      <DataTable {...FAULTS} minWidth={680} />
 
-          <H2>When should you re-check the sizing?</H2>
-          <Bullets items={RECHECK} />
+      <H2>What mistakes should you avoid when sizing?</H2>
+      <DataTable {...MISTAKES} minWidth={680} />
 
-          <H2>Why won&apos;t my actuator seat the valve?</H2>
-          <Typography>
-            Actuator failures rarely come without warning. Slow stroke times, air leakage, positioner drift and
-            rising breakaway torque as seats wear are the usual early signs.
-          </Typography>
-          <Figure
-            file="actuator-wont-seat-fault-finding.png"
-            alt="Fault-finding flow chart for an actuator that won’t seat a valve: check air pressure, leaks, positioner, end-of-stroke torque, then seat wear."
-          />
-          <Table {...FAULTS} />
 
-          <H2>What mistakes should you avoid when sizing?</H2>
-          <Table {...MISTAKES} />
+      <FAQ title="Frequently Asked Questions" items={FAQS} />
 
-          <Divider sx={{ my: 6 }} />
-
-          {/* ── FAQ ── */}
-          <H2>Frequently Asked Questions</H2>
-          <Stack spacing={4} sx={{ mb: 6, mt: 2 }}>
-            {FAQS.map((item) => (
-              <Box key={item.q}>
-                <Typography
-                  component="h3"
-                  sx={{
-                    fontFamily: DISPLAY_FONT,
-                    fontWeight: 800,
-                    fontSize: "1rem !important",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.05em",
-                    mb: "6px !important",
-                  }}
-                >
-                  {item.q}
-                </Typography>
-                <Typography sx={{ color: "text.secondary !important", lineHeight: 1.8 }}>{item.a}</Typography>
-              </Box>
-            ))}
-          </Stack>
-
-          {/* ── RELATED GUIDES ── */}
-          <Box sx={{ mt: 8 }}>
-            <Typography
-              component="h2"
-              sx={{
-                fontFamily: DISPLAY_FONT,
-                fontWeight: 800,
-                fontSize: "1rem !important",
-                textTransform: "uppercase",
-                letterSpacing: "0.08em",
-                color: "text.secondary !important",
-                mb: "16px !important",
-              }}
-            >
-              Related Guides
-            </Typography>
-            <Stack direction="row" flexWrap="wrap" gap={1.5}>
-              {RELATED.map((r) => (
-                <Box
-                  key={r.href}
-                  component="a"
-                  href={r.href}
-                  sx={{
-                    fontFamily: DISPLAY_FONT,
-                    fontWeight: 700,
-                    fontSize: "13px",
-                    letterSpacing: "0.03em",
-                    textDecoration: "none",
-                    color: "primary.dark",
-                    border: "1.5px solid",
-                    borderColor: "primary.light",
-                    px: 2,
-                    py: 1,
-                    transition: "0.2s",
-                    "&:hover": { borderColor: "primary.main", bgcolor: "primary.50" },
-                  }}
-                >
-                  {r.label} →
-                </Box>
-              ))}
-            </Stack>
-          </Box>
-        </Box>
-      </Container>
-    </Box>
+      <RelatedLinks title="Related Guides" links={RELATED} />
+    </ArticleLayout>
   );
 }
