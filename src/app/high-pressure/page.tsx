@@ -1,6 +1,7 @@
 "use client";
 
 import RelatedLinks from "@/src/app/Common/Products_Page/RelatedLinks";
+import { GroupSiteLinks, groupSitesIn } from "@/src/app/Common/GroupVisitLinks";
 import {
   Box,
   Container,
@@ -287,6 +288,7 @@ export default function HighPressureIndexPage() {
                 <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
                   {s.description}
                 </Typography>
+                <GroupSiteLinks variant="inline" sites={groupSitesIn(s.description)} />
                 <Button
                   variant="outlined"
                   href={s.href}

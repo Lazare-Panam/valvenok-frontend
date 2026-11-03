@@ -1,4 +1,5 @@
 'use client'
+import { GroupSiteLinks, groupSitesIn } from '@/src/app/Common/GroupVisitLinks'
 import { useState, useMemo } from 'react'
 import { Box, Typography } from '@mui/material'
 import { alpha } from '@mui/material/styles'
@@ -34,6 +35,7 @@ export default function HRSDAActuatorPage() {
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 800, fontFamily: PRIMARY_FONT }}>
           {HRSDA_DESCRIPTION.description}
         </Typography>
+        <GroupSiteLinks variant="inline" sites={groupSitesIn(HRSDA_DESCRIPTION.title, HRSDA_DESCRIPTION.description)} />
         <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
           {HRSDA_DESCRIPTION.specs.map(s => (
             <Box key={s} sx={{

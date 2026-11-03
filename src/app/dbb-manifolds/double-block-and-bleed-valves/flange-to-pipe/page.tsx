@@ -1,4 +1,5 @@
 'use client'
+import { GroupSiteLinks, groupSitesIn } from '@/src/app/Common/GroupVisitLinks'
 import { useState, useMemo } from 'react'
 import { Box, Typography } from '@mui/material'
 import { alpha, useTheme } from '@mui/material/styles'
@@ -66,6 +67,7 @@ export default function DBBFlangeToPipePage() {
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 700 }}>
           {DBB_FXP_DESCRIPTION.description}
         </Typography>
+        <GroupSiteLinks variant="inline" sites={groupSitesIn(DBB_FXP_DESCRIPTION.title, DBB_FXP_DESCRIPTION.description)} />
         <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
           {DBB_FXP_DESCRIPTION.specs.map(s => (
             <Box key={s} sx={{

@@ -11,6 +11,7 @@ import {
 } from '../hooks/hpAllFittingsData'
 import { FittingsActiveFilters } from '../components/FittingsActiveFilters'
 import FittingsTable from '../components/FittingsTable'
+import { GroupSiteLinks, groupSitesIn } from '@/src/app/Common/GroupVisitLinks'
 
 const BRAND_GREEN = '#61D649'
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
@@ -31,6 +32,7 @@ function PageHeader() {
       <Typography variant="body2" color="text.secondary" sx={{ fontFamily: PRIMARY_FONT }}>
         {HP_FITTINGS_DATA.length} fittings across Panam &amp; Hiflux — filter by brand, type, pressure, size &amp; material.
       </Typography>
+      <GroupSiteLinks variant="inline" sites={groupSitesIn("Panam & Hiflux")} />
     </Box>
   )
 }

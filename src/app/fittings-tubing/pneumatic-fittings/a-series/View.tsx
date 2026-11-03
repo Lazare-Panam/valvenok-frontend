@@ -2,6 +2,7 @@
 import { useState } from "react"
 import { Box, Typography, CircularProgress, useMediaQuery, Drawer, IconButton } from "@mui/material"
 import { useTheme, alpha } from "@mui/material/styles"
+import { GroupSiteLinks, groupSitesIn } from "@/src/app/Common/GroupVisitLinks"
 import FilterListIcon from "@mui/icons-material/FilterList"
 import { useAPFittings, useAPFittingFilterOptions } from "@/src/app/pneumatic/hooks/usePneumatic"
 import { APFittingSidebar, EMPTY_AP_FITTING_FILTERS, type APFittingFilters } from "./components/APFittingSidebarPneumatic"
@@ -43,6 +44,7 @@ export default function APFittingPage() {
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 700 }}>
           SPAC A-Series (Grey) and E-Series (Black) push-in fittings compatible with polyurethane and nylon tubing. Full range of connectors, elbows, tees and multi-connectors in BSP thread sizes.
         </Typography>
+        <GroupSiteLinks variant="inline" sites={groupSitesIn("SPAC")} />
         <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
           {["A-Series Grey", "E-Series Black", "BSP Threads", "4–12mm Tube", "G1/8 – G1/2"].map(s => (
             <Box key={s} sx={{ px: 1.5, py: 0.5, borderRadius: "20px", fontSize: "0.75rem", fontWeight: 600, bgcolor: alpha(theme.palette.primary.main, 0.08), color: theme.palette.primary.dark, border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}` }}>

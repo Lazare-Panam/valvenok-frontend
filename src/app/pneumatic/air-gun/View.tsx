@@ -1,6 +1,7 @@
 'use client'
 import { Box, Typography, CircularProgress } from "@mui/material"
 import { useTheme, alpha } from "@mui/material/styles"
+import { GroupSiteLinks, groupSitesIn } from "@/src/app/Common/GroupVisitLinks"
 import AirGunTable from "./components/AirGunTable"
 import { useAirGuns } from "../hooks/usePneumatic"
 export default function AirGunPage() {
@@ -16,6 +17,7 @@ export default function AirGunPage() {
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 700 }}>
           SPAC pneumatic air blow guns for industrial cleaning and drying applications. Available in multiple nozzle configurations.
         </Typography>
+        <GroupSiteLinks variant="inline" sites={groupSitesIn("SPAC")} />
         <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
           {["Metal Body", "Short Nozzle", "Small Nozzle", "Angled Nozzle", "Bead Nozzle"].map(s => (
             <Box key={s} sx={{ px: 1.5, py: 0.5, borderRadius: "20px", fontSize: "0.75rem", fontWeight: 600, bgcolor: alpha(theme.palette.primary.main, 0.08), color: theme.palette.primary.dark, border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}` }}>

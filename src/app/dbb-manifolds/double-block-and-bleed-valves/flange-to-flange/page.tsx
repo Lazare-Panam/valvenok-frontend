@@ -1,4 +1,5 @@
 'use client'
+import { GroupSiteLinks, groupSitesIn } from '@/src/app/Common/GroupVisitLinks'
 import { useState, useMemo } from 'react'
 import { Box, Typography } from '@mui/material'
 import { alpha, useTheme } from '@mui/material/styles'
@@ -66,6 +67,7 @@ export default function DBBFlangeToFlangePage() {
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 700 }}>
           {DBB_FXF_DESCRIPTION.description}
         </Typography>
+        <GroupSiteLinks variant="inline" sites={groupSitesIn(DBB_FXF_DESCRIPTION.title, DBB_FXF_DESCRIPTION.description)} />
         <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
           {DBB_FXF_DESCRIPTION.specs.map(s => (
             <Box key={s} sx={{ px: 1.5, py: 0.5, borderRadius: '20px', fontSize: '0.75rem', fontWeight: 600, bgcolor: alpha(theme.palette.primary.main, 0.08), color: theme.palette.primary.dark, border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}` }}>

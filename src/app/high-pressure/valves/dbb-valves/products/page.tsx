@@ -10,6 +10,7 @@ import {
 } from '../hooks/hpNeedleValveData'
 import { HPNVActiveFilters } from '../components/HPNVActiveFilters'
 import HPNVTable from '../components/HPNVTable'
+import { GroupSiteLinks, groupSitesIn } from '@/src/app/Common/GroupVisitLinks'
 
 const BRAND_GREEN = '#61D649'
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
@@ -43,6 +44,7 @@ export default function HPNeedleValveProductsPage() {
         <Typography variant="body2" color="text.secondary" sx={{ fontFamily: PRIMARY_FONT }}>
           {HP_NEEDLE_VALVE_DATA.length} models across Panam & Hiflux — filter by brand, series, pressure, connection & configuration.
         </Typography>
+        <GroupSiteLinks variant="inline" sites={groupSitesIn("Panam & Hiflux")} />
       </Box>
 
       <Box sx={{ p: { xs: 2, md: 3 }, flex: 1 }}>

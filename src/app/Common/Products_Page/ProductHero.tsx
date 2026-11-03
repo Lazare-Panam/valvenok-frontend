@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
+import { GroupSiteLinks, groupSitesIn } from '../GroupVisitLinks'
 
 interface ProductHeroProps {
   title: string
@@ -87,6 +88,8 @@ export default function ProductHero({
         }}>
           {description}
         </Typography>
+
+        <GroupSiteLinks variant="hero" sites={groupSitesIn(title, subtitle, description)} />
       </Box>
     </Box>
   )

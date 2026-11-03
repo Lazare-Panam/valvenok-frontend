@@ -3,6 +3,7 @@
 import React from "react";
 import { Box, Container, Typography, Card, Stack, alpha } from "@mui/material";
 import Grid from "@mui/material/Grid";
+import { GroupSiteLinks, groupSitesIn } from "@/src/app/Common/GroupVisitLinks";
 //feat fixed images
 const BRANDS = [
   {
@@ -238,7 +239,14 @@ export default function BrandsPage() {
       <Container maxWidth="lg" sx={{ py: 12 }}>
         <Grid container spacing={3}>
           {BRANDS.map((brand) => (
-            <Grid key={brand.name} size={{ xs: 12, sm: 6, md: 4 }}>
+            <Grid
+              key={brand.name}
+              size={{ xs: 12, sm: 6, md: 4 }}
+              sx={{
+                position: "relative",
+                "&:hover .group-site-link": { transform: "translateY(-5px)" },
+              }}
+            >
               <Box
                 component={brand.href ? "a" : "div"}
                 href={brand.href ?? undefined}
@@ -267,7 +275,13 @@ export default function BrandsPage() {
                     },
                   }}
                 >
-                  <Box sx={{ height: "100%", p: 4 }}>
+                  <Box
+                    sx={{
+                      height: "100%",
+                      p: 4,
+                      pb: groupSitesIn(brand.name).length ? 7 : 4,
+                    }}
+                  >
                     <Stack spacing={3} alignItems="center" textAlign="center">
                       <Box
                         sx={{
@@ -318,6 +332,23 @@ export default function BrandsPage() {
                     </Stack>
                   </Box>
                 </Card>
+              </Box>
+              {/* Sibling of the card link (not nested in it), pinned inside the card */}
+              <Box
+                className="group-site-link"
+                sx={{
+                  position: "absolute",
+                  left: 0,
+                  right: 0,
+                  bottom: 20,
+                  display: "flex",
+                  justifyContent: "center",
+                  transition: "all 0.3s ease",
+                  pointerEvents: "none",
+                  "& a": { pointerEvents: "auto" },
+                }}
+              >
+                <GroupSiteLinks variant="card" sites={groupSitesIn(brand.name)} />
               </Box>
             </Grid>
           ))}

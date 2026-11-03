@@ -8,6 +8,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Image from "next/image";
 import { alpha } from "@mui/material/styles";
 import { Category } from "@/src/app/Common/Products_Page/ProductCard";
+import { CardGroupLinks } from "@/src/app/Common/GroupVisitLinks";
 
 const BPMA_LOGO_URL =
   "https://pblol2.blob.core.windows.net/valvenok-images/certfiicates/bmpa-cert-frame.png";
@@ -191,6 +192,7 @@ export default function PumpsGrid({ families }: { families: Category[] }) {
                   ))}
                 </Box>
 
+                <CardGroupLinks family={family} all={families} />
                 <Button
                   fullWidth
                   variant="outlined"

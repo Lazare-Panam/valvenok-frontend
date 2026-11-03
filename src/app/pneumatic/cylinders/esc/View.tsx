@@ -2,6 +2,7 @@
 import { useState } from "react"
 import { Box, Typography, CircularProgress, useMediaQuery, Drawer, IconButton } from "@mui/material"
 import { useTheme, alpha } from "@mui/material/styles"
+import { GroupSiteLinks, groupSitesIn } from "@/src/app/Common/GroupVisitLinks"
 import FilterListIcon from "@mui/icons-material/FilterList"
 import { useESCCylinders, useESCCylinderFilterOptions } from "../../hooks/usePneumatic"
 import { ESCSidebar, EMPTY_ESC_FILTERS, type ESCFilters } from "./components/ESCSidebar"
@@ -42,6 +43,7 @@ export default function ESCCylinderPage() {
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 700 }}>
           SPAC Standard Tie Rod Profile double acting pneumatic cylinders. Available in standard and through rod configurations, magnetic and non-magnetic variants across bore sizes 32mm to 250mm.
         </Typography>
+        <GroupSiteLinks variant="inline" sites={groupSitesIn("SPAC")} />
         <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
           {["Bore: 32–250mm", "Stroke: 25–1000mm", "Double Acting", "Standard & Through Rod", "Magnetic & Non-Magnetic"].map(s => (
             <Box key={s} sx={{ px: 1.5, py: 0.5, borderRadius: "20px", fontSize: "0.75rem", fontWeight: 600, bgcolor: alpha(theme.palette.primary.main, 0.08), color: theme.palette.primary.dark, border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}` }}>

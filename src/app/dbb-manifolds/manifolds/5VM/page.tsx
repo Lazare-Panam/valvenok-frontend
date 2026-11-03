@@ -1,4 +1,5 @@
 "use client"
+import { GroupSiteLinks, groupSitesIn } from "@/src/app/Common/GroupVisitLinks"
 import { useState, useMemo } from "react"
 import { Box, Typography, useMediaQuery, Drawer, IconButton } from "@mui/material"
 import { alpha } from "@mui/material/styles"
@@ -91,6 +92,7 @@ export default function Manifolds5VMPage() {
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 750 }}>
           {MANIFOLD_5VM_DESCRIPTION.description}
         </Typography>
+        <GroupSiteLinks variant="inline" sites={groupSitesIn(MANIFOLD_5VM_DESCRIPTION.title, MANIFOLD_5VM_DESCRIPTION.description)} />
         <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
           {MANIFOLD_5VM_DESCRIPTION.specs.map(s => (
             <Box key={s} sx={{ px: 1.5, py: 0.5, borderRadius: "20px", fontSize: "0.75rem", fontWeight: 600, bgcolor: alpha(BRAND_GREEN, 0.08), color: "#2d8a1e", border: `1px solid ${alpha(BRAND_GREEN, 0.3)}` }}>

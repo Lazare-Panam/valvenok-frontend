@@ -11,6 +11,7 @@ import {
 } from '@/src/app/fittings-tubing/tubing/components/types'
 import { TubingActiveFilters } from '@/src/app/fittings-tubing/tubing/components/TubingActiveFilters'
 import TubingTable from '@/src/app/fittings-tubing/tubing/components/TubingTable'
+import { GroupSiteLinks, groupSitesIn } from '@/src/app/Common/GroupVisitLinks'
 
 export default function TubeSupportsPage() {
   const theme = useTheme()
@@ -42,6 +43,7 @@ export default function TubeSupportsPage() {
         <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 760 }}>
           {`${TUBE_SUPPORTS_DATA.length} Hiflux high-pressure tube supports in STS 316 — 1, 2 and 3-line configurations for 1/4" to 9/16" tube.`}
         </Typography>
+        <GroupSiteLinks variant="inline" sites={groupSitesIn("Hiflux")} />
       </Box>
 
       <Box sx={{ p: { xs: 2, md: 3 }, flex: 1, display: 'flex', flexDirection: 'column' }}>

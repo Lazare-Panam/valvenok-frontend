@@ -13,6 +13,7 @@ import {
 } from '@/src/app/fittings-tubing/tubing/components/types'
 import { TubingActiveFilters } from '@/src/app/fittings-tubing/tubing/components/TubingActiveFilters'
 import TubingTable from '@/src/app/fittings-tubing/tubing/components/TubingTable'
+import { GroupSiteLinks, groupSitesIn } from '@/src/app/Common/GroupVisitLinks'
 
 // Brands that actually exist in the data — used to validate the ?brand= query param.
 const KNOWN_BRANDS = Array.from(new Set(TUBING_DATA.map(t => t.brand)))
@@ -33,6 +34,7 @@ function PageHeader() {
       <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 760 }}>
         {`${TUBING_DATA.length} configurations across Panam & Hiflux — filter by brand, type, material, size & wall.`}
       </Typography>
+      <GroupSiteLinks variant="inline" sites={groupSitesIn("Panam & Hiflux")} />
     </Box>
   )
 }

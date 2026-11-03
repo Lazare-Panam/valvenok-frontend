@@ -12,6 +12,7 @@ import Button from "@mui/material/Button";
 import ContactSupportIcon from "@mui/icons-material/ContactSupport";
 import RFQModal from "@/src/app/Common/RFQCard/RFQModal";
 import { ProductForRFQ } from "@/src/app/Common/RFQCard/RequestForQuoteCard";
+import { GroupSiteLinks, groupSitesIn } from "@/src/app/Common/GroupVisitLinks";
 
 const HIFLUX_LOGO =
   "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/logo.png";
@@ -218,6 +219,7 @@ export default function HifluxValvesPage() {
                 industrial, hydrogen and wellhead applications. Certification
                 varies by model — please confirm when requesting a quote.
               </Typography>
+              <GroupSiteLinks variant="inline" sites={groupSitesIn("Hiflux")} />
 
               <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mb: 4 }}>
                 {CERTIFICATIONS.map((c) => (

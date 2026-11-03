@@ -9,6 +9,7 @@ import {
 } from './hooks/hpManifoldData'
 import { HPManifoldActiveFilters } from './components/HPManifoldActiveFilters'
 import HPManifoldTable from './components/HPManifoldTable'
+import { GroupSiteLinks, groupSitesIn } from "@/src/app/Common/GroupVisitLinks"
 
 const BRAND_GREEN = '#61D649'
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
@@ -35,6 +36,7 @@ export default function HPManifoldPage() {
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 800, fontFamily: PRIMARY_FONT }}>
           {HP_MANIFOLD_DESCRIPTION.description}
         </Typography>
+        <GroupSiteLinks variant="inline" sites={groupSitesIn(HP_MANIFOLD_DESCRIPTION.description)} />
         <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
           {HP_MANIFOLD_DESCRIPTION.specs.map(s => (
             <Box key={s} sx={{

@@ -4,6 +4,7 @@ import { Box, Container, Typography, Button, Chip, Paper, Divider } from '@mui/m
 import Grid from '@mui/material/Grid'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import { HP_FITTINGS_DESCRIPTION } from './hooks/hpAllFittingsData'
+import { GroupSiteLinks, groupSitesIn } from '@/src/app/Common/GroupVisitLinks'
 
 const ACCENT = '#61D649'
 const HERO_IMG = 'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/hp-adaptor.jpg'
@@ -89,7 +90,7 @@ export default function HighPressureFittingsLanding() {
           <Typography variant="h5" sx={{ fontWeight: 700, mb: 6 }}>Available Brands</Typography>
           <Grid container spacing={3}>
             {BRANDS.map(b => (
-              <Grid size={{ xs: 12, md: 6 }} key={b.name}>
+              <Grid size={{ xs: 12, md: 6 }} key={b.name} sx={{ display: 'flex', flexDirection: 'column' }}>
                 <Paper
                   variant="outlined"
                   component={Link}
@@ -106,6 +107,7 @@ export default function HighPressureFittingsLanding() {
                   </Box>
                   <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>{b.blurb}</Typography>
                 </Paper>
+                <GroupSiteLinks variant="inline" sites={groupSitesIn(b.name)} />
               </Grid>
             ))}
           </Grid>

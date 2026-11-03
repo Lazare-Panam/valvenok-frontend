@@ -1,4 +1,5 @@
 'use client'
+import { GroupSiteLinks, groupSitesIn } from '@/src/app/Common/GroupVisitLinks'
 import { useState, useMemo } from 'react'
 import { Box, Typography } from '@mui/material'
 import { alpha } from '@mui/material/styles'
@@ -34,6 +35,7 @@ export default function ElectricActuatorPage() {
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 800, fontFamily: PRIMARY_FONT }}>
           {ELECTRIC_ACTUATOR_DESCRIPTION.description}
         </Typography>
+        <GroupSiteLinks variant="inline" sites={groupSitesIn(ELECTRIC_ACTUATOR_DESCRIPTION.title, ELECTRIC_ACTUATOR_DESCRIPTION.description)} />
         <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
           {ELECTRIC_ACTUATOR_DESCRIPTION.specs.map(s => (
             <Box key={s} sx={{

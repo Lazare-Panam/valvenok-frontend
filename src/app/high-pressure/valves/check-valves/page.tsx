@@ -4,6 +4,7 @@ import { Box, Container, Typography, Button, Chip, Paper, Divider } from '@mui/m
 import Grid from '@mui/material/Grid'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import { HP_NV_DESCRIPTION, HP_NEEDLE_VALVE_DATA } from './hooks/hpNeedleValveData'
+import { GroupSiteLinks, groupSitesIn } from '@/src/app/Common/GroupVisitLinks'
 
 const ACCENT = '#61D649'
 const HERO_IMG = 'https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/check-valve.png'
@@ -33,6 +34,7 @@ export default function CheckValvesLanding() {
               <Typography variant="overline" sx={{ color: ACCENT, fontWeight: 700, letterSpacing: 2, display: 'block' }}>High Pressure · Hiflux</Typography>
               <Typography variant="h1" sx={{ fontWeight: 800, mt: 1, mb: 2, lineHeight: 1.15, fontSize: { xs: '2rem', md: '2.6rem' } }}>{HP_NV_DESCRIPTION.title}</Typography>
               <Typography variant="body1" sx={{ color: 'text.secondary', mb: 3, lineHeight: 1.8 }}>{HP_NV_DESCRIPTION.description}</Typography>
+              <GroupSiteLinks variant="inline" sites={groupSitesIn('High Pressure · Hiflux', HP_NV_DESCRIPTION.description)} />
               <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 4 }}>
                 {HP_NV_DESCRIPTION.specs.map(s => <Chip key={s} label={s} size="small" sx={{ bgcolor: ACCENT, color: '#fff', fontWeight: 600, fontSize: '0.7rem' }} />)}
               </Box>

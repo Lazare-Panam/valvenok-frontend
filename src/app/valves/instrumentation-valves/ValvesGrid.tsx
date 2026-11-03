@@ -8,6 +8,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Image from "next/image";
 import { alpha } from "@mui/material/styles";
 import { Category } from "../../Common/Products_Page/ProductCard";
+import { CardGroupLinks } from "@/src/app/Common/GroupVisitLinks";
 
 export default function ValvesGrid({ families }: { families: Category[] }) {
   return (
@@ -166,6 +167,7 @@ export default function ValvesGrid({ families }: { families: Category[] }) {
                 </Box>
 
                 {/* CTA Button */}
+                <CardGroupLinks family={family} all={families} />
                 <Button
                   fullWidth
                   variant="outlined"

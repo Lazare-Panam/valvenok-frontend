@@ -8,6 +8,7 @@ import {
   Divider,
   Button,
 } from "@mui/material";
+import { GroupSiteLinks, groupSitesIn } from "@/src/app/Common/GroupVisitLinks";
 
 export default function QuickCouplingIndexPage() {
   return (
@@ -199,6 +200,7 @@ export default function QuickCouplingIndexPage() {
               7241B, and ISO 5675 are supplied as matched Sets for guaranteed
               interchangeability and leak-free performance.
             </Typography>
+            <GroupSiteLinks variant="inline" sites={groupSitesIn("PANAM Quick Couplings")} />
           </Grid>
           <Grid size={{ xs: 12, md: 5 }}>
             <Box sx={{ bgcolor: "#f7faf6", borderRadius: 2, p: 4 }}>

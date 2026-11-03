@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import ProductTable from './ProductTable';
 import OrderCart from './OrderCart';
 import MobileCartBar from './MobileCartBar';
+import { GroupSiteLinks, groupSitesIn } from '@/src/app/Common/GroupVisitLinks';
 
 export default function QuickOrderPage() {
   return (
@@ -18,6 +19,7 @@ export default function QuickOrderPage() {
           <Typography component="h1" sx={{ fontFamily: '"Barlow Condensed", sans-serif', fontWeight: 900, fontSize: { xs: '2rem', md: '3rem' }, lineHeight: 1.0, textTransform: 'uppercase', color: '#ffffff' }}>
             Quick Order
           </Typography>
+          <GroupSiteLinks variant="hero" sites={groupSitesIn("Panam Fittings — SS316")} />
         </Container>
       </Box>
 

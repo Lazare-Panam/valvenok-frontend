@@ -1,4 +1,5 @@
 'use client'
+import { GroupSiteLinks, groupSitesIn } from '@/src/app/Common/GroupVisitLinks'
 import { useState, useMemo } from 'react'
 import Link from 'next/link'
 import { Box, Typography } from '@mui/material'
@@ -38,6 +39,7 @@ export default function TubingPage() {
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 700 }}>
           {TUBING_DESCRIPTION.description}
         </Typography>
+        <GroupSiteLinks variant="inline" sites={groupSitesIn(TUBING_DESCRIPTION.title, TUBING_DESCRIPTION.description)} />
         <Typography variant="body2" color="text.secondary" mb={2} sx={{ maxWidth: 700 }}>
           The table below lists tubing only. Hiflux tube supports are listed separately on the{' '}
           <Link href="/high-pressure/tubing/tube-supports" style={{ color: theme.palette.primary.dark, fontWeight: 600 }}>

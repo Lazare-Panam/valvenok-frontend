@@ -8,6 +8,7 @@ import {
   Divider,
   Button,
 } from "@mui/material";
+import { GroupSiteLinks, groupSitesIn } from "@/src/app/Common/GroupVisitLinks";
 
 export default function DBBIndexPage() {
   return (
@@ -199,6 +200,7 @@ export default function DBBIndexPage() {
               bonnet options. Seat and seal materials cover Carbon Filled PTFE,
               PCTFE, Delrin, PEEK, PTFE, Grafoil, and FKM.
             </Typography>
+            <GroupSiteLinks variant="inline" sites={groupSitesIn("PANAM Double Block & Bleed valves")} />
           </Grid>
           <Grid size={{ xs: 12, md: 5 }}>
             <Box sx={{ bgcolor: "#f7faf6", borderRadius: 2, p: 4 }}>

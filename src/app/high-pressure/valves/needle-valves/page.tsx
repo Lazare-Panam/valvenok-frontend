@@ -4,6 +4,7 @@ import { Box, Container, Typography, Button, Chip, Paper, Divider } from '@mui/m
 import Grid from '@mui/material/Grid'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import { HP_NV_DESCRIPTION, HP_NEEDLE_VALVE_DATA } from './hooks/hpNeedleValveData'
+import { GroupSiteLinks, groupSitesIn } from '@/src/app/Common/GroupVisitLinks'
 
 const ACCENT = '#61D649'
 const HERO_IMG = 'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure/hp-nv.jpg'
@@ -80,7 +81,7 @@ export default function HPNeedleValvesLanding() {
           <Typography variant="h5" sx={{ fontWeight: 700, mb: 6 }}>Available Brands</Typography>
           <Grid container spacing={3}>
             {BRANDS.map(b => (
-              <Grid size={{ xs: 12, md: 6 }} key={b.name}>
+              <Grid size={{ xs: 12, md: 6 }} key={b.name} sx={{ display: 'flex', flexDirection: 'column' }}>
                 <Paper component={Link} href={`/high-pressure/valves/needle-valves/products?brand=${encodeURIComponent(b.name)}`}
                   variant="outlined"
                   sx={{
@@ -97,6 +98,7 @@ export default function HPNeedleValvesLanding() {
                     View {b.name} products <ArrowForwardIcon fontSize="small" />
                   </Typography>
                 </Paper>
+                <GroupSiteLinks variant="inline" sites={groupSitesIn(b.name)} />
               </Grid>
             ))}
           </Grid>

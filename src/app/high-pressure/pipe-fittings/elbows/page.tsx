@@ -9,6 +9,7 @@ import {
 } from './hooks/pipeFittingsElbowData'
 import { PipeElbowActiveFilters } from './components/PipeElbowActiveFilters'
 import PipeElbowTable from './components/PipeElbowTable'
+import { GroupSiteLinks, groupSitesIn } from "@/src/app/Common/GroupVisitLinks"
 
 const BRAND_GREEN = '#61D649'
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
@@ -38,6 +39,7 @@ export default function PipeElbowPage() {
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 800, fontFamily: PRIMARY_FONT }}>
           {PIPE_ELBOW_DESCRIPTION.description}
         </Typography>
+        <GroupSiteLinks variant="inline" sites={groupSitesIn(PIPE_ELBOW_DESCRIPTION.description)} />
         <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
           {PIPE_ELBOW_DESCRIPTION.specs.map(s => (
             <Box key={s} sx={{

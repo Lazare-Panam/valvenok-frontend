@@ -9,6 +9,7 @@ import {
 } from './hooks/hpDBBData'
 import { HPDBBActiveFilters } from './components/HPDBBActiveFilters'
 import HPDBBTable from './components/HPDBBTable'
+import { GroupSiteLinks, groupSitesIn } from "@/src/app/Common/GroupVisitLinks"
 
 const BRAND_GREEN = '#61D649'
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
@@ -36,6 +37,7 @@ export default function HPDBBPage() {
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 800, fontFamily: PRIMARY_FONT }}>
           {HP_DBB_DESCRIPTION.description}
         </Typography>
+        <GroupSiteLinks variant="inline" sites={groupSitesIn(HP_DBB_DESCRIPTION.description)} />
         <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
           {HP_DBB_DESCRIPTION.specs.map(s => (
             <Box key={s} sx={{

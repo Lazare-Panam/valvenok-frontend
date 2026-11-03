@@ -4,6 +4,7 @@ import { Box, Container, Typography, Button, Chip, Paper, Divider } from '@mui/m
 import Grid from '@mui/material/Grid'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import { HP_NV_DESCRIPTION, HP_NEEDLE_VALVE_DATA } from './hooks/hpNeedleValveData'
+import { GroupSiteLinks, groupSitesIn } from '@/src/app/Common/GroupVisitLinks'
 
 const ACCENT = '#61D649'
 const HERO_IMG = 'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure/hp-nv.jpg'
@@ -87,6 +88,7 @@ export default function HPNeedleValvesLanding() {
                     <Chip label={`${b.count} models`} sx={{ bgcolor: ACCENT, color: '#fff', fontWeight: 700 }} />
                   </Box>
                   <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>{b.blurb}</Typography>
+                  <GroupSiteLinks variant="inline" sites={groupSitesIn(b.name)} />
                 </Paper>
               </Grid>
             ))}

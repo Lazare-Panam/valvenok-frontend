@@ -8,6 +8,7 @@ import {
   Divider,
   Button,
 } from "@mui/material";
+import { GroupSiteLinks, groupSitesIn } from "@/src/app/Common/GroupVisitLinks";
 
 export default function FittingsTubingPage() {
   return (
@@ -86,6 +87,7 @@ export default function FittingsTubingPage() {
           >
             Request Fittings Specs
           </Button>
+          <GroupSiteLinks variant="hero" sites={groupSitesIn("the complete PANAM range of instrumentation fittings")} />
         </Container>
       </Box>
 
@@ -374,6 +376,7 @@ export default function FittingsTubingPage() {
               Hiflux high-pressure tubing. Each size is listed with its working
               pressure in psi and bar.
             </Typography>
+            <GroupSiteLinks variant="inline" sites={groupSitesIn("Hiflux high-pressure tubing")} />
             <Box
               sx={{ display: "flex", flexDirection: "column", gap: 0.5, mb: 3 }}
             >

@@ -9,6 +9,7 @@ import {
 } from './hooks/pipeFittingsEndData'
 import { PipeEndFittingActiveFilters } from './components/PipeEndFittingActiveFilters'
 import PipeEndFittingTable from './components/PipeEndFittingTable'
+import { GroupSiteLinks, groupSitesIn } from "@/src/app/Common/GroupVisitLinks"
 
 const BRAND_GREEN = '#61D649'
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
@@ -36,6 +37,7 @@ export default function PipeEndFittingPage() {
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 800, fontFamily: PRIMARY_FONT }}>
           {PIPE_END_DESCRIPTION.description}
         </Typography>
+        <GroupSiteLinks variant="inline" sites={groupSitesIn(PIPE_END_DESCRIPTION.description)} />
         <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
           {PIPE_END_DESCRIPTION.specs.map(s => (
             <Box key={s} sx={{

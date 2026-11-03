@@ -2,6 +2,7 @@
 import { useState } from "react"
 import { Box, Typography, CircularProgress, useMediaQuery, Drawer, IconButton } from "@mui/material"
 import { useTheme, alpha } from "@mui/material/styles"
+import { GroupSiteLinks, groupSitesIn } from "@/src/app/Common/GroupVisitLinks"
 import FilterListIcon from "@mui/icons-material/FilterList"
 import { useTubing, useTubingFilterOptions } from "../../pneumatic/hooks/usePneumatic"
 
@@ -43,6 +44,7 @@ export default function TubingPage() {
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 700 }}>
           SPAC polyurethane tubing range including standard, recoil, anti-spark and anti-spark recoil variants. Available in multiple sizes, colors and roll lengths.
         </Typography>
+        <GroupSiteLinks variant="inline" sites={groupSitesIn("SPAC")} />
         <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
           {["Polyurethane", "Recoil", "Anti-Spark", "Multiple Colors", "OD 4–16mm"].map(s => (
             <Box key={s} sx={{ px: 1.5, py: 0.5, borderRadius: "20px", fontSize: "0.75rem", fontWeight: 600, bgcolor: alpha(theme.palette.primary.main, 0.08), color: theme.palette.primary.dark, border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}` }}>

@@ -13,6 +13,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import FilterListIcon from '@mui/icons-material/FilterList'
 import RFQModal from '@/src/app/Common/RFQCard/RFQModal'
 import { ProductForRFQ } from '@/src/app/Common/RFQCard/RequestForQuoteCard'
+import { GroupSiteLinks, groupSitesIn } from '@/src/app/Common/GroupVisitLinks'
 
 const HIFLUX_LOGO = 'https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/logo.png'
 const ACCENT = '#61D649'
@@ -285,6 +286,7 @@ export default function HifluxTubingPage() {
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 800, fontFamily: PRIMARY_FONT }}>
           Hiflux high pressure tubes, nipples, tooling sets and tube supports — rated up to 100,000 psi for cone and thread high-pressure systems. Certification varies by product.
         </Typography>
+        <GroupSiteLinks variant="inline" sites={groupSitesIn("Hiflux")} />
         <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
           {['100,000 psi Max', '18 Products', 'Certification varies by product'].map(s => (
             <Box key={s} sx={{ px: 1.5, py: 0.5, borderRadius: '20px', fontSize: '0.75rem', fontWeight: 600, bgcolor: alpha(ACCENT, 0.08), color: ACCENT, border: `1px solid ${alpha(ACCENT, 0.3)}`, fontFamily: PRIMARY_FONT }}>

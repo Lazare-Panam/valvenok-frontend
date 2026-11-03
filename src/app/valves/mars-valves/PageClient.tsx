@@ -2,6 +2,7 @@
 import { useState, useMemo } from 'react'
 import { Box, Typography } from '@mui/material'
 import { alpha, useTheme } from '@mui/material/styles'
+import { GroupSiteLinks, groupSitesIn } from '@/src/app/Common/GroupVisitLinks'
 import { type MarsFilters, type MarsSeriesDTO, EMPTY_MARS_FILTERS, MARS_DESCRIPTION } from './components/types'
 import { MARS_BALL_VALVES_DATA, getPortTypes, getEndConnections, getOptionTags } from './components/data'
 import { MarsActiveFilters } from './components/MarsActiveFilters'
@@ -65,6 +66,7 @@ export default function MarsBallValvesPage() {
         <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 800 }}>
           {MARS_DESCRIPTION.description}
         </Typography>
+        <GroupSiteLinks variant="inline" sites={groupSitesIn(MARS_DESCRIPTION.title, MARS_DESCRIPTION.description)} />
         <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
           {MARS_DESCRIPTION.specs.map(s => (
             <Box key={s} sx={{ px: 1.5, py: 0.5, borderRadius: '20px', fontSize: '0.75rem', fontWeight: 600, bgcolor: alpha(theme.palette.primary.main, 0.08), color: theme.palette.primary.dark, border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}` }}>
