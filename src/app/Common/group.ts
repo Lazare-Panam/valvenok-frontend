@@ -8,11 +8,16 @@ export interface GroupSite {
   desc: string;
   operatedByValvenok: boolean;
   legalName: string;
+  /** Logo shown on the "Our group" cards */
+  logo: string;
+  /** Some logo files have wide margins; scale them up to look the same size */
+  logoScale?: number;
 }
 
 export const GROUP_SITES: GroupSite[] = [
   {
     name: "Panam Valves",
+    logo: "https://pblol2.blob.core.windows.net/panam-images/panam-resize_smallest.jpg",
     url: "https://www.panamvalve.com/",
     desc: "Instrumentation valves, manifolds and fittings for hydrogen, oil and gas and industrial applications.",
     operatedByValvenok: false,
@@ -20,6 +25,7 @@ export const GROUP_SITES: GroupSite[] = [
   },
   {
     name: "Mars Valve",
+    logo: "https://pblol2.blob.core.windows.net/valvenok-images/brands/mars.png",
     url: "https://www.marsvalvenok.com/",
     desc: "Authorised UK distributor of MARS ball valves: 2-piece, 3-piece, flanged, sanitary and fire-safe ranges.",
     operatedByValvenok: true,
@@ -27,6 +33,7 @@ export const GROUP_SITES: GroupSite[] = [
   },
   {
     name: "Hiflux UK",
+    logo: "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/logo.png",
     url: "https://www.hiflux.uk.com/",
     desc: "Authorised UK and EU distributor of HIFLUX high-pressure valves, fittings and tubing rated to 150,000 psi.",
     operatedByValvenok: false,
@@ -34,6 +41,7 @@ export const GROUP_SITES: GroupSite[] = [
   },
   {
     name: "SPAC Pneumatic",
+    logo: "https://pblol2.blob.core.windows.net/spac-images/spac-logo.webp",
     url: "https://www.spacpneumatic.co.uk/",
     desc: "Pneumatic cylinders, valves, FRL units and fittings for industrial automation.",
     operatedByValvenok: false,
@@ -41,6 +49,8 @@ export const GROUP_SITES: GroupSite[] = [
   },
   {
     name: "KOSAPLUS UK",
+    logo: "https://pblol2.blob.core.windows.net/valvenok-images/brands/kosaplus-logo.png",
+    logoScale: 1.9,
     url: "https://www.kosaplus.co.uk/",
     desc: "Authorised UK distributor of KOSAPLUS pneumatic and electric valve actuators.",
     operatedByValvenok: true,

@@ -59,13 +59,24 @@ export default function GroupSites({
               "&:hover .go": { bgcolor: T.green, color: T.greenDeep, transform: "rotate(45deg)" },
             }}
           >
+            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 1, mb: 2.5 }}>
+              <Box sx={{ height: compact ? 40 : 48, width: compact ? 120 : 150, display: "flex", alignItems: "center", overflow: "hidden" }}>
+                <Box
+                  component="img"
+                  src={g.logo}
+                  alt={`${g.name} logo`}
+                  loading="lazy"
+                  sx={{ maxHeight: "100%", maxWidth: "100%", objectFit: "contain", objectPosition: "left center", transform: g.logoScale ? `scale(${g.logoScale})` : undefined, transformOrigin: "left center" }}
+                />
+              </Box>
+              <Box className="go" sx={{ flexShrink: 0, width: 32, height: 32, borderRadius: "50%", display: "grid", placeItems: "center", bgcolor: T.greenSoft, color: T.greenDark, transition: "all .25s" }}>
+                <ArrowOutwardRoundedIcon sx={{ fontSize: 16 }} />
+              </Box>
+            </Box>
             <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 1 }}>
               <Typography component="h3" sx={{ fontWeight: 700, fontSize: compact ? "1rem" : "1.15rem", color: T.ink }}>
                 {g.name}
               </Typography>
-              <Box className="go" sx={{ flexShrink: 0, width: 32, height: 32, borderRadius: "50%", display: "grid", placeItems: "center", bgcolor: T.greenSoft, color: T.greenDark, transition: "all .25s" }}>
-                <ArrowOutwardRoundedIcon sx={{ fontSize: 16 }} />
-              </Box>
             </Box>
             <Typography sx={{ mt: 1, flex: 1, fontSize: compact ? "0.86rem" : "0.95rem", lineHeight: 1.6, color: T.body }}>{g.desc}</Typography>
             <Box component="span" sx={{ mt: 2, fontSize: "0.82rem", fontWeight: 600, color: T.greenDark }}>

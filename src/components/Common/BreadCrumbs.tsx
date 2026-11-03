@@ -4,9 +4,10 @@
 import * as React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Breadcrumbs as MUIBreadcrumbs, Typography, Box } from '@mui/material';
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import HomeIcon from '@mui/icons-material/Home';
+import { Box } from '@mui/material';
+import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
+import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
+import { T } from '@/src/app/Landing/modern/tokens';
 
 export type Crumb = {
   label: string;
@@ -24,11 +25,30 @@ type BreadcrumbsProps = {
 
 // Words that must stay fully uppercase (brand/acronym abbreviations).
 // e.g. "ag" -> "AG" (Anderson Greenwood). Extend as needed: 'jic', 'nps', 'dn'.
-const ACRONYMS = new Set(['ag', 'lpg']);
+const ACRONYMS = new Set([
+  'ag', 'lpg', 'dbb', 'hp', 'jic', 'npt', 'bsp', 'aov', 'ss', 'ss316', 'vsi', 'h2', 'frl',
+  // series codes
+  'iql', 'itl', 'itm', 'itq', 'itg', 'its', 'mab', 'maw', 'adf', 'hd', 'pds', 'plds', 'mplds', 'sra',
+  'esc', 'esnc', 'sdnc', 'sdnu', 'kls', 'ke', 'tg', 'fg', 'pvae32', 'ib', 'hb', 'sb', 'rss', 'wkm',
+]);
 
 // Segments whose label isn't just the words in the URL
 const DEFAULT_LABELS: Record<string, string> = {
   'hydrogen-cryogenic': 'Hydrogen & Cryogenic',
+  'dbb-manifolds': 'DBB & Manifolds',
+  'fittings-tubing': 'Fittings & Tubing',
+  'pumps-seals': 'Pumps & Seals',
+  'filters-sight-glass': 'Filters & Sight Glass',
+  'quick-coupling-and-hoses': 'Quick Couplings & Hoses',
+  'double-block-and-bleed-valves': 'Double Block & Bleed Valves',
+  'joscar-registered': 'JOSCAR Registered',
+  'quick-order': 'Quick Order',
+  news: 'News & Blog',
+  about: 'About Us',
+  contact: 'Contact Us',
+  '2VM': '2-Valve Manifolds',
+  '3VM': '3-Valve Manifolds',
+  '5VM': '5-Valve Manifolds',
 };
 
 // Turn "ag-fasani-check" into "AG Fasani Check"
@@ -49,6 +69,13 @@ export default function Breadcrumbs({
   hideOnHome = true,
 }: BreadcrumbsProps) {
   const pathname = usePathname();
+  // On narrow screens the trail scrolls sideways: start at the end so the
+  // current page is always in view.
+  const scroller = React.useRef<HTMLDivElement>(null);
+  React.useEffect(() => {
+    const el = scroller.current;
+    if (el) el.scrollLeft = el.scrollWidth;
+  }, [pathname]);
 
   if (hideOnHome && pathname === '/') return null;
 
@@ -85,77 +112,101 @@ export default function Breadcrumbs({
 
   return (
     <Box
+      component="nav"
+      aria-label="Breadcrumb"
       sx={{
-        px: { xs: 2, md: 6 },
-        py: 1.5,
-        bgcolor: 'background.default',
-        borderBottom: '1px solid',
-        borderColor: 'divider',
+        bgcolor: T.surface,
+        borderBottom: `1px solid ${T.border}`,
+        fontFamily: T.font,
+        '& *': { fontFamily: `${T.font} !important` },
       }}
     >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <MUIBreadcrumbs
-        separator={<NavigateNextIcon fontSize="small" />}
-        aria-label="breadcrumb"
+      <Box
+        ref={scroller}
         sx={{
-          '& .MuiBreadcrumbs-separator': {
-            color: 'text.secondary',
-          },
+          width: '100%',
+          boxSizing: 'border-box',
+          maxWidth: T.maxWidth,
+          mx: 'auto',
+          px: { xs: 2, md: 4 },
+          py: 1.25,
+          // One line; scrolls sideways on narrow screens instead of wrapping
+          overflowX: 'auto',
+          scrollbarWidth: 'none',
+          '&::-webkit-scrollbar': { display: 'none' },
         }}
       >
-        {crumbs.map((crumb, idx) => {
-          const isLast = idx === crumbs.length - 1;
-          const isHome = idx === 0;
-
-          if (isLast || !crumb.href) {
+        <Box
+          component="ol"
+          sx={{ listStyle: 'none', m: 0, p: 0, display: 'flex', alignItems: 'center', gap: 0.75, whiteSpace: 'nowrap', minWidth: 'max-content' }}
+        >
+          {crumbs.map((crumb, idx) => {
+            const isLast = idx === crumbs.length - 1;
+            const isHome = idx === 0;
             return (
-              <Typography
-                key={idx}
-                color="text.primary"
-                sx={{
-                  fontWeight: 600,
-                  fontSize: '0.875rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 0.5,
-                }}
-              >
-                {isHome && <HomeIcon fontSize="small" />}
-                {crumb.label}
-              </Typography>
+              <Box component="li" key={idx} sx={{ display: 'flex', alignItems: 'center', gap: 0.75 }}>
+                {idx > 0 && <ChevronRightRoundedIcon aria-hidden sx={{ fontSize: 18, color: '#B5C0B8' }} />}
+                {isLast || !crumb.href ? (
+                  <Box
+                    component="span"
+                    aria-current="page"
+                    sx={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      px: 1.25,
+                      py: 0.4,
+                      borderRadius: 999,
+                      bgcolor: T.greenSoft,
+                      border: '1px solid #CFEBC6',
+                      color: T.greenDark,
+                      fontSize: '0.8rem',
+                      fontWeight: 600,
+                      maxWidth: { xs: 220, sm: 420 },
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                    }}
+                  >
+                    {crumb.label}
+                  </Box>
+                ) : (
+                  <Box
+                    component={Link}
+                    href={crumb.href}
+                    sx={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: 0.75,
+                      color: T.body,
+                      fontSize: '0.82rem',
+                      fontWeight: 500,
+                      textDecoration: 'none',
+                      borderRadius: 999,
+                      transition: 'color .15s',
+                      '&:hover': { color: T.greenDark },
+                      '&:hover .home': { bgcolor: T.greenDark, color: '#fff' },
+                    }}
+                  >
+                    {isHome && (
+                      <Box
+                        component="span"
+                        className="home"
+                        sx={{ width: 26, height: 26, borderRadius: '50%', bgcolor: '#fff', border: `1px solid ${T.border}`, color: T.greenDark, display: 'grid', placeItems: 'center', transition: 'all .15s' }}
+                      >
+                        <HomeRoundedIcon sx={{ fontSize: 15 }} />
+                      </Box>
+                    )}
+                    {crumb.label}
+                  </Box>
+                )}
+              </Box>
             );
-          }
-
-          return (
-            <Link
-              key={idx}
-              href={crumb.href}
-              style={{ textDecoration: 'none' }}
-            >
-              <Typography
-                component="span"
-                sx={{
-                  color: 'text.secondary',
-                  fontSize: '0.875rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 0.5,
-                  '&:hover': {
-                    color: 'primary.main',
-                    textDecoration: 'underline',
-                  },
-                }}
-              >
-                {isHome && <HomeIcon fontSize="small" />}
-                {crumb.label}
-              </Typography>
-            </Link>
-          );
-        })}
-      </MUIBreadcrumbs>
+          })}
+        </Box>
+      </Box>
     </Box>
   );
 }

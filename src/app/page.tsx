@@ -13,6 +13,7 @@ import InsightsModern from "./Landing/modern/InsightsModern";
 import FaqModern from "./Landing/modern/FaqModern";
 import SocialWall from "./Landing/modern/SocialWall";
 import JoscarModern from "./Landing/modern/JoscarModern";
+import FindUsModern from "./Landing/modern/FindUsModern";
 
 // For Next.js App Router (metadata object)
 export const metadata = {
@@ -78,6 +79,7 @@ export default function Home() {
       <InsightsModern />
       <SocialWall />
       <FaqModern />
+      <FindUsModern />
       <JoscarModern />
     </>
   );

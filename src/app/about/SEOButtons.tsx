@@ -1,10 +1,10 @@
 "use client";
 
 import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
-import { alpha } from "@mui/material/styles";
+import { T, textReset } from "../Landing/modern/tokens";
+import SectionHeader from "../Landing/modern/SectionHeader";
 
 // One-off curated list of deep pages that currently have only one internal
 // link pointing to them (per SEO audit). Adding this second link here is
@@ -333,92 +333,48 @@ const GROUPS: { group: string; links: { label: string; href: string }[] }[] = [
 
 export default function SEOButtons() {
   return (
-    <Box
-      sx={{
-        bgcolor: "background.default",
-        py: { xs: 8, md: 12 },
-        borderBottom: "1px solid",
-        borderColor: "divider",
-      }}
-    >
-      <Container maxWidth="lg">
-        <Box sx={{ mb: 6 }}>
-          <Typography
-            sx={{
-              fontFamily: '"Barlow Condensed", sans-serif',
-              fontSize: "11px",
-              fontWeight: 700,
-              letterSpacing: "0.15em",
-              textTransform: "uppercase",
-              color: "primary.main",
-              mb: 1.5,
-            }}
-          >
-            Browse By Category
-          </Typography>
-          <Typography
-            component="h2"
-            sx={{
-              fontFamily: '"Barlow Condensed", sans-serif',
-              fontWeight: 900,
-              fontSize: { xs: "2.2rem", md: "3rem" },
-              lineHeight: 1.0,
-              textTransform: "uppercase",
-              color: "text.primary",
-            }}
-          >
-            Explore Our Full Range
-          </Typography>
-        </Box>
-
-        {GROUPS.map(({ group, links }) => (
-          <Box key={group} sx={{ mb: 4 }}>
-            <Typography
-              sx={{
-                fontFamily: '"Barlow Condensed", sans-serif',
-                fontWeight: 800,
-                fontSize: "0.95rem",
-                textTransform: "uppercase",
-                letterSpacing: "0.06em",
-                color: "text.secondary",
-                mb: 1.5,
-              }}
-            >
-              {group}
-            </Typography>
-
-            <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
-              {links.map(({ label, href }) => (
-                <Box
-                  key={href}
-                  component={Link}
-                  href={href}
-                  sx={{
-                    px: 2,
-                    py: 0.75,
-                    fontSize: "13px",
-                    fontWeight: 600,
-                    color: "text.primary",
-                    textDecoration: "none",
-                    border: "1px solid",
-                    borderColor: "divider",
-                    bgcolor: "background.paper",
-                    whiteSpace: "nowrap",
-                    transition: "all 0.15s",
-                    "&:hover": {
-                      borderColor: "primary.main",
-                      color: "primary.main",
-                      bgcolor: (t) => alpha(t.palette.primary.main, 0.06),
-                    },
-                  }}
-                >
-                  {label}
+    <Box component="section" sx={{ ...textReset, bgcolor: T.surface, borderTop: `1px solid ${T.border}` }}>
+      <Box sx={{ width: "100%", boxSizing: "border-box", maxWidth: T.maxWidth, mx: "auto", px: { xs: 2, md: 4 }, py: { xs: 8, md: 11 } }}>
+        <SectionHeader eyebrow="Browse By Category" title="Explore our full range" />
+        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" }, gap: 2.5 }}>
+          {GROUPS.map(({ group, links }) => (
+            <Box key={group} sx={{ p: { xs: 2.5, md: 3 }, borderRadius: T.radius, bgcolor: "#fff", border: `1px solid ${T.border}`, boxShadow: T.shadow }}>
+              <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mb: 2 }}>
+                <Typography component="h3" sx={{ fontWeight: 700, fontSize: "1.05rem", color: T.ink }}>
+                  {group}
+                </Typography>
+                <Box component="span" sx={{ fontSize: "0.78rem", fontWeight: 600, color: T.muted }}>
+                  {links.length} {links.length === 1 ? "link" : "links"}
                 </Box>
-              ))}
+              </Box>
+              <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+                {links.map(({ label, href }) => (
+                  <Box
+                    key={href}
+                    component={Link}
+                    href={href}
+                    sx={{
+                      px: 1.5,
+                      py: 0.7,
+                      borderRadius: 999,
+                      fontSize: "0.82rem",
+                      fontWeight: 600,
+                      color: T.ink,
+                      textDecoration: "none",
+                      border: `1px solid ${T.border}`,
+                      bgcolor: T.surface,
+                      transition: "all .15s",
+                      "&:hover": { borderColor: T.greenDark, color: T.greenDark, bgcolor: T.greenSoft },
+                    }}
+                  >
+                    {label}
+                  </Box>
+                ))}
+              </Box>
             </Box>
-          </Box>
-        ))}
-      </Container>
+          ))}
+        </Box>
+      </Box>
     </Box>
   );
 }
