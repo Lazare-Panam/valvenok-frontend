@@ -417,6 +417,8 @@ export default function ActuatorSizingPage() {
         author: "Valvenok Team",
         date: "October 2026",
         readMinutes: 11,
+        cover: "https://pblol2.blob.core.windows.net/valvenok-images/blogs/valve-actuator-sizing-torque-guide.jpg",
+        coverAlt: "Pneumatic actuator on a ball valve with a torque dial",
       }}
     >
       <Lead>

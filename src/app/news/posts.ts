@@ -2,6 +2,15 @@
 // cards at the end of each article.
 export const POSTS = [
   {
+    title: "L-Port vs T-Port 3-Way Ball Valves: Flow Paths, Applications and How to Specify",
+    desc: "Every flow position for L-port and T-port 3-way ball valves, when to use each for diverting, mixing and bypass, and an enquiry checklist for a first-time-right quote.",
+    thumbnail: "https://pblol2.blob.core.windows.net/valvenok-images/blogs/l-port-vs-t-port-3-way-ball-valve.jpg",
+    author: "Valvenok Team",
+    date: "November 2026",
+    category: "Technical Guide",
+    link: "/news/l-port-vs-t-port-3-way-ball-valve",
+  },
+  {
     title: "Pump Materials Compared: Cast Iron, Bronze, Stainless Steel and Engineered Plastic",
     desc: "The fluid decides the material, not the price list. Cast iron, bronze, 304, 316 and 904L stainless and PPS plastic compared for pump casings and impellers.",
     thumbnail: "https://pblol2.blob.core.windows.net/valvenok-images/blogs/pump-materials-comparison.jpg",
@@ -14,7 +23,7 @@ export const POSTS = [
     title: "Valve Actuator Sizing Explained: Torque, Safety Factors and Why Actuators Fail to Seat",
     desc: "How to size a pneumatic valve actuator: breakaway, running and seating torque, safety factors, minimum air supply, spring-return checks and common mistakes.",
     thumbnail:
-      "https://pblol2.blob.core.windows.net/valvenok-images/valve-actuator-torque-curves.png",
+      "https://pblol2.blob.core.windows.net/valvenok-images/blogs/valve-actuator-sizing-torque-guide.jpg",
     author: "Valvenok Team",
     date: "October 2026",
     category: "Technical Guide",

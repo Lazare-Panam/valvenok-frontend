@@ -25,10 +25,10 @@ export const metadata: Metadata = {
     siteName: "Valvenok",
     images: [
       {
-        url: "https://pblol2.blob.core.windows.net/valvenok-images/valve-actuator-torque-curves.png",
-        width: 1232,
-        height: 880,
-        alt: "Actuator torque curves for rack and pinion and scotch yoke compared with valve torque",
+        url: "https://pblol2.blob.core.windows.net/valvenok-images/blogs/valve-actuator-sizing-torque-guide.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Valve actuator sizing explained: blueprint of a rack and pinion actuator on a valve",
       },
     ],
     locale: "en_GB",

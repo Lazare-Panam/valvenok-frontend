@@ -13,6 +13,21 @@ import PillButton from "./Buttons";
 // high-resolution originals (served resized by next/image).
 const SLIDES = [
   {
+    // Valvenok positioning statement (website version, 4 Nov 2026)
+    id: 1,
+    duration: 5000,
+    image: "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/process-pipework-valves.jpg",
+    position: "70% 50%",
+    upperTag: "ONE APPROVED SUPPLIER",
+    title: "One UK supplier,",
+    accent: "32 manufacturers",
+    description:
+      "Valves, actuators and instrumentation through one JOSCAR-registered account, with EN 10204 3.1/3.2 certificates and lead times confirmed on every quote.",
+    href: "/brands",
+    btnText: "See our brands",
+    alt: "Stainless steel process pipework with valves and actuators",
+  },
+  {
     id: 2,
     duration: 5000,
     image:

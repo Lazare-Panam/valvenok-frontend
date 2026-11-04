@@ -106,29 +106,20 @@ const cardBase = {
 // are shown whole on white; photos fill the frame.
 const isCutout = (src: string) => /\.(png|webp|svg)(\?|$)/i.test(src) || src.includes("/brands/");
 
+// Every frame uses the blog cover shape (1200 × 630), so covers fill it exactly.
+const COVER_RATIO = "1200 / 630";
+
 function Img({ post }: { post: Post }) {
   const contain = isCutout(post.thumbnail);
   const fill = { position: "absolute", inset: 0, width: "100%", height: "100%", display: "block" } as const;
-  // Fills its (position: relative) frame. Nothing is ever cropped: cut-outs sit on white,
-  // banners and photos sit on a blurred copy of themselves so the frame still looks full.
   return (
-    <Box className="thumb" sx={{ ...fill, overflow: "hidden", bgcolor: contain ? "#fff" : T.greenDeep, transition: "transform .6s ease" }}>
-      {!contain && (
-        <Box
-          component="img"
-          src={post.thumbnail}
-          alt=""
-          aria-hidden
-          loading="lazy"
-          sx={{ ...fill, objectFit: "cover", filter: "blur(18px) saturate(1.1)", transform: "scale(1.25)", opacity: 0.85 }}
-        />
-      )}
+    <Box className="thumb" sx={{ ...fill, overflow: "hidden", bgcolor: "#fff", transition: "transform .6s ease" }}>
       <Box
         component="img"
         src={post.thumbnail}
         alt={post.title}
         loading="lazy"
-        sx={{ ...fill, objectFit: "contain", p: contain ? { xs: 1.5, md: 2 } : 0, boxSizing: "border-box" }}
+        sx={{ ...fill, objectFit: contain ? "contain" : "cover", p: contain ? { xs: 1.5, md: 2 } : 0, boxSizing: "border-box" }}
       />
     </Box>
   );
@@ -138,7 +129,7 @@ function Img({ post }: { post: Post }) {
 function LeadCard({ post }: { post: Post }) {
   return (
     <Box component={Link} href={post.link} sx={{ ...cardBase, flexDirection: "column", border: 0, boxShadow: "0 24px 50px -24px rgba(18,61,23,0.45)" }}>
-      <Box sx={{ position: "relative", height: { xs: 220, md: 290 }, overflow: "hidden", bgcolor: T.greenSoft }}>
+      <Box sx={{ position: "relative", aspectRatio: COVER_RATIO, overflow: "hidden", bgcolor: T.greenSoft }}>
         <Img post={post} />
         <Box
           component="span"
@@ -213,39 +204,11 @@ function LeadCard({ post }: { post: Post }) {
   );
 }
 
-// Wide card: picture left, text right.
-function WideCard({ post }: { post: Post }) {
-  return (
-    <Box component={Link} href={post.link} sx={{ ...cardBase, flexDirection: { xs: "column", sm: "row" } }}>
-      <Box sx={{ position: "relative", width: { xs: "100%", sm: "44%" }, height: { xs: 190, sm: "auto" }, minHeight: { sm: 200 }, flexShrink: 0, overflow: "hidden", bgcolor: T.greenSoft }}>
-        <Img post={post} />
-      </Box>
-      <Box sx={{ p: 2.5, display: "flex", flexDirection: "column", flex: 1 }}>
-        <Box>
-          <Tag>{post.category}</Tag>
-        </Box>
-        <Typography component="h3" sx={{ mt: 1.25, fontWeight: 700, fontSize: "1.08rem", lineHeight: 1.3, color: T.ink }}>
-          {post.title}
-        </Typography>
-        <Typography
-          sx={{ mt: 1, fontSize: "0.86rem", lineHeight: 1.55, color: T.body, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}
-        >
-          {post.desc}
-        </Typography>
-        <Box sx={{ mt: "auto", pt: 2, display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: "0.78rem", color: T.muted }}>
-          {post.date}
-          <ArrowDot />
-        </Box>
-      </Box>
-    </Box>
-  );
-}
-
 // Small card: picture on top, title below.
 function SmallCard({ post }: { post: Post }) {
   return (
     <Box component={Link} href={post.link} sx={{ ...cardBase, flexDirection: "column" }}>
-      <Box sx={{ position: "relative", flex: 1, minHeight: 130, overflow: "hidden", bgcolor: T.greenSoft }}>
+      <Box sx={{ position: "relative", aspectRatio: COVER_RATIO, flexShrink: 0, overflow: "hidden", bgcolor: T.greenSoft }}>
         <Img post={post} />
       </Box>
       <Box sx={{ p: 2, display: "flex", flexDirection: "column" }}>
@@ -341,7 +304,7 @@ function Row({ post, n, i }: { post: Post; n: number; i: number }) {
           Read article <ArrowForwardRoundedIcon sx={{ fontSize: 16 }} />
         </Box>
       </Box>
-      <Box sx={{ position: "relative", height: { xs: 190, sm: 130, md: 140 }, borderRadius: "16px", overflow: "hidden", bgcolor: T.greenSoft, border: `1px solid ${T.border}` }}>
+      <Box sx={{ position: "relative", aspectRatio: COVER_RATIO, borderRadius: "16px", overflow: "hidden", bgcolor: T.greenSoft, border: `1px solid ${T.border}` }}>
         <Img post={post} />
       </Box>
     </Box>
@@ -411,9 +374,9 @@ export default function BlogPage() {
   const categories = useMemo(() => ["All", ...Array.from(new Set(POSTS.map((p) => p.category)))], []);
   const [active, setActive] = useState("All");
   const browsing = active === "All";
-  const [lead, wide, smallA, smallB, ...rest] = POSTS;
+  const [lead, wide, smallA, smallB, smallC, ...rest] = POSTS;
   const list = browsing ? rest : POSTS.filter((p) => p.category === active);
-  const numberFrom = browsing ? 5 : 1;
+  const numberFrom = browsing ? 6 : 1;
 
   return (
     <Box sx={{ ...textReset, bgcolor: "#FAFCFA", minHeight: "100vh" }}>
@@ -551,12 +514,10 @@ export default function BlogPage() {
             }}
           >
             <LeadCard post={lead} />
-            <Box sx={{ display: "grid", gridTemplateRows: { md: "auto 1fr" }, gap: { xs: 2, md: 2.5 } }}>
-              <WideCard post={wide} />
-              <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" }, gap: { xs: 2, md: 2.5 } }}>
-                <SmallCard post={smallA} />
-                <SmallCard post={smallB} />
-              </Box>
+            <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" }, gap: { xs: 2, md: 2.5 } }}>
+              {[wide, smallA, smallB, smallC].filter(Boolean).map((p) => (
+                <SmallCard key={p.link} post={p} />
+              ))}
             </Box>
           </Box>
         </Box>

@@ -86,9 +86,14 @@ function Hero() {
                 </Box>
               </Box>
             </Typography>
-            <Typography sx={{ mt: 4, fontSize: { xs: "1.05rem", md: "1.2rem" }, lineHeight: 1.7, color: T.body, maxWidth: 560, animation: "wordIn .9s ease .6s both" }}>
-              Valvenok is a UK-based industrial supplier specialising in valves, fittings, and fluid control components. We exist to make
-              procurement faster, simpler, and more reliable for engineers and procurement teams worldwide.
+            <Typography sx={{ mt: 4, fontSize: { xs: "1.05rem", md: "1.2rem" }, lineHeight: 1.7, color: T.body, maxWidth: 600, animation: "wordIn .9s ease .6s both" }}>
+              {/* Positioning statement (website version, 4 Nov 2026): headline as the opening line, then the intro */}
+              <Box component="strong" sx={{ display: "block", mb: 1, color: T.ink, fontWeight: 700 }}>
+                One UK supplier for valves, actuators and instrumentation from 32 manufacturers.
+              </Box>
+              Valvenok is a JOSCAR-registered UK distributor, so procurement teams can source from many leading brands through a single approved
+              supplier. Every order comes with the paperwork you need, including EN 10204 3.1/3.2 material certificates, and lead times are confirmed
+              on every quotation.
             </Typography>
             <Box sx={{ mt: 4, display: "flex", gap: 1.5, flexWrap: "wrap", animation: "wordIn .9s ease .8s both" }}>
               <PillButton href="/contact">Talk to our team</PillButton>
