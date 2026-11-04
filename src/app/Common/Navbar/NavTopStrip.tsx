@@ -21,7 +21,7 @@ const linkSx = {
 
 export default function NavTopStrip() {
   return (
-    <Box sx={{ bgcolor: "#F5F8F5", borderBottom: "1px solid #E5EBE6", display: { xs: "none", md: "block" } }}>
+    <Box sx={{ bgcolor: "#F6FAF5", display: { xs: "none", md: "block" } }}>
       <Container maxWidth="xl" sx={{ px: { xs: 2, md: 4 } }}>
         <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 40, gap: 3 }}>
           <Box sx={{ display: "flex", alignItems: "center", gap: 3 }}>

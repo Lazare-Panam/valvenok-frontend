@@ -37,6 +37,14 @@ const CLOSE_DELAY = 150;
 export default function Navbar() {
   const [activeGroup, setActiveGroup] = React.useState<NavGroup | null>(null);
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  // Soft shadow under the sticky header only once the page has scrolled
+  const [scrolled, setScrolled] = React.useState(false);
+  React.useEffect(() => {
+    const f = () => setScrolled(window.scrollY > 60);
+    f();
+    window.addEventListener("scroll", f, { passive: true });
+    return () => window.removeEventListener("scroll", f);
+  }, []);
   const closeTimer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
   const navBarRef = React.useRef<HTMLDivElement>(null);
 
@@ -80,7 +88,9 @@ export default function Navbar() {
         sx={{
           bgcolor: "rgba(255,255,255,0.96)",
           backdropFilter: "saturate(180%) blur(10px)",
-          borderBottom: `1px solid ${BORDER}`,
+          // Desktop: one header block, so no line between the logo bar and the menu row
+          borderBottom: "none",
+          boxShadow: { xs: scrolled ? "0 10px 24px -16px rgba(14,27,18,0.35)" : "none", md: "none" },
           height: LOGO_HEIGHT,
         }}
       >
@@ -170,11 +180,15 @@ export default function Navbar() {
           bgcolor: "rgba(255,255,255,0.96)",
           backdropFilter: "saturate(180%) blur(10px)",
           borderBottom: `1px solid ${BORDER}`,
+          boxShadow: scrolled ? "0 10px 24px -16px rgba(14,27,18,0.35)" : "none",
+          transition: "box-shadow .25s",
           display: { xs: "none", md: "block" },
           position: "relative",
         }}
       >
         <Container maxWidth="xl" sx={{ px: { xs: 2, md: 4 } }}>
+          {/* Short divider between the logo bar and the menu (container width, not full bleed) */}
+          <Box aria-hidden sx={{ height: "1px", bgcolor: "#EDF1EE" }} />
           <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", height: NAV_HEIGHT, gap: 0.5 }}>
             {NAV_GROUPS.map((group) => {
               const active = activeGroup?.id === group.id;

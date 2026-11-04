@@ -44,6 +44,8 @@ const DEFAULT_LABELS: Record<string, string> = {
   'joscar-registered': 'JOSCAR Registered',
   'quick-order': 'Quick Order',
   news: 'News & Blog',
+  login: 'Sign In',
+  register: 'Create Account',
   'l-port-vs-t-port-3-way-ball-valve': 'L-Port vs T-Port 3-Way Ball Valves',
   about: 'About Us',
   contact: 'Contact Us',
@@ -116,7 +118,8 @@ export default function Breadcrumbs({
       component="nav"
       aria-label="Breadcrumb"
       sx={{
-        bgcolor: T.surface,
+        // A light strip of its own under the menu line, softer than the old grey band
+        bgcolor: "#FBFCFB",
         borderBottom: `1px solid ${T.border}`,
         fontFamily: T.font,
         '& *': { fontFamily: `${T.font} !important` },

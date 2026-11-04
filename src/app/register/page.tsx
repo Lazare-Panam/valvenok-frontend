@@ -1,27 +1,21 @@
 "use client";
 
 import React, { useState } from "react";
+import NextLink from "next/link";
 import {
   Box,
-  Container,
   Typography,
   TextField,
   Button,
-  Stack,
   Autocomplete,
   CircularProgress,
-  Link as MuiLink,
 } from "@mui/material";
-import Grid from "@mui/material/Grid";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import { useRouter } from "next/navigation";
-import { alpha, useTheme } from "@mui/material/styles";
+import { AuthShell, Field, PasswordField, OrDivider, inputSx, primaryBtnSx, secondaryBtnSx, linkSx } from "@/src/app/Common/AuthShell";
+import { T } from "@/src/app/Landing/modern/tokens";
 
 // Hooks and Store
 import { useRegister } from "@/src/app/register/hooks/useAuth";
 import { useNotificationStore } from "@/src/store/useNotificationStore";
-
-const DISPLAY_FONT = "var(--font-display)";
 
 const countries = [
   { code: "GB", label: "United Kingdom", phone: "44" },
@@ -32,36 +26,7 @@ const countries = [
   { code: "AU", label: "Australia", phone: "61" },
 ];
 
-function SectionLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <Typography
-      variant="subtitle2"
-      sx={{
-        fontWeight: 800,
-        fontSize: "13px",
-        letterSpacing: "0.12em",
-        color: "text.primary",
-        textTransform: "uppercase",
-        mb: 2,
-        display: "flex",
-        alignItems: "center",
-        "&::after": {
-          content: '""',
-          flex: 1,
-          height: "1px",
-          backgroundColor: "primary.light",
-          ml: 1.5,
-        },
-      }}
-    >
-      {children}
-    </Typography>
-  );
-}
-
 export default function RegisterPage() {
-  const router = useRouter();
-  const theme = useTheme();
   const { mutate: register, isPending } = useRegister();
   const showNotification = useNotificationStore(
     (state) => state.showNotification,
@@ -79,18 +44,7 @@ export default function RegisterPage() {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
-  const fieldSx = {
-    "& .MuiOutlinedInput-root": {
-      backgroundColor: alpha(theme.palette.primary.light, 0.25),
-      borderRadius: 0,
-      "& fieldset": { borderColor: "transparent" },
-      "&:hover fieldset": { borderColor: theme.palette.primary.main },
-      "&.Mui-focused fieldset": { borderColor: theme.palette.primary.main },
-      "&.Mui-error fieldset": { borderColor: theme.palette.error.main },
-    },
-    "& .MuiInputLabel-root.Mui-focused": { color: "primary.dark" },
-    "& .MuiFormHelperText-root": { fontWeight: 600, ml: 0 },
-  };
+  const fieldSx = inputSx;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -132,312 +86,94 @@ export default function RegisterPage() {
   };
 
   return (
-    <Box
-      sx={{
-        minHeight: "100vh",
-        bgcolor: "background.default",
-        display: "flex",
-        alignItems: "center",
-        py: { xs: 6, md: 10 },
-      }}
-    >
-      <Container maxWidth="md">
-        {/* ── HEADER ── */}
-        <Box sx={{ mb: 6, textAlign: "center" }}>
-          <Typography
-            component="h1"
-            sx={{
-              fontFamily: DISPLAY_FONT,
-              fontWeight: 900,
-              fontSize: { xs: "2.8rem", md: "4rem" },
-              textTransform: "uppercase",
-              lineHeight: 1,
-              color: "text.primary",
-              mb: 1.5,
-            }}
-          >
-            Create Account
-          </Typography>
-          <Box
-            sx={{
-              width: 48,
-              height: 4,
-              bgcolor: "primary.main",
-              mx: "auto",
-              mb: 2.5,
-            }}
-          />
-          <Typography
-            sx={{
-              color: "text.secondary",
-              fontSize: "1.15rem",
-              fontWeight: 500,
-            }}
-          >
-            Join Valvenok to access pricing, stock, and procurement tools.
-          </Typography>
+    <AuthShell title="Create your account" subtitle="Order by part number, track orders and keep your order history." width={560}>
+      <Box component="form" onSubmit={handleSubmit} noValidate sx={{ position: "relative", display: "grid", gap: 2.25 }}>
+        {isPending && (
+          <Box sx={{ position: "absolute", inset: -8, bgcolor: "rgba(255,255,255,0.88)", zIndex: 10, borderRadius: "16px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 2 }}>
+            <CircularProgress sx={{ color: T.greenDark }} />
+            <Typography sx={{ fontWeight: 700, color: T.ink }}>Creating your account...</Typography>
+          </Box>
+        )}
+
+        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" }, gap: 2 }}>
+          <Field required label="First name" name="firstName" autoComplete="given-name" value={formData.firstName} onChange={handleChange} />
+          <Field required label="Last name" name="lastName" autoComplete="family-name" value={formData.lastName} onChange={handleChange} />
         </Box>
 
-        {/* ── FORM CARD ── */}
-        <Box
-          sx={{
-            bgcolor: "#fff",
-            border: "1.5px solid",
-            borderColor: "primary.light",
-            p: { xs: 3, md: 5 },
-            position: "relative",
-          }}
-        >
-          {isPending && (
-            <Box
-              sx={{
-                position: "absolute",
-                inset: 0,
-                bgcolor: "rgba(255,255,255,0.85)",
-                zIndex: 10,
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: 2,
-              }}
-            >
-              <CircularProgress color="primary" />
-              <Typography
-                sx={{
-                  fontWeight: 700,
-                  fontSize: "1rem",
-                  color: "text.primary",
-                }}
-              >
-                Creating your account...
-              </Typography>
-            </Box>
-          )}
+        <Field
+          required
+          label="Email address"
+          name="email"
+          type="email"
+          autoComplete="email"
+          placeholder="name@company.com"
+          value={formData.email}
+          onChange={handleChange}
+          error={Boolean(emailError)}
+          helperText={emailError}
+        />
 
-          <Box component="form" onSubmit={handleSubmit} noValidate>
-            <SectionLabel>User ID / Email Address</SectionLabel>
-            <TextField
-              fullWidth
-              required
-              name="email"
-              placeholder="email@example.com"
-              value={formData.email}
-              onChange={handleChange}
-              error={Boolean(emailError)}
-              helperText={emailError}
-              sx={{ ...fieldSx, mb: 5 }}
+        <Box>
+          <Box component="label" sx={{ display: "block", mb: 0.75, fontSize: "0.88rem", fontWeight: 600, color: T.ink }}>
+            Phone number<Box component="span" sx={{ color: T.greenDark }}> *</Box>
+          </Box>
+          <Box sx={{ display: "grid", gridTemplateColumns: "112px 1fr", gap: 1.25 }}>
+            <Autocomplete
+              options={countries}
+              getOptionLabel={(o) => `+${o.phone}`}
+              value={selectedCountry}
+              onChange={(_, val) => val && setSelectedCountry(val)}
+              disableClearable
+              sx={fieldSx}
+              renderOption={(props, option) => (
+                <Box component="li" sx={{ fontSize: "0.85rem" }} {...props} key={option.code}>
+                  <img loading="lazy" width="18" src={`https://flagcdn.com/w20/${option.code.toLowerCase()}.png`} alt="" style={{ marginRight: 8 }} />
+                  +{option.phone}
+                </Box>
+              )}
+              renderInput={(params) => <TextField {...params} hiddenLabel inputProps={{ ...params.inputProps, "aria-label": "Country code" }} />}
             />
-
-            <SectionLabel>Personal Information</SectionLabel>
-            <Grid container spacing={3} sx={{ mb: 5 }}>
-              <Grid size={{ xs: 12, sm: 6 }}>
-                <TextField
-                  fullWidth
-                  required
-                  name="firstName"
-                  label="First Name"
-                  value={formData.firstName}
-                  onChange={handleChange}
-                  sx={fieldSx}
-                />
-              </Grid>
-              <Grid size={{ xs: 12, sm: 6 }}>
-                <TextField
-                  fullWidth
-                  required
-                  name="lastName"
-                  label="Last Name"
-                  value={formData.lastName}
-                  onChange={handleChange}
-                  sx={fieldSx}
-                />
-              </Grid>
-            </Grid>
-
-            <SectionLabel>Contact</SectionLabel>
-            <Stack direction="row" sx={{ mb: 5 }}>
-              <Autocomplete
-                options={countries}
-                getOptionLabel={(o) => `+${o.phone}`}
-                value={selectedCountry}
-                onChange={(_, val) => val && setSelectedCountry(val)}
-                disableClearable
-                sx={{
-                  width: 130,
-                  "& .MuiOutlinedInput-root": {
-                    borderRadius: 0,
-                    backgroundColor: alpha(theme.palette.primary.light, 0.25),
-                    "& fieldset": {
-                      borderRight: "1px solid rgba(0,0,0,0.1)",
-                      borderColor: "transparent",
-                    },
-                    "&:hover fieldset": {
-                      borderColor: theme.palette.primary.main,
-                    },
-                  },
-                }}
-                renderOption={(props, option) => (
-                  <Box
-                    component="li"
-                    sx={{ fontSize: "0.85rem" }}
-                    {...props}
-                    key={option.code}
-                  >
-                    <img
-                      loading="lazy"
-                      width="18"
-                      src={`https://flagcdn.com/w20/${option.code.toLowerCase()}.png`}
-                      alt=""
-                      style={{ marginRight: 8 }}
-                    />
-                    +{option.phone}
-                  </Box>
-                )}
-                renderInput={(params) => <TextField {...params} label="Code" />}
-              />
-              <TextField
-                fullWidth
-                required
-                name="phoneNumber"
-                label="Phone Number"
-                value={formData.phoneNumber}
-                onChange={handleChange}
-                sx={fieldSx}
-              />
-            </Stack>
-
-            <SectionLabel>Account Security</SectionLabel>
-            <Grid container spacing={3} sx={{ mb: 4 }}>
-              <Grid size={{ xs: 12, sm: 6 }}>
-                <TextField
-                  fullWidth
-                  required
-                  name="password"
-                  type="password"
-                  label="Password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  error={Boolean(passwordError)}
-                  helperText={passwordError}
-                  sx={fieldSx}
-                />
-              </Grid>
-              <Grid size={{ xs: 12, sm: 6 }}>
-                <TextField
-                  fullWidth
-                  required
-                  name="confirmPassword"
-                  type="password"
-                  label="Confirm Password"
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
-                  error={Boolean(passwordError)}
-                  sx={fieldSx}
-                />
-              </Grid>
-            </Grid>
-
-            <Stack
-              direction={{ xs: "column", sm: "row" }}
-              spacing={2}
-              justifyContent="center"
-              sx={{ mt: 5 }}
-            >
-              <Button
-                variant="outlined"
-                onClick={() => router.push("/login")}
-                sx={{
-                  borderColor: "primary.main",
-                  color: "primary.dark",
-                  borderRadius: 0,
-                  px: 6,
-                  py: 1.75,
-                  fontWeight: 700,
-                  fontSize: "15px",
-                  letterSpacing: "0.08em",
-                  borderWidth: "2px",
-                  "&:hover": {
-                    bgcolor: alpha(theme.palette.primary.light, 0.25),
-                    borderWidth: "2px",
-                  },
-                }}
-              >
-                CANCEL
-              </Button>
-              <Button
-                type="submit"
-                variant="contained"
-                color="primary"
-                disabled={isPending}
-                endIcon={!isPending && <ChevronRightIcon />}
-                sx={{
-                  borderRadius: 0,
-                  px: 6,
-                  py: 1.75,
-                  fontWeight: 800,
-                  fontSize: "15px",
-                  letterSpacing: "0.08em",
-                  boxShadow: "none",
-                  "&:hover": { boxShadow: "none" },
-                  "&:disabled": {
-                    bgcolor: alpha(theme.palette.primary.main, 0.5),
-                    color: "#fff",
-                  },
-                }}
-              >
-                {isPending ? "CREATING..." : "CREATE ACCOUNT"}
-              </Button>
-            </Stack>
-
-            <Typography
-              variant="caption"
-              sx={{
-                display: "block",
-                mt: 4,
-                color: "text.secondary",
-                fontStyle: "italic",
-                textAlign: "center",
-              }}
-            >
-              By submitting, I agree to Valvenok's{" "}
-              <MuiLink
-                href="/terms"
-                sx={{
-                  color: "primary.dark",
-                  fontWeight: 700,
-                  cursor: "pointer",
-                }}
-              >
-                Terms of Use
-              </MuiLink>{" "}
-              and Privacy Notice.
-            </Typography>
+            <TextField fullWidth hiddenLabel name="phoneNumber" type="tel" autoComplete="tel-national" placeholder="7123 456789" inputProps={{ "aria-label": "Phone number" }} value={formData.phoneNumber} onChange={handleChange} sx={fieldSx} />
           </Box>
         </Box>
 
-        <Typography
-          sx={{
-            mt: 3,
-            textAlign: "center",
-            color: "text.secondary",
-            fontSize: "0.95rem",
-          }}
-        >
-          Already have an account?{" "}
-          <MuiLink
-            onClick={() => router.push("/login")}
-            sx={{
-              color: "primary.dark",
-              fontWeight: 700,
-              cursor: "pointer",
-              textDecoration: "underline",
-            }}
-          >
-            Sign in here
-          </MuiLink>
-        </Typography>
-      </Container>
-    </Box>
+        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" }, gap: 2 }}>
+          <PasswordField
+            required
+            label="Password"
+            name="password"
+            autoComplete="new-password"
+            value={formData.password}
+            onChange={handleChange}
+            error={Boolean(passwordError)}
+            helperText={passwordError || "At least 8 characters"}
+          />
+          <PasswordField
+            required
+            label="Confirm password"
+            name="confirmPassword"
+            autoComplete="new-password"
+            value={formData.confirmPassword}
+            onChange={handleChange}
+            error={Boolean(passwordError)}
+          />
+        </Box>
+
+        <Button type="submit" fullWidth variant="contained" disableElevation disabled={isPending} sx={{ ...primaryBtnSx, mt: 0.5 }}>
+          {isPending ? "Creating..." : "Create account"}
+        </Button>
+      </Box>
+
+      <OrDivider label="Already have an account?" />
+      <Button component={NextLink} href="/login" fullWidth variant="outlined" sx={secondaryBtnSx}>
+        Sign in
+      </Button>
+
+      <Typography sx={{ mt: 3, fontSize: "0.78rem", lineHeight: 1.6, color: T.muted, textAlign: "center" }}>
+        By creating an account, I agree to Valvenok&apos;s{" "}
+        <Box component={NextLink} href="/terms" sx={linkSx}>Terms of Use</Box> and{" "}
+        <Box component={NextLink} href="/privacy" sx={linkSx}>Privacy Notice</Box>.
+      </Typography>
+    </AuthShell>
   );
 }
