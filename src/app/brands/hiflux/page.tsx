@@ -99,7 +99,7 @@ export default function HifluxBrandPage() {
         description="Hiflux high pressure valves rated up to 150,000 psi, high pressure fittings, accessories and manifold blocks, plus tubing, nipples and tooling sets for industrial high pressure, hydrogen refuelling, wellhead and research & test applications. Certification varies by product."
         imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/needle-valve.png"
         imageAlt="Hiflux High Pressure Valves, Fittings & Tubing"
-        breadcrumb="Products / Hydrogen & Cryogenic / Hiflux"
+        breadcrumb="Products / Hydrogen & High Pressure / Hiflux"
       />
       <ProcessValvesGrid families={HIFLUX_SERIES} />
       <TrustStrip points={TRUST_POINTS} />

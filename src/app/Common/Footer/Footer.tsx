@@ -27,7 +27,7 @@ const FOOTER_LINKS = [
   {
     title: "Products",
     links: [
-      { label: "Hydrogen & Cryogenic", href: "/hydrogen-cryogenic" },
+      { label: "Hydrogen & High Pressure", href: "/hydrogen-cryogenic" },
       { label: "Valves", href: "/valves" },
       { label: "Actuators", href: "/actuators" },
       { label: "Instrumentation", href: "/instrumentation" },

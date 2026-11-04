@@ -34,7 +34,7 @@ const ACRONYMS = new Set([
 
 // Segments whose label isn't just the words in the URL
 const DEFAULT_LABELS: Record<string, string> = {
-  'hydrogen-cryogenic': 'Hydrogen & Cryogenic',
+  'hydrogen-cryogenic': 'Hydrogen & High Pressure',
   'dbb-manifolds': 'DBB & Manifolds',
   'fittings-tubing': 'Fittings & Tubing',
   'pumps-seals': 'Pumps & Seals',

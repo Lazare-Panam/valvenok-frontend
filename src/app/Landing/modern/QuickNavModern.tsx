@@ -13,7 +13,7 @@ import { T, textReset } from "./tokens";
 
 // Each card opens its category page (not a deep sub-page).
 const QUICK_LINKS = [
-  { name: "Hydrogen & Cryogenic", href: "/hydrogen-cryogenic", icon: AcUnitOutlinedIcon },
+  { name: "Hydrogen & High Pressure", href: "/hydrogen-cryogenic", icon: AcUnitOutlinedIcon },
   { name: "Valves", href: "/valves", icon: TuneOutlinedIcon },
   { name: "Fittings & Instrumentation", href: "/fittings-tubing", icon: BuildOutlinedIcon },
   { name: "Filters", href: "/filters-sight-glass", icon: FilterAltOutlinedIcon },

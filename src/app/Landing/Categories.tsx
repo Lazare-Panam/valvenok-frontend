@@ -10,7 +10,7 @@ import Reveal from "@/src/app/Common/Reveal";
 
 // Order matches CATEGORIES below 1:1 — each entry is that category's accent.
 const ACCENT_COLORS = [
-  { bg: "#0f766e", text: "#fff", border: "#0f766e" }, // teal-green — Hydrogen & Cryogenic
+  { bg: "#0f766e", text: "#fff", border: "#0f766e" }, // teal-green — Hydrogen & High Pressure
   { bg: "#166534", text: "#fff", border: "#166534" }, // green      — Valves
   { bg: "#c2410c", text: "#fff", border: "#c2410c" }, // orange     — Fittings & Instrumentation Valves
   { bg: "#6d28d9", text: "#fff", border: "#6d28d9" }, // purple     — Filters
@@ -20,7 +20,7 @@ const ACCENT_COLORS = [
 
 const CATEGORIES = [
   {
-    name: "Hydrogen & Cryogenic",
+    name: "Hydrogen & High Pressure",
     img: "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/YEX-1100.png",
     href: "/hydrogen-cryogenic",
     tag: "New",

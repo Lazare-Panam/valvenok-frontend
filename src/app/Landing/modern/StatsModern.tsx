@@ -68,11 +68,9 @@ export default function StatsModern() {
         sx={{
           display: "grid",
           gridTemplateColumns: { xs: "1fr 1fr", md: "repeat(4, 1fr)" },
-          borderRadius: "24px",
-          overflow: "hidden",
+          gap: 2,
           position: "relative",
-          background: `radial-gradient(600px 220px at 85% 0%, rgba(97,214,73,0.35), transparent 60%), linear-gradient(135deg, ${T.greenDeep} 0%, #1F6B1A 100%)`,
-          boxShadow: "0 20px 48px rgba(18,61,23,0.25)",
+          "@keyframes shine": { "0%": { backgroundPosition: "0% 50%" }, "100%": { backgroundPosition: "200% 50%" } },
         }}
       >
         {STATS.map((s, i) => (
@@ -82,9 +80,15 @@ export default function StatsModern() {
               px: { xs: 2.5, md: 4 },
               py: { xs: 3.5, md: 5 },
               textAlign: "center",
-              borderLeft: { md: i === 0 ? "none" : "1px solid rgba(255,255,255,0.12)" },
-              borderTop: { xs: i > 1 ? "1px solid rgba(255,255,255,0.12)" : "none", md: "none" },
-              borderRight: { xs: i % 2 === 0 ? "1px solid rgba(255,255,255,0.12)" : "none", md: "none" },
+              position: "relative",
+              overflow: "hidden",
+              borderRadius: "22px",
+              bgcolor: ["#EAF8E4", "#E6F4FD", "#FFF6DA", "#F1ECFB"][i % 4],
+              border: `1px solid ${T.border}`,
+              boxShadow: T.shadow,
+              transition: "transform .25s, box-shadow .25s",
+              "&:hover": { transform: "translateY(-6px)", boxShadow: T.shadowHover },
+              "&::before": { content: '""', position: "absolute", left: 0, right: 0, top: 0, height: 4, background: `linear-gradient(90deg, ${T.green}, #8FD9F0, #FFD978, ${T.green})`, backgroundSize: "200% auto", animation: "shine 3s linear infinite" },
             }}
           >
             <Typography
@@ -92,7 +96,7 @@ export default function StatsModern() {
                 fontWeight: 700,
                 fontSize: { xs: "2.4rem", md: "3.2rem" },
                 letterSpacing: "-0.04em",
-                color: "#fff",
+                color: T.greenDark,
                 lineHeight: 1,
                 fontVariantNumeric: "tabular-nums",
               }}
@@ -102,7 +106,7 @@ export default function StatsModern() {
                 {s.unit}
               </Box>
             </Typography>
-            <Typography sx={{ mt: 1.25, fontSize: "0.95rem", color: "rgba(255,255,255,0.72)" }}>{s.label}</Typography>
+            <Typography sx={{ mt: 1.25, fontSize: "0.95rem", color: T.body }}>{s.label}</Typography>
           </Box>
         ))}
       </Box>

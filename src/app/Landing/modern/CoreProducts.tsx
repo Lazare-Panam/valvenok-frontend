@@ -11,7 +11,7 @@ import SectionHeader from "./SectionHeader";
 // Same data as the original Categories section.
 const CATEGORIES = [
   {
-    name: "Hydrogen & Cryogenic",
+    name: "Hydrogen & High Pressure",
     img: "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/YEX-1100.png",
     href: "/hydrogen-cryogenic",
     tag: "New",
@@ -328,14 +328,14 @@ export default function CoreProducts() {
                     px: 2.75,
                     py: 1.4,
                     borderRadius: "12px",
-                    bgcolor: T.greenDeep,
-                    color: "#fff",
+                    bgcolor: T.green,
+                    color: T.greenDeep,
                     fontWeight: 700,
                     fontSize: "0.95rem",
                     whiteSpace: { xs: "normal", md: "nowrap" },
                     textDecoration: "none",
                     transition: "all .2s",
-                    "&:hover": { bgcolor: T.greenDark },
+                    "&:hover": { bgcolor: "#55C93E", transform: "translateY(-2px)", boxShadow: "0 10px 24px -8px rgba(97,214,73,0.6)" },
                     "& svg": { transition: "transform .2s" },
                     "&:hover svg": { transform: "translateX(3px)" },
                   }}

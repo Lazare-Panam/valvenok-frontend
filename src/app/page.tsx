@@ -14,6 +14,7 @@ import FaqModern from "./Landing/modern/FaqModern";
 import SocialWall from "./Landing/modern/SocialWall";
 import JoscarModern from "./Landing/modern/JoscarModern";
 import FindUsModern from "./Landing/modern/FindUsModern";
+import PastelZone from "./Landing/modern/PastelZone";
 
 // For Next.js App Router (metadata object)
 export const metadata = {
@@ -65,21 +66,33 @@ export default function Home() {
       </h1>
       <HeroModern />
       <TrustBar />
-      <BrandStrip />
-      <CertificationsModern />
-      <QuickNavModern />
-      <FeaturedBrands />
-      <ValuePropModern />
-      <WhoWeAreModern />
-      <FeaturedProductsModern />
-      <CoreProducts />
-      <StatsModern />
+      <PastelZone tone="mint">
+        <BrandStrip />
+        <CertificationsModern />
+        <QuickNavModern />
+      </PastelZone>
+      <PastelZone tone="sky">
+        <FeaturedBrands />
+        <ValuePropModern />
+      </PastelZone>
+      <PastelZone tone="butter">
+        <WhoWeAreModern />
+        <FeaturedProductsModern />
+      </PastelZone>
+      <PastelZone tone="mint">
+        <CoreProducts />
+        <StatsModern />
+      </PastelZone>
       {/* TestimonialsSection removed until there are genuine, attributable
           customer quotes — the previous copy was illustrative (UK ASA rules). */}
-      <InsightsModern />
+      <PastelZone tone="lilac">
+        <InsightsModern />
+      </PastelZone>
       <SocialWall />
-      <FaqModern />
-      <FindUsModern />
+      <PastelZone tone="sky">
+        <FaqModern />
+        <FindUsModern />
+      </PastelZone>
       <JoscarModern />
     </>
   );

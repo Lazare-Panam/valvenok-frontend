@@ -160,7 +160,7 @@ const GROUPS: { group: string; links: { label: string; href: string }[] }[] = [
     ],
   },
   {
-    group: "Hydrogen & Cryogenic",
+    group: "Hydrogen & High Pressure",
     links: [
       { label: "Hydrogen Valves", href: "/hydrogen-cryogenic/valves/products" },
       {

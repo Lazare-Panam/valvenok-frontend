@@ -1,5 +1,5 @@
 'use client'
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import {
   Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
   TablePagination, Collapse, Chip, Typography, Stack, IconButton, Button,
@@ -218,6 +218,11 @@ export default function HifluxProductsPage() {
   const [page, setPage] = useState(0)
   const [rowsPerPage, setRowsPerPage] = useState(25)
   const [selectedTypes, setSelectedTypes] = useState<string[]>([])
+  // Links such as ?type=Safety%20Valve open the table already filtered
+  useEffect(() => {
+    const t = new URLSearchParams(window.location.search).get('type')
+    if (t && PRODUCTS.some(p => p.type === t)) setSelectedTypes([t])
+  }, [])
   const [activePressure, setActivePressure] = useState(0)
 
   const toggleType = (t: string) =>

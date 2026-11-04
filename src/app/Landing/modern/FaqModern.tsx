@@ -33,7 +33,7 @@ export default function FaqModern() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <Box component="section" sx={{ ...textReset, bgcolor: T.surface, borderTop: `1px solid ${T.border}` }}>
+    <Box component="section" sx={{ ...textReset, bgcolor: "transparent" }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

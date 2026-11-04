@@ -102,7 +102,7 @@ export default function YoungdoBrandPage() {
         description="Youngdo cylinder valves engineered for high-pressure gas storage and distribution — from hydrogen cylinder valves rated to 70 MPa, to LPG cylinder valves, OPD overfilling prevention devices and industrial gas valves for acetylene, chlorine and ammonia service. Certification varies by model — see each product table for details."
         imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/HE-700.png"
         imageAlt="Youngdo Hydrogen, LPG & Industrial Gas Cylinder Valves"
-        breadcrumb="Products / Hydrogen & Cryogenic / Youngdo"
+        breadcrumb="Products / Hydrogen & High Pressure / Youngdo"
       />
       <YoungdoGrid families={YOUNGDO_SERIES} />
       <TrustStrip points={TRUST_POINTS} />

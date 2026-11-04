@@ -40,8 +40,12 @@ export default function CertificationsModern() {
             flexDirection: "column",
             justifyContent: "space-between",
             gap: 3,
-            color: "#fff",
-            background: `linear-gradient(150deg, ${T.greenDeep} 0%, #1F6B1A 70%, #3FAE2C 130%)`,
+            color: T.ink,
+            background: "linear-gradient(135deg, #EAF8E4, #E6F4FD, #FFF6DA, #EAF8E4)",
+            backgroundSize: "300% 300%",
+            animation: "bgShift 12s ease infinite",
+            "@keyframes bgShift": { "0%": { backgroundPosition: "0% 50%" }, "50%": { backgroundPosition: "100% 50%" }, "100%": { backgroundPosition: "0% 50%" } },
+            "@media (prefers-reduced-motion: reduce)": { animation: "none" },
             "&::after": {
               content: '""',
               position: "absolute",
@@ -50,13 +54,13 @@ export default function CertificationsModern() {
               width: 200,
               height: 200,
               borderRadius: "50%",
-              border: "1px solid rgba(255,255,255,0.12)",
-              boxShadow: "0 0 0 40px rgba(255,255,255,0.03)",
+              border: "1px solid rgba(97,214,73,0.25)",
+              boxShadow: "0 0 0 40px rgba(255,255,255,0.35)",
             },
           }}
         >
           <Box>
-            <Typography sx={{ fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase !important", color: "#BFF0B2" }}>
+            <Typography sx={{ fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase !important", color: T.greenDark }}>
               Compliance &amp; Standards
             </Typography>
             <Typography component="h2" sx={{ mt: 1.5, fontWeight: 700, fontSize: { xs: "1.6rem", md: "1.9rem" }, letterSpacing: "-0.02em", lineHeight: 1.15 }}>
@@ -76,13 +80,13 @@ export default function CertificationsModern() {
               px: 2,
               py: 1,
               borderRadius: 999,
-              bgcolor: "rgba(255,255,255,0.12)",
-              border: "1px solid rgba(255,255,255,0.25)",
-              color: "#fff",
+              bgcolor: "#fff",
+              border: `1px solid ${T.border}`,
+              color: T.greenDark,
               fontSize: "0.88rem",
               fontWeight: 600,
               textDecoration: "none",
-              "&:hover": { bgcolor: "rgba(255,255,255,0.2)" },
+              "&:hover": { bgcolor: T.greenSoft },
             }}
           >
             View Our Quality Standards <ArrowForwardRoundedIcon sx={{ fontSize: 16 }} />

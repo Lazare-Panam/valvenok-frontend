@@ -14,7 +14,7 @@ import LoopOutlinedIcon from "@mui/icons-material/LoopOutlined";
 // Mirrors the category set in Categories.tsx — this is a fast-access strip,
 // not a replacement for the full browse section further down the page.
 const QUICK_LINKS = [
-  { name: "Hydrogen & Cryogenic", href: "/hydrogen-cryogenic", icon: AcUnitOutlinedIcon },
+  { name: "Hydrogen & High Pressure", href: "/hydrogen-cryogenic", icon: AcUnitOutlinedIcon },
   { name: "Valves", href: "/valves/instrumentation-valves/ball-valves", icon: TuneOutlinedIcon },
   { name: "Fittings & Instrumentation", href: "/fittings-tubing/instrumentation-fittings/jic-fittings", icon: BuildOutlinedIcon },
   { name: "Filters", href: "/filters-sight-glass", icon: FilterAltOutlinedIcon },

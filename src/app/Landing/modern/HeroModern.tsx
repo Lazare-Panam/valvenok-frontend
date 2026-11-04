@@ -145,8 +145,25 @@ export default function HeroModern() {
               }}
             >
               {slide.title}{" "}
-              <Box component="span" sx={{ color: T.green, display: "block" }}>
-                {slide.accent}
+              <Box component="span" sx={{ display: "block" }}>
+                {/* Shimmering gradient, as on the About page (brighter greens for the dark photo) */}
+                <Box component="span" key={slide.accent}>
+                  <Box
+                    component="span"
+                    sx={{
+                      background: "linear-gradient(90deg, #61D649, #9BEA7E, #B8F0D4, #61D649)",
+                      backgroundSize: "200% auto",
+                      WebkitBackgroundClip: "text",
+                      backgroundClip: "text",
+                      color: "transparent",
+                      animation: "heroShine 4s linear infinite",
+                      "@keyframes heroShine": { "0%": { backgroundPosition: "0% 50%" }, "100%": { backgroundPosition: "200% 50%" } },
+                      "@media (prefers-reduced-motion: reduce)": { animation: "none" },
+                    }}
+                  >
+                    {slide.accent}
+                  </Box>
+                </Box>
               </Box>
             </Typography>
 

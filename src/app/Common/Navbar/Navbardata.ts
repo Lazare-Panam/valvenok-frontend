@@ -38,7 +38,7 @@ export const NAV_LINKS: NavLink[] = [
 export const NAV_GROUPS: NavGroup[] = [
   {
     id: "hydrogen-cryogenic",
-    label: "Hydrogen & Tubing",
+    label: "Hydrogen & High Pressure",
     href: "/hydrogen-cryogenic",
     columns: [
       {
@@ -85,12 +85,14 @@ export const NAV_GROUPS: NavGroup[] = [
               { label: "View All Products", href: "/high-pressure/valves/dbb-valves/products" },
             ],
           },
-          { label: "Gas & Cylinder Valves", href: "/high-pressure/valves/gas-valves" },
+          { label: "Safety & Relief Valves", href: "/hydrogen-cryogenic/valves/products?type=Safety%20Valve" },
+          { label: "Special Valves", href: "/hydrogen-cryogenic/valves/products?type=Special%20Valve" },
+          { label: "2-Valve Manifolds", href: "/high-pressure/manifolds" },
         ],
       },
       {
         header: "Hydrogen Fittings",
-        href: "/high-pressure",
+        href: "/high-pressure/fittings",
         items: [
           
           {
@@ -102,7 +104,21 @@ export const NAV_GROUPS: NavGroup[] = [
               { label: "View All Models", href: "/high-pressure/fittings/products" },
             ],
           },
-          
+          {
+            label: "Pipe Fittings",
+            href: "/high-pressure/pipe-fittings",
+            children: [
+              { label: "Adapters", href: "/high-pressure/pipe-fittings/adapters" },
+              { label: "Elbows", href: "/high-pressure/pipe-fittings/elbows" },
+              { label: "End Connections", href: "/high-pressure/pipe-fittings/end-connections" },
+              { label: "Hex Couplings", href: "/high-pressure/pipe-fittings/hex-coupling" },
+              { label: "Hex Nipples", href: "/high-pressure/pipe-fittings/hex-nipples" },
+              { label: "Tees & Crosses", href: "/high-pressure/pipe-fittings/tees-cross" },
+            ],
+          },
+          { label: "Manifold Blocks", href: "/hydrogen-cryogenic/fittings/products?type=Manifold%20Block" },
+          { label: "Cone & Threaded Nipples", href: "/high-pressure/cone-threaded-nipples" },
+          { label: "Seals & Glands", href: "/high-pressure/seals-glands" },
         ],
       },
       {
@@ -118,10 +134,24 @@ export const NAV_GROUPS: NavGroup[] = [
               { label: "View All Tubing", href: "/high-pressure/tubing/products" },
             ],
           },
+          { label: "Tubing & Tooling", href: "/hydrogen-cryogenic/tube" },
           {
             label: "Tube Supports",
             href: "/high-pressure/tubing/tube-supports",
           },
+        ],
+      },
+      {
+        header: "Gas & Cryogenic",
+        href: "/high-pressure/valves/gas-valves",
+        items: [
+          { label: "Hydrogen Cylinder Valves", href: "/hydrogen-cryogenic/hydrogen" },
+          { label: "LPG Cylinder Valves", href: "/hydrogen-cryogenic/lpg" },
+          { label: "Industrial Gas Valves", href: "/hydrogen-cryogenic/industrial-gas" },
+          { label: "All Gas & Cylinder Valves", href: "/high-pressure/valves/gas-valves" },
+          { label: "Cryogenic Butterfly Valves", href: "/valves/industrial-valves/butterfly-valves/butt-welded-butterfly-valve" },
+          { label: "Triple Offset (Cryogenic)", href: "/valves/industrial-valves/butterfly-valves/triple-offset-butterfly-valve" },
+          { label: "Anti-Condensation (Cryogenic)", href: "/valves/industrial-valves/butterfly-valves/anti-condensation-butterfly-valve" },
         ],
       },
     ],

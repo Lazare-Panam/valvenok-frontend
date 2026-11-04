@@ -55,7 +55,7 @@ const BRANDS = [
 
 export default function FeaturedBrands() {
   return (
-    <Box component="section" sx={{ ...textReset, mt: { xs: 7, md: 10 }, bgcolor: T.surface, borderTop: `1px solid ${T.border}`, borderBottom: `1px solid ${T.border}` }}>
+    <Box component="section" sx={{ ...textReset, mt: { xs: 7, md: 10 }, bgcolor: "transparent" }}>
       <Box sx={{ maxWidth: T.maxWidth, mx: "auto", px: { xs: 2, md: 4 }, py: { xs: 8, md: 11 } }}>
         <SectionHeader
           eyebrow="Featured Brands"

@@ -9,6 +9,7 @@ import Providers from "./providers";
 import { NotificationProvider } from "../components/NotificationProvider";
 import Footer from "./Common/Footer/Footer";
 import Breadcrumbs from "../components/Common/BreadCrumbs";
+import FloatingQuote from "./Common/FloatingQuote";
 import ScrollProgress from "./Common/ScrollProgress";
 
 const geistSans = Geist({
@@ -107,6 +108,7 @@ export default function RootLayout({
             <Navbar />
             <Breadcrumbs />
             {children}
+            <FloatingQuote />
           </Providers>
         </ThemeRegistry>
         <Footer />
