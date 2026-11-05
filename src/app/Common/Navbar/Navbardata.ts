@@ -28,6 +28,7 @@ export interface NavLink {
 }
 
 export const NAV_LINKS: NavLink[] = [
+  { label: "Applications", href: "/applications" },
   { label: "News & Blog", href: "/news" },
   { label: "Brands", href: "/brands" },
   // { label: "Track Order", href: "/track-order" },

@@ -9,6 +9,7 @@ import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import { T } from '@/src/app/Landing/modern/tokens';
 import { NAV_GROUPS, type NavItem } from '@/src/app/Common/Navbar/Navbardata';
+import { APPS } from '@/src/app/applications/data';
 
 // Breadcrumbs follow the menu, not the URL folders: each page gets the trail a
 // buyer clicked through (tab › section › type › …). Pages deeper than the menu
@@ -78,6 +79,7 @@ const DEFAULT_LABELS: Record<string, string> = {
   'joscar-registered': 'JOSCAR Registered',
   'quick-order': 'Quick Order',
   news: 'News & Blog',
+  ...Object.fromEntries(APPS.map((a) => [a.slug, a.name])),
   login: 'Sign In',
   register: 'Create Account',
   'l-port-vs-t-port-3-way-ball-valve': 'L-Port vs T-Port 3-Way Ball Valves',
