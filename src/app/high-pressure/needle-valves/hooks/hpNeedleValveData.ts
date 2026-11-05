@@ -198,7 +198,7 @@ const PANAM_NV_DATA: HPNeedleValveDTO[] = [
 ]
 
 // ---- Hiflux needle valves (hydrogen catalogue) ----
-const HF_IMAGE = 'https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/needle-valve.png'
+const HF_IMAGE = 'https://pblol2.blob.core.windows.net/hiflux/updated%20images/images/needle%20valve.png'
 
 const mkHF = (
   pn: string, series: string, psi: number, pressureRating: string,

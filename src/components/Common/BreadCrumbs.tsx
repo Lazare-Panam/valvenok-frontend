@@ -91,7 +91,10 @@ const DEFAULT_LABELS: Record<string, string> = {
 };
 
 // Turn "ag-fasani-check" into "AG Fasani Check"
+// Part numbers (all caps with digits, e.g. PNV-HP-S-2NF) are shown exactly as written
+const isPartNumber = (seg: string) => /^[A-Z0-9][A-Z0-9-]*\d[A-Z0-9-]*$/.test(seg) && /[A-Z]/.test(seg);
 const humanize = (segment: string) =>
+  isPartNumber(decodeURIComponent(segment)) ? decodeURIComponent(segment) :
   decodeURIComponent(segment)
     .replace(/[-_]/g, ' ')
     .split(' ')

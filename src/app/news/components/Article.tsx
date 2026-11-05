@@ -331,7 +331,7 @@ function BackToTop() {
       type="button"
       aria-label="Back to top"
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      sx={{ position: "fixed", right: { xs: 16, md: 28 }, bottom: { xs: 16, md: 28 }, zIndex: 1200, width: 48, height: 48, borderRadius: "50%", border: 0, cursor: "pointer", bgcolor: T.greenDeep, color: "#fff", display: "grid", placeItems: "center", boxShadow: "0 8px 24px rgba(14,27,18,0.25)", opacity: show ? 1 : 0, transform: show ? "none" : "translateY(12px)", pointerEvents: show ? "auto" : "none", transition: "all .25s", "&:hover": { bgcolor: T.greenDark } }}
+      sx={{ position: "fixed", right: { xs: 19, md: 30 }, bottom: { xs: 82, md: 96 }, zIndex: 1200, width: 48, height: 48, borderRadius: "50%", border: 0, cursor: "pointer", bgcolor: T.greenDeep, color: "#fff", display: "grid", placeItems: "center", boxShadow: "0 8px 24px rgba(14,27,18,0.25)", opacity: show ? 1 : 0, transform: show ? "none" : "translateY(12px)", pointerEvents: show ? "auto" : "none", transition: "all .25s", "&:hover": { bgcolor: T.greenDark } }}
     >
       <KeyboardArrowUpRoundedIcon />
     </Box>

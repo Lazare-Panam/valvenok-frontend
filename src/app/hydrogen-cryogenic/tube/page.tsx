@@ -26,7 +26,7 @@ const HIFLUX_PRODUCT: ProductForRFQ = {
   categoryId: "high-pressure-tubing",
   subCategory: "Tubes, Nipples, Tooling Sets, Tube Supports",
   thumbnail:
-    "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/tube.png",
+    "https://pblol2.blob.core.windows.net/hiflux/updated%20images/lok/hiflux_tube.png",
   description:
     "Hiflux high pressure tubes and nipples rated up to 100,000 psi, with tooling sets and tube supports for cone and thread high-pressure systems. Certification varies by product.",
   keySpecs: [
@@ -160,7 +160,7 @@ export default function HifluxTubingPage() {
               >
                 <Box
                   component="img"
-                  src="https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/tube.png"
+                  src="https://pblol2.blob.core.windows.net/hiflux/updated%20images/lok/hiflux_tube.png"
                   alt="Hiflux High Pressure Tubing"
                   sx={{
                     width: "100%",

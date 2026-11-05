@@ -26,7 +26,7 @@ const HIFLUX_PRODUCT: ProductForRFQ = {
   categoryId: "high-pressure-fittings",
   subCategory: "Fittings, Accessories, Manifold Blocks, Tube Caps",
   thumbnail:
-    "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/reducing-fitting.png",
+    "https://pblol2.blob.core.windows.net/hiflux/updated%20images/images/rf.jpeg",
   description:
     "Hiflux high pressure fittings, accessories, manifold blocks, tube caps and thread lubricant rated up to 150,000 psi for industrial, hydrogen and wellhead applications.",
   keySpecs: [
@@ -159,7 +159,7 @@ export default function HifluxFittingsPage() {
               >
                 <Box
                   component="img"
-                  src="https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/reducing-fitting.png"
+                  src="https://pblol2.blob.core.windows.net/hiflux/updated%20images/images/rf.jpeg"
                   alt="Hiflux High Pressure Fittings"
                   sx={{
                     width: "100%",

@@ -10,6 +10,7 @@ import { NotificationProvider } from "../components/NotificationProvider";
 import Footer from "./Common/Footer/Footer";
 import Breadcrumbs from "../components/Common/BreadCrumbs";
 import FloatingQuote from "./Common/FloatingQuote";
+import WhatsAppButton from "./Common/WhatsAppButton";
 import ScrollProgress from "./Common/ScrollProgress";
 
 const geistSans = Geist({
@@ -109,6 +110,7 @@ export default function RootLayout({
             <Breadcrumbs />
             {children}
             <FloatingQuote />
+            <WhatsAppButton />
           </Providers>
         </ThemeRegistry>
         <Footer />

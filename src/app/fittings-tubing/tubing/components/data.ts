@@ -140,7 +140,7 @@ function buildRows(
 }
 
 // ---- Hiflux high-pressure tubes & nipples (T#### / N####), STS 316 cold-formed ----
-const HF_TUBE_IMAGE = 'https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/tube.png'
+const HF_TUBE_IMAGE = 'https://pblol2.blob.core.windows.net/hiflux/updated%20images/lok/hiflux_tube.png'
 
 const toBar = (psi: number) => Math.round(psi / 14.5038)
 

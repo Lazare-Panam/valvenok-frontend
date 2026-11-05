@@ -4,7 +4,7 @@ const TITLE = "Hiflux High Pressure Fittings to 150,000 psi | Valvenok";
 const DESCRIPTION =
   "Hiflux high pressure fittings, accessories and manifold blocks rated up to 150,000 psi for industrial, hydrogen and wellhead service.";
 const IMAGE =
-  "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/reducing-fitting.png";
+  "https://pblol2.blob.core.windows.net/hiflux/updated%20images/images/rf.jpeg";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/hydrogen-cryogenic/fittings" },

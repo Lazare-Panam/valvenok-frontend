@@ -74,8 +74,8 @@ const HF_FA_TYPE: Record<string, string> = {
   G: 'Gland', S: 'Sleeve', R: 'Collar', P: 'Plug', T: 'Collet', A: 'Anti-Set Screw',
 }
 // Real Hiflux catalogue imagery (not Panam stand-ins).
-const HF_FITTING_IMG   = 'https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/reducing-fitting.png'
-const HF_ACCESSORY_IMG = 'https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/Accessory.png'
+const HF_FITTING_IMG   = 'https://pblol2.blob.core.windows.net/hiflux/updated%20images/images/rf.jpeg'
+const HF_ACCESSORY_IMG = 'https://pblol2.blob.core.windows.net/hiflux/updated%20images/images/nb.jpeg'
 
 // FT#### = two-ended cone & thread fitting; FA#### = single-ended accessory.
 const HIFLUX_FT = [

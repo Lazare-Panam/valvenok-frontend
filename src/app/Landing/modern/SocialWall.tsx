@@ -32,7 +32,7 @@ const POSTERS: Tile[] = [
 
 // Product and article images already on blob storage, to fill the rows.
 const LIBRARY: Tile[] = [
-  { src: `${BLOB}/valvenok-images/products/hiflux/needle-valve.png`, alt: "Hiflux high-pressure needle valve" },
+  { src: `${BLOB}/hiflux/updated%20images/images/needle%20valve.png`, alt: "Hiflux high-pressure needle valve" },
   { src: `${BLOB}/mars-valves/mars-stock-coming.jpeg`, alt: "Mars valve stock arriving in the UK" },
   { src: `${BLOB}/valvenok-images/products/cryogenic/YEX-1100.png`, alt: "Cryogenic valve" },
   { src: `${BLOB}/valvenok-images/blogs/vsi.jpeg`, alt: "Valvenok and VSI partnership" },

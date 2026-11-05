@@ -65,7 +65,14 @@ export function countBy<T>(items: T[], keyFn: (item: T) => string): Record<strin
   return counts
 }
 
-const IMAGE = 'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure/hp-nv.jpg'
+// Panam photos from panam.in (blob: panam-images/products/needle-valves/), one per body pattern
+const PN = 'https://pblol2.blob.core.windows.net/panam-images/products/needle-valves/'
+const panamImage = (configuration: string) =>
+  configuration === 'Angle Type' ? `${PN}panam-needle-valve-angle.png`
+  : configuration.startsWith('3-Way') ? `${PN}panam-needle-valve-3way.png`
+  : configuration === 'Replaceable Seat' ? `${PN}panam-needle-valve-replaceable-seat.png`
+  : configuration === '2-Stem Manifold' ? `${PN}cover-needle.jpg`
+  : `${PN}panam-needle-valve-straight.png`
 
 const make = (
   pn: string,
@@ -87,7 +94,7 @@ const make = (
   connectionSize,
   connectionType,
   configuration,
-  imageUrl: IMAGE,
+  imageUrl: panamImage(configuration),
   description: `Panam HP Needle Valve ${pn}, ${series} Series (${pressureRating}), SS 316, ${connectionSize} ${connectionType}${configuration !== 'Straight' ? `, ${configuration}` : ''}.`,
 })
 
@@ -198,7 +205,17 @@ const PANAM_NV_DATA: HPNeedleValveDTO[] = [
 ]
 
 // ---- Hiflux needle valves (hydrogen catalogue) ----
-const HF_IMAGE = 'https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/needle-valve.png'
+const HF_IMAGE = 'https://pblol2.blob.core.windows.net/hiflux/updated%20images/images/needle%20valve.png' // stamped 20,000 psig
+// Upscaled photos from hiflux.net (blob: hiflux/Needle-valve/), matched to the stamp on the valve
+const HF_NV = 'https://pblol2.blob.core.windows.net/hiflux/Needle-valve/'
+const hfImage = (psi: number, size: string, series: string, configuration = 'Straight') =>
+  configuration === 'Angle' ? `${HF_NV}needle-valve-angle-60k.jpg`
+  : configuration === '3-Way (1-on)' ? `${HF_NV}needle-valve-3way-1on-20k.jpg`
+  : configuration === '3-Way (2-on)' ? `${HF_NV}needle-valve-3way-2on-60k.jpg`
+  : series === 'HRS' ? `${HF_NV}${size === '3/4"' ? 'needle-valve-h2-refuelling-3-4in-ks' : 'needle-valve-h2-refuelling-ks'}.jpg`
+  : psi >= 60000 ? `${HF_NV}needle-valve-60k.jpg`
+  : (size === '3/4"' || size === '1"') ? `${HF_NV}needle-valve-20k-3-4-1in.jpg`
+  : HF_IMAGE
 
 const mkHF = (
   pn: string, series: string, psi: number, pressureRating: string,
@@ -215,7 +232,7 @@ const mkHF = (
   connectionSize,
   connectionType,
   configuration,
-  imageUrl: HF_IMAGE,
+  imageUrl: hfImage(psi, connectionSize, series, configuration),
   description: `Hiflux ${configuration} Needle Valve ${pn}, ${pressureRating}, ${material}, ${connectionSize} ${connectionType}, ${stem} stem${cv ? `, Cv ${cv}` : ''}${orifice ? `, orifice ${orifice} mm` : ''}.`,
 })
 

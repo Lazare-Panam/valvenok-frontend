@@ -25,8 +25,8 @@ const TOTAL = HP_NEEDLE_VALVE_DATA.length;
 const count = (brand: string, series?: string) => HP_NEEDLE_VALVE_DATA.filter((v) => v.brand === brand && (!series || v.series === series)).length;
 
 type Series = { code: string; brand: "Panam" | "Hiflux"; name: string; psi: number; psiLabel: string; conn: string; patterns: string[]; note: string; img: string };
-const PANAM_IMG = "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure/hp-nv.jpg";
-const HIFLUX_IMG = "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/needle-valve.png";
+const PANAM_IMG = "https://pblol2.blob.core.windows.net/panam-images/products/needle-valves/panam-needle-valve-straight.png";
+const HIFLUX_IMG = "https://pblol2.blob.core.windows.net/hiflux/updated%20images/images/needle%20valve.png";
 
 const SERIES: Series[] = [
   { code: "HP", brand: "Panam", name: "HP series", psi: 10000, psiLabel: "10,000 psi", conn: "NPT", patterns: ["Straight", "Angle"], note: "Everyday high-pressure isolation with NPT threads, 1/8 to 1 inch.", img: PANAM_IMG },

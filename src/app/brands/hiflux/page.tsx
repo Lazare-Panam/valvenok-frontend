@@ -39,7 +39,7 @@ const HIFLUX_SERIES: Category[] = [
       "Industrial High Pressure, Hydrogen Refuelling, Wellhead, Research & Test",
     href: "/hydrogen-cryogenic/valves",
     image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/needle-valve.png",
+      "https://pblol2.blob.core.windows.net/hiflux/updated%20images/images/needle%20valve.png",
     logoUrl: HIFLUX_LOGO,
   },
   {
@@ -58,7 +58,7 @@ const HIFLUX_SERIES: Category[] = [
       "Industrial High Pressure, Hydrogen Refuelling, Wellhead, Research & Test",
     href: "/hydrogen-cryogenic/fittings",
     image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/reducing-fitting.png",
+      "https://pblol2.blob.core.windows.net/hiflux/updated%20images/images/rf.jpeg",
     logoUrl: HIFLUX_LOGO,
   },
   {
@@ -77,7 +77,7 @@ const HIFLUX_SERIES: Category[] = [
       "Industrial High Pressure, Wellhead, Research & Test",
     href: "/hydrogen-cryogenic/tube",
     image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/tube.png",
+      "https://pblol2.blob.core.windows.net/hiflux/updated%20images/lok/hiflux_tube.png",
     logoUrl: HIFLUX_LOGO,
   },
 ];
@@ -97,7 +97,7 @@ export default function HifluxBrandPage() {
         title="Hiflux High Pressure"
         subtitle="High Pressure Valves, Fittings & Tubing"
         description="Hiflux high pressure valves rated up to 150,000 psi, high pressure fittings, accessories and manifold blocks, plus tubing, nipples and tooling sets for industrial high pressure, hydrogen refuelling, wellhead and research & test applications. Certification varies by product."
-        imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/needle-valve.png"
+        imageSrc="https://pblol2.blob.core.windows.net/hiflux/updated%20images/images/needle%20valve.png"
         imageAlt="Hiflux High Pressure Valves, Fittings & Tubing"
         breadcrumb="Products / Hydrogen & High Pressure / Hiflux"
       />

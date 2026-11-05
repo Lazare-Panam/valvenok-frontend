@@ -187,6 +187,9 @@ export default function HPNVTable({ models, filters, setFilters, availableCounts
                     <Box component="tr" onClick={() => setOpen(isOpen ? null : r.id)} sx={{ cursor: 'pointer', bgcolor: isOpen ? T.greenSoft : 'transparent', transition: 'background-color .15s', '&:hover': { bgcolor: isOpen ? T.greenSoft : '#F7FBF6' } }}>
                       <td>
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
+                          <Box component="span" aria-label={isOpen ? 'Hide details' : 'Show details'} sx={{ flexShrink: 0, display: 'grid', placeItems: 'center', width: 28, height: 28, borderRadius: '50%', border: `1px solid ${isOpen ? T.greenDark : T.border}`, bgcolor: isOpen ? T.greenSoft : '#fff', color: isOpen ? T.greenDark : T.ink, transform: isOpen ? 'rotate(180deg)' : 'none', transition: 'transform .2s' }}>
+                            <KeyboardArrowDownRoundedIcon sx={{ fontSize: 18 }} />
+                          </Box>
                           <Box sx={{ flexShrink: 0, width: 44, height: 44, borderRadius: '10px', bgcolor: T.surface, display: 'grid', placeItems: 'center', overflow: 'hidden' }}>
                             <Box component="img" src={r.imageUrl} alt="" loading="lazy" sx={{ width: '80%', height: '80%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
                           </Box>
@@ -205,9 +208,6 @@ export default function HPNVTable({ models, filters, setFilters, availableCounts
                       <td>{r.configuration}</td>
                       <td style={{ textAlign: 'right', whiteSpace: 'nowrap' }}>
                         <Box component="button" type="button" onClick={(e: React.MouseEvent) => { e.stopPropagation(); setQuote(toRFQ(r)) }} sx={quoteBtn}>Quote</Box>
-                        <Box component="span" sx={{ display: 'inline-grid', placeItems: 'center', ml: 1, width: 30, height: 30, borderRadius: '50%', border: `1px solid ${T.border}`, verticalAlign: 'middle', color: T.ink, transform: isOpen ? 'rotate(180deg)' : 'none', transition: 'transform .2s' }}>
-                          <KeyboardArrowDownRoundedIcon sx={{ fontSize: 18 }} />
-                        </Box>
                       </td>
                     </Box>
                     {isOpen && (
