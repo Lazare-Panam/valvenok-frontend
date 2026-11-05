@@ -55,11 +55,6 @@ const BRANDS = [
     href: "/brands/susin",
   },
   {
-    name: "Valve Systems International",
-    logo: "https://pblol2.blob.core.windows.net/valvenok-images/brands/vsi-logo.png",
-    desc: "Comprehensive valve supply and engineering solutions for process industries.",
-  },
-  {
     name: "Mars Valves",
     logo: "https://pblol2.blob.core.windows.net/valvenok-images/brands/mars.png",
     desc: "Industrial valve solutions for a wide range of flow control applications.",
@@ -126,11 +121,6 @@ const BRANDS = [
     name: "Endress Hauser",
     logo: "https://pblol2.blob.core.windows.net/valvenok-images/brands/endress-hauser.svg",
     desc: "Laboratory and process automation instrumentation.",
-  },
-  {
-    name: "Steed Hydraulic Technology",
-    logo: "https://pblol2.blob.core.windows.net/valvenok-images/brands/steed-logo.png",
-    desc: "Advanced filtration and fluid power solutions for heavy industry.",
   },
   {
     name: "FHT Valves",

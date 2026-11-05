@@ -26,14 +26,12 @@ export const BRANDS = [
   { name: 'Tormac', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/tormac.svg' },
   { name: 'Siemens', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/siemens-logo.png' },
   { name: 'Endress Hauser', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/endress-hauser.svg' },
-  { name: 'Steed Hydraulic', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/steed-logo.png' },
   { name: 'FHT Valves', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/fht-valves-logo.png' },
   { name: 'Hydroseal', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/hydroseal-logo.png' },
   { name: 'Crosby', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/crosby_logo.png' },
   { name: 'Knuckle Valves', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/knuckle-valve-logo.png' },
   { name: 'Bettis', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/bettis-logo.png' },
   { name: 'Anderson Greenwood', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/anderson-greewood-logo.jpg' },
-  { name: 'Valve Systems International', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/vsi-logo.png' },
   { name: 'Mars Valves', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/mars.png' },
 ];
 
