@@ -28,6 +28,24 @@ import PhoneOutlinedIcon from "@mui/icons-material/PhoneOutlined";
 import MailOutlineRoundedIcon from "@mui/icons-material/MailOutlineRounded";
 import LinkRoundedIcon from "@mui/icons-material/LinkRounded";
 import KeyboardArrowUpRoundedIcon from "@mui/icons-material/KeyboardArrowUpRounded";
+import VerifiedOutlinedIcon from "@mui/icons-material/VerifiedOutlined";
+import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
+import RequestQuoteOutlinedIcon from "@mui/icons-material/RequestQuoteOutlined";
+import SpeedOutlinedIcon from "@mui/icons-material/SpeedOutlined";
+import ThermostatOutlinedIcon from "@mui/icons-material/ThermostatOutlined";
+import ScienceOutlinedIcon from "@mui/icons-material/ScienceOutlined";
+import CompareArrowsRoundedIcon from "@mui/icons-material/CompareArrowsRounded";
+import SettingsSuggestOutlinedIcon from "@mui/icons-material/SettingsSuggestOutlined";
+import BuildOutlinedIcon from "@mui/icons-material/BuildOutlined";
+import HelpOutlineRoundedIcon from "@mui/icons-material/HelpOutlineRounded";
+import ShowChartRoundedIcon from "@mui/icons-material/ShowChartRounded";
+import WaterDropOutlinedIcon from "@mui/icons-material/WaterDropOutlined";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import AltRouteRoundedIcon from "@mui/icons-material/AltRouteRounded";
+import ShieldOutlinedIcon from "@mui/icons-material/ShieldOutlined";
+import StraightenRoundedIcon from "@mui/icons-material/StraightenRounded";
+import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
+import MenuBookOutlinedIcon from "@mui/icons-material/MenuBookOutlined";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { T, textReset } from "@/src/app/Landing/modern/tokens";
 import { POSTS } from "../posts";
@@ -713,7 +731,7 @@ export function DataTable({
   if (mode === "compare") return <CompareTable head={head} rows={rows} caption={caption} />;
   return (
     <Box component="figure" sx={{ my: 4.5, mx: 0 }}>
-      <Box sx={{ overflowX: "auto", border: `1px solid ${T.border}`, borderRadius: T.radiusSm, bgcolor: "#fff" }}>
+      <Box sx={{ overflowX: { xs: "visible", sm: "auto" }, border: { xs: 0, sm: `1px solid ${T.border}` }, borderRadius: T.radiusSm, bgcolor: { xs: "transparent", sm: "#fff" } }}>
         <Box
           component="table"
           sx={{
@@ -730,6 +748,26 @@ export function DataTable({
             "& tr:last-of-type td": { borderBottom: 0 },
             "& td:first-of-type": { color: T.ink, fontWeight: 600 },
             "& tbody tr:hover td": { bgcolor: "#FAFCFA" },
+            // Phones: every row becomes a card (first cell = title, the rest labelled
+            // with their column name), so nothing hides off the side of the screen.
+            "@media (max-width:599.95px)": {
+              display: "block",
+              width: "100%",
+              minWidth: 0,
+              "& thead": { display: "none" },
+              "& tbody": { display: "grid", gap: 1.25 },
+              "& tr": { display: "block", border: `1px solid ${T.border}`, borderRadius: T.radiusSm, bgcolor: "#fff", overflow: "hidden" },
+              "& td": { display: "block", width: "auto", boxSizing: "border-box", maxWidth: "none", minWidth: "0 !important", border: 0, px: 2, py: 0.9 },
+              "& td:first-of-type": { bgcolor: T.surface, borderBottom: `1px solid ${T.border}`, py: 1.25, fontWeight: 700, fontSize: "0.98rem" },
+              "& td:nth-of-type(n+2)::before": { content: "attr(data-label)", display: "block", mb: 0.25, fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: T.muted },
+              "& td:nth-of-type(2)": { pt: 1.25 },
+              "& td:last-of-type": { pb: 1.5 },
+              "& td:empty": { display: "none" },
+              "& tr:last-of-type td": { borderBottom: 0 },
+              "& tr:last-of-type td:first-of-type": { borderBottom: `1px solid ${T.border}` },
+              "& tbody tr:hover td": { bgcolor: "transparent" },
+              "& tbody tr:hover td:first-of-type": { bgcolor: T.surface },
+            },
           }}
         >
           <thead>
@@ -743,7 +781,7 @@ export function DataTable({
             {rows.map((r, i) => (
               <tr key={i}>
                 {r.map((c, j) => (
-                  <td key={j}>{c}</td>
+                  <td key={j} data-label={head[j] || undefined}>{c}</td>
                 ))}
               </tr>
             ))}
@@ -1068,32 +1106,80 @@ export function BarTabs({ sets, max, format }: { sets: { title: string; items: {
   );
 }
 
-export function FAQ({ items, title = "Frequently asked questions" }: { items: { q: string; a: React.ReactNode }[]; title?: string }) {
+// FAQ icons: picked from the question's wording so every post gets fitting
+// icons without extra work. Pass `icon` on an item to choose one by hand.
+const FAQ_ICON_RULES: [RegExp, React.ElementType][] = [
+  [/certif|approv|standard|iso\b|iso |en \d|api |kgs|ce mark|complian|wras|atex/i, VerifiedOutlinedIcon],
+  [/fail|risk|damage|\bbreaks?\b|leak|mistake|wrong|stuck|won.t|problem/i, WarningAmberRoundedIcon],
+  [/deliver|arriv|ship|lead time|when does|how long|dispatch/i, LocalShippingOutlinedIcon],
+  [/price|cost|quote|rfq|order|reserve|buy|discount/i, RequestQuoteOutlinedIcon],
+  [/pressure|psi|bar\b|air supply/i, SpeedOutlinedIcon],
+  [/torque|force|safety factor|stroke/i, ShowChartRoundedIcon],
+  [/temperat|heat|cold|cryogen|steam/i, ThermostatOutlinedIcon],
+  [/water|seawater|media|fluid|chemical|oil|gas\b/i, WaterDropOutlinedIcon],
+  [/material|steel|iron|bronze|brass|plastic|alloy|corros|casing/i, ScienceOutlinedIcon],
+  [/seal|gasket|packing|shut off|shut-off|leak-tight/i, LockOutlinedIcon],
+  [/mix|divert|flow|port\b|route/i, AltRouteRoundedIcon],
+  [/differen|compare|vs\b|versus|better/i, CompareArrowsRoundedIcon],
+  [/electric|power|battery|motor|positioner|spring/i, SettingsSuggestOutlinedIcon],
+  [/reliab|durab|last|life|safe/i, ShieldOutlinedIcon],
+  [/install|fit|mount|maint|repair|check|service/i, BuildOutlinedIcon],
+  [/size|sizing|bigger|smaller|dimension/i, StraightenRoundedIcon],
+  [/stock|series|range|model/i, Inventory2OutlinedIcon],
+  [/^what is|^what are|mean/i, MenuBookOutlinedIcon],
+];
+/** One icon per question, matched from its wording; within a list, an icon
+ *  already used is skipped when another rule also fits, so they vary. */
+function faqIcons(qs: string[]): React.ElementType[] {
+  const used = new Set<React.ElementType>();
+  return qs.map((q) => {
+    const fits = FAQ_ICON_RULES.filter(([re]) => re.test(q)).map(([, I]) => I);
+    const pick = fits.find((I) => !used.has(I)) ?? fits[0] ?? HelpOutlineRoundedIcon;
+    used.add(pick);
+    return pick;
+  });
+}
+
+export function FAQ({ items, title = "Frequently asked questions" }: { items: { q: string; a: React.ReactNode; icon?: React.ElementType }[]; title?: string }) {
+  const auto = faqIcons(items.map((f) => f.q));
   return (
     <>
       <H2 id="faq">{title}</H2>
-      <Box sx={{ border: `1px solid ${T.border}`, borderRadius: T.radiusSm, overflow: "hidden", mb: 4 }}>
-        {items.map((f, i) => (
-          <Box
-            component="details"
-            key={f.q}
-            open={i === 0}
-            sx={{
-              borderTop: i ? `1px solid ${T.border}` : 0,
-              "& summary": { listStyle: "none", cursor: "pointer", px: { xs: 2, md: 3 }, py: 2.25, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 2 },
-              "& summary::-webkit-details-marker": { display: "none" },
-              "& summary svg": { transition: "transform .2s", color: T.greenDark, flexShrink: 0 },
-              "&[open] summary svg": { transform: "rotate(45deg)" },
-              "&[open]": { bgcolor: "#FAFCFA" },
-            }}
-          >
-            <summary>
-              <Box component="h3" sx={{ m: 0, fontSize: "1.05rem", fontWeight: 700, lineHeight: 1.4, color: T.ink }}>{f.q}</Box>
-              <AddRoundedIcon />
-            </summary>
-            <Box sx={{ px: { xs: 2, md: 3 }, pb: 2.5, fontSize: "1rem", lineHeight: 1.75, color: T.body, "& p": { m: 0, mb: 1.5 }, "& p:last-child": { mb: 0 } }}>{f.a}</Box>
-          </Box>
-        ))}
+      <Box sx={{ display: "grid", gap: 1.25, mb: 4 }}>
+        {items.map((f, i) => {
+          const Icon = f.icon ?? auto[i];
+          return (
+            <Box
+              component="details"
+              key={f.q}
+              open={i === 0}
+              sx={{
+                borderRadius: "16px",
+                bgcolor: "#fff",
+                border: `1px solid ${T.border}`,
+                transition: "border-color .2s, box-shadow .2s",
+                "&:hover": { borderColor: "#CFE6C8" },
+                "&[open]": { borderColor: "#CFE6C8", boxShadow: "0 6px 20px rgba(14,27,18,0.05)" },
+                "& summary": { listStyle: "none", cursor: "pointer", px: { xs: 1.75, md: 2.25 }, py: { xs: 1.5, md: 1.75 }, display: "flex", alignItems: "center", gap: { xs: 1.5, md: 1.75 } },
+                "& summary::-webkit-details-marker": { display: "none" },
+                "& .faq-plus": { transition: "transform .2s, background-color .2s, color .2s" },
+                "&[open] .faq-plus": { transform: "rotate(45deg)", bgcolor: T.greenDeep, color: "#fff" },
+                "&[open] .faq-ic": { bgcolor: T.green, color: T.greenDeep },
+              }}
+            >
+              <summary>
+                <Box className="faq-ic" aria-hidden sx={{ flexShrink: 0, width: { xs: 36, md: 40 }, height: { xs: 36, md: 40 }, borderRadius: "12px", bgcolor: T.greenSoft, color: T.greenDark, display: "grid", placeItems: "center", transition: "all .2s" }}>
+                  <Icon sx={{ fontSize: { xs: 19, md: 21 } }} />
+                </Box>
+                <Box component="h3" sx={{ m: 0, flex: 1, fontSize: { xs: "0.98rem", md: "1.05rem" }, fontWeight: 700, lineHeight: 1.4, color: T.ink }}>{f.q}</Box>
+                <Box className="faq-plus" aria-hidden sx={{ flexShrink: 0, width: 28, height: 28, borderRadius: "50%", bgcolor: T.greenSoft, color: T.greenDark, display: "grid", placeItems: "center" }}>
+                  <AddRoundedIcon sx={{ fontSize: 18 }} />
+                </Box>
+              </summary>
+              <Box sx={{ pl: { xs: 1.75, sm: "78px" }, pr: { xs: 1.75, md: 2.5 }, pb: 2.25, fontSize: "1rem", lineHeight: 1.75, color: T.body, "& p": { m: 0, mb: 1.5 }, "& p:last-child": { mb: 0 } }}>{f.a}</Box>
+            </Box>
+          );
+        })}
       </Box>
     </>
   );
@@ -1146,7 +1232,7 @@ export function RelatedLinks({ title = "Related pages", links }: { title?: strin
 }
 
 // ───────────────────────── interactive blocks ─────────────────────────
-const chipSx = (on: boolean) =>
+export const chipSx = (on: boolean) =>
   ({
     border: `1px solid ${on ? T.greenDark : T.border}`,
     bgcolor: on ? T.greenDeep : "#fff",
@@ -1164,9 +1250,9 @@ const chipSx = (on: boolean) =>
     "&:hover": { borderColor: T.greenDark, ...(on ? {} : { bgcolor: T.greenSoft }) },
   }) as const;
 
-const panelSx = { my: 4.5, p: { xs: 2.5, md: 3.5 }, borderRadius: T.radius, border: `1px solid ${T.border}`, bgcolor: "#fff", boxShadow: T.shadow } as const;
+export const panelSx = { my: 4.5, p: { xs: 2.5, md: 3.5 }, borderRadius: T.radius, border: `1px solid ${T.border}`, bgcolor: "#fff", boxShadow: T.shadow } as const;
 
-function PanelHead({ kicker, title, hint }: { kicker?: string; title: string; hint?: string }) {
+export function PanelHead({ kicker, title, hint }: { kicker?: string; title: string; hint?: string }) {
   return (
     <Box sx={{ mb: 2.5 }}>
       {kicker && <Box sx={{ fontSize: "0.72rem", fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase !important", color: T.greenDark, mb: 0.75 }}>{kicker}</Box>}
@@ -1276,9 +1362,9 @@ export function Stepper({ kicker = "Step by step", title, steps }: { kicker?: st
   return (
     <Box sx={panelSx}>
       <PanelHead kicker={kicker} title={title} />
-      <Box sx={{ display: "flex", gap: 0.75, mb: 2.5, flexWrap: "wrap" }}>
+      <Box sx={{ display: "flex", gap: { xs: 0.5, sm: 0.75 }, mb: 2.5, flexWrap: "wrap" }}>
         {steps.map((st, k) => (
-          <Box key={st.title} component="button" type="button" aria-label={`Step ${k + 1}: ${st.title}`} aria-current={k === i ? "step" : undefined} onClick={() => setI(k)} sx={{ border: 0, cursor: "pointer", width: 36, height: 36, borderRadius: "50%", fontFamily: "inherit", fontWeight: 800, fontSize: "0.9rem", bgcolor: k === i ? T.greenDeep : k < i ? T.green : T.surface, color: k <= i ? "#fff" : T.body, transition: "all .2s" }}>
+          <Box key={st.title} component="button" type="button" aria-label={`Step ${k + 1}: ${st.title}`} aria-current={k === i ? "step" : undefined} onClick={() => setI(k)} sx={{ border: 0, cursor: "pointer", width: { xs: 30, sm: 36 }, height: { xs: 30, sm: 36 }, borderRadius: "50%", fontFamily: "inherit", fontWeight: 800, fontSize: { xs: "0.82rem", sm: "0.9rem" }, bgcolor: k === i ? T.greenDeep : k < i ? T.green : T.surface, color: k <= i ? "#fff" : T.body, transition: "all .2s" }}>
             {k + 1}
           </Box>
         ))}
@@ -1306,9 +1392,10 @@ export function Tabs({ kicker, title, tabs }: { kicker?: string; title?: string;
   return (
     <Box sx={panelSx}>
       {title && <PanelHead kicker={kicker} title={title} />}
-      <Box role="tablist" sx={{ display: "flex", gap: 0.75, flexWrap: "wrap", mb: 2.5, p: 0.5, bgcolor: T.surface, borderRadius: "14px", width: "fit-content", maxWidth: "100%" }}>
+      {/* One row on every screen: scrolls sideways on phones instead of stacking */}
+      <Box role="tablist" sx={{ display: "flex", gap: 0.5, flexWrap: "nowrap", overflowX: "auto", scrollbarWidth: "none", "&::-webkit-scrollbar": { display: "none" }, mb: 2.5, p: 0.5, bgcolor: T.surface, borderRadius: "14px", width: "fit-content", maxWidth: "100%", boxSizing: "border-box" }}>
         {tabs.map((t, k) => (
-          <Box key={t.label} component="button" type="button" role="tab" aria-selected={k === i} onClick={() => setI(k)} sx={{ border: 0, cursor: "pointer", fontFamily: "inherit", fontSize: "0.9rem", fontWeight: 600, px: 2, py: 1, borderRadius: "10px", bgcolor: k === i ? "#fff" : "transparent", color: k === i ? T.greenDark : T.body, boxShadow: k === i ? "0 1px 3px rgba(14,27,18,0.12)" : "none", transition: "all .15s" }}>
+          <Box key={t.label} component="button" type="button" role="tab" aria-selected={k === i} onClick={() => setI(k)} sx={{ flexShrink: 0, whiteSpace: "nowrap", border: 0, cursor: "pointer", fontFamily: "inherit", fontSize: { xs: "0.85rem", md: "0.9rem" }, fontWeight: 600, px: { xs: 1.5, md: 2 }, py: 1, borderRadius: "10px", bgcolor: k === i ? "#fff" : "transparent", color: k === i ? T.greenDark : T.body, boxShadow: k === i ? "0 1px 3px rgba(14,27,18,0.12)" : "none", transition: "all .15s", "&:focus": { outline: "none" }, "&:focus-visible": { outline: `2px solid ${T.greenDark}`, outlineOffset: "-2px" } }}>
             {t.label}
           </Box>
         ))}

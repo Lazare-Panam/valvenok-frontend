@@ -844,7 +844,7 @@ export function RangeCard({ r, tint }: { r: Range; tint: string }) {
         flexDirection: "column",
         height: "100%",
         boxSizing: "border-box",
-        borderRadius: "22px",
+        borderRadius: { xs: "16px", sm: "22px" },
         bgcolor: "#fff",
         border: `1px solid ${T.border}`,
         overflow: "hidden",
@@ -857,7 +857,7 @@ export function RangeCard({ r, tint }: { r: Range; tint: string }) {
         "&:hover img": { transform: r.cover ? "scale(1.05)" : "scale(1.06)" },
       }}
     >
-      <Box sx={{ position: "relative", height: 190, bgcolor: tint, display: "grid", placeItems: "center", overflow: "hidden" }}>
+      <Box sx={{ position: "relative", height: { xs: 118, sm: 190 }, bgcolor: tint, display: "grid", placeItems: "center", overflow: "hidden" }}>
         {r.img ? (
           <Box
             component="img"
@@ -874,12 +874,12 @@ export function RangeCard({ r, tint }: { r: Range; tint: string }) {
         )}
         <BrandBadge brands={r.brands} />
       </Box>
-      <Box sx={{ p: 2.5, display: "flex", flexDirection: "column", flex: 1 }}>
-        <Box component="h4" sx={{ m: 0, mb: 0.75, fontSize: "1.1rem", fontWeight: 800, color: T.ink, letterSpacing: "-0.01em" }}>{r.title}</Box>
-        <Box component="p" sx={{ m: 0, mb: 2, fontSize: "0.9rem", lineHeight: 1.55, color: T.body, flex: 1 }}>{r.text}</Box>
+      <Box sx={{ p: { xs: 1.5, sm: 2.5 }, display: "flex", flexDirection: "column", flex: 1 }}>
+        <Box component="h4" sx={{ m: 0, mb: 0.75, fontSize: { xs: "0.92rem", sm: "1.1rem" }, lineHeight: 1.25, fontWeight: 800, color: T.ink, letterSpacing: "-0.01em" }}>{r.title}</Box>
+        <Box component="p" sx={{ m: 0, mb: { xs: 1.25, sm: 2 }, fontSize: { xs: "0.78rem", sm: "0.9rem" }, lineHeight: 1.5, color: T.body, flex: 1, display: { xs: "-webkit-box", sm: "block" }, WebkitLineClamp: { xs: 3, sm: "unset" }, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{r.text}</Box>
         <Box sx={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 1 }}>
-          <Box component="span" sx={{ px: 1.25, py: 0.5, borderRadius: 999, bgcolor: T.greenSoft, color: T.greenDark, fontSize: "0.78rem", fontWeight: 700, whiteSpace: "nowrap" }}>{r.pressure}</Box>
-          <Box className="go" component="span" sx={{ display: "inline-flex", alignItems: "center", gap: 0.5, whiteSpace: "nowrap", px: 1.5, py: 0.6, borderRadius: 999, border: `1px solid ${T.border}`, fontSize: "0.82rem", fontWeight: 700, color: T.ink, transition: "all .2s", "& svg": { transition: "transform .2s" } }}>
+          <Box component="span" sx={{ px: 1.25, py: 0.5, borderRadius: 999, bgcolor: T.greenSoft, color: T.greenDark, fontSize: { xs: "0.7rem", sm: "0.78rem" }, fontWeight: 700, whiteSpace: "nowrap" }}>{r.pressure}</Box>
+          <Box className="go" component="span" sx={{ display: { xs: "none", sm: "inline-flex" }, alignItems: "center", gap: 0.5, whiteSpace: "nowrap", px: 1.5, py: 0.6, borderRadius: 999, border: `1px solid ${T.border}`, fontSize: "0.82rem", fontWeight: 700, color: T.ink, transition: "all .2s", "& svg": { transition: "transform .2s" } }}>
             View range <ArrowForwardRoundedIcon sx={{ fontSize: 16 }} />
           </Box>
         </Box>
@@ -961,7 +961,7 @@ function Ranges() {
                   {g.ranges.length} ranges
                 </Box>
               </Box>
-              <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", lg: "repeat(3, 1fr)" }, gap: { xs: 2, md: 2.5 } }}>
+              <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr 1fr", lg: "repeat(3, 1fr)" }, gap: { xs: 1.25, md: 2.5 } }}>
                 {g.ranges.map((r, i) => (
                   <Reveal key={r.href + r.title} delay={(i % 3) * 80}>
                     <RangeCard r={r} tint={g.tint} />

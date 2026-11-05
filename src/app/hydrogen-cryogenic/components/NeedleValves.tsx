@@ -188,7 +188,7 @@ function Hero() {
               </div>
             ))}
           </Box>
-          <Box sx={{ display: { xs: "grid", sm: "flex" }, gridTemplateColumns: "1fr 1fr", gap: 1.25, mt: 3.5 }}>
+          <Box sx={{ display: { xs: "grid", sm: "flex" }, gridTemplateColumns: "1fr", gap: 1.25, mt: 3.5 }}>
             <Box component={Link} href={BASE} sx={{ ...pillBtn(true), justifyContent: "center" }}>
               View all {TOTAL} models <ArrowForwardRoundedIcon sx={{ fontSize: 18 }} />
             </Box>

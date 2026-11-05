@@ -12,9 +12,16 @@ import {
   FAQ,
   RelatedLinks,
   Finder,
+  Stepper,
+  Tabs,
+  Toggle,
+  Checklist,
+  panelSx,
+  PanelHead,
+  chipSx,
 } from "../components/Article";
 import { useId, useState, type ChangeEvent } from "react";
-import { Box } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import { T } from "@/src/app/Landing/modern/tokens";
 
 const SLUG = "/news/valve-actuator-sizing-torque-guide";
@@ -274,7 +281,7 @@ const schema = {
       "@id": `${ARTICLE_URL}#article`,
       headline: HEADLINE,
       description: DESCRIPTION,
-      image: `${IMG}/valve-actuator-torque-curves.png`,
+      image: `${IMG}/blogs/valve-actuator-sizing-torque-guide.jpg`,
       mainEntityOfPage: ARTICLE_URL,
       datePublished: "2026-10-29",
       dateModified: "2026-10-29",
@@ -307,6 +314,107 @@ const schema = {
     },
   ],
 };
+
+
+// ───────────── Torque through the stroke (interactive, illustrative) ─────────────
+// Valve demand: breakaway at the closed position, then running torque.
+const demand = (deg: number) => (deg <= 20 ? 100 - 60 * (deg / 20) : 40);
+// Scotch yoke: highest at both ends, half that mid-stroke. Rack and pinion: flat.
+const shape = (type: "rp" | "sy", deg: number) => {
+  if (type === "rp") return 1;
+  const c = Math.cos(((deg - 45) * Math.PI) / 180);
+  return 0.5 / (c * c);
+};
+const FACTOR = 1.25;
+
+function RangeField({ label, value, min, max, step, unit, onChange }: { label: string; value: number; min: number; max: number; step: number; unit: string; onChange: (v: number) => void }) {
+  const id = useId();
+  return (
+    <Box>
+      <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", mb: 0.5 }}>
+        <Box component="label" htmlFor={id} sx={{ fontSize: "0.85rem", fontWeight: 700, color: T.ink }}>{label}</Box>
+        <Box sx={{ fontSize: "1rem", fontWeight: 800, color: T.greenDark, fontVariantNumeric: "tabular-nums" }}>{value} {unit}</Box>
+      </Box>
+      <Box component="input" id={id} type="range" min={min} max={max} step={step} value={value} onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(parseFloat(e.target.value))} sx={{ width: "100%", accentColor: T.greenDark, cursor: "pointer" }} />
+    </Box>
+  );
+}
+
+function StrokeExplorer() {
+  const [type, setType] = useState<"rp" | "sy">("rp");
+  const [air, setAir] = useState(5.5);
+  const [rated, setRated] = useState(160);
+  const pts = Array.from({ length: 91 }, (_, d) => {
+    const act = rated * (air / 6) * shape(type, d);
+    const req = demand(d) * FACTOR;
+    return { d, act, req, ok: act >= req };
+  });
+  const worst = pts.reduce((w, p) => (p.act / p.req < w.act / w.req ? p : w));
+  const pass = worst.ok;
+  const maxY = Math.max(...pts.map((p) => Math.max(p.act, p.req))) * 1.12;
+  const narrow = useMediaQuery("(max-width:599px)");
+  const fs = narrow ? 13.5 : 11.5;
+  const W = narrow ? 340 : 600, H = narrow ? 230 : 250, L = 38, R = 10, Tp = 14, B = 30;
+  const x = (d: number) => L + (d / 90) * (W - L - R);
+  const y = (v: number) => Tp + (1 - v / maxY) * (H - Tp - B);
+  const line = (k: "act" | "req") => pts.map((p, i) => `${i ? "L" : "M"}${x(p.d).toFixed(1)},${y(p[k]).toFixed(1)}`).join(" ");
+  const stepY = [25, 50, 100, 200].find((st) => maxY / st <= 4) ?? 200;
+  const ticks = Array.from({ length: Math.floor(maxY / stepY) + 1 }, (_, i) => i * stepY);
+  // shade the stretches where the actuator falls short
+  const shortRuns: [number, number][] = [];
+  pts.forEach((p) => {
+    if (p.ok) return;
+    const last = shortRuns[shortRuns.length - 1];
+    if (last && last[1] === p.d - 1) last[1] = p.d;
+    else shortRuns.push([p.d, p.d]);
+  });
+  return (
+    <Box sx={panelSx}>
+      <PanelHead kicker="Try it" title="Torque through the stroke" hint="Change the actuator type, the air pressure at the valve and the actuator size, and see where it falls short. Illustrative numbers only." />
+      <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap", mb: 2.5 }}>
+        {([["rp", "Rack and pinion"], ["sy", "Scotch yoke"]] as const).map(([k, l]) => (
+          <Box key={k} component="button" type="button" aria-pressed={type === k} onClick={() => setType(k)} sx={{ ...chipSx(type === k), borderRadius: 999, px: 2.25 }}>{l}</Box>
+        ))}
+      </Box>
+      <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" }, gap: { xs: 2, sm: 3 }, mb: 2.5 }}>
+        <RangeField label="Air pressure at the valve" value={air} min={3} max={8} step={0.5} unit="bar" onChange={setAir} />
+        <RangeField label={type === "rp" ? "Actuator torque at 6 bar" : "Actuator end torque at 6 bar"} value={rated} min={60} max={300} step={10} unit="Nm" onChange={setRated} />
+      </Box>
+      <Box sx={{ borderRadius: T.radiusSm, border: `1px solid ${T.border}`, bgcolor: "#FBFDFB", p: { xs: 1, md: 1.5 } }}>
+        <Box component="svg" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`Actuator torque against required valve torque from closed to open. ${pass ? "Enough torque through the whole stroke." : `Falls short at ${worst.d}°.`}`} sx={{ width: "100%", height: "auto", display: "block", fontFamily: "inherit" }}>
+          {ticks.map((t) => (
+            <g key={t}>
+              <line x1={L} x2={W - R} y1={y(t)} y2={y(t)} stroke="#E6ECE7" />
+              <text x={L - 6} y={y(t) + 4} textAnchor="end" fontSize={fs} fill={T.muted}>{t}</text>
+            </g>
+          ))}
+          {shortRuns.map(([a, b]) => (
+            <rect key={a} x={x(a) - 1} y={Tp} width={Math.max(x(b) - x(a) + 2, 3)} height={H - Tp - B} fill="#FDECEC" />
+          ))}
+          <path d={line("req")} fill="none" stroke="#C2410C" strokeWidth="2.5" strokeDasharray="6 5" />
+          <path d={line("act")} fill="none" stroke={T.greenDark} strokeWidth="3.5" strokeLinecap="round" />
+          <circle cx={x(worst.d)} cy={y(worst.act)} r="5.5" fill={pass ? T.greenDark : "#B42318"} stroke="#fff" strokeWidth="2" />
+          <text x={L} y={H - 10} fontSize={fs} fill={T.muted}>Closed 0°</text>
+          <text x={x(45)} y={H - 10} fontSize={fs} fill={T.muted} textAnchor="middle">45°</text>
+          <text x={W - R} y={H - 10} fontSize={fs} fill={T.muted} textAnchor="end">Open 90°</text>
+          <text x={8} y={Tp + 2} fontSize={fs} fill={T.muted}>Nm</text>
+        </Box>
+        <Box sx={{ display: "flex", columnGap: 2.5, rowGap: 0.5, flexWrap: "wrap", px: 1, pt: 1, fontSize: "0.8rem", color: T.body }}>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 0.75 }}><Box sx={{ width: 18, height: 4, borderRadius: 2, bgcolor: T.greenDark }} /> Actuator output</Box>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 0.75 }}><Box sx={{ width: 18, borderTop: "3px dashed #C2410C" }} /> Valve torque × {FACTOR} safety factor</Box>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 0.75 }}><Box sx={{ width: 14, height: 12, bgcolor: "#FDECEC", border: "1px solid #F3C2BD" }} /> Not enough torque</Box>
+        </Box>
+      </Box>
+      <Box aria-live="polite" sx={{ mt: 2, p: { xs: 2, md: 2.5 }, borderRadius: T.radiusSm, bgcolor: pass ? T.greenSoft : "#FDECEC", border: `1px solid ${pass ? "#CFEBC6" : "#E9A7A1"}`, fontSize: "0.98rem", lineHeight: 1.65, color: T.ink }}>
+        <strong>{pass ? "✓ Enough torque through the whole stroke." : `✗ Falls short at ${worst.d}°${worst.d <= 5 ? " (breakaway)" : worst.d >= 30 && worst.d <= 60 ? " (mid-stroke)" : ""}.`}</strong>{" "}
+        {pass
+          ? `The tightest point is ${worst.d}°, where the actuator gives ${Math.round(worst.act)} Nm against ${Math.round(worst.req)} Nm needed.`
+          : `The actuator gives ${Math.round(worst.act)} Nm there, but the valve needs ${Math.round(worst.req)} Nm with the safety factor. Choose a bigger actuator${air < 6 ? ", or make sure the air pressure at the valve never drops this low" : ""}.`}
+        {type === "sy" && " A scotch yoke is strongest at the ends and weakest mid-stroke, so check its lowest point against the valve's running torque."}
+      </Box>
+    </Box>
+  );
+}
 
 // ───────────── Torque sizing check (the worked-illustration method) ─────────────
 const num = (v: string) => {
@@ -344,7 +452,8 @@ function TorqueField({ label, unit, value, onChange, hint }: { label: string; un
 function TorqueCheck() {
   const [breakaway, setBreakaway] = useState("100");
   const [factor, setFactor] = useState("1.25");
-  const [maxOut, setMaxOut] = useState("");
+  const [minOut, setMinOut] = useState("140");
+  const [maxOut, setMaxOut] = useState("170");
   const [mast, setMast] = useState("300");
   const b = num(breakaway);
   const f = num(factor);
@@ -352,6 +461,8 @@ function TorqueCheck() {
   const limit = num(mast);
   const required = b !== null && f !== null ? b * f : null;
   const pass = m !== null && limit !== null ? m < limit : null;
+  const lo = num(minOut);
+  const enough = lo !== null && required !== null ? lo >= required : null;
   return (
     <Box sx={{ my: 4.5, p: { xs: 2.5, md: 3.5 }, borderRadius: T.radius, border: `1px solid ${T.border}`, bgcolor: "#fff", boxShadow: T.shadow }}>
       <Box sx={{ mb: 2.5 }}>
@@ -362,10 +473,11 @@ function TorqueCheck() {
       <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" }, gap: 2 }}>
         <TorqueField label="Valve breakaway torque (from the valve maker)" unit="Nm" value={breakaway} onChange={setBreakaway} />
         <TorqueField label="Safety factor recommended for the pairing" unit="×" value={factor} onChange={setFactor} />
+        <TorqueField label="Actuator output at minimum air pressure" unit="Nm" value={minOut} onChange={setMinOut} hint="From the actuator's torque table" />
         <TorqueField label="Actuator maximum output at maximum supply pressure" unit="Nm" value={maxOut} onChange={setMaxOut} hint="From the actuator's torque table" />
         <TorqueField label="Valve MAST (from the valve maker)" unit="Nm" value={mast} onChange={setMast} />
       </Box>
-      <Box aria-live="polite" sx={{ mt: 2.5, display: "grid", gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" }, gap: 1.5 }}>
+      <Box aria-live="polite" sx={{ mt: 2.5, display: "grid", gridTemplateColumns: { xs: "1fr", md: "1fr 1fr 1fr" }, gap: 1.5 }}>
         <Box sx={{ p: { xs: 2, md: 2.5 }, borderRadius: T.radiusSm, bgcolor: T.surface, border: `1px solid ${T.border}` }}>
           <Box sx={{ fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase !important", color: T.muted }}>Required torque</Box>
           <Box sx={{ mt: 0.5, fontSize: { xs: "1.6rem", md: "1.9rem" }, fontWeight: 800, color: T.greenDark, lineHeight: 1.15, fontVariantNumeric: "tabular-nums" }}>
@@ -373,8 +485,21 @@ function TorqueCheck() {
           </Box>
           <Box sx={{ mt: 0.75, fontSize: "0.88rem", lineHeight: 1.55, color: T.body }}>
             {required !== null
-              ? `${fmt(b!)} × ${fmt(f!)} = ${fmt(required)} Nm. The chosen actuator must deliver at least this at the minimum air pressure at the valve, at the stroke position where the valve needs it.`
+              ? `${fmt(b!)} × ${fmt(f!)} = ${fmt(required)} Nm.`
               : "Enter the breakaway torque and safety factor."}
+          </Box>
+        </Box>
+        <Box sx={{ p: { xs: 2, md: 2.5 }, borderRadius: T.radiusSm, bgcolor: enough === null ? T.surface : enough ? T.greenSoft : "#FDECEC", border: `1px solid ${enough === null ? T.border : enough ? "#CFEBC6" : "#E9A7A1"}` }}>
+          <Box sx={{ fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase !important", color: T.muted }}>Enough torque?</Box>
+          <Box sx={{ mt: 0.5, fontSize: { xs: "1.6rem", md: "1.9rem" }, fontWeight: 800, lineHeight: 1.15, color: enough === null ? T.muted : enough ? T.greenDark : "#B42318" }}>
+            {enough === null ? "—" : enough ? "✓ Pass" : "✗ Too small"}
+          </Box>
+          <Box sx={{ mt: 0.75, fontSize: "0.88rem", lineHeight: 1.55, color: T.body }}>
+            {enough === null
+              ? "Enter the actuator's output at the lowest air pressure at the valve."
+              : enough
+                ? `${fmt(lo!)} Nm at minimum pressure covers the ${fmt(required!)} Nm needed.`
+                : `${fmt(lo!)} Nm is less than the ${fmt(required!)} Nm needed. Choose a bigger actuator or raise the minimum air pressure.`}
           </Box>
         </Box>
         <Box
@@ -401,6 +526,19 @@ function TorqueCheck() {
       <Box sx={{ mt: 2, fontSize: "0.85rem", lineHeight: 1.6, color: T.muted }}>
         The same check is then made for the running and seating torques, each at its own position in the stroke.
       </Box>
+    </Box>
+  );
+}
+
+function PatternView({ col }: { col: 1 | 2 }) {
+  return (
+    <Box component="dl" sx={{ m: 0, display: "grid", gridTemplateColumns: { xs: "1fr", sm: "200px 1fr" }, rowGap: { xs: 0.25, sm: 1.25 }, columnGap: 2 }}>
+      {PATTERNS.rows.map((r) => (
+        <Box key={r[0]} sx={{ display: "contents" }}>
+          <Box component="dt" sx={{ fontWeight: 700, color: T.ink, fontSize: "0.92rem", mt: { xs: 1.25, sm: 0 } }}>{r[0]}</Box>
+          <Box component="dd" sx={{ m: 0, color: T.body }}>{r[col]}</Box>
+        </Box>
+      ))}
     </Box>
   );
 }
@@ -465,18 +603,34 @@ export default function ActuatorSizingPage() {
         changes through the stroke.
       </P>
       <P>That geometry gives two common torque patterns:</P>
-      <DataTable {...PATTERNS} minWidth={680} />
-      <Figure
-        src={`${IMG}/valve-actuator-torque-curves.png`}
-        alt="Torque curves: rack and pinion is flat across the 90° stroke; scotch yoke is high at both ends and lowest mid-stroke, above the valve’s torque demand."
+      <Toggle
+        kicker="Compare"
+        title="Rack and pinion or scotch yoke?"
+        a={{ label: "Rack and pinion", content: <PatternView col={1} /> }}
+        b={{ label: "Scotch yoke", content: <PatternView col={2} /> }}
       />
+      <StrokeExplorer />
 
       <H2>How do you size a pneumatic actuator?</H2>
       <P>
         Work through the steps below. Always use the manufacturers&apos; own torque tables and recommendations,
         because torque curves, safety factors and limits differ between products.
       </P>
-      <DataTable {...STEPS} minWidth={680} />
+      <Stepper
+        kicker="Sizing procedure"
+        title="Size a pneumatic actuator in 8 steps"
+        steps={STEPS.rows.map(([step, what, why]) => ({
+          title: step.replace(/^\d+\.\s*/, ""),
+          body: (
+            <>
+              <Box component="p" sx={{ m: 0, mb: 1.25 }}>{what}.</Box>
+              <Box sx={{ display: "inline-flex", gap: 0.75, alignItems: "baseline", px: 1.5, py: 0.75, borderRadius: "10px", bgcolor: T.greenSoft, fontSize: "0.92rem", color: T.ink }}>
+                <strong>Why:</strong> {why}.
+              </Box>
+            </>
+          ),
+        }))}
+      />
       <Figure
         src={`${IMG}/compressor-vs-valve-air-pressure.png`}
         alt="Air pressure falls from 7.0 bar at the compressor to 5.5 bar at the actuator after the filter, pipe run and fittings."
@@ -533,7 +687,25 @@ export default function ActuatorSizingPage() {
       </P>
 
       <H2>What about electric actuators and fail action?</H2>
-      <DataTable {...FAIL_ACTION} minWidth={680} />
+      <Tabs
+        kicker="Fail action"
+        title="What happens when air or power is lost?"
+        tabs={FAIL_ACTION.rows.map(([name, fail, note]) => ({
+          label: name.replace(" pneumatic", "").replace("Standard electric", "Electric"),
+          content: (
+            <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" }, gap: 1.5 }}>
+              <Box sx={{ p: 2, borderRadius: T.radiusSm, bgcolor: T.greenSoft, border: "1px solid #CFEBC6" }}>
+                <Box sx={{ fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase !important", color: T.greenDark, mb: 0.5 }}>On loss of air or power</Box>
+                <Box sx={{ fontWeight: 700, color: T.ink }}>{fail}</Box>
+              </Box>
+              <Box sx={{ p: 2, borderRadius: T.radiusSm, bgcolor: T.surface, border: `1px solid ${T.border}` }}>
+                <Box sx={{ fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase !important", color: T.muted, mb: 0.5 }}>Note</Box>
+                <Box sx={{ color: T.body }}>{note}</Box>
+              </Box>
+            </Box>
+          ),
+        }))}
+      />
       <P>
         Fail action is a process safety decision, so settle it with the process requirements first, then size
         for it. On modulating duty, add a positioner. On safety valves, partial-stroke testing can confirm an
@@ -541,7 +713,8 @@ export default function ActuatorSizingPage() {
       </P>
 
       <H2>When should you re-check the sizing?</H2>
-      <UL items={RECHECK} />
+      <P>Re-check the sizing if any of these has changed since the actuator was chosen.</P>
+      <Checklist kicker="Re-check" title="Has anything changed?" items={RECHECK} emailSubject="Actuator sizing re-check" />
 
       <H2>Why won&apos;t my actuator seat the valve?</H2>
       <P>
@@ -567,10 +740,23 @@ export default function ActuatorSizingPage() {
         src={`${IMG}/actuator-wont-seat-fault-finding.png`}
         alt="Fault-finding flow chart for an actuator that won’t seat a valve: check air pressure, leaks, positioner, end-of-stroke torque, then seat wear."
       />
-      <DataTable {...FAULTS} minWidth={680} />
 
       <H2>What mistakes should you avoid when sizing?</H2>
-      <DataTable {...MISTAKES} minWidth={680} />
+      <Finder
+        kicker="Common mistakes"
+        title="Which mistake do you want to avoid?"
+        hint="Pick one to see what happens and how to avoid it."
+        options={MISTAKES.rows.map(([mistake, happens, avoid]) => ({
+          label: mistake,
+          result: (
+            <>
+              <strong>What happens:</strong> {happens}.
+              <br />
+              <strong>How to avoid it:</strong> {avoid}.
+            </>
+          ),
+        }))}
+      />
 
 
       <FAQ title="Frequently Asked Questions" items={FAQS} />

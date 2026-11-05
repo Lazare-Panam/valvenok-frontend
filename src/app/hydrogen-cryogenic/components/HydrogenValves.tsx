@@ -278,7 +278,7 @@ function Types() {
           <H2 id="h2-types">Every hydrogen valve we supply</H2>
           <Lead center>Pick a type to see every series, size and model, with the full spec table.</Lead>
         </Box>
-        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", lg: "repeat(4, 1fr)" }, gap: { xs: 2, md: 2.5 } }}>
+        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr 1fr", lg: "repeat(4, 1fr)" }, gap: { xs: 1.25, md: 2.5 } }}>
           {VALVES.ranges.map((r, i) => (
             <Reveal key={r.href} delay={(i % 4) * 70}>
               <RangeCard r={r} tint={VALVES.tint} />
@@ -381,7 +381,7 @@ function CompleteLine() {
           <H2 id="h2-line">Fittings and tubing to match</H2>
           <Lead>The same cone-and-thread connections run through the valves, fittings and tube, so one order covers the whole line.</Lead>
         </Box>
-        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", lg: "repeat(4, 1fr)" }, gap: { xs: 2, md: 2.5 } }}>
+        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr 1fr", lg: "repeat(4, 1fr)" }, gap: { xs: 1.25, md: 2.5 } }}>
           {MORE.flatMap((g) => g.ranges.slice(0, 2).map((r) => ({ r, tint: g.tint }))).map(({ r, tint }, i) => (
             <Reveal key={r.href} delay={i * 70}>
               <RangeCard r={r} tint={tint} />
