@@ -1,7 +1,7 @@
-import { Stack, Chip, Typography } from '@mui/material'
+import { Box } from '@mui/material'
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded'
 import { type HPNeedleValveFilters } from '../hooks/hpNeedleValveData'
-
-const BRAND_GREEN = '#61D649'
+import { T } from '@/src/app/Landing/modern/tokens'
 
 interface Props {
   filters: HPNeedleValveFilters
@@ -9,26 +9,23 @@ interface Props {
 }
 
 export function HPNVActiveFilters({ filters, setFilters }: Props) {
-  const chips: { key: keyof HPNeedleValveFilters; label: string; value: string }[] = []
-
-  filters.brands.forEach(v => chips.push({ key: 'brands', label: `Brand: ${v}`, value: v }))
-  filters.series.forEach(v => chips.push({ key: 'series', label: `Series: ${v}`, value: v }))
-  filters.pressureRatings.forEach(v => chips.push({ key: 'pressureRatings', label: v, value: v }))
-  filters.connectionSizes.forEach(v => chips.push({ key: 'connectionSizes', label: `Size: ${v}`, value: v }))
-  filters.connectionTypes.forEach(v => chips.push({ key: 'connectionTypes', label: v, value: v }))
-  filters.configurations.forEach(v => chips.push({ key: 'configurations', label: v, value: v }))
-
-  if (chips.length === 0) return null
-
+  const chips = (Object.keys(filters) as (keyof HPNeedleValveFilters)[]).flatMap(k => filters[k].map(v => ({ key: k, value: v })))
+  if (!chips.length) return null
   return (
-    <Stack direction="row" alignItems="center" gap={1} flexWrap="wrap" mb={2}>
-      <Typography variant="caption" color="text.secondary" fontWeight={700}>ACTIVE FILTERS:</Typography>
-      {chips.map((f, i) => (
-        <Chip key={`${f.key}-${f.value}-${i}`} label={f.label} size="small" variant="outlined"
-          sx={{ borderColor: BRAND_GREEN, color: BRAND_GREEN }}
-          onDelete={() => setFilters(prev => ({ ...prev, [f.key]: prev[f.key].filter((v: string) => v !== f.value) }))}
-        />
+    <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 0.75 }}>
+      {chips.map(f => (
+        <Box
+          key={`${f.key}-${f.value}`}
+          component="button"
+          type="button"
+          onClick={() => setFilters(prev => ({ ...prev, [f.key]: prev[f.key].filter(v => v !== f.value) }))}
+          sx={{ cursor: 'pointer', fontFamily: T.font, display: 'inline-flex', alignItems: 'center', gap: 0.5, pl: 1.25, pr: 0.75, py: 0.45, borderRadius: 999, border: '1px solid #CFEBC6', bgcolor: T.greenSoft, color: T.greenDark, fontSize: '0.8rem', fontWeight: 700, '&:hover': { bgcolor: '#DDF3D6' } }}
+          aria-label={`Remove ${f.value}`}
+        >
+          {f.value}
+          <CloseRoundedIcon sx={{ fontSize: 15 }} />
+        </Box>
       ))}
-    </Stack>
+    </Box>
   )
 }

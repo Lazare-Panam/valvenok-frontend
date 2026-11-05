@@ -1,12 +1,8 @@
-import {
-  Box, Stack, Typography, Chip, Divider,
-  Accordion, AccordionSummary, AccordionDetails,
-  FormGroup, FormControlLabel, Checkbox,
-} from '@mui/material'
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import { useState } from 'react'
+import { Box } from '@mui/material'
+import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded'
 import { type HPNeedleValveFilters, type AvailableCountsHP, EMPTY_HP_FILTERS, HP_NEEDLE_VALVE_DATA } from '../hooks/hpNeedleValveData'
-
-const BRAND_GREEN = '#61D649'
+import { T } from '@/src/app/Landing/modern/tokens'
 
 interface Props {
   filters: HPNeedleValveFilters
@@ -15,99 +11,97 @@ interface Props {
   activeCount: number
 }
 
-function FilterGroup({ title, count, children }: { title: string; count?: number; children: React.ReactNode }) {
-  return (
-    <Accordion disableGutters elevation={0} sx={{ bgcolor: 'transparent', '&:before': { display: 'none' }, mb: 0.5 }}>
-      <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ fontSize: 16 }} />} sx={{ px: 0, minHeight: 36, '& .MuiAccordionSummary-content': { my: 0.5 } }}>
-        <Stack direction="row" alignItems="center" spacing={1}>
-          <Typography variant="caption" fontWeight={700} color="text.primary">{title}</Typography>
-          {count ? <Chip label={count} size="small" sx={{ height: 16, fontSize: '0.65rem', bgcolor: BRAND_GREEN, color: '#fff' }} /> : null}
-        </Stack>
-      </AccordionSummary>
-      <AccordionDetails sx={{ px: 0, pt: 0 }}><FormGroup>{children}</FormGroup></AccordionDetails>
-    </Accordion>
-  )
+const uniq = (k: keyof (typeof HP_NEEDLE_VALVE_DATA)[number]) => Array.from(new Set(HP_NEEDLE_VALVE_DATA.map(c => String(c[k]))))
+const GROUPS: { key: keyof HPNeedleValveFilters; title: string; options: string[] }[] = [
+  { key: 'brands', title: 'Brand', options: uniq('brand') },
+  { key: 'series', title: 'Series', options: uniq('series') },
+  { key: 'pressureRatings', title: 'Pressure', options: uniq('pressureRating') },
+  { key: 'connectionSizes', title: 'Size', options: uniq('connectionSize') },
+  { key: 'connectionTypes', title: 'Connection', options: uniq('connectionType') },
+  { key: 'configurations', title: 'Pattern', options: uniq('configuration') },
+]
+const countKey: Record<keyof HPNeedleValveFilters, keyof AvailableCountsHP> = {
+  brands: 'brands', series: 'series', pressureRatings: 'pressureRatings', connectionSizes: 'connectionSizes', connectionTypes: 'connectionTypes', configurations: 'configurations',
 }
 
-function SmartCheckList({ options, selected, onChange, counts }: {
-  options: string[]
-  selected: string[]
-  onChange: (v: string) => void
-  counts: Record<string, number>
-}) {
-  if (!options.length) return <Typography variant="caption" color="text.disabled" sx={{ pl: 1 }}>No options</Typography>
+/** Filters as tappable chips with live counts */
+export function HPNVSidebar({ filters, setFilters, availableCounts, activeCount }: Props) {
+  // Brand and Series start open; the rest open on tap (and stay open while they have a selection)
+  const [openG, setOpenG] = useState<Record<string, boolean>>({ brands: true, series: true })
+  const toggle = (key: keyof HPNeedleValveFilters, val: string) =>
+    setFilters(prev => ({ ...prev, [key]: prev[key].includes(val) ? prev[key].filter(v => v !== val) : [...prev[key], val] }))
+
   return (
-    <Box sx={{ maxHeight: 260, overflowY: 'auto' }}>
-      {options.map(opt => {
-        const count = counts[opt] ?? 0
-        const isSelected = selected.includes(opt)
-        const isDisabled = !isSelected && count === 0
+    <Box sx={{ width: { xs: '100%', lg: 280 }, boxSizing: 'border-box', p: 2.5, fontFamily: T.font }}>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
+        <Box sx={{ fontSize: '1rem', fontWeight: 800, color: T.ink }}>Filters</Box>
+        {activeCount > 0 && (
+          <Box component="button" type="button" onClick={() => setFilters(EMPTY_HP_FILTERS)} sx={{ border: 0, bgcolor: 'transparent', cursor: 'pointer', fontFamily: 'inherit', fontSize: '0.82rem', fontWeight: 700, color: T.greenDark, p: 0 }}>
+            Clear all ({activeCount})
+          </Box>
+        )}
+      </Box>
+      {GROUPS.map(g => {
+        const sel = filters[g.key].length
+        const isOpen = openG[g.key] ?? false
         return (
-          <FormControlLabel key={opt} disabled={isDisabled}
-            control={<Checkbox size="small" checked={isSelected} onChange={() => onChange(opt)} disabled={isDisabled}
-              sx={{ py: 0.25, '&.Mui-checked': { color: BRAND_GREEN }, '&.Mui-disabled': { color: 'rgba(0,0,0,0.18)' } }} />}
-            label={
-              <Stack direction="row" alignItems="center" spacing={0.75}>
-                <Typography variant="body2" fontSize="0.8rem" sx={{ color: isDisabled ? 'text.disabled' : 'text.primary' }}>{opt}</Typography>
-                <Typography variant="caption" sx={{ color: isDisabled ? 'text.disabled' : 'text.secondary', fontSize: '0.68rem', fontWeight: 600 }}>({count})</Typography>
-              </Stack>
-            }
-            sx={{ opacity: isDisabled ? 0.45 : 1, mr: 0 }}
-          />
+        <Box key={g.key} sx={{ borderTop: `1px solid ${T.border}` }}>
+          <Box
+            component="button"
+            type="button"
+            aria-expanded={isOpen}
+            onClick={() => setOpenG(o => ({ ...o, [g.key]: !isOpen }))}
+            sx={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 1, py: 1.5, border: 0, bgcolor: 'transparent', cursor: 'pointer', fontFamily: 'inherit', textAlign: 'left' }}
+          >
+            <Box component="span" sx={{ display: 'inline-flex', alignItems: 'center', gap: 1, fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase !important', color: sel ? T.greenDark : T.muted }}>
+              {g.title}
+              {sel > 0 && <Box component="span" sx={{ minWidth: 18, height: 18, px: 0.5, borderRadius: 999, bgcolor: T.greenDark, color: '#fff', fontSize: '0.68rem', letterSpacing: 0, display: 'inline-grid', placeItems: 'center' }}>{sel}</Box>}
+            </Box>
+            <KeyboardArrowDownRoundedIcon sx={{ fontSize: 20, color: T.muted, transform: isOpen ? 'rotate(180deg)' : 'none', transition: 'transform .2s' }} />
+          </Box>
+          {isOpen && (
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.75, pb: 1.75 }}>
+            {g.options.map(opt => {
+              const n = availableCounts[countKey[g.key]][opt] ?? 0
+              const on = filters[g.key].includes(opt)
+              const off = !on && n === 0
+              return (
+                <Box
+                  key={opt}
+                  component="button"
+                  type="button"
+                  aria-pressed={on}
+                  disabled={off}
+                  onClick={() => toggle(g.key, opt)}
+                  sx={{
+                    cursor: off ? 'default' : 'pointer',
+                    fontFamily: 'inherit',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 0.6,
+                    px: 1.25,
+                    py: 0.55,
+                    borderRadius: 999,
+                    fontSize: '0.8rem',
+                    fontWeight: on ? 700 : 600,
+                    border: `1px solid ${on ? T.greenDark : T.border}`,
+                    bgcolor: on ? T.greenDark : '#fff',
+                    color: on ? '#fff' : T.ink,
+                    opacity: off ? 0.4 : 1,
+                    transition: 'all .15s',
+                    '&:hover': off ? {} : { borderColor: T.greenDark },
+                  }}
+                >
+                  {opt}
+                  <Box component="span" sx={{ fontSize: '0.7rem', fontWeight: 700, color: on ? 'rgba(255,255,255,0.8)' : T.muted }}>{n}</Box>
+                </Box>
+              )
+            })}
+          </Box>
+          )}
+        </Box>
         )
       })}
-    </Box>
-  )
-}
-
-export function HPNVSidebar({ filters, setFilters, availableCounts, activeCount }: Props) {
-  const toggle = (key: keyof HPNeedleValveFilters, val: string) =>
-    setFilters(prev => ({
-      ...prev,
-      [key]: (prev[key] as string[]).includes(val)
-        ? (prev[key] as string[]).filter(v => v !== val)
-        : [...(prev[key] as string[]), val],
-    }))
-
-  const brandOptions     = Array.from(new Set(HP_NEEDLE_VALVE_DATA.map(c => c.brand)))
-  const seriesOptions    = Array.from(new Set(HP_NEEDLE_VALVE_DATA.map(c => c.series)))
-  const pressureOptions  = Array.from(new Set(HP_NEEDLE_VALVE_DATA.map(c => c.pressureRating)))
-  const sizeOptions      = Array.from(new Set(HP_NEEDLE_VALVE_DATA.map(c => c.connectionSize)))
-  const typeOptions      = Array.from(new Set(HP_NEEDLE_VALVE_DATA.map(c => c.connectionType)))
-  const configOptions    = Array.from(new Set(HP_NEEDLE_VALVE_DATA.map(c => c.configuration)))
-
-  return (
-    <Box sx={{ width: 240, flexShrink: 0, p: 2, borderRight: '1px solid', borderColor: 'divider', bgcolor: 'background.paper', boxSizing: 'border-box' }}>
-      <Stack direction="row" justifyContent="space-between" alignItems="center" mb={2}>
-        <Typography variant="caption" fontWeight={900} letterSpacing={1} color="text.secondary">FILTER</Typography>
-        {activeCount > 0 && (
-          <Typography variant="caption" fontWeight={700} sx={{ cursor: 'pointer', color: BRAND_GREEN }}
-            onClick={() => setFilters(EMPTY_HP_FILTERS)}>Clear all</Typography>
-        )}
-      </Stack>
-      <FilterGroup title="BRAND" count={filters.brands.length || undefined}>
-        <SmartCheckList options={brandOptions} selected={filters.brands} onChange={v => toggle('brands', v)} counts={availableCounts.brands} />
-      </FilterGroup>
-      <Divider sx={{ my: 0.5 }} />
-      <FilterGroup title="SERIES" count={filters.series.length || undefined}>
-        <SmartCheckList options={seriesOptions} selected={filters.series} onChange={v => toggle('series', v)} counts={availableCounts.series} />
-      </FilterGroup>
-      <Divider sx={{ my: 0.5 }} />
-      <FilterGroup title="PRESSURE" count={filters.pressureRatings.length || undefined}>
-        <SmartCheckList options={pressureOptions} selected={filters.pressureRatings} onChange={v => toggle('pressureRatings', v)} counts={availableCounts.pressureRatings} />
-      </FilterGroup>
-      <Divider sx={{ my: 0.5 }} />
-      <FilterGroup title="CONNECTION SIZE" count={filters.connectionSizes.length || undefined}>
-        <SmartCheckList options={sizeOptions} selected={filters.connectionSizes} onChange={v => toggle('connectionSizes', v)} counts={availableCounts.connectionSizes} />
-      </FilterGroup>
-      <Divider sx={{ my: 0.5 }} />
-      <FilterGroup title="CONNECTION TYPE" count={filters.connectionTypes.length || undefined}>
-        <SmartCheckList options={typeOptions} selected={filters.connectionTypes} onChange={v => toggle('connectionTypes', v)} counts={availableCounts.connectionTypes} />
-      </FilterGroup>
-      <Divider sx={{ my: 0.5 }} />
-      <FilterGroup title="CONFIGURATION" count={filters.configurations.length || undefined}>
-        <SmartCheckList options={configOptions} selected={filters.configurations} onChange={v => toggle('configurations', v)} counts={availableCounts.configurations} />
-      </FilterGroup>
     </Box>
   )
 }

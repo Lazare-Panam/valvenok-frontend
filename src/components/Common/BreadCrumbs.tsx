@@ -8,6 +8,40 @@ import { Box } from '@mui/material';
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import { T } from '@/src/app/Landing/modern/tokens';
+import { NAV_GROUPS, type NavItem } from '@/src/app/Common/Navbar/Navbardata';
+
+// Breadcrumbs follow the menu, not the URL folders: each page gets the trail a
+// buyer clicked through (tab › section › type › …). Pages deeper than the menu
+// add their remaining URL segments on the end.
+type Step = { label: string; href: string };
+const clean = (href?: string) => (href ? href.split('?')[0].split('#')[0].replace(/\/$/, '') : '');
+const MENU_TRAILS: Map<string, Step[]> = (() => {
+  const map = new Map<string, Step[]>();
+  const add = (href: string | undefined, trail: Step[]) => {
+    const h = clean(href);
+    if (!h || h.startsWith('http') || map.has(h)) return;
+    // drop repeats where a level shares its parent's page (e.g. tab and column both /valves)
+    map.set(h, trail.filter((st, i) => i === 0 || clean(st.href) !== clean(trail[i - 1].href)));
+  };
+  const walk = (items: NavItem[], parent: Step[]) =>
+    items.forEach((it) => {
+      if (/^view all/i.test(it.label) || it.brand) return;
+      // "SRA Series — Spring Return Rack & Pinion" -> "SRA Series"
+      const step = { label: it.label.split(' — ')[0], href: clean(it.href) };
+      add(it.href, [...parent, step]);
+      if (it.children) walk(it.children, [...parent, step]);
+    });
+  NAV_GROUPS.forEach((g) => {
+    const top = { label: g.label, href: clean(g.href) };
+    add(g.href, [top]);
+    g.columns.forEach((c) => {
+      const col = { label: c.header, href: clean(c.href) };
+      add(c.href, [top, col]);
+      walk(c.items, [top, col]);
+    });
+  });
+  return map;
+})();
 
 export type Crumb = {
   label: string;
@@ -88,6 +122,19 @@ export default function Breadcrumbs({
     (() => {
       const segments = pathname.split('/').filter(Boolean);
       const generated: Crumb[] = [{ label: 'Home', href: '/' }];
+
+      // Longest part of the path that is in the menu
+      for (let n = segments.length; n > 0; n--) {
+        const trail = MENU_TRAILS.get('/' + segments.slice(0, n).join('/'));
+        if (!trail) continue;
+        trail.forEach((st) => generated.push({ label: st.label, href: st.href }));
+        segments.slice(n).forEach((segment, i) => {
+          const href = '/' + segments.slice(0, n + i + 1).join('/');
+          generated.push({ label: labelMap[segment] ?? DEFAULT_LABELS[segment] ?? humanize(segment), href });
+        });
+        generated[generated.length - 1] = { label: generated[generated.length - 1].label };
+        return generated;
+      }
 
       segments.forEach((segment, i) => {
         const href = '/' + segments.slice(0, i + 1).join('/');

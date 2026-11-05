@@ -24,7 +24,7 @@ import { T, textReset } from "@/src/app/Landing/modern/tokens";
 import { MotionRoot, LightBackdrop, Words, Reveal, gradientText, useInView, L } from "@/src/app/Common/LightMotion";
 import { groupSite } from "@/src/app/Common/group";
 
-const IMG = {
+export const IMG = {
   panamNeedle: "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure/hp-nv.jpg",
   panamBall: "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure/hp-bv.jpg",
   panamDbb: "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure/hp-dbb.jpg",
@@ -58,7 +58,7 @@ const IMG = {
 type Range = { title: string; brands: string; text: string; pressure: string; href: string; img?: string; cover?: boolean };
 type Group = { key: string; label: string; kicker: string; title: string; intro: string; tint: string; ranges: Range[] };
 
-const GROUPS: Group[] = [
+export const GROUPS: Group[] = [
   {
     key: "valves",
     label: "Valves",
@@ -208,7 +208,7 @@ const SCHEMA = {
   mainEntity: HUB_FAQ.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
 };
 
-const BRAND_LOGO: Record<string, string> = {
+export const BRAND_LOGO: Record<string, string> = {
   Panam: "https://pblol2.blob.core.windows.net/panam-images/panam-resize_smallest.jpg",
   Hiflux: "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/logo.png",
   Youngdo: IMG.youngdoLogo,
@@ -219,7 +219,7 @@ const BRAND_LOGO: Record<string, string> = {
 const DARK_LOGO = new Set(["Youngdo"]);
 
 /** Brand logos in a white pill (top-left of each range card) */
-function BrandBadge({ brands }: { brands: string }) {
+export function BrandBadge({ brands }: { brands: string }) {
   const names = brands.split("·").map((b) => b.trim()).filter((b) => BRAND_LOGO[b]);
   if (!names.length) return null;
   // Youngdo's logo is white lettering, so it sits on a dark pill
@@ -317,9 +317,9 @@ function SectionNav() {
 
 /* ───────────────────────── building blocks ───────────────────────── */
 
-const wrap = { maxWidth: 1240, mx: "auto", px: { xs: 2, md: 4 } } as const;
+export const wrap = { maxWidth: 1240, mx: "auto", px: { xs: 2, md: 4 } } as const;
 
-function Kicker({ children }: { children: React.ReactNode }) {
+export function Kicker({ children }: { children: React.ReactNode }) {
   return (
     <Box component="p" sx={{ m: 0, mb: 1.25, display: "inline-flex", alignItems: "center", gap: 1, fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase !important", color: T.greenDark }}>
       <Box component="span" sx={{ width: 6, height: 6, borderRadius: "50%", bgcolor: T.green }} />
@@ -328,7 +328,7 @@ function Kicker({ children }: { children: React.ReactNode }) {
   );
 }
 
-function H2({ id, children }: { id?: string; children: React.ReactNode }) {
+export function H2({ id, children }: { id?: string; children: React.ReactNode }) {
   return (
     <Box component="h2" id={id} sx={{ m: 0, mb: 1.5, fontSize: { xs: "1.75rem", md: "2.4rem" }, fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1.12, color: T.ink }}>
       {children}
@@ -336,7 +336,7 @@ function H2({ id, children }: { id?: string; children: React.ReactNode }) {
   );
 }
 
-function Lead({ children, center }: { children: React.ReactNode; center?: boolean }) {
+export function Lead({ children, center }: { children: React.ReactNode; center?: boolean }) {
   return (
     <Box component="p" sx={{ m: 0, maxWidth: 720, mx: center ? "auto" : 0, fontSize: { xs: "1rem", md: "1.08rem" }, lineHeight: 1.7, color: T.body }}>
       {children}
@@ -344,7 +344,7 @@ function Lead({ children, center }: { children: React.ReactNode; center?: boolea
   );
 }
 
-const pillBtn = (primary: boolean) =>
+export const pillBtn = (primary: boolean) =>
   ({
     display: "inline-flex",
     alignItems: "center",
@@ -834,7 +834,7 @@ function SupportsArt() {
   );
 }
 
-function RangeCard({ r, tint }: { r: Range; tint: string }) {
+export function RangeCard({ r, tint }: { r: Range; tint: string }) {
   return (
     <Box
       component={Link}
@@ -877,9 +877,9 @@ function RangeCard({ r, tint }: { r: Range; tint: string }) {
       <Box sx={{ p: 2.5, display: "flex", flexDirection: "column", flex: 1 }}>
         <Box component="h4" sx={{ m: 0, mb: 0.75, fontSize: "1.1rem", fontWeight: 800, color: T.ink, letterSpacing: "-0.01em" }}>{r.title}</Box>
         <Box component="p" sx={{ m: 0, mb: 2, fontSize: "0.9rem", lineHeight: 1.55, color: T.body, flex: 1 }}>{r.text}</Box>
-        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 1 }}>
-          <Box component="span" sx={{ px: 1.25, py: 0.5, borderRadius: 999, bgcolor: T.greenSoft, color: T.greenDark, fontSize: "0.78rem", fontWeight: 700 }}>{r.pressure}</Box>
-          <Box className="go" component="span" sx={{ display: "inline-flex", alignItems: "center", gap: 0.5, px: 1.5, py: 0.6, borderRadius: 999, border: `1px solid ${T.border}`, fontSize: "0.82rem", fontWeight: 700, color: T.ink, transition: "all .2s", "& svg": { transition: "transform .2s" } }}>
+        <Box sx={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 1 }}>
+          <Box component="span" sx={{ px: 1.25, py: 0.5, borderRadius: 999, bgcolor: T.greenSoft, color: T.greenDark, fontSize: "0.78rem", fontWeight: 700, whiteSpace: "nowrap" }}>{r.pressure}</Box>
+          <Box className="go" component="span" sx={{ display: "inline-flex", alignItems: "center", gap: 0.5, whiteSpace: "nowrap", px: 1.5, py: 0.6, borderRadius: 999, border: `1px solid ${T.border}`, fontSize: "0.82rem", fontWeight: 700, color: T.ink, transition: "all .2s", "& svg": { transition: "transform .2s" } }}>
             View range <ArrowForwardRoundedIcon sx={{ fontSize: 16 }} />
           </Box>
         </Box>
