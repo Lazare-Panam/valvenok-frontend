@@ -55,6 +55,11 @@ const BRANDS = [
     href: "/brands/susin",
   },
   {
+    name: "Adaptix",
+    logo: "/brands-temp/adaptix-logo.png",
+    desc: "Sanitary tri-clamp fittings for dairy, food, pharma and biotech: clamps, ferrules, blind covers and sight glass end caps.",
+  },
+  {
     name: "Mars Valves",
     logo: "https://pblol2.blob.core.windows.net/valvenok-images/brands/mars.png",
     desc: "Industrial valve solutions for a wide range of flow control applications.",
