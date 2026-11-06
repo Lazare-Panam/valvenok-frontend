@@ -77,7 +77,9 @@ export default function Navbar() {
     if (!row) return;
     checkRow();
     const ro = new ResizeObserver(checkRow);
-    ro.observe(row);
+    // watch the tabs and the hidden copy too: at the font-size breakpoints their width
+    // changes while the row's own width barely does
+    [row, groupsRef.current, plainRef.current].forEach((el) => el && ro.observe(el));
     document.fonts?.ready.then(checkRow).catch(() => {});
     return () => ro.disconnect();
   }, [checkRow]);

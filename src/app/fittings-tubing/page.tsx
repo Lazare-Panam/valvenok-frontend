@@ -53,7 +53,7 @@ export default function FittingsTubingPage() {
               textShadow: "0px 2px 10px rgba(0,0,0,0.3)",
             }}
           >
-            Fittings & Tubing
+            Tubings & Fittings
           </Typography>
           <Typography
             sx={{
@@ -438,7 +438,7 @@ export default function FittingsTubingPage() {
             variant="h2"
             sx={{ fontSize: { xs: 24, md: 30 }, fontWeight: 700, mb: 2 }}
           >
-            Fittings & Tubing Applications
+            Tubings & Fittings Applications
           </Typography>
           <Grid container spacing={2}>
             {[

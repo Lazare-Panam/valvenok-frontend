@@ -28,7 +28,7 @@ const GROUPS: { group: string; links: { label: string; href: string }[] }[] = [
     ],
   },
   {
-    group: "Fittings & Tubing",
+    group: "Tubings & Fittings",
     links: [
       {
         label: "JIC Connectors",

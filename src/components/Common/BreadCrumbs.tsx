@@ -71,7 +71,7 @@ const ACRONYMS = new Set([
 const DEFAULT_LABELS: Record<string, string> = {
   'hydrogen-cryogenic': 'Hydrogen & High Pressure',
   'dbb-manifolds': 'DBB & Manifolds',
-  'fittings-tubing': 'Fittings & Tubing',
+  'fittings-tubing': 'Tubings & Fittings',
   'pumps-seals': 'Pumps & Seals',
   'filters-sight-glass': 'Filters & Sight Glass',
   'quick-coupling-and-hoses': 'Quick Couplings & Hoses',

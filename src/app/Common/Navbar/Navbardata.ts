@@ -38,128 +38,8 @@ export const NAV_LINKS: NavLink[] = [
 
 export const NAV_GROUPS: NavGroup[] = [
   {
-    id: "hydrogen-cryogenic",
-    label: "Hydrogen & High Pressure",
-    href: "/hydrogen-cryogenic",
-    columns: [
-      {
-        header: "Hydrogen Valves",
-        href: "/high-pressure/valves",
-        items: [
-         
-          {
-            label: "Needle Valves",
-            href: "/high-pressure/valves/needle-valves",
-            children: [
-              { brand: "Panam", label: "High Pressure Needle Valves", href: "/high-pressure/valves/needle-valves/products?brand=Panam" },
-              { brand: "Hiflux", label: "High Pressure Needle Valves", href: "/high-pressure/valves/needle-valves/products?brand=Hiflux" },
-              { label: "View All Products", href: "/high-pressure/valves/needle-valves/products" },
-            ],
-          },
-          {
-            label: "Ball Valves",
-            href: "/high-pressure/valves/ball-valves",
-            children: [
-              { brand: "Panam", label: "High Pressure Ball Valves", href: "/high-pressure/valves/ball-valves/products?brand=Panam" },
-              { brand: "Hiflux", label: "High Pressure Ball Valves", href: "/high-pressure/valves/ball-valves/products?brand=Hiflux" },
-              { label: "View All Products", href: "/high-pressure/valves/ball-valves/products" },
-            ],
-          },
-          {
-            label: "Check Valves",
-            href: "/high-pressure/valves/check-valves",
-            children: [
-              { label: "View All Products", href: "/high-pressure/valves/check-valves/products" },
-            ],
-          },
-          {
-            label: "Air Operated Valves",
-            href: "/high-pressure/valves/aov",
-            children: [
-              { label: "View All Products", href: "/high-pressure/valves/aov/products" },
-            ],
-          },
-          {
-            label: "DBB Valves",
-            href: "/high-pressure/valves/dbb-valves",
-            children: [
-              { label: "View All Products", href: "/high-pressure/valves/dbb-valves/products" },
-            ],
-          },
-          { label: "Safety & Relief Valves", href: "/hydrogen-cryogenic/valves/products?type=Safety%20Valve" },
-          { label: "Special Valves", href: "/hydrogen-cryogenic/valves/products?type=Special%20Valve" },
-          { label: "2-Valve Manifolds", href: "/high-pressure/manifolds" },
-        ],
-      },
-      {
-        header: "Hydrogen Fittings",
-        href: "/high-pressure/fittings",
-        items: [
-          
-          {
-            label: "High Pressure Fittings",
-            href: "/high-pressure/fittings",
-            children: [
-              { brand: "Panam", label: "High Pressure Fittings", href: "/high-pressure/fittings/products?brand=Panam" },
-              { brand: "Hiflux", label: "High Pressure Fittings", href: "/high-pressure/fittings/products?brand=Hiflux" },
-              { label: "View All Models", href: "/high-pressure/fittings/products" },
-            ],
-          },
-          {
-            label: "Pipe Fittings",
-            href: "/high-pressure/pipe-fittings",
-            children: [
-              { label: "Adapters", href: "/high-pressure/pipe-fittings/adapters" },
-              { label: "Elbows", href: "/high-pressure/pipe-fittings/elbows" },
-              { label: "End Connections", href: "/high-pressure/pipe-fittings/end-connections" },
-              { label: "Hex Couplings", href: "/high-pressure/pipe-fittings/hex-coupling" },
-              { label: "Hex Nipples", href: "/high-pressure/pipe-fittings/hex-nipples" },
-              { label: "Tees & Crosses", href: "/high-pressure/pipe-fittings/tees-cross" },
-            ],
-          },
-          { label: "Manifold Blocks", href: "/hydrogen-cryogenic/fittings/products?type=Manifold%20Block" },
-          { label: "Cone & Threaded Nipples", href: "/high-pressure/cone-threaded-nipples" },
-          { label: "Seals & Glands", href: "/high-pressure/seals-glands" },
-        ],
-      },
-      {
-        header: "Hydrogen Tubing",
-        href: "/high-pressure/tubing",
-        items: [
-          {
-            label: "Tubing",
-            href: "/high-pressure/tubing",
-            children: [
-              { brand: "Panam", label: "High Pressure Tubing", href: "/high-pressure/tubing/products?brand=Panam" },
-              { brand: "Hiflux", label: "High Pressure Tubing", href: "/high-pressure/tubing/products?brand=Hiflux" },
-              { label: "View All Tubing", href: "/high-pressure/tubing/products" },
-            ],
-          },
-          { label: "Tubing & Tooling", href: "/hydrogen-cryogenic/tube" },
-          {
-            label: "Tube Supports",
-            href: "/high-pressure/tubing/tube-supports",
-          },
-        ],
-      },
-      {
-        header: "Gas & Cryogenic",
-        href: "/high-pressure/valves/gas-valves",
-        items: [
-          { label: "Hydrogen Cylinder Valves", href: "/hydrogen-cryogenic/hydrogen" },
-          { label: "LPG Cylinder Valves", href: "/hydrogen-cryogenic/lpg" },
-          { label: "Industrial Gas Valves", href: "/hydrogen-cryogenic/industrial-gas" },
-          { label: "All Gas & Cylinder Valves", href: "/high-pressure/valves/gas-valves" },
-          { label: "Cryogenic Butterfly Valves", href: "/valves/industrial-valves/butterfly-valves/butt-welded-butterfly-valve" },
-          { label: "Triple Offset (Cryogenic)", href: "/valves/industrial-valves/butterfly-valves/triple-offset-butterfly-valve" },
-          { label: "Anti-Condensation (Cryogenic)", href: "/valves/industrial-valves/butterfly-valves/anti-condensation-butterfly-valve" },
-        ],
-      },
-    ],
-  },
-  {
     id: "valves",
-    label: "Valves",
+    label: "Valves & Manifolds",
     href: "/valves",
     columns: [
       {
@@ -272,6 +152,42 @@ export const NAV_GROUPS: NavGroup[] = [
           {
             label: "Relief Valves",
             href: "/valves/instrumentation-valves/relief-valves",
+          },
+          {
+            label: "Double Block & Bleed Valves",
+            href: "/dbb-manifolds/double-block-and-bleed-valves",
+            children: [
+              {
+                label: "Flange to Flange",
+                href: "/dbb-manifolds/double-block-and-bleed-valves/flange-to-flange",
+              },
+              {
+                label: "Flange to Pipe",
+                href: "/dbb-manifolds/double-block-and-bleed-valves/flange-to-pipe",
+              },
+              {
+                label: "Pipe to Pipe",
+                href: "/dbb-manifolds/double-block-and-bleed-valves/pipe-to-pipe",
+              },
+            ],
+          },
+          {
+            label: "Valve Manifolds",
+            href: "/dbb-manifolds/manifolds",
+            children: [
+              {
+                label: "2-Valve Manifold",
+                href: "/dbb-manifolds/manifolds/2VM",
+              },
+              {
+                label: "3-Valve Manifold",
+                href: "/dbb-manifolds/manifolds/3VM",
+              },
+              {
+                label: "5-Valve Manifold",
+                href: "/dbb-manifolds/manifolds/5VM",
+              },
+            ],
           },
         ],
       },
@@ -421,10 +337,138 @@ export const NAV_GROUPS: NavGroup[] = [
     ],
   },
   {
+    id: "hydrogen-cryogenic",
+    label: "Hydrogen & High Pressure",
+    href: "/hydrogen-cryogenic",
+    columns: [
+      {
+        header: "Hydrogen Valves",
+        href: "/high-pressure/valves",
+        items: [
+         
+          {
+            label: "Needle Valves",
+            href: "/high-pressure/valves/needle-valves",
+            children: [
+              { brand: "Panam", label: "High Pressure Needle Valves", href: "/high-pressure/valves/needle-valves/products?brand=Panam" },
+              { brand: "Hiflux", label: "High Pressure Needle Valves", href: "/high-pressure/valves/needle-valves/products?brand=Hiflux" },
+              { label: "View All Products", href: "/high-pressure/valves/needle-valves/products" },
+            ],
+          },
+          {
+            label: "Ball Valves",
+            href: "/high-pressure/valves/ball-valves",
+            children: [
+              { brand: "Panam", label: "High Pressure Ball Valves", href: "/high-pressure/valves/ball-valves/products?brand=Panam" },
+              { brand: "Hiflux", label: "High Pressure Ball Valves", href: "/high-pressure/valves/ball-valves/products?brand=Hiflux" },
+              { label: "View All Products", href: "/high-pressure/valves/ball-valves/products" },
+            ],
+          },
+          {
+            label: "Check Valves",
+            href: "/high-pressure/valves/check-valves",
+            children: [
+              { label: "View All Products", href: "/high-pressure/valves/check-valves/products" },
+            ],
+          },
+          {
+            label: "Air Operated Valves",
+            href: "/high-pressure/valves/aov",
+            children: [
+              { label: "View All Products", href: "/high-pressure/valves/aov/products" },
+            ],
+          },
+          {
+            label: "DBB Valves",
+            href: "/high-pressure/valves/dbb-valves",
+            children: [
+              { label: "View All Products", href: "/high-pressure/valves/dbb-valves/products" },
+            ],
+          },
+          { label: "Safety & Relief Valves", href: "/hydrogen-cryogenic/valves/products?type=Safety%20Valve" },
+          { label: "Special Valves", href: "/hydrogen-cryogenic/valves/products?type=Special%20Valve" },
+          { label: "2-Valve Manifolds", href: "/high-pressure/manifolds" },
+        ],
+      },
+      {
+        header: "Hydrogen Fittings",
+        href: "/high-pressure/fittings",
+        items: [
+          
+          {
+            label: "High Pressure Fittings",
+            href: "/high-pressure/fittings",
+            children: [
+              { brand: "Panam", label: "High Pressure Fittings", href: "/high-pressure/fittings/products?brand=Panam" },
+              { brand: "Hiflux", label: "High Pressure Fittings", href: "/high-pressure/fittings/products?brand=Hiflux" },
+              { label: "View All Models", href: "/high-pressure/fittings/products" },
+            ],
+          },
+          {
+            label: "Pipe Fittings",
+            href: "/high-pressure/pipe-fittings",
+            children: [
+              { label: "Adapters", href: "/high-pressure/pipe-fittings/adapters" },
+              { label: "Elbows", href: "/high-pressure/pipe-fittings/elbows" },
+              { label: "End Connections", href: "/high-pressure/pipe-fittings/end-connections" },
+              { label: "Hex Couplings", href: "/high-pressure/pipe-fittings/hex-coupling" },
+              { label: "Hex Nipples", href: "/high-pressure/pipe-fittings/hex-nipples" },
+              { label: "Tees & Crosses", href: "/high-pressure/pipe-fittings/tees-cross" },
+            ],
+          },
+          { label: "Manifold Blocks", href: "/hydrogen-cryogenic/fittings/products?type=Manifold%20Block" },
+          { label: "Cone & Threaded Nipples", href: "/high-pressure/cone-threaded-nipples" },
+          { label: "Seals & Glands", href: "/high-pressure/seals-glands" },
+        ],
+      },
+      {
+        header: "Hydrogen Tubing",
+        href: "/high-pressure/tubing",
+        items: [
+          {
+            label: "Tubing",
+            href: "/high-pressure/tubing",
+            children: [
+              { brand: "Panam", label: "High Pressure Tubing", href: "/high-pressure/tubing/products?brand=Panam" },
+              { brand: "Hiflux", label: "High Pressure Tubing", href: "/high-pressure/tubing/products?brand=Hiflux" },
+              { label: "View All Tubing", href: "/high-pressure/tubing/products" },
+            ],
+          },
+          { label: "Tubing & Tooling", href: "/hydrogen-cryogenic/tube" },
+          {
+            label: "Tube Supports",
+            href: "/high-pressure/tubing/tube-supports",
+          },
+        ],
+      },
+      {
+        header: "Gas & Cryogenic",
+        href: "/high-pressure/valves/gas-valves",
+        items: [
+          { label: "Hydrogen Cylinder Valves", href: "/hydrogen-cryogenic/hydrogen" },
+          { label: "LPG Cylinder Valves", href: "/hydrogen-cryogenic/lpg" },
+          { label: "Industrial Gas Valves", href: "/hydrogen-cryogenic/industrial-gas" },
+          { label: "All Gas & Cylinder Valves", href: "/high-pressure/valves/gas-valves" },
+          { label: "Cryogenic Butterfly Valves", href: "/valves/industrial-valves/butterfly-valves/butt-welded-butterfly-valve" },
+          { label: "Triple Offset (Cryogenic)", href: "/valves/industrial-valves/butterfly-valves/triple-offset-butterfly-valve" },
+          { label: "Anti-Condensation (Cryogenic)", href: "/valves/industrial-valves/butterfly-valves/anti-condensation-butterfly-valve" },
+        ],
+      },
+    ],
+  },
+  {
     id: "fittings-tubing",
-    label: "Fittings & Tubing",
+    label: "Tubings & Fittings",
     href: "/fittings-tubing",
     columns: [
+      {
+        header: "Tubings",
+        href: "/fittings-tubing/tubing",
+        items: [
+          { label: "Instrumentation Tubing & Tube Supports", href: "/fittings-tubing/tubing" },
+          { label: "High Pressure & Hydrogen Fittings (10,000 psi +)", href: "/high-pressure/fittings" },
+        ],
+      },
       {
         header: "Instrumentation Fittings",
         href: "/fittings-tubing/instrumentation-fittings",
@@ -519,15 +563,6 @@ export const NAV_GROUPS: NavGroup[] = [
           { label: "Pneumatic Tubing", href: "/fittings-tubing/pneumatic-tubing" },
         ],
       },
-      {
-        header: "Tubing & Hoses",
-        href: "/fittings-tubing/tubing",
-        items: [
-          { label: "Instrumentation Tubing & Tube Supports", href: "/fittings-tubing/tubing" },
-          { label: "Quick Couplings & Hoses", href: "/quick-coupling-and-hoses/quick-coupling" },
-          { label: "High Pressure & Hydrogen Fittings (10,000 psi +)", href: "/high-pressure/fittings" },
-        ],
-      },
     ],
   },
   {
@@ -535,49 +570,6 @@ export const NAV_GROUPS: NavGroup[] = [
     label: "Instrumentation",
     href: "/instrumentation",
     columns: [
-    
-      {
-        header: "DBB & Manifolds",
-        href: "/dbb-manifolds",
-        items: [
-          {
-            label: "Double Block & Bleed Valves",
-            href: "/dbb-manifolds/double-block-and-bleed-valves",
-            children: [
-              {
-                label: "Flange to Flange",
-                href: "/dbb-manifolds/double-block-and-bleed-valves/flange-to-flange",
-              },
-              {
-                label: "Flange to Pipe",
-                href: "/dbb-manifolds/double-block-and-bleed-valves/flange-to-pipe",
-              },
-              {
-                label: "Pipe to Pipe",
-                href: "/dbb-manifolds/double-block-and-bleed-valves/pipe-to-pipe",
-              },
-            ],
-          },
-          {
-            label: "Valve Manifolds",
-            href: "/dbb-manifolds/manifolds",
-            children: [
-              {
-                label: "2-Valve Manifold",
-                href: "/dbb-manifolds/manifolds/2VM",
-              },
-              {
-                label: "3-Valve Manifold",
-                href: "/dbb-manifolds/manifolds/3VM",
-              },
-              {
-                label: "5-Valve Manifold",
-                href: "/dbb-manifolds/manifolds/5VM",
-              },
-            ],
-          },
-        ],
-      },
       {
         header: "Gas Pressure Regulators",
         href: "/instrumentation/gas-pressure-regulator",
@@ -608,5 +600,4 @@ export const NAV_GROUPS: NavGroup[] = [
       },
     ],
   },
- 
 ];

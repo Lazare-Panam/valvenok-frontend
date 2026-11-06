@@ -102,7 +102,7 @@ function Hero() {
       <Box aria-hidden sx={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(60,110,180,0.10) 1px, transparent 1px)", backgroundSize: "22px 22px", maskImage: "linear-gradient(180deg, black, transparent 80%)", pointerEvents: "none" }} />
       <Box sx={{ ...wrap, position: "relative", textAlign: "center" }}>
         <Box sx={{ display: "flex", justifyContent: "center" }}>
-          <Kicker>Fittings & Tubing</Kicker>
+          <Kicker>Tubings & Fittings</Kicker>
         </Box>
         <Box component="h1" sx={{ m: 0, mb: 2, fontSize: { xs: "2.4rem", sm: "3.2rem", md: "4.2rem" }, fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1.02, color: T.ink }}>
           <Words text="Sanitary" />
