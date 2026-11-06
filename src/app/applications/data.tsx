@@ -15,8 +15,8 @@ import PrecisionManufacturingOutlinedIcon from "@mui/icons-material/PrecisionMan
 import LocalDrinkOutlinedIcon from "@mui/icons-material/LocalDrinkOutlined";
 
 const BLOB = "https://pblol2.blob.core.windows.net/valvenok-images/banner-images";
-// New photos waiting for blob upload (see ~/Downloads/valvenok-blob-upload/applications)
-const TEMP = "/applications-temp";
+// Industry photos in blob storage (folder "Applications", capital A)
+const APP_IMG = "https://pblol2.blob.core.windows.net/valvenok-images/Applications";
 
 export type Product = { name: string; why: string; href: string; img?: string };
 export type App = {
@@ -111,7 +111,7 @@ export const APPS: App[] = [
     title: "Valves for Chemical, Petrochemical and Refining | Valvenok",
     description: "PTFE and PFA lined butterfly valves, bellows sealed globe valves, control and ball valves and mechanical seals for chemical and refinery service.",
     intro: "Corrosive and hazardous media need the right wetted materials and leak-tight stem seals. We supply lined and bellows-sealed valves, control valves, and the mechanical seals that keep pumps tight.",
-    image: `${TEMP}/chemical-refining.jpg`,
+    image: `${APP_IMG}/chemical-refining.jpg`,
     imageAlt: "Refinery with storage tanks and pipework at sunset",
     tint: "#F3EEFF",
     Icon: ScienceOutlinedIcon,
@@ -142,7 +142,7 @@ export const APPS: App[] = [
     title: "Tri-Clamp Fittings for Food, Dairy and Pharma | Valvenok",
     description: "Adaptix tri-clamp clamps, ferrules, blind covers and sight glass end caps for dairy, food, pharma and biotech lines. ISO 2852 / DIN 32676 / BS 4825, 3.1 certificate.",
     intro: "Dairy, food, pharma and biotech lines are cleaned in place and often sterilised with steam, so every joint has to open quickly and leave a smooth bore with nowhere for product to collect. We supply Adaptix tri-clamp fittings for these lines: clamps, weld-on ferrules, blind covers and sight glass end caps, DN 6 to DN 300.",
-    image: `${TEMP}/food-dairy-pharma.jpg`,
+    image: `${APP_IMG}/food-dairy-pharma.jpg`,
     imageAlt: "Polished stainless steel process tanks and hygienic pipework",
     tint: "#EEF9EA",
     Icon: LocalDrinkOutlinedIcon,
@@ -235,7 +235,7 @@ export const APPS: App[] = [
     title: "Marine and Shipbuilding Valves | Valvenok",
     description: "Ship-building butterfly valves, marine valves, check valves and seawater-capable pumps for shipbuilding and marine service. UK supply.",
     intro: "Ships and offshore vessels need compact valves that resist seawater and meet shipbuilding standards. We supply ship-building butterfly valves, marine valves, check valves and pumps for seawater duty.",
-    image: `${TEMP}/marine-shipbuilding.jpg`,
+    image: `${APP_IMG}/marine-shipbuilding.jpg`,
     imageAlt: "Container ship being loaded by gantry cranes",
     tint: "#E8F1FB",
     Icon: DirectionsBoatOutlinedIcon,
@@ -265,7 +265,7 @@ export const APPS: App[] = [
     title: "Cryogenic and LNG Valves | Valvenok",
     description: "Cryogenic butt-welded, triple offset and anti-condensation butterfly valves and gas cylinder valves for LNG, LPG and other liquefied gases.",
     intro: "Liquefied gases run far below ambient: LNG at about −162 °C and liquid nitrogen at about −196 °C. Valves need materials that stay tough and stems that keep the packing warm enough to seal. We supply cryogenic butterfly valves and gas cylinder valves.",
-    image: `${TEMP}/lng-cryogenic.jpg`,
+    image: `${APP_IMG}/lng-cryogenic.jpg`,
     imageAlt: "LNG tanks on a barge with a crane",
     tint: "#EEF2FF",
     Icon: AcUnitOutlinedIcon,
