@@ -11,6 +11,29 @@ import SectionHeader from "./SectionHeader";
 // Same data as the original Categories section.
 const CATEGORIES = [
   {
+    name: "Valves",
+    img: "https://pblol2.blob.core.windows.net/mars-valves/ball-valves/series-10-10.png",
+    href: "/valves/instrumentation-valves/ball-valves",
+    tag: "Heavy Duty",
+    count: "280+",
+    subs: [
+      { name: "Process Valves", href: "/valves/" },
+      { name: "Sealed Valves", href: "/valves/sealed-valves" },
+      {
+        name: "Instrumentation Valves",
+        href: "/valves/instrumentation-valves",
+      },
+    ],
+  },
+  {
+    name: "Actuators",
+    img: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/hydraulic/adf.webp",
+    href: "/pneumatic/actuators",
+    tag: "Precision",
+    count: "50+",
+    subs: [{ name: "Pneumatic Actuators", href: "/pneumatic/actuators" }],
+  },
+  {
     name: "Hydrogen & High Pressure",
     img: "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/YEX-1100.png",
     href: "/hydrogen-cryogenic",
@@ -25,21 +48,6 @@ const CATEGORIES = [
       {
         name: "Industrial Gas Valves",
         href: "/hydrogen-cryogenic/industrial-gas",
-      },
-    ],
-  },
-  {
-    name: "Valves",
-    img: "https://pblol2.blob.core.windows.net/mars-valves/ball-valves/series-10-10.png",
-    href: "/valves/instrumentation-valves/ball-valves",
-    tag: "Heavy Duty",
-    count: "280+",
-    subs: [
-      { name: "Process Valves", href: "/valves/" },
-      { name: "Sealed Valves", href: "/valves/sealed-valves" },
-      {
-        name: "Instrumentation Valves",
-        href: "/valves/instrumentation-valves",
       },
     ],
   },
@@ -66,7 +74,6 @@ const CATEGORIES = [
       { name: "SS Tubing", href: "/fittings-tubing/tubing" },
     ],
   },
-
   {
     name: "Filters",
     img: "https://pblol2.blob.core.windows.net/valvenok-images/products/filters/DFM_Mega_Flow_Rate_Filter.png",
@@ -76,26 +83,6 @@ const CATEGORIES = [
     subs: [
       { name: "Sight Glass", href: "/filters-sight-glass/sight-glass" },
       { name: "Filtration", href: "/filters-sight-glass/filtration" },
-    ],
-  },
-
-  {
-    name: "Actuators",
-    img: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/hydraulic/adf.webp",
-    href: "/pneumatic/actuators",
-    tag: "Precision",
-    count: "50+",
-    subs: [{ name: "Pneumatic Actuators", href: "/pneumatic/actuators" }],
-  },
-  {
-    name: "Pumps & Mechanical Seal",
-    img: "https://pblol2.blob.core.windows.net/valvenok-images/products/pumps/HQIC.webp",
-    href: "/pumps-seals",
-    tag: "Fluid Control",
-    count: "180+",
-    subs: [
-      { name: "Mechanical Seals", href: "/pumps-seals/seals" },
-      { name: "Pumps", href: "/pumps-seals/pumps" },
     ],
   },
 ];
@@ -113,7 +100,7 @@ const PANEL_BG = [
 const ACTIVE_BG = `radial-gradient(700px 420px at 85% 50%, #FFFFFF 0%, transparent 70%), linear-gradient(135deg, #FFFFFF 0%, ${"#EEF9EA"} 100%)`;
 
 export default function CoreProducts() {
-  const [active, setActive] = useState(2);
+  const [active, setActive] = useState(3); // Fittings & Instrumentation Valves
 
   return (
     <Box component="section" sx={{ ...textReset, width: "100%", boxSizing: "border-box", maxWidth: T.maxWidth, mx: "auto", px: { xs: 2, md: 4 }, py: { xs: 8, md: 12 } }}>

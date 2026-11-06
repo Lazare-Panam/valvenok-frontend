@@ -7,18 +7,16 @@ import TuneOutlinedIcon from "@mui/icons-material/TuneOutlined";
 import BuildOutlinedIcon from "@mui/icons-material/BuildOutlined";
 import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
-import LoopOutlinedIcon from "@mui/icons-material/LoopOutlined";
 import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
 import { T, textReset } from "./tokens";
 
 // Each card opens its category page (not a deep sub-page).
 const QUICK_LINKS = [
-  { name: "Hydrogen & High Pressure", href: "/hydrogen-cryogenic", icon: AcUnitOutlinedIcon },
   { name: "Valves", href: "/valves", icon: TuneOutlinedIcon },
+  { name: "Actuators", href: "/pneumatic/actuators", icon: SettingsOutlinedIcon },
+  { name: "Hydrogen & High Pressure", href: "/hydrogen-cryogenic", icon: AcUnitOutlinedIcon },
   { name: "Fittings & Instrumentation", href: "/fittings-tubing", icon: BuildOutlinedIcon },
   { name: "Filters", href: "/filters-sight-glass", icon: FilterAltOutlinedIcon },
-  { name: "Actuators", href: "/pneumatic/actuators", icon: SettingsOutlinedIcon },
-  { name: "Pumps & Mechanical Seal", href: "/pumps-seals", icon: LoopOutlinedIcon },
 ];
 
 export default function QuickNavModern() {
@@ -27,7 +25,7 @@ export default function QuickNavModern() {
       <Box
         sx={{
           display: "grid",
-          gridTemplateColumns: { xs: "1fr 1fr", sm: "repeat(3, 1fr)", lg: "repeat(6, 1fr)" },
+          gridTemplateColumns: { xs: "1fr 1fr", sm: "repeat(3, 1fr)", lg: "repeat(5, 1fr)" },
           gap: 2,
         }}
       >
