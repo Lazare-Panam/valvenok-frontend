@@ -489,8 +489,8 @@ export const NAV_GROUPS: NavGroup[] = [
             label: "Tri-Clamp Clamps",
             href: "/fittings-tubing/sanitary-fittings/tri-clamp-clamps",
             children: [
-              { brand: "Adaptix", label: "Single Pin Heavy-Duty Tri-Clamp" },
-              { brand: "Adaptix", label: "Double-Bolted High-Pressure Clamp" },
+              { brand: "Adaptix", label: "Single Pin Heavy-Duty Tri-Clamp", href: "/fittings-tubing/sanitary-fittings/tri-clamp-clamps/products?type=single" },
+              { brand: "Adaptix", label: "Double-Bolted High-Pressure Clamp", href: "/fittings-tubing/sanitary-fittings/tri-clamp-clamps/products?type=double" },
             ],
           },
           {

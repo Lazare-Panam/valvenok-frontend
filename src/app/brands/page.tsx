@@ -56,7 +56,7 @@ const BRANDS = [
   },
   {
     name: "Adaptix",
-    logo: "/brands-temp/adaptix-logo.png",
+    logo: "https://pblol2.blob.core.windows.net/valvenok-images/brands/Adaptix/adaptix-logo.png",
     desc: "Sanitary tri-clamp fittings for dairy, food, pharma and biotech: clamps, ferrules, blind covers and sight glass end caps.",
   },
   {

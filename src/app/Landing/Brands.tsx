@@ -23,7 +23,7 @@ export const BRANDS = [
   { name: 'Fisher', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/fisher-logo.jpg' },
   { name: 'Batu Valves', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/batu-logo.png' },
   { name: 'Spac Pneumatic', logo: 'https://pblol2.blob.core.windows.net/spac-images/spac-logo.webp' },
-  { name: 'Adaptix', logo: '/brands-temp/adaptix-logo.png' },
+  { name: 'Adaptix', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/Adaptix/adaptix-logo.png' },
   { name: 'Tormac', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/tormac.svg' },
   { name: 'Siemens', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/siemens-logo.png' },
   { name: 'Endress Hauser', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/endress-hauser.svg' },

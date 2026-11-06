@@ -19,7 +19,7 @@ import { wrap, Kicker, H2, Lead, pillBtn } from "@/src/app/hydrogen-cryogenic/co
 import { FAQ } from "@/src/app/news/components/Article";
 import { SAN_FERRULE_IMG, SAN_BRAND, SAN_BRAND_LOGO } from "./data";
 
-const IMG = "/sanitary-temp";
+const IMG = "https://pblol2.blob.core.windows.net/valvenok-images/brands/Adaptix";
 
 type Category = {
   key: "clamps" | "ferrules";

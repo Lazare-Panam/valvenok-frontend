@@ -205,6 +205,7 @@ export default function Navbar() {
                     gap: 0.25,
                     px: 1.5,
                     py: 0.75,
+                    "@media (max-width:1339.95px)": { px: 1, fontSize: "0.86rem" },
                     borderRadius: 999,
                     color: active ? GREEN_DARK : INK,
                     bgcolor: active ? "#EEF9EA" : "transparent",
@@ -228,7 +229,7 @@ export default function Navbar() {
               );
             })}
 
-            <Box sx={{ width: "1px", height: 20, bgcolor: BORDER, mx: 1 }} />
+            <Box sx={{ width: "1px", height: 20, bgcolor: BORDER, mx: 1, "@media (max-width:1339.95px)": { mx: 0.5 } }} />
 
             <NavLinks />
           </Box>

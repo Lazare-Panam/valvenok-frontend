@@ -6,7 +6,7 @@ import { SERIES, SAN_BASE } from "../data";
 
 export const CLAMP_BASE = `${SAN_BASE}/tri-clamp-clamps`;
 /** Model list + model pages published? While false, links to them are shown but not clickable. */
-export const MODELS_LIVE = false;
+export const MODELS_LIVE: boolean = true;
 
 export type ClampType = "Single pin" | "Double-bolted";
 

@@ -1,12 +1,12 @@
 // Sanitary (tri-clamp) fittings, from the Adaptix "Dairy and Pharma Fittings" datasheets.
-// Photos are temporary (public/sanitary-temp) until they are uploaded to blob storage.
+// Photos live in blob storage (valvenok-images/brands/Adaptix).
 
 export const SAN_BASE = "/fittings-tubing/sanitary-fittings";
-const IMG = "/sanitary-temp";
+const IMG = "https://pblol2.blob.core.windows.net/valvenok-images/brands/Adaptix";
 export const SAN_HERO_IMG = `${IMG}/tri-clamps-range.jpg`;
 export const SAN_FERRULE_IMG = `${IMG}/ferrules.jpg`;
 export const SAN_BRAND = "Adaptix";
-export const SAN_BRAND_LOGO = "/brands-temp/adaptix-logo.png";
+export const SAN_BRAND_LOGO = "https://pblol2.blob.core.windows.net/valvenok-images/brands/Adaptix/adaptix-logo.png";
 
 export type SanSeries = {
   slug: string;
