@@ -43,6 +43,7 @@ const CATEGORIES: Category[] = [
     products: ["Single pin heavy-duty tri-clamp", "Double-bolted high-pressure clamp"],
     pressure: "up to 50 bar",
     img: `${IMG}/single-pin-clamp.jpg`,
+    href: "/fittings-tubing/sanitary-fittings/tri-clamp-clamps",
   },
   {
     key: "ferrules",

@@ -85,6 +85,7 @@ const DEFAULT_LABELS: Record<string, string> = {
   'l-port-vs-t-port-3-way-ball-valve': 'L-Port vs T-Port 3-Way Ball Valves',
   about: 'About Us',
   contact: 'Contact Us',
+  'tri-clamp-clamps': 'Tri-Clamp Clamps',
   '2VM': '2-Valve Manifolds',
   '3VM': '3-Valve Manifolds',
   '5VM': '5-Valve Manifolds',
