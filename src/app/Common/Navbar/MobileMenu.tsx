@@ -192,6 +192,7 @@ export default function MobileMenu({ onClose }: Props) {
                 key={child.href ?? child.label}
                 component="a"
                 href={child.href}
+                disabled={!child.href}
                 onClick={onClose}
                 sx={{ px: 2, py: 1, borderBottom: "1px solid #f5f5f5" }}
               >

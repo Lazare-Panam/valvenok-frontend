@@ -421,14 +421,13 @@ export const NAV_GROUPS: NavGroup[] = [
     ],
   },
   {
-    id: "instrumentation",
-    label: "Instrumentation",
-    href: "/instrumentation",
+    id: "fittings-tubing",
+    label: "Fittings & Tubing",
+    href: "/fittings-tubing",
     columns: [
-    
       {
         header: "Instrumentation Fittings",
-        href: "/fittings-tubing",
+        href: "/fittings-tubing/instrumentation-fittings",
         items: [
           {
             label: "Tube Fittings",
@@ -479,8 +478,62 @@ export const NAV_GROUPS: NavGroup[] = [
               { label: "Tees", href: "/fittings-tubing/instrumentation-fittings/weld-fittings/tees" },
             ],
           },
+          { label: "Swivel Gauge Adaptors", href: "/fittings-tubing/instrumentation-fittings/swivel-gauge-adaptors" },
         ],
       },
+      {
+        header: "Sanitary Fittings",
+        href: "/fittings-tubing/sanitary-fittings",
+        items: [
+          {
+            label: "Tri-Clamp Clamps",
+            children: [
+              { brand: "Adaptix", label: "Single Pin Heavy-Duty Tri-Clamp" },
+              { brand: "Adaptix", label: "Double-Bolted High-Pressure Clamp" },
+            ],
+          },
+          {
+            label: "Ferrules & End Caps",
+            children: [
+              { brand: "Adaptix", label: "Tri-Clamp Ferrule" },
+              { brand: "Adaptix", label: "Tri-Clamp Blind Cover" },
+              { brand: "Adaptix", label: "Sight Glass End Cap" },
+            ],
+          },
+        ],
+      },
+      {
+        header: "Pneumatic Fittings & Tubing",
+        href: "/fittings-tubing/pneumatic-fittings",
+        items: [
+          {
+            label: "Push-In Fittings",
+            href: "/fittings-tubing/pneumatic-fittings",
+            children: [
+              { brand: "SPAC", label: "A-Series Push-In Fittings", href: "/fittings-tubing/pneumatic-fittings/a-series" },
+              { label: "E-Series Push-In Fittings", href: "/fittings-tubing/pneumatic-fittings/e-series" },
+            ],
+          },
+          { label: "Pneumatic Tubing", href: "/fittings-tubing/pneumatic-tubing" },
+        ],
+      },
+      {
+        header: "Tubing & Hoses",
+        href: "/fittings-tubing/tubing",
+        items: [
+          { label: "Instrumentation Tubing & Tube Supports", href: "/fittings-tubing/tubing" },
+          { label: "Quick Couplings & Hoses", href: "/quick-coupling-and-hoses/quick-coupling" },
+          { label: "High Pressure & Hydrogen Fittings (10,000 psi +)", href: "/high-pressure/fittings" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "instrumentation",
+    label: "Instrumentation",
+    href: "/instrumentation",
+    columns: [
+    
       {
         header: "DBB & Manifolds",
         href: "/dbb-manifolds",
@@ -521,17 +574,6 @@ export const NAV_GROUPS: NavGroup[] = [
               },
             ],
           },
-        ],
-      },
-      {
-        header: "Quick Coupling",
-        href: "/quick-coupling-and-hoses",
-        items: [
-          {
-            label: "Quick Coupling",
-            href: "/quick-coupling-and-hoses/quick-coupling",
-          },
-         
         ],
       },
       {

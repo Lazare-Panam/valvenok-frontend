@@ -67,7 +67,7 @@ function MenuRow({ label, href, active, onEnter, onClose, accent }: { label: str
     <Box
       component="a"
       href={href}
-      onClick={onClose}
+      onClick={href ? onClose : (e: React.MouseEvent) => e.preventDefault()}
       onMouseEnter={onEnter}
       onFocus={onEnter}
       sx={{
@@ -150,9 +150,9 @@ export default function MegaMenu({ group, onClose }: Props) {
                   {series.map((s) => (
                     <Box
                       key={s.href ?? s.label}
-                      component="a"
+                      component={s.href ? "a" : "div"}
                       href={s.href}
-                      onClick={onClose}
+                      onClick={s.href ? onClose : undefined}
                       sx={{
                         display: "flex",
                         alignItems: "center",
@@ -170,6 +170,8 @@ export default function MegaMenu({ group, onClose }: Props) {
                         "& svg": { fontSize: 15, color: "#B5C0B8", transition: "all .12s" },
                         "&:hover": { borderColor: "#BFE3B4", bgcolor: SOFT, color: GREEN },
                         "&:hover svg": { color: GREEN, transform: "translateX(2px)" },
+                        // No page yet: shown for reference, not clickable
+                        ...(!s.href && { cursor: "default", pointerEvents: "none", "& svg": { display: "none" } }),
                       }}
                     >
                       <Box component="span" sx={{ minWidth: 0 }}>
