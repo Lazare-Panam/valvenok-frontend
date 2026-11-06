@@ -628,6 +628,9 @@ function Cta() {
             <Box component={Link} href="/contact" sx={pillBtn(true)}>
               Get a quote <ArrowForwardRoundedIcon sx={{ fontSize: 18 }} />
             </Box>
+            <Box component={Link} href={`${SAN_BASE}/ferrules-end-caps`} sx={pillBtn(false)}>
+              Ferrules &amp; end caps
+            </Box>
             <Box component={Link} href={SAN_BASE} sx={pillBtn(false)}>
               All sanitary fittings
             </Box>

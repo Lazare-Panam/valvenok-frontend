@@ -54,6 +54,7 @@ const CATEGORIES: Category[] = [
     pressure: "up to 25 bar",
     img: SAN_FERRULE_IMG,
     cover: true,
+    href: "/fittings-tubing/sanitary-fittings/ferrules-end-caps",
   },
 ];
 const CAT = Object.fromEntries(CATEGORIES.map((c) => [c.key, c])) as Record<Category["key"], Category>;
@@ -502,7 +503,13 @@ function Quality() {
   );
 }
 
-const USES = ["Dairy and food processing", "Chemical processing", "Pharma and WFI transfer", "CIP / SIP cleaning loops", "Filtration", "Sampling points", "Fermentation and cell culture", "Filling lines", "Vessels and process tubing"];
+const FOOD_APP = "/applications/food-dairy-pharma";
+// Each use opens the industry page that covers it
+const USES: [string, string][] = [
+  ["Dairy and food processing", FOOD_APP], ["Chemical processing", "/applications/chemical"], ["Pharma and WFI transfer", FOOD_APP],
+  ["CIP / SIP cleaning loops", FOOD_APP], ["Filtration", FOOD_APP], ["Sampling points", FOOD_APP],
+  ["Fermentation and cell culture", FOOD_APP], ["Filling lines", FOOD_APP], ["Vessels and process tubing", FOOD_APP],
+];
 
 function Uses() {
   return (
@@ -511,8 +518,12 @@ function Uses() {
         <Box sx={{ p: { xs: 3, md: 4 }, borderRadius: "24px", background: "linear-gradient(120deg, #EAF4FF 0%, #F1FAEE 100%)", border: "1px solid #DCE6F5" }}>
           <Box component="h2" id="h2-uses" sx={{ m: 0, mb: 2, fontSize: { xs: "1.3rem", md: "1.55rem" }, fontWeight: 800, color: T.ink, letterSpacing: "-0.02em" }}>Where they’re used</Box>
           <Box component="ul" sx={{ m: 0, p: 0, listStyle: "none", display: "flex", flexWrap: "wrap", gap: 1 }}>
-            {USES.map((u) => (
-              <Box component="li" key={u} sx={{ px: 1.5, py: 0.75, borderRadius: 999, bgcolor: "#fff", border: `1px solid ${T.border}`, fontSize: "0.88rem", fontWeight: 600, color: T.body }}>{u}</Box>
+            {USES.map(([u, href]) => (
+              <Box component="li" key={u}>
+                <Box component={Link} href={href} sx={{ display: "inline-flex", alignItems: "center", gap: 0.5, px: 1.5, py: 0.75, borderRadius: 999, bgcolor: "#fff", border: `1px solid ${T.border}`, fontSize: "0.88rem", fontWeight: 600, color: T.body, textDecoration: "none", transition: "all .15s", "&:hover": { borderColor: T.greenDark, color: T.greenDark, bgcolor: T.greenSoft }, "&:hover svg": { transform: "translateX(2px)" } }}>
+                  {u} <ArrowForwardRoundedIcon sx={{ fontSize: 15, opacity: 0.6, transition: "transform .15s" }} />
+                </Box>
+              </Box>
             ))}
           </Box>
         </Box>

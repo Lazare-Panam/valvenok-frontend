@@ -85,13 +85,14 @@ const FERRULES: [string, string, string, string, string][] = [
   ["338.1", "323.9", "318.2", "28", "TCFR-338.323.28"],
 ];
 
-// Sight glass end caps: ISO, DIN, BS, clamp A, glass d1, thickness T, part code
-const SIGHT: [string, string, string, string, string, string, string][] = [
-  ["DN 6/8/10", "DIN 4/6/8/10", "½″–¾″", "25.4", "10", "10", "TCSG-K25.10.10"],
-  ["", "DIN 10/15/20", "", "34", "14", "8", "TCSG-K34.14.8"],
-  ["DN 8/10/15/20/25", "DIN 32/40", "1″–1½″", "50.5", "25", "10", "TCSG-K50.25.10"],
-  ["DN 32/40", "DIN 50", "2″", "64", "30", "10", "TCSG-K64.30.10"],
-];
+// Sight glass end caps (catalogue): glass d1 and thickness T per clamp size; the
+// catalogue lists the 12″ size at A 319 mm
+const SIGHT_D1 = ["10", "14", "25", "30", "35", "40", "50", "55", "60", "65", "70", "75", "80", "100", "100", "130", "130", "150", "150"];
+const SIGHT_T = ["10", "8", "10", "10", "10", "10", "10", "12", "16", "16", "16", "16", "16", "18", "18", "20", "20", "22", "22"];
+const SIGHT: [string, string, string, string, string, string, string][] = CLAMP_SIZES.map((r, i) => {
+  const a = r[3] === "319.3" ? "319" : r[3];
+  return [r[0], r[1], r[2], a, SIGHT_D1[i], SIGHT_T[i], `TCSG-${kCode(a)}.${SIGHT_D1[i]}.${SIGHT_T[i]}`];
+});
 
 const CLAMP_HEAD = (last: string) => ["Part code", "ISO 2852", "DIN 32676", "BS 4825", "Clamp A (mm)", last];
 
@@ -185,7 +186,6 @@ export const SERIES: SanSeries[] = [
     ],
     head: ["Part code", "ISO 2852", "DIN 32676", "BS 4825", "Clamp A (mm)", "Glass d1 (mm)", "T (mm)"],
     rows: SIGHT.map((r) => [r[6], dash(r[0]), dash(r[1]), dash(r[2]), r[3], r[4], r[5]]),
-    note: "Larger sizes on request.",
   },
 ];
 

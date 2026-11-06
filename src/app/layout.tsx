@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     template: "%s | Valvenok",
   },
   description:
-    "UK supplier of industrial valves, actuators and SS316 instrumentation fittings, plus hydrogen components, from 32 brands including PANAM.",
+    "UK supplier of industrial valves, actuators and SS316 instrumentation fittings, plus hydrogen components, from 27 brands including PANAM.",
   icons: {
     icon: "https://pblol2.blob.core.windows.net/valvenok-images/logo.png",
   },

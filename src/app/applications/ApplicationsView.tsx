@@ -31,7 +31,7 @@ function Hero() {
           </Box>
         </Box>
 
-        <Box sx={{ mt: { xs: 4, md: 6 }, display: "grid", gridTemplateColumns: { xs: "1fr 1fr", sm: "repeat(3, 1fr)", lg: "repeat(9, 1fr)" }, gap: { xs: 1, md: 1.25 } }}>
+        <Box sx={{ mt: { xs: 4, md: 6 }, display: "grid", gridTemplateColumns: { xs: "1fr 1fr", lg: "repeat(5, 1fr)" }, gap: { xs: 1, md: 1.25 }, maxWidth: { lg: 1000 }, mx: "auto" }}>
           {APPS.map((a, i) => (
             <Box
               key={a.slug}

@@ -68,7 +68,8 @@ export default function AppView({ slug }: { slug: string }) {
                     boxSizing: "border-box",
                     display: "flex",
                     flexDirection: "column",
-                    p: 2.5,
+                    p: 1.25,
+                    pb: 2.25,
                     borderRadius: "20px",
                     bgcolor: "#fff",
                     border: `1px solid ${T.border}`,
@@ -76,15 +77,21 @@ export default function AppView({ slug }: { slug: string }) {
                     transition: "all .2s",
                     "&:hover": { borderColor: "#BFE5B3", transform: "translateY(-3px)", boxShadow: T.shadowHover },
                     "&:hover .go": { bgcolor: T.green, color: T.greenDeep, borderColor: T.green },
+                    "&:hover .ph img": { transform: "scale(1.04)" },
                   }}
                 >
-                  <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 1.5 }}>
+                  {p.img && (
+                    <Box className="ph" sx={{ mb: 1.75, aspectRatio: "16 / 10", borderRadius: "14px", bgcolor: "#fff", border: `1px solid ${T.border}`, display: "grid", placeItems: "center", overflow: "hidden" }}>
+                      <Box component="img" src={p.img} alt={p.name} loading="lazy" sx={{ width: "82%", height: "82%", objectFit: "contain", transition: "transform .3s" }} />
+                    </Box>
+                  )}
+                  <Box sx={{ px: 1.25, display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 1.5 }}>
                     <Box sx={{ fontSize: "1.05rem", fontWeight: 800, color: T.ink, letterSpacing: "-0.01em" }}>{p.name}</Box>
                     <Box className="go" sx={{ flexShrink: 0, width: 32, height: 32, borderRadius: "50%", border: `1px solid ${T.border}`, display: "grid", placeItems: "center", color: T.ink, transition: "all .2s" }}>
                       <ArrowForwardRoundedIcon sx={{ fontSize: 17 }} />
                     </Box>
                   </Box>
-                  <Box sx={{ mt: 0.75, fontSize: "0.9rem", lineHeight: 1.55, color: T.body }}>{p.why}</Box>
+                  <Box sx={{ px: 1.25, mt: 0.75, fontSize: "0.9rem", lineHeight: 1.55, color: T.body }}>{p.why}</Box>
                 </Box>
               </Reveal>
             ))}

@@ -48,6 +48,40 @@ export default function Navbar() {
   const closeTimer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
   const navBarRef = React.useRef<HTMLDivElement>(null);
 
+  // Does the full menu row fit? Measured in the browser, because Safari, Chrome
+  // and page zoom render the same text at different widths. null = not measured yet.
+  const rowRef = React.useRef<HTMLDivElement>(null);
+  const groupsRef = React.useRef<HTMLDivElement>(null);
+  const plainRef = React.useRef<HTMLDivElement>(null);
+  const [collapsed, setCollapsed] = React.useState<boolean | null>(null);
+  const [tight, setTight] = React.useState(false);
+  const tightRef = React.useRef(false);
+  const naturalGroups = React.useRef(0); // product tabs' width at normal spacing
+  const checkRow = React.useCallback(() => {
+    const row = rowRef.current, groups = groupsRef.current, plain = plainRef.current;
+    if (!row || !groups || !plain) return;
+    const avail = row.clientWidth;
+    if (!avail) return; // hidden (phone menu)
+    // only measure the tabs at normal spacing, so tightening can't feed back into the decision
+    if (!tightRef.current) naturalGroups.current = groups.scrollWidth;
+    const g = naturalGroups.current;
+    const MORE = 84; // "More ▾" button
+    const SLACK = 16;
+    setCollapsed(g + 4 + plain.scrollWidth + SLACK > avail);
+    const t = g + 4 + MORE + SLACK > avail;
+    tightRef.current = t;
+    setTight(t);
+  }, []);
+  React.useLayoutEffect(() => {
+    const row = rowRef.current;
+    if (!row) return;
+    checkRow();
+    const ro = new ResizeObserver(checkRow);
+    ro.observe(row);
+    document.fonts?.ready.then(checkRow).catch(() => {});
+    return () => ro.disconnect();
+  }, [checkRow]);
+
   const theme = useTheme();
   const hydrated = useHydrated();
   const totalItems = useCartStore((st) => st.getTotalItems());
@@ -189,7 +223,8 @@ export default function Navbar() {
         <Container maxWidth="xl" sx={{ px: { xs: 2, md: 4 } }}>
           {/* Short divider between the logo bar and the menu (container width, not full bleed) */}
           <Box aria-hidden sx={{ height: "1px", bgcolor: "#EDF1EE" }} />
-          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", height: NAV_HEIGHT, gap: 0.5 }}>
+          <Box ref={rowRef} sx={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "center", height: NAV_HEIGHT, gap: 0.5 }}>
+            <Box ref={groupsRef} sx={{ display: "flex", alignItems: "center", gap: 0.5, flexShrink: 0 }}>
             {NAV_GROUPS.map((group) => {
               const active = activeGroup?.id === group.id;
               return (
@@ -215,6 +250,7 @@ export default function Navbar() {
                     whiteSpace: "nowrap",
                     transition: "all 0.15s",
                     "&:hover": { color: GREEN_DARK, bgcolor: "#EEF9EA" },
+                    ...(tight && { px: "6px !important", fontSize: "0.82rem !important" }),
                   }}
                 >
                   {group.label}
@@ -230,8 +266,9 @@ export default function Navbar() {
             })}
 
             <Box sx={{ width: "1px", height: 20, bgcolor: BORDER, mx: 1, "@media (max-width:1339.95px)": { mx: 0.5 } }} />
+            </Box>
 
-            <NavLinks />
+            <NavLinks collapsed={collapsed} measureRef={plainRef} />
           </Box>
         </Container>
 

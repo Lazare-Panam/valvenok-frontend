@@ -495,10 +495,11 @@ export const NAV_GROUPS: NavGroup[] = [
           },
           {
             label: "Ferrules & End Caps",
+            href: "/fittings-tubing/sanitary-fittings/ferrules-end-caps",
             children: [
-              { brand: "Adaptix", label: "Tri-Clamp Ferrule" },
-              { brand: "Adaptix", label: "Tri-Clamp Blind Cover" },
-              { brand: "Adaptix", label: "Sight Glass End Cap" },
+              { brand: "Adaptix", label: "Tri-Clamp Ferrule", href: "/fittings-tubing/sanitary-fittings/ferrules-end-caps/products?type=ferrule" },
+              { brand: "Adaptix", label: "Tri-Clamp Blind Cover", href: "/fittings-tubing/sanitary-fittings/ferrules-end-caps/products?type=blind" },
+              { brand: "Adaptix", label: "Sight Glass End Cap", href: "/fittings-tubing/sanitary-fittings/ferrules-end-caps/products?type=sight" },
             ],
           },
         ],

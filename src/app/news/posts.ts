@@ -43,7 +43,7 @@ export const POSTS = [
     title: "How to Choose a Valve Actuator: Electric, Pneumatic, Hydraulic",
     desc: "Electric, pneumatic, hydraulic or manual — compare torque, speed, fail-safe behaviour and hazardous area rating, with a sizing walkthrough and a decision framework you can work down in order.",
     thumbnail:
-      "https://pblol2.blob.core.windows.net/panam-images/products/actuators/ac-hero.jpg",
+      "https://pblol2.blob.core.windows.net/valvenok-images/blogs/how-to-choose-a-valve-actuator.jpg",
     author: "Valvenok Team",
     date: "September 2026",
     category: "Technical Guide",

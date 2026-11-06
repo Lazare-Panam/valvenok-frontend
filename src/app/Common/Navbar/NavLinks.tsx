@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { NAV_LINKS } from "./Navbardata";
 
-const item = {
+export const navItem = {
   display: "flex",
   alignItems: "center",
   px: 1.5,
@@ -22,27 +22,39 @@ const item = {
   "@media (max-width:1339.95px)": { px: 1, fontSize: "0.86rem" },
 } as const;
 
-/** Plain links: shown in the row on wide screens, inside "More" on narrower ones */
-export default function NavLinks() {
+/**
+ * Plain links: shown in the row when they fit, inside "More" when they don't.
+ * `collapsed` comes from Navbar, which measures the real row width in the browser
+ * (fonts and zoom differ between Safari and Chrome). Until it has measured
+ * (null), a width breakpoint decides.
+ * `measureRef` is a hidden copy of the links, used only to measure their width.
+ */
+export default function NavLinks({ collapsed, measureRef }: { collapsed: boolean | null; measureRef: React.Ref<HTMLDivElement> }) {
   const [open, setOpen] = React.useState(false);
   const timer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
   const show = () => { if (timer.current) clearTimeout(timer.current); setOpen(true); };
   const hide = () => { timer.current = setTimeout(() => setOpen(false), 150); };
+  const BP = "@media (max-width:1219.95px)";
+  const rowDisplay = collapsed === null ? { display: "flex", [BP]: { display: "none" } } : { display: collapsed ? "none" : "flex" };
+  const moreDisplay = collapsed === null ? { display: "none", [BP]: { display: "block" } } : { display: collapsed ? "block" : "none" };
   return (
     <>
-      <Box sx={{ display: "contents", "@media (max-width:1219.95px)": { display: "none" } }}>
+      {/* hidden copy for measuring (never seen, never focusable) */}
+      <Box ref={measureRef} aria-hidden sx={{ position: "absolute", left: 0, top: 0, visibility: "hidden", pointerEvents: "none", display: "flex", gap: 0.5 }}>
         {NAV_LINKS.map((link) => (
-          <Box key={link.label} component="a" href={link.href} sx={item}>
+          <Box key={link.label} component="span" sx={navItem}>{link.label}</Box>
+        ))}
+      </Box>
+
+      <Box sx={{ ...rowDisplay, alignItems: "center", gap: 0.5, flexShrink: 0 }}>
+        {NAV_LINKS.map((link) => (
+          <Box key={link.label} component="a" href={link.href} sx={navItem}>
             {link.label}
           </Box>
         ))}
       </Box>
 
-      <Box
-        onMouseEnter={show}
-        onMouseLeave={hide}
-        sx={{ position: "relative", display: "none", "@media (max-width:1219.95px)": { display: "block" } }}
-      >
+      <Box onMouseEnter={show} onMouseLeave={hide} sx={{ position: "relative", flexShrink: 0, ...moreDisplay }}>
         <Box
           component="button"
           type="button"
@@ -50,7 +62,7 @@ export default function NavLinks() {
           aria-expanded={open}
           onClick={() => setOpen((o) => !o)}
           onFocus={show}
-          sx={{ ...item, gap: 0.25, border: 0, bgcolor: open ? "#EEF9EA" : "transparent", color: open ? "#2E8B1E" : "#0E1B12", cursor: "pointer", fontFamily: "inherit" }}
+          sx={{ ...navItem, gap: 0.25, border: 0, bgcolor: open ? "#EEF9EA" : "transparent", color: open ? "#2E8B1E" : "#0E1B12", cursor: "pointer", fontFamily: "inherit" }}
         >
           More
           <KeyboardArrowDownIcon sx={{ fontSize: 18, transition: "transform 0.2s", transform: open ? "rotate(180deg)" : "none" }} />
@@ -61,7 +73,7 @@ export default function NavLinks() {
             sx={{ position: "absolute", top: "calc(100% + 8px)", right: 0, zIndex: 400, minWidth: 200, p: 1, borderRadius: "16px", bgcolor: "#fff", border: "1px solid #E5EBE6", boxShadow: "0 18px 40px -12px rgba(14,27,18,0.25)" }}
           >
             {NAV_LINKS.map((link) => (
-              <Box key={link.label} component="a" role="menuitem" href={link.href} sx={{ ...item, px: 1.75, py: 1.1, borderRadius: "10px", fontSize: "0.92rem" }}>
+              <Box key={link.label} component="a" role="menuitem" href={link.href} sx={{ ...navItem, px: 1.75, py: 1.1, borderRadius: "10px", fontSize: "0.92rem" }}>
                 {link.label}
               </Box>
             ))}

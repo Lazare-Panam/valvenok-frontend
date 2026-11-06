@@ -24,10 +24,10 @@ export const metadata: Metadata = {
     siteName: "Valvenok",
     images: [
       {
-        url: "https://pblol2.blob.core.windows.net/panam-images/products/actuators/ac-hero.jpg",
+        url: "https://pblol2.blob.core.windows.net/valvenok-images/blogs/how-to-choose-a-valve-actuator.jpg",
         width: 1200,
         height: 630,
-        alt: "Valve actuators — electric, pneumatic and hydraulic",
+        alt: "How to choose a valve actuator: pneumatic, electric, hydraulic and manual actuators",
       },
     ],
     locale: "en_GB",

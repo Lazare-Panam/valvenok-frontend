@@ -20,7 +20,7 @@ const SLIDES = [
     position: "70% 50%",
     upperTag: "ONE APPROVED SUPPLIER",
     title: "One UK supplier,",
-    accent: "32 manufacturers",
+    accent: "27 manufacturers",
     description:
       "Valves, actuators and instrumentation through one JOSCAR-registered account, with EN 10204 3.1/3.2 certificates and lead times confirmed on every quote.",
     href: "/brands",

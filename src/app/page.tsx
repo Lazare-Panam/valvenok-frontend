@@ -22,11 +22,11 @@ export const metadata = {
     absolute: "Industrial Valves, Actuators & Fittings UK | Valvenok",
   },
   description:
-    "UK supplier of industrial valves, actuators, SS316 instrumentation fittings and hydrogen components from 32 brands including PANAM. Request a quote today.",
+    "UK supplier of industrial valves, actuators, SS316 instrumentation fittings and hydrogen components from 27 brands including PANAM. Request a quote today.",
   openGraph: {
     title: "Valvenok | Industrial Flow Control Experts",
     description:
-      "Industrial valves, actuators, SS316 instrumentation fittings and hydrogen components from 32 brands. Request a quote today.",
+      "Industrial valves, actuators, SS316 instrumentation fittings and hydrogen components from 27 brands. Request a quote today.",
     url: "https://www.valvenok.com",
     siteName: "Valvenok",
     images: [
@@ -62,7 +62,7 @@ export default function Home() {
           border: 0,
         }}
       >
-        Industrial valves, actuators and fittings from 32 manufacturers
+        Industrial valves, actuators and fittings from 27 manufacturers
       </h1>
       <HeroModern />
       <TrustBar />

@@ -110,7 +110,7 @@ export default function ClampDetail({ id }: { id: string }) {
   const related = [...sameType.slice(Math.max(0, idx - 2), idx), ...sameType.slice(idx, idx + 2)].slice(0, 4);
   const schema = {
     "@context": "https://schema.org", "@type": "Product", name: `${SAN_BRAND} ${c.partNumber} tri-clamp`, sku: c.partNumber, mpn: c.partNumber,
-    brand: { "@type": "Brand", name: SAN_BRAND }, image: `https://www.valvenok.com${c.img}`, description: plainName(c), category: "Tri-clamp clamps",
+    brand: { "@type": "Brand", name: SAN_BRAND }, image: c.img, description: plainName(c), category: "Tri-clamp clamps",
     additionalProperty: specs.slice(2, 11).map(([name, value]) => ({ "@type": "PropertyValue", name, value })),
   };
 
@@ -264,7 +264,7 @@ export default function ClampDetail({ id }: { id: string }) {
           <Box sx={{ mt: 2.5, display: "grid", gridTemplateColumns: { xs: "1fr", md: "repeat(3, 1fr)" }, gap: 2 }}>
             {[
               { k: "Single pin or double-bolted?", t: "Compare the two clamp types", d: "How each one closes, its working pressure and the options, side by side.", cta: "Tri-clamp clamps guide", href: CLAMP_BASE, ext: false, bg: "linear-gradient(135deg, #EEF9EA 0%, #EAF4FF 100%)" },
-              { k: "Complete the joint", t: "Ferrules and caps", d: "Every joint needs two ferrules and a gasket as well as the clamp. See the full sanitary range.", cta: "Sanitary fittings", href: SAN_BASE, ext: false, bg: "linear-gradient(135deg, #FFF7E6 0%, #FFFDF5 100%)" },
+              { k: "Complete the joint", t: "Ferrules and caps", d: "Every joint needs two ferrules and a gasket as well as the clamp. Find the ferrule for your tube.", cta: "Ferrules & end caps", href: `${SAN_BASE}/ferrules-end-caps`, ext: false, bg: "linear-gradient(135deg, #FFF7E6 0%, #FFFDF5 100%)" },
               { k: "Need help?", t: "Talk to our team", d: "Send your line size, material and finish and we’ll confirm the right clamp, or call +44 7368 137917.", cta: "Ask on WhatsApp", href: WA(c.partNumber), ext: true, bg: "linear-gradient(135deg, #F3EEFF 0%, #EAF4FF 100%)" },
             ].map((x) => (
               <Box key={x.k} sx={{ display: "flex", flexDirection: "column", p: 3, borderRadius: "22px", background: x.bg, border: `1px solid ${T.border}` }}>

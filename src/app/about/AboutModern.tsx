@@ -89,7 +89,7 @@ function Hero() {
             <Typography sx={{ mt: 4, fontSize: { xs: "1.05rem", md: "1.2rem" }, lineHeight: 1.7, color: T.body, maxWidth: 600, animation: "wordIn .9s ease .6s both" }}>
               {/* Positioning statement (website version, 4 Nov 2026): headline as the opening line, then the intro */}
               <Box component="strong" sx={{ display: "block", mb: 1, color: T.ink, fontWeight: 700 }}>
-                One UK supplier for valves, actuators and instrumentation from 32 manufacturers.
+                One UK supplier for valves, actuators and instrumentation from 27 manufacturers.
               </Box>
               Valvenok is a JOSCAR-registered UK distributor, so procurement teams can source from many leading brands through a single approved
               supplier. Every order comes with the paperwork you need, including EN 10204 3.1/3.2 material certificates, and lead times are confirmed
