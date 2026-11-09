@@ -3,11 +3,12 @@ import { useState } from "react"
 import { useRouter } from "next/navigation"
 import {
   Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
-  TablePagination, TableSortLabel, Collapse, Chip, Typography, Stack, IconButton
+  TablePagination, TableSortLabel, Collapse, Chip, Typography, Stack, IconButton, Button
 } from "@mui/material"
 import { useTheme, alpha } from "@mui/material/styles"
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp"
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
 
 import { ReliefValveDto } from "@/src/api/reliefValveApi"
 import {
@@ -61,10 +62,25 @@ function ReliefValveRow({ row }: { row: ReliefValveDto }) {
         <TableCell sx={{ py: 1, fontSize: "0.82rem" }}>{CONNECTION_TYPE_LABELS[row.connectionType] ?? row.connectionType}</TableCell>
         <TableCell sx={{ py: 1, fontSize: "0.82rem" }}>{SPRING_LABELS[row.spring] ?? row.spring}</TableCell>
         <TableCell sx={{ py: 1, fontSize: "0.82rem" }}>{SEAL_MATERIAL_LABELS[row.sealMaterial] ?? row.sealMaterial}</TableCell>
+        <TableCell align="right" sx={{ py: 1, whiteSpace: "nowrap" }}>
+          <Button
+            size="small"
+            variant="outlined"
+            endIcon={<ArrowForwardIcon sx={{ fontSize: "0.9rem !important" }} />}
+            onClick={e => { e.stopPropagation(); goToProduct() }}
+            sx={{
+              borderRadius: "6px", fontWeight: 700, fontSize: "0.68rem", textTransform: "none",
+              borderColor: alpha(theme.palette.primary.main, 0.4), color: theme.palette.primary.main,
+              "&:hover": { bgcolor: theme.palette.primary.main, color: "#fff", borderColor: theme.palette.primary.main },
+            }}
+          >
+            View Details
+          </Button>
+        </TableCell>
       </TableRow>
       {open && (
         <TableRow>
-          <TableCell colSpan={9} sx={{ p: 0, borderBottom: "none" }}>
+          <TableCell colSpan={10} sx={{ p: 0, borderBottom: "none" }}>
             <Collapse in unmountOnExit>
               <Box sx={{ p: 3, bgcolor: alpha(theme.palette.primary.main, 0.02), borderLeft: `4px solid ${theme.palette.primary.main}`, borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
                 <Stack direction={{ xs: "column", md: "row" }} spacing={4} alignItems="flex-start">
@@ -163,12 +179,13 @@ export default function ReliefValveTable({ models, isFetching }: { models: Relie
                   ) : h.label}
                 </TableCell>
               ))}
+              <TableCell sx={{ ...headerSx, textAlign: "right" }} />
             </TableRow>
           </TableHead>
           <TableBody>
             {paginated.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={9} align="center" sx={{ py: 6 }}>
+                <TableCell colSpan={10} align="center" sx={{ py: 6 }}>
                   <Typography variant="body2" color="text.disabled">No relief valves found.</Typography>
                 </TableCell>
               </TableRow>

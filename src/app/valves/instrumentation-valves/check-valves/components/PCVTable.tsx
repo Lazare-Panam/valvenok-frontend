@@ -3,11 +3,12 @@ import { useState } from "react"
 import { useRouter } from "next/navigation"
 import {
   Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
-  TablePagination, TableSortLabel, Collapse, Chip, Typography, Stack, IconButton
+  TablePagination, TableSortLabel, Collapse, Chip, Typography, Stack, IconButton, Button
 } from "@mui/material"
 import { useTheme, alpha } from "@mui/material/styles"
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp"
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
 import { PCVDto } from "@/src/api/checkValveApi"
 import { INLET_OUTLET_LABELS, MATERIAL_LABELS } from "./PCVSidebar"
 
@@ -55,10 +56,25 @@ function PCVRow({ row }: { row: PCVDto }) {
         <TableCell sx={{ py: 1, fontSize: "0.82rem" }}>{row.inletTubeOD}</TableCell>
         <TableCell sx={{ py: 1, fontSize: "0.82rem" }}>{row.outlet ? (INLET_OUTLET_LABELS[row.outlet] ?? row.outlet) : "—"}</TableCell>
         <TableCell sx={{ py: 1, fontSize: "0.82rem" }}>{row.outletTubeOD ?? "—"}</TableCell>
+        <TableCell align="right" sx={{ py: 1, whiteSpace: "nowrap" }}>
+          <Button
+            size="small"
+            variant="outlined"
+            endIcon={<ArrowForwardIcon sx={{ fontSize: "0.9rem !important" }} />}
+            onClick={e => { e.stopPropagation(); goToProduct() }}
+            sx={{
+              borderRadius: "6px", fontWeight: 700, fontSize: "0.68rem", textTransform: "none",
+              borderColor: alpha(theme.palette.primary.main, 0.4), color: theme.palette.primary.main,
+              "&:hover": { bgcolor: theme.palette.primary.main, color: "#fff", borderColor: theme.palette.primary.main },
+            }}
+          >
+            View Details
+          </Button>
+        </TableCell>
       </TableRow>
       {open && (
         <TableRow>
-          <TableCell colSpan={7} sx={{ p: 0, borderBottom: "none" }}>
+          <TableCell colSpan={8} sx={{ p: 0, borderBottom: "none" }}>
             <Collapse in unmountOnExit>
               <Box sx={{ p: 3, bgcolor: alpha(theme.palette.primary.main, 0.02), borderLeft: `4px solid ${theme.palette.primary.main}`, borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
                 <Stack direction={{ xs: "column", md: "row" }} spacing={4} alignItems="flex-start">
@@ -152,12 +168,13 @@ export default function PCVTable({ models, isFetching }: { models: PCVDto[]; isF
                   ) : h.label}
                 </TableCell>
               ))}
+              <TableCell sx={{ ...headerSx, textAlign: "right" }} />
             </TableRow>
           </TableHead>
           <TableBody>
             {paginated.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={7} align="center" sx={{ py: 6 }}>
+                <TableCell colSpan={8} align="center" sx={{ py: 6 }}>
                   <Typography variant="body2" color="text.disabled">No check valves found.</Typography>
                 </TableCell>
               </TableRow>
