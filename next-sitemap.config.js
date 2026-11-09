@@ -16,10 +16,22 @@ module.exports = {
     '/login',
     '/register',
     '/track-order',
-    '/sample', '/checkout', '/checkout/*', '/high-pressure/valves/needle-valves/products',
+    '/sample', '/checkout', '/checkout/*',
     '/products',
     '/categories/valves',
     '/high-pressure/valves/gas-valves',
+    // Unused old copies, kept live until the clean-up task (vk-z1) redirects them;
+    // the new pages under /high-pressure/valves/... are the ones in the sitemap
+    '/high-pressure/needle-valves',
+    '/high-pressure/needle-valves/*',
+    '/high-pressure/ball-valves',
+    '/high-pressure/ball-valves/*',
+    '/high-pressure/dbb',
+    '/high-pressure/dbb/*',
+    '/hydrogen-cryogenic/gas-valves',
+    '/hydrogen-cryogenic/gas-valves/*',
+    // Not linked from anywhere (overlaps /valves); decide at clean-up
+    '/valves/industrial-valves',
   ],
   transform: async (config, path) => {
     const priorities = {
