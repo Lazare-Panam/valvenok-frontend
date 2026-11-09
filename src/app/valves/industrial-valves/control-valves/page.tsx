@@ -76,7 +76,7 @@ const CONTROL_VALVE_SERIES: Category[] = [
       "High-Flow Process Control, Oil & Gas, Petrochemical, Severe Service",
    href: "/valves/industrial-valves/control-valves/vsi-atlas-32",
     image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/gas-regulator/vsi-32.JPG",
+      "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/vsi-32.webp",
     logoUrl:
       "https://pblol2.blob.core.windows.net/valvenok-images/brands/vsi.png",
   },

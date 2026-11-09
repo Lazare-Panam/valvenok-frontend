@@ -23,7 +23,7 @@ const SERIES = [
     specs: ['SS316', '6000 PSI', 'Hard & Soft Seat', 'FF / MF / MM'],
     href: '/valves/instrumentation-valves/needle-valves/hb',
     count: '82 configurations',
-    image: 'https://pblol2.blob.core.windows.net/panam-images/products/needle-valves/hb.jpg',
+    image: 'https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/hb.webp',
   },
   {
     code: 'HP',
@@ -33,7 +33,7 @@ const SERIES = [
     specs: ['SS316', '10K / 20K PSI', 'Straight / Angular / 3-Way / Manifold', 'FF / MF / MM / OD'],
     href: '/valves/instrumentation-valves/needle-valves/hp',
     count: '281 configurations',
-    image: 'https://pblol2.blob.core.windows.net/panam-images/products/needle-valves/hp.jpg',
+    image: 'https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/hp.webp',
   },
   {
     code: 'SB',
@@ -43,7 +43,7 @@ const SERIES = [
     specs: ['SS316', '6000 PSI', 'Hard & Soft Seat', 'OD / FF / MF / MM'],
     href: '/valves/instrumentation-valves/needle-valves/sb',
     count: '98 configurations',
-    image: 'https://pblol2.blob.core.windows.net/panam-images/products/needle-valves/sb.jpg',
+    image: 'https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/sb.webp',
   },
 ]
 

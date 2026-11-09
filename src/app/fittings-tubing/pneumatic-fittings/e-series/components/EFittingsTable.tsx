@@ -10,7 +10,7 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp"
 import { EFittingDTO } from "../hooks/types"
 import { CartItem, useCartStore } from "@/src/app/cart/hooks/useCartStore"
 
-const E_IMAGE = "https://pblol2.blob.core.windows.net/spac-images/products/fitting/e-series.jpg"
+const E_IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/e-series.webp"
 
 function toCartItem(row: EFittingDTO): CartItem {
   const parts = [

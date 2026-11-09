@@ -100,7 +100,7 @@ export default function JICFittingsPage() {
         title="JIC Fittings"
         subtitle="37° Flare Fittings for Hydraulic & Instrumentation Systems"
         description="A complete range of SS316 37° JIC flare fittings built for high-pressure hydraulic and process applications. NPT, BSPT, BSPP and SAE/MS thread standards across connectors, unions, elbows, tees and more."
-        imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/banner-images/ben-kupke-ew-p24CVLR0-unsplash.jpg"
+        imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/ben-kupke-ew-p24cvlr0-unsplash.webp"
         imageAlt="Valvenok SS316 JIC Flare Fittings"
         breadcrumb="Products / JIC Fittings"
       />

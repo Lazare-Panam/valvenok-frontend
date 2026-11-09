@@ -31,7 +31,7 @@ export const BUTTERFLY_VALVES: FeaturedValve[] = [
     brandLogo:
       "https://pblol2.blob.core.windows.net/valvenok-images/brands/mars.png",
     thumbnail:
-      "https://pblol2.blob.core.windows.net/mars-valves/butterfly-valve.jpg",
+      "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/butterfly-valve.webp",
     specs: [
       { label: "Size Range", value: "NPS 2–48 | DN 50–1200" },
       { label: "Pressure Class", value: "ASME 150–1500" },

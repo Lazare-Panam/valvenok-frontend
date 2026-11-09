@@ -59,7 +59,7 @@ const INSTRUMENTATION_FAMILIES: Category[] = [
     ],
     applications: "Instrument Isolation, Pressure Measurement, Calibration, Process Control",
     href: "/dbb-manifolds",
-    image: "https://pblol2.blob.core.windows.net/panam-images/products/DBB/DBB_fxf.jpg",
+    image: "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/dbb-fxf.webp",
   },
   {
     code: "QC",
@@ -76,7 +76,7 @@ const INSTRUMENTATION_FAMILIES: Category[] = [
     ],
     applications: "Pneumatic Systems, Hydraulic Systems, Process Instrumentation, Marine, Chemical",
     href: "/quick-coupling-and-hoses",
-    image: "https://pblol2.blob.core.windows.net/panam-images/products/tubing/tubing-2.png",
+    image: "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/tubing-2.webp",
   },
   {
   code: "GPR",

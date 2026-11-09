@@ -1,6 +1,6 @@
 import { type DBBValveDTO } from './types'
 
-const FXP_IMAGE = 'https://pblol2.blob.core.windows.net/panam-images/products/DBB/DBB_fxp.jpg'
+const FXP_IMAGE = 'https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/dbb-fxp.webp'
 
 const CONNECTION_CODE_MAP: Record<string, 'Integral' | 'Three Piece'> = {
   '1': 'Integral',

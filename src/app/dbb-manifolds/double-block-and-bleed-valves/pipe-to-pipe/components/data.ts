@@ -1,6 +1,6 @@
 import { type PXPValveDTO } from './types'
 
-const IMAGE = 'https://pblol2.blob.core.windows.net/panam-images/products/DBB/DBB-pxp.jpg'
+const IMAGE = 'https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/dbb-pxp.webp'
 
 const CONFIG_MAP: Record<string, string> = { 'A': 'Ball-Needle-Ball', 'B': 'Ball-Ball-Ball', 'C': 'Needle-Needle-Needle', 'D': 'Needle-Needle-Needle (Soft Seat)', 'E': 'Ball-Needle' }
 const SEAL_MAP: Record<string, PXPValveDTO['sealMaterial']> = { '1': 'PTFE', '2': 'Grafoil', '3': 'PCTFE', '4': 'FKM' }

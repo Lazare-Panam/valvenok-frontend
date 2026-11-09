@@ -53,7 +53,7 @@ export const POSTS = [
     title: "Why Buy Valves From a UK Stockist",
     desc: "No minimum order on standard catalogue items, and a company you can verify. A UK supplier based in Bicester, Oxfordshire since 2018 — JOSCAR registered supply for defence, energy and process industries.",
     thumbnail:
-      "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/ben-kupke-ew-p24CVLR0-unsplash.jpg",
+      "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/ben-kupke-ew-p24cvlr0-unsplash.webp",
     author: "Valvenok Team",
     date: "September 2026",
     category: "Buyer's Guide",
@@ -145,7 +145,7 @@ export const POSTS = [
     title: "Instrumentation Fittings for Hydrogen: Leak-Tight Thread Practices",
     desc: "Learn how to select and assemble instrumentation fittings for hydrogen with correct thread ID, sealants, and ferrule design to avoid leaks and delays.",
     thumbnail:
-      "https://pblol2.blob.core.windows.net/valvenok-images/blogs/blog4.jpg", // add your image here
+      "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/blog4.webp", // add your image here
     author: "Steven Kassi",
     date: "April 2026",
     category: "Technical Guide",
@@ -156,7 +156,7 @@ export const POSTS = [
       "Single Agitator Mechanical Seals: Design, Working Principle & Industrial Applications",
     desc: "A complete engineering guide to one of the workhorses of the process industry — how it is built, how it keeps your reactor leak-free, and where it fits among the seal types you might be considering.",
     thumbnail:
-      "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/ben-kupke-ew-p24CVLR0-unsplash.jpg",
+      "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/ben-kupke-ew-p24cvlr0-unsplash.webp",
     author: "Sejal Raina",
     date: "May 2026",
     category: "Engineering",

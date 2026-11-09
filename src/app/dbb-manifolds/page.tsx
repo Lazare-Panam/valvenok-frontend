@@ -273,7 +273,7 @@ export default function InstrumentationIndexPage() {
             <Grid size={{ xs: 12, md: 6 }}>
               <Box sx={{ borderRadius: 2, p: 4, textAlign: "center" }}>
                 <img
-                  src="https://pblol2.blob.core.windows.net/panam-images/products/DBB/DBB_fxp.jpg"
+                  src="https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/dbb-fxp.webp"
                   alt="Double Block and Bleed Valves"
                   style={{ width: "70%", height: "auto" }}
                 />
@@ -289,7 +289,7 @@ export default function InstrumentationIndexPage() {
           <Grid size={{ xs: 12, md: 6 }}>
             <Box sx={{ borderRadius: 2, p: 4, textAlign: "center" }}>
               <img
-                src="https://pblol2.blob.core.windows.net/panam-images/products/valve-manifolds/5VM/5VM_Cover.jpg"
+                src="https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/5vm-cover.webp"
                 alt="Valve Manifolds"
                 style={{ width: "70%", height: "auto" }}
               />

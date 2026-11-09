@@ -373,7 +373,7 @@ export default function DBBIndexPage() {
             <Grid size={{ xs: 12, md: 6 }}>
               <Box sx={{ borderRadius: 2, p: 4, textAlign: "center" }}>
                 <img
-                  src="https://pblol2.blob.core.windows.net/panam-images/products/DBB/DBB_fxp.jpg"
+                  src="https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/dbb-fxp.webp"
                   alt="DBB Flange to Pipe"
                   style={{ width: "70%", height: "auto" }}
                 />
@@ -389,7 +389,7 @@ export default function DBBIndexPage() {
           <Grid size={{ xs: 12, md: 6 }}>
             <Box sx={{ borderRadius: 2, p: 4, textAlign: "center" }}>
               <img
-                src="https://pblol2.blob.core.windows.net/panam-images/products/DBB/DBB_fxf.jpg"
+                src="https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/dbb-fxf.webp"
                 alt="DBB Flange to Flange"
                 style={{ width: "70%", height: "auto" }}
               />
@@ -583,7 +583,7 @@ export default function DBBIndexPage() {
           <Grid size={{ xs: 12, md: 6 }}>
             <Box sx={{ borderRadius: 2, p: 4, textAlign: "center" }}>
               <img
-                src="https://pblol2.blob.core.windows.net/panam-images/products/DBB/DBB-pxp.jpg"
+                src="https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/dbb-pxp.webp"
                 alt="DBB Pipe to Pipe"
                 style={{ width: "70%", height: "auto" }}
               />

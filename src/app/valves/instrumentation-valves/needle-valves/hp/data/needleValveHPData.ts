@@ -12,7 +12,7 @@ export interface NeedleValveHPDTO {
   imageUrl: string
 }
 
-const IMG = 'https://pblol2.blob.core.windows.net/panam-images/products/needle-valves/hp.jpg'
+const IMG = 'https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/hp.webp'
 
 export const NEEDLE_VALVE_HP_DATA: NeedleValveHPDTO[] = [
   { id: 1,   partNumber: 'PNV-HP-S-04-FF',          series: 'HP', bodyMaterial: 'SS316', threadType: 'NPT',          endConnection: 'FF', connectionSize: '1/4"',   configuration: 'Straight',       workingPressure: '10K', options: 'Standard', imageUrl: IMG },

@@ -84,7 +84,7 @@ export default function CylindersIndexPage() {
         title="Pneumatic Cylinders"
         subtitle="ISO-15552 Profile Cylinders for Industrial Automation"
         description="A complete range of double-acting pneumatic cylinders engineered to ISO-15552 standards. Standard profile, tie rod and extended bore series — magnetic and non-magnetic variants across the full bore and stroke spectrum."
-        imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/products/pneumatic-cylinder/cylinder-hero.jpg"
+        imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/cylinder-hero.webp"
         imageAlt="Valvenok ISO-15552 Pneumatic Cylinders"
         breadcrumb="Products / Cylinders"
       />

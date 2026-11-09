@@ -327,7 +327,7 @@ export default function CryogenicValvesPage() {
           <Box sx={{ my: 6, textAlign: "center" }}>
             <Box
               component="img"
-              src="https://pblol2.blob.core.windows.net/valvenok-images/banner-images/ben-kupke-ew-p24CVLR0-unsplash.jpg"
+              src="https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/ben-kupke-ew-p24cvlr0-unsplash.webp"
               alt="Cryogenic valves and instrumentation for low-temperature service"
               sx={{
                 width: "100%",

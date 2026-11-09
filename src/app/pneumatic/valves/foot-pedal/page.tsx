@@ -12,7 +12,7 @@ import { type ProductForRFQ } from '@/src/app/Common/RFQCard/RequestForQuoteCard
 
 const BRAND_GREEN = '#61D649'
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
-const IMAGE = 'https://pblol2.blob.core.windows.net/spac-images/products/pneumatic-valves/foot-pedal.jpg'
+const IMAGE = 'https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/foot-pedal.webp'
 
 interface FootPedalDTO {
   partNumber: string

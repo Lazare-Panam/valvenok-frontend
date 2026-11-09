@@ -148,7 +148,7 @@ const VALVE_FAMILIES: Category[] = [
       "Oil & Gas, Water Treatment, Marine, Process Plants, Power Generation",
     href: "/valves/industrial-valves/butterfly-valves",
     image:
-      "https://pblol2.blob.core.windows.net/mars-valves/butterfly-valve.jpg",
+      "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/butterfly-valve.webp",
   },
 
   {
@@ -227,7 +227,7 @@ export default function ProcessValvesIndexPage() {
         title="Industrial, Marine and Instrumentation Valves Supplier"
         subtitle="Flow Control for Every Industrial Environment"
         description="A complete range of industrial, marine and instrumentation valves from leading manufacturers for demanding service conditions. From high-pressure process isolation to precision instrumentation lines and class society approved marine valves — supplied and supported by Valvenok in the UK."
-        imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/products/industrial-valves/industiral-hero.jpg"
+        imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/industiral-hero.webp"
         imageAlt="Valvenok Industrial & Marine Valves"
         breadcrumb="Products / Valves"
       />

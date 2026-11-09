@@ -11,7 +11,7 @@ import { Category } from "@/src/app/Common/Products_Page/ProductCard";
 import { CardGroupLinks } from "@/src/app/Common/GroupVisitLinks";
 
 const BPMA_LOGO_URL =
-  "https://pblol2.blob.core.windows.net/valvenok-images/certfiicates/bmpa-cert-frame.png";
+  "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/bmpa-cert-frame.webp";
 const BPMA_PDF_URL =
   "https://pblol2.blob.core.windows.net/valvenok-images/certfiicates/BMPA.pdf";
 

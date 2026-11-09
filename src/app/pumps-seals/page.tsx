@@ -15,7 +15,7 @@ export default function PumpsAndSealsPage() {
           display: "flex",
           alignItems: "center",
           overflow: "hidden",
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("https://pblol2.blob.core.windows.net/valvenok-images/banner-images/pumps-banner.jpg")`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/pumps-banner.webp")`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           py: { xs: 8, md: 12 },

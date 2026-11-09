@@ -30,7 +30,7 @@ export function SealsLandingView({ onSelectPriced }: Props) {
         title="Mechanical Seals"
         subtitle="Agitator, Cartridge, Dry-Running & Component Seals"
         description="A complete range of mechanical seals for agitators, glass-lined reactors and process pumps. Engineered for reliable sealing across the most demanding chemical, pharmaceutical and industrial applications."
-        imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/products/mechanical-seals/seals-hero.jpg"
+        imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/seals-hero.webp"
         imageAlt="Valvenok Mechanical Seals"
         breadcrumb="Products / Mechanical Seals"
       />

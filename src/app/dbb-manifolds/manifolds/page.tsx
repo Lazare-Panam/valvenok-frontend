@@ -22,7 +22,7 @@ export default function ManifoldsIndexPage() {
           display: "flex",
           alignItems: "center",
           overflow: "hidden",
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.58), rgba(0,0,0,0.58)), url("https://pblol2.blob.core.windows.net/panam-images/products/valve-manifolds/5VM/5VM_Cover.jpg")`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.58), rgba(0,0,0,0.58)), url("https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/5vm-cover.webp")`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           py: { xs: 8, md: 12 },
@@ -367,7 +367,7 @@ export default function ManifoldsIndexPage() {
             <Grid size={{ xs: 12, md: 6 }}>
               <Box sx={{ borderRadius: 2, p: 4, textAlign: "center" }}>
                 <img
-                  src="https://pblol2.blob.core.windows.net/panam-images/products/valve-manifolds/2VM/2VM_Cover.jpg"
+                  src="https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/2vm-cover.webp"
                   alt="2-Valve Manifold"
                   style={{ width: "70%", height: "auto" }}
                 />
@@ -383,7 +383,7 @@ export default function ManifoldsIndexPage() {
           <Grid size={{ xs: 12, md: 6 }}>
             <Box sx={{ borderRadius: 2, p: 4, textAlign: "center" }}>
               <img
-                src="https://pblol2.blob.core.windows.net/panam-images/products/valve-manifolds/3VM/3VM_Cover.jpg"
+                src="https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/3vm-cover.webp"
                 alt="3-Valve Manifold"
                 style={{ width: "70%", height: "auto" }}
               />
@@ -577,7 +577,7 @@ export default function ManifoldsIndexPage() {
           <Grid size={{ xs: 12, md: 6 }}>
             <Box sx={{ borderRadius: 2, p: 4, textAlign: "center" }}>
               <img
-                src="https://pblol2.blob.core.windows.net/panam-images/products/valve-manifolds/5VM/5VM_Cover.jpg"
+                src="https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/5vm-cover.webp"
                 alt="5-Valve Manifold"
                 style={{ width: "70%", height: "auto" }}
               />

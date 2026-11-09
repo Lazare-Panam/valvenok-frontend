@@ -13,7 +13,7 @@ export interface NeedleValveHBDTO {
 }
 
 
-const IMG = 'https://pblol2.blob.core.windows.net/panam-images/products/needle-valves/hb.jpg'
+const IMG = 'https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/hb.webp'
 
 export const NEEDLE_VALVE_HB_DATA: NeedleValveHBDTO[] = [
   { id: 1,  partNumber: 'PNV-HB-H-S-02-MM',   valveType: 'PNV', series: 'HB', seat: 'H', bodyMaterial: 'SS316', endConnection: 'MM', connectionSize: '1/8"',       workingPressure: '6K', options: 'Standard', imageUrl: IMG },

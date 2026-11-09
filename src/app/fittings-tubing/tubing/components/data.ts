@@ -1,7 +1,7 @@
 import { type TubingDTO } from './types'
 
 const STANDARD_IMAGE = 'https://pblol2.blob.core.windows.net/panam-images/products/tubing/tubing-1.jpg'
-const HP_IMAGE = 'https://pblol2.blob.core.windows.net/panam-images/products/tubing/tubing-2.png'
+const HP_IMAGE = 'https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/tubing-2.webp'
 
 const MATERIALS = [
   { code: 'SS', label: 'SS 316 Stainless Steel' },

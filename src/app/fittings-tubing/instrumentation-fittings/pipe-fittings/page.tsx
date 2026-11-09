@@ -100,7 +100,7 @@ export default function PipeFittingsPage() {
         title="Pipe Fittings"
         subtitle="SS316 Fittings for Instrumentation & Process Systems"
         description="Over 650 configurations covering nipples, elbows, tees, unions and adapters. NPT, BSPT, BSPP, Metric and SAE thread standards — built for the harshest industrial environments."
-        imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/banner-images/patrick-0RQRyVBAhlI-unsplash.jpg"
+        imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/patrick-0rqryvbahli-unsplash.webp"
         imageAlt="Valvenok SS316 Pipe Fittings"
         breadcrumb="Products / Pipe Fittings"
       />

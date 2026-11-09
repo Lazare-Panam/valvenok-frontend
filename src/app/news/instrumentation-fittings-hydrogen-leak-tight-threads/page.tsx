@@ -127,7 +127,7 @@ export default function InstrumentationFittingsPage() {
         <Box sx={{ mb: 8, textAlign: "center" }}>
           <Box
             component="img"
-            src="https://pblol2.blob.core.windows.net/valvenok-images/blogs/blog4.jpg"
+            src="https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/blog4.webp"
             alt="Instrumentation Fittings for Hydrogen Service"
             sx={{
               width: "100%",

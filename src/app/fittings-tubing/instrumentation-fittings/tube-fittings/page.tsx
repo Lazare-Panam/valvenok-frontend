@@ -111,7 +111,7 @@ export default function TubeFittingsPage() {
         title="Tube Fittings"
         subtitle="SS316 Instrumentation Fittings for Process & Industrial Systems"
         description="A complete range of tube fittings engineered for reliable, leak-free performance. Available across NPT, BSPT, and BSPP thread standards — built for oil & gas, petrochemical, and marine applications."
-        imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/banner-images/ben-wicks-Ej2FQy1W7z4-unsplash.jpg"
+        imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/ben-wicks-ej2fqy1w7z4-unsplash.webp"
         imageAlt="Valvenok SS316 Tube Fittings"
         breadcrumb="Products / Tube Fittings"
       />

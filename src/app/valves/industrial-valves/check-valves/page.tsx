@@ -67,7 +67,7 @@ const CHECK_VALVE_SERIES: Category[] = [
   ],
   applications: "Water Treatment, Energy, Petrochemical, Marine, HVAC",
   href: "/valves/industrial-valves/check-valves/dual-plate-check-valve",
-  image: "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/check-value.png",
+  image: "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/check-value.webp",
   logoUrl: "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/logo.svg",
 },
   

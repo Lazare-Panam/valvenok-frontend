@@ -70,7 +70,7 @@ export const CHECK_VALVES: FeaturedValve[] = [
     brandLogo:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/logo.svg",
     thumbnail:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/check-value.png",
+      "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/check-value.webp",
     specs: [
       { label: "Size Range", value: '1.5"–48" (DN40–DN1200)' },
       { label: "Pressure Rating", value: "ANSI 150LB" },

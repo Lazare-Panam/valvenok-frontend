@@ -68,7 +68,7 @@ const VALVE_FAMILIES: Category[] = [
     ],
     applications: "Press Machines, Assembly Lines, Machine Tools, Safety-Critical Applications",
     href: "/pneumatic/valves/foot-pedal",
-    image: "https://pblol2.blob.core.windows.net/spac-images/products/pneumatic-valves/foot-pedal.jpg",
+    image: "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/foot-pedal.webp",
   },
 ];
 

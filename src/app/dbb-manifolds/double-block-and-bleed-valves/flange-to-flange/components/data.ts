@@ -1,6 +1,6 @@
 import { type DBBValveDTO } from './types'
 
-const IMAGE = 'https://pblol2.blob.core.windows.net/panam-images/products/DBB/DBB_fxf.jpg'
+const IMAGE = 'https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/dbb-fxf.webp'
 
 const CONNECTION_CODE_MAP: Record<string, 'Integral' | 'Three Piece'> = { '2': 'Integral', '4': 'Three Piece' }
 const CONFIG_MAP: Record<string, string> = { 'A': 'Ball-Needle-Ball', 'B': 'Ball-Ball-Ball', 'C': 'Needle-Needle-Needle', 'D': 'Needle-Needle-Needle (Soft Seat)', 'E': 'Ball-Needle' }

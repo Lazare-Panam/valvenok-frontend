@@ -49,7 +49,7 @@ export const IMG = {
   youngdoH2: "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/HE-700.png",
   youngdoLpg: "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/YLC-2821.png",
   youngdoGas: "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/YOC-2820.png",
-  cryo: "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/ben-kupke-ew-p24CVLR0-unsplash.jpg",
+  cryo: "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/ben-kupke-ew-p24cvlr0-unsplash.webp",
   youngdoLogo: "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/top_logo.png",
 };
 

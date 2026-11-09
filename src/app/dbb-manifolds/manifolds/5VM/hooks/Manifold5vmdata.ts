@@ -1,6 +1,6 @@
 import { type Manifold5VMDTO } from "./types"
 
-const MANIFOLD_5VM_IMAGE = "https://pblol2.blob.core.windows.net/panam-images/products/valve-manifolds/5VM/5VM_Cover.jpg"
+const MANIFOLD_5VM_IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/5vm-cover.webp"
 
 // ============ LOOKUP MAPS ============
 

@@ -101,7 +101,7 @@ export default function FittingsIndexPage() {
         title="Instrumentation Fittings"
         subtitle="SS316 Fittings for Instrumentation & Process Systems"
         description="UK-based supplier of instrumentation fittings and stainless steel fittings for high-pressure systems, with UK and international delivery for engineers and buyers."
-        imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/banner-images/fittings-hero.jpg"
+        imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/fittings-hero.webp"
         imageAlt="Valvenok SS316 Instrumentation Fittings"
         breadcrumb="Products / Fittings"
       />

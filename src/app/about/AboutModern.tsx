@@ -23,7 +23,7 @@ import PillButton from "../Landing/modern/Buttons";
 import { L, KF, gradientText, useInView, Reveal, Blob, Words } from "../Common/LightMotion";
 
 const WRAP = { width: "100%", boxSizing: "border-box", maxWidth: T.maxWidth, mx: "auto", px: { xs: 2, md: 4 } } as const;
-const HERO_IMG = "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/fittings-hero.jpg";
+const HERO_IMG = "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/fittings-hero.webp";
 
 // ───────────────────────── Hero ─────────────────────────
 function SpinRing() {

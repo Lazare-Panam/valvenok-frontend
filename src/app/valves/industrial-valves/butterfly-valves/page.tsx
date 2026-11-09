@@ -32,7 +32,7 @@ const BUTTERFLY_VALVE_SERIES: Category[] = [
       "Oil & Gas, Chemical Processing, Power Generation, Industrial Process",
     href: "/valves/industrial-valves/butterfly-valves/mars-butterfly",
     image:
-      "https://pblol2.blob.core.windows.net/mars-valves/butterfly-valve.jpg",
+      "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/butterfly-valve.webp",
     logoUrl:
       "https://pblol2.blob.core.windows.net/valvenok-images/brands/mars.png",
   },

@@ -40,7 +40,7 @@ const LIBRARY: Tile[] = [
   { src: `${BLOB}/valvenok-images/products/hiflux/manifold-block.png`, alt: "Hiflux manifold block" },
   { src: `${BLOB}/panam-images/products/actuators/ac-hero.jpg`, alt: "Pneumatic valve actuator" },
   { src: `${BLOB}/valvenok-images/products/filters/DFM_Mega_Flow_Rate_Filter.png`, alt: "High flow filter" },
-  { src: `${BLOB}/valvenok-images/blogs/blog4.jpg`, alt: "Hydrogen instrumentation fittings" },
+  { src: `${BLOB}/valvenok-images/compressed-images/blog4.webp`, alt: "Hydrogen instrumentation fittings" },
   { src: `${BLOB}/valvenok-images/products/hiflux/check-valve.png`, alt: "Hiflux check valve" },
   { src: `${BLOB}/valvenok-images/products/pumps/HQIC.webp`, alt: "Industrial pump" },
   { src: `${BLOB}/valvenok-images/products/valves/butterfly-valves/ptfe_lined_butterfly.png`, alt: "PTFE lined butterfly valve" },
@@ -68,8 +68,8 @@ const scroll = keyframes`
   to   { transform: translateX(-50%); }
 `;
 
-// `described`: give the first copy real alt text. Clones, and the second row
-// (the same images in a different order), stay hidden from screen readers.
+// Every tile carries alt text (crawlers flag empty alt even on hidden copies);
+// `described` keeps the first copy readable, clones and the second row stay aria-hidden.
 function Row({ items, reverse = false, described = false, cta }: { items: Tile[]; reverse?: boolean; described?: boolean; cta: React.ReactNode }) {
   // Two copies of the set; moving by half the width brings the second copy exactly
   // where the first started, so the loop has no visible seam.
@@ -106,7 +106,7 @@ function Row({ items, reverse = false, described = false, cta }: { items: Tile[]
                 aria-hidden={labelled ? undefined : true}
                 sx={{ position: "relative", flexShrink: 0, width: { xs: 121, md: TILE }, height: { xs: 121, md: TILE }, bgcolor: "#DCE5DE", overflow: "hidden" }}
               >
-                <Image src={p.src} alt={labelled ? p.alt : ""} fill sizes={`${TILE}px`} quality={75} loading="lazy" style={{ objectFit: "cover", objectPosition: "top" }} />
+                <Image src={p.src} alt={p.alt} fill sizes={`${TILE}px`} quality={75} loading="lazy" style={{ objectFit: "cover", objectPosition: "top" }} />
               </Box>
             );
           })}

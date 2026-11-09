@@ -137,7 +137,7 @@ export default function UkValveStockistPage() {
     description:
       "No minimum order on standard catalogue items, and a company you can verify — a UK supplier based in Bicester, Oxfordshire since 2018.",
     image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/ben-kupke-ew-p24CVLR0-unsplash.jpg",
+      "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/ben-kupke-ew-p24cvlr0-unsplash.webp",
     author: { "@type": "Organization", name: "Valvenok" },
     publisher: {
       "@type": "Organization",
@@ -304,7 +304,7 @@ export default function UkValveStockistPage() {
           <Box sx={{ my: 6, textAlign: "center" }}>
             <Box
               component="img"
-              src="https://pblol2.blob.core.windows.net/valvenok-images/banner-images/ben-kupke-ew-p24CVLR0-unsplash.jpg"
+              src="https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/ben-kupke-ew-p24cvlr0-unsplash.webp"
               alt="Industrial valves and fittings from a UK supplier"
               sx={{
                 width: "100%",
