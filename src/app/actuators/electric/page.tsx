@@ -63,6 +63,50 @@ const ELECTRIC_FAMILIES: Category[] = [
       "https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp",
   },
   {
+    code: "ITQ-M",
+    title: "Electric Actuators: Rotary, Linear & Multi-Turn | Valvenok",
+    subtitle: "Economic Compact Electric Actuator — Small Valves",
+    description:
+      "Electric rotary, linear and multi-turn valve actuators for on-off and modulating service, with ISO 5211 mounting and IP67 protection. Request a quote.",
+    specs: [
+      "25 – 80 Nm",
+      "1 – 3.5 kg",
+      "IP66 / IP67",
+      "ISO 5211 F03 – F07",
+      "110/220 VAC · 24 VDC",
+      "On-Off & Modulating",
+    ],
+    applications:
+      "Small Ball & Plug Valves, Dampers, Building Services, Light Process Automation",
+    href: "/actuators/electric/itq-micro",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/brands/susin/itq-micro.jpg",
+    logoUrl: 
+      "https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp",
+  },
+  {
+    code: "QS",
+    title: "Electric Actuators: Rotary, Linear & Multi-Turn | Valvenok",
+    subtitle: "Fail-Safe Electric Actuator — Spring Return",
+    description:
+      "Electric rotary, linear and multi-turn valve actuators for on-off and modulating service, with ISO 5211 mounting and IP67 protection. Request a quote.",
+    specs: [
+      "50 – 300 Nm",
+      "Spring Return 1.8 s",
+      "IP67 (IP68 Option)",
+      "-20°C to +70°C",
+      "ISO 5211 F07 · F10 · F12",
+      "110–440 VAC · 24 VDC",
+    ],
+    applications:
+      "Emergency Shutdown, Fail-Safe Isolation, Process Plants, Water Treatment",
+    href: "/actuators/electric/qs",
+    image:
+      "https://pblol2.blob.core.windows.net/valvenok-images/brands/susin/qs.jpg",
+    logoUrl: 
+      "https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp",
+  },
+  {
     code: "IQL",
     title: "Electric Actuators: Rotary, Linear & Multi-Turn | Valvenok",
     subtitle: "Linear Electric Actuator",

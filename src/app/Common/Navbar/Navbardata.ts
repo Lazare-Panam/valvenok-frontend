@@ -272,6 +272,20 @@ export const NAV_GROUPS: NavGroup[] = [
             href: "/actuators/electric/itq",
           },
           {
+            label: "ITQ Micro Series — Compact for Small Valves",
+            href: "/actuators/electric/itq-micro",
+            children: [
+              { label: "View All Models", href: "/actuators/electric/itq-micro/products" },
+            ],
+          },
+          {
+            label: "QS Series — Fail-Safe Spring Return",
+            href: "/actuators/electric/qs",
+            children: [
+              { label: "View All Models", href: "/actuators/electric/qs/products" },
+            ],
+          },
+          {
             label: "IQL Series — Linear Electric Actuator",
             href: "/actuators/electric/iql",
             children: [
