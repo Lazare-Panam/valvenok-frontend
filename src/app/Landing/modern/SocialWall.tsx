@@ -32,7 +32,7 @@ const POSTERS: Tile[] = [
 
 // Product and article images already on blob storage, to fill the rows.
 const LIBRARY: Tile[] = [
-  { src: `${BLOB}/hiflux/updated%20images/images/needle%20valve.png`, alt: "Hiflux high-pressure needle valve" },
+  { src: `${BLOB}/valvenok-images/compressed-images/needle-valve.webp`, alt: "Hiflux high-pressure needle valve" },
   { src: `${BLOB}/mars-valves/mars-stock-coming.jpeg`, alt: "Mars valve stock arriving in the UK" },
   { src: `${BLOB}/valvenok-images/products/cryogenic/YEX-1100.png`, alt: "Cryogenic valve" },
   { src: `${BLOB}/valvenok-images/blogs/vsi.jpeg`, alt: "Valvenok and VSI partnership" },
@@ -46,7 +46,7 @@ const LIBRARY: Tile[] = [
   { src: `${BLOB}/valvenok-images/products/valves/butterfly-valves/ptfe_lined_butterfly.png`, alt: "PTFE lined butterfly valve" },
   { src: `${BLOB}/valvenok-images/products/seals/Seals.jpg`, alt: "Mechanical seals" },
   { src: `${BLOB}/valvenok-images/products/actuators/hydraulic/adf.webp`, alt: "Hydraulic actuator" },
-  { src: `${BLOB}/panam-images/products/high-pressure/hp-nv.jpg`, alt: "High-pressure needle valve" },
+  { src: `${BLOB}/valvenok-images/compressed-images/hp-nv.webp`, alt: "High-pressure needle valve" },
   { src: `${BLOB}/valvenok-images/products/hiflux/relief-valve.png`, alt: "Hiflux relief valve" },
   { src: `${BLOB}/valvenok-images/blogs/pumps-blog-hero.jpg`, alt: "Submersible pumps" },
   { src: `${BLOB}/valvenok-images/products/valves/apollo-valves-88a10a01.webp`, alt: "Flanged ball valve" },

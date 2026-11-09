@@ -25,10 +25,10 @@ import { MotionRoot, LightBackdrop, Words, Reveal, gradientText, useInView, L } 
 import { groupSite } from "@/src/app/Common/group";
 
 export const IMG = {
-  panamNeedle: "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure/hp-nv.jpg",
-  panamBall: "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure/hp-bv.jpg",
+  panamNeedle: "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/hp-nv.webp",
+  panamBall: "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/hp-bv.webp",
   panamDbb: "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure/hp-dbb.jpg",
-  panamManifold: "https://pblol2.blob.core.windows.net/panam-images/products/needle-valves/cover-needle.jpg",
+  panamManifold: "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/cover-needle.webp",
   panamFitting: "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/hp-adaptor.jpg",
   panamPipe: "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-pipe-fittings/hex-nipples.jpg",
   panamGland: "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/hp-glands.png",
@@ -36,7 +36,7 @@ export const IMG = {
   panamTubing: "https://pblol2.blob.core.windows.net/panam-images/products/tubing/tubing-1.jpg",
   hifluxCheck: "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/check-valve.png",
   hifluxAov: "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/air-operated-valve.png",
-  hifluxNeedle: "https://pblol2.blob.core.windows.net/hiflux/updated%20images/images/needle%20valve.png",
+  hifluxNeedle: "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/needle-valve.webp",
   hifluxFitting: "https://pblol2.blob.core.windows.net/hiflux/updated%20images/images/rf.jpeg",
   hifluxTube: "https://pblol2.blob.core.windows.net/hiflux/updated%20images/lok/hiflux_tube.png",
   hifluxRelief: "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/relief-valve.png",
@@ -950,7 +950,7 @@ function Ranges() {
               {/* Group heading: picture + title with its description underneath, range count on the right */}
               <Box sx={{ display: "flex", alignItems: "center", gap: { xs: 1.5, md: 2.25 }, mb: 2.5, p: { xs: 1.5, md: 2 }, borderRadius: "20px", bgcolor: "#fff", border: `1px solid ${T.border}` }}>
                 <Box sx={{ flexShrink: 0, width: { xs: 56, md: 72 }, height: { xs: 56, md: 72 }, borderRadius: "16px", bgcolor: g.tint, display: "grid", placeItems: "center", overflow: "hidden" }}>
-                  <Box component="img" src={SHOWCASE.find((x) => x.key === g.key)?.img} alt="" sx={{ width: "74%", height: "74%", objectFit: "contain", mixBlendMode: "multiply" }} />
+                  <Box component="img" src={SHOWCASE.find((x) => x.key === g.key)?.img} alt={g.title} sx={{ width: "74%", height: "74%", objectFit: "contain", mixBlendMode: "multiply" }} />
                 </Box>
                 <Box sx={{ flex: 1, minWidth: 0 }}>
                   <Box component="p" sx={{ m: 0, mb: 0.25, fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase !important", color: T.greenDark }}>{g.kicker}</Box>
@@ -1026,7 +1026,7 @@ function Selector() {
           </Box>
           <Box key={i} sx={{ borderRadius: "24px", bgcolor: "#fff", border: `1px solid ${T.border}`, boxShadow: T.shadow, overflow: "hidden", display: "flex", flexDirection: "column", animation: "wordIn .45s cubic-bezier(.2,.8,.2,1) both" }}>
             <Box sx={{ height: { xs: 200, md: 260 }, bgcolor: L.mint, display: "grid", placeItems: "center", overflow: "hidden" }}>
-              <Box component="img" src={pick.img} alt="" sx={pick.img === IMG.cryo ? { width: "100%", height: "100%", objectFit: "cover" } : { maxWidth: "60%", maxHeight: "80%", objectFit: "contain", mixBlendMode: "multiply" }} />
+              <Box component="img" src={pick.img} alt={pick.pick} sx={pick.img === IMG.cryo ? { width: "100%", height: "100%", objectFit: "cover" } : { maxWidth: "60%", maxHeight: "80%", objectFit: "contain", mixBlendMode: "multiply" }} />
             </Box>
             <Box sx={{ p: { xs: 2.5, md: 3.5 } }}>
               <Box component="p" sx={{ m: 0, mb: 0.75, fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase !important", color: T.muted }}>Start with</Box>

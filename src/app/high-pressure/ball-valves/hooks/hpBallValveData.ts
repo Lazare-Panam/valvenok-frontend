@@ -60,7 +60,7 @@ export function countBy<T>(items: T[], keyFn: (item: T) => string): Record<strin
   return counts
 }
 
-const IMAGE = 'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure/hp-bv.jpg'
+const IMAGE = 'https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/hp-bv.webp'
 
 const make = (
   pn: string,

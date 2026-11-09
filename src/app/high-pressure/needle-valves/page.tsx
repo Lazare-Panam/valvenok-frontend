@@ -7,7 +7,7 @@ import { HP_NV_DESCRIPTION, HP_NEEDLE_VALVE_DATA } from './hooks/hpNeedleValveDa
 import { GroupSiteLinks, groupSitesIn } from '@/src/app/Common/GroupVisitLinks'
 
 const ACCENT = '#61D649'
-const HERO_IMG = 'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure/hp-nv.jpg'
+const HERO_IMG = 'https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/hp-nv.webp'
 
 const TOTAL = HP_NEEDLE_VALVE_DATA.length
 const PANAM_COUNT = HP_NEEDLE_VALVE_DATA.filter(v => v.brand === 'Panam').length

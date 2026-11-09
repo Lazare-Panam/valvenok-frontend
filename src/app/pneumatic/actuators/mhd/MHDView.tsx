@@ -234,7 +234,7 @@ function ConfigLadder() {
                     "&:hover": { borderColor: "#BFE5B3", boxShadow: T.shadowHover, transform: "translateY(-2px)" }, "&:hover .arr": { bgcolor: T.green, color: T.greenDeep, borderColor: T.green },
                   }}>
                   <Box sx={{ width: { xs: 72, md: 96 }, height: { xs: 72, md: 96 }, borderRadius: "16px", bgcolor: c.yoke === "IS" ? "#EAF4FF" : "#FFF7DD", display: "grid", placeItems: "center", overflow: "hidden" }}>
-                    <Box component="img" src={MHD_IMAGE} alt="" sx={{ width: "86%", height: "86%", objectFit: "contain", mixBlendMode: "multiply" }} />
+                    <Box component="img" src={MHD_IMAGE} alt={`MHD ${c.name}`} sx={{ width: "86%", height: "86%", objectFit: "contain", mixBlendMode: "multiply" }} />
                   </Box>
                   <Box sx={{ minWidth: 0 }}>
                     <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 0.25 }}>

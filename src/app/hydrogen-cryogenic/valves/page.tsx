@@ -26,7 +26,7 @@ const HIFLUX_PRODUCT: ProductForRFQ = {
   categoryId: "high-pressure",
   subCategory: "High Pressure Valves",
   thumbnail:
-    "https://pblol2.blob.core.windows.net/hiflux/updated%20images/images/needle%20valve.png",
+    "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/needle-valve.webp",
   description:
     "Hiflux high pressure valves rated up to 150,000 psi — check, needle, ball, air operated, safety and special valves for industrial, hydrogen and wellhead applications.",
   keySpecs: [
@@ -152,7 +152,7 @@ export default function HifluxValvesPage() {
               >
                 <Box
                   component="img"
-                  src="https://pblol2.blob.core.windows.net/hiflux/updated%20images/images/needle%20valve.png"
+                  src="https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/needle-valve.webp"
                   alt="Hiflux High Pressure Valves"
                   sx={{
                     width: "100%",

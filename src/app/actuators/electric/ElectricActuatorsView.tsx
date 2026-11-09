@@ -137,7 +137,7 @@ function Hero() {
             <Box key={s.key} component={Link} href={s.href}
               sx={{ flexShrink: 0, width: { xs: 112, md: 136 }, scrollSnapAlign: "start", textAlign: "center", textDecoration: "none", animation: `wordIn .6s cubic-bezier(.2,.8,.2,1) ${300 + i * 60}ms both`, "&:hover .ph": { transform: "translateY(-6px)", boxShadow: T.shadowHover, borderColor: "#BFD6F2" }, "&:hover .nm": { color: T.greenDark } }}>
               <Box className="ph" sx={{ mx: "auto", width: { xs: 96, md: 112 }, height: { xs: 96, md: 112 }, borderRadius: "50%", bgcolor: "#fff", border: "1px solid #DCE6F2", boxShadow: T.shadow, display: "grid", placeItems: "center", overflow: "hidden", transition: "all .25s" }}>
-                <Box component="img" src={s.img} alt="" loading="eager" sx={{ width: "74%", height: "74%", ...photo }} />
+                <Box component="img" src={s.img} alt={s.name} loading="eager" sx={{ width: "74%", height: "74%", ...photo }} />
               </Box>
               <Box className="nm" sx={{ mt: 1.25, fontSize: "0.86rem", fontWeight: 700, color: T.ink, lineHeight: 1.25, transition: "color .2s" }}>{s.code} series</Box>
               <Box sx={{ mt: 0.25, fontSize: "0.74rem", color: T.muted }}>{s.max ? `up to ${nm(s.max)} Nm` : s.kind === "Linear" ? "linear" : "proportional"}</Box>
@@ -218,7 +218,7 @@ function Finder() {
                       <Box key={s.key} component={Link} href={s.href}
                         sx={{ display: "flex", alignItems: "center", gap: 1.5, p: 1, pr: 1.5, borderRadius: "14px", border: `1px solid ${T.border}`, textDecoration: "none", bgcolor: "#fff", transition: "all .15s", "&:hover": { borderColor: "#BFE5B3", bgcolor: T.greenSoft }, "&:hover .arr": { bgcolor: T.green, color: T.greenDeep } }}>
                         <Box sx={{ flexShrink: 0, width: 56, height: 56, borderRadius: "12px", bgcolor: T.surface, display: "grid", placeItems: "center", overflow: "hidden" }}>
-                          <Box component="img" src={s.img} alt="" sx={{ width: "82%", height: "82%", ...photo }} />
+                          <Box component="img" src={s.img} alt={s.name} sx={{ width: "82%", height: "82%", ...photo }} />
                         </Box>
                         <Box sx={{ flex: 1, minWidth: 0 }}>
                           <Box sx={{ fontWeight: 800, color: T.ink, fontSize: "0.95rem" }}>{s.name}</Box>

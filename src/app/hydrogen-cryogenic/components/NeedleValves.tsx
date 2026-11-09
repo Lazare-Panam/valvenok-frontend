@@ -25,8 +25,8 @@ const TOTAL = HP_NEEDLE_VALVE_DATA.length;
 const count = (brand: string, series?: string) => HP_NEEDLE_VALVE_DATA.filter((v) => v.brand === brand && (!series || v.series === series)).length;
 
 type Series = { code: string; brand: "Panam" | "Hiflux"; name: string; psi: number; psiLabel: string; conn: string; patterns: string[]; note: string; img: string };
-const PANAM_IMG = "https://pblol2.blob.core.windows.net/panam-images/products/needle-valves/panam-needle-valve-straight.png";
-const HIFLUX_IMG = "https://pblol2.blob.core.windows.net/hiflux/updated%20images/images/needle%20valve.png";
+const PANAM_IMG = "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/panam-needle-valve-straight.webp";
+const HIFLUX_IMG = "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/needle-valve.webp";
 
 const SERIES: Series[] = [
   { code: "HP", brand: "Panam", name: "HP series", psi: 10000, psiLabel: "10,000 psi", conn: "NPT", patterns: ["Straight", "Angle"], note: "Everyday high-pressure isolation with NPT threads, 1/8 to 1 inch.", img: PANAM_IMG },
@@ -266,7 +266,7 @@ function SeriesLadder() {
                 }}
               >
                 <Box sx={{ width: { xs: 72, md: 96 }, height: { xs: 72, md: 96 }, borderRadius: "16px", bgcolor: s.brand === "Panam" ? "#EAF4FF" : "#FFF7DD", display: "grid", placeItems: "center", overflow: "hidden" }}>
-                  <Box component="img" src={s.img} alt="" sx={{ width: "80%", height: "80%", objectFit: "contain", mixBlendMode: "multiply" }} />
+                  <Box component="img" src={s.img} alt={s.name} sx={{ width: "80%", height: "80%", objectFit: "contain", mixBlendMode: "multiply" }} />
                 </Box>
                 <Box sx={{ minWidth: 0 }}>
                   <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 0.25 }}>

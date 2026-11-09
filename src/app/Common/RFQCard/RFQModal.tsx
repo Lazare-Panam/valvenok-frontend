@@ -87,7 +87,7 @@ export default function RFQModal({ open, onClose, product }: RFQModalProps) {
         <Box sx={{ mt: 2, display: 'flex', gap: 1.5, alignItems: 'center', p: 1.25, borderRadius: '16px', bgcolor: '#fff', border: `1px solid ${BORDER}` }}>
           {product.thumbnail && (
             <Box sx={{ flexShrink: 0, width: 56, height: 56, borderRadius: '12px', bgcolor: '#F2F5F8', display: 'grid', placeItems: 'center', overflow: 'hidden' }}>
-              <Box component="img" src={product.thumbnail} alt="" sx={{ width: '82%', height: '82%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
+              <Box component="img" src={product.thumbnail} alt={product.name} sx={{ width: '82%', height: '82%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
             </Box>
           )}
           <Box sx={{ minWidth: 0 }}>

@@ -1,5 +1,5 @@
 'use client'
-import { Suspense, useState, useMemo, useEffect } from 'react'
+import { Suspense, useState, useMemo } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { Box } from '@mui/material'
@@ -15,40 +15,9 @@ import { T, textReset } from '@/src/app/Landing/modern/tokens'
 
 const KNOWN_BRANDS = Array.from(new Set(HP_NEEDLE_VALVE_DATA.map(v => v.brand)))
 
-function HPNeedleValveProducts() {
-  const searchParams = useSearchParams()
-  const initialBrand = searchParams.get('brand')
-  // ?series=HP2 opens the table on one series (links from the needle valves page)
-  const initialSeries = searchParams.get('series')
-  const [filters, setFilters] = useState<HPNeedleValveFilters>(() => ({
-    ...EMPTY_HP_FILTERS,
-    brands: initialBrand && KNOWN_BRANDS.includes(initialBrand) ? [initialBrand] : [],
-    series: initialSeries && HP_NEEDLE_VALVE_DATA.some(v => v.series === initialSeries) ? [initialSeries] : [],
-  }))
-
-  useEffect(() => {
-    setFilters(prev => ({
-      ...prev,
-      brands: initialBrand && KNOWN_BRANDS.includes(initialBrand) ? [initialBrand] : prev.brands,
-      series: initialSeries && HP_NEEDLE_VALVE_DATA.some(v => v.series === initialSeries) ? [initialSeries] : prev.series,
-    }))
-  }, [initialBrand, initialSeries])
-
-  const models = useMemo(() => applyFilters(HP_NEEDLE_VALVE_DATA, filters, ''), [filters])
-
-  const availableCounts = useMemo<AvailableCountsHP>(() => ({
-    brands:          countBy(applyFilters(HP_NEEDLE_VALVE_DATA, filters, 'brands'),          c => c.brand),
-    series:          countBy(applyFilters(HP_NEEDLE_VALVE_DATA, filters, 'series'),          c => c.series),
-    pressureRatings: countBy(applyFilters(HP_NEEDLE_VALVE_DATA, filters, 'pressureRatings'), c => c.pressureRating),
-    connectionSizes: countBy(applyFilters(HP_NEEDLE_VALVE_DATA, filters, 'connectionSizes'), c => c.connectionSize),
-    connectionTypes: countBy(applyFilters(HP_NEEDLE_VALVE_DATA, filters, 'connectionTypes'), c => c.connectionType),
-    configurations:  countBy(applyFilters(HP_NEEDLE_VALVE_DATA, filters, 'configurations'),  c => c.configuration),
-  }), [filters])
-
-  const activeCount = Object.values(filters).reduce((acc, v) => acc + v.length, 0)
-
+// Server-rendered header: outside the Suspense boundary so the H1 and intro are in the HTML
+function Header() {
   return (
-    <Box sx={{ ...textReset, bgcolor: '#F7FAF7', minHeight: '100vh', pb: { xs: 6, md: 10 } }}>
       <Box sx={{ background: `linear-gradient(120deg, #EEF9EA 0%, #FFFFFF 55%, #EEF5FF 100%)`, borderBottom: `1px solid ${T.border}` }}>
         <Box sx={{ maxWidth: 1400, mx: 'auto', px: { xs: 2, md: 4 }, py: { xs: 4, md: 5.5 }, display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'space-between', alignItems: { md: 'flex-end' }, gap: 3 }}>
           <Box>
@@ -75,24 +44,57 @@ function HPNeedleValveProducts() {
           </Box>
         </Box>
       </Box>
+  )
+}
 
-      <Box sx={{ maxWidth: 1400, mx: 'auto', px: { xs: 2, md: 4 }, pt: { xs: 3, md: 4 } }}>
-        <HPNVTable
-          models={models}
-          filters={filters}
-          setFilters={setFilters}
-          availableCounts={availableCounts}
-          activeCount={activeCount}
-        />
-      </Box>
+// Only the table reads ?brand= and ?series= (links from the needle valves page)
+function HPNeedleValveProducts({ initialBrand, initialSeries }: { initialBrand: string | null; initialSeries: string | null }) {
+  const [filters, setFilters] = useState<HPNeedleValveFilters>(() => ({
+    ...EMPTY_HP_FILTERS,
+    brands: initialBrand && KNOWN_BRANDS.includes(initialBrand) ? [initialBrand] : [],
+    series: initialSeries && HP_NEEDLE_VALVE_DATA.some(v => v.series === initialSeries) ? [initialSeries] : [],
+  }))
+
+  const models = useMemo(() => applyFilters(HP_NEEDLE_VALVE_DATA, filters, ''), [filters])
+
+  const availableCounts = useMemo<AvailableCountsHP>(() => ({
+    brands:          countBy(applyFilters(HP_NEEDLE_VALVE_DATA, filters, 'brands'),          c => c.brand),
+    series:          countBy(applyFilters(HP_NEEDLE_VALVE_DATA, filters, 'series'),          c => c.series),
+    pressureRatings: countBy(applyFilters(HP_NEEDLE_VALVE_DATA, filters, 'pressureRatings'), c => c.pressureRating),
+    connectionSizes: countBy(applyFilters(HP_NEEDLE_VALVE_DATA, filters, 'connectionSizes'), c => c.connectionSize),
+    connectionTypes: countBy(applyFilters(HP_NEEDLE_VALVE_DATA, filters, 'connectionTypes'), c => c.connectionType),
+    configurations:  countBy(applyFilters(HP_NEEDLE_VALVE_DATA, filters, 'configurations'),  c => c.configuration),
+  }), [filters])
+
+  const activeCount = Object.values(filters).reduce((acc, v) => acc + v.length, 0)
+
+  return (
+    <Box sx={{ maxWidth: 1400, mx: 'auto', px: { xs: 2, md: 4 }, pt: { xs: 3, md: 4 } }}>
+      <HPNVTable
+        models={models}
+        filters={filters}
+        setFilters={setFilters}
+        availableCounts={availableCounts}
+        activeCount={activeCount}
+      />
     </Box>
   )
 }
 
+// Re-mounts when the link's filters change, so they're read once on first render
+function WithParams() {
+  const sp = useSearchParams()
+  const brand = sp.get('brand'), series = sp.get('series')
+  return <HPNeedleValveProducts key={`${brand}-${series}`} initialBrand={brand} initialSeries={series} />
+}
+
 export default function HPNeedleValveProductsPage() {
   return (
-    <Suspense>
-      <HPNeedleValveProducts />
-    </Suspense>
+    <Box sx={{ ...textReset, bgcolor: '#F7FAF7', minHeight: '100vh', pb: { xs: 6, md: 10 } }}>
+      <Header />
+      <Suspense fallback={<Box sx={{ minHeight: 480 }} />}>
+        <WithParams />
+      </Suspense>
+    </Box>
   )
 }

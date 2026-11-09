@@ -66,13 +66,14 @@ export function countBy<T>(items: T[], keyFn: (item: T) => string): Record<strin
 }
 
 // Panam photos from panam.in (blob: panam-images/products/needle-valves/), one per body pattern
-const PN = 'https://pblol2.blob.core.windows.net/panam-images/products/needle-valves/'
+// Compressed copies (1.4–3.5 MB originals → 25–60 KB WebP)
+const CMP = 'https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/'
 const panamImage = (configuration: string) =>
-  configuration === 'Angle Type' ? `${PN}panam-needle-valve-angle.png`
-  : configuration.startsWith('3-Way') ? `${PN}panam-needle-valve-3way.png`
-  : configuration === 'Replaceable Seat' ? `${PN}panam-needle-valve-replaceable-seat.png`
-  : configuration === '2-Stem Manifold' ? `${PN}cover-needle.jpg`
-  : `${PN}panam-needle-valve-straight.png`
+  configuration === 'Angle Type' ? `${CMP}panam-needle-valve-angle.webp`
+  : configuration.startsWith('3-Way') ? `${CMP}panam-needle-valve-3way.webp`
+  : configuration === 'Replaceable Seat' ? `${CMP}panam-needle-valve-replaceable-seat.webp`
+  : configuration === '2-Stem Manifold' ? `${CMP}cover-needle.webp`
+  : `${CMP}panam-needle-valve-straight.webp`
 
 const make = (
   pn: string,
@@ -205,7 +206,7 @@ const PANAM_NV_DATA: HPNeedleValveDTO[] = [
 ]
 
 // ---- Hiflux needle valves (hydrogen catalogue) ----
-const HF_IMAGE = 'https://pblol2.blob.core.windows.net/hiflux/updated%20images/images/needle%20valve.png' // stamped 20,000 psig
+const HF_IMAGE = 'https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/needle-valve.webp' // stamped 20,000 psig
 // Upscaled photos from hiflux.net (blob: hiflux/Needle-valve/), matched to the stamp on the valve
 const HF_NV = 'https://pblol2.blob.core.windows.net/hiflux/Needle-valve/'
 const hfImage = (psi: number, size: string, series: string, configuration = 'Straight') =>

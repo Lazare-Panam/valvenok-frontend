@@ -55,7 +55,7 @@ export const APPS: App[] = [
     ],
     products: [
       { name: "Hydrogen & High Pressure range", why: "Every hydrogen valve, fitting, tube and cylinder valve on one page.", href: "/hydrogen-cryogenic", img: "https://pblol2.blob.core.windows.net/hiflux/updated%20images/lok/hiflux_tube.png" },
-      { name: "Needle valves", why: "Panam and Hiflux, 10,000–60,000 psi, plus H70 fuel-station valves.", href: "/high-pressure/valves/needle-valves", img: "https://pblol2.blob.core.windows.net/hiflux/updated%20images/images/needle%20valve.png" },
+      { name: "Needle valves", why: "Panam and Hiflux, 10,000–60,000 psi, plus H70 fuel-station valves.", href: "/high-pressure/valves/needle-valves", img: "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/needle-valve.webp" },
       { name: "Cone & thread fittings", why: "Metal-to-metal seals, up to 150,000 psi.", href: "/high-pressure/fittings", img: "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure-fittings/hp-adaptor.jpg" },
       { name: "High-pressure tubing", why: "Seamless SS 316 tube for cone & thread systems.", href: "/high-pressure/tubing", img: "https://pblol2.blob.core.windows.net/panam-images/products/tubing/tubing-1.jpg" },
       { name: "Hydrogen cylinder valves", why: "Youngdo 35 and 70 MPa valves with thermal relief options.", href: "/hydrogen-cryogenic/hydrogen", img: "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/HE-700.png" },

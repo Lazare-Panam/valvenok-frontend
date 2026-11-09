@@ -15,14 +15,9 @@ const YOKE: Record<string, string> = { IS: 'Symmetric (IS)', IC: 'Canted (IC)' }
 const ACTION: Record<string, string> = { DA: 'Double acting', SR: 'Spring return' }
 const SUSIN_LOGO = 'https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp'
 
-function MHDProducts({ yoke, action }: { yoke: string | null; action: string | null }) {
-  const [filters, setFilters] = useState<MHDFilters>(() => {
-    const y = YOKE[yoke ?? ''], a = ACTION[action ?? '']
-    return { ...EMPTY_FILTERS, yokes: y ? [y] : [], actions: a ? [a] : [] }
-  })
-
+// Server-rendered header: outside the Suspense boundary so the H1 and intro are in the HTML
+function Header() {
   return (
-    <Box sx={{ ...textReset, bgcolor: '#F7FAF7', minHeight: '100vh', pb: { xs: 6, md: 10 } }}>
       <Box sx={{ background: 'linear-gradient(120deg, #EEF9EA 0%, #FFFFFF 55%, #EEF5FF 100%)', borderBottom: `1px solid ${T.border}` }}>
         <Box sx={{ maxWidth: 1400, mx: 'auto', px: { xs: 2, md: 4 }, py: { xs: 4, md: 5.5 }, display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'space-between', alignItems: { md: 'flex-end' }, gap: 3 }}>
           <Box>
@@ -42,9 +37,18 @@ function MHDProducts({ yoke, action }: { yoke: string | null; action: string | n
           </Box>
         </Box>
       </Box>
-      <Box sx={{ maxWidth: 1400, mx: 'auto', px: { xs: 2, md: 4 }, pt: { xs: 3, md: 4 } }}>
-        <MHDList filters={filters} setFilters={setFilters} />
-      </Box>
+  )
+}
+
+// Only the filtered list reads the URL, so only it waits for the search params
+function MHDProducts({ yoke, action }: { yoke: string | null; action: string | null }) {
+  const [filters, setFilters] = useState<MHDFilters>(() => {
+    const y = YOKE[yoke ?? ''], a = ACTION[action ?? '']
+    return { ...EMPTY_FILTERS, yokes: y ? [y] : [], actions: a ? [a] : [] }
+  })
+  return (
+    <Box sx={{ maxWidth: 1400, mx: 'auto', px: { xs: 2, md: 4 }, pt: { xs: 3, md: 4 } }}>
+      <MHDList filters={filters} setFilters={setFilters} />
     </Box>
   )
 }
@@ -58,8 +62,11 @@ function WithParams() {
 
 export default function MHDProductsPage() {
   return (
-    <Suspense>
-      <WithParams />
-    </Suspense>
+    <Box sx={{ ...textReset, bgcolor: '#F7FAF7', minHeight: '100vh', pb: { xs: 6, md: 10 } }}>
+      <Header />
+      <Suspense fallback={<Box sx={{ minHeight: 480 }} />}>
+        <WithParams />
+      </Suspense>
+    </Box>
   )
 }

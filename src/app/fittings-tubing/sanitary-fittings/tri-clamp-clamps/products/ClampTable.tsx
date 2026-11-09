@@ -263,7 +263,7 @@ export default function ClampTable({ filters, setFilters }: { filters: ClampFilt
                             <KeyboardArrowDownRoundedIcon sx={{ fontSize: 18 }} />
                           </Box>
                           <Box sx={{ flexShrink: 0, width: 44, height: 44, borderRadius: "10px", bgcolor: T.surface, display: "grid", placeItems: "center", overflow: "hidden" }}>
-                            <Box component="img" src={c.img} alt="" loading="lazy" sx={{ width: "82%", height: "82%", objectFit: "contain", mixBlendMode: "multiply" }} />
+                            <Box component="img" src={c.img} alt={`${c.type} tri-clamp ${c.id}`} loading="lazy" sx={{ width: "82%", height: "82%", objectFit: "contain", mixBlendMode: "multiply" }} />
                           </Box>
                           <Box>
                             <Box component={Link} href={detailHref(c)} onClick={(e: React.MouseEvent) => e.stopPropagation()} sx={{ fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace", fontWeight: 700, fontSize: "0.84rem", color: T.ink, textDecoration: "none", whiteSpace: "nowrap", "&:hover": { color: T.greenDark, textDecoration: "underline" } }}>
@@ -304,7 +304,7 @@ export default function ClampTable({ filters, setFilters }: { filters: ClampFilt
             <Box key={c.id} sx={{ p: 1.75, borderRadius: "18px", bgcolor: "#fff", border: `1px solid ${T.border}` }}>
               <Box sx={{ display: "flex", gap: 1.5, alignItems: "center" }}>
                 <Box sx={{ flexShrink: 0, width: 56, height: 56, borderRadius: "12px", bgcolor: T.surface, display: "grid", placeItems: "center", overflow: "hidden" }}>
-                  <Box component="img" src={c.img} alt="" loading="lazy" sx={{ width: "82%", height: "82%", objectFit: "contain", mixBlendMode: "multiply" }} />
+                  <Box component="img" src={c.img} alt={`${c.type} tri-clamp ${c.id}`} loading="lazy" sx={{ width: "82%", height: "82%", objectFit: "contain", mixBlendMode: "multiply" }} />
                 </Box>
                 <Box sx={{ minWidth: 0, flex: 1 }}>
                   <Box component={Link} href={detailHref(c)} sx={{ fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace", fontWeight: 700, fontSize: "0.86rem", color: T.ink, textDecoration: "none" }}>{c.partNumber}</Box>

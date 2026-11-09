@@ -497,7 +497,7 @@ function Marking() {
           <Box sx={{ position: "relative", p: { xs: 2.5, md: 4 }, background: "linear-gradient(160deg, #EEF3F8 0%, #F7F9FB 60%, #EEF9EA 100%)", borderLeft: { md: `1px solid ${T.border}` }, borderTop: { xs: `1px solid ${T.border}`, md: 0 }, display: "flex", flexDirection: "column", justifyContent: "center", gap: 2.5 }}>
             <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
               <Box sx={{ flexShrink: 0, width: { xs: 96, md: 120 }, height: { xs: 96, md: 120 }, borderRadius: "50%", bgcolor: "#fff", border: `1px solid ${T.border}`, boxShadow: T.shadow, display: "grid", placeItems: "center" }}>
-                <Box component="img" src={TYPES[0].img} alt="" sx={{ width: "78%", height: "78%", objectFit: "contain", mixBlendMode: "multiply" }} />
+                <Box component="img" src={TYPES[0].img} alt={TYPES[0].name} sx={{ width: "78%", height: "78%", objectFit: "contain", mixBlendMode: "multiply" }} />
               </Box>
               <Box sx={{ fontSize: "0.88rem", color: T.body, lineHeight: 1.5 }}>
                 <Box sx={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: T.greenDark, mb: 0.5 }}>Close-up of the band</Box>
@@ -579,7 +579,7 @@ function SizeFinder() {
                 ].map(({ t, code, dim }) => (
                   <ModelLink key={t.key} href={`${CLAMP_BASE}/products/${code}`} sx={{ display: "flex", alignItems: "center", gap: 1.5, p: 1, pr: 1.5, borderRadius: "14px", border: `1px solid ${T.border}`, bgcolor: "#fff", textDecoration: "none", transition: "all .15s", "&:hover": { borderColor: "#BFE5B3", bgcolor: T.greenSoft } }}>
                     <Box sx={{ flexShrink: 0, width: 52, height: 52, borderRadius: "12px", bgcolor: T.surface, display: "grid", placeItems: "center" }}>
-                      <Box component="img" src={t.img} alt="" sx={{ width: "82%", height: "82%", objectFit: "contain", mixBlendMode: "multiply" }} />
+                      <Box component="img" src={t.img} alt={t.name} sx={{ width: "82%", height: "82%", objectFit: "contain", mixBlendMode: "multiply" }} />
                     </Box>
                     <Box sx={{ flex: 1, minWidth: 0 }}>
                       <Box sx={{ fontSize: "0.8rem", color: T.body }}>{t.key === "single" ? "Single pin (S type)" : "Double-bolted (SSH type)"}</Box>

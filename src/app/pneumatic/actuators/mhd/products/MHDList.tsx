@@ -71,7 +71,7 @@ const quoteBtn = {
 } as const;
 const thumb = (m: MHDActuatorDTO, box: number) => (
   <Box sx={{ flexShrink: 0, width: box, height: box, borderRadius: "10px", bgcolor: T.surface, display: "grid", placeItems: "center", overflow: "hidden" }}>
-    <Box component="img" src={m.imageUrl} alt="" loading="lazy" sx={{ width: "88%", height: "88%", objectFit: "contain", mixBlendMode: "multiply" }} />
+    <Box component="img" src={m.imageUrl} alt={`MHD actuator ${m.model}`} loading="lazy" sx={{ width: "88%", height: "88%", objectFit: "contain", mixBlendMode: "multiply" }} />
   </Box>
 );
 const typeLabel = (m: MHDActuatorDTO) => `${m.yoke.includes("IS") ? "Symmetric" : "Canted"} · ${m.action === "Spring return" ? "SR" : "DA"}`;

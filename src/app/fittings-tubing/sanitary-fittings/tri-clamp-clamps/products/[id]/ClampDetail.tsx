@@ -293,7 +293,7 @@ export default function ClampDetail({ id }: { id: string }) {
             {related.map((r) => (
               <Box key={r.id} component={Link} href={href(r)} sx={{ display: "block", p: 1.5, borderRadius: "20px", bgcolor: "#fff", border: `1px solid ${T.border}`, textDecoration: "none", transition: "all .2s", "&:hover": { borderColor: "#BFE5B3", transform: "translateY(-3px)", boxShadow: T.shadowHover } }}>
                 <Box sx={{ aspectRatio: "4 / 3", borderRadius: "14px", bgcolor: "#F2F5F8", display: "grid", placeItems: "center", overflow: "hidden" }}>
-                  <Box component="img" src={r.img} alt="" loading="lazy" sx={{ width: "70%", height: "75%", objectFit: "contain", mixBlendMode: "multiply" }} />
+                  <Box component="img" src={r.img} alt={`${r.type} tri-clamp ${r.id}`} loading="lazy" sx={{ width: "70%", height: "75%", objectFit: "contain", mixBlendMode: "multiply" }} />
                 </Box>
                 <Box sx={{ mt: 1.25, fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace", fontWeight: 700, fontSize: "0.86rem", color: T.ink }}>{r.partNumber}</Box>
                 <Box sx={{ mt: 0.25, fontSize: "0.8rem", color: T.body }}>{r.size}</Box>

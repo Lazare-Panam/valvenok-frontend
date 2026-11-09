@@ -65,7 +65,7 @@ export function countBy<T>(items: T[], keyFn: (item: T) => string): Record<strin
   return counts
 }
 
-const IMAGE = 'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure/hp-nv.jpg'
+const IMAGE = 'https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/hp-nv.webp'
 
 const make = (
   pn: string,
@@ -198,7 +198,7 @@ const PANAM_NV_DATA: HPNeedleValveDTO[] = [
 ]
 
 // ---- Hiflux needle valves (hydrogen catalogue) ----
-const HF_IMAGE = 'https://pblol2.blob.core.windows.net/hiflux/updated%20images/images/needle%20valve.png'
+const HF_IMAGE = 'https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/needle-valve.webp'
 
 const mkHF = (
   pn: string, series: string, psi: number, pressureRating: string,

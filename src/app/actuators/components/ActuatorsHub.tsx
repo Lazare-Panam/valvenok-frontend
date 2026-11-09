@@ -581,7 +581,7 @@ function Selector() {
           </Box>
           <Box key={i} sx={{ borderRadius: "24px", bgcolor: "#fff", border: `1px solid ${T.border}`, boxShadow: T.shadow, overflow: "hidden", display: "flex", flexDirection: "column", animation: "wordIn .45s cubic-bezier(.2,.8,.2,1) both" }}>
             <Box sx={{ height: { xs: 200, md: 260 }, bgcolor: c.tint, display: "grid", placeItems: "center", overflow: "hidden" }}>
-              <Box component="img" src={c.img} alt="" sx={{ height: { xs: 160, md: 210 }, width: "auto", maxWidth: "70%", ...photo }} />
+              <Box component="img" src={c.img} alt={c.title} sx={{ height: { xs: 160, md: 210 }, width: "auto", maxWidth: "70%", ...photo }} />
             </Box>
             <Box sx={{ p: { xs: 2.5, md: 3.5 } }}>
               <Box component="p" sx={{ m: 0, mb: 0.75, fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase !important", color: T.muted }}>Start with</Box>

@@ -20,7 +20,7 @@ const SECTIONS = [
     href: "/high-pressure/ball-valves",
     label: "Browse Ball Valves",
     image:
-      "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure/hp-bv.jpg",
+      "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/hp-bv.webp",
     imageAlt: "HP Ball Valves",
   },
   {
@@ -31,7 +31,7 @@ const SECTIONS = [
     href: "/high-pressure/needle-valves",
     label: "Browse Needle Valves",
     image:
-      "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure/hp-nv.jpg",
+      "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/hp-nv.webp",
     imageAlt: "HP Needle Valves",
     flip: true,
   },
@@ -54,7 +54,7 @@ const SECTIONS = [
     href: "/high-pressure/manifolds",
     label: "Browse Manifolds",
     image:
-      "https://pblol2.blob.core.windows.net/panam-images/products/needle-valves/cover-needle.jpg",
+      "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/cover-needle.webp",
     imageAlt: "2-Valve Manifolds",
     flip: true,
   },

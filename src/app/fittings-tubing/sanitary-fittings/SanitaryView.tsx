@@ -140,7 +140,7 @@ function Hero() {
             }}
           >
             <Box className="ph" sx={{ mx: "auto", width: { xs: 120, md: 150 }, height: { xs: 120, md: 150 }, borderRadius: "50%", bgcolor: "#fff", border: "1px solid #DCE6F2", boxShadow: T.shadow, display: "grid", placeItems: "center", overflow: "hidden", transition: "all .25s" }}>
-              <Box component="img" src={c.img} alt="" loading="eager" sx={c.cover ? { width: "100%", height: "100%", objectFit: "cover" } : { width: "74%", height: "74%", objectFit: "contain", mixBlendMode: "multiply" }} />
+              <Box component="img" src={c.img} alt={c.title} loading="eager" sx={c.cover ? { width: "100%", height: "100%", objectFit: "cover" } : { width: "74%", height: "74%", objectFit: "contain", mixBlendMode: "multiply" }} />
             </Box>
             <Box className="nm" sx={{ mt: 1.5, fontSize: "0.95rem", fontWeight: 700, color: T.ink, lineHeight: 1.25, transition: "color .2s" }}>{c.title}</Box>
             <Box sx={{ mt: 0.25, fontSize: "0.78rem", color: T.muted, lineHeight: 1.4 }}>
@@ -226,7 +226,7 @@ function Finder() {
                         sx={{ display: "flex", alignItems: "center", gap: 1.5, p: 1, pr: 1.5, borderRadius: "14px", border: `1px solid ${T.border}`, textDecoration: "none", bgcolor: "#fff", ...(c.href && { transition: "all .15s", "&:hover": { borderColor: "#BFE5B3", bgcolor: T.greenSoft } }) }}
                       >
                         <Box sx={{ flexShrink: 0, width: 56, height: 56, borderRadius: "12px", bgcolor: T.surface, display: "grid", placeItems: "center", overflow: "hidden" }}>
-                          <Box component="img" src={c.img} alt="" sx={c.cover ? { width: "100%", height: "100%", objectFit: "cover" } : { width: "80%", height: "80%", objectFit: "contain", mixBlendMode: "multiply" }} />
+                          <Box component="img" src={c.img} alt={c.title} sx={c.cover ? { width: "100%", height: "100%", objectFit: "cover" } : { width: "80%", height: "80%", objectFit: "contain", mixBlendMode: "multiply" }} />
                         </Box>
                         <Box sx={{ flex: 1, minWidth: 0 }}>
                           <Box sx={{ fontWeight: 800, color: T.ink, fontSize: "0.95rem" }}>{c.title}</Box>

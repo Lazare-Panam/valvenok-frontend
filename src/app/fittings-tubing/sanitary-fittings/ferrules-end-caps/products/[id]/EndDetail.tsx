@@ -285,7 +285,7 @@ export default function EndDetail({ id }: { id: string }) {
             {joint.map((x) => (
               <Box key={x.k} component={Link} href={x.href} sx={{ display: "flex", alignItems: "center", gap: 1.5, p: 1.5, borderRadius: "18px", bgcolor: "#fff", border: `1px solid ${T.border}`, textDecoration: "none", transition: "all .2s", "&:hover": { borderColor: "#BFE5B3", bgcolor: T.greenSoft } }}>
                 <Box sx={{ flexShrink: 0, width: 56, height: 56, borderRadius: "12px", bgcolor: T.surface, display: "grid", placeItems: "center", overflow: "hidden" }}>
-                  <Box component="img" src={x.img} alt="" loading="lazy" sx={{ width: "82%", height: "82%", objectFit: "contain", mixBlendMode: "multiply" }} />
+                  <Box component="img" src={x.img} alt={`${x.k} ${x.code}`} loading="lazy" sx={{ width: "82%", height: "82%", objectFit: "contain", mixBlendMode: "multiply" }} />
                 </Box>
                 <Box sx={{ flex: 1, minWidth: 0 }}>
                   <Box sx={{ fontSize: "0.78rem", color: T.body }}>{x.k}</Box>
@@ -351,7 +351,7 @@ export default function EndDetail({ id }: { id: string }) {
               {related.map((r) => (
                 <Box key={r.id} component={Link} href={endHref(r)} sx={{ display: "block", p: 1.5, borderRadius: "20px", bgcolor: "#fff", border: `1px solid ${T.border}`, textDecoration: "none", transition: "all .2s", "&:hover": { borderColor: "#BFE5B3", transform: "translateY(-3px)", boxShadow: T.shadowHover } }}>
                   <Box sx={{ aspectRatio: "4 / 3", borderRadius: "14px", bgcolor: "#F2F5F8", display: "grid", placeItems: "center", overflow: "hidden" }}>
-                    <Box component="img" src={r.img} alt="" loading="lazy" sx={{ ...(cover ? { width: "100%", height: "100%", objectFit: "cover" } : { width: "70%", height: "75%", objectFit: "contain" }), mixBlendMode: "multiply" }} />
+                    <Box component="img" src={r.img} alt={`${r.kind} ${r.id}`} loading="lazy" sx={{ ...(cover ? { width: "100%", height: "100%", objectFit: "cover" } : { width: "70%", height: "75%", objectFit: "contain" }), mixBlendMode: "multiply" }} />
                   </Box>
                   <Box sx={{ mt: 1.25, fontFamily: mono, fontWeight: 700, fontSize: "0.86rem", color: T.ink, wordBreak: "break-all" }}>{r.partNumber}</Box>
                   <Box sx={{ mt: 0.25, fontSize: "0.8rem", color: T.body }}>{r.dims}</Box>

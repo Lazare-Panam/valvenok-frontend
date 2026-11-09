@@ -434,7 +434,7 @@ function Finder() {
                 ].map((x) => (
                   <Box key={x.k} component={Link} href={x.href} sx={row}>
                     <Box sx={{ flexShrink: 0, width: 44, height: 44, borderRadius: "10px", bgcolor: T.surface, display: "grid", placeItems: "center", overflow: "hidden" }}>
-                      <Box component="img" src={x.img} alt="" sx={{ width: "82%", height: "82%", objectFit: "contain", mixBlendMode: "multiply" }} />
+                      <Box component="img" src={x.img} alt={`${x.k} ${x.code}`} sx={{ width: "82%", height: "82%", objectFit: "contain", mixBlendMode: "multiply" }} />
                     </Box>
                     <Box sx={{ flex: 1, minWidth: 0 }}>
                       <Box sx={{ fontSize: "0.76rem", color: T.body }}>{x.k}</Box>

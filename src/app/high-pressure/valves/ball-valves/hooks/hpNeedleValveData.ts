@@ -69,7 +69,7 @@ export function countBy<T>(items: T[], keyFn: (item: T) => string): Record<strin
 }
 
 /* ---------------- Panam HP Ball Valves ---------------- */
-const PANAM_IMG = 'https://pblol2.blob.core.windows.net/panam-images/products/high-pressure/hp-bv.jpg'
+const PANAM_IMG = 'https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/hp-bv.webp'
 
 const make = (
   pn: string, series: string, psi: number, pressureRating: string,

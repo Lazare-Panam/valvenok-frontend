@@ -191,7 +191,7 @@ export default function HPNVTable({ models, filters, setFilters, availableCounts
                             <KeyboardArrowDownRoundedIcon sx={{ fontSize: 18 }} />
                           </Box>
                           <Box sx={{ flexShrink: 0, width: 44, height: 44, borderRadius: '10px', bgcolor: T.surface, display: 'grid', placeItems: 'center', overflow: 'hidden' }}>
-                            <Box component="img" src={r.imageUrl} alt="" loading="lazy" sx={{ width: '80%', height: '80%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
+                            <Box component="img" src={r.imageUrl} alt={`${r.id} needle valve`} loading="lazy" sx={{ width: '80%', height: '80%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
                           </Box>
                           <Box>
                             <Box component={Link} href={detailHref(r)} onClick={(e: React.MouseEvent) => e.stopPropagation()} sx={{ fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace', fontWeight: 700, fontSize: '0.84rem', color: T.ink, textDecoration: 'none', '&:hover': { color: T.greenDark, textDecoration: 'underline' } }}>
@@ -230,7 +230,7 @@ export default function HPNVTable({ models, filters, setFilters, availableCounts
             <Box key={r.id} sx={{ p: 1.75, borderRadius: '18px', bgcolor: '#fff', border: `1px solid ${T.border}` }}>
               <Box sx={{ display: 'flex', gap: 1.5, alignItems: 'center' }}>
                 <Box sx={{ flexShrink: 0, width: 56, height: 56, borderRadius: '12px', bgcolor: T.surface, display: 'grid', placeItems: 'center', overflow: 'hidden' }}>
-                  <Box component="img" src={r.imageUrl} alt="" loading="lazy" sx={{ width: '80%', height: '80%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
+                  <Box component="img" src={r.imageUrl} alt={`${r.id} needle valve`} loading="lazy" sx={{ width: '80%', height: '80%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
                 </Box>
                 <Box sx={{ minWidth: 0, flex: 1 }}>
                   <Box component={Link} href={detailHref(r)} sx={{ fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace', fontWeight: 700, fontSize: '0.86rem', color: T.ink, textDecoration: 'none' }}>{r.partNumber}</Box>

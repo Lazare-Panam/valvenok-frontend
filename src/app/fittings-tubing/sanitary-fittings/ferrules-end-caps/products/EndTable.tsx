@@ -74,7 +74,7 @@ const quoteBtn = {
 } as const;
 const thumb = (e: EndPart, box: number) => (
   <Box sx={{ flexShrink: 0, width: box, height: box, borderRadius: "10px", bgcolor: T.surface, display: "grid", placeItems: "center", overflow: "hidden" }}>
-    <Box component="img" src={e.img} alt="" loading="lazy" sx={{ width: e.slug === "ferrule" ? "100%" : "82%", height: e.slug === "ferrule" ? "100%" : "82%", objectFit: e.slug === "ferrule" ? "cover" : "contain", mixBlendMode: "multiply" }} />
+    <Box component="img" src={e.img} alt={`${e.kind} ${e.id}`} loading="lazy" sx={{ width: e.slug === "ferrule" ? "100%" : "82%", height: e.slug === "ferrule" ? "100%" : "82%", objectFit: e.slug === "ferrule" ? "cover" : "contain", mixBlendMode: "multiply" }} />
   </Box>
 );
 

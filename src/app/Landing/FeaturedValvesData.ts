@@ -22,7 +22,7 @@ export const FEATURED_PRODUCTS: FeaturedValve[] = [
       "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/logo.png",
     logoHeight: 36,
     thumbnail:
-      "https://pblol2.blob.core.windows.net/hiflux/updated%20images/images/needle%20valve.png",
+      "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/needle-valve.webp",
     href: "/hydrogen-cryogenic/valves",
     specs: [
       { label: "Max Pressure", value: "~150,000 psi" },

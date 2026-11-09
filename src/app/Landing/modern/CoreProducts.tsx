@@ -53,7 +53,7 @@ const CATEGORIES = [
   },
   {
     name: "Fittings & Instrumentation Valves",
-    img: "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure/hp-nv.jpg",
+    img: "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/hp-nv.webp",
     href: "/fittings-tubing/instrumentation-fittings/jic-fittings",
     tag: "Most Popular",
     count: "450+",

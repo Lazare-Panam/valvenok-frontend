@@ -417,7 +417,7 @@ function KeepReading({ slug }: { slug: string }) {
               }}
             >
               <Box sx={{ aspectRatio: "16 / 9", overflow: "hidden", bgcolor: T.surface }}>
-                <Box component="img" src={p.thumbnail} alt="" loading="lazy" sx={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform .5s" }} />
+                <Box component="img" src={p.thumbnail} alt={p.title} loading="lazy" sx={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform .5s" }} />
               </Box>
               <Box sx={{ p: 2.5, display: "flex", flexDirection: "column", gap: 1, flexGrow: 1 }}>
                 <Box sx={{ fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase !important", color: T.greenDark }}>{p.category}</Box>
@@ -455,7 +455,7 @@ function SideRail({ slug }: { slug: string }) {
         <Box sx={{ display: "grid", gap: 1.5 }}>
           {next.map((p) => (
             <Box key={p.link} component={Link} href={p.link} data-plain sx={{ display: "grid", gridTemplateColumns: "64px 1fr", gap: 1.5, alignItems: "center", textDecoration: "none", "&:hover .t": { color: T.greenDark } }}>
-              <Box component="img" src={p.thumbnail} alt="" loading="lazy" sx={{ width: 64, height: 64, objectFit: "cover", borderRadius: "10px", border: `1px solid ${T.border}`, bgcolor: T.surface }} />
+              <Box component="img" src={p.thumbnail} alt={p.title} loading="lazy" sx={{ width: 64, height: 64, objectFit: "cover", borderRadius: "10px", border: `1px solid ${T.border}`, bgcolor: T.surface }} />
               <Box>
                 <Box className="t" sx={{ fontSize: "0.88rem", fontWeight: 600, lineHeight: 1.35, color: T.ink, transition: "color .15s", display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{p.title}</Box>
                 <Box sx={{ mt: 0.25, fontSize: "0.78rem", color: T.muted }}>{p.date}</Box>

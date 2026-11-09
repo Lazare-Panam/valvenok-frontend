@@ -25,7 +25,7 @@ const INSTRUMENTATION_FAMILIES: Category[] = [
     ],
     applications: "Hydrogen, Oil & Gas, Petrochemical, Test Systems, High Pressure Process",
     href: "/high-pressure",
-    image: "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure/hp-nv.jpg",
+    image: "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/hp-nv.webp",
   },
   {
     code: "IF",
@@ -105,7 +105,7 @@ export default function InstrumentationIndexPage() {
         title="Instrumentation"
         subtitle="High Pressure Fittings, Valves & Instrumentation Products"
         description="A complete range of instrumentation products engineered for oil & gas, petrochemical and process industries. High pressure fittings and valves (ratings vary by product, up to 60,000 psi on selected models), instrumentation tube and pipe fittings, DBB and manifold valves, quick couplings and SS tubing."
-        imageSrc="https://pblol2.blob.core.windows.net/panam-images/products/high-pressure/hp-nv.jpg"
+        imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/hp-nv.webp"
         imageAlt="Valvenok Instrumentation Products"
         breadcrumb="Products / Instrumentation"
       />
