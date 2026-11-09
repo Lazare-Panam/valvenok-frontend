@@ -26,3 +26,12 @@ export const useReliefValves = (filters: ReliefValveFilterParams) =>
     staleTime: 1000 * 60 * 5,
     placeholderData: prev => prev,
   })
+
+// Detail pages have no dedicated by-id endpoint, so we pull the full (unfiltered)
+// relief-valve list — cached under ["relief-valves", {}], shared with the listing —
+// and resolve a single product by its part number (which doubles as the URL slug).
+export const useReliefValveBySlug = (slug: string) => {
+  const query = useReliefValves({})
+  const product = query.data?.find(p => p.partNumber === slug)
+  return { ...query, product }
+}

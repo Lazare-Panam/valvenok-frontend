@@ -1,5 +1,6 @@
 'use client'
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import {
   Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
   TablePagination, TableSortLabel, Collapse, Chip, Typography, Stack, IconButton
@@ -24,20 +25,25 @@ function Spec({ label, value }: { label: string; value?: string }) {
 function PCVRow({ row }: { row: PCVDto }) {
   const [open, setOpen] = useState(false)
   const theme = useTheme()
+  const router = useRouter()
+
+  const goToProduct = () =>
+    router.push(`/valves/instrumentation-valves/check-valves/${encodeURIComponent(row.partNumber)}`)
 
   return (
     <>
-      <TableRow hover onClick={() => setOpen(o => !o)} sx={{
+      <TableRow hover onClick={goToProduct} sx={{
         cursor: "pointer",
         bgcolor: open ? alpha(theme.palette.primary.main, 0.04) : "inherit",
         "&:hover": { bgcolor: `${alpha(theme.palette.primary.main, 0.03)} !important` },
       }}>
         <TableCell sx={{ width: 40, py: 1 }}>
+          {/* Chevron toggles the inline spec preview without navigating */}
           <IconButton size="small" onClick={e => { e.stopPropagation(); setOpen(o => !o) }}>
             {open ? <KeyboardArrowUpIcon fontSize="small" /> : <KeyboardArrowDownIcon fontSize="small" />}
           </IconButton>
         </TableCell>
-        <TableCell sx={{ fontFamily: "monospace", fontWeight: 700, color: theme.palette.primary.main, fontSize: "0.8rem", py: 1 }}>
+        <TableCell sx={{ fontFamily: "monospace", fontWeight: 700, color: theme.palette.primary.main, fontSize: "0.8rem", py: 1, textDecoration: "underline", textUnderlineOffset: "3px" }}>
           {row.partNumber}
         </TableCell>
         <TableCell sx={{ py: 1 }}>

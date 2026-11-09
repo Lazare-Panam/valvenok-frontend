@@ -26,3 +26,12 @@ export const usePCVs = (filters: PCVFilterParams) =>
     staleTime: 1000 * 60 * 5,
     placeholderData: prev => prev,
   })
+
+// Detail pages have no dedicated by-id endpoint, so we pull the full (unfiltered)
+// PCV list — cached under ["pcvs", {}], shared with the listing — and resolve a
+// single product by its part number (which doubles as the URL slug).
+export const usePCVBySlug = (slug: string) => {
+  const query = usePCVs({})
+  const product = query.data?.find(p => p.partNumber === slug)
+  return { ...query, product }
+}
