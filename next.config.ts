@@ -56,6 +56,17 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/products/relief-valves-10-000-15-000-psi",
+        destination: "/valves/instrumentation-valves/relief-valves",
+        permanent: true,
+      },
+      {
+        // No dedicated accumulator page — send to the catalogue root
+        source: "/products/stainless-steel-accumulator",
+        destination: "/categories",
+        permanent: true,
+      },
+      {
         source: "/collections/needle-valves",
         destination: "/valves/instrumentation-valves/needle-valves",
         permanent: true,
@@ -83,6 +94,50 @@ const nextConfig: NextConfig = {
       {
         source: "/collections/temperature-gauges",
         destination: "/instrumentation",
+        permanent: true,
+      },
+      // Collection + nested product URLs that still hold backlinks from
+      // panamvalves.co.uk (SE Ranking, Nov 2026). Specific matches stay above
+      // the "/collections/:slug" and nested catch-alls below.
+      {
+        source: "/collections/filters",
+        destination: "/filters-sight-glass",
+        permanent: true,
+      },
+      {
+        source: "/collections/tube-fittings",
+        destination: "/fittings-tubing/instrumentation-fittings/tube-fittings",
+        permanent: true,
+      },
+      {
+        source: "/collections/pipe-fittings",
+        destination: "/fittings-tubing/instrumentation-fittings/pipe-fittings",
+        permanent: true,
+      },
+      {
+        // 37° flare fittings are JIC fittings
+        source: "/collections/37-flare-fittings",
+        destination: "/fittings-tubing/instrumentation-fittings/jic-fittings",
+        permanent: true,
+      },
+      {
+        source: "/collections/ball-valves",
+        destination: "/valves/industrial-valves/ball-valves",
+        permanent: true,
+      },
+      {
+        source: "/collections/h2-ball-valves/products/hp-400-series-ball-valves",
+        destination: "/hydrogen-cryogenic",
+        permanent: true,
+      },
+      {
+        source: "/collections/h2-ball-valves/products/hb-series-ball-valves-10-000-psig-689-bar",
+        destination: "/hydrogen-cryogenic",
+        permanent: true,
+      },
+      {
+        source: "/collections/check-valves/products/check-valves",
+        destination: "/valves/industrial-valves/check-valves",
         permanent: true,
       },
       {
@@ -113,6 +168,18 @@ const nextConfig: NextConfig = {
       {
         source: "/blogs/news/:slug",
         destination: "/news",
+        permanent: true,
+      },
+      // Safety nets so no legacy Shopify URL 404s. Specific matches above win;
+      // anything unmatched lands on the catalogue root.
+      {
+        source: "/products/:slug",
+        destination: "/categories",
+        permanent: true,
+      },
+      {
+        source: "/collections/:collection/products/:slug",
+        destination: "/categories",
         permanent: true,
       },
       {
