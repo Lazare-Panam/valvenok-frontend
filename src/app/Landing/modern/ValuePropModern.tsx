@@ -6,7 +6,7 @@ import { T, textReset } from "./tokens";
 
 // Same copy as the original ValuePropBanner.
 const POINTS = [
-  "Authorised distributor, not a reseller",
+  "Authorised distributor for our partner brands",
   "Direct manufacturer relationships",
   "One trusted source, zero compromise",
 ];
@@ -39,8 +39,8 @@ export default function ValuePropModern() {
             Buy Direct. <Box component="span" sx={{ background: `linear-gradient(90deg, ${T.greenDark}, #4CC23A, #7FD9A8, ${T.greenDark})`, backgroundSize: "200% auto", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", animation: "shine 4s linear infinite" }}>Zero Middleman.</Box>
           </Typography>
           <Typography sx={{ mt: 2, fontSize: "1.05rem", lineHeight: 1.7, color: T.body, maxWidth: 560 }}>
-            As an authorised distributor working directly with leading manufacturers, we cut out the reseller markup — the same genuine
-            manufacturer components, without paying twice.
+            For our partner brands we are an authorised distributor buying direct from the manufacturer, so there is no reseller
+            markup — the same genuine manufacturer components, without paying twice.
           </Typography>
         </Box>
         <Box component="ul" sx={{ listStyle: "none", p: 0, m: 0, display: "grid", gap: 1.25 }}>

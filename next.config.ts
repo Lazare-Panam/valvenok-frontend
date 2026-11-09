@@ -136,6 +136,10 @@ const nextConfig: NextConfig = {
     ];
   },
   images: {
+    // Serve images straight from blob storage. On Azure Static Web Apps the
+    // /_next/image resizer runs in a function that cold-starts and wasn't resizing
+    // anyway (it returned the original file after up to ~37 s), so it only slowed pages.
+    unoptimized: true,
     // 80 is used by the homepage hero slider
     qualities: [75, 80],
     remotePatterns: [

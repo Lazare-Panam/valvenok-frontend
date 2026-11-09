@@ -178,7 +178,7 @@ export default function ManufacturerSpotlightPage() {
                   mb: 4,
                 }}
               >
-                16 leading manufacturers. 6 continents. One procurement
+                16 featured manufacturers out of the 27 we supply. One procurement
                 relationship.
               </Typography>
               <Stack direction="row" spacing={3} sx={{ opacity: 0.8 }}>
@@ -232,8 +232,8 @@ export default function ManufacturerSpotlightPage() {
               }}
             >
               When you source through Valvenok, you're not choosing from one
-              catalogue — you're accessing 16 of the world's most trusted
-              manufacturers simultaneously.
+              catalogue — you're accessing 27 manufacturers at once. This
+              article profiles 16 of them.
             </Typography>
             <Typography
               sx={{
@@ -245,7 +245,7 @@ export default function ManufacturerSpotlightPage() {
             >
               Each manufacturer in our network was selected on engineering
               pedigree, Global Certification credentials, and performance
-              reliability in critical applications. Below are all 16, with a
+              reliability in critical applications. Below are 16 of them, with a
               technical profile of each.
             </Typography>
 
@@ -262,7 +262,7 @@ export default function ManufacturerSpotlightPage() {
                 color: "primary.main",
               }}
             >
-              Our 16 Manufacturer Partners
+              16 of Our Manufacturer Partners
             </Typography>
 
             {/* Cards */}
@@ -383,9 +383,9 @@ export default function ManufacturerSpotlightPage() {
                 fontSize: "1.05rem",
               }}
             >
-              Managing 16 manufacturer relationships individually means 16
-              purchase orders, 16 lead time negotiations, and 16 points of
-              failure. Valvenok consolidates everything — one RFQ, all brands
+              Managing every manufacturer relationship individually means a
+              purchase order, a lead time negotiation and a point of
+              failure for each one. Valvenok consolidates everything — one RFQ, all brands
               covered, the best option recommended.
             </Typography>
             <Typography
@@ -464,7 +464,7 @@ export default function ManufacturerSpotlightPage() {
                   mb: 2,
                 }}
               >
-                READY TO SOURCE FROM ALL 16 BRANDS?
+                READY TO SOURCE FROM ALL 27 BRANDS?
               </Typography>
               <Typography
                 sx={{ color: "white !important", mb: 3, opacity: 0.9 }}
@@ -530,7 +530,7 @@ export default function ManufacturerSpotlightPage() {
                       fontSize: "0.65rem",
                     }}
                   >
-                    16 Manufacturer Partners
+                    27 Manufacturer Partners
                   </Typography>
                 </Box>
                 {sidebarLinks.map((name, i) => (

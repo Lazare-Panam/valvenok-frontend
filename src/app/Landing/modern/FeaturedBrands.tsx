@@ -13,8 +13,8 @@ const BRANDS = [
     name: "Panam",
     logo: "https://pblol2.blob.core.windows.net/panam-images/panam-resize_smallest.jpg",
     desc: "Instrumentation valves and fittings for global process industries.",
-    href: "/quick-order",
-    external: false,
+    href: "https://www.panamvalve.com/",
+    external: true,
     accent: "#1E88E5",
   },
   {

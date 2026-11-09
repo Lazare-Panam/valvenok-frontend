@@ -92,7 +92,7 @@ export default function MarsSeriesDetailPage() {
                 <Box
                   component="img"
                   src={series.imageUrl}
-                  alt={series.name}
+                  alt={`Mars ${series.name} ball valve`}
                   sx={{ maxHeight: 320, maxWidth: '100%', objectFit: 'contain' }}
                 />
               </Box>
@@ -140,7 +140,7 @@ export default function MarsSeriesDetailPage() {
               <Typography variant="caption" fontWeight={700} letterSpacing={2} color="text.disabled" sx={{ display: 'block', mb: 0.5 }}>
                 SERIES {series.seriesCode}
               </Typography>
-              <Typography variant="h4" fontWeight={800} color="primary" mb={1} lineHeight={1.1}>
+              <Typography variant="h4" component="h1" fontWeight={800} color="primary" mb={1} lineHeight={1.1}>
                 {series.name}
               </Typography>
               <Typography variant="body1" color="text.secondary" mb={4} lineHeight={1.7}>

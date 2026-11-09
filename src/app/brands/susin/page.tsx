@@ -129,6 +129,25 @@ const SUSIN_SERIES: Category[] = [
     logoUrl: SUSIN_LOGO,
   },
   {
+    code: "MHD",
+    title: "Susin Electric & Pneumatic Valve Actuators | Valvenok",
+    subtitle: "Micro Scotch Yoke — IS & IC Series",
+    description:
+      "Susin ITQ rotary, IQL/ITL linear and ITM multi-turn electric actuators, scotch yoke and linear pneumatic actuators, and ITS limit switch boxes.",
+    specs: [
+      "Scotch Yoke IS & IC",
+      "63 – 1,474 Nm",
+      "3.7 – 10 bar",
+      "-20°C to +80°C",
+      "IP66",
+      "ISO 5211 F07 / F10",
+    ],
+    applications: "Double offset butterfly valves, on/off and control",
+    href: "/pneumatic/actuators/mhd",
+    image: "https://pblol2.blob.core.windows.net/valvenok-images/brands/susin/mhd.jpg",
+    logoUrl: SUSIN_LOGO,
+  },
+  {
     code: "PDS",
     title: "Susin Electric & Pneumatic Valve Actuators | Valvenok",
     subtitle: "Scotch Yoke Pneumatic Actuator — Double & Single Acting",

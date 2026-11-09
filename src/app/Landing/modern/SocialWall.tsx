@@ -68,7 +68,9 @@ const scroll = keyframes`
   to   { transform: translateX(-50%); }
 `;
 
-function Row({ items, reverse = false, cta }: { items: Tile[]; reverse?: boolean; cta: React.ReactNode }) {
+// `described`: give the first copy real alt text. Clones, and the second row
+// (the same images in a different order), stay hidden from screen readers.
+function Row({ items, reverse = false, described = false, cta }: { items: Tile[]; reverse?: boolean; described?: boolean; cta: React.ReactNode }) {
   // Two copies of the set; moving by half the width brings the second copy exactly
   // where the first started, so the loop has no visible seam.
   const loop = [...items, ...items];
@@ -97,14 +99,14 @@ function Row({ items, reverse = false, cta }: { items: Tile[]; reverse?: boolean
           }}
         >
           {loop.map((p, i) => {
-            const copy = i >= items.length;
+            const labelled = described && i < items.length;
             return (
               <Box
                 key={i}
-                aria-hidden
+                aria-hidden={labelled ? undefined : true}
                 sx={{ position: "relative", flexShrink: 0, width: { xs: 121, md: TILE }, height: { xs: 121, md: TILE }, bgcolor: "#DCE5DE", overflow: "hidden" }}
               >
-                <Image src={p.src} alt="" fill sizes={`${TILE}px`} quality={75} loading="eager" style={{ objectFit: "cover", objectPosition: "top" }} />
+                <Image src={p.src} alt={labelled ? p.alt : ""} fill sizes={`${TILE}px`} quality={75} loading="lazy" style={{ objectFit: "cover", objectPosition: "top" }} />
               </Box>
             );
           })}
@@ -175,6 +177,7 @@ export default function SocialWall() {
       >
         <Row
           items={ROW_A}
+          described
           cta={
             <CtaButton href={LINKEDIN} external color="#0E76A8" icon={<LinkedInIcon />}>
               Follow us on LinkedIn

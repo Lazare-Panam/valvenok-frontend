@@ -244,6 +244,13 @@ export const NAV_GROUPS: NavGroup[] = [
             ],
           },
           {
+            label: "MHD Series — Micro Scotch Yoke IS & IC",
+            href: "/pneumatic/actuators/mhd",
+            children: [
+              { label: "View All Models", href: "/pneumatic/actuators/mhd/products" },
+            ],
+          },
+          {
             label: "PLDS Series — Linear Double Acting",
             href: "/pneumatic/actuators/plds",
             children: [

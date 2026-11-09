@@ -52,6 +52,7 @@ const FOOTER_LINKS = [
       { label: "Hiflux", href: "/brands/hiflux" },
       { label: "Kosaplus", href: "/brands/kosaplus" },
       { label: "Mars Valves", href: "/brands/mars-valves" },
+      { label: "Panam Valves", href: "https://www.panamvalve.com/" },
       { label: "Pietro Fiorentini", href: "/brands/pietro-fiorentini" },
       { label: "Susin", href: "/brands/susin" },
       { label: "UTAM Valves", href: "/brands/utam-valves" },
@@ -219,7 +220,13 @@ export default function Footer() {
               <Typography sx={headSx}>{section.title}</Typography>
               <Stack spacing={1.4}>
                 {section.links.map((link) => (
-                  <Link key={link.label} href={link.href} underline="none" sx={linkSx}>
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    underline="none"
+                    sx={linkSx}
+                    {...(link.href.startsWith("http") ? { target: "_blank", rel: "noopener" } : {})}
+                  >
                     {link.label}
                   </Link>
                 ))}

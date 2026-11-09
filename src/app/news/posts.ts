@@ -133,7 +133,7 @@ export const POSTS = [
   },
   {
     title: "The World's Best Valve Manufacturers, In One Place",
-    desc: "Valvenok partners directly with 16 of the world's leading valve and flow control manufacturers — bringing their full product range to engineers and procurement teams across 6 continents.",
+    desc: "Profiles of 16 of the 27 valve and flow control manufacturers Valvenok supplies, with what each is known for and where its products fit.",
     thumbnail:
       "https://pblol2.blob.core.windows.net/valvenok-images/brands/batu-logo.png", // add your image here
     author: "Kanchan Rajput",

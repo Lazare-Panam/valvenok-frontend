@@ -4,10 +4,10 @@ import { Suspense } from 'react';
 
 export const metadata = {
   title: { absolute: 'Valve Manufacturers We Can Source | Valvenok' },
-  description: '16 valve manufacturers Valvenok can source from, including Fisher, Cameron, Crosby and Baker Hughes. Send one RFQ and we will quote across brands.',
+  description: '16 of the 27 valve manufacturers Valvenok supplies, including Fisher, Cameron, Crosby and Baker Hughes. Send one RFQ and we will quote across brands.',
   openGraph: {
     title: 'Valve Manufacturers We Can Source | Valvenok',
-    description: '16 valve manufacturers, one RFQ. Valvenok quotes across brands.',
+    description: '27 valve manufacturers, one RFQ. Valvenok quotes across brands.',
     url: 'https://www.valvenok.com/news/manufacturer-spotlight',
     siteName: 'Valvenok',
     images: [
@@ -23,7 +23,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Valve Manufacturers We Can Source | Valvenok',
-    description: '16 valve manufacturers, one RFQ. Valvenok quotes across brands.',
+    description: '27 valve manufacturers, one RFQ. Valvenok quotes across brands.',
   },
   alternates: {
     canonical: 'https://www.valvenok.com/news/manufacturer-spotlight',

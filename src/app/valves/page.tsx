@@ -7,9 +7,27 @@ import RelatedLinks from "@/src/app/Common/Products_Page/RelatedLinks";
 
 export const metadata: Metadata = {
   alternates: { canonical: '/valves' },
-  title: { absolute: "Industrial Valve Supplier and Valve Manufacturer Valvenok" },
+  title: { absolute: "Industrial Valves Supplier UK | Ball, Gate, Globe & Check | Valvenok" },
   description:
     "Industrial, marine and instrumentation valves for process plants, offshore and shipbuilding: ball, gate, globe, check and butterfly valves. Get a quote.",
+  openGraph: {
+    type: "website",
+    url: "/valves",
+    title: "Industrial Valves Supplier UK | Valvenok",
+    description:
+      "Ball, gate, globe, check, butterfly, control, instrumentation and bellows sealed valves from leading manufacturers, supplied from the UK.",
+    images: [
+      {
+        url: "https://pblol2.blob.core.windows.net/valvenok-images/products/industrial-valves/industiral-hero.jpg",
+        alt: "Industrial and marine valves supplied by Valvenok",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Industrial Valves Supplier UK | Valvenok",
+    images: ["https://pblol2.blob.core.windows.net/valvenok-images/products/industrial-valves/industiral-hero.jpg"],
+  },
 };
 
 const VALVE_FAMILIES: Category[] = [
@@ -19,7 +37,7 @@ const VALVE_FAMILIES: Category[] = [
     subtitle:
       "Industrial Ball Valve Range — 1-Piece, 2-Piece, 3-Piece & Fire-Safe",
     description:
-      "Industrial, marine and instrumentation valves for process plants, offshore and shipbuilding: ball, gate, globe, check and butterfly valves. Get a quote.",
+      "11 stainless steel ball valve series from 1/8\" to 12\": 1-piece, 2-piece, 3-piece and API 607 fire-safe designs, with ANSI, PN and JIS flanged ends.",
     specs: [
       "11 Ball Valve Series",
       "Stainless Steel 316 (CF8M)",
@@ -39,7 +57,7 @@ const VALVE_FAMILIES: Category[] = [
     title: "Globe Valves",
     subtitle: "Industrial Globe Valve Range — Multi-Brand",
     description:
-      "Industrial, marine and instrumentation valves for process plants, offshore and shipbuilding: ball, gate, globe, check and butterfly valves. Get a quote.",
+      "Lined, welded, bolted and union bonnet globe valves from Fisher, Bonney Forge and UTAM, rated CL 150 to Class 4500 for flow regulation and throttling.",
     specs: [
       "Lined, Welded, Bolted & Union Bonnet",
       "CL 150 – Class 4500",
@@ -59,7 +77,7 @@ const VALVE_FAMILIES: Category[] = [
     title: "Gate Valves",
     subtitle: "Industrial Gate Valve Range — UTAM Syncercon",
     description:
-      "Industrial, marine and instrumentation valves for process plants, offshore and shipbuilding: ball, gate, globe, check and butterfly valves. Get a quote.",
+      "UTAM Syncercon bolted and union bonnet gate valves in bronze and duplex stainless, ASME Class 150/300, for marine and seawater service.",
     specs: [
       "Bolted & Union Bonnet",
       "ASME Class 150 / 300",
@@ -78,7 +96,7 @@ const VALVE_FAMILIES: Category[] = [
     title: "Control Valves",
     subtitle: "Severe Service Control Valves — Atlas Series",
     description:
-      "Industrial, marine and instrumentation valves for process plants, offshore and shipbuilding: ball, gate, globe, check and butterfly valves. Get a quote.",
+      "Atlas severe service control valves, 2\" to 4\" NPS, Cv up to 300 and 0–5,000 psi differential pressure, with a 700:1 control range.",
     specs: [
       '2" – 4" NPS',
       "Cv Up to 300",
@@ -98,7 +116,7 @@ const VALVE_FAMILIES: Category[] = [
     title: "Check Valves",
     subtitle: "Non-Return Valves — Swing & Bolted Bonnet",
     description:
-      "Industrial, marine and instrumentation valves for process plants, offshore and shipbuilding: ball, gate, globe, check and butterfly valves. Get a quote.",
+      "API 594 swing and bolted bonnet non-return valves in cast and alloy steel, NPS 2–48 (DN 50–1200), ASME Class 150–2500.",
     specs: [
       "NPS 2–48 | DN 50–1200",
       "ASME Class 150–2500",
@@ -118,7 +136,7 @@ const VALVE_FAMILIES: Category[] = [
     title: "Butterfly Valves",
     subtitle: "Industrial Butterfly Valve Range",
     description:
-      "Industrial, marine and instrumentation valves for process plants, offshore and shipbuilding: ball, gate, globe, check and butterfly valves. Get a quote.",
+      "Wafer, lug and flanged butterfly valves, NPS 2–48 (DN 50–1200) and ASME 150–1500, for on/off and throttling duty.",
     specs: [
       "NPS 2–48 | DN 50–1200",
       "ASME 150–1500",
@@ -138,7 +156,7 @@ const VALVE_FAMILIES: Category[] = [
     title: "Instrumentation Valves",
     subtitle: "Precision SS316 Instrumentation",
     description:
-      "Industrial, marine and instrumentation valves for process plants, offshore and shipbuilding: ball, gate, globe, check and butterfly valves. Get a quote.",
+      "SS316 ball, needle, check and relief valves with NPT, BSPT and BSPP ends for leak-tight isolation on instrument and sampling lines.",
     specs: [
       "Ball · Needle · Check · Relief",
       "SS316",
@@ -157,7 +175,7 @@ const VALVE_FAMILIES: Category[] = [
     title: "Sealed Valves",
     subtitle: "Bellows Sealed Globe Valves — DIN · ANSI · JIS",
     description:
-      "Industrial, marine and instrumentation valves for process plants, offshore and shipbuilding: ball, gate, globe, check and butterfly valves. Get a quote.",
+      "Bellows sealed globe valves to DIN, ANSI and JIS, with a double bellows-and-packing seal for zero stem leakage. 11 variants.",
     specs: [
       "DIN · ANSI · JIS",
       "Zero Stem Leakage",
@@ -176,7 +194,7 @@ const VALVE_FAMILIES: Category[] = [
     title: "Danfoss Valve Components",
     subtitle: " Valve Components",
     description:
-      "Industrial, marine and instrumentation valves for process plants, offshore and shipbuilding: ball, gate, globe, check and butterfly valves. Get a quote.",
+      "Danfoss valve components compatible with the PVG series, for mobile hydraulics in agricultural, construction and marine equipment.",
     specs: [
       "Danfoss OEM Quality",
       "PVG Series Compatible",
@@ -206,9 +224,9 @@ export default function ProcessValvesIndexPage() {
   return (
     <>
       <ProductHero
-        title="Valve Manufacturer for Industrial, Marine and Instrumentation"
+        title="Industrial, Marine and Instrumentation Valves Supplier"
         subtitle="Flow Control for Every Industrial Environment"
-        description="A complete range of industrial, marine and instrumentation valves engineered for demanding service conditions. From high-pressure process isolation to precision instrumentation lines and class society approved marine valves — Valvenok delivers the flow control you can trust."
+        description="A complete range of industrial, marine and instrumentation valves from leading manufacturers for demanding service conditions. From high-pressure process isolation to precision instrumentation lines and class society approved marine valves — supplied and supported by Valvenok in the UK."
         imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/products/industrial-valves/industiral-hero.jpg"
         imageAlt="Valvenok Industrial & Marine Valves"
         breadcrumb="Products / Valves"
