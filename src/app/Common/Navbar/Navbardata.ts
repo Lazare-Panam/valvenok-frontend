@@ -355,6 +355,16 @@ export const NAV_GROUPS: NavGroup[] = [
           },
         ],
       },
+      {
+        // No overview page yet; more accessory series will be added later
+        header: "Accessories",
+        items: [
+          {
+            label: "Limit Switch Boxes",
+            href: "/actuators/limit-switches",
+          },
+        ],
+      },
     ],
   },
   {
