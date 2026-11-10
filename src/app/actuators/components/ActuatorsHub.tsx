@@ -35,14 +35,14 @@ type Cat = { key: string; label: string; title: string; text: string; tag: strin
 
 const CATS: Cat[] = [
   { key: "pneumatic", label: "Pneumatic", title: "Pneumatic actuators", text: "Rack & pinion and scotch yoke actuators for quarter-turn valves, plus linear actuators. Double acting or spring return for a fail-safe position, ISO 5211 mounting.", tag: "Up to 120,867 Nm", series: 7, img: `${P}/pneumatic/hd.webp`, href: "/pneumatic/actuators", tint: L.mint },
-  { key: "electric", label: "Electric", title: "Electric actuators", text: "Quarter-turn, linear and multi-turn electric actuators for on/off and modulating duty. Need only power and a control signal, no air supply.", tag: "On/off & modulating", series: 6, img: `${P}/electric/itq.webp`, href: "/actuators/electric", tint: "#EAF4FF" },
-  { key: "hydraulic", label: "Hydraulic", title: "Hydraulic actuators", text: "Electro-hydraulic rotary actuators with their own pump and reservoir: high torque from a compact unit that needs only an electrical supply.", tag: "46 – 10,000 Nm", series: 1, img: `${P}/hydraulic/adf.webp`, href: "/actuators/hydraulic", tint: "#FFF7DD" },
+  { key: "electric", label: "Electric", title: "Electric actuators", text: "Quarter-turn, linear and multi-turn electric actuators for on/off and modulating duty. Need only power and a control signal, no air supply.", tag: "On/off & modulating", series: 8, img: `${P}/electric/itq.webp`, href: "/actuators/electric", tint: "#EAF4FF" },
+  { key: "hydraulic", label: "Hydraulic", title: "Hydraulic actuators", text: "Compact electro-hydraulic units that need only power, hydraulic rack & pinion and scotch yoke actuators for the largest valves, and linear piston actuators.", tag: "35 – 112,595 Nm", series: 5, img: `${P}/hydraulic/adf.webp`, href: "/actuators/hydraulic", tint: "#FFF7DD" },
   { key: "mechanical", label: "Mechanical", title: "Mechanical actuators", text: "Worm, bevel and industrial gear operators so one person can turn a large valve by hand, or a powered actuator has a manual override.", tag: "Up to 32,000 Nm", series: 3, img: `${P}/mechanical/itg.webp`, href: "/actuators/mechanical", tint: "#F3EEFF" },
-  { key: "switches", label: "Limit switches", title: "Limit switch boxes", text: "Valve position indicators that tell the control room whether a valve is open or closed. Mechanical or proximity switches, weatherproof and explosion-proof.", tag: "IP67 / IP68", series: 2, img: `${P}/limit-switches/ks-limit-switch.jpg`, href: "/actuators/limit-switches", tint: "#E6F6FA" },
+  { key: "switches", label: "Accessories", title: "Accessories: limit switch boxes", text: "Valve position indicators that tell the control room whether a valve is open or closed. Mechanical or proximity switches, weatherproof and explosion-proof.", tag: "IP67 / IP68", series: 2, img: `${P}/limit-switches/ks-limit-switch.jpg`, href: "/actuators/accessories", tint: "#E6F6FA" },
 ];
 
 const STATS = [
-  { value: "5", unit: "types", label: "Pneumatic, electric, hydraulic, mechanical, limit switches" },
+  { value: "5", unit: "types", label: "Pneumatic, electric, hydraulic, mechanical, accessories" },
   { value: "120,867", unit: "Nm", label: "Highest output torque (HD scotch yoke)" },
   { value: "ISO 5211", unit: "", label: "Standard mounting on quarter-turn actuators" },
   { value: "4", unit: "brands", label: "Susin · KOSAPLUS · SPAC · Danfoss" },
@@ -52,7 +52,7 @@ const STATS = [
 const TORQUE = [
   { name: "Pneumatic", note: "10 – 120,867 Nm", from: 10, to: 120867, color: "#8FD47C" },
   { name: "Mechanical (gearboxes)", note: "60 – 32,000 Nm", from: 60, to: 32000, color: "#B7A6F0" },
-  { name: "Hydraulic", note: "46 – 10,000 Nm", from: 46, to: 10000, color: "#F4C95D" },
+  { name: "Hydraulic", note: "35 – 112,595 Nm", from: 35, to: 112595, color: "#F4C95D" },
   { name: "Electric (quarter-turn)", note: "8 – 9,000 Nm", from: 8, to: 9000, color: "#7CB9F0" },
 ];
 const LOG_MIN = 1, LOG_MAX = Math.log10(200000);
