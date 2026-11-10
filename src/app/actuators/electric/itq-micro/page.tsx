@@ -1,6 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import SpeedOutlinedIcon from "@mui/icons-material/SpeedOutlined";
+import ElectricBoltOutlinedIcon from "@mui/icons-material/ElectricBoltOutlined";
+import TuneOutlinedIcon from "@mui/icons-material/TuneOutlined";
+import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
+import PanToolOutlinedIcon from "@mui/icons-material/PanToolOutlined";
+import SeriesFaq from "../../components/SeriesFaq";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -100,6 +106,14 @@ const CERTIFICATIONS = [
   "IP66 / IP67",
   "ISO 5211",
   "On-Off & Modulating",
+];
+
+const FAQ = [
+  { icon: SpeedOutlinedIcon, q: "Which model do I need?", a: "ITQ 0020 gives 25 Nm for small 1\" ball valves; ITQ 0040 gives 40 Nm for small ball and plug valves and dampers; ITQ 0080 gives 80 Nm with self-locking worm gearing." },
+  { icon: ElectricBoltOutlinedIcon, q: "Which supply voltages are available?", a: "ITQ 0020: 85–265 VAC free voltage (24 VAC/DC option). ITQ 0040: 110 / 220 VAC or 24 VDC. ITQ 0080: 110 / 220 VAC single phase, 380 / 440 VAC three phase or 24 VDC." },
+  { icon: SettingsOutlinedIcon, q: "Which valve mountings do they fit?", a: "ISO 5211 F03 on the ITQ 0020, F03 / F04 / F05 / F07 on the ITQ 0040 and F05 / F07 on the ITQ 0080." },
+  { icon: TuneOutlinedIcon, q: "Can they modulate?", a: "The ITQ 0040 and ITQ 0080 take an RPC remote position controller option (4–20 mA input and output), and the ITQ 0080 also a current transmitter. Both are rated S4 50% for modulating duty." },
+  { icon: PanToolOutlinedIcon, q: "Can I operate the valve by hand?", a: "Yes on the ITQ 0040 (declutchable lever and hex shaft, 6 turns) and ITQ 0080 (M6 wrench on the worm gear, 7 turns)." },
 ];
 
 export default function ITQMicroPage() {
@@ -412,6 +426,8 @@ export default function ITQMicroPage() {
           </Grid>
         </Container>
       </Box>
+
+      <SeriesFaq title="ITQ Micro questions" items={FAQ} />
 
       <TrustStrip points={TRUST_POINTS} />
 

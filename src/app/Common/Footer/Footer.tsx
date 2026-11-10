@@ -50,7 +50,7 @@ const FOOTER_LINKS = [
     title: "Brands",
     links: [
       { label: "Hiflux", href: "/brands/hiflux" },
-      { label: "Kosaplus", href: "/brands/kosaplus" },
+      { label: "Kosaplus", href: "https://www.kosaplus.co.uk/" },
       { label: "Mars Valves", href: "/brands/mars-valves" },
       { label: "Panam Valves", href: "https://www.panamvalve.com/" },
       { label: "Pietro Fiorentini", href: "/brands/pietro-fiorentini" },

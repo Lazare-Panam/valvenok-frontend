@@ -1,11 +1,19 @@
 "use client";
 
+import { showcaseFor, type ShowcaseCategory } from "../showcase";
+
 export interface NavItem {
   label: string;
   /** Manufacturer shown above the label on series tiles */
   brand?: string;
   href?: string;
+  /** Opens another group website in a new tab ("Also in our group") */
   external?: boolean;
+  /** Showcase items: photo and one line shown in the third column */
+  image?: string;
+  line?: string;
+  /** Showcase items: name of the website they open, e.g. "KOSAPLUS UK" */
+  siteName?: string;
   children?: NavItem[];
 }
 
@@ -219,17 +227,6 @@ export const NAV_GROUPS: NavGroup[] = [
         href: "/pneumatic/actuators",
         items: [
           {
-            label: "SRA Series — Spring Return Rack & Pinion",
-            href: "/pneumatic/actuators/sra",
-          },
-          {
-            label: "AD Series — Scotch Yoke Heavy-Duty",
-            href: "/pneumatic/actuators/scotch-yoke",
-            children: [
-              { label: "View All Models", href: "/pneumatic/actuators/scotch-yoke/products" },
-            ],
-          },
-          {
             label: "PDS Series — Double & Single Acting",
             href: "/pneumatic/actuators/pds",
             children: [
@@ -391,10 +388,6 @@ export const NAV_GROUPS: NavGroup[] = [
         header: "Accessories",
         href: "/actuators/accessories",
         items: [
-          {
-            label: "KLS Series — Limit Switch Box",
-            href: "/actuators/limit-switches/kls",
-          },
           {
             label: "ITS Series — Limit Switch Box",
             href: "/actuators/limit-switches/its",
@@ -668,3 +661,28 @@ export const NAV_GROUPS: NavGroup[] = [
     ],
   },
 ];
+
+// "Also in our group": series sold on another group website (KOSAPLUS, SPAC) are
+// added after our own series in the Actuators columns. They open the brand's site.
+const SHOWCASE_COLUMNS: Record<string, ShowcaseCategory> = {
+  "Pneumatic Actuators": "pneumatic",
+  "Electric Actuators": "electric",
+  Accessories: "accessories",
+};
+for (const col of NAV_GROUPS.find((g) => g.id === "actuators")?.columns ?? []) {
+  // Our own series in this tab are Susin (Danfoss PVE aside), so the menu can group by brand
+  for (const it of col.items) if (!it.brand) it.brand = /danfoss/i.test(it.label) ? "Danfoss" : "Susin";
+  const cat = SHOWCASE_COLUMNS[col.header];
+  if (!cat) continue;
+  col.items.push(
+    ...showcaseFor(cat).map((s) => ({
+      label: s.name,
+      brand: s.brandInfo.name,
+      href: s.href,
+      external: true,
+      image: s.img,
+      line: s.line,
+      siteName: s.siteName,
+    })),
+  );
+}

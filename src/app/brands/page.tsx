@@ -34,7 +34,7 @@ const BRANDS = [
     name: "Kosaplus",
     logo: "https://pblol2.blob.core.windows.net/valvenok-images/brands/kosaplus-logo.png",
     desc: "Electric and pneumatic valve actuators and explosion-proof position indicators.",
-    href: "/brands/kosaplus",
+    href: "https://www.kosaplus.co.uk/",
   },
   {
     name: "Pietro Fiorentini",

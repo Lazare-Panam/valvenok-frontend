@@ -5,10 +5,10 @@ export const metadata: Metadata = {
   alternates: { canonical: '/pneumatic/actuators' },
   title: "Pneumatic Actuators | Spring Return & Scotch Yoke",
   description:
-    "Rack & pinion, scotch yoke and linear pneumatic actuators from Susin, KOSAPLUS and SPAC, 10 to 120,867 Nm, double acting or spring return, ISO 5211.",
+    "Susin scotch yoke and linear pneumatic actuators, 10 to 120,867 Nm, double acting or spring return, ISO 5211. Request a quote.",
   openGraph: {
     title: "Pneumatic Actuators | Spring Return & Scotch Yoke | Valvenok",
-    description: "Rack & pinion, scotch yoke and linear pneumatic actuators from Susin, KOSAPLUS and SPAC, 10 to 120,867 Nm, double acting or spring return, ISO 5211.",
+    description: "Susin scotch yoke and linear pneumatic actuators, 10 to 120,867 Nm, double acting or spring return, ISO 5211. Request a quote.",
     url: "/pneumatic/actuators",
     siteName: "Valvenok",
     type: "website",

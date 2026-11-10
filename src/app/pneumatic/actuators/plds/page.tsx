@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import PldsOverrides from "./PldsOverrides";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -377,6 +378,10 @@ export default function PLDSPage() {
           </Grid>
         </Container>
       </Box>
+
+      <Divider />
+
+      <PldsOverrides />
 
       <Divider />
 

@@ -21,6 +21,7 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import { T, textReset } from "@/src/app/Landing/modern/tokens";
 import { MotionRoot, Words, Reveal, gradientText, L, useInView } from "@/src/app/Common/LightMotion";
 import { wrap, Kicker, H2, Lead, pillBtn } from "@/src/app/hydrogen-cryogenic/components/HydrogenHub";
+import SeriesChips from "@/src/app/actuators/components/SeriesChips";
 
 const V = "https://pblol2.blob.core.windows.net/valvenok-images";
 const B = `${V}/brands/susin`;
@@ -45,7 +46,7 @@ type Series = {
 
 // Figures from Susin's hydraulic catalogues: the PANDA / PA brochure and the
 // hydraulic & electro-hydraulic data sheet (PA-HX, HRSDA / HRSSA, HLDA tables).
-const SERIES: Series[] = [
+export const SERIES: Series[] = [
   { key: "panda", code: "PANDA", name: "PANDA electro-hydraulic, low pressure", kind: "Electro-hydraulic", brand: "Susin", text: "Compact units with their own pump, 8 bar on board: only electric power needed. Double acting or spring return.", tag: "46 – 9,274 Nm", min: 46, max: 9274, img: `${B}/ktc-panda-pa.jpg`, href: "/actuators/hydraulic/panda", icon: <CompressOutlinedIcon />, color: "#8FD47C", note: "8 bar · ATEX Zone 1 & 2" },
   { key: "pa", code: "PA", name: "PA electro-hydraulic, high pressure", kind: "Electro-hydraulic", brand: "Susin", text: "High-pressure compact units at up to 180 bar for more torque from a small body; up to 10,000 Nm on request.", tag: "250 – 4,000 Nm", min: 250, max: 4000, img: `${B}/ktc-panda-pa.jpg`, href: "/actuators/hydraulic/pa", icon: <BoltOutlinedIcon />, color: "#F4C95D", note: "180 bar · ATEX Zone 1 & 2" },
   { key: "pahx", code: "PA-HX", name: "PA-HX rack & pinion", kind: "Hydraulic rack & pinion", brand: "Susin", text: "Hydraulic rack & pinion at 80–160 bar: double acting, spring to close or spring to open, 26 models.", tag: "35 – 10,000 Nm", min: 35, max: 10000, img: `${B}/pa-hx.jpg`, href: "/actuators/hydraulic/pa-hx", icon: <SettingsOutlinedIcon />, color: "#F4A6A0", note: "80–160 bar · DA & spring return" },
@@ -117,11 +118,12 @@ function Hero() {
 
       {/* Series strip: one tap to each series page */}
       <Box sx={{ position: "relative", mt: { xs: 4.5, md: 6 }, maxWidth: 1240, mx: "auto", px: { xs: 0, md: 4 } }}>
-        <Box sx={{ display: "flex", gap: { xs: 1, md: 1.5 }, justifyContent: { lg: "center" }, overflowX: "auto", px: { xs: 2, md: 0 }, pb: 1, scrollSnapType: "x mandatory", scrollbarWidth: "none", "&::-webkit-scrollbar": { display: "none" } }}>
+        <SeriesChips items={SERIES} />
+        <Box sx={{ display: { xs: "none", sm: "flex" }, flexWrap: "wrap", rowGap: 1.5, columnGap: { sm: 1, md: 1.5 }, justifyContent: "center", pb: 1 }}>
           {SERIES.map((s, i) => (
             <Box key={s.key} component={Link} href={s.href}
-              sx={{ flexShrink: 0, width: { xs: 112, md: 136 }, scrollSnapAlign: "start", textAlign: "center", textDecoration: "none", animation: `wordIn .6s cubic-bezier(.2,.8,.2,1) ${300 + i * 60}ms both`, "&:hover .ph": { transform: "translateY(-6px)", boxShadow: T.shadowHover, borderColor: "#BFD6F2" }, "&:hover .nm": { color: T.greenDark } }}>
-              <Box className="ph" sx={{ mx: "auto", width: { xs: 96, md: 112 }, height: { xs: 96, md: 112 }, borderRadius: "50%", bgcolor: "#fff", border: "1px solid #DCE6F2", boxShadow: T.shadow, display: "grid", placeItems: "center", overflow: "hidden", transition: "all .25s" }}>
+              sx={{ flexShrink: 0, width: { xs: "auto", sm: 120, md: 136 }, minWidth: 0, textAlign: "center", textDecoration: "none", animation: `wordIn .6s cubic-bezier(.2,.8,.2,1) ${300 + i * 60}ms both`, "&:hover .ph": { transform: "translateY(-6px)", boxShadow: T.shadowHover, borderColor: "#BFD6F2" }, "&:hover .nm": { color: T.greenDark } }}>
+              <Box className="ph" sx={{ mx: "auto", width: { xs: 84, sm: 100, md: 112 }, height: { xs: 84, sm: 100, md: 112 }, borderRadius: "50%", bgcolor: "#fff", border: "1px solid #DCE6F2", boxShadow: T.shadow, display: "grid", placeItems: "center", overflow: "hidden", transition: "all .25s" }}>
                 <Box component="img" src={s.img} alt={s.name} loading="eager" sx={{ width: "74%", height: "74%", ...photo }} />
               </Box>
               <Box className="nm" sx={{ mt: 1.25, fontSize: "0.86rem", fontWeight: 700, color: T.ink, lineHeight: 1.25, transition: "color .2s" }}>{s.code}</Box>
@@ -342,10 +344,10 @@ function Compare() {
 }
 
 const MORE = [
-  { title: "Limit switch boxes", text: "Signal open and closed positions to the control room; they mount on the actuator.", tag: "IP67 / IP68", img: `${V}/products/actuators/limit-switches/ks-limit-switch.jpg`, href: "/actuators/limit-switches" },
+  { title: "Limit switch boxes", text: "Signal open and closed positions to the control room; they mount on the actuator.", tag: "IP67 / IP68", img: `${V}/products/actuators/limit-switches/susin-limit-switch.webp`, href: "/actuators/accessories" },
   { title: "Pneumatic actuators", text: "Where compressed air is available: rack & pinion, scotch yoke and linear, up to 120,867 Nm.", tag: "Double acting or spring return", img: `${V}/products/actuators/pneumatic/pdf.webp`, href: "/pneumatic/actuators" },
   { title: "Mechanical gearboxes", text: "Manual override or hand operation for large valves, ISO 5211 mounting.", tag: "Up to 32,000 Nm", img: `${V}/products/actuators/mechanical/itg.webp`, href: "/actuators/mechanical" },
-  { title: "Electric actuators", text: "Quarter-turn, multi-turn and linear, including a spring-return fail-safe series.", tag: "8 – 9,000 Nm", img: `${V}/products/actuators/electric/itq.webp`, href: "/actuators/electric" },
+  { title: "Electric actuators", text: "Quarter-turn, multi-turn and linear, including a spring-return fail-safe series.", tag: "25 – 9,000 Nm", img: `${V}/products/actuators/electric/itq.webp`, href: "/actuators/electric" },
 ];
 
 function CompleteLine() {

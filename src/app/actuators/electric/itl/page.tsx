@@ -24,9 +24,9 @@ const ITL_PRODUCT: ProductForRFQ = {
   thumbnail:
     "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/itl.webp",
   description:
-    "Compact linear electric actuators with 100% duty cycle motor. 1–10 kN thrust, IP66/67, universal power supply, 4–20mA / 0–10V control.",
+    "Compact linear electric actuators with 100% duty cycle motor. 1–6 kN thrust, IP66/67, universal power supply, 4–20mA / 0–10V control.",
   keySpecs: [
-    { label: "Thrust", value: "1 – 10 kN" },
+    { label: "Thrust", value: "1 – 6 kN" },
     { label: "Stroke", value: "15 – 50 mm" },
     { label: "Duty Cycle", value: "100% Continuous" },
     { label: "Protection", value: "IP66 / IP67" },
@@ -38,7 +38,7 @@ const ITL_PRODUCT: ProductForRFQ = {
 };
 
 const TECH_SPECS = [
-  { label: "Thrust Force", value: "1.0 – 10 kN" },
+  { label: "Thrust Force", value: "1.0 – 6.0 kN (ITL01 to ITL06)" },
   { label: "Stroke Range", value: "15 – 50 mm (model dependent)" },
   { label: "Speed", value: "0.80 – 1.20 mm/sec" },
   {
@@ -100,7 +100,7 @@ const FEATURES = [
 ];
 
 const TRUST_POINTS = [
-  { value: "1–10 kN", label: "Thrust Range" },
+  { value: "1–6 kN", label: "Thrust Range" },
   { value: "100%", label: "Duty Cycle" },
   { value: "IP66/67", label: "Ingress Protection" },
   { value: "1200 c/h", label: "Max Modulating Rate" },
@@ -190,7 +190,7 @@ export default function ITLPage() {
               >
                 Compact and powerful linear electric actuators built for
                 high-frequency modulating control in sophisticated automation
-                systems. 100% continuous duty cycle motor, 1–10 kN thrust,
+                systems. 100% continuous duty cycle motor, 1–6 kN thrust,
                 IP66/67 protection and universal power supply support —
                 engineered for demanding process automation and control valve
                 applications.
@@ -221,7 +221,7 @@ export default function ITLPage() {
                 }}
               >
                 {[
-                  { label: "Thrust", value: "1 – 10 kN" },
+                  { label: "Thrust", value: "1 – 6 kN" },
                   { label: "Stroke", value: "15 – 50 mm" },
                   { label: "Duty Cycle", value: "100% Continuous" },
                   { label: "Protection", value: "IP66 / IP67" },

@@ -4,7 +4,10 @@ import * as React from "react";
 import { Box, Typography, Fade } from "@mui/material";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
+import NorthEastRoundedIcon from "@mui/icons-material/NorthEastRounded";
+import StorefrontOutlinedIcon from "@mui/icons-material/StorefrontOutlined";
 import { NavGroup, NavItem } from "./Navbardata";
+import { brandsFor, BRANDS, type ProductType } from "../brandRegistry";
 
 const INK = "#0E1B12";
 const GREEN = "#2E8B1E";
@@ -62,11 +65,12 @@ function ColumnHead({ kicker, title, href, onClose }: { kicker: string; title: s
 }
 
 // Row in the first two columns: highlighted when active, arrow on the right
-function MenuRow({ label, href, active, onEnter, onClose, accent }: { label: string; href?: string; active: boolean; onEnter: () => void; onClose: () => void; accent?: boolean }) {
+function MenuRow({ label, href, active, onEnter, onClose, accent, external }: { label: string; href?: string; active: boolean; onEnter: () => void; onClose: () => void; accent?: boolean; external?: boolean }) {
   return (
     <Box
       component="a"
       href={href}
+      {...(external ? { target: "_blank", rel: "noopener" } : {})}
       onClick={href ? onClose : (e: React.MouseEvent) => e.preventDefault()}
       onMouseEnter={onEnter}
       onFocus={onEnter}
@@ -90,7 +94,115 @@ function MenuRow({ label, href, active, onEnter, onClose, accent }: { label: str
       }}
     >
       {label}
-      <ChevronRightRoundedIcon />
+      {external ? <NorthEastRoundedIcon sx={{ fontSize: "15px !important" }} /> : <ChevronRightRoundedIcon />}
+    </Box>
+  );
+}
+
+// Brand heading inside the category column: logo, name, and the site for group brands
+function BrandHead({ name, site, first }: { name: string; site?: string; first: boolean }) {
+  const b = BRANDS.find((x) => x.name.toLowerCase() === name.toLowerCase());
+  return (
+    <Box sx={{ display: "flex", alignItems: "center", gap: 1, mt: first ? 0 : 1.75, mb: 0.5, px: 1.75 }}>
+      {b && (
+        <Box sx={{ flexShrink: 0, width: 30, height: 20, display: "grid", placeItems: "center", overflow: "hidden" }}>
+          <Box component="img" src={b.logo} alt="" sx={{ maxWidth: "100%", maxHeight: 18, objectFit: "contain", transform: b.logoScale ? `scale(${Math.min(b.logoScale, 2.4)})` : undefined }} />
+        </Box>
+      )}
+      <Typography sx={{ flexShrink: 0, fontSize: "0.66rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase !important", color: "#7A877F" }}>{name}</Typography>
+      <Box sx={{ flex: 1, height: "1px", bgcolor: BORDER }} />
+      {site && <Typography sx={{ flexShrink: 0, fontSize: "0.68rem", color: "#9AA69E", textTransform: "none !important" }}>{site}</Typography>}
+    </Box>
+  );
+}
+
+// Third column for a series sold on a group brand's own site: shown like our own series
+function ShowcaseCard({ item, onClose }: { item: NavItem; onClose: () => void }) {
+  return (
+    <Box>
+      <Typography sx={{ fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase !important", color: "#7A877F" }}>
+        Also in our group · {item.brand}
+      </Typography>
+      <Typography sx={{ mt: 0.5, mb: 2, fontSize: "1rem", fontWeight: 700, color: INK, textTransform: "none" }}>{item.label}</Typography>
+      <Box component="a" href={item.href} target="_blank" rel="noopener" onClick={onClose}
+        sx={{ display: "flex", gap: 2, alignItems: "center", p: 1.5, border: `1px solid ${BORDER}`, borderRadius: "14px", textDecoration: "none", bgcolor: "#fff", transition: "all .15s", "&:hover": { borderColor: "#BFE3B4", boxShadow: "0 6px 18px rgba(14,27,18,0.08)" }, "&:hover .go": { bgcolor: GREEN, color: "#fff" } }}>
+        <Box sx={{ flexShrink: 0, width: 120, height: 96, borderRadius: "10px", bgcolor: "#F5F8F5", display: "grid", placeItems: "center", overflow: "hidden" }}>
+          {item.image && <Box component="img" src={item.image} alt={item.label} sx={{ display: "block", width: "auto", height: "auto", maxWidth: 108, maxHeight: 84, objectFit: "contain", mixBlendMode: "multiply" }} />}
+        </Box>
+        <Box sx={{ minWidth: 0 }}>
+          <Box sx={{ fontSize: "0.86rem", color: "#5B6B60", lineHeight: 1.45, mb: 1.25, textTransform: "none" }}>{item.line}</Box>
+          <Box className="go" component="span" sx={{ display: "inline-flex", alignItems: "center", gap: 0.5, px: 1.5, py: 0.75, borderRadius: 999, bgcolor: SOFT, color: GREEN, fontSize: "0.82rem", fontWeight: 700, transition: "all .15s" }}>
+            View on the website <NorthEastRoundedIcon sx={{ fontSize: 15 }} />
+          </Box>
+          {item.href && (
+            <Box sx={{ mt: 0.75, fontSize: "0.74rem", color: "#9AA69E", textTransform: "none" }}>{new URL(item.href).hostname.replace(/^www\./, "")}</Box>
+          )}
+        </Box>
+      </Box>
+    </Box>
+  );
+}
+
+// Menu tabs that show a "Shop by brand" row, and the product type they cover
+const BRAND_TYPE: Record<string, ProductType> = { actuators: "actuators" };
+
+// Bottom row of the dropdown: every brand that makes this product type, all in the
+// same card layout. Brands featured here link to their range on Valvenok ("View range");
+// brands with their own website link there ("Visit website ↗"); some have both.
+function BrandBar({ type, onClose }: { type: ProductType; onClose: () => void }) {
+  const brands = brandsFor(type);
+  if (!brands.length) return null;
+  const action = { display: "inline-flex", alignItems: "center", gap: 0.25, fontSize: "0.74rem", fontWeight: 700, color: GREEN, textDecoration: "none", whiteSpace: "nowrap", "&:hover": { textDecoration: "underline" } } as const;
+  return (
+    <Box sx={{ gridColumn: "1 / -1", borderTop: `1px solid ${BORDER}`, background: "linear-gradient(90deg, #EEF9EA 0%, #F3FAF6 45%, #EEF6FD 100%)", px: 3, py: 2.25, display: "flex", alignItems: "center", gap: 2.5 }}>
+      <Box sx={{ flexShrink: 0, width: 190, display: "flex", gap: 1.25, alignItems: "flex-start" }}>
+        <Box sx={{ flexShrink: 0, width: 34, height: 34, borderRadius: "10px", bgcolor: "#fff", border: `1px solid ${BORDER}`, display: "grid", placeItems: "center", color: GREEN }}>
+          <StorefrontOutlinedIcon sx={{ fontSize: 19 }} />
+        </Box>
+        <Box>
+          <Typography sx={{ fontSize: "0.92rem", fontWeight: 800, color: INK, lineHeight: 1.2, textTransform: "none !important" }}>Shop by brand</Typography>
+          <Typography sx={{ fontSize: "0.74rem", color: "#5B6B60", lineHeight: 1.4, mt: 0.4, textTransform: "none !important" }}>
+            <Box component="span" sx={{ color: GREEN, fontWeight: 800 }}>↗</Box> = the brand’s own website
+          </Typography>
+        </Box>
+      </Box>
+      <Box sx={{ flex: 1, display: "grid", gridTemplateColumns: `repeat(${brands.length}, minmax(0, 1fr))`, gap: 1.25 }}>
+        {brands.map(({ brand, text, href, external }) => {
+          const site = brand.website;
+          return (
+            <Box key={brand.slug} sx={{ position: "relative", height: 98, boxSizing: "border-box", display: "flex", alignItems: "center", gap: 1.5, p: 1.25, pr: 1.5, border: `1px solid ${BORDER}`, borderRadius: "14px", bgcolor: "#fff", boxShadow: "0 1px 2px rgba(14,27,18,0.04)", transition: "all .15s", "&:hover": { borderColor: "#BFE3B4", boxShadow: "0 6px 18px rgba(14,27,18,0.08)", transform: "translateY(-1px)" } }}>
+              <Box component="a" href={href} onClick={onClose} {...(external ? { target: "_blank", rel: "noopener" } : {})}
+                aria-label={`${brand.name}: ${text}${external ? " (opens their website)" : ""}`}
+                sx={{ position: "absolute", inset: 0, borderRadius: "14px", zIndex: 0 }} />
+              <Box sx={{ flexShrink: 0, width: 64, height: 56, borderRadius: "10px", border: `1px solid ${BORDER}`, bgcolor: "#fff", display: "grid", placeItems: "center", overflow: "hidden" }}>
+                <Box component="img" src={brand.logo} alt="" sx={{ maxWidth: "78%", maxHeight: 30, objectFit: "contain", transform: brand.logoScale ? `scale(${brand.logoScale})` : undefined }} />
+              </Box>
+              <Box sx={{ minWidth: 0, flex: 1, display: "flex", flexDirection: "column", gap: 0.25 }}>
+                <Box sx={{ fontSize: "0.88rem", fontWeight: 800, color: INK, lineHeight: 1.2 }}>{brand.name}</Box>
+                <Box sx={{ fontSize: "0.72rem", color: "#5B6B60", lineHeight: 1.3, overflow: "hidden", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", textTransform: "none" }} title={text}>
+                  {text}
+                </Box>
+                <Box sx={{ position: "relative", zIndex: 1, display: "flex", flexWrap: "wrap", columnGap: 1, mt: 0.25 }}>
+                  {!external && (
+                    <Box component="a" href={href} onClick={onClose} sx={action}>
+                      View range <ArrowForwardRoundedIcon sx={{ fontSize: 13 }} />
+                    </Box>
+                  )}
+                  {site && (
+                    <Box component="a" href={site} target="_blank" rel="noopener" onClick={onClose} sx={action}>
+                      {external ? "Visit website" : "Website"} <NorthEastRoundedIcon sx={{ fontSize: 12 }} />
+                    </Box>
+                  )}
+                </Box>
+              </Box>
+            </Box>
+          );
+        })}
+      </Box>
+      <Box component="a" href="/brands" onClick={onClose}
+        sx={{ flexShrink: 0, display: "inline-flex", alignItems: "center", gap: 0.5, px: 1.75, py: 1, borderRadius: 999, bgcolor: GREEN, color: "#fff", fontSize: "0.84rem", fontWeight: 700, textDecoration: "none", whiteSpace: "nowrap", "&:hover": { bgcolor: "#256F18" } }}>
+        All brands <ArrowForwardRoundedIcon sx={{ fontSize: 16 }} />
+      </Box>
     </Box>
   );
 }
@@ -136,13 +248,26 @@ export default function MegaMenu({ group, onClose }: Props) {
         <Box sx={{ p: 3, borderRight: `1px solid ${BORDER}` }}>
           <ColumnHead kicker="Category" title={col?.header ?? ""} href={col?.href} onClose={onClose} />
           {items.map((it, i) => (
-            <MenuRow key={it.label} label={it.label} href={it.href} active={i === itemIndex} accent onEnter={() => setItemIndex(i)} onClose={onClose} />
+            <React.Fragment key={it.label}>
+              {it.external && !items[i - 1]?.external && (
+                <Box sx={{ mt: 2.25, pt: 1.75, mx: 1.75, borderTop: `1px solid ${BORDER}` }}>
+                  <Typography sx={{ fontSize: "0.8rem", fontWeight: 600, color: "#5B6B60", textTransform: "none !important", lineHeight: 1.3 }}>
+                    Also in our group
+                  </Typography>
+                </Box>
+              )}
+              {it.brand && it.brand !== items[i - 1]?.brand && (
+                <BrandHead name={it.brand} site={it.external && it.href ? new URL(it.href).hostname.replace(/^www\./, "") : undefined} first={i === 0} />
+              )}
+              <MenuRow label={it.label} href={it.href} external={it.external} active={i === itemIndex} accent onEnter={() => setItemIndex(i)} onClose={onClose} />
+            </React.Fragment>
           ))}
         </Box>
 
         {/* Level 3: series of the highlighted category */}
         <Box sx={{ p: 3 }}>
-          {item && (
+          {item?.external && <ShowcaseCard item={item} onClose={onClose} />}
+          {item && !item.external && (
             <>
               <ColumnHead kicker="Series" title={item.label} href={seriesAll} onClose={onClose} />
               {series.length ? (
@@ -213,6 +338,8 @@ export default function MegaMenu({ group, onClose }: Props) {
             </>
           )}
         </Box>
+
+        {BRAND_TYPE[group.id] && <BrandBar type={BRAND_TYPE[group.id]} onClose={onClose} />}
       </Box>
     </Fade>
   );

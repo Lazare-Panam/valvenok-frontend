@@ -9,20 +9,21 @@ import * as React from "react";
 import Link from "next/link";
 import { Box } from "@mui/material";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
-import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
 import SettingsInputComponentOutlinedIcon from "@mui/icons-material/SettingsInputComponentOutlined";
 import ShieldOutlinedIcon from "@mui/icons-material/ShieldOutlined";
 import AirOutlinedIcon from "@mui/icons-material/AirOutlined";
 import CompareArrowsOutlinedIcon from "@mui/icons-material/CompareArrowsOutlined";
 import SwapVertOutlinedIcon from "@mui/icons-material/SwapVertOutlined";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import CompressOutlinedIcon from "@mui/icons-material/CompressOutlined";
 import FitnessCenterOutlinedIcon from "@mui/icons-material/FitnessCenterOutlined";
 import ExtensionOutlinedIcon from "@mui/icons-material/ExtensionOutlined";
 import { T, textReset } from "@/src/app/Landing/modern/tokens";
 import { MotionRoot, Words, Reveal, gradientText, L, useInView } from "@/src/app/Common/LightMotion";
-import { groupSite } from "@/src/app/Common/group";
 import { wrap, Kicker, H2, Lead, pillBtn } from "@/src/app/hydrogen-cryogenic/components/HydrogenHub";
+import SeriesChips from "@/src/app/actuators/components/SeriesChips";
+import GroupShowcase from "@/src/app/actuators/components/GroupShowcase";
+import BrandSwitcher from "@/src/app/actuators/components/BrandSwitcher";
+import BrandLogos from "@/src/app/actuators/components/BrandLogos";
 
 const V = "https://pblol2.blob.core.windows.net/valvenok-images";
 const LOGO: Record<string, string> = {
@@ -48,9 +49,7 @@ type Series = {
   color: string;
 };
 
-const SERIES: Series[] = [
-  { key: "sra", code: "SRA", name: "SRA rack & pinion", kind: "Rack & pinion", brand: "SPAC", text: "Compact rack & pinion actuators and 3/2 actuator valves, priced to order online.", tag: "Buy online", sr: false, img: "https://pblol2.blob.core.windows.net/spac-images/products/actuators/SRA-25-02.jpg", href: "/pneumatic/actuators/sra", icon: <ShoppingCartOutlinedIcon />, color: "#7CB9F0" },
-  { key: "ad", code: "AD", name: "AD scotch yoke", kind: "Scotch yoke", brand: "KOSAPLUS", text: "Heavy-duty scotch yoke actuators in 11 sizes from 50 to 300 mm, double acting or spring return.", tag: "53 – 11,422 Nm", min: 53, max: 11422, sr: true, img: "https://pblol2.blob.core.windows.net/panam-images/products/actuators/AD-Series.jpeg", href: "/pneumatic/actuators/scotch-yoke", icon: <FitnessCenterOutlinedIcon />, color: "#F4C95D" },
+export const SERIES: Series[] = [
   { key: "pds", code: "PDS", name: "PDS scotch yoke", kind: "Scotch yoke", brand: "Susin", text: "Double acting (PD) and spring return (PS) scotch yoke actuators, ISO 5211, NAMUR and VDI-VDE 3845 mounting.", tag: "10 – 4,000 Nm", min: 10, max: 4000, sr: true, img: `${V}/products/actuators/pneumatic/pdf.webp`, href: "/pneumatic/actuators/pds", icon: <SettingsInputComponentOutlinedIcon />, color: "#8FD47C" },
   { key: "hd", code: "HD", name: "HD heavy-duty scotch yoke", kind: "Scotch yoke", brand: "Susin", text: "Symmetric (IS) and canted (IC) yokes for the largest valves, 3.5–10 bar, IP66 / IP67.", tag: "132 – 120,867 Nm", min: 132, max: 120867, sr: true, img: `${V}/products/actuators/pneumatic/hd.webp`, href: "/pneumatic/actuators/hd", icon: <FitnessCenterOutlinedIcon />, color: "#B7A6F0" },
   { key: "mhd", code: "MHD", name: "MHD micro scotch yoke", kind: "Scotch yoke", brand: "Susin", text: "Compact IS and IC scotch yoke actuators for double offset butterfly valves, double acting or spring return.", tag: "63 – 1,474 Nm", min: 63, max: 1474, sr: true, img: "https://pblol2.blob.core.windows.net/valvenok-images/brands/susin/mhd.jpg", href: "/pneumatic/actuators/mhd", icon: <CompressOutlinedIcon />, color: "#7CB9F0" },
@@ -60,21 +59,20 @@ const SERIES: Series[] = [
 const S = Object.fromEntries(SERIES.map((s) => [s.key, s]));
 const ROTARY = SERIES.filter((s) => s.max);
 
-const STATS = [
-  { value: String(SERIES.length), unit: "series", label: "Rack & pinion, scotch yoke and linear" },
+const STATS: { value: string; unit: string; label: string; logos?: string[] }[] = [
+  { value: String(SERIES.length), unit: "series", label: "Scotch yoke and linear" },
   { value: "120,867", unit: "Nm", label: "Highest output torque (HD scotch yoke)" },
   { value: "ISO 5211", unit: "", label: "Direct mounting on quarter-turn series" },
-  { value: "3", unit: "brands", label: "Susin · KOSAPLUS · SPAC" },
+  { value: "", unit: "", logos: ["Susin"], label: "Every series on this page is Susin" },
 ];
 
 // Finder: what the actuator must do, then the torque the valve needs
 const DUTIES: { label: string; picks: string[]; rotary: boolean }[] = [
-  { label: "Open / close a quarter-turn valve", picks: ["pds", "ad", "mhd", "hd", "sra"], rotary: true },
-  { label: "Fail-safe on loss of air", picks: ["pds", "ad", "mhd", "hd"], rotary: true },
-  { label: "Large valve, very high torque", picks: ["hd", "ad"], rotary: true },
+  { label: "Open / close a quarter-turn valve", picks: ["pds", "mhd", "hd"], rotary: true },
+  { label: "Fail-safe on loss of air", picks: ["pds", "mhd", "hd"], rotary: true },
+  { label: "Large valve, very high torque", picks: ["hd"], rotary: true },
   { label: "Butterfly valve, compact", picks: ["mhd", "pds"], rotary: true },
   { label: "Linear (push / pull) stroke", picks: ["plds", "mplds"], rotary: false },
-  { label: "Small quantities, order online", picks: ["sra"], rotary: true },
 ];
 const TORQUES = [100, 1000, 5000, 20000, 100000];
 const nm = (n: number) => n.toLocaleString("en-GB");
@@ -95,8 +93,6 @@ const SCHEMA = {
 const photo = { objectFit: "contain", mixBlendMode: "multiply" } as const;
 
 function Hero() {
-  const kosa = groupSite("KOSAPLUS UK");
-  const spac = groupSite("SPAC Pneumatic");
   return (
     <Box component="section" sx={{ position: "relative", overflow: "hidden", background: "linear-gradient(180deg, #EEF5FF 0%, #F6FAFF 55%, #FFFFFF 100%)", pt: { xs: 5, md: 8 }, pb: { xs: 5, md: 7 } }}>
       <Box aria-hidden sx={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(60,110,180,0.10) 1px, transparent 1px)", backgroundSize: "22px 22px", maskImage: "linear-gradient(180deg, black, transparent 80%)", pointerEvents: "none" }} />
@@ -109,7 +105,7 @@ function Hero() {
           <Words text="actuators" start={200} sx={gradientText} />
         </Box>
         <Box component="p" sx={{ m: 0, mx: "auto", maxWidth: 700, fontSize: { xs: "1rem", md: "1.12rem" }, lineHeight: 1.7, color: T.body }}>
-          Seven series of air-powered actuators: rack & pinion and scotch yoke for quarter-turn valves from 10 to 120,867 Nm, and linear actuators for push / pull duty. Double acting or spring return for a fail-safe position.
+          Five series of air-powered actuators: scotch yoke for quarter-turn valves from 10 to 120,867 Nm, and linear actuators for push / pull duty. Double acting or spring return for a fail-safe position.
         </Box>
         <Box sx={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 1.25, mt: 3.5 }}>
           <Box component="a" href="#finder" sx={pillBtn(true)}>
@@ -117,22 +113,17 @@ function Hero() {
           </Box>
           <Box component={Link} href="/contact" sx={pillBtn(false)}>Get a quote</Box>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "center", flexWrap: "wrap", columnGap: 2.5, rowGap: 0.75, mt: 2, fontSize: "0.85rem" }}>
-          {[kosa, spac].map((s) => (
-            <Box key={s.url} component="a" href={s.url} target="_blank" rel="noopener" sx={{ display: "inline-flex", alignItems: "center", gap: 0.5, color: T.greenDark, fontWeight: 600, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
-              {s.name} website <ArrowOutwardRoundedIcon sx={{ fontSize: 14 }} />
-            </Box>
-          ))}
-        </Box>
+        <BrandSwitcher here={["Susin"]} category="pneumatic" />
       </Box>
 
       {/* Series strip: one tap to each series page */}
       <Box sx={{ position: "relative", mt: { xs: 4.5, md: 6 }, maxWidth: 1240, mx: "auto", px: { xs: 0, md: 4 } }}>
-        <Box sx={{ display: "flex", gap: { xs: 1, md: 1.5 }, justifyContent: { lg: "center" }, overflowX: "auto", px: { xs: 2, md: 0 }, pb: 1, scrollSnapType: "x mandatory", scrollbarWidth: "none", "&::-webkit-scrollbar": { display: "none" } }}>
+        <SeriesChips items={SERIES} />
+        <Box sx={{ display: { xs: "none", sm: "flex" }, flexWrap: "wrap", rowGap: 1.5, columnGap: { sm: 1, md: 1.5 }, justifyContent: "center", pb: 1 }}>
           {SERIES.map((s, i) => (
             <Box key={s.key} component={Link} href={s.href}
-              sx={{ flexShrink: 0, width: { xs: 112, md: 136 }, scrollSnapAlign: "start", textAlign: "center", textDecoration: "none", animation: `wordIn .6s cubic-bezier(.2,.8,.2,1) ${300 + i * 60}ms both`, "&:hover .ph": { transform: "translateY(-6px)", boxShadow: T.shadowHover, borderColor: "#BFD6F2" }, "&:hover .nm": { color: T.greenDark } }}>
-              <Box className="ph" sx={{ mx: "auto", width: { xs: 96, md: 112 }, height: { xs: 96, md: 112 }, borderRadius: "50%", bgcolor: "#fff", border: "1px solid #DCE6F2", boxShadow: T.shadow, display: "grid", placeItems: "center", overflow: "hidden", transition: "all .25s" }}>
+              sx={{ flexShrink: 0, width: { xs: "auto", sm: 120, md: 136 }, minWidth: 0, textAlign: "center", textDecoration: "none", animation: `wordIn .6s cubic-bezier(.2,.8,.2,1) ${300 + i * 60}ms both`, "&:hover .ph": { transform: "translateY(-6px)", boxShadow: T.shadowHover, borderColor: "#BFD6F2" }, "&:hover .nm": { color: T.greenDark } }}>
+              <Box className="ph" sx={{ mx: "auto", width: { xs: 84, sm: 100, md: 112 }, height: { xs: 84, sm: 100, md: 112 }, borderRadius: "50%", bgcolor: "#fff", border: "1px solid #DCE6F2", boxShadow: T.shadow, display: "grid", placeItems: "center", overflow: "hidden", transition: "all .25s" }}>
                 <Box component="img" src={s.img} alt={s.name} loading="eager" sx={{ width: "74%", height: "74%", ...photo }} />
               </Box>
               <Box className="nm" sx={{ mt: 1.25, fontSize: "0.86rem", fontWeight: 700, color: T.ink, lineHeight: 1.25, transition: "color .2s" }}>{s.code} series</Box>
@@ -152,10 +143,11 @@ function Stats() {
         {STATS.map((s, i) => (
           <Reveal key={s.label} delay={i * 90}>
             <Box sx={{ height: "100%", boxSizing: "border-box", p: { xs: 2, md: 3 }, borderRadius: "20px", bgcolor: "#fff", border: `1px solid ${T.border}`, boxShadow: T.shadow, borderTop: `4px solid ${[L.lime, L.sky, L.sun, "rgba(183,166,240,0.6)"][i]}` }}>
-              <Box sx={{ fontSize: { xs: "1.5rem", md: "2.2rem" }, fontWeight: 800, letterSpacing: "-0.03em", color: T.ink, lineHeight: 1.1, whiteSpace: "nowrap" }}>
+              {"logos" in s && s.logos && <Box sx={{ mb: s.value ? 1 : 0.5 }}><BrandLogos names={s.logos} size={s.value ? "md" : "lg"} /></Box>}
+              {s.value && <Box sx={{ fontSize: { xs: "1.5rem", md: "2.2rem" }, fontWeight: 800, letterSpacing: "-0.03em", color: T.ink, lineHeight: 1.1, whiteSpace: "nowrap" }}>
                 {s.value}
                 {s.unit && <Box component="span" sx={{ fontSize: "0.5em", ml: 0.75, color: T.greenDark }}>{s.unit}</Box>}
-              </Box>
+              </Box>}
               <Box component="p" sx={{ m: 0, mt: 0.75, fontSize: "0.85rem", color: T.body, lineHeight: 1.4 }}>{s.label}</Box>
             </Box>
           </Reveal>
@@ -345,7 +337,7 @@ function Compare() {
           ))}
         </Box>
         <Box sx={{ mt: 1.5, fontSize: "0.85rem", color: T.muted }}>
-          Linear series (PLDS, MPLDS) are rated by thrust and stroke, and SRA by size: see their pages.
+          Linear series (PLDS, MPLDS) are rated by thrust and stroke: see their pages. For rack & pinion actuators, see “Also in our group” below.
         </Box>
       </Box>
     </Box>
@@ -353,10 +345,10 @@ function Compare() {
 }
 
 const MORE = [
-  { title: "Limit switch boxes", text: "Signal open and closed positions to the control room; they mount on the actuator.", tag: "IP67 / IP68", img: `${V}/products/actuators/limit-switches/ks-limit-switch.jpg`, href: "/actuators/limit-switches" },
+  { title: "Limit switch boxes", text: "Signal open and closed positions to the control room; they mount on the actuator.", tag: "IP67 / IP68", img: `${V}/products/actuators/limit-switches/susin-limit-switch.webp`, href: "/actuators/accessories" },
   { title: "Electric actuators", text: "For valves where there’s no air supply: quarter-turn, linear and multi-turn.", tag: "On/off & modulating", img: `${V}/products/actuators/electric/itq.webp`, href: "/actuators/electric" },
   { title: "Mechanical gearboxes", text: "Manual override or hand operation for large valves, ISO 5211 mounting.", tag: "Up to 32,000 Nm", img: `${V}/products/actuators/mechanical/itg.webp`, href: "/actuators/mechanical" },
-  { title: "Hydraulic actuators", text: "Electro-hydraulic units for high torque from a compact body, power only.", tag: "46 – 10,000 Nm", img: `${V}/products/actuators/hydraulic/adf.webp`, href: "/actuators/hydraulic" },
+  { title: "Hydraulic actuators", text: "Electro-hydraulic, rack & pinion, scotch yoke and linear piston actuators.", tag: "35 – 112,595 Nm", img: `${V}/brands/susin/ktc-hrsda.jpg`, href: "/actuators/hydraulic" },
 ];
 
 function CompleteLine() {
@@ -462,6 +454,7 @@ export default function PneumaticActuatorsView() {
       <Finder />
       <Types />
       <Compare />
+      <GroupShowcase category="pneumatic" what="pneumatic actuators" />
       <CompleteLine />
       <Faq />
       <Cta />

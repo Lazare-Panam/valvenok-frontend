@@ -181,10 +181,6 @@ const GROUPS: { group: string; links: { label: string; href: string }[] }[] = [
   {
     group: "Pneumatic",
     links: [
-      {
-        label: "Scotch Yoke Actuators",
-        href: "/pneumatic/actuators/scotch-yoke/products",
-      },
       { label: "MPLDS Actuators", href: "/pneumatic/actuators/mplds" },
       { label: "PDS Actuators", href: "/pneumatic/actuators/pds/products" },
       { label: "PLDS Actuators", href: "/pneumatic/actuators/plds/products" },
@@ -203,12 +199,7 @@ const GROUPS: { group: string; links: { label: string; href: string }[] }[] = [
     links: [
       { label: "ITQ Electric Actuators", href: "/actuators/electric/itq" },
       { label: "ADF Hydraulic Actuators", href: "/actuators/hydraulic/adf" },
-      { label: "KLS Limit Switches", href: "/actuators/limit-switches/kls" },
       { label: "ITS Limit Switches", href: "/actuators/limit-switches/its" },
-      {
-        label: "KE Series Electric",
-        href: "/actuators/electric/ke-series/variants",
-      },
       {
         label: "IQL Electric Actuators",
         href: "/actuators/electric/iql/products",

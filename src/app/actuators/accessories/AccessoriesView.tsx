@@ -1,8 +1,8 @@
 "use client";
 
 // Accessories: type page under the Actuators tab, in the same format as the
-// Electric, Hydraulic and Mechanical pages. Limit switch boxes (KLS, ITS).
-// KLS figures from the KLS series page (KOSAPLUS); ITS figures from Susin's ITS catalogue
+// Electric, Hydraulic and Mechanical pages. Limit switch boxes: Susin ITS.
+// (KOSAPLUS KLS is on the KOSAPLUS UK website.) ITS figures from Susin's ITS catalogue
 // (Accessories - ITS.pdf): ITS 200 weatherproof, ITS 400 explosion proof, ITS 500 special material.
 
 import * as React from "react";
@@ -17,6 +17,8 @@ import BuildOutlinedIcon from "@mui/icons-material/BuildOutlined";
 import { T, textReset } from "@/src/app/Landing/modern/tokens";
 import { MotionRoot, Words, Reveal, gradientText, L } from "@/src/app/Common/LightMotion";
 import { wrap, Kicker, H2, Lead, pillBtn } from "@/src/app/hydrogen-cryogenic/components/HydrogenHub";
+import GroupShowcase from "@/src/app/actuators/components/GroupShowcase";
+import BrandSwitcher from "@/src/app/actuators/components/BrandSwitcher";
 
 const V = "https://pblol2.blob.core.windows.net/valvenok-images";
 const LOGO: Record<string, string> = {
@@ -39,36 +41,35 @@ type Series = {
   note: string;
 };
 
-const SERIES: Series[] = [
-  { key: "kls", code: "KLS", name: "KLS limit switch box", kind: "Limit switch box", brand: "KOSAPLUS", text: "Weatherproof (KLS1x) and explosion-proof (KLS2x) boxes with a 3-way indicator, quick-set cam, and aluminium or stainless steel body.", tag: "IP67 / IP68 · IECEx / KCs", img: `${V}/products/actuators/limit-switches/ks-limit-switch.jpg`, href: "/actuators/limit-switches/kls", icon: <SensorsOutlinedIcon />, color: "#8FD47C", note: "" },
+export const SERIES: Series[] = [
   { key: "its", code: "ITS", name: "ITS position monitoring switch", kind: "Limit switch box", brand: "Susin", text: "Weatherproof ITS 200, explosion-proof ITS 400 (Ex d IIC T6) and 316L / Duplex stainless ITS 500 for offshore, with a 0–90° dome indicator.", tag: "IP67 / IP68 · Ex d IIC T6", img: `${V}/products/actuators/limit-switches/susin-limit-switch.webp`, href: "/actuators/limit-switches/its", icon: <SensorsOutlinedIcon />, color: "#7CB9F0", note: "" },
 ];
 const S = Object.fromEntries(SERIES.map((s) => [s.key, s]));
 
 const STATS = [
-  { value: String(SERIES.length), unit: "series", label: "Limit switch boxes from KOSAPLUS and Susin" },
-  { value: "IIC T6", unit: "", label: "Explosion-proof gas group and class (KLS2x, ITS 400 / 500)" },
-  { value: "IP68", unit: "", label: "Optional submersion protection (both series)" },
-  { value: "-40", unit: "°C", label: "Low-temperature options (both series)" },
+  { value: "3", unit: "models", label: "ITS 200 weatherproof, ITS 400 explosion proof, ITS 500 stainless" },
+  { value: "IIC T6", unit: "", label: "Explosion proof gas group and class (ITS 400 / 500)" },
+  { value: "IP68", unit: "", label: "Optional submersion protection (ITS 400 / 500)" },
+  { value: "-40", unit: "°C", label: "Low-temperature option (ITS 400 / 500)" },
 ];
 
 // Finder: where the box will be installed
 const DUTIES: { label: string; picks: string[]; why: Record<string, string> }[] = [
-  { label: "Safe area, weatherproof", picks: ["kls", "its"], why: { kls: "KLS1x weatherproof models, IP67", its: "ITS 200 weatherproof, IP67" } },
-  { label: "Hazardous area (explosion proof)", picks: ["kls", "its"], why: { kls: "KLS2x: Ex db IIC T6 Gb, IECEx / KCs", its: "ITS 400: Ex d IIC T6, Zone 1 & 2" } },
-  { label: "Corrosive or offshore", picks: ["its", "kls"], why: { its: "ITS 500: 316L or Duplex stainless housing", kls: "SUS304, SUS316 or SUS316L body" } },
-  { label: "Wet or submerged (IP68)", picks: ["kls", "its"], why: { kls: "IP68 option", its: "IP68 option (ITS 400 / 500)" } },
-  { label: "Proximity sensors instead of switches", picks: ["kls", "its"], why: { kls: "PNP, NPN, 2-wire, P&F or SOLDO proximity", its: "P&F or Autonics proximity, magnetic sensors" } },
-  { label: "Position feedback (4–20 mA)", picks: ["its"], why: { its: "Position transmitter option, 0–1 kΩ or 4–20 mA (ITS 400 / 500)" } },
+  { label: "Safe area, weatherproof", picks: ["its"], why: { its: "ITS 200: weatherproof IP67, O-ring sealed" } },
+  { label: "Hazardous area (explosion proof)", picks: ["its"], why: { its: "ITS 400: Ex d IIC T6, Zone 1 & 2" } },
+  { label: "Corrosive or offshore", picks: ["its"], why: { its: "ITS 500: 316L or Duplex stainless housing" } },
+  { label: "Wet or submerged (IP68)", picks: ["its"], why: { its: "ITS 400 / 500 with the IP68 option" } },
+  { label: "Proximity sensors instead of switches", picks: ["its"], why: { its: "P&F or Autonics proximity, or magnetic sensors" } },
+  { label: "Position feedback (4–20 mA)", picks: ["its"], why: { its: "ITS 400 / 500 with a position transmitter (0–1 kΩ or 4–20 mA)" } },
 ];
 
 const FAQ_ICONS = [SensorsOutlinedIcon, LocalFireDepartmentOutlinedIcon, ToggleOnOutlinedIcon, WaterDropOutlinedIcon, BuildOutlinedIcon];
 const FAQ = [
-  { q: "What does a limit switch box do?", a: "It sits on top of the actuator and signals when the valve is fully open or fully closed, so the control system knows the valve position. A dome or 3-way indicator also shows the position on site." },
-  { q: "Which one for a hazardous area?", a: "Choose an explosion-proof model: KLS2x (Ex db IIC T6 Gb, IECEx and KCs) or ITS 400 (Ex d IIC T6, for Zone 1 and 2). Tell us the zone and gas group and we’ll confirm the build." },
-  { q: "Mechanical switches or proximity sensors?", a: "Mechanical 2-SPDT switches are the standard on both series. Proximity sensors have no moving contacts: KLS offers PNP, NPN, 2-wire, P&F and SOLDO; ITS offers P&F and Autonics proximity and magnetic sensors." },
-  { q: "Can they be used outdoors or offshore?", a: "Yes. Both are IP67 as standard with IP68 as an option. For corrosive and offshore service, KLS comes in SUS304, SUS316 or SUS316L, and ITS 500 has a 316L or Duplex stainless housing." },
-  { q: "Will it fit my actuator?", a: "Both mount to standard actuator tops: ITS brackets follow VDI/VDE 3845 (NAMUR), and KLS has five bracket options (BS1–BS4, MB1). Send us the actuator make and size and we’ll supply the right bracket." },
+  { q: "What does a limit switch box do?", a: "It sits on top of the actuator and signals when the valve is fully open or fully closed, so the control system knows the valve position. A dome indicator also shows the position on site." },
+  { q: "Which one for a hazardous area?", a: "Choose the ITS 400: explosion proof Ex d IIC T6 for Zone 1 and 2, built to EN 50014 and 50018. For corrosive sites the ITS 500 has the same rating in a 316L or Duplex stainless housing. Tell us the zone and gas group and we’ll confirm the build." },
+  { q: "Mechanical switches or proximity sensors?", a: "Two mechanical SPDT switches are standard. Options include DPDT switches, P&F or Autonics proximity sensors, magnetic sensors, and a position transmitter with a 0–1 kΩ or 4–20 mA output." },
+  { q: "Can they be used outdoors or offshore?", a: "Yes. The ITS series is IP67 as standard, with IP68 as an option on the ITS 400 and 500. For offshore and corrosive service, the ITS 500 has a 316L or Duplex stainless housing." },
+  { q: "Will it fit my actuator?", a: "Mounting brackets follow VDI/VDE 3845 (NAMUR): SSIN1 and SSIN2 come with the switch box, SSIN3 and SSIN4 are optional. Send us the actuator make and size and we’ll supply the right bracket." },
 ];
 const SCHEMA = {
   "@context": "https://schema.org",
@@ -91,7 +92,7 @@ function Hero() {
           <Words text="accessories" start={200} sx={gradientText} />
         </Box>
         <Box component="p" sx={{ m: 0, mx: "auto", maxWidth: 700, fontSize: { xs: "1rem", md: "1.12rem" }, lineHeight: 1.7, color: T.body }}>
-          <Box component="strong" sx={{ fontWeight: 800, ...gradientText }}>Limit switch boxes</Box> that sit on top of the actuator and tell the control room when the valve is open or closed. Weatherproof, explosion-proof and stainless versions, with mechanical switches or proximity sensors.
+          <Box component="strong" sx={{ fontWeight: 800, ...gradientText }}>Limit switch boxes</Box> that sit on top of the actuator and tell the control room when the valve is open or closed. Susin ITS boxes in weatherproof, explosion-proof and stainless versions, with mechanical switches or proximity sensors.
         </Box>
         <Box sx={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 1.25, mt: 3.5 }}>
           <Box component="a" href="#finder" sx={pillBtn(true)}>
@@ -99,6 +100,7 @@ function Hero() {
           </Box>
           <Box component={Link} href="/contact" sx={pillBtn(false)}>Get a quote</Box>
         </Box>
+        <BrandSwitcher here={["Susin"]} category="accessories" />
       </Box>
 
       {/* Series strip: one tap to each series page */}
@@ -106,8 +108,8 @@ function Hero() {
         <Box sx={{ display: "flex", gap: { xs: 1, md: 1.5 }, justifyContent: "center", overflowX: "auto", px: { xs: 2, md: 0 }, pb: 1, scrollbarWidth: "none", "&::-webkit-scrollbar": { display: "none" } }}>
           {SERIES.map((s, i) => (
             <Box key={s.key} component={Link} href={s.href}
-              sx={{ flexShrink: 0, width: { xs: 112, md: 136 }, textAlign: "center", textDecoration: "none", animation: `wordIn .6s cubic-bezier(.2,.8,.2,1) ${300 + i * 60}ms both`, "&:hover .ph": { transform: "translateY(-6px)", boxShadow: T.shadowHover, borderColor: "#BFD6F2" }, "&:hover .nm": { color: T.greenDark } }}>
-              <Box className="ph" sx={{ mx: "auto", width: { xs: 96, md: 112 }, height: { xs: 96, md: 112 }, borderRadius: "50%", bgcolor: "#fff", border: "1px solid #DCE6F2", boxShadow: T.shadow, display: "grid", placeItems: "center", overflow: "hidden", transition: "all .25s" }}>
+              sx={{ flexShrink: 0, width: { xs: "auto", sm: 120, md: 136 }, minWidth: 0, textAlign: "center", textDecoration: "none", animation: `wordIn .6s cubic-bezier(.2,.8,.2,1) ${300 + i * 60}ms both`, "&:hover .ph": { transform: "translateY(-6px)", boxShadow: T.shadowHover, borderColor: "#BFD6F2" }, "&:hover .nm": { color: T.greenDark } }}>
+              <Box className="ph" sx={{ mx: "auto", width: { xs: 84, sm: 100, md: 112 }, height: { xs: 84, sm: 100, md: 112 }, borderRadius: "50%", bgcolor: "#fff", border: "1px solid #DCE6F2", boxShadow: T.shadow, display: "grid", placeItems: "center", overflow: "hidden", transition: "all .25s" }}>
                 <Box component="img" src={s.img} alt={s.name} loading="eager" sx={{ width: "74%", height: "74%", ...photo }} />
               </Box>
               <Box className="nm" sx={{ mt: 1.25, fontSize: "0.86rem", fontWeight: 700, color: T.ink, lineHeight: 1.25, transition: "color .2s" }}>{s.code} series</Box>
@@ -231,9 +233,9 @@ function Types() {
         <Box sx={{ textAlign: "center", mb: { xs: 4, md: 5 } }}>
           <Kicker>Limit switch boxes</Kicker>
           <H2 id="h2-types">Every limit switch box we supply</H2>
-          <Lead center>Pick a series to see its models, options and a quote, or <Box component={Link} href="/actuators/limit-switches" sx={{ color: T.greenDark, fontWeight: 700 }}>compare them on the limit switch boxes page</Box>.</Lead>
+          <Lead center>Open the series to see its models, options and a quote. Looking for KOSAPLUS KLS? It’s on the <Box component="a" href="https://www.kosaplus.co.uk/" target="_blank" rel="noopener" sx={{ color: T.greenDark, fontWeight: 700 }}>KOSAPLUS UK website ↗</Box></Lead>
         </Box>
-        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)" }, gap: { xs: 1.25, md: 2.5 }, maxWidth: 860, mx: "auto" }}>
+        <Box sx={{ display: "grid", gridTemplateColumns: "1fr", gap: { xs: 1.25, md: 2.5 }, maxWidth: 430, mx: "auto" }}>
           {SERIES.map((s, i) => (
             <Reveal key={s.key} delay={i * 70}>
               <SeriesCard s={s} />
@@ -245,18 +247,18 @@ function Types() {
   );
 }
 
-const ROWS: [string, string, string][] = [
-  ["Brand", "KOSAPLUS", "Susin"],
-  ["Weatherproof", "KLS1x, IP67", "ITS 200, IP67"],
-  ["Explosion proof", "KLS2x: Ex db IIC T6 Gb / Ex tb IIIC T80°C Db", "ITS 400: Ex d IIC T6, Zone 1 & 2"],
-  ["Certification", "IECEx, KCs", "EN 50014 & 50018 construction"],
-  ["Submersion", "IP68 option", "IP68 option (ITS 400 / 500)"],
-  ["Housing", "ALDC12 aluminium; SUS304, SUS316, SUS316L", "Aluminium die-cast; ITS 500 316L or Duplex"],
-  ["Indicator", "3-way visual indicator", "Dome 0°–90° (option 3-way L-port, T-port)"],
-  ["Switches", "2 × SPDT mechanical; PNP, NPN, 2-wire, P&F, SOLDO proximity", "2-SPDT mechanical; DPDT, P&F / Autonics proximity, magnetic, 4–20 mA transmitter"],
-  ["Ambient temperature", "-20°C to +60°C (low temp -40°C)", "-20°C to +80°C (options -40°C, ~100°C)"],
-  ["Cable entries", "PF1/2 (KLS1x); PF3/4 or NPT3/4 (KLS2x)", "NPT1/2 (ITS 200); 2 × PF3/4 (ITS 400); other threads"],
-  ["Mounting", "Brackets BS1–BS4, MB1", "Brackets to VDI/VDE 3845 (SSIN1–4)"],
+// ITS 200 / 400 / 500 side by side, from Susin's ITS catalogue
+const MODELS = ["ITS 200", "ITS 400", "ITS 500"];
+const ROWS: [string, string, string, string][] = [
+  ["For", "Safe areas, weatherproof", "Hazardous areas, explosion proof", "Offshore and corrosive service"],
+  ["Enclosure", "Weatherproof IP67, O-ring sealed", "Ex d IIC T6, IP67 (option IP68)", "As ITS 400"],
+  ["Housing", "Aluminium die-cast", "Aluminium die-cast", "316L or Duplex stainless steel"],
+  ["Coating", "Epoxy-polyester inside and outside", "Epoxy-polyester outside", "No painting on stainless"],
+  ["Ambient temperature", "-20°C to +80°C", "-20°C to +80°C (options ~100°C, -40°C)", "As ITS 400"],
+  ["Cable entries", "NPT1/2 (M20, BSP, PT, PG13.5, PF options)", "2 × PF3/4 (other threads optional)", "As ITS 400"],
+  ["Switches", "2-SPDT mechanical (option P&F proximity)", "2-SPDT; options DPDT, proximity, magnetic, transmitter", "As ITS 400"],
+  ["Indicator", "Dome 0°–90° (option 3-way L / T port)", "Dome 0°–90° (option 3-way L / T port)", "Dome 0°–90° (option 3-way L / T port)"],
+  ["Mounting", "Brackets to VDI/VDE 3845", "Brackets to VDI/VDE 3845", "Brackets to VDI/VDE 3845"],
 ];
 
 function Compare() {
@@ -265,23 +267,39 @@ function Compare() {
       <Box sx={wrap}>
         <Box sx={{ mb: 4 }}>
           <Kicker>Side by side</Kicker>
-          <H2 id="h2-compare">KLS or ITS?</H2>
-          <Lead>Both report open and closed positions and come weatherproof or explosion-proof. Here is how they differ, from each maker’s catalogue.</Lead>
+          <H2 id="h2-compare">ITS 200, 400 or 500?</H2>
+          <Lead>All three report open and closed positions with a dome indicator. Here is how they differ, from Susin’s ITS catalogue.</Lead>
         </Box>
-        <Box sx={{ borderRadius: "22px", bgcolor: "#fff", border: `1px solid ${T.border}`, boxShadow: T.shadow, overflow: "hidden" }}>
-          <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr 1fr", md: "220px 1fr 1fr" }, bgcolor: T.greenSoft, fontWeight: 800, color: T.ink, fontSize: "0.9rem" }}>
-            <Box sx={{ display: { xs: "none", md: "block" }, p: 2 }} />
-            {SERIES.map((s) => (
-              <Box key={s.key} component={Link} href={s.href} sx={{ p: 2, color: T.greenDark, textDecoration: "none" }}>{s.code} series →</Box>
-            ))}
-          </Box>
-          {ROWS.map(([label, a, b]) => (
-            <Box key={label} sx={{ display: "grid", gridTemplateColumns: { xs: "1fr 1fr", md: "220px 1fr 1fr" }, borderTop: `1px solid ${T.border}`, fontSize: "0.88rem", lineHeight: 1.5 }}>
-              <Box sx={{ gridColumn: { xs: "1 / -1", md: "auto" }, px: 2, pt: { xs: 1.5, md: 1.5 }, pb: { xs: 0, md: 1.5 }, fontWeight: 700, color: T.ink }}>{label}</Box>
-              <Box sx={{ px: 2, py: 1.5, color: T.body }}>{a}</Box>
-              <Box sx={{ px: 2, py: 1.5, color: T.body }}>{b}</Box>
+        {/* Phones: one card per model */}
+        <Box sx={{ display: { xs: "grid", md: "none" }, gap: 1.5 }}>
+          {MODELS.map((m, k) => (
+            <Box key={m} sx={{ borderRadius: "18px", bgcolor: "#fff", border: `1px solid ${T.border}`, boxShadow: T.shadow, overflow: "hidden" }}>
+              <Box sx={{ px: 2, py: 1.25, bgcolor: T.greenSoft, fontWeight: 800, color: T.greenDark }}>{m}</Box>
+              {ROWS.map(([label, ...vals]) => (
+                <Box key={label} sx={{ display: "grid", gridTemplateColumns: "116px 1fr", gap: 1.5, px: 2, py: 1.1, borderTop: `1px solid ${T.border}`, fontSize: "0.86rem", lineHeight: 1.45 }}>
+                  <Box sx={{ fontWeight: 700, color: T.ink }}>{label}</Box>
+                  <Box sx={{ color: T.body }}>{vals[k] === "As ITS 400" ? vals[1] : vals[k]}</Box>
+                </Box>
+              ))}
             </Box>
           ))}
+        </Box>
+        <Box sx={{ display: { xs: "none", md: "block" }, borderRadius: "22px", bgcolor: "#fff", border: `1px solid ${T.border}`, boxShadow: T.shadow, overflow: "hidden" }}>
+          <Box sx={{ display: "grid", gridTemplateColumns: { xs: "repeat(3, 1fr)", md: "200px repeat(3, 1fr)" }, bgcolor: T.greenSoft, fontWeight: 800, color: T.ink, fontSize: "0.9rem" }}>
+            <Box sx={{ display: { xs: "none", md: "block" }, p: 2 }} />
+            {MODELS.map((m) => <Box key={m} sx={{ p: 2, color: T.greenDark }}>{m}</Box>)}
+          </Box>
+          {ROWS.map(([label, ...vals]) => (
+            <Box key={label} sx={{ display: "grid", gridTemplateColumns: { xs: "repeat(3, 1fr)", md: "200px repeat(3, 1fr)" }, borderTop: `1px solid ${T.border}`, fontSize: "0.86rem", lineHeight: 1.5 }}>
+              <Box sx={{ gridColumn: { xs: "1 / -1", md: "auto" }, px: 2, pt: 1.5, pb: { xs: 0, md: 1.5 }, fontWeight: 700, color: T.ink }}>{label}</Box>
+              {vals.map((v, k) => <Box key={k} sx={{ px: 2, py: 1.5, color: T.body }}>{v}</Box>)}
+            </Box>
+          ))}
+        </Box>
+        <Box sx={{ mt: 2, textAlign: "center" }}>
+          <Box component={Link} href="/actuators/limit-switches/its" sx={pillBtn(false)}>
+            ITS series page <ArrowForwardRoundedIcon sx={{ fontSize: 18 }} />
+          </Box>
         </Box>
       </Box>
     </Box>
@@ -290,7 +308,7 @@ function Compare() {
 
 const MORE = [
   { title: "Pneumatic actuators", text: "Rack & pinion, scotch yoke and linear, double acting or spring return.", tag: "Up to 120,867 Nm", img: `${V}/products/actuators/pneumatic/pdf.webp`, href: "/pneumatic/actuators" },
-  { title: "Electric actuators", text: "Quarter-turn, multi-turn and linear, including a spring-return fail-safe series.", tag: "8 – 9,000 Nm", img: `${V}/products/actuators/electric/itq.webp`, href: "/actuators/electric" },
+  { title: "Electric actuators", text: "Quarter-turn, multi-turn and linear, including a spring-return fail-safe series.", tag: "25 – 9,000 Nm", img: `${V}/products/actuators/electric/itq.webp`, href: "/actuators/electric" },
   { title: "Hydraulic actuators", text: "Electro-hydraulic, rack & pinion, scotch yoke and linear piston.", tag: "Up to 112,595 Nm", img: `${V}/brands/susin/ktc-hrsda.jpg`, href: "/actuators/hydraulic" },
   { title: "Mechanical actuators", text: "Worm and bevel gear operators and declutchable overrides.", tag: "Up to 32,000 Nm", img: `${V}/products/actuators/mechanical/itg.webp`, href: "/actuators/mechanical" },
 ];
@@ -398,6 +416,7 @@ export default function AccessoriesView() {
       <Finder />
       <Types />
       <Compare />
+      <GroupShowcase category="accessories" what="limit switch boxes" />
       <CompleteLine />
       <Faq />
       <Cta />

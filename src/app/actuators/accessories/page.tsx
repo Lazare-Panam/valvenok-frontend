@@ -3,7 +3,7 @@ import AccessoriesView from "./AccessoriesView";
 
 const TITLE = "Actuator Accessories: Limit Switch Boxes | Valvenok";
 const DESCRIPTION =
-  "Limit switch boxes for valve actuators: KOSAPLUS KLS and Susin ITS, weatherproof IP67 / IP68, explosion-proof IIC T6 and stainless versions, with mechanical switches or proximity sensors.";
+  "Susin ITS limit switch boxes for valve actuators: ITS 200 weatherproof IP67, ITS 400 explosion proof Ex d IIC T6 and ITS 500 316L / Duplex stainless, with mechanical switches or proximity sensors.";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/actuators/accessories" },
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     url: "/actuators/accessories",
     siteName: "Valvenok",
     type: "website",
-    images: ["https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/limit-switches/ks-limit-switch.jpg"],
+    images: ["https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/limit-switches/susin-limit-switch.webp"],
   },
 };
 

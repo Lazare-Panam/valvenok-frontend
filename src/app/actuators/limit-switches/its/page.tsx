@@ -1,5 +1,6 @@
 "use client";
 
+import { SUSIN_CATALOG } from "@/src/app/Common/susinCatalogs";
 import { useState } from "react";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
@@ -24,23 +25,23 @@ const ITS_PRODUCT: ProductForRFQ = {
   thumbnail:
     "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/limit-switches/susin-limit-switch.webp",
   description:
-    "Precision position monitoring switches for rotary actuators. ATEX Ex d IIC T6, IECEx & CE certified. IP67/IP68, aluminium or stainless steel housing, 0°–90° visual dome indicator.",
+    "Position monitoring switch boxes for rotary valves and NAMUR actuators: ITS 200 weatherproof IP67, ITS 400 explosion proof Ex d IIC T6 (EN 50014 / 50018, Zone 1 & 2), ITS 500 316L or Duplex stainless. 0°–90° dome indicator.",
   keySpecs: [
     { label: "Protection", value: "IP67 / IP68" },
-    { label: "Certification", value: "ATEX / IECEx / CE" },
+    { label: "Explosion Proof", value: "Ex d IIC T6 (ITS 400 / 500)" },
     { label: "Switch Type", value: "2-SPDT or Proximity" },
     { label: "Temperature", value: "-20°C to +80°C" },
   ],
   variantInfo: {
-    count: 1,
-    sizeRange: "ITS Series",
+    count: 3,
+    sizeRange: "ITS 200 · ITS 400 · ITS 500",
   },
 };
 
 const TECH_SPECS = [
   { label: "Protection Rating", value: "IP67 (standard) / IP68 (optional)" },
-  { label: "Explosion-Proof", value: "ATEX Ex d IIC T6" },
-  { label: "Certifications", value: "IECEx, CE, ISO 9001:2015" },
+  { label: "Explosion-Proof", value: "Ex d IIC T6, EN 50014 & 50018, Zone 1 & 2 (ITS 400 / 500)" },
+  { label: "Terminal Block", value: "8 terminals (6 for switches, 2 for solenoid valve power)" },
   {
     label: "Switch Configuration",
     value: "2 × SPDT Mechanical or Proximity Sensors",
@@ -53,27 +54,34 @@ const TECH_SPECS = [
     label: "Shaft Standard",
     value: "NAMUR standard shaft for actuator mounting",
   },
-  { label: "Housing Material", value: "Aluminium alloy or Stainless Steel" },
+  { label: "Housing Material", value: "Aluminium die-cast (ITS 200 / 400); 316L or Duplex stainless (ITS 500)" },
   {
     label: "Surface Finish",
     value: "Corrosion-resistant epoxy-polyester coating",
   },
   { label: "Ambient Temperature", value: "-20°C to +80°C" },
-  { label: "Cable Entry Options", value: "NPT, PF, M20" },
-  { label: "Available Models", value: "ITS 100, ITS 300, ITS 500" },
+  { label: "Cable Entries", value: "NPT1/2 (ITS 200); 2 × PF3/4 (ITS 400 / 500); M20, BSP, PT, PG13.5, PF options" },
+  { label: "Available Models", value: "ITS 200, ITS 400, ITS 500" },
   { label: "Manufacturer", value: "Susin Group (ISO 9001:2015 Certified)" },
+];
+
+// From Susin's ITS catalogue (Accessories - ITS.pdf)
+const ITS_MODELS = [
+  { model: "ITS 200", type: "Weatherproof", enclosure: "IP67, O-ring sealed", housing: "Aluminium die-cast, epoxy-polyester inside and outside", cable: "NPT1/2 (M20, BSP, PT, PG13.5, PF options)", temp: "-20°C to +80°C", switches: "2-SPDT mechanical (Form C); P&F proximity option" },
+  { model: "ITS 400", type: "Explosion proof", enclosure: "Ex d IIC T6, IP67 (IP68 option), EN 50014 / 50018, Zone 1 & 2", housing: "Aluminium die-cast, epoxy-polyester outside", cable: "2 × PF3/4 (other threads optional)", temp: "-20°C to +80°C (~100°C and -40°C options)", switches: "2-SPDT; DPDT, P&F / Autonics proximity, magnetic sensors, 0–1 kΩ / 4–20 mA transmitter" },
+  { model: "ITS 500", type: "Special material", enclosure: "As ITS 400", housing: "316L or Duplex stainless steel, unpainted", cable: "2 × PF3/4 (other threads optional)", temp: "As ITS 400", switches: "As ITS 400" },
 ];
 
 const FEATURES = [
   {
     letter: "A",
-    title: "ATEX Explosion-Proof",
-    body: "ATEX Ex d IIC T6 certified for use in hazardous gas atmospheres — Zone 1 and Zone 2 classified areas in Oil & Gas and Chemical plants.",
+    title: "Explosion Proof (ITS 400 / 500)",
+    body: "Ex d IIC T6 enclosure built to EN 50014 and 50018, suitable for Zone 1 and Zone 2 hazardous areas.",
   },
   {
     letter: "B",
-    title: "IECEx & CE Certified",
-    body: "Internationally recognized IECEx certification alongside CE marking for global project compliance and export.",
+    title: "Stainless for Offshore (ITS 500)",
+    body: "316L or Duplex stainless steel housing for extremely corrosive environments and offshore service; same internals as the ITS 400.",
   },
   {
     letter: "C",
@@ -93,44 +101,44 @@ const FEATURES = [
   {
     letter: "F",
     title: "Mechanical or Proximity",
-    body: "2×SPDT mechanical switches for standard service; proximity sensor options for non-contact, high-cycle and EX ia applications.",
+    body: "2 × SPDT mechanical switches (Form C) as standard; options for DPDT switches, P&F or Autonics proximity sensors, magnetic sensors and a 0–1 kΩ / 4–20 mA position transmitter.",
   },
   {
     letter: "G",
     title: "Aluminium or SS Housing",
-    body: "Standard aluminium alloy housing with epoxy-polyester coating; stainless steel housing available for highly corrosive service.",
+    body: "Aluminium die-cast housing with epoxy-polyester coating (nylon or special colour coating optional); 316L or Duplex stainless on the ITS 500.",
   },
   {
     letter: "H",
     title: "Wide Temperature Range",
-    body: "Rated -20°C to +80°C for reliable operation across cold climate, tropical, and high-ambient process environments.",
+    body: "-20°C to +80°C as standard, with higher (~100°C) and lower (-40°C) temperature options on the ITS 400 / 500.",
   },
   {
     letter: "I",
     title: "Multiple Cable Entries",
-    body: "NPT, PF, and M20 cable entry options to suit regional electrical installation standards and conduit systems.",
+    body: "NPT1/2 on the ITS 200 and 2 × PF3/4 on the ITS 400 / 500, with M20, BSP, PT, PG13.5 and PF threads as options.",
   },
   {
     letter: "J",
-    title: "Three Model Sizes",
-    body: "ITS 100, ITS 300, and ITS 500 cover the full range of actuator sizes from small quarter-turn to heavy-duty units.",
+    title: "Three Models",
+    body: "ITS 200 weatherproof for small actuators, ITS 400 explosion proof for hazardous areas, and ITS 500 stainless for corrosive and offshore sites.",
   },
 ];
 
 const TRUST_POINTS = [
   { value: "IP67 / IP68", label: "Ingress Protection" },
-  { value: "ATEX T6", label: "Explosion Proof" },
-  { value: "IECEx & CE", label: "International Cert" },
+  { value: "Ex d IIC T6", label: "Explosion Proof" },
+  { value: "3 Models", label: "ITS 200 · 400 · 500" },
   { value: "-20°C to +80°C", label: "Temperature Range" },
   { value: "UK Based", label: "Technical Support" },
 ];
 
 const CERTIFICATIONS = [
   "IP67 / IP68",
-  "ATEX Ex d IIC T6",
-  "IECEx",
-  "CE",
-  "ISO 9001:2015",
+  "Ex d IIC T6",
+  "EN 50014 / 50018",
+  "Zone 1 & 2",
+  "NAMUR",
 ];
 
 export default function ITSPage() {
@@ -205,12 +213,12 @@ export default function ITSPage() {
                 variant="body1"
                 sx={{ color: "text.secondary", mb: 3, lineHeight: 1.8 }}
               >
-                The ITS series from Susin are precision-engineered position
-                monitoring switches for rotary actuators. ATEX Ex d IIC T6 and
-                IECEx certified with a 0°–90° visual dome indicator, robust
-                aluminium or stainless steel housing, and mechanical or
-                proximity switch options for demanding process safety
-                applications.
+                The ITS series from Susin are position monitoring switch boxes
+                for rotary valves and NAMUR actuators, with a 0°–90° dome
+                indicator. Three models: the weatherproof ITS 200 for small
+                actuators, the explosion-proof ITS 400 (Ex d IIC T6, Zone 1
+                and 2) and the ITS 500 in 316L or Duplex stainless for
+                offshore and corrosive sites.
               </Typography>
 
               <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mb: 4 }}>
@@ -239,7 +247,7 @@ export default function ITSPage() {
               >
                 {[
                   { label: "Protection", value: "IP67 / IP68" },
-                  { label: "Certification", value: "ATEX / IECEx / CE" },
+                  { label: "Explosion Proof", value: "Ex d IIC T6 (ITS 400 / 500)" },
                   { label: "Switch Type", value: "2-SPDT or Proximity" },
                   { label: "Temperature", value: "-20°C to +80°C" },
                 ].map(({ label, value }) => (
@@ -266,7 +274,7 @@ export default function ITSPage() {
                   variant="outlined"
                   size="large"
                   fullWidth
-                  href="/actuators/limit-switches"
+                  href="/actuators/accessories"
                   sx={{
                     borderRadius: 0,
                     fontWeight: 800,
@@ -282,7 +290,7 @@ export default function ITSPage() {
                     },
                   }}
                 >
-                  All Limit Switches
+                  All Accessories
                 </Button>
                 <Button
                   variant="contained"
@@ -340,6 +348,48 @@ export default function ITSPage() {
               </Grid>
             ))}
           </Grid>
+        </Container>
+      </Box>
+
+      <Divider />
+
+      {/* ── Models (from Susin's ITS catalogue) ── */}
+      <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: "#fff" }}>
+        <Container maxWidth="lg">
+          <Typography variant="h5" sx={{ fontWeight: 700, mb: 6 }}>
+            Models
+          </Typography>
+          <Box sx={{ textTransform: "none", overflowX: "auto", border: "1px solid rgba(0,0,0,0.12)", borderRadius: 2 }}>
+            <Box component="table" sx={{ width: "100%", borderCollapse: "collapse", minWidth: 760, "& th, & td": { px: 2, py: 1.5, textAlign: "left", borderBottom: "1px solid rgba(0,0,0,0.08)", fontSize: "0.9rem", verticalAlign: "top" }, "& th": { bgcolor: "#f0f4ef", fontWeight: 700, fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: 1 } }}>
+              <thead>
+                <tr>
+                  <th>Model</th>
+                  <th>Type</th>
+                  <th>Enclosure</th>
+                  <th>Housing</th>
+                  <th>Cable entries</th>
+                  <th>Temperature</th>
+                  <th>Switch options</th>
+                </tr>
+              </thead>
+              <tbody>
+                {ITS_MODELS.map((m) => (
+                  <tr key={m.model}>
+                    <td style={{ fontWeight: 700, whiteSpace: "nowrap" }}>{m.model}</td>
+                    <td>{m.type}</td>
+                    <td>{m.enclosure}</td>
+                    <td>{m.housing}</td>
+                    <td>{m.cable}</td>
+                    <td>{m.temp}</td>
+                    <td>{m.switches}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </Box>
+          </Box>
+          <Button href={SUSIN_CATALOG.ITS} target="_blank" rel="noopener" sx={{ mt: 2, fontWeight: 700, textTransform: "none", color: "#1c2e1a" }}>
+            Download ITS catalogue (PDF)
+          </Button>
         </Container>
       </Box>
 

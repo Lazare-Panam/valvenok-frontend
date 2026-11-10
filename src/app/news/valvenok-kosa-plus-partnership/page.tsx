@@ -618,10 +618,8 @@ export default function KosaPartnershipPage() {
       <RelatedLinks
         title="Kosaplus at Valvenok"
         links={[
-          { label: "Kosaplus actuators", href: "/brands/kosaplus" },
-          { label: "KE electric actuators", href: "/actuators/electric/ke-series" },
-          { label: "AD scotch yoke pneumatic actuators", href: "/pneumatic/actuators/scotch-yoke" },
-          { label: "KLS position indicators", href: "/actuators/limit-switches/kls" },
+          { label: "Kosaplus actuators on Kosaplus UK", href: "https://www.kosaplus.co.uk/" },
+          { label: "Actuators at Valvenok", href: "/actuators" },
         ]}
       />
     </Box>

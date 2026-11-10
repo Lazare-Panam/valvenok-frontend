@@ -338,7 +338,7 @@ export const APPS: App[] = [
     products: [
       { name: "Pneumatic actuators", why: "Rack & pinion and scotch yoke, double acting or spring return.", href: "/pneumatic/actuators", img: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/pneumatic/pdf.webp" },
       { name: "Electric actuators", why: "Rotary, linear and multi-turn electric actuators.", href: "/actuators/electric", img: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/itq.webp" },
-      { name: "Limit switch boxes", why: "Position feedback for automated valves.", href: "/actuators/limit-switches", img: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/limit-switches/ks-limit-switch.jpg" },
+      { name: "Limit switch boxes", why: "Position feedback for automated valves.", href: "/actuators/accessories", img: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/limit-switches/susin-limit-switch.webp" },
       { name: "Pneumatic cylinders", why: "Cylinders for machine and process automation.", href: "/pneumatic/cylinders", img: "https://pblol2.blob.core.windows.net/spac-images/products/cylinder/SDNC/SDNC_no_bg.png" },
       { name: "Pneumatic valves", why: "Air control valves, including foot-pedal valves.", href: "/pneumatic/valves", img: "https://pblol2.blob.core.windows.net/spac-images/products/pneumatic-valves/pneumatic-valves.png" },
       { name: "Pneumatic fittings", why: "Push-in fittings and tubing for air lines.", href: "/fittings-tubing/pneumatic-fittings", img: "https://pblol2.blob.core.windows.net/spac-images/products/fitting/a-series.png" },

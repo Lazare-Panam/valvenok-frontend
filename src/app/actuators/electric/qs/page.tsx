@@ -1,6 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import ShieldOutlinedIcon from "@mui/icons-material/ShieldOutlined";
+import SpeedOutlinedIcon from "@mui/icons-material/SpeedOutlined";
+import ElectricBoltOutlinedIcon from "@mui/icons-material/ElectricBoltOutlined";
+import TuneOutlinedIcon from "@mui/icons-material/TuneOutlined";
+import WarningAmberOutlinedIcon from "@mui/icons-material/WarningAmberOutlined";
+import SeriesFaq from "../../components/SeriesFaq";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -95,6 +101,14 @@ const CERTIFICATIONS = [
   "IP67",
   "ISO 5211",
   "On-Off & Modulating",
+];
+
+const FAQ = [
+  { icon: ShieldOutlinedIcon, q: "What happens when the power fails?", a: "An independent spiral spring drives the valve to its safe position in 1.8 seconds (2, 3 or 4 seconds optional). In normal operation the motor only drives the reducer, and a magnetic brake holds the position." },
+  { icon: SpeedOutlinedIcon, q: "Which torques are available?", a: "Four models: QS05 (50 Nm), QS10 (100 Nm), QS20 (200 Nm) and QS30 (300 Nm). Motor and spring torque are the same." },
+  { icon: ElectricBoltOutlinedIcon, q: "Which supply voltages can it run on?", a: "AC 110, 220, 380 or 440 V, or 24 VDC." },
+  { icon: TuneOutlinedIcon, q: "Can it modulate as well as open and close?", a: "Yes. It runs on/off (S2, 30 min) or modulating (S4, 50%) with a 4–20 mA control signal, or 0–10, 0–5, 1–5 or 2–10 VDC as options." },
+  { icon: WarningAmberOutlinedIcon, q: "Is it suitable for hazardous areas?", a: "No. The QS series is IP67 (IP68 option) but is not available explosion proof. For a hazardous area, ask us about the ITQ or ITM series options." },
 ];
 
 export default function QSPage() {
@@ -408,6 +422,8 @@ export default function QSPage() {
           </Grid>
         </Container>
       </Box>
+
+      <SeriesFaq title="QS series questions" items={FAQ} />
 
       <TrustStrip points={TRUST_POINTS} />
 

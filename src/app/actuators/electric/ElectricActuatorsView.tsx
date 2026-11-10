@@ -9,8 +9,6 @@ import * as React from "react";
 import Link from "next/link";
 import { Box } from "@mui/material";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
-import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
-import RotateRightOutlinedIcon from "@mui/icons-material/RotateRightOutlined";
 import SyncOutlinedIcon from "@mui/icons-material/SyncOutlined";
 import TuneOutlinedIcon from "@mui/icons-material/TuneOutlined";
 import ElectricBoltOutlinedIcon from "@mui/icons-material/ElectricBoltOutlined";
@@ -22,8 +20,11 @@ import CompressOutlinedIcon from "@mui/icons-material/CompressOutlined";
 import FitnessCenterOutlinedIcon from "@mui/icons-material/FitnessCenterOutlined";
 import { T, textReset } from "@/src/app/Landing/modern/tokens";
 import { MotionRoot, Words, Reveal, gradientText, L, useInView } from "@/src/app/Common/LightMotion";
-import { groupSite } from "@/src/app/Common/group";
 import { wrap, Kicker, H2, Lead, pillBtn } from "@/src/app/hydrogen-cryogenic/components/HydrogenHub";
+import SeriesChips from "@/src/app/actuators/components/SeriesChips";
+import GroupShowcase from "@/src/app/actuators/components/GroupShowcase";
+import BrandSwitcher from "@/src/app/actuators/components/BrandSwitcher";
+import BrandLogos from "@/src/app/actuators/components/BrandLogos";
 
 const V = "https://pblol2.blob.core.windows.net/valvenok-images";
 const LOGO: Record<string, string> = {
@@ -50,8 +51,7 @@ type Series = {
 };
 
 // Figures from each series page / catalogue
-const SERIES: Series[] = [
-  { key: "ke", code: "KE", name: "KE quarter-turn", kind: "Quarter-turn", brand: "KOSAPLUS", text: "13 sizes with a dome position indicator, 110–440 VAC or 24 VDC, explosion-proof versions available.", tag: "8 – 1,200 Nm", min: 8, max: 1200, img: `${V}/products/walrus-pumps/ke-ac.jpeg`, href: "/actuators/electric/ke-series", icon: <RotateRightOutlinedIcon />, color: "#F4C95D", note: "On-off & modulating · Ex d option" },
+export const SERIES: Series[] = [
   { key: "itqm", code: "ITQ Micro", name: "ITQ Micro compact", kind: "Quarter-turn", brand: "Susin", text: "Economic actuators for small ball and plug valves and dampers, from 1 kg, IP66 / IP67.", tag: "25 – 80 Nm", min: 25, max: 80, img: `${V}/brands/susin/itq-micro.jpg`, href: "/actuators/electric/itq-micro", icon: <CompressOutlinedIcon />, color: "#8FD47C", note: "Small valves · from 1 kg" },
   { key: "qs", code: "QS", name: "QS fail-safe spring return", kind: "Quarter-turn", brand: "Susin", text: "An independent spiral spring returns the valve to its safe position in 1.8 s on power loss.", tag: "50 – 300 Nm", min: 50, max: 300, img: `${V}/brands/susin/qs.jpg`, href: "/actuators/electric/qs", icon: <ShieldOutlinedIcon />, color: "#7CB9F0", note: "Fail-safe on power loss" },
   { key: "itq", code: "ITQ", name: "ITQ heavy-duty rotary", kind: "Quarter-turn", brand: "Susin", text: "Double worm self-locking gear, IP67 / NEMA 4X & 6, ISO 5211 mounting, for valves up to 9,000 Nm.", tag: "100 – 9,000 Nm", min: 100, max: 9000, img: `${V}/products/actuators/electric/itq.webp`, href: "/actuators/electric/itq", icon: <FitnessCenterOutlinedIcon />, color: "#B7A6F0", note: "Self-locking · IP67" },
@@ -63,20 +63,20 @@ const SERIES: Series[] = [
 const S = Object.fromEntries(SERIES.map((s) => [s.key, s]));
 const ROTARY = SERIES.filter((s) => s.max);
 
-const STATS = [
+const STATS: { value: string; unit: string; label: string; logos?: string[] }[] = [
   { value: String(SERIES.length), unit: "series", label: "Quarter-turn, multi-turn, linear and electrohydraulic" },
   { value: "9,000", unit: "Nm", label: "Highest output torque (ITQ)" },
   { value: "25", unit: "kN", label: "Highest linear thrust (IQL)" },
-  { value: "3", unit: "brands", label: "Susin · KOSAPLUS · Danfoss" },
+  { value: "", unit: "", logos: ["Susin", "Danfoss"], label: "The brands on this page" },
 ];
 
 // Finder: what the actuator must do, then the torque the valve needs
 const DUTIES: { label: string; picks: string[]; rotary: boolean }[] = [
-  { label: "Open / close a quarter-turn valve", picks: ["ke", "itqm", "itq"], rotary: true },
-  { label: "Small valve, compact", picks: ["itqm", "ke"], rotary: true },
+  { label: "Open / close a quarter-turn valve", picks: ["itqm", "itq"], rotary: true },
+  { label: "Small valve, compact", picks: ["itqm"], rotary: true },
   { label: "Fail-safe on power loss", picks: ["qs", "iql"], rotary: false },
   { label: "Gate, globe or sluice valve (multi-turn)", picks: ["itm"], rotary: true },
-  { label: "Hazardous area (explosion-proof)", picks: ["ke", "itm"], rotary: true },
+  { label: "Hazardous area (explosion-proof)", picks: ["itm"], rotary: true },
   { label: "Linear stroke / control valve", picks: ["itl", "iql"], rotary: false },
   { label: "Danfoss proportional valve", picks: ["pve"], rotary: false },
 ];
@@ -85,11 +85,11 @@ const nm = (n: number) => n.toLocaleString("en-GB");
 
 const FAQ_ICONS = [CompareArrowsOutlinedIcon, ShieldOutlinedIcon, ElectricBoltOutlinedIcon, TuneOutlinedIcon, WarningAmberOutlinedIcon];
 const FAQ = [
-  { q: "Quarter-turn, multi-turn or linear?", a: "Quarter-turn actuators (KE, ITQ Micro, QS, ITQ) turn ball, butterfly and plug valves through 90°. Multi-turn actuators (ITM) make many turns for gate, globe and sluice valves. Linear actuators (ITL, IQL) push and pull the stem of control and globe valves." },
+  { q: "Quarter-turn, multi-turn or linear?", a: "Quarter-turn actuators (ITQ Micro, QS, ITQ) turn ball, butterfly and plug valves through 90°. Multi-turn actuators (ITM) make many turns for gate, globe and sluice valves. Linear actuators (ITL, IQL) push and pull the stem of control and globe valves." },
   { q: "What happens if the power fails?", a: "A standard electric actuator stays where it is. If the valve must go to a safe position, choose the QS series, which has an independent spring that returns the valve in 1.8 s, or a battery backup model such as the IQL." },
   { q: "Which supply voltages are available?", a: "It depends on the series and size: typically 110 / 220 VAC single phase, 380 / 440 VAC three phase and 24 VDC. Each series page lists the voltages for every model." },
   { q: "Can they modulate as well as open and close?", a: "Yes. Most series can be supplied for modulating control with a 4–20 mA input and position feedback. Tell us your control signal and we’ll quote the right version." },
-  { q: "Do you have explosion-proof electric actuators?", a: "Yes. The KOSAPLUS KE series is available Ex d IIB T4, and the ITM multi-turn series has an Ex d IIC T4 option. Send us the zone and gas group and we’ll confirm the model." },
+  { q: "Do you have explosion-proof electric actuators?", a: "Yes. The ITM multi-turn series has an Ex d IIC T4 option. Send us the zone and gas group and we’ll confirm the model." },
 ];
 const SCHEMA = {
   "@context": "https://schema.org",
@@ -100,7 +100,6 @@ const SCHEMA = {
 const photo = { objectFit: "contain", mixBlendMode: "multiply" } as const;
 
 function Hero() {
-  const kosa = groupSite("KOSAPLUS UK");
   return (
     <Box component="section" sx={{ position: "relative", overflow: "hidden", background: "linear-gradient(180deg, #FFF8E1 0%, #FFFCF2 55%, #FFFFFF 100%)", pt: { xs: 5, md: 8 }, pb: { xs: 5, md: 7 } }}>
       <Box aria-hidden sx={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(190,140,20,0.12) 1px, transparent 1px)", backgroundSize: "22px 22px", maskImage: "linear-gradient(180deg, black, transparent 80%)", pointerEvents: "none" }} />
@@ -113,7 +112,7 @@ function Hero() {
           <Words text="actuators" start={200} sx={gradientText} />
         </Box>
         <Box component="p" sx={{ m: 0, mx: "auto", maxWidth: 700, fontSize: { xs: "1rem", md: "1.12rem" }, lineHeight: 1.7, color: T.body }}>
-          Eight series for valves where there’s power but no air: quarter-turn from 8 to 9,000 Nm, multi-turn for gate and globe valves, linear up to 25 kN, and a spring-return series that fails safe when the power goes.
+          Seven series for valves where there’s power but no air: quarter-turn from 25 to 9,000 Nm, multi-turn for gate and globe valves, linear up to 25 kN, and a spring-return series that fails safe when the power goes.
         </Box>
         <Box sx={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 1.25, mt: 3.5 }}>
           <Box component="a" href="#finder" sx={pillBtn(true)}>
@@ -121,22 +120,17 @@ function Hero() {
           </Box>
           <Box component={Link} href="/contact" sx={pillBtn(false)}>Get a quote</Box>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "center", flexWrap: "wrap", columnGap: 2.5, rowGap: 0.75, mt: 2, fontSize: "0.85rem" }}>
-          {[kosa].map((s) => (
-            <Box key={s.url} component="a" href={s.url} target="_blank" rel="noopener" sx={{ display: "inline-flex", alignItems: "center", gap: 0.5, color: T.greenDark, fontWeight: 600, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
-              {s.name} website <ArrowOutwardRoundedIcon sx={{ fontSize: 14 }} />
-            </Box>
-          ))}
-        </Box>
+        <BrandSwitcher here={["Susin", "Danfoss"]} category="electric" />
       </Box>
 
       {/* Series strip: one tap to each series page */}
       <Box sx={{ position: "relative", mt: { xs: 4.5, md: 6 }, maxWidth: 1240, mx: "auto", px: { xs: 0, md: 4 } }}>
-        <Box sx={{ display: "flex", gap: { xs: 1, md: 1.5 }, justifyContent: { lg: "center" }, overflowX: "auto", px: { xs: 2, md: 0 }, pb: 1, scrollSnapType: "x mandatory", scrollbarWidth: "none", "&::-webkit-scrollbar": { display: "none" } }}>
+        <SeriesChips items={SERIES} />
+        <Box sx={{ display: { xs: "none", sm: "flex" }, flexWrap: "wrap", rowGap: 1.5, columnGap: { sm: 1, md: 1.5 }, justifyContent: "center", pb: 1 }}>
           {SERIES.map((s, i) => (
             <Box key={s.key} component={Link} href={s.href}
-              sx={{ flexShrink: 0, width: { xs: 112, md: 136 }, scrollSnapAlign: "start", textAlign: "center", textDecoration: "none", animation: `wordIn .6s cubic-bezier(.2,.8,.2,1) ${300 + i * 60}ms both`, "&:hover .ph": { transform: "translateY(-6px)", boxShadow: T.shadowHover, borderColor: "#BFD6F2" }, "&:hover .nm": { color: T.greenDark } }}>
-              <Box className="ph" sx={{ mx: "auto", width: { xs: 96, md: 112 }, height: { xs: 96, md: 112 }, borderRadius: "50%", bgcolor: "#fff", border: "1px solid #DCE6F2", boxShadow: T.shadow, display: "grid", placeItems: "center", overflow: "hidden", transition: "all .25s" }}>
+              sx={{ flexShrink: 0, width: { xs: "auto", sm: 120, md: 136 }, minWidth: 0, textAlign: "center", textDecoration: "none", animation: `wordIn .6s cubic-bezier(.2,.8,.2,1) ${300 + i * 60}ms both`, "&:hover .ph": { transform: "translateY(-6px)", boxShadow: T.shadowHover, borderColor: "#BFD6F2" }, "&:hover .nm": { color: T.greenDark } }}>
+              <Box className="ph" sx={{ mx: "auto", width: { xs: 84, sm: 100, md: 112 }, height: { xs: 84, sm: 100, md: 112 }, borderRadius: "50%", bgcolor: "#fff", border: "1px solid #DCE6F2", boxShadow: T.shadow, display: "grid", placeItems: "center", overflow: "hidden", transition: "all .25s" }}>
                 <Box component="img" src={s.img} alt={s.name} loading="eager" sx={{ width: "74%", height: "74%", ...photo }} />
               </Box>
               <Box className="nm" sx={{ mt: 1.25, fontSize: "0.86rem", fontWeight: 700, color: T.ink, lineHeight: 1.25, transition: "color .2s" }}>{s.code} series</Box>
@@ -156,10 +150,11 @@ function Stats() {
         {STATS.map((s, i) => (
           <Reveal key={s.label} delay={i * 90}>
             <Box sx={{ height: "100%", boxSizing: "border-box", p: { xs: 2, md: 3 }, borderRadius: "20px", bgcolor: "#fff", border: `1px solid ${T.border}`, boxShadow: T.shadow, borderTop: `4px solid ${[L.lime, L.sky, L.sun, "rgba(183,166,240,0.6)"][i]}` }}>
-              <Box sx={{ fontSize: { xs: "1.5rem", md: "2.2rem" }, fontWeight: 800, letterSpacing: "-0.03em", color: T.ink, lineHeight: 1.1, whiteSpace: "nowrap" }}>
+              {"logos" in s && s.logos && <Box sx={{ mb: s.value ? 1 : 0.5 }}><BrandLogos names={s.logos} size={s.value ? "md" : "lg"} /></Box>}
+              {s.value && <Box sx={{ fontSize: { xs: "1.5rem", md: "2.2rem" }, fontWeight: 800, letterSpacing: "-0.03em", color: T.ink, lineHeight: 1.1, whiteSpace: "nowrap" }}>
                 {s.value}
                 {s.unit && <Box component="span" sx={{ fontSize: "0.5em", ml: 0.75, color: T.greenDark }}>{s.unit}</Box>}
-              </Box>
+              </Box>}
               <Box component="p" sx={{ m: 0, mt: 0.75, fontSize: "0.85rem", color: T.body, lineHeight: 1.4 }}>{s.label}</Box>
             </Box>
           </Reveal>
@@ -308,7 +303,7 @@ function Compare() {
         <Box sx={{ mb: 4 }}>
           <Kicker>Torque ranges</Kicker>
           <H2 id="h2-compare">How much torque does each series give?</H2>
-          <Lead>Each bar shows the output torque range of a rotary series, from 8 to 9,000 Nm on a log scale. Ratings vary by size and supply, so check each series’ model table.</Lead>
+          <Lead>Each bar shows the output torque range of a rotary series, from 25 to 9,000 Nm on a log scale. Ratings vary by size and supply, so check each series’ model table.</Lead>
         </Box>
         <Box ref={ref} sx={{ borderRadius: "22px", bgcolor: "#fff", border: `1px solid ${T.border}`, boxShadow: T.shadow, p: { xs: 1.5, md: 2.5 } }}>
           <Box sx={{ display: { xs: "none", md: "grid" }, gridTemplateColumns: "300px 1fr 150px", gap: 3, px: 1.5, pb: 1.25, borderBottom: `1px solid ${T.border}` }}>
@@ -357,10 +352,10 @@ function Compare() {
 }
 
 const MORE = [
-  { title: "Limit switch boxes", text: "Signal open and closed positions to the control room; they mount on the actuator.", tag: "IP67 / IP68", img: `${V}/products/actuators/limit-switches/ks-limit-switch.jpg`, href: "/actuators/limit-switches" },
+  { title: "Limit switch boxes", text: "Signal open and closed positions to the control room; they mount on the actuator.", tag: "IP67 / IP68", img: `${V}/products/actuators/limit-switches/susin-limit-switch.webp`, href: "/actuators/accessories" },
   { title: "Pneumatic actuators", text: "Where compressed air is available: rack & pinion, scotch yoke and linear, up to 120,867 Nm.", tag: "Double acting or spring return", img: `${V}/products/actuators/pneumatic/pdf.webp`, href: "/pneumatic/actuators" },
   { title: "Mechanical gearboxes", text: "Manual override or hand operation for large valves, ISO 5211 mounting.", tag: "Up to 32,000 Nm", img: `${V}/products/actuators/mechanical/itg.webp`, href: "/actuators/mechanical" },
-  { title: "Hydraulic actuators", text: "Electro-hydraulic units for high torque from a compact body, power only.", tag: "46 – 10,000 Nm", img: `${V}/products/actuators/hydraulic/adf.webp`, href: "/actuators/hydraulic" },
+  { title: "Hydraulic actuators", text: "Electro-hydraulic, rack & pinion, scotch yoke and linear piston actuators.", tag: "35 – 112,595 Nm", img: `${V}/brands/susin/ktc-hrsda.jpg`, href: "/actuators/hydraulic" },
 ];
 
 function CompleteLine() {
@@ -466,6 +461,7 @@ export default function ElectricActuatorsView() {
       <Finder />
       <Types />
       <Compare />
+      <GroupShowcase category="electric" what="electric actuators" />
       <CompleteLine />
       <Faq />
       <Cta />

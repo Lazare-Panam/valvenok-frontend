@@ -152,7 +152,7 @@ export const FEATURED_PRODUCTS: FeaturedValve[] = [
     logoHeight: 78,
     thumbnail:
       "https://pblol2.blob.core.windows.net/panam-images/products/actuators/AD-Series.jpeg",
-    href: "/pneumatic/actuators/scotch-yoke",
+    href: "https://www.kosaplus.co.uk/",
     specs: [
       { label: "Type", value: "Scotch Yoke — High Torque" },
       { label: "Operation", value: "Double Acting & Spring Return" },

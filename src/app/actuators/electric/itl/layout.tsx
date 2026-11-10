@@ -4,11 +4,11 @@ export const metadata: Metadata = {
   alternates: { canonical: "/actuators/electric/itl" },
   title: "ITL Series Compact Linear Electric Actuators",
   description:
-    "Compact linear electric actuators with 100% duty cycle motor. 1–10 kN thrust, IP66/67, universal power supply, 4–20mA / 0–10V control.",
+    "Compact linear electric actuators with 100% duty cycle motor. 1–6 kN thrust, IP66/67, universal power supply, 4–20mA / 0–10V control.",
   openGraph: {
     title: "ITL Series Compact Linear Electric Actuators | Valvenok",
     description:
-      "Compact linear electric actuators with 100% continuous duty cycle, 1–10 kN thrust, IP66/67 protection.",
+      "Compact linear electric actuators with 100% continuous duty cycle, 1–6 kN thrust, IP66/67 protection.",
     type: "website",
   },
 };

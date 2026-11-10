@@ -3,7 +3,7 @@ import ElectricActuatorsView from "./ElectricActuatorsView";
 
 const TITLE = "Electric Actuators: Quarter-Turn, Multi-Turn & Linear | Valvenok";
 const DESCRIPTION =
-  "Electric valve actuators from Susin, KOSAPLUS and Danfoss: quarter-turn 8–9,000 Nm, multi-turn, linear up to 25 kN and fail-safe spring return. Request a quote.";
+  "Electric valve actuators from Susin and Danfoss: quarter-turn 25–9,000 Nm, multi-turn, linear up to 25 kN and fail-safe spring return. Request a quote.";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/actuators/electric" },

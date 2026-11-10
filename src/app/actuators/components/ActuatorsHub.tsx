@@ -6,6 +6,7 @@
 // Only the five categories are shown here; series live on the category pages.
 // Figures come from our own category and series pages.
 
+import { brandsFor } from "@/src/app/Common/brandRegistry";
 import * as React from "react";
 import Link from "next/link";
 import { Box } from "@mui/material";
@@ -34,11 +35,11 @@ const P = "https://pblol2.blob.core.windows.net/valvenok-images/products/actuato
 type Cat = { key: string; label: string; title: string; text: string; tag: string; series: number; img: string; href: string; tint: string };
 
 const CATS: Cat[] = [
-  { key: "pneumatic", label: "Pneumatic", title: "Pneumatic actuators", text: "Rack & pinion and scotch yoke actuators for quarter-turn valves, plus linear actuators. Double acting or spring return for a fail-safe position, ISO 5211 mounting.", tag: "Up to 120,867 Nm", series: 7, img: `${P}/pneumatic/hd.webp`, href: "/pneumatic/actuators", tint: L.mint },
-  { key: "electric", label: "Electric", title: "Electric actuators", text: "Quarter-turn, linear and multi-turn electric actuators for on/off and modulating duty. Need only power and a control signal, no air supply.", tag: "On/off & modulating", series: 8, img: `${P}/electric/itq.webp`, href: "/actuators/electric", tint: "#EAF4FF" },
+  { key: "pneumatic", label: "Pneumatic", title: "Pneumatic actuators", text: "Scotch yoke actuators for quarter-turn valves, plus linear actuators. Double acting or spring return for a fail-safe position, ISO 5211 mounting.", tag: "Up to 120,867 Nm", series: 5, img: `${P}/pneumatic/hd.webp`, href: "/pneumatic/actuators", tint: L.mint },
+  { key: "electric", label: "Electric", title: "Electric actuators", text: "Quarter-turn, linear and multi-turn electric actuators for on/off and modulating duty. Need only power and a control signal, no air supply.", tag: "On/off & modulating", series: 7, img: `${P}/electric/itq.webp`, href: "/actuators/electric", tint: "#EAF4FF" },
   { key: "hydraulic", label: "Hydraulic", title: "Hydraulic actuators", text: "Compact electro-hydraulic units that need only power, hydraulic rack & pinion and scotch yoke actuators for the largest valves, and linear piston actuators.", tag: "35 – 112,595 Nm", series: 5, img: `${P}/hydraulic/adf.webp`, href: "/actuators/hydraulic", tint: "#FFF7DD" },
   { key: "mechanical", label: "Mechanical", title: "Mechanical actuators", text: "Worm, bevel and industrial gear operators so one person can turn a large valve by hand, or a powered actuator has a manual override.", tag: "Up to 32,000 Nm", series: 3, img: `${P}/mechanical/itg.webp`, href: "/actuators/mechanical", tint: "#F3EEFF" },
-  { key: "switches", label: "Accessories", title: "Accessories: limit switch boxes", text: "Valve position indicators that tell the control room whether a valve is open or closed. Mechanical or proximity switches, weatherproof and explosion-proof.", tag: "IP67 / IP68", series: 2, img: `${P}/limit-switches/ks-limit-switch.jpg`, href: "/actuators/accessories", tint: "#E6F6FA" },
+  { key: "switches", label: "Accessories", title: "Accessories: limit switch boxes", text: "Valve position indicators that tell the control room whether a valve is open or closed. Mechanical or proximity switches, weatherproof and explosion-proof.", tag: "IP67 / IP68", series: 1, img: `${P}/limit-switches/susin-limit-switch.webp`, href: "/actuators/accessories", tint: "#E6F6FA" },
 ];
 
 const STATS = [
@@ -53,7 +54,7 @@ const TORQUE = [
   { name: "Pneumatic", note: "10 – 120,867 Nm", from: 10, to: 120867, color: "#8FD47C" },
   { name: "Mechanical (gearboxes)", note: "60 – 32,000 Nm", from: 60, to: 32000, color: "#B7A6F0" },
   { name: "Hydraulic", note: "35 – 112,595 Nm", from: 35, to: 112595, color: "#F4C95D" },
-  { name: "Electric (quarter-turn)", note: "8 – 9,000 Nm", from: 8, to: 9000, color: "#7CB9F0" },
+  { name: "Electric (quarter-turn)", note: "25 – 9,000 Nm", from: 25, to: 9000, color: "#7CB9F0" },
 ];
 const LOG_MIN = 1, LOG_MAX = Math.log10(200000);
 const pos = (v: number) => Math.round(((Math.log10(v) - LOG_MIN) / (LOG_MAX - LOG_MIN)) * 10000) / 100; // rounded so server and browser agree
@@ -183,9 +184,7 @@ function SectionNav() {
 }
 
 function Hero() {
-  const kosa = groupSite("KOSAPLUS UK");
-  const spac = groupSite("SPAC Pneumatic");
-  const tiles = [...CATS.map((c) => ({ key: c.key, img: c.img, label: c.title, sub: `${c.series} ${c.series === 1 ? "series" : "series"}`, href: c.href })), { key: "help", img: "", label: "Not sure?", sub: "Find your actuator", href: "#selector" }];
+  const tiles = [...CATS.map((c) => ({ key: c.key, img: c.img, label: c.key === "switches" ? "Accessories" : c.title, sub: `${c.series} ${c.series === 1 ? "series" : "series"}`, href: c.href })), { key: "help", img: "", label: "Not sure?", sub: "Find your actuator", href: "#selector" }];
   return (
     <Box component="section" sx={{ position: "relative", overflow: "hidden", bgcolor: L.cream, pt: { xs: 4, md: 9 }, pb: { xs: 6, md: 10 } }}>
       <LightBackdrop />
@@ -199,24 +198,29 @@ function Hero() {
           <Lead>
             Pneumatic, electric, hydraulic and manual actuators to open, close and position your valves, plus limit switch boxes to report where they are. One UK supplier for the whole automation package.
           </Lead>
-          <Box sx={{ display: "flex", flexWrap: { xs: "nowrap", md: "wrap" }, gap: 1, mt: { xs: 2.5, md: 3 }, overflowX: { xs: "auto", md: "visible" }, mx: { xs: -2, md: 0 }, px: { xs: 2, md: 0 }, scrollbarWidth: "none", "&::-webkit-scrollbar": { display: "none" } }}>
+          <Box sx={{ display: "flex", flexWrap: "wrap", gap: { xs: 0.75, md: 1 }, mt: { xs: 2.5, md: 3 } }}>
             {["#quarter-turn", "#spring-return", "#ISO5211", "#multi-turn", "#fail-safe", "#limit-switches"].map((t) => (
-              <Box key={t} component="span" sx={{ flexShrink: 0, px: 1.5, py: 0.5, borderRadius: 999, fontSize: "0.8rem", fontWeight: 600, color: T.greenDark, bgcolor: "rgba(255,255,255,0.75)", border: "1px solid #D6EDCE" }}>{t}</Box>
+              <Box key={t} component="span" sx={{ flexShrink: 0, px: { xs: 1.1, md: 1.5 }, py: 0.4, borderRadius: 999, fontSize: { xs: "0.74rem", md: "0.8rem" }, fontWeight: 600, color: T.greenDark, bgcolor: "rgba(255,255,255,0.75)", border: "1px solid #D6EDCE" }}>{t}</Box>
             ))}
           </Box>
-          <Box sx={{ display: { xs: "grid", sm: "flex" }, gridTemplateColumns: "1fr 1fr", flexWrap: "wrap", gap: 1.25, mt: { xs: 3, md: 4 } }}>
-            <Box component="a" href="#categories" sx={{ ...pillBtn(true), justifyContent: "center", px: { xs: 1.5, sm: 3 }, fontSize: { xs: "0.9rem", sm: "0.95rem" } }}>
-              Browse categories <ArrowForwardRoundedIcon sx={{ fontSize: 18 }} />
+          <Box sx={{ display: { xs: "grid", sm: "flex" }, gridTemplateColumns: "1.25fr 1fr", flexWrap: "wrap", gap: 1, mt: { xs: 3, md: 4 } }}>
+            <Box component="a" href="#categories" sx={{ ...pillBtn(true), justifyContent: "center", gap: 0.5, px: { xs: 1, sm: 3 }, fontSize: { xs: "0.86rem", sm: "0.95rem" } }}>
+              <Box component="span" sx={{ whiteSpace: "nowrap" }}>Browse categories</Box> <ArrowForwardRoundedIcon sx={{ fontSize: 18 }} />
             </Box>
             <Box component={Link} href="/contact" sx={{ ...pillBtn(false), justifyContent: "center", px: { xs: 1.5, sm: 3 }, fontSize: { xs: "0.9rem", sm: "0.95rem" } }}>
               Get a quote
             </Box>
           </Box>
-          <Box sx={{ display: "flex", flexWrap: "wrap", columnGap: 2.5, rowGap: 0.75, mt: { xs: 2, md: 3 }, fontSize: { xs: "0.82rem", md: "0.85rem" } }}>
-            {[kosa, spac].map((s) => (
-              <Box key={s.url} component="a" href={s.url} target="_blank" rel="noopener" sx={{ display: "inline-flex", alignItems: "center", gap: 0.5, color: T.greenDark, fontWeight: 600, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
-                <Box component="span" sx={{ display: { xs: "none", sm: "inline" } }}>Visit&nbsp;</Box>
-                {s.name} website <ArrowOutwardRoundedIcon sx={{ fontSize: 14 }} />
+          {/* Brands we also distribute through their own websites: logo chips that open the site */}
+          <Box sx={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 1, mt: { xs: 2, md: 3 } }}>
+            <Box component="span" sx={{ fontSize: "0.8rem", fontWeight: 600, color: T.muted, mr: 0.25 }}>Also from</Box>
+            {brandsFor("actuators").filter((b) => b.external).map(({ brand, href }) => (
+              <Box key={brand.slug} component="a" href={href} target="_blank" rel="noopener" aria-label={`${brand.name} website`}
+                sx={{ display: "inline-flex", alignItems: "center", gap: 0.75, pl: 0.75, pr: 1.25, py: 0.6, borderRadius: 999, bgcolor: "#fff", border: `1px solid ${T.border}`, boxShadow: "0 1px 3px rgba(14,27,18,0.06)", textDecoration: "none", transition: "all .15s", "&:hover": { borderColor: "#BFE5B3", transform: "translateY(-1px)" }, "&:hover svg": { color: T.greenDark } }}>
+                <Box sx={{ width: 64, height: 26, display: "grid", placeItems: "center", overflow: "hidden" }}>
+                  <Box component="img" src={brand.logo} alt={brand.name} sx={{ display: "block", maxWidth: 56, maxHeight: 22, objectFit: "contain", transform: brand.logoScale ? `scale(${Math.min(brand.logoScale, 1.8)})` : undefined }} />
+                </Box>
+                <ArrowOutwardRoundedIcon sx={{ fontSize: 15, color: T.muted, transition: "color .15s" }} />
               </Box>
             ))}
           </Box>
@@ -277,7 +281,19 @@ function Stats() {
                 {s.value}
                 {s.unit && <Box component="span" sx={{ fontSize: "0.5em", ml: 0.75, color: T.greenDark }}>{s.unit}</Box>}
               </Box>
-              <Box component="p" sx={{ m: 0, mt: 0.75, fontSize: "0.85rem", color: T.body, lineHeight: 1.4 }}>{s.label}</Box>
+              {s.unit === "brands" ? (
+                // Brand logos instead of names (display only, not links)
+                <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.75, mt: 1.25 }}>
+                  {brandsFor("actuators").map(({ brand }) => (
+                    <Box key={brand.slug} title={brand.name}
+                      sx={{ width: 52, height: 36, borderRadius: "10px", bgcolor: "#fff", border: `1px solid ${T.border}`, display: "grid", placeItems: "center", overflow: "hidden" }}>
+                      <Box component="img" src={brand.logo} alt={brand.name} sx={{ display: "block", maxWidth: 40, maxHeight: 24, objectFit: "contain", transform: brand.logoScale ? `scale(${Math.min(brand.logoScale, 2)})` : undefined }} />
+                    </Box>
+                  ))}
+                </Box>
+              ) : (
+                <Box component="p" sx={{ m: 0, mt: 0.75, fontSize: "0.85rem", color: T.body, lineHeight: 1.4 }}>{s.label}</Box>
+              )}
             </Box>
           </Reveal>
         ))}
@@ -303,7 +319,7 @@ function ActuatorDiagram() {
         aria-label="A quarter-turn actuator mounted on a valve through an ISO 5211 flange. Air or power drives the actuator, which turns the stem 90 degrees to open or close the valve."
         sx={{
           width: "100%", height: "auto", display: "block",
-          "& text": { fontSize: { xs: "17px", sm: "14px", md: "13px" } },
+          "& text": { fontSize: { xs: "15px", sm: "14px", md: "13px" } },
           "@keyframes acDisc": { "0%,20%": { transform: "rotate(0deg)" }, "45%,75%": { transform: "rotate(90deg)" }, "100%": { transform: "rotate(0deg)" } },
           "@keyframes acPiston": { "0%,20%": { transform: "translateX(0)" }, "45%,75%": { transform: "translateX(-26px)" }, "100%": { transform: "translateX(0)" } },
           "@keyframes acPistonR": { "0%,20%": { transform: "translateX(0)" }, "45%,75%": { transform: "translateX(26px)" }, "100%": { transform: "translateX(0)" } },
@@ -329,8 +345,8 @@ function ActuatorDiagram() {
         <circle cx="210" cy="75" r="20" fill="#fff" stroke="#7C8B9A" strokeWidth="2" />
         <path d="M200 75 h20 M210 65 v20" stroke="#7C8B9A" strokeWidth="3" />
         <text x="210" y="28" textAnchor="middle" style={{ ...lbl, fill: T.ink, fontWeight: 800 }}>Actuator</text>
-        <text x="352" y="70" style={lbl}>Air or</text>
-        <text x="352" y="86" style={lbl}>power in</text>
+        <text x="350" y="70" style={{ ...lbl, fontSize: 13 }}>Air or</text>
+        <text x="350" y="86" style={{ ...lbl, fontSize: 13 }}>power in</text>
         <path d="M340 75 h-8" stroke={T.greenDark} strokeWidth="3" />
         {/* ISO 5211 mounting flange + stem */}
         <rect x="170" y="112" width="80" height="12" rx="3" fill="#C9D3DC" stroke="#7C8B9A" strokeWidth="2" />
@@ -657,8 +673,8 @@ function Brands() {
   const spac = groupSite("SPAC Pneumatic");
   const list = [
     { name: "Susin", logo: "https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp", text: "Scotch yoke and linear pneumatic actuators, quarter-turn, linear and multi-turn electric actuators, gearboxes and limit switch boxes.", links: [{ label: "About Susin", href: "/brands/susin" }, { label: "Pneumatic", href: "/pneumatic/actuators" }, { label: "Electric", href: "/actuators/electric" }] },
-    { name: "KOSAPLUS", logo: "https://pblol2.blob.core.windows.net/valvenok-images/brands/kosaplus-logo.png", text: "Scotch yoke pneumatic actuators, compact electric actuators and limit switch boxes.", links: [{ label: "About KOSAPLUS", href: "/brands/kosaplus" }, { label: "Limit switches", href: "/actuators/limit-switches" }], site: kosa },
-    { name: "SPAC", logo: "https://pblol2.blob.core.windows.net/spac-images/spac-logo.webp", text: "Spring-return rack & pinion pneumatic actuators, priced and ready to order online.", links: [{ label: "SRA actuators", href: "/pneumatic/actuators/sra" }], site: spac },
+    { name: "KOSAPLUS", logo: "https://pblol2.blob.core.windows.net/valvenok-images/brands/kosaplus-logo.png", text: "Scotch yoke pneumatic actuators, compact electric actuators and limit switch boxes.", links: [], site: kosa },
+    { name: "SPAC", logo: "https://pblol2.blob.core.windows.net/spac-images/spac-logo.webp", text: "Spring-return rack & pinion pneumatic actuators, priced and ready to order online.", links: [], site: spac },
     { name: "Danfoss", logo: "https://pblol2.blob.core.windows.net/valvenok-images/products/danfoss/new-logo.svg", text: "Electrohydraulic actuators for proportional valves (PVE series).", links: [{ label: "Danfoss PVE actuators", href: "/actuators/electric/pvae32" }] },
   ];
   return (

@@ -6,6 +6,17 @@ module.exports = {
   priority: 0.7,
   sitemapSize: 5000,
   exclude: [
+    // Hidden 10 Nov 2026: SRA moved to the SPAC Pneumatic website (page kept until clean-up)
+    "/pneumatic/actuators/sra",
+    "/pneumatic/actuators/sra/*",
+    // Hidden 10 Nov 2026: KOSAPLUS has its own website (pages kept until clean-up)
+    "/pneumatic/actuators/scotch-yoke",
+    "/pneumatic/actuators/scotch-yoke/*",
+    "/actuators/electric/ke-series",
+    "/actuators/electric/ke-series/*",
+    "/actuators/limit-switches/kls",
+    "/actuators/limit-switches", // replaced by /actuators/accessories
+    "/brands/kosaplus",
     '/api/*',
     '/_not-found',
     // Account, cart and utility pages carry noindex; keep them out of the sitemap too

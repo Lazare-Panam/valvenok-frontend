@@ -18,6 +18,7 @@ import StraightenOutlinedIcon from "@mui/icons-material/StraightenOutlined";
 import { T, textReset } from "@/src/app/Landing/modern/tokens";
 import { MotionRoot, Words, Reveal, gradientText, L, useInView } from "@/src/app/Common/LightMotion";
 import { wrap, Kicker, H2, Lead, pillBtn } from "@/src/app/hydrogen-cryogenic/components/HydrogenHub";
+import SeriesChips from "@/src/app/actuators/components/SeriesChips";
 
 const V = "https://pblol2.blob.core.windows.net/valvenok-images";
 const LOGO: Record<string, string> = {
@@ -42,7 +43,7 @@ type Series = {
 };
 
 // Figures from each series page (MAW, ITG, MAB)
-const SERIES: Series[] = [
+export const SERIES: Series[] = [
   { key: "maw", code: "MAW", name: "MAW worm gear", kind: "Quarter-turn", brand: "Susin", text: "Manual worm gear operators for ball, butterfly and plug valves, with a handwheel and position indicator. ISO 5211 mounting.", tag: "100 – 32,000 Nm", min: 100, max: 32000, img: `${V}/products/actuators/mechanical/worm-gearboxes.webp`, href: "/actuators/mechanical/maw", icon: <RotateRightOutlinedIcon />, color: "#8FD47C", note: "Handwheel · ISO 5211 · up to IP67M" },
   { key: "itg", code: "ITG", name: "ITG declutchable gear", kind: "Quarter-turn override", brand: "Susin", text: "Fits between an actuator and the valve: a declutch lever switches from automatic to handwheel operation. Works with pneumatic, hydraulic and electric actuators.", tag: "60 – 28,000 Nm", min: 60, max: 28000, img: `${V}/products/actuators/mechanical/itg.webp`, href: "/actuators/mechanical/itg", icon: <PanToolOutlinedIcon />, color: "#F4C95D", note: "Manual override · ISO 5211 / 5210" },
   { key: "mab", code: "MAB", name: "MAB bevel gear", kind: "Multi-turn", brand: "Susin", text: "Bevel gear operators for gate, globe and sluice valves, with thrust bases from 75 to 2,500 kN. IP68, ISO 5210 mounting.", tag: "250 – 18,000 Nm", min: 250, max: 18000, img: `${V}/products/actuators/mechanical/mab.webp`, href: "/actuators/mechanical/mab", icon: <SyncOutlinedIcon />, color: "#B7A6F0", note: "Multi-turn · IP68 · 75–2,500 kN thrust" },
@@ -108,11 +109,12 @@ function Hero() {
 
       {/* Series strip: one tap to each series page */}
       <Box sx={{ position: "relative", mt: { xs: 4.5, md: 6 }, maxWidth: 1240, mx: "auto", px: { xs: 0, md: 4 } }}>
-        <Box sx={{ display: "flex", gap: { xs: 1, md: 1.5 }, justifyContent: { lg: "center" }, overflowX: "auto", px: { xs: 2, md: 0 }, pb: 1, scrollSnapType: "x mandatory", scrollbarWidth: "none", "&::-webkit-scrollbar": { display: "none" } }}>
+        <SeriesChips items={SERIES} />
+        <Box sx={{ display: { xs: "none", sm: "flex" }, flexWrap: "wrap", rowGap: 1.5, columnGap: { sm: 1, md: 1.5 }, justifyContent: "center", pb: 1 }}>
           {SERIES.map((s, i) => (
             <Box key={s.key} component={Link} href={s.href}
-              sx={{ flexShrink: 0, width: { xs: 112, md: 136 }, scrollSnapAlign: "start", textAlign: "center", textDecoration: "none", animation: `wordIn .6s cubic-bezier(.2,.8,.2,1) ${300 + i * 60}ms both`, "&:hover .ph": { transform: "translateY(-6px)", boxShadow: T.shadowHover, borderColor: "#BFD6F2" }, "&:hover .nm": { color: T.greenDark } }}>
-              <Box className="ph" sx={{ mx: "auto", width: { xs: 96, md: 112 }, height: { xs: 96, md: 112 }, borderRadius: "50%", bgcolor: "#fff", border: "1px solid #DCE6F2", boxShadow: T.shadow, display: "grid", placeItems: "center", overflow: "hidden", transition: "all .25s" }}>
+              sx={{ flexShrink: 0, width: { xs: "auto", sm: 120, md: 136 }, minWidth: 0, textAlign: "center", textDecoration: "none", animation: `wordIn .6s cubic-bezier(.2,.8,.2,1) ${300 + i * 60}ms both`, "&:hover .ph": { transform: "translateY(-6px)", boxShadow: T.shadowHover, borderColor: "#BFD6F2" }, "&:hover .nm": { color: T.greenDark } }}>
+              <Box className="ph" sx={{ mx: "auto", width: { xs: 84, sm: 100, md: 112 }, height: { xs: 84, sm: 100, md: 112 }, borderRadius: "50%", bgcolor: "#fff", border: "1px solid #DCE6F2", boxShadow: T.shadow, display: "grid", placeItems: "center", overflow: "hidden", transition: "all .25s" }}>
                 <Box component="img" src={s.img} alt={s.name} loading="eager" sx={{ width: "74%", height: "74%", ...photo }} />
               </Box>
               <Box className="nm" sx={{ mt: 1.25, fontSize: "0.86rem", fontWeight: 700, color: T.ink, lineHeight: 1.25, transition: "color .2s" }}>{s.code} series</Box>
@@ -333,9 +335,9 @@ function Compare() {
 }
 
 const MORE = [
-  { title: "Limit switch boxes", text: "Signal open and closed positions to the control room; they mount on the actuator.", tag: "IP67 / IP68", img: `${V}/products/actuators/limit-switches/ks-limit-switch.jpg`, href: "/actuators/limit-switches" },
+  { title: "Limit switch boxes", text: "Signal open and closed positions to the control room; they mount on the actuator.", tag: "IP67 / IP68", img: `${V}/products/actuators/limit-switches/susin-limit-switch.webp`, href: "/actuators/accessories" },
   { title: "Pneumatic actuators", text: "Where compressed air is available: rack & pinion, scotch yoke and linear, up to 120,867 Nm.", tag: "Double acting or spring return", img: `${V}/products/actuators/pneumatic/pdf.webp`, href: "/pneumatic/actuators" },
-  { title: "Electric actuators", text: "Quarter-turn, multi-turn and linear, including a spring-return fail-safe series.", tag: "8 – 9,000 Nm", img: `${V}/products/actuators/electric/itq.webp`, href: "/actuators/electric" },
+  { title: "Electric actuators", text: "Quarter-turn, multi-turn and linear, including a spring-return fail-safe series.", tag: "25 – 9,000 Nm", img: `${V}/products/actuators/electric/itq.webp`, href: "/actuators/electric" },
   { title: "Hydraulic actuators", text: "Electro-hydraulic and hydraulic scotch yoke actuators for the largest valves.", tag: "46 – 112,595 Nm", img: `${V}/products/actuators/hydraulic/adf.webp`, href: "/actuators/hydraulic" },
 ];
 
