@@ -270,6 +270,9 @@ export const NAV_GROUPS: NavGroup[] = [
           {
             label: "ITQ Series — Rotary Electric Actuator",
             href: "/actuators/electric/itq",
+            children: [
+              { label: "View All Models", href: "/actuators/electric/itq/products" },
+            ],
           },
           {
             label: "ITQ Micro Series — Compact for Small Valves",

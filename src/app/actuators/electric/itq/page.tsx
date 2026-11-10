@@ -13,11 +13,13 @@ import ContactSupportIcon from "@mui/icons-material/ContactSupport";
 import TrustStrip from "../../../Common/Products_Page/TrustStrip";
 import RFQModal from "@/src/app/Common/RFQCard/RFQModal";
 import { ProductForRFQ } from "@/src/app/Common/RFQCard/RequestForQuoteCard";
+import DownloadIcon from "@mui/icons-material/Download";
+import { ITQ_MODELS, ITQ_CATALOG } from "./itqData";
 
 const ITQ_PRODUCT: ProductForRFQ = {
   id: "itq-series",
   name: "ITQ Series Rotary Electric Actuator",
-  brand: "Valvenok",
+  brand: "Susin",
   category: "Electric Actuators",
   categoryId: "electric-actuators",
   subCategory: "Rotary Electric",
@@ -32,8 +34,8 @@ const ITQ_PRODUCT: ProductForRFQ = {
     { label: "Temperature", value: "-20°C to +70°C" },
   ],
   variantInfo: {
-    count: 1,
-    sizeRange: "ITQ Series",
+    count: 11,
+    sizeRange: "ITQ 0100 – ITQ 9000",
   },
 };
 
@@ -259,7 +261,7 @@ export default function ITQPage() {
                   { label: "Torque", value: "100 – 9,000 Nm" },
                   { label: "Protection", value: "IP67 / NEMA 4X" },
                   { label: "Temperature", value: "-20°C to +70°C" },
-                  { label: "Travel Angle", value: "90° ± 5°" },
+                  { label: "Models", value: "ITQ 0100 – ITQ 9000" },
                 ].map(({ label, value }) => (
                   <Box key={label}>
                     <Typography
@@ -279,6 +281,25 @@ export default function ITQPage() {
                 ))}
               </Box>
 
+              <Box sx={{ display: "flex", gap: 2, mb: 2 }}>
+                <Button
+                  variant="outlined"
+                  size="large"
+                  fullWidth
+                  href="/actuators/electric/itq/products"
+                  sx={{
+                    borderRadius: 0,
+                    fontWeight: 800,
+                    py: 1.75,
+                    fontSize: "1rem",
+                    borderColor: "#1c2e1a",
+                    color: "#1c2e1a",
+                    "&:hover": { borderColor: "primary.main", color: "primary.main" },
+                  }}
+                >
+                  View All 11 Models
+                </Button>
+              </Box>
               <Button
                 variant="contained"
                 size="large"
@@ -334,6 +355,51 @@ export default function ITQPage() {
               </Grid>
             ))}
           </Grid>
+        </Container>
+      </Box>
+
+      <Divider />
+
+      {/* ── Models ── */}
+      <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: "background.default" }}>
+        <Container maxWidth="lg">
+          <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: 2, mb: 6 }}>
+            <Typography variant="h5" sx={{ fontWeight: 700 }}>
+              Models
+            </Typography>
+            <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
+              <Button href={ITQ_CATALOG} target="_blank" rel="noopener" size="small" startIcon={<DownloadIcon />} sx={{ textTransform: "none", fontWeight: 700 }}>
+                Catalogue (PDF)
+              </Button>
+              <Button href="/actuators/electric/itq/products" size="small" sx={{ textTransform: "none", fontWeight: 700 }}>
+                Full specifications →
+              </Button>
+            </Box>
+          </Box>
+          <Box sx={{ textTransform: "none", overflowX: "auto", border: "1px solid rgba(0,0,0,0.12)", borderRadius: 2, bgcolor: "#fff" }}>
+            <Box component="table" sx={{ width: "100%", borderCollapse: "collapse", minWidth: 640, "& th, & td": { px: 2, py: 1.5, textAlign: "left", borderBottom: "1px solid rgba(0,0,0,0.08)", fontSize: "0.9rem" }, "& th": { bgcolor: "#f0f4ef", fontWeight: 700, fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: 1 } }}>
+              <thead>
+                <tr>
+                  <th>Model</th>
+                  <th>Torque</th>
+                  <th>Operating time (50 / 60 Hz)</th>
+                  <th>Mounting</th>
+                  <th>Weight</th>
+                </tr>
+              </thead>
+              <tbody>
+                {ITQ_MODELS.map((m) => (
+                  <tr key={m.model}>
+                    <td style={{ fontWeight: 700 }}>{m.model}</td>
+                    <td>{m.torqueNm.toLocaleString("en-GB")} Nm</td>
+                    <td>{m.time50} s / {m.time60} s</td>
+                    <td>{m.mounting}</td>
+                    <td>{m.weightKg} kg</td>
+                  </tr>
+                ))}
+              </tbody>
+            </Box>
+          </Box>
         </Container>
       </Box>
 
