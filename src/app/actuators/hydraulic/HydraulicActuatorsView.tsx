@@ -16,12 +16,15 @@ import BoltOutlinedIcon from "@mui/icons-material/BoltOutlined";
 import ElectricBoltOutlinedIcon from "@mui/icons-material/ElectricBoltOutlined";
 import WarningAmberOutlinedIcon from "@mui/icons-material/WarningAmberOutlined";
 import OilBarrelOutlinedIcon from "@mui/icons-material/OilBarrelOutlined";
+import SwapVertOutlinedIcon from "@mui/icons-material/SwapVertOutlined";
+import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import { T, textReset } from "@/src/app/Landing/modern/tokens";
 import { MotionRoot, Words, Reveal, gradientText, L, useInView } from "@/src/app/Common/LightMotion";
 import { wrap, Kicker, H2, Lead, pillBtn } from "@/src/app/hydrogen-cryogenic/components/HydrogenHub";
 
 const V = "https://pblol2.blob.core.windows.net/valvenok-images";
 const B = `${V}/brands/susin`;
+const SUSIN_LOGO = `${V}/logo/susin-logo.webp`;
 
 type Series = {
   key: string;
@@ -31,8 +34,8 @@ type Series = {
   brand: string;
   text: string;
   tag: string;
-  min: number;
-  max: number;
+  min?: number;
+  max?: number;
   img: string;
   href: string;
   icon: React.ReactNode;
@@ -40,42 +43,46 @@ type Series = {
   note: string;
 };
 
-// Figures from the KTC System Technik catalogues: PANDA / PA product information
-// and the HLP hydraulic & electro-hydraulic data sheet (HRSDA / HRSSA tables).
+// Figures from Susin's hydraulic catalogues: the PANDA / PA brochure and the
+// hydraulic & electro-hydraulic data sheet (PA-HX, HRSDA / HRSSA, HLDA tables).
 const SERIES: Series[] = [
-  { key: "panda", code: "PANDA", name: "PANDA electro-hydraulic, low pressure", kind: "Electro-hydraulic", brand: "KTC", text: "Compact units with their own pump, 8 bar on board: only electric power needed. Double acting or spring return.", tag: "46 – 7,207 Nm", min: 46, max: 7207, img: `${B}/ktc-panda-pa.jpg`, href: "/actuators/hydraulic/adf", icon: <CompressOutlinedIcon />, color: "#8FD47C", note: "8 bar · ATEX Zone 1 & 2" },
-  { key: "pa", code: "PA", name: "PA electro-hydraulic, high pressure", kind: "Electro-hydraulic", brand: "KTC", text: "High-pressure version at 180 bar for more torque from a small body; up to 10,000 Nm on request.", tag: "222 – 4,000 Nm", min: 222, max: 4000, img: `${B}/ktc-panda-pa.jpg`, href: "/actuators/hydraulic/adf", icon: <BoltOutlinedIcon />, color: "#F4C95D", note: "180 bar · ATEX Zone 1 & 2" },
-  { key: "hrsda", code: "HRSDA", name: "HRSDA scotch yoke, double acting", kind: "Hydraulic scotch yoke", brand: "KTC", text: "Hydraulic (HRSDA) or electro-hydraulic (EHRSDA) scotch yoke for the largest valves, 20 sizes, up to 200 bar.", tag: "208 – 112,595 Nm", min: 208, max: 112595, img: `${B}/ktc-hrsda.jpg`, href: "/actuators/hydraulic/adf/products", icon: <FitnessCenterOutlinedIcon />, color: "#B7A6F0", note: "Double acting · 100–160 bar tables" },
-  { key: "hrssa", code: "HRSSA", name: "HRSSA scotch yoke, spring return", kind: "Hydraulic scotch yoke", brand: "KTC", text: "Spring return scotch yoke: oil opens the valve, the spring closes it on loss of pressure or power.", tag: "147 – 30,068 Nm", min: 147, max: 30068, img: `${B}/ktc-hrssa.jpg`, href: "/actuators/hydraulic/adf/products", icon: <ShieldOutlinedIcon />, color: "#7CB9F0", note: "Spring return (spring torque)" },
+  { key: "panda", code: "PANDA", name: "PANDA electro-hydraulic, low pressure", kind: "Electro-hydraulic", brand: "Susin", text: "Compact units with their own pump, 8 bar on board: only electric power needed. Double acting or spring return.", tag: "46 – 9,274 Nm", min: 46, max: 9274, img: `${B}/ktc-panda-pa.jpg`, href: "/actuators/hydraulic/panda", icon: <CompressOutlinedIcon />, color: "#8FD47C", note: "8 bar · ATEX Zone 1 & 2" },
+  { key: "pa", code: "PA", name: "PA electro-hydraulic, high pressure", kind: "Electro-hydraulic", brand: "Susin", text: "High-pressure compact units at up to 180 bar for more torque from a small body; up to 10,000 Nm on request.", tag: "250 – 4,000 Nm", min: 250, max: 4000, img: `${B}/ktc-panda-pa.jpg`, href: "/actuators/hydraulic/pa", icon: <BoltOutlinedIcon />, color: "#F4C95D", note: "180 bar · ATEX Zone 1 & 2" },
+  { key: "pahx", code: "PA-HX", name: "PA-HX rack & pinion", kind: "Hydraulic rack & pinion", brand: "Susin", text: "Hydraulic rack & pinion at 80–160 bar: double acting, spring to close or spring to open, 26 models.", tag: "35 – 10,000 Nm", min: 35, max: 10000, img: `${B}/pa-hx.jpg`, href: "/actuators/hydraulic/pa-hx", icon: <SettingsOutlinedIcon />, color: "#F4A6A0", note: "80–160 bar · DA & spring return" },
+  { key: "hrs", code: "HRSDA / HRSSA", name: "Scotch yoke, HRSDA / HRSSA", kind: "Hydraulic scotch yoke", brand: "Susin", text: "Hydraulic or electro-hydraulic scotch yoke for the largest valves, up to 200 bar: double acting (HRSDA) or spring return (HRSSA).", tag: "147 – 112,595 Nm", min: 147, max: 112595, img: `${B}/ktc-hrsda.jpg`, href: "/actuators/hydraulic/scotch-yoke", icon: <FitnessCenterOutlinedIcon />, color: "#B7A6F0", note: "Up to 200 bar · DA & spring return" },
+  { key: "hlda", code: "HLDA", name: "HLDA linear piston, double acting", kind: "Linear piston", brand: "Susin", text: "Hydraulic (HLDA) or electro-hydraulic (EHLDA) linear piston for globe, gate and control valves: 11 bores from 32 to 200 mm, up to 200 bar.", tag: "6 – 402 kN", img: `${B}/ktc-hlda.jpg`, href: "/actuators/hydraulic/hlda", icon: <SwapVertOutlinedIcon />, color: "#7CB9F0", note: "Linear · IP66M / IP67M" },
 ];
 const S = Object.fromEntries(SERIES.map((s) => [s.key, s]));
-const ROTARY = SERIES;
+const ROTARY = SERIES.filter((s) => s.max);
 
 const STATS = [
-  { value: "4", unit: "types", label: "Electro-hydraulic and hydraulic scotch yoke" },
+  { value: String(SERIES.length), unit: "types", label: "Electro-hydraulic, rack & pinion, scotch yoke and linear piston" },
   { value: "112,595", unit: "Nm", label: "Highest output torque (HRSDA at 160 bar)" },
-  { value: "200", unit: "bar", label: "Maximum hydraulic pressure (scotch yoke)" },
-  { value: "ATEX", unit: "Z1 & 2", label: "PANDA and PA for hazardous areas" },
+  { value: "200", unit: "bar", label: "Maximum hydraulic pressure (scotch yoke, linear)" },
+  { value: "402", unit: "kN", label: "Highest linear thrust (HLDA-200 at 160 bar)" },
 ];
 
 // Finder: what the actuator must do, then the torque the valve needs
 const DUTIES: { label: string; picks: string[]; rotary: boolean }[] = [
   { label: "Replace a pneumatic actuator (no air)", picks: ["panda", "pa"], rotary: true },
-  { label: "Fail-safe on loss of power", picks: ["panda", "pa", "hrssa"], rotary: true },
-  { label: "Large valve, very high torque", picks: ["hrsda", "hrssa"], rotary: true },
+  { label: "Fail-safe on loss of power", picks: ["panda", "pa", "pahx", "hrs"], rotary: true },
+  { label: "Large valve, very high torque", picks: ["hrs", "pahx"], rotary: true },
   { label: "Hazardous area (ATEX Zone 1 & 2)", picks: ["panda", "pa"], rotary: true },
   { label: "Compact, high torque from a small body", picks: ["pa", "panda"], rotary: true },
+  { label: "Existing hydraulic supply (80–160 bar)", picks: ["pahx", "hrs"], rotary: true },
+  { label: "Linear stroke: globe, gate or control valve", picks: ["hlda"], rotary: false },
 ];
 const TORQUES = [100, 1000, 5000, 20000, 100000];
 const nm = (n: number) => n.toLocaleString("en-GB");
 
-const FAQ_ICONS = [CompareArrowsOutlinedIcon, ShieldOutlinedIcon, ElectricBoltOutlinedIcon, OilBarrelOutlinedIcon, WarningAmberOutlinedIcon];
+const FAQ_ICONS = [CompareArrowsOutlinedIcon, ShieldOutlinedIcon, ElectricBoltOutlinedIcon, OilBarrelOutlinedIcon, WarningAmberOutlinedIcon, SwapVertOutlinedIcon];
 const FAQ = [
   { q: "Why choose a hydraulic actuator?", a: "Hydraulics give very high torque from a small body and little input power, because the pump drives the cylinder directly with no gearbox. Most wear parts run in oil, so they wear very little, and they suit outdoor, marine and hazardous locations." },
-  { q: "What happens if the power fails?", a: "Choose a spring return model (PANDA, PA or HRSSA), or a pressure accumulator, to store the energy that moves the valve to its safe position when power is lost." },
+  { q: "What happens if the power fails?", a: "Choose a spring return model (PANDA, PA, PA-HX or HRSSA), or a pressure accumulator, to store the energy that moves the valve to its safe position when power is lost." },
   { q: "What power supply do PANDA and PA need?", a: "The motor runs on 400 V 50/60 Hz or 230 V 50 Hz, and the solenoid valve on 24 VDC or 230 V. Only electric power is needed: the pump and oil are built in." },
   { q: "Which hydraulic oil do they use?", a: "HLP hydraulic oil, filtered to at least 10 µm." },
   { q: "Can they be used in hazardous areas?", a: "Yes. PANDA and PA are available ATEX certified for Zone 1 and 2, and in SIL 2 certified versions. Tell us the zone and gas group and we’ll confirm the build." },
+  { q: "Do you have hydraulic actuators for globe and gate valves?", a: "Yes. The HLDA linear piston actuator pushes and pulls the valve stem: 11 bores from 32 to 200 mm, giving 6 to 402 kN of closing thrust at 100 to 160 bar. It comes hydraulic (HLDA) or electro-hydraulic (EHLDA) with a power pack." },
 ];
 const SCHEMA = {
   "@context": "https://schema.org",
@@ -98,7 +105,7 @@ function Hero() {
           <Words text="actuators" start={200} sx={gradientText} />
         </Box>
         <Box component="p" sx={{ m: 0, mx: "auto", maxWidth: 700, fontSize: { xs: "1rem", md: "1.12rem" }, lineHeight: 1.7, color: T.body }}>
-          Hydraulic power for quarter-turn valves, from 46 to 112,595 Nm: compact electro-hydraulic units that need only electric power, and scotch yoke actuators up to 200 bar for the largest valves. Double acting or spring return.
+          Hydraulic power for quarter-turn valves, from 35 to 112,595 Nm: compact electro-hydraulic units that need only electric power, rack & pinion and scotch yoke actuators up to 200 bar for the largest valves, plus linear piston actuators up to 402 kN for globe, gate and control valves.
         </Box>
         <Box sx={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 1.25, mt: 3.5 }}>
           <Box component="a" href="#finder" sx={pillBtn(true)}>
@@ -118,7 +125,7 @@ function Hero() {
                 <Box component="img" src={s.img} alt={s.name} loading="eager" sx={{ width: "74%", height: "74%", ...photo }} />
               </Box>
               <Box className="nm" sx={{ mt: 1.25, fontSize: "0.86rem", fontWeight: 700, color: T.ink, lineHeight: 1.25, transition: "color .2s" }}>{s.code}</Box>
-              <Box sx={{ mt: 0.25, fontSize: "0.74rem", color: T.muted }}>up to {nm(s.max)} Nm</Box>
+              <Box sx={{ mt: 0.25, fontSize: "0.74rem", color: T.muted }}>{s.max ? `up to ${nm(s.max)} Nm` : "linear, up to 402 kN"}</Box>
             </Box>
           ))}
         </Box>
@@ -154,7 +161,7 @@ function Finder() {
   const need = TORQUES[t];
   const picks = d.picks.map((k) => S[k]);
   // rotary: keep series rated at or above the torque the valve needs
-  const fits = d.rotary ? picks.filter((s) => s.max >= need) : picks;
+  const fits = d.rotary ? picks.filter((s) => (s.max ?? 0) >= need) : picks;
   const chip = (on: boolean) => ({
     cursor: "pointer", fontFamily: "inherit", px: 1.5, py: 0.8, borderRadius: 999, fontSize: "0.84rem", fontWeight: on ? 700 : 600,
     border: `1px solid ${on ? T.greenDark : T.border}`, bgcolor: on ? T.greenDark : "#fff", color: on ? "#fff" : T.ink, transition: "all .15s", "&:hover": { borderColor: T.greenDark },
@@ -234,7 +241,7 @@ function SeriesCard({ s }: { s: Series }) {
       <Box sx={{ position: "relative", height: { xs: 118, sm: 190 }, bgcolor: L.mint, display: "grid", placeItems: "center", overflow: "hidden" }}>
         <Box className="pic" component="img" src={s.img} alt={s.name} loading="lazy" sx={{ height: { xs: 92, sm: 150 }, width: "auto", maxWidth: "76%", transition: "transform .4s", ...photo }} />
         <Box sx={{ position: "absolute", top: 12, left: 12, display: "flex", alignItems: "center", px: 1.25, py: 0.6, borderRadius: 999, bgcolor: "#fff", boxShadow: "0 1px 4px rgba(14,27,18,0.08)" }}>
-          <Box component="span" sx={{ fontSize: "0.72rem", fontWeight: 800, letterSpacing: "0.06em", color: "#C8102E" }}>KTC</Box>
+          <Box component="img" src={SUSIN_LOGO} alt="Susin" title="Susin" sx={{ height: 22, maxWidth: 90, objectFit: "contain", display: "block" }} />
         </Box>
       </Box>
       <Box sx={{ p: { xs: 1.5, sm: 2.5 }, display: "flex", flexDirection: "column", flex: 1 }}>
@@ -261,7 +268,7 @@ function Types() {
           <H2 id="h2-types">Every hydraulic actuator we supply</H2>
           <Lead center>Pick a type to see its sizes and torque tables, with a quote.</Lead>
         </Box>
-        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr 1fr", lg: "repeat(4, 1fr)" }, gap: { xs: 1.25, md: 2.5 } }}>
+        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr 1fr", lg: "repeat(5, 1fr)" }, gap: { xs: 1.25, md: 2.5 } }}>
           {SERIES.map((s, i) => (
             <Reveal key={s.key} delay={(i % 4) * 70}>
               <SeriesCard s={s} />
@@ -286,7 +293,7 @@ function Compare() {
         <Box sx={{ mb: 4 }}>
           <Kicker>Torque ranges</Kicker>
           <H2 id="h2-compare">How much torque does each type give?</H2>
-          <Lead>Each bar shows the torque range of a type, from 46 to 112,595 Nm on a log scale. Ratings vary by size and pressure, so check the torque tables.</Lead>
+          <Lead>Each bar shows the torque range of a rotary type, from 35 to 112,595 Nm on a log scale. Ratings vary by size and pressure, so check the torque tables. The HLDA linear piston is rated in thrust (6–402 kN), not torque.</Lead>
         </Box>
         <Box ref={ref} sx={{ borderRadius: "22px", bgcolor: "#fff", border: `1px solid ${T.border}`, boxShadow: T.shadow, p: { xs: 1.5, md: 2.5 } }}>
           <Box sx={{ display: { xs: "none", md: "grid" }, gridTemplateColumns: "300px 1fr 150px", gap: 3, px: 1.5, pb: 1.25, borderBottom: `1px solid ${T.border}` }}>
@@ -318,7 +325,7 @@ function Compare() {
                 <Box sx={{ mt: 0.5, fontSize: "0.78rem", fontWeight: 700, color: T.ink }}>{nm(s.min!)}–{nm(s.max!)} Nm</Box>
               </Box>
               <Box sx={{ display: { xs: "none", md: "flex" }, justifyContent: "flex-end" }}>
-                <Box component="span" sx={{ fontSize: "0.72rem", fontWeight: 800, letterSpacing: "0.06em", color: "#C8102E" }}>KTC</Box>
+                <Box component="img" src={SUSIN_LOGO} alt="Susin" title="Susin" sx={{ height: 22, maxWidth: 90, objectFit: "contain", display: "block" }} />
               </Box>
               <Box sx={{ display: { xs: "grid", md: "none" }, gridColumn: 3, gridRow: 1, width: 30, height: 30, borderRadius: "50%", border: `1px solid ${T.border}`, placeItems: "center", color: T.ink }}>
                 <ArrowForwardRoundedIcon sx={{ fontSize: 16 }} />

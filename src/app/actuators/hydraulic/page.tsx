@@ -3,7 +3,7 @@ import HydraulicActuatorsView from "./HydraulicActuatorsView";
 
 const TITLE = "Hydraulic & Electro-Hydraulic Valve Actuators | Valvenok";
 const DESCRIPTION =
-  "KTC electro-hydraulic PANDA and PA actuators and HRSDA / HRSSA hydraulic scotch yoke actuators, 46 to 112,595 Nm, up to 200 bar, ATEX Zone 1 & 2. Request a quote.";
+  "Susin hydraulic and electro-hydraulic actuators: PANDA and PA compact units, PA-HX rack & pinion, HRSDA / HRSSA scotch yoke (up to 112,595 Nm) and HLDA linear piston (up to 402 kN). Request a quote.";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/actuators/hydraulic" },

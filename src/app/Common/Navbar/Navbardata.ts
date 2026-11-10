@@ -323,10 +323,38 @@ export const NAV_GROUPS: NavGroup[] = [
         href: "/actuators/hydraulic",
         items: [
           {
-            label: "Electro-Hydraulic Rotary",
-            href: "/actuators/hydraulic/adf",
+            label: "PANDA Series — Electro-Hydraulic, Low Pressure",
+            href: "/actuators/hydraulic/panda",
+            children: [
+              { label: "View All Models", href: "/actuators/hydraulic/panda/products" },
+            ],
+          },
+          {
+            label: "PA Series — Electro-Hydraulic, High Pressure",
+            href: "/actuators/hydraulic/pa",
+            children: [
+              { label: "View All Models", href: "/actuators/hydraulic/pa/products" },
+            ],
+          },
+          {
+            label: "PA-HX Series — Hydraulic Rack & Pinion",
+            href: "/actuators/hydraulic/pa-hx",
+            children: [
+              { label: "View All Models", href: "/actuators/hydraulic/pa-hx/products" },
+            ],
+          },
+          {
+            label: "HRSDA / HRSSA — Hydraulic Scotch Yoke",
+            href: "/actuators/hydraulic/scotch-yoke",
             children: [
               { label: "View All Models", href: "/actuators/hydraulic/adf/products" },
+            ],
+          },
+          {
+            label: "HLDA Series — Linear Piston",
+            href: "/actuators/hydraulic/hlda",
+            children: [
+              { label: "View All Models", href: "/actuators/hydraulic/hlda/products" },
             ],
           },
         ],
