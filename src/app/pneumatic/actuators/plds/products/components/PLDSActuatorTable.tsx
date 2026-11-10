@@ -12,6 +12,7 @@ import { type PLDSActuatorDTO, type PLDSActuatorFilters, type AvailableCountsPLD
 import { PLDSActuatorSidebar } from './PLDSActuatorSidebar'
 import RFQModal from '@/src/app/Common/RFQCard/RFQModal'
 import { type ProductForRFQ } from '@/src/app/Common/RFQCard/RequestForQuoteCard'
+import ProductActionCells from '@/src/app/Common/ProductDetail/ProductActionCells'
 
 const BRAND_GREEN = '#61D649'
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
@@ -69,19 +70,16 @@ keySpecs: [
         <TableCell sx={{ py: 1, fontSize: '0.82rem', fontFamily: PRIMARY_FONT }}>{val(row.stemSizeMm)} mm</TableCell>
         <TableCell sx={{ py: 1, fontSize: '0.82rem', fontFamily: PRIMARY_FONT }}>{val(row.maxTravelPldMm)} mm</TableCell>
         <TableCell sx={{ py: 1, fontSize: '0.82rem', fontFamily: PRIMARY_FONT }}>{val(row.maxTravelPlsMm)} mm</TableCell>
-        <TableCell sx={{ py: 1 }}>
-          <Stack direction="row" spacing={1}>
-            <Button size="small" variant="contained" onClick={e => { e.stopPropagation(); openQuote() }}
-              sx={{ fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px', textTransform: 'none', whiteSpace: 'nowrap', bgcolor: BRAND_GREEN, color: '#fff', boxShadow: 'none', '&:hover': { bgcolor: '#50c23a', boxShadow: 'none' } }}>
-              Request Quote
-            </Button>
-          </Stack>
-        </TableCell>
+        <ProductActionCells
+          detailHref={`/pneumatic/actuators/plds/products/${encodeURIComponent(row.id)}`}
+          secondaryLabel="Request Quote"
+          onSecondary={e => { e.stopPropagation(); openQuote() }}
+        />
       </TableRow>
 
       {open && (
         <TableRow>
-          <TableCell colSpan={8} sx={{ p: 0, borderBottom: 'none' }}>
+          <TableCell colSpan={9} sx={{ p: 0, borderBottom: 'none' }}>
             <Collapse in unmountOnExit>
               <Box sx={{ p: 3, bgcolor: alpha(BRAND_GREEN, 0.02), borderLeft: `4px solid ${BRAND_GREEN}`, borderBottom: '1px solid rgba(0,0,0,0.08)' }}>
                 <Stack direction={{ xs: 'column', md: 'row' }} spacing={4} alignItems="flex-start">
@@ -191,6 +189,7 @@ export default function PLDSActuatorTable({ models, filters, setFilters, availab
                   <TableSortLabel active={sortKey === 'maxTravelPldMm'} direction={sortKey === 'maxTravelPldMm' ? sortDir : 'asc'} onClick={() => handleSort('maxTravelPldMm')}>Max Travel PLD</TableSortLabel>
                 </TableCell>
                 <TableCell sx={headerSx}>Max Travel PLS</TableCell>
+                <TableCell sx={headerSx}>Details</TableCell>
                 <TableCell sx={headerSx}>Quote</TableCell>
               </TableRow>
             </TableHead>
@@ -198,7 +197,7 @@ export default function PLDSActuatorTable({ models, filters, setFilters, availab
               {paginated.length === 0
                 ? (
                   <TableRow>
-                    <TableCell colSpan={8} align="center" sx={{ py: 6 }}>
+                    <TableCell colSpan={9} align="center" sx={{ py: 6 }}>
                       <Typography variant="body2" color="text.secondary" fontFamily={PRIMARY_FONT}>No actuators found.</Typography>
                     </TableCell>
                   </TableRow>

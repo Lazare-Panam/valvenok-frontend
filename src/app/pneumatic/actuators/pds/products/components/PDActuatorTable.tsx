@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import {
   Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
   TablePagination, TableSortLabel, Collapse, Chip, Typography, Stack,
@@ -16,6 +17,25 @@ import { type ProductForRFQ } from '@/src/app/Common/RFQCard/RequestForQuoteCard
 const BRAND_GREEN = '#61D649'
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 const SERIES_COLORS: Record<string, string> = { PD: '#61D649', PDS: '#2db82d' }
+
+// Green by default, inverts to white on hover
+const DETAIL_BTN_SX = {
+  fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px',
+  textTransform: 'none' as const, whiteSpace: 'nowrap' as const, fontFamily: PRIMARY_FONT,
+  bgcolor: BRAND_GREEN, color: '#fff', boxShadow: 'none', border: `1px solid ${BRAND_GREEN}`,
+  '&:hover': { bgcolor: '#fff', color: BRAND_GREEN, boxShadow: 'none', borderColor: BRAND_GREEN },
+}
+
+// Solid green, darkens on hover
+const QUOTE_BTN_SX = {
+  fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px',
+  textTransform: 'none' as const, whiteSpace: 'nowrap' as const, fontFamily: PRIMARY_FONT,
+  bgcolor: BRAND_GREEN, color: '#fff', boxShadow: 'none',
+  '&:hover': { bgcolor: '#50c23a', boxShadow: 'none' },
+}
+
+const detailHref = (id: string) =>
+  `/pneumatic/actuators/pds/products/${encodeURIComponent(id)}`
 
 const val = (v?: string | number) =>
   (v !== undefined && v !== null && v !== '') ? v : '—'
@@ -35,6 +55,7 @@ function PDRow({ row }: { row: PDActuatorDTO }) {
   const [open, setOpen] = useState(false)
   const [quoteProduct, setQuoteProduct] = useState<ProductForRFQ | null>(null)
   const color = SERIES_COLORS['PD']
+  const router = useRouter()
 
   const openQuote = () => setQuoteProduct({
     id: row.id,
@@ -74,8 +95,14 @@ function PDRow({ row }: { row: PDActuatorDTO }) {
         <TableCell sx={{ py: 1, fontSize: '0.82rem', fontFamily: PRIMARY_FONT }}>{val(row.airConsumptionOpen)}</TableCell>
         <TableCell sx={{ py: 1, fontSize: '0.82rem', fontFamily: PRIMARY_FONT }}>{val(row.airConsumptionClose)}</TableCell>
         <TableCell sx={{ py: 1 }}>
+          <Button size="small" variant="contained" onClick={e => { e.stopPropagation(); router.push(detailHref(row.id)) }}
+            sx={DETAIL_BTN_SX}>
+            View Details
+          </Button>
+        </TableCell>
+        <TableCell sx={{ py: 1 }}>
           <Button size="small" variant="contained" onClick={e => { e.stopPropagation(); openQuote() }}
-            sx={{ fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px', textTransform: 'none', whiteSpace: 'nowrap', bgcolor: BRAND_GREEN, color: '#fff', boxShadow: 'none', '&:hover': { bgcolor: '#50c23a', boxShadow: 'none' } }}>
+            sx={QUOTE_BTN_SX}>
             Request Quote
           </Button>
         </TableCell>
@@ -83,7 +110,7 @@ function PDRow({ row }: { row: PDActuatorDTO }) {
 
       {open && (
         <TableRow>
-          <TableCell colSpan={9} sx={{ p: 0, borderBottom: 'none' }}>
+          <TableCell colSpan={10} sx={{ p: 0, borderBottom: 'none' }}>
             <Collapse in unmountOnExit>
               <Box sx={{ p: 3, bgcolor: alpha(BRAND_GREEN, 0.02), borderLeft: `4px solid ${BRAND_GREEN}`, borderBottom: '1px solid rgba(0,0,0,0.08)' }}>
                 <Stack direction={{ xs: 'column', md: 'row' }} spacing={4} alignItems="flex-start">
@@ -127,6 +154,7 @@ function PDSRow({ row }: { row: PDActuatorDTO }) {
   const [open, setOpen] = useState(false)
   const [quoteProduct, setQuoteProduct] = useState<ProductForRFQ | null>(null)
   const color = SERIES_COLORS['PDS']
+  const router = useRouter()
 
   const openQuote = () => setQuoteProduct({
     id: row.id,
@@ -166,8 +194,14 @@ function PDSRow({ row }: { row: PDActuatorDTO }) {
         <TableCell sx={{ py: 1, fontSize: '0.82rem', color: 'text.disabled', fontFamily: PRIMARY_FONT }}>—</TableCell>
         <TableCell sx={{ py: 1, fontSize: '0.82rem', color: 'text.disabled', fontFamily: PRIMARY_FONT }}>—</TableCell>
         <TableCell sx={{ py: 1 }}>
+          <Button size="small" variant="contained" onClick={e => { e.stopPropagation(); router.push(detailHref(row.id)) }}
+            sx={DETAIL_BTN_SX}>
+            View Details
+          </Button>
+        </TableCell>
+        <TableCell sx={{ py: 1 }}>
           <Button size="small" variant="contained" onClick={e => { e.stopPropagation(); openQuote() }}
-            sx={{ fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px', textTransform: 'none', whiteSpace: 'nowrap', bgcolor: BRAND_GREEN, color: '#fff', boxShadow: 'none', '&:hover': { bgcolor: '#50c23a', boxShadow: 'none' } }}>
+            sx={QUOTE_BTN_SX}>
             Request Quote
           </Button>
         </TableCell>
@@ -175,7 +209,7 @@ function PDSRow({ row }: { row: PDActuatorDTO }) {
 
       {open && (
         <TableRow>
-          <TableCell colSpan={9} sx={{ p: 0, borderBottom: 'none' }}>
+          <TableCell colSpan={10} sx={{ p: 0, borderBottom: 'none' }}>
             <Collapse in unmountOnExit>
               <Box sx={{ p: 3, bgcolor: alpha(BRAND_GREEN, 0.02), borderLeft: `4px solid ${BRAND_GREEN}`, borderBottom: '1px solid rgba(0,0,0,0.08)' }}>
                 <Stack direction={{ xs: 'column', md: 'row' }} spacing={4} alignItems="flex-start">
@@ -281,6 +315,7 @@ export default function PDActuatorTable({ models, filters, setFilters, available
                 <TableCell sx={headerSx}>Spring End / Max Torque NM</TableCell>
                 <TableCell sx={headerSx}>Air Open (L)</TableCell>
                 <TableCell sx={headerSx}>Air Close (L)</TableCell>
+                <TableCell sx={headerSx}>Details</TableCell>
                 <TableCell sx={headerSx}>Quote</TableCell>
               </TableRow>
             </TableHead>
@@ -288,7 +323,7 @@ export default function PDActuatorTable({ models, filters, setFilters, available
               {paginated.length === 0
                 ? (
                   <TableRow>
-                    <TableCell colSpan={9} align="center" sx={{ py: 6 }}>
+                    <TableCell colSpan={10} align="center" sx={{ py: 6 }}>
                       <Typography variant="body2" color="text.secondary" fontFamily={PRIMARY_FONT}>No actuators found.</Typography>
                     </TableCell>
                   </TableRow>

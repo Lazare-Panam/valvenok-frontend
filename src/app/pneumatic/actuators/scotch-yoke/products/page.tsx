@@ -32,6 +32,7 @@ import { useMediaQuery, Drawer } from "@mui/material";
 import { ACTUATOR_DATA, type ActuatorItem } from "../pneumaticActuatorData";
 import { CartItem } from "@/src/app/cart/hooks/useCartStore";
 import { useCartStore } from "@/src/app/cart/hooks/useCartStore";
+import ProductActionCells from "@/src/app/Common/ProductDetail/ProductActionCells";
 
 interface Filters {
   actuatorTypes: string[];
@@ -361,21 +362,18 @@ function ActuatorRow({ row }: { row: ActuatorItem }) {
             maximumFractionDigits: 2,
           })}
         </TableCell>
-        <TableCell sx={{ py: 1 }}>
-          <Button
-            size="small"
-            variant="contained"
-            onClick={handleAddToCart}
-            sx={cartBtnSx}
-          >
-            Add to Cart
-          </Button>
-        </TableCell>
+        <ProductActionCells
+          detailHref={`/pneumatic/actuators/scotch-yoke/products/${encodeURIComponent(row.model)}`}
+          secondaryLabel="Add to Cart"
+          onSecondary={handleAddToCart}
+          secondaryBg="#2e7d32"
+          secondaryHoverBg="#1b5e20"
+        />
       </TableRow>
 
       {open && (
         <TableRow>
-          <TableCell colSpan={7} sx={{ p: 0, borderBottom: "none" }}>
+          <TableCell colSpan={8} sx={{ p: 0, borderBottom: "none" }}>
             <Collapse in unmountOnExit>
               <Box
                 sx={{
@@ -670,6 +668,7 @@ export default function PneumaticActuatorPage() {
                       { key: "action", label: "Action" },
                       { key: "size", label: "Size (mm)" },
                       { key: "priceGBP", label: "Price (GBP)" },
+                      { key: null, label: "Details" },
                       { key: null, label: "Cart" },
                     ].map((h, i) => (
                       <TableCell key={i} sx={headerSx}>
@@ -691,7 +690,7 @@ export default function PneumaticActuatorPage() {
                 <TableBody>
                   {sorted.length === 0 ? (
                     <TableRow>
-                      <TableCell colSpan={7} align="center" sx={{ py: 6 }}>
+                      <TableCell colSpan={8} align="center" sx={{ py: 6 }}>
                         <Typography variant="body2" color="text.secondary">
                           No actuators match the selected filters.
                         </Typography>
