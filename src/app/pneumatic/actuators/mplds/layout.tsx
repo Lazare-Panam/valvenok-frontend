@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/pneumatic/actuators/mplds" },
-  title: { absolute: "MPLDS Micro Linear Pneumatic Actuators — Compact | Valvenok" },
+  title: { absolute: "MPLDS Micro Linear Pneumatic Actuators, MPLD & MPLS | Valvenok" },
   description:
-    "Compact double-acting pneumatic linear actuators for precise linear motion in tight spaces. IP66, modular design, positioner and solenoid ready.",
+    "Susin MPLDS micro linear actuators: MPLD double acting, 1.9–20.8 kN, and MPLS spring return with 50–300 mm stroke. 100–200 mm bore, hard anodised aluminium.",
   openGraph: {
-    title: "MPLDS Micro Linear Pneumatic Actuators — Compact | Valvenok",
+    title: "MPLDS Micro Linear Pneumatic Actuators, MPLD & MPLS | Valvenok",
     description:
-      "Compact double-acting pneumatic linear actuators for precise linear motion in tight spaces. IP66, modular design, positioner and solenoid ready.",
+      "Susin MPLDS micro linear actuators: MPLD double acting, 1.9–20.8 kN, and MPLS spring return with 50–300 mm stroke. 100–200 mm bore, hard anodised aluminium.",
     type: "website",
   },
 };

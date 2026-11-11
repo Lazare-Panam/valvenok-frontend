@@ -76,7 +76,7 @@ const make = (
   springEndTorqueLbInMin,
   springEndTorqueLbInMax,
   imageUrl: IMAGE,
-  description: `Panam HD ${model} Heavy Duty Pneumatic Actuator, ISO 5211 ${iso5211}. Output torque ${torqueNmMin}–${torqueNmMax} NM, spring end torque ${springEndTorqueNmMin}–${springEndTorqueNmMax} NM.`,
+  description: `Susin HD ${model} heavy-duty scotch yoke actuator, ISO 5211 ${iso5211}. Output torque ${torqueNmMin}–${torqueNmMax} NM, spring end torque ${springEndTorqueNmMin}–${springEndTorqueNmMax} NM.`,
 })
 
 export const HD_ACTUATOR_DATA: HDActuatorDTO[] = [
@@ -92,7 +92,7 @@ export const HD_ACTUATOR_DATA: HDActuatorDTO[] = [
 export const HD_ACTUATOR_DESCRIPTION = {
   title: 'HD Series Heavy Duty Pneumatic Actuators',
   description:
-    'Panam HD Series Heavy Duty Pneumatic Actuators — spring return configurations for demanding industrial applications. ISO 5211 mounting, output torque from 132 to 120,867 NM.',
+    'Susin HD Series heavy-duty scotch yoke actuators (IS symmetric and IC canted yoke), double acting or spring return. ISO 5211 mounting, output torque from 132 to 120,867 NM.',
   specs: [
     'HD Series',
     'Spring Return',

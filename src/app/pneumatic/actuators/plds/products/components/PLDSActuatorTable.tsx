@@ -38,7 +38,7 @@ function PLDSRow({ row }: { row: PLDSActuatorDTO }) {
   const openQuote = () => setQuoteProduct({
     id: row.id,
     name: `PLDS Linear Actuator — ${row.model}`,
-    brand: 'Panam',
+    brand: 'Susin',
     category: 'Pneumatic Actuators',
     categoryId: 'pneumatic-actuators',
     subCategory: 'PLDS Series',

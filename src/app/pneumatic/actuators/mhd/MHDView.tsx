@@ -10,15 +10,17 @@ import Link from "next/link";
 import { Box } from "@mui/material";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import CompareArrowsOutlinedIcon from "@mui/icons-material/CompareArrowsOutlined";
+import SquareFootOutlinedIcon from "@mui/icons-material/SquareFootOutlined";
 import ShieldOutlinedIcon from "@mui/icons-material/ShieldOutlined";
 import AirOutlinedIcon from "@mui/icons-material/AirOutlined";
 import ExtensionOutlinedIcon from "@mui/icons-material/ExtensionOutlined";
 import BuildOutlinedIcon from "@mui/icons-material/BuildOutlined";
 import { T, textReset } from "@/src/app/Landing/modern/tokens";
-import { MotionRoot, Words, Reveal, gradientText, L, useInView } from "@/src/app/Common/LightMotion";
+import { MotionRoot, Words, Reveal, gradientText, L } from "@/src/app/Common/LightMotion";
 import { wrap, Kicker, H2, Lead, pillBtn } from "@/src/app/hydrogen-cryogenic/components/HydrogenHub";
 import { SUSIN_CATALOG } from "@/src/app/Common/susinCatalogs";
 import DownloadRoundedIcon from "@mui/icons-material/DownloadRounded";
+import YokeCutaway from "../_series/YokeCutaway";
 import { MHD_ACTUATOR_DATA, MHD_EXPLODED, MHD_IMAGE, MHD_TORQUE_RANGE } from "./products/hooks/mhdActuatorData";
 
 const BASE = "/pneumatic/actuators/mhd/products";
@@ -47,102 +49,19 @@ const SPECS = [
 
 const FAQ = [
   { q: "Symmetric (IS) or canted (IC) yoke?", a: "A symmetric yoke gives its highest torque at both ends of the 90° stroke. A canted yoke gives its highest torque at either the open or the close end, which suits valves that need most torque at one end." },
+  { q: "How do I choose the size?", a: "Take the valve’s highest torque, add a safety factor, and pick the smallest model that delivers it at your lowest air supply. Choose a symmetric (IS) yoke if the valve needs torque at both ends, canted (IC) if mostly at one end. For spring return, check the spring torque too." },
   { q: "Double acting or spring return?", a: "Double acting models (ISD, ICD) use air to open and close. Spring return models (ISR, ICR) use air one way and springs the other, so the valve goes to a safe position if air is lost. The design is modular, so one can be converted to the other." },
   { q: "What is the difference between Micro SS and Micro CS?", a: "Both have a ductile iron centre body. Micro SS has stainless steel cylinders, Micro CS has carbon steel cylinders." },
   { q: "Can I adjust the travel?", a: "Yes. Stopper bolts at both cylinder ends set the open and close positions between 85° and 95°." },
   { q: "Which accessories can be fitted?", a: "A manual handwheel (jackscrew), hydraulic override, limit switches, solenoid valves and positioners." },
 ];
-const FAQ_ICONS = [CompareArrowsOutlinedIcon, ShieldOutlinedIcon, AirOutlinedIcon, BuildOutlinedIcon, ExtensionOutlinedIcon];
+const FAQ_ICONS = [CompareArrowsOutlinedIcon, SquareFootOutlinedIcon, ShieldOutlinedIcon, AirOutlinedIcon, BuildOutlinedIcon, ExtensionOutlinedIcon];
 
 const SCHEMA = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: FAQ.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
 };
-
-/* ── Animated cut-away: air drives the pistons, the yoke turns the shaft 90° ── */
-function YokeCutaway() {
-  const [ref, on] = useInView<HTMLDivElement>(0.3);
-  const lbl = { fontSize: 13, fontWeight: 700, fill: T.body, fontFamily: "inherit" } as const;
-  return (
-    <Box ref={ref}>
-      <Box
-        component="svg"
-        viewBox="0 0 420 330"
-        role="img"
-        aria-label="Cut-away of a scotch yoke actuator: air pushes the pistons, the piston rod's pin slides in the yoke slot and turns the output shaft a quarter turn"
-        sx={{
-          width: "100%", height: "auto", display: "block",
-          "@keyframes ykRod": { "0%,12%": { transform: "translateX(-46px)" }, "45%,62%": { transform: "translateX(46px)" }, "95%,100%": { transform: "translateX(-46px)" } },
-          "@keyframes ykArm": { "0%,12%": { transform: "rotate(-45deg)" }, "45%,62%": { transform: "rotate(45deg)" }, "95%,100%": { transform: "rotate(-45deg)" } },
-          "@keyframes ykAirL": { "0%,10%": { opacity: 0 }, "15%,40%": { opacity: 1 }, "48%,100%": { opacity: 0 } },
-          "@keyframes ykAirR": { "0%,62%": { opacity: 0 }, "67%,90%": { opacity: 1 }, "96%,100%": { opacity: 0 } },
-          "& .rod": { transformBox: "view-box", animation: on ? "ykRod 6s ease-in-out infinite" : "none", transform: "translateX(-46px)" },
-          "& .arm": { transformBox: "view-box", transformOrigin: "210px 220px", animation: on ? "ykArm 6s ease-in-out infinite" : "none", transform: "rotate(-45deg)" },
-          "& .ind": { transformBox: "view-box", transformOrigin: "210px 52px", animation: on ? "ykArm 6s ease-in-out infinite" : "none", transform: "rotate(-45deg)" },
-          "& .airL": { animation: on ? "ykAirL 6s ease-in-out infinite" : "none", opacity: 0 },
-          "& .airR": { animation: on ? "ykAirR 6s ease-in-out infinite" : "none", opacity: 0 },
-        }}
-      >
-        <defs>
-          <linearGradient id="ykSteel" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stopColor="#F6F9FB" />
-            <stop offset=".5" stopColor="#DCE3EA" />
-            <stop offset="1" stopColor="#B7C3CF" />
-          </linearGradient>
-        </defs>
-        {/* cylinders */}
-        <rect x="20" y="118" width="130" height="64" rx="10" fill="url(#ykSteel)" stroke="#7C8B9A" strokeWidth="2" />
-        <rect x="270" y="118" width="130" height="64" rx="10" fill="url(#ykSteel)" stroke="#7C8B9A" strokeWidth="2" />
-        <rect x="28" y="126" width="114" height="48" fill="#fff" />
-        <rect x="278" y="126" width="114" height="48" fill="#fff" />
-        {/* centre body */}
-        <rect x="150" y="104" width="120" height="160" rx="14" fill="#E2554F" opacity=".14" stroke="#C2413B" strokeWidth="2" />
-        {/* air in */}
-        <path className="airL" d="M34 150 h50" stroke="#7CB9F0" strokeWidth="6" strokeLinecap="round" strokeDasharray="8 7" />
-        <path className="airR" d="M386 150 h-50" stroke="#7CB9F0" strokeWidth="6" strokeLinecap="round" strokeDasharray="8 7" />
-        {/* yoke arm (behind rod), pivoting on the shaft */}
-        <g className="arm">
-          <path d="M200 220 L200 120 Q210 104 220 120 L220 220 Z" fill={T.greenDark} />
-          <rect x="205" y="122" width="10" height="70" rx="5" fill="#fff" />
-        </g>
-        {/* pistons + rod + roller pin */}
-        <g className="rod">
-          <rect x="96" y="128" width="16" height="44" rx="3" fill="#5C6B7A" />
-          <rect x="308" y="128" width="16" height="44" rx="3" fill="#5C6B7A" />
-          <rect x="112" y="145" width="196" height="10" rx="5" fill="#9AA9B6" />
-          <circle cx="210" cy="150" r="9" fill="#F4C95D" stroke="#A06F1E" strokeWidth="2" />
-        </g>
-        {/* output shaft */}
-        <circle cx="210" cy="220" r="16" fill="#fff" stroke="#5C6B7A" strokeWidth="3" />
-        <rect x="203" y="213" width="14" height="14" rx="2" fill="#5C6B7A" />
-        {/* position indicator on top */}
-        <circle cx="210" cy="52" r="26" fill="#fff" stroke="#9AA9B6" strokeWidth="2" />
-        <rect className="ind" x="206" y="30" width="8" height="44" rx="4" fill={T.green} />
-        <text x="250" y="50" style={lbl}>Position</text>
-        <text x="250" y="66" style={lbl}>indicator</text>
-        {/* labels */}
-        <text x="20" y="108" style={lbl}>Cylinder</text>
-        <text x="40" y="214" style={lbl}>Piston</text>
-        <path d="M80 208 L102 172" stroke="#B9C4CE" strokeDasharray="3 3" />
-        <text x="290" y="246" style={lbl}>Yoke</text>
-        <path d="M288 242 L222 206" stroke="#B9C4CE" strokeDasharray="3 3" />
-        <text x="250" y="96" style={lbl}>Roller pin</text>
-        <path d="M262 100 L218 144" stroke="#B9C4CE" strokeDasharray="3 3" />
-        <text x="124" y="296" style={lbl}>Output shaft turns 90° (85–95°)</text>
-        <path d="M210 238 V280" stroke="#B9C4CE" strokeDasharray="3 3" />
-      </Box>
-      <Box sx={{ mt: 1.5, display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 2, fontSize: "0.8rem", fontWeight: 600, color: T.body }}>
-        <Box component="span" sx={{ display: "inline-flex", alignItems: "center", gap: 0.75 }}>
-          <Box component="span" sx={{ width: 18, height: 4, borderRadius: 2, bgcolor: "#7CB9F0" }} /> Air drives the pistons
-        </Box>
-        <Box component="span" sx={{ display: "inline-flex", alignItems: "center", gap: 0.75 }}>
-          <Box component="span" sx={{ width: 10, height: 10, borderRadius: "50%", bgcolor: "#F4C95D", border: "2px solid #A06F1E" }} /> The pin turns the yoke
-        </Box>
-      </Box>
-    </Box>
-  );
-}
 
 function Hero() {
   return (
@@ -188,7 +107,7 @@ function Hero() {
         <Reveal from="right">
           <Box sx={{ p: { xs: 2, md: 3 }, borderRadius: "28px", bgcolor: "#fff", border: `1px solid ${T.border}`, boxShadow: T.shadow }}>
             <Box sx={{ mb: 1, fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: T.greenDark }}>How a scotch yoke works</Box>
-            <YokeCutaway />
+            <YokeCutaway travel="Output shaft turns 90° (85–95°)" />
           </Box>
         </Reveal>
       </Box>
@@ -271,6 +190,14 @@ function ConfigLadder() {
   );
 }
 
+// Parts shown on the exploded view, from the Susin Micro series parts list (catalogue p.7).
+// DI / CS = ductile iron or carbon steel; SS = stainless steel.
+const PARTS: { group: string; items: [number, string, string][] }[] = [
+  { group: "Cylinder", items: [[1, "Cylinder", "SS"], [2, "Piston", "DI / CS"], [3, "Piston rod", "Chrome-plated steel"], [4, "Cylinder front cover", "DI / CS"], [5, "Cylinder end cover", "DI / CS"], [6, "Front cover bushing", "PTFE"], [7, "Tie rod", "SS"], [9, "Tie rod hex nut", "Steel"], [12, "Piston rod hex nut", "Steel"]] },
+  { group: "Centre body", items: [[21, "Centre body", "DI / CS"], [22, "Centre body cover", "DI / CS"], [23, "Output shaft", "SS"], [24, "Yoke", "SS"], [25, "Upper bush", "PTFE"], [27, "Slide pin", "SS"], [28, "Slide roller", "SS"], [31, "Position indicator", "SS"], [40, "Stopper bolt", "Steel"], [41, "Stopper bolt hex nut", "Steel"]] },
+  { group: "Spring cylinder", items: [[50, "Spring case", "SS"], [51, "Spring case front cover", "DI / CS"], [52, "Piston", "DI / CS"], [55, "Tie rod", "SS"], [56, "Tie rod hex nut", "Steel"], [60, "Spring case end cover", "DI / CS"]] },
+];
+
 function Exploded() {
   const points = [
     ["Ductile iron centre body", "Piston and end covers in ductile iron; cylinders in stainless (Micro SS) or carbon steel (Micro CS)."],
@@ -295,6 +222,26 @@ function Exploded() {
                 </Box>
               ))}
             </Box>
+          </Box>
+          <Box sx={{ gridColumn: "1 / -1", pt: { xs: 1, md: 0 } }}>
+            <Box component="h3" sx={{ m: 0, mb: 1.5, fontSize: "1.05rem", fontWeight: 800, color: T.ink }}>What the numbers show</Box>
+            <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "repeat(3, 1fr)" }, gap: 1.5 }}>
+              {PARTS.map((g) => (
+                <Box key={g.group} sx={{ p: 2, borderRadius: "16px", bgcolor: "#fff", border: "1px solid #DCE6F5" }}>
+                  <Box sx={{ mb: 1, fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: T.greenDark }}>{g.group}</Box>
+                  <Box component="ol" sx={{ m: 0, p: 0, listStyle: "none", display: "grid", gap: 0.6 }}>
+                    {g.items.map(([n, name, mat]) => (
+                      <Box component="li" key={n} sx={{ display: "grid", gridTemplateColumns: "28px 1fr auto", alignItems: "center", gap: 1, fontSize: "0.84rem" }}>
+                        <Box component="span" sx={{ width: 24, height: 24, borderRadius: "50%", border: `1.5px solid ${T.ink}`, display: "grid", placeItems: "center", fontSize: "0.7rem", fontWeight: 800, color: T.ink }}>{n}</Box>
+                        <Box component="span" sx={{ fontWeight: 700, color: T.ink }}>{name}</Box>
+                        <Box component="span" sx={{ color: T.muted, fontSize: "0.78rem", textAlign: "right" }}>{mat}</Box>
+                      </Box>
+                    ))}
+                  </Box>
+                </Box>
+              ))}
+            </Box>
+            <Box sx={{ mt: 1.25, fontSize: "0.78rem", color: T.muted }}>From the Susin Micro series parts list. DI / CS: ductile iron or carbon steel; SS: stainless steel. The full list of 65 parts is in the catalogue.</Box>
           </Box>
         </Box>
       </Box>

@@ -114,34 +114,7 @@ export const ACTUATOR_COPY: RangeCopyMap = {
     ],
   },
 
-  "/pneumatic/actuators/pds/products": {
-    heading: "PD and PDS Scotch Yoke Actuators Explained",
-    paragraphs: [
-      "A scotch yoke actuator converts the straight-line movement of a pneumatic piston into a 90-degree turn using a sliding yoke. Its geometry gives the most torque at each end of the stroke and less in the middle, which suits valves that need high break-out and seating torque, such as large ball, plug and butterfly valves. The table shows this directly: torque is listed at 0°, 45° and 90°.",
-      "Two series are listed. The PD series is double acting: air pressure drives the piston both ways. Models PD45, PD50, PD55 and PD200 are shown with torque at supply pressures from 2.8 to 8 bar, and air consumption per stroke at 5.5 bar. The PDS series is spring return: air drives the actuator one way and an internal spring drives it back when air is removed, giving a fail-safe position. PDS models run from PDS-45 to PDS-200, with output torque up to 4,600 Nm, spring end torque listed separately, and ISO 5211 mounting from F05/F07 to F12/F16.",
-      "Filter by series, model and angle, then compare torque at your available air pressure with the valve's torque requirement. The series page lists ATEX and SIL capability; certification varies by model, so confirm it with Valvenok's UK team when you request a quote.",
-    ],
-    points: [
-      "Size double-acting units on the lowest torque across the stroke at minimum supply pressure.",
-      "For spring return, check both the air stroke and the spring end torque.",
-      "Use the ISO 5211 code to match the valve mounting pad.",
-    ],
-  },
-
-  "/pneumatic/actuators/plds/products": {
-    heading: "Sizing a PLDS Linear Pneumatic Actuator",
-    paragraphs: [
-      "PLDS actuators are linear pneumatic actuators: compressed air acts on a piston and moves the stem in a straight line rather than through a quarter turn. They are used to operate gate valves, knife gate valves, dampers and other linear-motion equipment, and for general automation where a long stroke and high thrust are needed.",
-      "The range runs from the PLDS-100 to the PLDS-980. Each model is listed with its piston area, from 7,850 mm² up to 746,241 mm², its stem size, from 25 mm up to 75 mm, and two maximum travel figures headed PLD and PLS. On the PLD column, maximum travel runs from 203.2 mm on the PLDS-100 to 1,067 mm on the largest models; the PLS figure is half of the PLD figure on each model.",
-      "Piston area is the key sizing figure. Thrust is roughly piston area multiplied by supply pressure, so a larger piston gives more force from the same air supply, minus seal friction and any spring or process load. The series page lists operation up to 150 psi and design to ISO 3322, 4393 and 5597, with a choice of corrosion protection grades.",
-      "Filter by model or stem size, expand a row for full data and request a quote from Valvenok's UK team.",
-    ],
-    points: [
-      "Work out the force needed at your lowest supply pressure, then choose the piston area.",
-      "Check that maximum travel covers the full valve stroke.",
-      "Match the stem size to the valve or coupling.",
-    ],
-  },
+  // PDS and PLDS model lists: the range text now sits in the page header (about), not here.
 
   "/pneumatic/actuators/scotch-yoke/products": {
     heading: "Scotch Yoke or Rack and Pinion: Which to Choose",

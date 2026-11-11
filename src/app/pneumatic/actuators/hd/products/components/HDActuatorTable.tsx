@@ -37,7 +37,7 @@ function HDRow({ row }: { row: HDActuatorDTO }) {
   const openQuote = () => setQuoteProduct({
     id: row.id,
     name: `HD Pneumatic Actuator — ${row.model}`,
-    brand: 'Panam',
+    brand: 'Susin',
     category: 'Pneumatic Actuators',
     categoryId: 'pneumatic-actuators',
     subCategory: 'HD Series',

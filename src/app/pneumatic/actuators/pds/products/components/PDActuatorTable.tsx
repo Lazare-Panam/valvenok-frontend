@@ -16,7 +16,7 @@ import { type ProductForRFQ } from '@/src/app/Common/RFQCard/RequestForQuoteCard
 
 const BRAND_GREEN = '#61D649'
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
-const SERIES_COLORS: Record<string, string> = { PD: '#61D649', PDS: '#2db82d' }
+const SERIES_COLORS: Record<string, string> = { PD: '#61D649', PS: '#2db82d' }
 
 // Green by default, inverts to white on hover
 const DETAIL_BTN_SX = {
@@ -59,8 +59,8 @@ function PDRow({ row }: { row: PDActuatorDTO }) {
 
   const openQuote = () => setQuoteProduct({
     id: row.id,
-    name: `PD Pneumatic Actuator — ${row.model}`,
-    brand: 'Panam',
+    name: `PDS Series Double Acting Actuator — ${row.model}`,
+    brand: 'Susin',
     category: 'Pneumatic Actuators',
     categoryId: 'pneumatic-actuators',
     subCategory: 'Double Acting',
@@ -153,13 +153,13 @@ function PDRow({ row }: { row: PDActuatorDTO }) {
 function PDSRow({ row }: { row: PDActuatorDTO }) {
   const [open, setOpen] = useState(false)
   const [quoteProduct, setQuoteProduct] = useState<ProductForRFQ | null>(null)
-  const color = SERIES_COLORS['PDS']
+  const color = SERIES_COLORS['PS']
   const router = useRouter()
 
   const openQuote = () => setQuoteProduct({
     id: row.id,
-    name: `PDS Pneumatic Actuator — ${row.model}`,
-    brand: 'Panam',
+    name: `PDS Series Spring Return Actuator — ${row.model}`,
+    brand: 'Susin',
     category: 'Pneumatic Actuators',
     categoryId: 'pneumatic-actuators',
     subCategory: 'Spring Return',
@@ -186,7 +186,7 @@ function PDSRow({ row }: { row: PDActuatorDTO }) {
         </TableCell>
         <TableCell sx={{ fontWeight: 700, fontSize: '0.82rem', py: 1, fontFamily: PRIMARY_FONT }}>{row.model}</TableCell>
         <TableCell sx={{ py: 1 }}>
-          <Chip label="PDS" size="small" variant="outlined" sx={{ fontSize: '0.65rem', fontWeight: 700, borderColor: color, color }} />
+          <Chip label="PS" size="small" variant="outlined" sx={{ fontSize: '0.65rem', fontWeight: 700, borderColor: color, color }} />
         </TableCell>
         <TableCell sx={{ py: 1, fontSize: '0.82rem', fontFamily: PRIMARY_FONT }}>{val(row.iso5211)}</TableCell>
         <TableCell sx={{ py: 1, fontSize: '0.82rem', fontFamily: PRIMARY_FONT }}>{val(row.outputTorqueNmMin)} – {val(row.outputTorqueNmMax)}</TableCell>

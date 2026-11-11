@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/pneumatic/actuators/plds/products" },
@@ -18,5 +17,5 @@ export default function PLDSActuatorLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}<RangeCopy path="/pneumatic/actuators/plds/products" /></>;
+  return <>{children}</>;
 }
