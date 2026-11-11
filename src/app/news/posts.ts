@@ -125,7 +125,7 @@ export const POSTS = [
     title: "Ball Valve vs Gate Valve: Key Differences & How to Choose",
     desc: "How ball valves and gate valves work, how they seal, where each is used by industry, and a decision framework for engineers and procurement teams.",
     thumbnail:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/apollo-valves-88a10a01.webp", // add your image here
+      "https://pblol2.blob.core.windows.net/valvenok-images/blogs/ball-valve-vs-gate-valve.jpg",
     author: "Kanchan Rajput",
     date: "April 8, 2026",
     category: "Technical Guide",

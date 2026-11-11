@@ -1034,7 +1034,7 @@ export function Cards({
   columns?: 2 | 3;
 }) {
   return (
-    <Box sx={{ my: 4.5, display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", md: `repeat(${columns}, 1fr)` }, gap: 2 }}>
+    <Box sx={{ my: 4.5, display: "grid", gridTemplateColumns: { xs: "1fr", sm: columns === 3 ? "1fr" : "1fr 1fr", md: `repeat(${columns}, 1fr)` }, gap: 2 }}>
       {items.map((c, i) => (
         <Box key={i} sx={{ display: "flex", flexDirection: "column", p: 2.75, borderRadius: T.radiusSm, border: `1px solid ${T.border}`, bgcolor: "#fff", fontSize: "0.95rem", lineHeight: 1.6, transition: "border-color .15s, box-shadow .15s", "&:hover": { borderColor: "#BFE3B4", boxShadow: T.shadow } }}>
           {c.image && <Box component="img" src={c.image} alt={c.imageAlt ?? ""} loading="lazy" sx={{ width: "100%", height: 140, objectFit: "contain", mb: 2 }} />}

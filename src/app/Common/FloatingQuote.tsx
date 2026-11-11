@@ -13,6 +13,8 @@ export default function FloatingQuote() {
   const pathname = usePathname();
   const visible = useScrollTrigger({ disableHysteresis: true, threshold: 500 });
   if (pathname === "/contact") return null;
+  // News articles keep an "On this page" menu down the left, so the pill sits bottom left there
+  const article = /^\/news\/[^/]+/.test(pathname ?? "");
 
   return (
     <Box
@@ -22,8 +24,8 @@ export default function FloatingQuote() {
       aria-hidden={!visible}
       sx={{
         position: "fixed",
-        top: { xs: "auto", md: 190 },
-        bottom: { xs: 20, md: "auto" },
+        top: { xs: "auto", md: article ? "auto" : 190 },
+        bottom: { xs: 20, md: article ? 24 : "auto" },
         left: { xs: 16, md: 24 },
         zIndex: 1200,
         display: "inline-flex",

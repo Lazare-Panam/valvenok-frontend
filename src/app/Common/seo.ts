@@ -9,6 +9,8 @@ type PageMetaInput = {
   path: string;
   /** false for account, cart and utility pages that should stay out of search results. */
   index?: boolean;
+  /** Sharing image (og:image); defaults to the Valvenok logo. */
+  image?: string;
 };
 
 /**
@@ -17,7 +19,7 @@ type PageMetaInput = {
  * and openGraph (including og:url) — which made child pages look like
  * duplicates of their parent. Setting every field here stops that leak.
  */
-export function pageMetadata({ title, description, path, index = true }: PageMetaInput): Metadata {
+export function pageMetadata({ title, description, path, index = true, image }: PageMetaInput): Metadata {
   // Always emit the full branded title. Relying on the root "%s | Valvenok"
   // template isn't safe: any ancestor layout with a plain string title resets
   // it, which left some pages without the brand suffix.
@@ -32,7 +34,7 @@ export function pageMetadata({ title, description, path, index = true }: PageMet
       url: path,
       siteName: "Valvenok",
       type: "website",
-      images: [DEFAULT_OG_IMAGE],
+      images: [image ?? DEFAULT_OG_IMAGE],
     },
     ...(index ? {} : { robots: { index: false, follow: true } }),
   };
@@ -55,7 +57,12 @@ function humanizeSlug(slug: string): string {
  * lives in "use client" modules a server layout can't read. Gives each URL its
  * own title and self-canonical instead of inheriting the parent listing's.
  */
-export function detailRouteMetadata(basePath: string, slug: string, category: string): Metadata {
+export function detailRouteMetadata(
+  basePath: string,
+  slug: string,
+  category: string,
+  image?: string,
+): Metadata {
   const name = humanizeSlug(slug);
   const base = `${name} — ${category}`;
   // Pad short titles so they aren't flagged as thin, but keep the full
@@ -73,5 +80,6 @@ export function detailRouteMetadata(basePath: string, slug: string, category: st
     title,
     description: lead + (tails.find((t) => (lead + t).length <= 155) ?? tails[tails.length - 1]),
     path: `${basePath}/${slug}`,
+    image,
   });
 }

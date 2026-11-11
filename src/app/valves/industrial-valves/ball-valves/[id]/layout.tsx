@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { detailRouteMetadata } from "@/src/app/Common/seo";
+import { BALL_VALVES } from "./data";
 import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 
 type Props = {
@@ -8,7 +9,13 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
-  return detailRouteMetadata("/valves/industrial-valves/ball-valves", id, "Industrial Ball Valves");
+  const valve = BALL_VALVES.find((v) => v.id === id);
+  return detailRouteMetadata(
+    "/valves/industrial-valves/ball-valves",
+    id,
+    "Industrial Ball Valves",
+    valve?.thumbnail,
+  );
 }
 
 export default async function ValvesIndustrialValvesBallValvesIdLayout({

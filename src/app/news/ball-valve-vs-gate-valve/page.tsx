@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import BallValveVsGateValvePage from './blog';
 
+const COVER = 'https://pblol2.blob.core.windows.net/valvenok-images/blogs/ball-valve-vs-gate-valve.jpg';
 const ARTICLE_URL = 'https://www.valvenok.com/news/ball-valve-vs-gate-valve';
 const TITLE = "Ball Valve vs Gate Valve: Key Differences | Valvenok";
 const DESCRIPTION =
@@ -18,9 +19,11 @@ export const metadata: Metadata = {
     authors: ['Valvenok Team'],
     publishedTime: '2026-04-08T00:00:00.000Z',
     modifiedTime: '2026-10-27T00:00:00.000Z',
+    images: [{ url: COVER, width: 1200, height: 630, alt: 'Ball valve vs gate valve' }],
   },
   twitter: {
     card: 'summary_large_image',
+    images: [COVER],
   },
 };
 
@@ -29,6 +32,7 @@ const blogSchema = {
   '@type': 'BlogPosting',
   headline: "Ball Valve vs Gate Valve: Key Differences",
   description: DESCRIPTION,
+  image: COVER,
   author: { '@type': 'Organization', name: 'Valvenok' },
   publisher: {
     '@type': 'Organization',
@@ -44,13 +48,5 @@ const blogSchema = {
 };
 
 export default function Page() {
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
-      />
-      <BallValveVsGateValvePage />
-    </>
-  );
+  return <BallValveVsGateValvePage schema={blogSchema} />;
 }

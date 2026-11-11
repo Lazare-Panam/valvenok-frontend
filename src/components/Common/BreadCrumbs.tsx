@@ -100,7 +100,8 @@ const humanize = (segment: string) =>
     .replace(/[-_]/g, ' ')
     .split(' ')
     .map((word) =>
-      ACRONYMS.has(word.toLowerCase())
+      // Acronyms, and model codes mixing digits and letters (370d -> 370D)
+      ACRONYMS.has(word.toLowerCase()) || /^\d+[a-z]{1,2}$|^[a-z]{1,3}\d+[a-z]?$/i.test(word)
         ? word.toUpperCase()
         : word.replace(/\b\w/, (c) => c.toUpperCase()),
     )
