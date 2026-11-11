@@ -10,6 +10,7 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import DownloadIcon from '@mui/icons-material/Download'
 import RFQModal from '@/src/app/Common/RFQCard/RFQModal'
 import { type ProductForRFQ } from '@/src/app/Common/RFQCard/RequestForQuoteCard'
+import ProductActionCells from '@/src/app/Common/ProductDetail/ProductActionCells'
 import { ITQM_MODELS, ITQM_CATALOG, type ITQMicroModel } from '../itqMicroData'
 
 const BRAND_GREEN = '#61D649'
@@ -45,16 +46,15 @@ function ITQMRow({ row, onQuote }: { row: ITQMicroModel; onQuote: (m: ITQMicroMo
         <TableCell sx={cell}>{row.enclosure}</TableCell>
         <TableCell sx={cell}>{row.mounting}</TableCell>
         <TableCell sx={cell}>{row.weightKg} kg</TableCell>
-        <TableCell sx={{ py: 1 }}>
-          <Button size="small" variant="contained" onClick={e => { e.stopPropagation(); onQuote(row) }}
-            sx={{ fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px', textTransform: 'none', whiteSpace: 'nowrap', bgcolor: BRAND_GREEN, color: '#fff', boxShadow: 'none', '&:hover': { bgcolor: '#50c23a', boxShadow: 'none' } }}>
-            Request Quote
-          </Button>
-        </TableCell>
+        <ProductActionCells
+          detailHref={`/actuators/electric/itq-micro/products/${encodeURIComponent(row.model)}`}
+          secondaryLabel="Request Quote"
+          onSecondary={e => { e.stopPropagation(); onQuote(row) }}
+        />
       </TableRow>
       {open && (
         <TableRow>
-          <TableCell colSpan={8} sx={{ p: 0, borderBottom: 'none' }}>
+          <TableCell colSpan={9} sx={{ p: 0, borderBottom: 'none' }}>
             <Collapse in unmountOnExit>
               <Box sx={{ p: 3, bgcolor: alpha(BRAND_GREEN, 0.02), borderLeft: `4px solid ${BRAND_GREEN}`, borderBottom: '1px solid rgba(0,0,0,0.08)' }}>
                 <Stack direction={{ xs: 'column', md: 'row' }} spacing={4} alignItems="flex-start">
@@ -153,6 +153,7 @@ export default function ITQMicroProductsPage() {
                 <TableCell sx={headerSx}>Enclosure</TableCell>
                 <TableCell sx={headerSx}>Mounting</TableCell>
                 <TableCell sx={headerSx}>Weight</TableCell>
+                <TableCell sx={headerSx}>Details</TableCell>
                 <TableCell sx={headerSx}>Quote</TableCell>
               </TableRow>
             </TableHead>

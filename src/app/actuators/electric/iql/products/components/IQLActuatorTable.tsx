@@ -12,6 +12,7 @@ import { type IQLActuatorDTO, type IQLActuatorFilters, type AvailableCountsIQL }
 import { IQLActuatorSidebar } from './IQLActuatorSidebar'
 import RFQModal from '@/src/app/Common/RFQCard/RFQModal'
 import { type ProductForRFQ } from '@/src/app/Common/RFQCard/RequestForQuoteCard'
+import ProductActionCells from '@/src/app/Common/ProductDetail/ProductActionCells'
 
 const BRAND_GREEN = '#61D649'
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
@@ -70,18 +71,16 @@ function IQLRow({ row }: { row: IQLActuatorDTO }) {
         <TableCell sx={{ py: 1, fontSize: '0.82rem', fontFamily: PRIMARY_FONT }}>{val(row.positioningSpeedMms)} mm/s</TableCell>
         <TableCell sx={{ py: 1, fontSize: '0.82rem', fontFamily: PRIMARY_FONT }}>{val(row.enclosure)}</TableCell>
         <TableCell sx={{ py: 1, fontSize: '0.82rem', fontFamily: PRIMARY_FONT }}>{val(row.weightKg)} kg</TableCell>
-        <TableCell sx={{ py: 1 }}>
-
-            <Button size="small" variant="contained" onClick={e => { e.stopPropagation(); openQuote() }}
-              sx={{ fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px', textTransform: 'none', whiteSpace: 'nowrap', bgcolor: BRAND_GREEN, color: '#fff', boxShadow: 'none', '&:hover': { bgcolor: '#50c23a', boxShadow: 'none' } }}>
-              Request Quote
-            </Button>
-        </TableCell>
+        <ProductActionCells
+          detailHref={`/actuators/electric/iql/products/${encodeURIComponent(row.id)}`}
+          secondaryLabel="Request Quote"
+          onSecondary={e => { e.stopPropagation(); openQuote() }}
+        />
       </TableRow>
 
       {open && (
         <TableRow>
-          <TableCell colSpan={9} sx={{ p: 0, borderBottom: 'none' }}>
+          <TableCell colSpan={10} sx={{ p: 0, borderBottom: 'none' }}>
             <Collapse in unmountOnExit>
               <Box sx={{ p: 3, bgcolor: alpha(BRAND_GREEN, 0.02), borderLeft: `4px solid ${BRAND_GREEN}`, borderBottom: '1px solid rgba(0,0,0,0.08)' }}>
                 <Stack direction={{ xs: 'column', md: 'row' }} spacing={4} alignItems="flex-start">
@@ -187,12 +186,13 @@ export default function IQLActuatorTable({ models, filters, setFilters, availabl
                 <TableCell sx={headerSx}>Speed (mm/s)</TableCell>
                 <TableCell sx={headerSx}>Enclosure</TableCell>
                 <TableCell sx={headerSx}><TableSortLabel active={sortKey === 'weightKg'} direction={sortKey === 'weightKg' ? sortDir : 'asc'} onClick={() => handleSort('weightKg')}>Weight</TableSortLabel></TableCell>
+                <TableCell sx={headerSx}>Details</TableCell>
                 <TableCell sx={headerSx}>Quote</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {paginated.length === 0
-                ? <TableRow><TableCell colSpan={9} align="center" sx={{ py: 6 }}><Typography variant="body2" color="text.secondary" fontFamily={PRIMARY_FONT}>No actuators found.</Typography></TableCell></TableRow>
+                ? <TableRow><TableCell colSpan={10} align="center" sx={{ py: 6 }}><Typography variant="body2" color="text.secondary" fontFamily={PRIMARY_FONT}>No actuators found.</Typography></TableCell></TableRow>
                 : paginated.map(row => <IQLRow key={row.id} row={row} />)
               }
             </TableBody>
