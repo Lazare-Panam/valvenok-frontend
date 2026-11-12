@@ -12,7 +12,7 @@ const ACTION: Record<string, string> = { DA: 'Double acting', SR: 'Spring return
 
 const DEF: ListDef = {
   title: 'MHD micro actuator models',
-  intro: `${ITEMS.length} Susin scotch yoke models, ${MHD_TORQUE_RANGE}. Filter by yoke, action and size, open a row for the full torque figures, then request a quote.`,
+  intro: `${ITEMS.length} Susin scotch yoke models, ${MHD_TORQUE_RANGE}. Filter by yoke, action and size, open any model for its full figures, then request a quote.`,
   back: { href: '/pneumatic/actuators/mhd', label: 'MHD series overview' },
   catalog: { href: SUSIN_CATALOG.MHD, label: 'catalogue (PDF)' },
   columns: ['Type', 'Output torque', 'Spring torque', 'ISO 5211'],
@@ -24,6 +24,7 @@ const DEF: ListDef = {
   sorts: [{ key: 'model', label: 'Model' }, { key: 'torque', label: 'Max torque', desc: true }, { key: 'size', label: 'Size' }],
   placeholder: 'Search model, e.g. ISR-01-15',
   items: ITEMS,
+  brief: ['Air supply', 'Protection', 'Temperature'],
   fromParams: (sp): Record<string, string[]> => {
     const f: Record<string, string[]> = {}
     const y = YOKE[sp.get('yoke') ?? ''], a = ACTION[sp.get('action') ?? '']

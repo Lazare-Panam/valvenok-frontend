@@ -52,12 +52,12 @@ type Series = {
 
 // Figures from each series page / catalogue
 export const SERIES: Series[] = [
-  { key: "itqm", code: "ITQ Micro", name: "ITQ Micro compact", kind: "Quarter-turn", brand: "Susin", text: "Economic actuators for small ball and plug valves and dampers, from 1 kg, IP66 / IP67.", tag: "25 – 80 Nm", min: 25, max: 80, img: `${V}/brands/susin/itq-micro.jpg`, href: "/actuators/electric/itq-micro", icon: <CompressOutlinedIcon />, color: "#8FD47C", note: "Small valves · from 1 kg" },
+  { key: "itqm", code: "ITQ Micro", name: "ITQ Micro compact", kind: "Quarter-turn", brand: "Susin", text: "Economic actuators for small ball and plug valves and dampers, IP66 / IP67, ISO 5211 F03 to F07.", tag: "25 – 80 Nm", min: 25, max: 80, img: `${V}/brands/susin/itq-micro.jpg`, href: "/actuators/electric/itq-micro", icon: <CompressOutlinedIcon />, color: "#8FD47C", note: "Small valves · 25 to 80 Nm" },
   { key: "qs", code: "QS", name: "QS fail-safe spring return", kind: "Quarter-turn", brand: "Susin", text: "An independent spiral spring returns the valve to its safe position in 1.8 s on power loss.", tag: "50 – 300 Nm", min: 50, max: 300, img: `${V}/brands/susin/qs.jpg`, href: "/actuators/electric/qs", icon: <ShieldOutlinedIcon />, color: "#7CB9F0", note: "Fail-safe on power loss" },
-  { key: "itq", code: "ITQ", name: "ITQ heavy-duty rotary", kind: "Quarter-turn", brand: "Susin", text: "Double worm self-locking gear, IP67 / NEMA 4X & 6, ISO 5211 mounting, for valves up to 9,000 Nm.", tag: "100 – 9,000 Nm", min: 100, max: 9000, img: `${V}/products/actuators/electric/itq.webp`, href: "/actuators/electric/itq", icon: <FitnessCenterOutlinedIcon />, color: "#B7A6F0", note: "Self-locking · IP67" },
-  { key: "itm", code: "ITM", name: "ITM multi-turn", kind: "Multi-turn", brand: "Susin", text: "For gate, globe and sluice valves: IP68, Hall encoder feedback, LCD local control, Ex d IIC T4 optional.", tag: "177 – 2,942 Nm", min: 177, max: 2942, img: `${V}/products/actuators/electric/itm.webp`, href: "/actuators/electric/itm", icon: <SyncOutlinedIcon />, color: "#F4C95D", note: "Multi-turn · IP68" },
+  { key: "itq", code: "ITQ", name: "ITQ heavy-duty rotary", kind: "Quarter-turn", brand: "Susin", text: "Double worm self-locking gear, IP67 / NEMA 4X & 6, ISO 5211 mounting, for valves up to 9,000 Nm.", tag: "100 – 9,000 Nm", min: 100, max: 9000, img: `${V}/products/actuators/electric/itq-heavy-duty.webp`, href: "/actuators/electric/itq", icon: <FitnessCenterOutlinedIcon />, color: "#B7A6F0", note: "Self-locking · IP67" },
+  { key: "itm", code: "ITM", name: "ITM multi-turn", kind: "Multi-turn", brand: "Susin", text: "For gate, globe and sluice valves: IP68, Hall encoder feedback, LCD local control, Ex d IIC T4 optional.", tag: "177 – 2,942 Nm", min: 177, max: 2942, img: `${V}/products/actuators/electric/itm-multi-turn.webp`, href: "/actuators/electric/itm", icon: <SyncOutlinedIcon />, color: "#F4C95D", note: "Multi-turn · IP68" },
   { key: "itl", code: "ITL", name: "ITL compact linear", kind: "Linear", brand: "Susin", text: "Compact linear actuators with a 100% duty cycle motor for high-frequency modulating control.", tag: "Linear · 1 – 6 kN", img: `${V}/products/actuators/electric/itl.webp`, href: "/actuators/electric/itl", icon: <SwapVertOutlinedIcon />, color: "#8FD47C", note: "" },
-  { key: "iql", code: "IQL", name: "IQL linear", kind: "Linear", brand: "Susin", text: "Linear actuators for globe and gate valves, IP67 (IP68 option), with battery backup fail-safe.", tag: "Linear · 4 – 25 kN", img: `${V}/products/actuators/electric/iql.webp`, href: "/actuators/electric/iql", icon: <SwapVertOutlinedIcon />, color: "#7CB9F0", note: "" },
+  { key: "iql", code: "IQL", name: "IQL linear", kind: "Linear", brand: "Susin", text: "Linear actuators for globe and control valves, 40 to 100 mm stroke, IP67, with a battery backup fail-safe option.", tag: "Linear · 4 – 25 kN", img: `${V}/products/actuators/electric/iql.webp`, href: "/actuators/electric/iql", icon: <SwapVertOutlinedIcon />, color: "#7CB9F0", note: "" },
   { key: "pve", code: "PVE", name: "Danfoss PVE electrohydraulic", kind: "Electrohydraulic", brand: "Danfoss", text: "Electrohydraulic actuators for Danfoss proportional directional valves (PVG, PVHC) in mobile hydraulics.", tag: "Proportional valves", img: `${V}/products/danfoss/dfe-ac.png`, href: "/actuators/electric/pvae32", icon: <TuneOutlinedIcon />, color: "#F4C95D", note: "" },
 ];
 const S = Object.fromEntries(SERIES.map((s) => [s.key, s]));
@@ -74,9 +74,9 @@ const STATS: { value: string; unit: string; label: string; logos?: string[] }[] 
 const DUTIES: { label: string; picks: string[]; rotary: boolean }[] = [
   { label: "Open / close a quarter-turn valve", picks: ["itqm", "itq"], rotary: true },
   { label: "Small valve, compact", picks: ["itqm"], rotary: true },
-  { label: "Fail-safe on power loss", picks: ["qs", "iql"], rotary: false },
+  { label: "Fail-safe on power loss", picks: ["qs", "itq", "iql"], rotary: false },
   { label: "Gate, globe or sluice valve (multi-turn)", picks: ["itm"], rotary: true },
-  { label: "Hazardous area (explosion-proof)", picks: ["itm"], rotary: true },
+  { label: "Hazardous area (explosion-proof)", picks: ["itm", "itq", "iql", "pve"], rotary: false },
   { label: "Linear stroke / control valve", picks: ["itl", "iql"], rotary: false },
   { label: "Danfoss proportional valve", picks: ["pve"], rotary: false },
 ];
@@ -86,10 +86,10 @@ const nm = (n: number) => n.toLocaleString("en-GB");
 const FAQ_ICONS = [CompareArrowsOutlinedIcon, ShieldOutlinedIcon, ElectricBoltOutlinedIcon, TuneOutlinedIcon, WarningAmberOutlinedIcon];
 const FAQ = [
   { q: "Quarter-turn, multi-turn or linear?", a: "Quarter-turn actuators (ITQ Micro, QS, ITQ) turn ball, butterfly and plug valves through 90°. Multi-turn actuators (ITM) make many turns for gate, globe and sluice valves. Linear actuators (ITL, IQL) push and pull the stem of control and globe valves." },
-  { q: "What happens if the power fails?", a: "A standard electric actuator stays where it is. If the valve must go to a safe position, choose the QS series, which has an independent spring that returns the valve in 1.8 s, or a battery backup model such as the IQL." },
-  { q: "Which supply voltages are available?", a: "It depends on the series and size: typically 110 / 220 VAC single phase, 380 / 440 VAC three phase and 24 VDC. Each series page lists the voltages for every model." },
+  { q: "What happens if the power fails?", a: "A standard electric actuator stays where it is. If the valve must go to a safe position, choose the QS series, which has an independent spring that returns the valve in 1.8 s, or the battery backup option on the IQL or on single-phase ITQ 0160 to 0500, which moves the valve to a set position." },
+  { q: "Which supply voltages are available?", a: "It depends on the series: ITQ, QS and IQL run on 110 / 220 VAC single phase, 380 / 440 VAC three phase or 24 VDC (on ITQ, up to ITQ 0500); ITM on three phase 220 to 480 V; ITL on 100 to 240 VAC universal or 24 V; ITQ 0020 on 85 to 265 VAC; Danfoss PVE on 9 to 32 VDC. Each series page lists the voltages for every model." },
   { q: "Can they modulate as well as open and close?", a: "Yes. Most series can be supplied for modulating control with a 4–20 mA input and position feedback. Tell us your control signal and we’ll quote the right version." },
-  { q: "Do you have explosion-proof electric actuators?", a: "Yes. The ITM multi-turn series has an Ex d IIC T4 option. Send us the zone and gas group and we’ll confirm the model." },
+  { q: "Do you have explosion-proof electric actuators?", a: "Yes, as options: ITM multi-turn to Ex d IIC T4, ITQ quarter-turn and IQL linear to Ex d IIB T4, and Danfoss PVE-EX for PVG valves. The QS fail-safe series is not available explosion proof. Send us the zone and gas group and we’ll confirm the model." },
 ];
 const SCHEMA = {
   "@context": "https://schema.org",

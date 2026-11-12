@@ -1,16 +1,17 @@
-import type { Metadata } from 'next'
+import type { Metadata } from "next";
+import { IQL_IMAGE } from "./iqlData";
+
+const TITLE = "IQL Electric Linear Actuators, 4–25 kN | Valvenok";
+const DESCRIPTION =
+  "Susin IQL electric linear actuators for globe and control valves: 4 to 25 kN, 40 to 100 mm stroke, 24 VDC, 1 or 3 phase, IP67, on/off or modulating.";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/actuators/electric/iql" },
-  title: 'IQL Series Linear Electric Actuators',
-  description: 'Robust linear electric actuators for precise modulating control. 4–25 kN thrust, IP67, battery backup fail-safe, 4–20mA / 0–10V control.',
-  openGraph: {
-    title: 'IQL Series Linear Electric Actuators | Valvenok',
-    description: 'Linear electric actuators for precise modulating control, 4–25 kN thrust, IP67, battery backup fail-safe.',
-    type: 'website',
-  },
-}
+  title: { absolute: TITLE },
+  description: DESCRIPTION,
+  openGraph: { title: TITLE, description: DESCRIPTION, type: "website", images: [IQL_IMAGE] },
+};
 
 export default function IQLLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>
+  return <>{children}</>;
 }

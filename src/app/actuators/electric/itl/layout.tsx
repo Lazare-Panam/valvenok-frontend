@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
+import { ITL_IMAGE } from "./itlData";
+
+const TITLE = "ITL Electric Linear Actuators, 1–6 kN | Valvenok";
+const DESCRIPTION =
+  "Susin ITL compact electric linear actuators for globe and control valves: 1 to 6 kN, 15 to 50 mm stroke, continuous duty, AC 100–240 V or 24 V, IP66 & IP67.";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/actuators/electric/itl" },
-  title: "ITL Series Compact Linear Electric Actuators",
-  description:
-    "Compact linear electric actuators with 100% duty cycle motor. 1–6 kN thrust, IP66/67, universal power supply, 4–20mA / 0–10V control.",
-  openGraph: {
-    title: "ITL Series Compact Linear Electric Actuators | Valvenok",
-    description:
-      "Compact linear electric actuators with 100% continuous duty cycle, 1–6 kN thrust, IP66/67 protection.",
-    type: "website",
-  },
+  title: { absolute: TITLE },
+  description: DESCRIPTION,
+  openGraph: { title: TITLE, description: DESCRIPTION, type: "website", images: [ITL_IMAGE] },
 };
 
 export default function ITLLayout({ children }: { children: React.ReactNode }) {

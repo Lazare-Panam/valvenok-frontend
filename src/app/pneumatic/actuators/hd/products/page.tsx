@@ -9,7 +9,7 @@ import { HD_ACTUATOR_DATA } from './hooks/hdActuatorData'
 const nm = (n: number) => n.toLocaleString('en-GB')
 const DEF: ListDef = {
   title: 'HD heavy-duty actuator models',
-  intro: `${ITEMS.length} Susin HD body sizes, ${nm(HD_ACTUATOR_DATA[0].torqueNmMin)} to ${nm(Math.max(...HD_ACTUATOR_DATA.map(m => m.torqueNmMax)))} Nm. Filter by body size and mounting, open a row for the full figures, then request a quote.`,
+  intro: `${ITEMS.length} Susin HD body sizes, ${nm(HD_ACTUATOR_DATA[0].torqueNmMin)} to ${nm(Math.max(...HD_ACTUATOR_DATA.map(m => m.torqueNmMax)))} Nm. Filter by body size and mounting, open any model for its full figures, then request a quote.`,
   back: { href: '/pneumatic/actuators/hd', label: 'HD series overview' },
   catalog: { href: SUSIN_CATALOG.HD, label: 'IS & IC catalogue (PDF)' },
   columns: ['Torque', 'Spring end torque', 'ISO 5211', 'Max stem'],
@@ -20,6 +20,7 @@ const DEF: ListDef = {
   sorts: [{ key: 'model', label: 'Body size' }, { key: 'torque', label: 'Max torque', desc: true }],
   placeholder: 'Search body size, e.g. 03 or F25',
   items: ITEMS,
+  brief: ['Max stem height', 'Air supply', 'Over-travel', 'Protection'],
   fromParams: (sp): Record<string, string[]> => { const m = sp.get('model'); return m ? { size: [m] } : {} },
 }
 

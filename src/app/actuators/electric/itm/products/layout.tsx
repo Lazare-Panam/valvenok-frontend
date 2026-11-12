@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 
-const TITLE = "ITM Series Electric Multi-Turn Actuators — Models | Valvenok";
+const TITLE = "ITM Multi-Turn Electric Actuator Models, 177–2,942 Nm | Valvenok";
 const DESCRIPTION =
-  "Browse ITM series electric multi-turn valve actuators across body types and models. Filter to find the configuration you need and request a quote.";
-const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
+  "All five Susin ITM multi-turn electric actuators, ITM 0180 to ITM 3000: torque, thrust, stem, ISO 5210 flange, weight and speed torque tables. Request a quote.";
+const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/itm-multi-turn.webp";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/actuators/electric/itm/products" },
@@ -29,5 +28,5 @@ export default function ITMActuatorLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}<RangeCopy path="/actuators/electric/itm/products" /></>;
+  return <>{children}</>;
 }

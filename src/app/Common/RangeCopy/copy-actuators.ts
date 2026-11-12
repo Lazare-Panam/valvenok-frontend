@@ -1,50 +1,6 @@
 import type { RangeCopyMap } from "./types";
 
 export const ACTUATOR_COPY: RangeCopyMap = {
-  "/actuators/electric/iql/products": {
-    heading: "About the IQL Series Linear Actuator Range",
-    paragraphs: [
-      "IQL actuators are electric linear actuators: a motor drives a gear train and screw that converts rotation into straight-line thrust, pushing or pulling a valve stem through a fixed stroke. That makes them suited to globe valves, gate valves and other linear-motion applications where a quarter-turn actuator cannot be used. Each unit has a hard anodised aluminium housing, an IP67 enclosure to EN 60529, a handwheel for manual override and a scale indicator showing valve position.",
-      "The range on this page runs from the IQL 04 to the IQL 25, with thrust from 4 to 25 kN. Stroke rises with size: 40 mm on the IQL 04 and IQL 06, 50 mm on the IQL 08 to IQL 12, and 100 mm on the IQL 20 and IQL 25. Positioning speed is between 0.7 and 1.1 mm/s depending on model, and listed weights run from 7 kg to 22 kg. The duty rating is S2 (up to 30 minutes) or S4 at 50% ED, so the series is intended for intermittent and modulating duty rather than continuous running.",
-      "Use the model and stroke filters to narrow the table, then expand a row for full specifications. When you have a shortlist, request a quote and Valvenok's UK team will confirm availability and configuration.",
-    ],
-    points: [
-      "Select a model whose rated thrust exceeds the valve's required seating and stem force, with a sensible margin.",
-      "Check the valve's travel against the 40, 50 or 100 mm stroke options.",
-      "Power supply listed as 24 VDC or 110–220 VAC; confirm control signal options when ordering.",
-      "Rated for -20°C to +70°C ambient; can be mounted in any orientation except downward.",
-    ],
-  },
-
-  "/actuators/electric/itl/products": {
-    heading: "Choosing Between ITL and IQL Linear Actuators",
-    paragraphs: [
-      "This page brings together two families of electric linear actuator for 2-way and 3-way linear valves. Both convert motor rotation into axial thrust on the valve stem, but they suit different duty patterns, so it helps to compare them before choosing a model.",
-      "The ITL01/02 and ITL04/06 are the compact options. They cover 15–25 mm and 40–50 mm stroke with thrust of 1.0/2.0 kN and 4.0/6.0 kN respectively, run at 1.2 mm/sec, and carry IP66 and IP67 ratings. They are listed for continuous duty and more than 1,200 starts per hour, and accept a universal AC100–240V supply as well as DC24V or AC24V. That makes them a good fit for frequently modulating control loops on smaller valves.",
-      "The IQL04, IQL06, IQL08 and IQL30 entries step up to 4–10 kN of thrust over 40–50 mm strokes, with IP66 enclosures and supply options of AC110/220/380/440V or DC24V/AC24V. The IQL08 and IQL30 have four limit switches rather than two and, unlike the IQL04 and IQL06, include open/close force switches. Across both families, control signals of 0–10V, 2–10V, 1–5V and 0–5V are listed, with 4–20 mA as an option, and housings are die-cast aluminium.",
-      "Filter by series or model to compare, expand a row for the full electrical data, and request a quote from Valvenok's UK team.",
-    ],
-    points: [
-      "High cycle rates or continuous modulation: start with the ITL models.",
-      "Higher thrust, or three-phase supply: look at the IQL models.",
-      "Check the size (diameter × height) column for installation space.",
-    ],
-  },
-
-  "/actuators/electric/itm/products": {
-    heading: "About ITM Multi-Turn Electric Actuators",
-    paragraphs: [
-      "A multi-turn actuator rotates its output many times to open or close a valve, which is what gate, globe and sluice valves with rising or rotating stems need. The ITM series does this with a three-phase motor driving a worm gear, and measures torque with a torque sensor rather than mechanical torque switches. Position is tracked by a Hall incremental encoder, and a 128×64 graphic LCD with 4-LED indication shows status locally. The handwheel declutches automatically, so manual operation is available when the motor is not running.",
-      "Five sizes are listed: models 180, 450 and 750 have a top handwheel, while models 1800 and 3000 have a side handwheel for the larger gear sets. Maximum torque runs from 177 Nm on the model 180 to 2,942 Nm on the model 3000, with ISO flange sizes F10, F14, F16, F25 and F30. Every model has an aluminium alloy body, an IP-68 enclosure and Class F motor insulation. An Ex d II C T4 explosion-proof version is listed as optional.",
-      "Use the model and body type filters to narrow the table, then open a row for stem diameter, stem screw, speed, terminal and cable entry details. Request a quote and Valvenok's UK team will help confirm the configuration.",
-    ],
-    points: [
-      "Size the actuator from the valve's operating torque, then check the flange and maximum stem diameter.",
-      "Standard duty is S2 15 minutes, with S4 30–50% listed as an option for modulating service.",
-      "Main power is listed as three-phase AC 220–480V, 50/60 Hz.",
-    ],
-  },
-
   "/actuators/electric/ke-series/variants": {
     heading: "Understanding KE Series Models and Torque Variants",
     paragraphs: [
@@ -57,15 +13,6 @@ export const ACTUATOR_COPY: RangeCopyMap = {
       "Choose torque at least equal to the valve's break-out torque plus a safety margin.",
       "Check operating time at 50/60 Hz against your process requirements.",
       "Match the flange and drive square to the valve top-work.",
-    ],
-  },
-
-  "/actuators/electric/pvae32/products": {
-    heading: "About Danfoss PVE Electrohydraulic Actuators",
-    paragraphs: [
-      "PVE actuators mount on Danfoss PVG proportional directional control valve sections and move the valve spool in response to an electrical signal. They are used on mobile hydraulic machinery, where an operator joystick or machine controller sends a signal and the actuator positions the spool to control oil flow to a cylinder or motor. This page lists 34 part numbers across the PVEA32, PVED32, PVEH32, PVEH120, PVEM32, PVEO32, PVEO120, PVE120, PVES32, PVG16 and PVHC16 series.",
-      "The series differ in how they control the spool. PVEO models are on/off actuators, listed in 12V and 24V versions, and some include a ramp function for smoother switching. The proportional PVEA, PVEH, PVEM and PVES models are listed with either active or passive fault monitoring, which affects how the actuator reports or reacts to a fault. The PVED32 CC model is listed with Isobus, used on agricultural and mobile equipment. Some PVEM32 and PVG16 entries include a float function, and the PVG16 list also includes manual PVM lever actuators. The PVHC16 entry is a 12V actuator listed at 20 bar with 180° rotation.",
-      "Signal type codes such as 1X4AMP, 1X4DIN, 1X4DEU and 2X4AMP describe the connector, and DI variants have dual inputs. Sort the table by name or series, expand a row for its details and request a quote from Valvenok's UK team, quoting the part number from your existing valve where possible.",
     ],
   },
 

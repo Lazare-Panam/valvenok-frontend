@@ -20,7 +20,7 @@ export function detailPage(items: Item[], series: SeriesMeta) {
       const i = items.find((x) => x.slug === slug);
       if (!i) return {};
       const title = `${i.model} ${series.kind}, ${badgeOf(i)} | Valvenok`;
-      const description = `${i.rfq.description} Full specifications, Susin catalogue data and a quote from Valvenok.`;
+      const description = `${i.rfq.description} Full specifications, ${i.rfq.brand} catalogue data and a quote from Valvenok.`;
       return {
         alternates: { canonical: i.href },
         title: { absolute: title },

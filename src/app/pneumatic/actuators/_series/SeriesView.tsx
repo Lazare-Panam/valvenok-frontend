@@ -15,8 +15,8 @@ import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
 import { T, textReset } from "@/src/app/Landing/modern/tokens";
 import { MotionRoot, Words, Reveal, gradientText, L } from "@/src/app/Common/LightMotion";
 import { wrap, Kicker, H2, Lead, pillBtn } from "@/src/app/hydrogen-cryogenic/components/HydrogenHub";
+import { brandOf } from "./brands";
 
-const SUSIN_LOGO = "https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp";
 const mono = "ui-monospace, Menlo, monospace";
 
 export type Rung = {
@@ -53,9 +53,12 @@ export type SeriesDef = {
   faqTitle: string;
   faq: { q: string; a: string; icon: SvgIconComponent }[];
   cta: { title: string; body: string };
+  parent?: { href: string; label: string }; // CTA back link, default "All pneumatic actuators"
+  brand?: string; // default "Susin"
 };
 
 function Hero({ d }: { d: SeriesDef }) {
+  const b = brandOf(d.brand);
   return (
     <Box component="section" sx={{ position: "relative", overflow: "hidden", background: `linear-gradient(120deg, ${L.mint} 0%, #FFFFFF 45%, #FFF7E6 100%)`, py: { xs: 5, md: 8 } }}>
       <Box sx={{ ...wrap, display: "grid", gridTemplateColumns: { xs: "minmax(0,1fr)", md: "1fr 1fr" }, gap: { xs: 4, md: 7 }, alignItems: "center" }}>
@@ -63,7 +66,7 @@ function Hero({ d }: { d: SeriesDef }) {
           <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, flexWrap: "wrap" }}>
             <Kicker>{d.kicker}</Kicker>
             <Box sx={{ mb: 1.25, display: "inline-flex", px: 1, py: 0.4, borderRadius: 999, bgcolor: "#fff", border: `1px solid ${T.border}` }}>
-              <Box component="img" src={SUSIN_LOGO} alt="Susin" sx={{ height: 18, width: "auto", display: "block" }} />
+              <Box component="img" src={b.logo} alt={b.name} sx={{ height: 18, width: "auto", display: "block" }} />
             </Box>
           </Box>
           <Box component="h1" sx={{ m: 0, mb: 2.5, fontSize: { xs: "2.4rem", sm: "3rem", md: "3.8rem" }, fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.04, color: T.ink }}>
@@ -86,8 +89,8 @@ function Hero({ d }: { d: SeriesDef }) {
             <Box component={Link} href="/contact" sx={{ ...pillBtn(false), justifyContent: "center" }}>Get a quote</Box>
           </Box>
           <Box sx={{ display: "flex", flexWrap: "wrap", columnGap: 2.5, rowGap: 0.75, mt: 2, fontSize: "0.85rem" }}>
-            <Box component={Link} href="/brands/susin" sx={{ display: "inline-flex", alignItems: "center", gap: 0.5, color: T.greenDark, fontWeight: 600, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
-              About Susin <ArrowForwardRoundedIcon sx={{ fontSize: 14 }} />
+            <Box component={b.external ? "a" : Link} href={b.href} {...(b.external ? { target: "_blank", rel: "noopener" } : {})} sx={{ display: "inline-flex", alignItems: "center", gap: 0.5, color: T.greenDark, fontWeight: 600, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
+              {b.about} {b.external ? <ArrowOutwardRoundedIcon sx={{ fontSize: 14 }} /> : <ArrowForwardRoundedIcon sx={{ fontSize: 14 }} />}
             </Box>
             <Box component="a" href={d.catalog} target="_blank" rel="noopener" sx={{ display: "inline-flex", alignItems: "center", gap: 0.5, color: T.greenDark, fontWeight: 600, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
               {d.catalogLabel ? <>{d.catalogLabel} <ArrowOutwardRoundedIcon sx={{ fontSize: 14 }} /></> : <><DownloadRoundedIcon sx={{ fontSize: 16 }} /> Download catalogue (PDF)</>}
@@ -122,7 +125,7 @@ function Ladder({ d }: { d: SeriesDef }) {
           </Box>
           {tabs && (
             <Box role="tablist" aria-label="Filter" sx={{ display: "inline-flex", flexWrap: "wrap", p: 0.5, borderRadius: { xs: "20px", sm: 999 }, bgcolor: T.surface, border: `1px solid ${T.border}`, alignSelf: { xs: "flex-start", md: "auto" } }}>
-              {[{ k: "All", label: `All (${d.total})` }, ...tabs].map((t) => (
+              {[{ k: "All", label: `All (${rungs.reduce((n, r) => n + (r.count ?? 1), 0)})` }, ...tabs].map((t) => (
                 <Box key={t.k} component="button" role="tab" aria-selected={tab === t.k} onClick={() => setTab(t.k)}
                   sx={{ cursor: "pointer", border: 0, fontFamily: "inherit", px: 2, py: 0.9, borderRadius: 999, fontSize: "0.88rem", fontWeight: 700, bgcolor: tab === t.k ? "#fff" : "transparent", color: tab === t.k ? T.ink : T.body, boxShadow: tab === t.k ? "0 1px 4px rgba(14,27,18,0.12)" : "none", transition: "all .15s" }}>
                   {t.label}
@@ -251,7 +254,7 @@ function Cta({ d }: { d: SeriesDef }) {
             <Box component={Link} href={d.productsHref} sx={pillBtn(true)}>
               Compare models <ArrowForwardRoundedIcon sx={{ fontSize: 18 }} />
             </Box>
-            <Box component={Link} href="/pneumatic/actuators" sx={pillBtn(false)}>All pneumatic actuators</Box>
+            <Box component={Link} href={d.parent?.href ?? "/pneumatic/actuators"} sx={pillBtn(false)}>{d.parent?.label ?? "All pneumatic actuators"}</Box>
           </Box>
         </Box>
       </Box>

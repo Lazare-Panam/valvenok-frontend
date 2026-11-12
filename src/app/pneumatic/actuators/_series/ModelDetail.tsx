@@ -26,10 +26,10 @@ export type SeriesMeta = {
   facts: number; // how many specs to show as key-fact tiles
 };
 
-const SUSIN_LOGO = "https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp";
+import { brandOf } from "./brands";
 const mono = "ui-monospace, SFMono-Regular, Menlo, monospace";
-const WA = (model: string, url: string) =>
-  `https://wa.me/447368137917?text=${encodeURIComponent(`Hello Valvenok, I have a question about the Susin ${model} actuator (https://www.valvenok.com${url}).`)}`;
+const WA = (model: string, url: string, brand = "Susin") =>
+  `https://wa.me/447368137917?text=${encodeURIComponent(`Hello Valvenok, I have a question about the ${brand} ${model} actuator (https://www.valvenok.com${url}).`)}`;
 const btn = (primary: boolean) =>
   ({
     display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 1, px: 3, py: 1.4, borderRadius: 999, fontWeight: 700, fontSize: "0.95rem",
@@ -45,6 +45,7 @@ const option = (on: boolean) => ({
 
 export default function ModelDetail({ item: m, items, series, badge }: { item: Item; items: Item[]; series: SeriesMeta; badge: string }) {
   const [open, setOpen] = useState(false);
+  const B = brandOf(m.rfq.brand);
   const url = m.href ?? series.products;
   const type = m.cells.find((c) => typeof c !== "string" && c.pill === "grey");
   const typeText = m.tag ?? (type && typeof type !== "string" ? type.text : series.name);
@@ -53,8 +54,8 @@ export default function ModelDetail({ item: m, items, series, badge }: { item: I
   const related = [...items.slice(Math.max(0, idx - 2), idx), ...items.slice(idx + 1, idx + 3)].slice(0, 4);
   const facts = m.specs.filter(([k]) => k !== "Model").slice(0, series.facts);
   const schema = {
-    "@context": "https://schema.org", "@type": "Product", name: `Susin ${m.model} ${series.kind.toLowerCase()}`, sku: m.model, mpn: m.model,
-    brand: { "@type": "Brand", name: "Susin" }, image: m.image, description: m.rfq.description, category: "Pneumatic actuators",
+    "@context": "https://schema.org", "@type": "Product", name: `${B.name} ${m.model} ${series.kind.toLowerCase()}`, sku: m.model, mpn: m.model,
+    brand: { "@type": "Brand", name: B.name }, image: m.image, description: m.rfq.description, category: m.rfq.category,
     additionalProperty: m.specs.map(([name, value]) => ({ "@type": "PropertyValue", name, value })),
   };
 
@@ -72,13 +73,13 @@ export default function ModelDetail({ item: m, items, series, badge }: { item: I
             {/* photo */}
             <Box sx={{ position: { md: "sticky" }, top: { md: 150 } }}>
               <Box sx={{ position: "relative", aspectRatio: "1 / 1", borderRadius: "28px", bgcolor: "#fff", border: `1px solid ${T.border}`, boxShadow: T.shadow, display: "grid", placeItems: "center", overflow: "hidden" }}>
-                <Box component="img" src={m.image} alt={`Susin ${m.model} ${series.kind.toLowerCase()}`} sx={{ width: "74%", height: "74%", objectFit: "contain", mixBlendMode: "multiply" }} />
-                <Box component="img" src={SUSIN_LOGO} alt="Susin" sx={{ position: "absolute", top: 16, left: 16, height: 40, width: "auto" }} />
+                <Box component="img" src={m.image} alt={`${B.name} ${m.model} ${series.kind.toLowerCase()}`} sx={{ width: "74%", height: "74%", objectFit: "contain", mixBlendMode: "multiply" }} />
+                <Box component="img" src={B.logo} alt={B.name} sx={{ position: "absolute", top: 16, left: 16, height: 40, width: "auto" }} />
                 <Box sx={{ position: "absolute", top: 16, right: 16, px: 1.5, py: 0.6, borderRadius: 999, bgcolor: T.greenSoft, color: T.greenDark, fontSize: "0.8rem", fontWeight: 800 }}>{badge}</Box>
               </Box>
               <Box sx={{ mt: 1.5, display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 1 }}>
                 {[
-                  { icon: <VerifiedOutlinedIcon />, t: "Genuine Susin" },
+                  { icon: <VerifiedOutlinedIcon />, t: `Genuine ${B.name}` },
                   { icon: <MenuBookOutlinedIcon />, t: "Catalogue data" },
                   { icon: <SupportAgentOutlinedIcon />, t: "UK support" },
                 ].map((x) => (
@@ -93,7 +94,7 @@ export default function ModelDetail({ item: m, items, series, badge }: { item: I
             <Box sx={{ minWidth: 0 }}>
               <Box sx={{ display: "flex", alignItems: "center", gap: 1, flexWrap: "wrap", mb: 1.5 }}>
                 <Box component="span" sx={{ px: 1.25, py: 0.4, borderRadius: 999, bgcolor: T.surface, border: `1px solid ${T.border}`, fontSize: "0.78rem", fontWeight: 700, color: T.ink }}>{typeText}</Box>
-                <Box component="span" sx={{ fontSize: "0.82rem", fontWeight: 600, color: T.muted }}>{series.name} series · Susin</Box>
+                <Box component="span" sx={{ fontSize: "0.82rem", fontWeight: 600, color: T.muted }}>{series.name} series · {B.name}</Box>
               </Box>
               <Box component="h1" sx={{ m: 0, fontSize: { xs: "2rem", md: "2.8rem" }, fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1.05, color: T.ink, fontFamily: `${mono} !important` }}>{m.model}</Box>
               <Box component="p" sx={{ m: 0, mt: 1.25, fontSize: "1.05rem", lineHeight: 1.6, color: T.body }}>{m.rfq.description}</Box>
@@ -125,7 +126,7 @@ export default function ModelDetail({ item: m, items, series, badge }: { item: I
                 <Box component="button" type="button" onClick={() => setOpen(true)} sx={btn(true)}>
                   Request a quote <ArrowForwardRoundedIcon sx={{ fontSize: 18 }} />
                 </Box>
-                <Box component="a" href={WA(m.model, url)} target="_blank" rel="noopener" sx={btn(false)}>Ask on WhatsApp</Box>
+                <Box component="a" href={WA(m.model, url, B.name)} target="_blank" rel="noopener" sx={btn(false)}>Ask on WhatsApp</Box>
               </Box>
               <Box sx={{ mt: 1.5, display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: 1, fontSize: "0.85rem", color: T.body }}>
                 <span>Price and lead time confirmed on your quote.</span>
@@ -157,7 +158,7 @@ export default function ModelDetail({ item: m, items, series, badge }: { item: I
 
           {m.table && (
             <Box sx={{ mt: 3 }}>
-              <Box component="h3" sx={{ m: 0, mb: 1.25, fontSize: "1.15rem", fontWeight: 800, color: T.ink }}>{m.table.head[0] === "Position" ? "Torque by air pressure (Nm)" : "Manual overrides for this size"}</Box>
+              <Box component="h3" sx={{ m: 0, mb: 1.25, fontSize: "1.15rem", fontWeight: 800, color: T.ink }}>{m.table.title ?? (m.table.head[0] === "Position" ? "Torque by air pressure (Nm)" : "Manual overrides for this size")}</Box>
               <Box sx={{ overflowX: "auto", borderRadius: "16px", border: `1px solid ${T.border}`, bgcolor: "#fff" }}>
                 <Box component="table" sx={{ width: "100%", borderCollapse: "collapse", fontSize: "0.9rem", "& th, & td": { px: 2, py: 1.2, borderBottom: `1px solid ${T.border}`, textAlign: "left", whiteSpace: "nowrap" }, "& th": { fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: T.muted, bgcolor: "#FAFCFA" }, "& td": { color: T.ink }, "& td:first-of-type": { fontWeight: 800 } }}>
                   <thead><tr>{m.table.head.map((h) => <th key={h}>{h}</th>)}</tr></thead>
@@ -171,8 +172,8 @@ export default function ModelDetail({ item: m, items, series, badge }: { item: I
           <Box sx={{ mt: 3, display: "grid", gridTemplateColumns: { xs: "1fr", md: "repeat(3, 1fr)" }, gap: 2 }}>
             {[
               { k: "Which size?", t: `Compare the ${series.name} range`, d: `How the ${series.name} series works, every size side by side and the common questions.`, cta: `${series.name} series guide`, href: series.overview, ext: false, bg: "linear-gradient(135deg, #EEF9EA 0%, #EAF4FF 100%)" },
-              { k: "The full data", t: "Susin catalogue", d: "Dimensions, materials and the complete performance tables, straight from the manufacturer.", cta: series.catalog.label, href: series.catalog.href, ext: true, bg: "linear-gradient(135deg, #FFF7E6 0%, #FFFDF5 100%)" },
-              { k: "Need help?", t: "Talk to our team", d: "Send the valve, torque or thrust and air supply and we’ll confirm the right model, or call +44 7368 137917.", cta: "Ask on WhatsApp", href: WA(m.model, url), ext: true, bg: "linear-gradient(135deg, #F3EEFF 0%, #EAF4FF 100%)" },
+              { k: "The full data", t: `${B.name} catalogue`, d: "Dimensions, materials and the complete performance tables, straight from the manufacturer.", cta: series.catalog.label, href: series.catalog.href, ext: true, bg: "linear-gradient(135deg, #FFF7E6 0%, #FFFDF5 100%)" },
+              { k: "Need help?", t: "Talk to our team", d: `Send the valve, torque or thrust and ${m.rfq.category === "Electric Actuators" ? "power supply" : "air supply"} and we’ll confirm the right model, or call +44 7368 137917.`, cta: "Ask on WhatsApp", href: WA(m.model, url, B.name), ext: true, bg: "linear-gradient(135deg, #F3EEFF 0%, #EAF4FF 100%)" },
             ].map((x) => (
               <Box key={x.k} sx={{ display: "flex", flexDirection: "column", p: 3, borderRadius: "22px", background: x.bg, border: `1px solid ${T.border}` }}>
                 <Box sx={{ fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase !important", color: T.greenDark, mb: 1 }}>{x.k}</Box>
@@ -201,7 +202,7 @@ export default function ModelDetail({ item: m, items, series, badge }: { item: I
               {related.map((r) => (
                 <Box key={r.id} component={Link} href={r.href ?? series.products} sx={{ display: "block", p: 1.5, borderRadius: "20px", bgcolor: "#fff", border: `1px solid ${T.border}`, textDecoration: "none", transition: "all .2s", "&:hover": { borderColor: "#BFE5B3", transform: "translateY(-3px)", boxShadow: T.shadowHover } }}>
                   <Box sx={{ aspectRatio: "4 / 3", borderRadius: "14px", bgcolor: "#F2F5F8", display: "grid", placeItems: "center", overflow: "hidden" }}>
-                    <Box component="img" src={r.image} alt={`Susin ${r.model}`} loading="lazy" sx={{ width: "72%", height: "76%", objectFit: "contain", mixBlendMode: "multiply" }} />
+                    <Box component="img" src={r.image} alt={`${B.name} ${r.model}`} loading="lazy" sx={{ width: "72%", height: "76%", objectFit: "contain", mixBlendMode: "multiply" }} />
                   </Box>
                   <Box sx={{ mt: 1.25, fontFamily: mono, fontWeight: 700, fontSize: "0.86rem", color: T.ink }}>{r.model}</Box>
                   <Box sx={{ mt: 0.25, fontSize: "0.8rem", color: T.body }}>{r.sub}</Box>

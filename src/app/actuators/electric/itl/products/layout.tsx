@@ -1,23 +1,17 @@
 import type { Metadata } from "next";
-import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
+import { ITL_IMAGE } from "../itlData";
+
+const TITLE = "ITL Electric Linear Actuator Models, 1–6 kN | Valvenok";
+const DESCRIPTION =
+  "All four Susin ITL electric linear actuators, ITL01 to ITL06: thrust, stroke, stroke time, current and weight. Request a quote from Valvenok.";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/actuators/electric/itl/products" },
-  title: { absolute: "ITL Series Electric Linear Actuators — Models | Valvenok" },
-  description:
-    "Browse ITL series electric linear valve actuators. Filter by series and model to find the configuration you need, then request a quote from Valvenok.",
-  openGraph: {
-    title: "ITL Series Electric Linear Actuators — Models | Valvenok",
-    description:
-      "Browse ITL series electric linear valve actuators. Filter by series and model to find the configuration you need, then request a quote from Valvenok.",
-    type: "website",
-  },
+  title: { absolute: TITLE },
+  description: DESCRIPTION,
+  openGraph: { title: TITLE, description: DESCRIPTION, type: "website", images: [ITL_IMAGE] },
 };
 
-export default function ElectricActuatorLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return <>{children}<RangeCopy path="/actuators/electric/itl/products" /></>;
+export default function ITLProductsLayout({ children }: { children: React.ReactNode }) {
+  return <>{children}</>;
 }

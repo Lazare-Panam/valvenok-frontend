@@ -1,16 +1,17 @@
-import type { Metadata } from 'next'
+import type { Metadata } from "next";
+import { PVE_IMAGE } from "./pveData";
+
+const TITLE = "Danfoss PVE Electrohydraulic Actuators for PVG Valves | Valvenok";
+const DESCRIPTION =
+  "Danfoss PVE actuators for PVG proportional valves: on/off PVEO, proportional PVEM, PVEA, PVEH and PVES, PVED-CC CAN bus and PVE-EX explosion proof. 9–32 VDC, −40 to +90 °C.";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/actuators/electric/pvae32" },
-  title: 'Danfoss PVE Series Electrohydraulic Actuators',
-  description: 'Danfoss PVE series electrohydraulic actuators for proportional directional control valves. PVEA, PVEH, PVEM, PVEO, PVES, PVG and PVHC series available.',
-  openGraph: {
-    title: 'Danfoss PVE Series Electrohydraulic Actuators | Valvenok',
-    description: 'Danfoss PVE series electrohydraulic actuators for proportional directional control valves, active and passive fault monitoring, 12V/24V.',
-    type: 'website',
-  },
-}
+  title: { absolute: TITLE },
+  description: DESCRIPTION,
+  openGraph: { title: TITLE, description: DESCRIPTION, type: "website", images: [PVE_IMAGE] },
+};
 
-export default function DanfossPVELayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>
+export default function PVELayout({ children }: { children: React.ReactNode }) {
+  return <>{children}</>;
 }

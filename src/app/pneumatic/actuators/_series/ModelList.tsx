@@ -32,10 +32,11 @@ export type ListDef = {
   placeholder: string;
   items: Item[];
   fromParams?: (sp: URLSearchParams) => Filters; // links from the series page
+  brief?: string[]; // spec labels shown when a row is opened (the rest is on the product page)
 };
 export type Filters = Record<string, string[]>;
 
-const SUSIN_LOGO = "https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp";
+import { brandOf } from "./brands";
 const mono = "ui-monospace, SFMono-Regular, Menlo, monospace";
 const CHEVRON = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%230E1B12' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`;
 const selectSx = { appearance: "none", WebkitAppearance: "none", backgroundImage: CHEVRON, backgroundRepeat: "no-repeat", backgroundPosition: "right 2px center", backgroundSize: "12px", cursor: "pointer", fontFamily: "inherit", fontWeight: 700, color: T.ink, outline: 0 } as const;
@@ -71,7 +72,7 @@ function Header({ d }: { d: ListDef }) {
         </Box>
         {d.catalog && (
           <Box component="a" href={d.catalog.href} target="_blank" rel="noopener" sx={{ flexShrink: 0, alignSelf: "flex-start", mt: { md: 5.5 }, display: "inline-flex", alignItems: "center", gap: 1, px: 1.75, py: 1, borderRadius: 999, bgcolor: "#fff", border: `1px solid ${T.border}`, textDecoration: "none", color: T.ink, fontSize: "0.82rem", fontWeight: 700, "&:hover": { borderColor: T.greenDark } }}>
-            <Box component="img" src={SUSIN_LOGO} alt="Susin" sx={{ height: 20, width: "auto" }} />
+            <Box component="img" src={brandOf(d.items[0]?.rfq.brand).logo} alt={brandOf(d.items[0]?.rfq.brand).name} sx={{ height: 20, width: "auto" }} />
             {d.catalog.label} <DownloadRoundedIcon sx={{ fontSize: 16 }} />
           </Box>
         )}
@@ -118,7 +119,16 @@ function Sidebar({ d, filters, setFilters, counts, activeCount }: { d: ListDef; 
   );
 }
 
-function Details({ m, onQuote }: { m: Item; onQuote: () => void }) {
+// When the model has its own product page, the opened row stays short: a few
+// figures that aren't already in the row, then the buttons. Everything else
+// (full specs, tables, notes) is on the product page.
+const cellText = (m: Item) => m.cells.map((c) => (typeof c === "string" ? c : c.text));
+const briefOf = (m: Item, labels?: string[]) =>
+  m.brief ?? (labels ? m.specs.filter(([k]) => labels.includes(k)) : m.specs.filter(([, v]) => !cellText(m).includes(v) && v !== m.model).slice(0, 4));
+
+function Details({ m, onQuote, brief }: { m: Item; onQuote: () => void; brief?: string[] }) {
+  const short = Boolean(m.href);
+  const specs = short ? briefOf(m, brief) : m.specs;
   return (
     <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "120px minmax(0,1fr)" }, gap: 2.5, p: { xs: 2, md: 2.5 }, bgcolor: "#FAFCFA", borderRadius: "14px", border: `1px solid ${T.border}` }}>
       <Box sx={{ width: 120, height: 120, borderRadius: "12px", bgcolor: "#fff", border: `1px solid ${T.border}`, display: "grid", placeItems: "center", overflow: "hidden" }}>
@@ -126,9 +136,9 @@ function Details({ m, onQuote }: { m: Item; onQuote: () => void }) {
       </Box>
       <Box sx={{ minWidth: 0 }}>
         <Box component="dl" sx={{ m: 0, display: "grid", gridTemplateColumns: { xs: "1fr 1fr", md: "repeat(4, 1fr)" }, gap: 1.5, mb: 2, "& dt": { fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: T.muted }, "& dd": { m: 0, mt: 0.25, fontSize: "0.88rem", fontWeight: 700, color: T.ink } }}>
-          {m.specs.map(([k, v]) => <div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}
+          {specs.map(([k, v]) => <div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}
         </Box>
-        {m.table && (
+        {!short && m.table && (
           <Box sx={{ overflowX: "auto", mb: 2, borderRadius: "12px", border: `1px solid ${T.border}`, bgcolor: "#fff" }}>
             <Box component="table" sx={{ width: "100%", borderCollapse: "collapse", fontSize: "0.82rem", "& th, & td": { px: 1.25, py: 0.8, borderBottom: `1px solid ${T.border}`, textAlign: "left", whiteSpace: "nowrap" }, "& th": { fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: T.muted, bgcolor: "#FAFCFA" }, "& td": { color: T.ink }, "& td:first-of-type": { fontWeight: 700 } }}>
               <thead><tr>{m.table.head.map((h) => <th key={h}>{h}</th>)}</tr></thead>
@@ -136,7 +146,7 @@ function Details({ m, onQuote }: { m: Item; onQuote: () => void }) {
             </Box>
           </Box>
         )}
-        {m.note && <Box sx={{ fontSize: "0.8rem", color: T.muted, mb: 1.5 }}>{m.note}</Box>}
+        {!short && m.note && <Box sx={{ fontSize: "0.8rem", color: T.muted, mb: 1.5 }}>{m.note}</Box>}
         <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
           {m.href && (
             <Box component={Link} href={m.href} sx={{ ...quoteBtn, bgcolor: "#fff", color: T.greenDark, border: `1.5px solid ${T.greenDark}`, textDecoration: "none", "&:hover": { bgcolor: T.greenSoft } }}>
@@ -259,7 +269,7 @@ function List({ d, initial }: { d: ListDef; initial: Filters }) {
                       {isOpen && (
                         <tr>
                           <td colSpan={cols} style={{ padding: 12, background: "#fff", whiteSpace: "normal" }}>
-                            <Details m={m} onQuote={() => setQuote(m.rfq)} />
+                            <Details m={m} brief={d.brief} onQuote={() => setQuote(m.rfq)} />
                           </td>
                         </tr>
                       )}
@@ -286,7 +296,7 @@ function List({ d, initial }: { d: ListDef; initial: Filters }) {
                   <Box sx={{ mt: 1.25, display: "flex", flexWrap: "wrap", gap: 0.75 }}>
                     {m.cells.filter((c) => typeof c !== "string" && c.pill).map((c, i) => <Box key={i}>{renderCell(c)}</Box>)}
                   </Box>
-                  {isOpen && <Box sx={{ mt: 1.5 }}><Details m={m} onQuote={() => setQuote(m.rfq)} /></Box>}
+                  {isOpen && <Box sx={{ mt: 1.5 }}><Details m={m} brief={d.brief} onQuote={() => setQuote(m.rfq)} /></Box>}
                   <Box sx={{ display: "flex", gap: 1, mt: 1.5 }}>
                     <Box component="button" type="button" onClick={() => setOpen(isOpen ? null : m.id)} sx={{ ...quoteBtn, flex: 1, justifyContent: "center", bgcolor: "#fff", color: T.ink, border: `1px solid ${T.border}`, "&:hover": { bgcolor: T.surface } }}>{isOpen ? "Hide specs" : "Full specs"}</Box>
                     <Box component="button" type="button" onClick={() => setQuote(m.rfq)} sx={{ ...quoteBtn, flex: 1, justifyContent: "center" }}>Request quote</Box>

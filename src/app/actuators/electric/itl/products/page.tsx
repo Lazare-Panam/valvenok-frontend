@@ -1,69 +1,26 @@
 'use client'
-import { GroupSiteLinks, groupSitesIn } from '@/src/app/Common/GroupVisitLinks'
-import { useState, useMemo } from 'react'
-import { Box, Typography } from '@mui/material'
-import { alpha } from '@mui/material/styles'
-import {
-  ELECTRIC_ACTUATOR_DATA, ELECTRIC_ACTUATOR_DESCRIPTION,
-  type ElectricActuatorFilters, EMPTY_ELECTRIC_FILTERS,
-  applyElectricFilters, countByElectric, type AvailableCountsElectric,
-} from './hooks/electricActuatorData'
-import { ElectricActuatorActiveFilters } from './components/ElectricActuatorActiveFilters'
-import ElectricActuatorTable from './components/ElectricActuatorTable'
 
-const BRAND_GREEN = '#61D649'
-const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
+// ITL model list ("View all models"). Rows come from ./items.
+import ModelList, { type ListDef } from '@/src/app/pneumatic/actuators/_series/ModelList'
+import { ITL_CATALOG } from '../itlData'
+import { ITEMS } from './items'
 
-export default function ElectricActuatorPage() {
-  const [filters, setFilters] = useState<ElectricActuatorFilters>(EMPTY_ELECTRIC_FILTERS)
+const DEF: ListDef = {
+  title: 'ITL electric linear actuator models',
+  intro: `${ITEMS.length} Susin ITL linear actuators for globe and control valves, 1 to 6 kN of thrust and 15 to 50 mm of stroke. Open any model for its full figures, then request a quote.`,
+  back: { href: '/actuators/electric/itl', label: 'ITL series overview' },
+  catalog: { href: ITL_CATALOG, label: 'ITL catalogue (PDF)' },
+  columns: ['Thrust', 'Stroke', 'Stroke time', 'Weight'],
+  facets: [
+    { key: 'model', title: 'Model', options: ITEMS.map((i) => i.model) },
+    { key: 'body', title: 'Body', options: ['ITL01 / ITL02', 'ITL04 / ITL06'] },
+  ],
+  sorts: [{ key: 'model', label: 'Model' }, { key: 'thrust', label: 'Thrust', desc: true }],
+  placeholder: 'Search model or thrust, e.g. ITL04 or 6 kN',
+  items: ITEMS,
+  fromParams: (sp): Record<string, string[]> => { const m = sp.get('model'); return m ? { model: [m] } : {} },
+}
 
-  const models = useMemo(() => applyElectricFilters(ELECTRIC_ACTUATOR_DATA, filters, ''), [filters])
-
-  const availableCounts = useMemo<AvailableCountsElectric>(() => ({
-    series: countByElectric(applyElectricFilters(ELECTRIC_ACTUATOR_DATA, filters, 'series'), c => c.series),
-    models: countByElectric(applyElectricFilters(ELECTRIC_ACTUATOR_DATA, filters, 'models'), c => c.model),
-  }), [filters])
-
-  const activeCount = Object.values(filters).reduce((acc, v) => acc + v.length, 0)
-
-  return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
-      <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
-        <Typography variant="h1" fontWeight={800} mb={1} sx={{ color: BRAND_GREEN, fontFamily: PRIMARY_FONT }}>
-          {ELECTRIC_ACTUATOR_DESCRIPTION.title}
-        </Typography>
-        <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 800, fontFamily: PRIMARY_FONT }}>
-          {ELECTRIC_ACTUATOR_DESCRIPTION.description}
-        </Typography>
-        <GroupSiteLinks variant="inline" sites={groupSitesIn(ELECTRIC_ACTUATOR_DESCRIPTION.title, ELECTRIC_ACTUATOR_DESCRIPTION.description)} />
-        <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
-          {ELECTRIC_ACTUATOR_DESCRIPTION.specs.map(s => (
-            <Box key={s} sx={{
-              px: 1.5, py: 0.5, borderRadius: '20px', fontSize: '0.75rem', fontWeight: 600,
-              bgcolor: alpha(BRAND_GREEN, 0.08), color: '#2d8a1e',
-              border: `1px solid ${alpha(BRAND_GREEN, 0.3)}`,
-              fontFamily: PRIMARY_FONT,
-            }}>
-              {s}
-            </Box>
-          ))}
-        </Box>
-      </Box>
-
-      <Box sx={{ p: { xs: 2, md: 3 }, flex: 1 }}>
-        <ElectricActuatorActiveFilters filters={filters} setFilters={setFilters} />
-        <Typography variant="caption" fontWeight={700} color="text.disabled"
-          sx={{ display: 'block', mb: 1, fontFamily: PRIMARY_FONT }}>
-          {`${models.length} MODELS`}
-        </Typography>
-        <ElectricActuatorTable
-          models={models}
-          filters={filters}
-          setFilters={setFilters}
-          availableCounts={availableCounts}
-          activeCount={activeCount}
-        />
-      </Box>
-    </Box>
-  )
+export default function ITLModelsPage() {
+  return <ModelList def={DEF} />
 }

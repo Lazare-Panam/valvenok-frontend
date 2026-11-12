@@ -12,7 +12,8 @@ export type Item = {
   sort: Record<string, number | string>;
   search: string;
   specs: [string, string][];
-  table?: { head: string[]; rows: string[][] }; // e.g. torque by angle and pressure
+  brief?: [string, string][]; // the few figures shown when a list row is opened (full specs live on the product page)
+  table?: { title?: string; head: string[]; rows: string[][] }; // e.g. torque by angle and pressure
   note?: string;
   rfq: ProductForRFQ;
   tag?: string; // type chip on the product page (defaults to the grey pill)

@@ -307,7 +307,7 @@ export const NAV_GROUPS: NavGroup[] = [
             ],
           },
           {
-            label: "Danfoss PVAE Acutator",
+            label: "Danfoss PVE Actuators",
             href: "/actuators/electric/pvae32",
             children: [
               { label: "View All Models", href: "/actuators/electric/pvae32/products" },

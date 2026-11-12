@@ -3,8 +3,12 @@
 // "Technical information" table.
 import { SUSIN_CATALOG } from "@/src/app/Common/susinCatalogs";
 
+// Heavy-duty ITQ photos from the ITQ catalogue (cover and p.3). The older itq.webp
+// shows an ITQ Micro (nameplate ITQ-0020), so it is no longer used here.
 export const ITQ_IMAGE =
-  "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/itq.webp";
+  "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/itq-heavy-duty.webp";
+export const ITQ_ON_VALVE =
+  "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/itq-on-valve.webp";
 
 export const ITQ_CATALOG = SUSIN_CATALOG.ITQ;
 

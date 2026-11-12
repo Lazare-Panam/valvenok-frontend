@@ -63,12 +63,13 @@ type BreadcrumbsProps = {
 const ACRONYMS = new Set([
   'ag', 'lpg', 'dbb', 'hp', 'jic', 'npt', 'bsp', 'aov', 'ss', 'ss316', 'vsi', 'h2', 'frl',
   // series codes
-  'iql', 'itl', 'itm', 'itq', 'itg', 'its', 'mab', 'maw', 'adf', 'hd', 'mhd', 'pds', 'plds', 'mplds', 'sra',
+  'iql', 'itl', 'itm', 'itq', 'qs', 'itg', 'its', 'mab', 'maw', 'adf', 'hd', 'mhd', 'pds', 'plds', 'mplds', 'sra',
   'esc', 'esnc', 'sdnc', 'sdnu', 'kls', 'ke', 'tg', 'fg', 'pvae32', 'ib', 'hb', 'sb', 'rss', 'wkm',
 ]);
 
 // Segments whose label isn't just the words in the URL
 const DEFAULT_LABELS: Record<string, string> = {
+  pvae32: 'Danfoss PVE',
   'hydrogen-cryogenic': 'Hydrogen & High Pressure',
   'dbb-manifolds': 'DBB & Manifolds',
   'fittings-tubing': 'Tubings & Fittings',

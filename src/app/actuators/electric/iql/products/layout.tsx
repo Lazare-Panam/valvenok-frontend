@@ -1,23 +1,17 @@
 import type { Metadata } from "next";
-import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
+import { IQL_IMAGE } from "../iqlData";
+
+const TITLE = "IQL Electric Linear Actuator Models, 4–25 kN | Valvenok";
+const DESCRIPTION =
+  "All seven Susin IQL electric linear actuators, IQL 04 to IQL 25: thrust, stroke, speed, weight and rated currents. Request a quote from Valvenok.";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/actuators/electric/iql/products" },
-  title: { absolute: "IQL Series Electric Linear Actuators — Models | Valvenok" },
-  description:
-    "Browse IQL series electric linear actuator models. Filter by model and stroke size to find the configuration you need, then request a quote from Valvenok.",
-  openGraph: {
-    title: "IQL Series Electric Linear Actuators — Models | Valvenok",
-    description:
-      "Browse IQL series electric linear actuator models. Filter by model and stroke size to find the configuration you need, then request a quote from Valvenok.",
-    type: "website",
-  },
+  title: { absolute: TITLE },
+  description: DESCRIPTION,
+  openGraph: { title: TITLE, description: DESCRIPTION, type: "website", images: [IQL_IMAGE] },
 };
 
-export default function IQLActuatorLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return <>{children}<RangeCopy path="/actuators/electric/iql/products" /></>;
+export default function IQLProductsLayout({ children }: { children: React.ReactNode }) {
+  return <>{children}</>;
 }

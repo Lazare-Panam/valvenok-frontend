@@ -1,23 +1,17 @@
 import type { Metadata } from "next";
-import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
+import { PVE_IMAGE } from "../pveData";
+
+const TITLE = "Danfoss PVE Actuator Models: PVEO, PVEM, PVEA, PVEH, PVES | Valvenok";
+const DESCRIPTION =
+  "Danfoss PVE electrohydraulic actuators for PVG valves: on/off, proportional, PVED-CC CAN bus and PVE-EX explosion proof. Supply, reaction times and connectors. Request a quote.";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/actuators/electric/pvae32/products" },
-  title: { absolute: "Danfoss PVE Series Electrohydraulic Actuators | Valvenok" },
-  description:
-    "Danfoss PVE electrohydraulic actuators for proportional directional control valves. Available in PVEA, PVEH, PVEM, PVEO, PVES, PVG and PVHC series.",
-  openGraph: {
-    title: "Danfoss PVE Series Electrohydraulic Actuators | Valvenok",
-    description:
-      "Danfoss PVE electrohydraulic actuators for proportional directional control valves. Available in PVEA, PVEH, PVEM, PVEO, PVES, PVG and PVHC series.",
-    type: "website",
-  },
+  title: { absolute: TITLE },
+  description: DESCRIPTION,
+  openGraph: { title: TITLE, description: DESCRIPTION, type: "website", images: [PVE_IMAGE] },
 };
 
-export default function DanfossActuatorLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return <>{children}<RangeCopy path="/actuators/electric/pvae32/products" /></>;
+export default function PVEProductsLayout({ children }: { children: React.ReactNode }) {
+  return <>{children}</>;
 }
