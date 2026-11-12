@@ -7,7 +7,12 @@
 
 export const PVE_IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/products/danfoss/dfe-ac.png";
 export const PVE_DOCS = "https://www.danfoss.com/en/products/dps/hydraulic-valves/directional-control-valves/compensated-proportional-valves/pve-electrohydraulic-actuators/";
-export const PVE_TI = "https://assets.danfoss.com/documents/latest/572625/BC218286485446en-000501.pdf";
+// Danfoss PDFs, hosted on our blob (catalogs/danfoss)
+const DOCS = "https://pblol2.blob.core.windows.net/valvenok-images/catalogs/danfoss";
+export const PVE_TI = `${DOCS}/PVE-Series-7-Technical-Information.pdf`;
+export const PVE_SHEET = `${DOCS}/PVE-Series-7-Data-Sheet.pdf`;
+export const PVED_CC_SHEET = `${DOCS}/PVED-CC-Data-Sheet.pdf`;
+export const PVE_EX_SHEET = `${DOCS}/PVE-EX-Data-Sheet.pdf`;
 
 export type PveKind = "On/off" | "Proportional" | "CAN bus" | "Explosion proof";
 

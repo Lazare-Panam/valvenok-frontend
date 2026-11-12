@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     siteName: "Valvenok",
     images: [
       {
-        url: "https://pblol2.blob.core.windows.net/valvenok-images/banner-images/ben-kupke-ew-p24CVLR0-unsplash.jpg",
+        url: "https://pblol2.blob.core.windows.net/valvenok-images/blogs/uk-valve-stockist.jpg",
         width: 1200,
         height: 630,
         alt: "Valvenok UK valve supplier",

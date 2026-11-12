@@ -53,7 +53,7 @@ export const POSTS = [
     title: "Why Buy Valves From a UK Stockist",
     desc: "No minimum order on standard catalogue items, and a company you can verify. A UK supplier based in Bicester, Oxfordshire since 2018 — JOSCAR registered supply for defence, energy and process industries.",
     thumbnail:
-      "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/ben-kupke-ew-p24cvlr0-unsplash.webp",
+      "https://pblol2.blob.core.windows.net/valvenok-images/blogs/uk-valve-stockist.jpg",
     author: "Valvenok Team",
     date: "September 2026",
     category: "Buyer's Guide",

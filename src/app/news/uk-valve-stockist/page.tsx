@@ -1,24 +1,14 @@
 "use client";
 
-import React from "react";
-import {
-  Box,
-  Container,
-  Typography,
-  Stack,
-  Paper,
-  Divider,
-  Chip,
-} from "@mui/material";
-import Grid from "@mui/material/Grid";
-import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
-import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
-import Link from "next/link";
+import { ArticleLayout, Lead, H2, P, UL, KeyTakeaways, Quote, Cards, FAQ, CTA, RelatedLinks, Stepper, Checklist } from "../components/Article";
+import { T } from "@/src/app/Landing/modern/tokens";
 
-const DISPLAY_FONT = '"Barlow Condensed"';
-
+const SLUG = "/news/uk-valve-stockist";
 const ARTICLE_URL = "https://www.valvenok.com/news/uk-valve-stockist";
+const COVER = "https://pblol2.blob.core.windows.net/valvenok-images/blogs/uk-valve-stockist.jpg";
+const HEADLINE = "Why Buy Valves From a UK Stockist";
+const DESCRIPTION =
+  "No minimum order on standard catalogue items, and a company you can verify — a UK supplier based in Bicester, Oxfordshire since 2018.";
 
 // Contextual internal links — descriptive anchors to real category pages
 const RELATED = [
@@ -28,700 +18,275 @@ const RELATED = [
   { label: "JOSCAR registered supplier", href: "/joscar-registered" },
 ];
 
-export default function UkValveStockistPage() {
-  const ukBaseBenefits = [
-    {
-      label: "Shorter Supply Chain",
-      desc: "Buying from a UK supplier avoids handling import paperwork yourself. Availability and lead time vary by item and are confirmed on every quotation.",
-    },
-    {
-      label: "A Company You Can Verify",
-      desc: "Valvenok Ltd is a registered UK company with a named address in Bicester, Oxfordshire and a phone number answered by people who know the product. Exactly what a procurement team checks before raising a first purchase order.",
-    },
-    {
-      label: "Technical Answers In Your Timezone",
-      desc: "Specification questions — line size, pressure class, material, media — are answered by people who know the product, in UK working hours — not through a distant call centre.",
-    },
-    {
-      label: "Sterling Pricing, No FX Exposure",
-      desc: "Priced and invoiced in GBP, so there is no exchange-rate movement between quotation and invoice to reconcile.",
-    },
-    {
-      label: "UK & EU Documentation",
-      desc: "Material certificates, declarations of conformity, and test reports supplied to the standards UK and EU inspection teams expect.",
-    },
-    {
-      label: "No Minimum Order",
-      desc: "Single items are as welcome as scheduled supply against a frame contract. Source the quantity you actually need, not the quantity a distributor wants to sell.",
-    },
-  ];
+const TAKEAWAYS = [
+  "A UK supplier handles import and customs for you, and confirms lead times up front on every quotation.",
+  "Valvenok has been based in Bicester, Oxfordshire since 2018.",
+  "No minimum order — single items and scheduled frame-contract supply are treated the same.",
+  "JOSCAR registered since 2020, supplying defence, aerospace, oil & gas, energy and process industries.",
+  "A registered UK company with a named address and an engineer on the phone — verifiable before a first purchase order.",
+];
 
-  const stockCategories = [
-    "Industrial valves — ball, gate, globe, butterfly, check and control",
-    "Instrumentation valves, manifolds and double block and bleed",
-    "Actuators — pneumatic, electric and hydraulic",
-    "Instrumentation fittings and tubing, including SS316",
-    "High-pressure valves, fittings and manifolds",
-    "Hydrogen and cryogenic components",
-    "Pumps, mechanical seals and pneumatics",
-  ];
+const UK_BASE_BENEFITS = [
+  {
+    label: "Shorter Supply Chain",
+    desc: "Buying from a UK supplier avoids handling import paperwork yourself. Availability and lead time vary by item and are confirmed on every quotation.",
+  },
+  {
+    label: "A Company You Can Verify",
+    desc: "Valvenok Ltd is a registered UK company with a named address in Bicester, Oxfordshire and a phone number answered by people who know the product. Exactly what a procurement team checks before raising a first purchase order.",
+  },
+  {
+    label: "Technical Answers In Your Timezone",
+    desc: "Specification questions — line size, pressure class, material, media — are answered by people who know the product, in UK working hours — not through a distant call centre.",
+  },
+  {
+    label: "Sterling Pricing, No FX Exposure",
+    desc: "Priced and invoiced in GBP, so there is no exchange-rate movement between quotation and invoice to reconcile.",
+  },
+  {
+    label: "UK & EU Documentation",
+    desc: "Material certificates, declarations of conformity, and test reports supplied to the standards UK and EU inspection teams expect.",
+  },
+  {
+    label: "No Minimum Order",
+    desc: "Single items are as welcome as scheduled supply against a frame contract. Source the quantity you actually need, not the quantity a distributor wants to sell.",
+  },
+];
 
-  const processSteps = [
-    {
-      num: "01",
-      title: "Send the Part or the Specification",
-      body: "Share a part number, a datasheet, or a full bill of materials. For the fastest answer, include line size, pressure rating, material, media, and any project requirement such as NACE MR0175 or hydrogen service.",
-    },
-    {
-      num: "02",
-      title: "Availability Check and Engineering Review",
-      body: "Valvenok confirms availability and maps anything not readily available to an appropriate product. Where a spec is open, the engineering team recommends a fit rather than sending a catalogue link.",
-    },
-    {
-      num: "03",
-      title: "Quotation With Availability and Documentation",
-      body: "You receive price, availability, and the documentation package — material certificates and declarations of conformity — for each line item, so vendor approval and inspection are not held up later.",
-    },
-    {
-      num: "04",
-      title: "Order and Delivery",
-      body: "Orders are shipped from the UK once confirmed. For urgent requirements, call before ordering and the team will tell you honestly what lead time is achievable.",
-    },
-  ];
+const STOCK_CATEGORIES = [
+  "Industrial valves — ball, gate, globe, butterfly, check and control",
+  "Instrumentation valves, manifolds and double block and bleed",
+  "Actuators — pneumatic, electric and hydraulic",
+  "Instrumentation fittings and tubing, including SS316",
+  "High-pressure valves, fittings and manifolds",
+  "Hydrogen and cryogenic components",
+  "Pumps, mechanical seals and pneumatics",
+];
 
-  const faqs = [
-    {
-      q: "Where is Valvenok based?",
-      a: "Valvenok Ltd is based at St. Edburgs Hall, Priory Road, Bicester, Oxfordshire, OX26 6BL. The company has operated from Bicester since 2018.",
-    },
-    {
-      q: "Do you supply valves across Oxfordshire and the rest of the UK?",
-      a: "Yes. Bicester sits between Oxford, Milton Keynes and Banbury with quick access to the M40 and A34, so courier coverage across Oxfordshire and the surrounding counties is straightforward. Valvenok supplies customers nationwide.",
-    },
-    {
-      q: "Is there a minimum order?",
-      a: "No. Valvenok was founded specifically to solve the problem of sourcing quality components without minimum order quantities, so a single item is as welcome as scheduled supply against a frame contract.",
-    },
-    {
-      q: "What product ranges do you supply?",
-      a: "Fittings, valves, adapters, actuators, instrumentation and related components. Availability varies by item, so the team confirms it on every quotation.",
-    },
-    {
-      q: "Can I speak to someone technical rather than a call centre?",
-      a: "Yes. Specification questions go to people who know the products. Call +44 7775 132326 or email sales@valvenok.com with the line size, pressure class, material and media, and you will get a straight answer rather than a catalogue link.",
-    },
-    {
-      q: "Why does buying from a UK supplier matter for lead time?",
-      a: "A UK supplier handles import and customs on your behalf and can tell you up front what lead time to expect. Lead times vary by item and are confirmed on quotation.",
-    },
-    {
-      q: "Is Valvenok a verified supplier for defence and aerospace work?",
-      a: "Valvenok achieved JOSCAR registration in 2020, which opened the door to defence and aerospace supply chains. The company also works across oil and gas, energy, marine, chemical processing, water, power, and food and beverage applications.",
-    },
-  ];
+const PROCESS_STEPS = [
+  {
+    num: "01",
+    title: "Send the Part or the Specification",
+    body: "Share a part number, a datasheet, or a full bill of materials. For the fastest answer, include line size, pressure rating, material, media, and any project requirement such as NACE MR0175 or hydrogen service.",
+  },
+  {
+    num: "02",
+    title: "Availability Check and Engineering Review",
+    body: "Valvenok confirms availability and maps anything not readily available to an appropriate product. Where a spec is open, the engineering team recommends a fit rather than sending a catalogue link.",
+  },
+  {
+    num: "03",
+    title: "Quotation With Availability and Documentation",
+    body: "You receive price, availability, and the documentation package — material certificates and declarations of conformity — for each line item, so vendor approval and inspection are not held up later.",
+  },
+  {
+    num: "04",
+    title: "Order and Delivery",
+    body: "Orders are shipped from the UK once confirmed. For urgent requirements, call before ordering and the team will tell you honestly what lead time is achievable.",
+  },
+];
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((f) => ({
-      "@type": "Question",
-      name: f.q,
-      acceptedAnswer: { "@type": "Answer", text: f.a },
-    })),
-  };
+const INDUSTRIES = [
+  "Defence & Aerospace",
+  "Oil & Gas",
+  "Energy",
+  "Marine",
+  "Chemical Processing",
+  "Water",
+  "Power",
+  "Food & Beverage",
+];
 
-  const blogSchema = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: "Why Buy Valves From a UK Stockist",
-    description:
-      "No minimum order on standard catalogue items, and a company you can verify — a UK supplier based in Bicester, Oxfordshire since 2018.",
-    image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/ben-kupke-ew-p24cvlr0-unsplash.webp",
-    author: { "@type": "Organization", name: "Valvenok" },
-    publisher: {
-      "@type": "Organization",
-      name: "Valvenok",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://pblol2.blob.core.windows.net/valvenok-images/logo.png",
+const FAQS = [
+  {
+    q: "Where is Valvenok based?",
+    a: "Valvenok Ltd is based at St. Edburgs Hall, Priory Road, Bicester, Oxfordshire, OX26 6BL. The company has operated from Bicester since 2018.",
+  },
+  {
+    q: "Do you supply valves across Oxfordshire and the rest of the UK?",
+    a: "Yes. Bicester sits between Oxford, Milton Keynes and Banbury with quick access to the M40 and A34, so courier coverage across Oxfordshire and the surrounding counties is straightforward. Valvenok supplies customers nationwide.",
+  },
+  {
+    q: "Is there a minimum order?",
+    a: "No. Valvenok was founded specifically to solve the problem of sourcing quality components without minimum order quantities, so a single item is as welcome as scheduled supply against a frame contract.",
+  },
+  {
+    q: "What product ranges do you supply?",
+    a: "Fittings, valves, adapters, actuators, instrumentation and related components. Availability varies by item, so the team confirms it on every quotation.",
+  },
+  {
+    q: "Can I speak to someone technical rather than a call centre?",
+    a: "Yes. Specification questions go to people who know the products. Call +44 7775 132326 or email sales@valvenok.com with the line size, pressure class, material and media, and you will get a straight answer rather than a catalogue link.",
+  },
+  {
+    q: "Why does buying from a UK supplier matter for lead time?",
+    a: "A UK supplier handles import and customs on your behalf and can tell you up front what lead time to expect. Lead times vary by item and are confirmed on quotation.",
+  },
+  {
+    q: "Is Valvenok a verified supplier for defence and aerospace work?",
+    a: "Valvenok achieved JOSCAR registration in 2020, which opened the door to defence and aerospace supply chains. The company also works across oil and gas, energy, marine, chemical processing, water, power, and food and beverage applications.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      headline: HEADLINE,
+      description: DESCRIPTION,
+      image: COVER,
+      author: { "@type": "Organization", name: "Valvenok" },
+      publisher: {
+        "@type": "Organization",
+        name: "Valvenok",
+        logo: { "@type": "ImageObject", url: "https://pblol2.blob.core.windows.net/valvenok-images/logo.png" },
       },
+      datePublished: "2026-09-11",
+      dateModified: "2026-09-11",
+      mainEntityOfPage: { "@type": "WebPage", "@id": ARTICLE_URL },
     },
-    datePublished: "2026-09-11",
-    dateModified: "2026-09-11",
-    mainEntityOfPage: { "@type": "WebPage", "@id": ARTICLE_URL },
-  };
+    {
+      "@type": "FAQPage",
+      mainEntity: FAQS.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+  ],
+};
 
+// Plain (non-link) industry labels.
+function IndustryTags({ items }: { items: string[] }) {
   return (
-    <Box sx={{ bgcolor: "background.default", minHeight: "100vh", pb: 10 }}>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      {/* ── HERO ── */}
-      <Box sx={{ bgcolor: "primary.main", color: "white", pt: 15, pb: 10 }}>
-        <Container maxWidth="md">
-          <Typography
-            variant="overline"
-            sx={{
-              fontFamily: DISPLAY_FONT,
-              fontWeight: 800,
-              letterSpacing: "0.4em",
-              opacity: 0.8,
-            }}
-          >
-            Buyer&apos;s Guide
-          </Typography>
-          <Typography
-            variant="h1"
-            sx={{
-              fontFamily: DISPLAY_FONT,
-              fontSize: { xs: "2.5rem", md: "4.5rem" },
-              fontWeight: 900,
-              textTransform: "uppercase",
-              lineHeight: 1,
-              mt: 1,
-            }}
-          >
-            Why Buy Valves From a UK Stockist
-          </Typography>
-          <Typography
-            variant="h5"
-            sx={{ mt: 2, opacity: 0.85, fontStyle: "italic" }}
-          >
-            No minimum order on standard catalogue items, and a company you can
-            verify — a UK supplier based in Bicester, Oxfordshire since 2018.
-          </Typography>
-          <Stack direction="row" spacing={3} sx={{ mt: 4, opacity: 0.8 }}>
-            <Stack direction="row" alignItems="center" spacing={1}>
-              <PersonOutlineIcon fontSize="small" />
-              <Typography
-                variant="subtitle2"
-                sx={{ fontWeight: 700, textTransform: "uppercase" }}
-              >
-                Valvenok Team
-              </Typography>
-            </Stack>
-            <Stack direction="row" alignItems="center" spacing={1}>
-              <AccessTimeIcon fontSize="small" />
-              <Typography
-                variant="subtitle2"
-                sx={{ fontWeight: 700, textTransform: "uppercase" }}
-              >
-                September 2026
-              </Typography>
-            </Stack>
-            <Typography
-              variant="subtitle2"
-              sx={{ fontWeight: 700, textTransform: "uppercase" }}
-            >
-              6 min read
-            </Typography>
-          </Stack>
-        </Container>
-      </Box>
-
-      <Container maxWidth="md" sx={{ mt: -5 }}>
-        {/* ── KEY TAKEAWAYS ── */}
-        <Paper
-          elevation={10}
-          sx={{
-            p: 4,
-            borderRadius: 0,
-            borderLeft: "8px solid",
-            borderColor: "primary.main",
-            mb: 8,
+    <div style={{ display: "flex", flexWrap: "wrap", gap: 8, margin: "32px 0" }}>
+      {items.map((ind) => (
+        <span
+          key={ind}
+          style={{
+            padding: "6px 14px",
+            borderRadius: 999,
+            border: `1px solid ${T.border}`,
+            background: T.surface,
+            color: T.ink,
+            fontSize: "0.88rem",
+            fontWeight: 600,
           }}
         >
-          <Typography
-            variant="h4"
-            sx={{
-              fontFamily: DISPLAY_FONT,
-              fontWeight: 900,
-              mb: 3,
-              textTransform: "uppercase",
-            }}
-          >
-            Key Takeaways
-          </Typography>
-          <Grid container spacing={2}>
-            {[
-              "A UK supplier handles import and customs for you, and confirms lead times up front on every quotation.",
-              "Valvenok has been based in Bicester, Oxfordshire since 2018.",
-              "No minimum order — single items and scheduled frame-contract supply are treated the same.",
-              "JOSCAR registered since 2020, supplying defence, aerospace, oil & gas, energy and process industries.",
-              "A registered UK company with a named address and an engineer on the phone — verifiable before a first purchase order.",
-            ].map((text, i) => (
-              <Grid key={i} size={{ xs: 12, sm: 6 }}>
-                <Stack direction="row" spacing={1} alignItems="flex-start">
-                  <CheckCircleOutlineIcon
-                    sx={{ color: "primary.main", fontSize: 20, mt: 0.3 }}
-                  />
-                  <Typography variant="body2" sx={{ fontWeight: 600 }}>
-                    {text}
-                  </Typography>
-                </Stack>
-              </Grid>
-            ))}
-          </Grid>
-        </Paper>
+          {ind}
+        </span>
+      ))}
+    </div>
+  );
+}
 
-        {/* ── ARTICLE BODY ── */}
-        <Box
-          sx={{
-            "& p": {
-              mb: 3,
-              lineHeight: 1.8,
-              color: "#000000",
-              fontSize: "1.1rem",
-            },
-          }}
-        >
-          {/* INTRO */}
-          <Typography>
-            Industrial buyers rarely search for a valve by proximity — they
-            search by product and specification. But when a common part is
-            holding up a live project, where that part ships from suddenly
-            matters a great deal. A valve on an overseas order carries a
-            manufacturing lead time and customs clearance that you have to
-            manage yourself. A UK-based supplier takes that on and tells you up
-            front what to expect.
-          </Typography>
-          <Typography>
-            Valvenok has been based in Bicester, Oxfordshire since 2018,
-            supplying valves, actuators, instrumentation fittings, pumps and
-            seals to engineers and procurement teams across the
-            country. This guide sets out what a UK base actually buys you — on
-            lead time, on documentation, and on the simple question of whether
-            you are dealing with a company you can verify.
-          </Typography>
+export default function UkValveStockistPage() {
+  return (
+    <ArticleLayout
+      schema={schema}
+      meta={{
+        slug: SLUG,
+        category: "Buyer's Guide",
+        title: HEADLINE,
+        dek: DESCRIPTION,
+        author: "Valvenok Team",
+        date: "September 2026",
+        readMinutes: 6,
+        cover: COVER,
+        coverAlt: "Valves on a stockroom shelf: ball, globe, butterfly, check, manifold and needle valves",
+      }}
+    >
+      <Lead>
+        Industrial buyers rarely search for a valve by proximity — they search by product and specification. But when a
+        common part is holding up a live project, where that part ships from suddenly matters a great deal. A valve on an
+        overseas order carries a manufacturing lead time and customs clearance that you have to manage yourself. A
+        UK-based supplier takes that on and tells you up front what to expect.
+      </Lead>
 
-          {/* HERO IMAGE */}
-          <Box sx={{ my: 6, textAlign: "center" }}>
-            <Box
-              component="img"
-              src="https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/ben-kupke-ew-p24cvlr0-unsplash.webp"
-              alt="Industrial valves and fittings from a UK supplier"
-              sx={{
-                width: "100%",
-                maxWidth: 700,
-                border: "1px solid",
-                borderColor: "divider",
-              }}
-            />
-          </Box>
+      <KeyTakeaways title="Key Takeaways" items={TAKEAWAYS} />
 
-          {/* ── WHY A UK BASE MATTERS ── */}
-          <Typography
-            variant="h1"
-            component="h2"
-            sx={{
-              fontFamily: DISPLAY_FONT,
-              fontWeight: 800,
-              mb: 2,
-              mt: 6,
-              textTransform: "uppercase",
-              color: "primary.main",
-            }}
-          >
-            Why Buying From a UK-Based Stockist Matters
-          </Typography>
-          <Typography>
-            The advantage of a UK stockist is not one thing — it is a stack of
-            small certainties that each remove a delay or a risk from the
-            purchase. Taken together, they are why procurement teams keep a UK
-            source on the approved vendor list even when an overseas price looks
-            lower on paper.
-          </Typography>
+      <P>
+        Valvenok has been based in Bicester, Oxfordshire since 2018, supplying valves, actuators, instrumentation
+        fittings, pumps and seals to engineers and procurement teams across the country. This guide sets out what a UK
+        base actually buys you — on lead time, on documentation, and on the simple question of whether you are dealing
+        with a company you can verify.
+      </P>
 
-          <Grid container spacing={2} sx={{ my: 4 }}>
-            {ukBaseBenefits.map((item, i) => (
-              <Grid key={i} size={{ xs: 12, sm: 6 }}>
-                <Box
-                  sx={{
-                    p: 3,
-                    border: "1.5px solid",
-                    borderColor: "primary.light",
-                    height: "100%",
-                  }}
-                >
-                  <Typography
-                    sx={{
-                      fontFamily: DISPLAY_FONT,
-                      fontWeight: 800,
-                      fontSize: "1rem",
-                      textTransform: "uppercase",
-                      color: "primary.dark",
-                      mb: 1,
-                    }}
-                  >
-                    {item.label}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    sx={{ color: "text.secondary", lineHeight: 1.7 }}
-                  >
-                    {item.desc}
-                  </Typography>
-                </Box>
-              </Grid>
-            ))}
-          </Grid>
+      <H2>Why Buying From a UK-Based Stockist Matters</H2>
+      <P>
+        The advantage of a UK stockist is not one thing — it is a stack of small certainties that each remove a delay or a
+        risk from the purchase. Taken together, they are why procurement teams keep a UK source on the approved vendor list
+        even when an overseas price looks lower on paper.
+      </P>
+      <Cards items={UK_BASE_BENEFITS.map((b) => ({ title: b.label, body: b.desc }))} />
 
-          {/* ── WHAT WE HOLD ── */}
-          <Typography
-            variant="h1"
-            component="h2"
-            sx={{
-              fontFamily: DISPLAY_FONT,
-              fontWeight: 800,
-              mb: 2,
-              mt: 6,
-              textTransform: "uppercase",
-              color: "primary.main",
-            }}
-          >
-            What We Supply
-          </Typography>
-          <Typography>
-            Valvenok supplies fittings, valves, adapters and components —
-            availability varies by item and is confirmed on quotation. The
-            range spans:
-          </Typography>
-          <Box sx={{ pl: 3, mb: 4, mt: 2 }}>
-            {stockCategories.map((item) => (
-              <Typography
-                key={item}
-                sx={{ mb: 1, color: "#000", fontSize: "1.1rem" }}
-              >
-                • {item}
-              </Typography>
-            ))}
-          </Box>
-          <Typography>
-            There is no minimum order. That was the reason the business was
-            started — sourcing quality components in the quantity actually
-            needed, rather than the quantity a distributor wanted to sell.
-          </Typography>
+      <H2>What We Supply</H2>
+      <P>
+        Valvenok supplies fittings, valves, adapters and components — availability varies by item and is confirmed on
+        quotation. The range spans:
+      </P>
+      <UL items={STOCK_CATEGORIES} />
+      <P>
+        There is no minimum order. That was the reason the business was started — sourcing quality components in the
+        quantity actually needed, rather than the quantity a distributor wanted to sell.
+      </P>
 
-          {/* PULL QUOTE */}
-          <Box
-            sx={{
-              borderLeft: "4px solid",
-              borderColor: "primary.main",
-              bgcolor: "primary.50",
-              px: 3,
-              py: 2.5,
-              mb: 6,
-              mt: 4,
-            }}
-          >
-            <Typography
-              sx={{
-                color: "text.primary",
-                lineHeight: 1.8,
-                fontSize: "1.1rem",
-                fontStyle: "italic",
-                fontWeight: 500,
-              }}
-            >
-              &quot;Ask for the lead time up front — a good supplier will
-              confirm it on the quotation, not after the order.&quot;
-            </Typography>
-            <Typography
-              variant="caption"
-              sx={{
-                fontFamily: DISPLAY_FONT,
-                fontWeight: 700,
-                letterSpacing: "0.15em",
-                textTransform: "uppercase",
-                color: "text.secondary",
-                mt: 1,
-                display: "block",
-              }}
-            >
-              — Valvenok Team
-            </Typography>
-          </Box>
+      <Quote cite="Valvenok Team">
+        &quot;Ask for the lead time up front — a good supplier will confirm it on the quotation, not after the order.&quot;
+      </Quote>
 
-          {/* ── WHO WE SUPPLY ── */}
-          <Typography
-            variant="h1"
-            component="h2"
-            sx={{
-              fontFamily: DISPLAY_FONT,
-              fontWeight: 800,
-              mb: 2,
-              mt: 6,
-              textTransform: "uppercase",
-              color: "primary.main",
-            }}
-          >
-            Who We Supply
-          </Typography>
-          <Typography>
-            Valvenok supplies engineers, procurement teams, maintenance
-            departments, OEMs and system integrators — from single-item urgent
-            spares to scheduled supply against a frame contract. JOSCAR
-            registration, achieved in 2020, opened the door to defence and
-            aerospace supply chains, and the company works across oil and gas,
-            energy, marine, chemical processing, water, power, and food and
-            beverage applications.
-          </Typography>
+      <H2>Who We Supply</H2>
+      <P>
+        Valvenok supplies engineers, procurement teams, maintenance departments, OEMs and system integrators — from
+        single-item urgent spares to scheduled supply against a frame contract. JOSCAR registration, achieved in 2020,
+        opened the door to defence and aerospace supply chains, and the company works across oil and gas, energy, marine,
+        chemical processing, water, power, and food and beverage applications.
+      </P>
 
-          {/* ── DELIVERY ── */}
-          <Typography
-            variant="h1"
-            component="h2"
-            sx={{
-              fontFamily: DISPLAY_FONT,
-              fontWeight: 800,
-              mb: 2,
-              mt: 6,
-              textTransform: "uppercase",
-              color: "primary.main",
-            }}
-          >
-            Delivery Across Oxfordshire and the UK
-          </Typography>
-          <Typography>
-            Bicester sits between Oxford, Milton Keynes and Banbury, within easy
-            reach of the M40 and A34 — so courier coverage across Oxfordshire,
-            Buckinghamshire, Northamptonshire and Warwickshire is
-            straightforward, and Valvenok supplies customers nationwide. For
-            urgent requirements, a quick call before ordering is
-            usually the fastest way to confirm what can be with you and when.
-          </Typography>
+      <H2>Delivery Across Oxfordshire and the UK</H2>
+      <P>
+        Bicester sits between Oxford, Milton Keynes and Banbury, within easy reach of the M40 and A34 — so courier coverage
+        across Oxfordshire, Buckinghamshire, Northamptonshire and Warwickshire is straightforward, and Valvenok supplies
+        customers nationwide. For urgent requirements, a quick call before ordering is usually the fastest way to confirm
+        what can be with you and when.
+      </P>
 
-          {/* ── PROCESS ── */}
-          <Typography
-            variant="h1"
-            component="h2"
-            sx={{
-              fontFamily: DISPLAY_FONT,
-              fontWeight: 800,
-              mb: 2,
-              mt: 6,
-              textTransform: "uppercase",
-              color: "primary.main",
-            }}
-          >
-            What to Expect When You Send an Enquiry
-          </Typography>
-          <Typography sx={{ mb: 4 }}>
-            Valvenok operates as a technical extension of your procurement and
-            design teams. An enquiry follows four clear steps.
-          </Typography>
+      <H2>What to Expect When You Send an Enquiry</H2>
+      <P>
+        Valvenok operates as a technical extension of your procurement and design teams. An enquiry follows four clear
+        steps.
+      </P>
+      <Stepper
+        kicker="Four steps"
+        title="From enquiry to delivery"
+        steps={PROCESS_STEPS.map((s) => ({ title: s.title, body: s.body }))}
+      />
+      <Checklist
+        kicker="Before you send it"
+        title="For the fastest answer, include"
+        emailSubject="Quotation request"
+        items={[
+          "Part number, datasheet, or full bill of materials",
+          "Line size",
+          "Pressure rating",
+          "Material",
+          "Media",
+          "Any project requirement, such as NACE MR0175 or hydrogen service",
+        ]}
+      />
 
-          {processSteps.map((item, i) => (
-            <Box key={i} sx={{ display: "flex", gap: 3, mb: 4 }}>
-              <Typography
-                sx={{
-                  fontFamily: DISPLAY_FONT,
-                  fontWeight: 900,
-                  fontSize: "2rem",
-                  color: "primary.main",
-                  minWidth: 48,
-                  lineHeight: 1,
-                }}
-              >
-                {item.num}
-              </Typography>
-              <Box>
-                <Typography
-                  sx={{
-                    fontFamily: DISPLAY_FONT,
-                    fontWeight: 800,
-                    fontSize: "1rem",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.08em",
-                    color: "text.primary",
-                    mb: 0.75,
-                  }}
-                >
-                  {item.title}
-                </Typography>
-                <Typography
-                  sx={{
-                    color: "text.secondary",
-                    lineHeight: 1.8,
-                    fontSize: "1rem",
-                  }}
-                >
-                  {item.body}
-                </Typography>
-              </Box>
-            </Box>
-          ))}
+      <IndustryTags items={INDUSTRIES} />
 
-          {/* INDUSTRY CHIPS */}
-          <Stack direction="row" flexWrap="wrap" gap={1.5} sx={{ my: 4 }}>
-            {[
-              "Defence & Aerospace",
-              "Oil & Gas",
-              "Energy",
-              "Marine",
-              "Chemical Processing",
-              "Water",
-              "Power",
-              "Food & Beverage",
-            ].map((ind) => (
-              <Chip
-                key={ind}
-                label={ind}
-                size="small"
-                sx={{
-                  fontFamily: DISPLAY_FONT,
-                  fontWeight: 700,
-                  fontSize: "11px",
-                  letterSpacing: "0.08em",
-                  borderRadius: 0,
-                  height: 28,
-                  bgcolor: "primary.main",
-                  color: "white",
-                }}
-              />
-            ))}
-          </Stack>
+      <FAQ title="Frequently Asked Questions" items={FAQS} />
 
-          <Divider sx={{ my: 6 }} />
+      <CTA
+        title="NEED A PART OR A QUOTATION?"
+        body="Send Valvenok the part or the specification and the team will confirm availability, price and lead time. If it is urgent, call +44 7775 132326 — that is usually faster than a form."
+        primary={{ label: "Request a Quotation", href: "/contact" }}
+      />
 
-          {/* ── FAQ ── */}
-          <Typography
-            variant="h1"
-            component="h2"
-            sx={{
-              fontFamily: DISPLAY_FONT,
-              fontWeight: 800,
-              mb: 4,
-              textTransform: "uppercase",
-              color: "primary.main",
-            }}
-          >
-            Frequently Asked Questions
-          </Typography>
-          <Stack spacing={4} sx={{ mb: 6 }}>
-            {faqs.map((item) => (
-              <Box key={item.q}>
-                <Typography
-                  component="h3"
-                  sx={{
-                    fontFamily: DISPLAY_FONT,
-                    fontWeight: 800,
-                    fontSize: "1rem",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.05em",
-                    mb: 0.75,
-                  }}
-                >
-                  {item.q}
-                </Typography>
-                <Typography sx={{ color: "text.secondary", lineHeight: 1.8 }}>
-                  {item.a}
-                </Typography>
-              </Box>
-            ))}
-          </Stack>
-
-          <Divider sx={{ my: 6 }} />
-
-          {/* ── CTA ── */}
-          <Box
-            sx={{
-              bgcolor: "primary.main",
-              color: "white",
-              p: 5,
-              mt: 8,
-              textAlign: "center",
-            }}
-          >
-            <Typography
-              variant="h4"
-              sx={{
-                fontFamily: DISPLAY_FONT,
-                fontWeight: 800,
-                mb: 2,
-                color: "white",
-              }}
-            >
-              NEED A PART OR A QUOTATION?
-            </Typography>
-            <Typography sx={{ color: "white !important", mb: 3, opacity: 0.9 }}>
-              Send Valvenok the part or the specification and the team will
-              confirm availability, price and lead time. If it is urgent, call
-              +44 7775 132326 — that is usually faster than a form.
-            </Typography>
-            <Box
-              component={Link}
-              href="/contact"
-              sx={{
-                display: "inline-block",
-                fontFamily: DISPLAY_FONT,
-                fontWeight: 900,
-                borderBottom: "2px solid white",
-                pb: 1,
-                cursor: "pointer",
-                color: "white",
-                textDecoration: "none",
-                textTransform: "uppercase",
-                letterSpacing: "0.05em",
-              }}
-            >
-              Request a Quotation
-            </Box>
-          </Box>
-
-          {/* ── RELATED / INTERNAL LINKS ── */}
-          <Box sx={{ mt: 8 }}>
-            <Typography
-              component="h2"
-              sx={{
-                fontFamily: DISPLAY_FONT,
-                fontWeight: 800,
-                fontSize: "1rem",
-                textTransform: "uppercase",
-                letterSpacing: "0.08em",
-                color: "text.secondary",
-                mb: 2,
-              }}
-            >
-              Explore More From Valvenok
-            </Typography>
-            <Stack direction="row" flexWrap="wrap" gap={1.5}>
-              {RELATED.map((r) => (
-                <Box
-                  key={r.href}
-                  component={Link}
-                  href={r.href}
-                  sx={{
-                    fontFamily: DISPLAY_FONT,
-                    fontWeight: 700,
-                    fontSize: "13px",
-                    letterSpacing: "0.03em",
-                    textDecoration: "none",
-                    color: "primary.dark",
-                    border: "1.5px solid",
-                    borderColor: "primary.light",
-                    px: 2,
-                    py: 1,
-                    transition: "0.2s",
-                    "&:hover": {
-                      borderColor: "primary.main",
-                      bgcolor: "primary.50",
-                    },
-                  }}
-                >
-                  {r.label} →
-                </Box>
-              ))}
-            </Stack>
-          </Box>
-        </Box>
-      </Container>
-    </Box>
+      <RelatedLinks title="Explore More From Valvenok" links={RELATED} />
+    </ArticleLayout>
   );
 }

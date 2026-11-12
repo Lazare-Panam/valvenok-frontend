@@ -16,50 +16,6 @@ export const ACTUATOR_COPY: RangeCopyMap = {
     ],
   },
 
-  "/actuators/mechanical/itg/products": {
-    heading: "Selecting an ITG Gear Actuator",
-    paragraphs: [
-      "ITG units are gear actuators for quarter-turn valves such as ball, butterfly and plug valves. A handwheel turns a worm gear that drives the output through 90 degrees, multiplying the operator's effort so large valves can be opened by hand. The ITG range can also sit between a valve and an automated actuator, using ISO 5211 mounting on both sides.",
-      "This page lists 29 models in three configurations. The Standard models, ITG-012 to ITG-3200, cover output torque from 60 Nm to 28,000 Nm with gear ratios between 30:1 and 68:1. The 1S models, from ITG-400-1S, add a reduction stage for ratios between 130:1 and 248:1, and the 2S models, from ITG-900-2S, add a second stage for ratios up to 992:1.",
-      "Higher ratios mean less rim pull on the handwheel but more turns to stroke the valve. For example, the ITG-3200 needs 302 kg rim pull over 14.5 turns, while the ITG-3200-2S needs about 21 kg over 232 turns. Valve and actuator mounting flanges run from F05 to F35, with an optional alternative listed for most models.",
-      "Filter by sub-series and model, check the full table for handwheel diameter and weight, then request a quote from Valvenok's UK team.",
-    ],
-    points: [
-      "Pick a model whose output torque exceeds the valve's maximum operating torque.",
-      "Use 1S or 2S versions where rim pull on a Standard model is too high for one operator.",
-      "Confirm the valve-side and actuator-side flange sizes before ordering.",
-    ],
-  },
-
-  "/actuators/mechanical/mab/products": {
-    heading: "How to Choose an MAB Bevel Gearbox",
-    paragraphs: [
-      "A bevel gearbox turns the handwheel input through a right angle and reduces it, so an operator can drive a multi-turn valve such as a gate, globe or plug valve with less effort. Unlike quarter-turn gearboxes, MAB units also carry axial thrust from a rising stem, which is why the table lists both maximum torque and maximum thrust for each model.",
-      "Standard models run from the MAB-075 to the MAB-2500, with maximum torque from 250 Nm to 18,000 Nm, maximum thrust from 75 kN to 2,500 kN and gear ratios from 2.5:1 to 7.5:1. The 1S versions, from MAB-125-1S, add a reduction stage for ratios from 7:1 to 30:1. The 2S versions, from MAB-150-2S, go up to 151.87:1. Valve mounting follows ISO 5210, with standard flanges from F10 to F48 and optional alternatives listed for every model.",
-      "The mechanical advantage column helps compare effort. A higher figure means less force on the handwheel, but the valve takes more handwheel turns to stroke. The maximum stem diameter column gives the bore and keyway the gearbox can accept, which needs to suit the valve stem.",
-      "Filter by sub-series and model, expand a row for handwheel diameter and weight, and request a quote from Valvenok's UK team.",
-    ],
-    points: [
-      "Check both torque and thrust: rising-stem valves can be limited by either.",
-      "Confirm the stem diameter and keyway fit inside the listed maximum.",
-      "Choose 1S or 2S where handwheel effort on a Standard model is too high.",
-    ],
-  },
-
-  "/actuators/mechanical/maw/products": {
-    heading: "About the MAW Worm Gearbox Range",
-    paragraphs: [
-      "MAW gearboxes are manual worm gear operators for quarter-turn valves, including ball, butterfly and plug valves and dampers. The worm and wheel multiplies handwheel effort and turns the output through 90 degrees. Because a worm gear is self-locking, the valve holds position when the handwheel is released, which helps with butterfly valves that can be pushed by line flow.",
-      "The table lists 30 models across three configurations. Standard models run from the MAW-012 at 125 Nm to the MAW-3200 at 32,000 Nm, with ratios between 32:1 and 68:1 and handwheels from 100 mm to 900 mm diameter. The 1S versions, MAW-300-1S upwards, add a reduction stage for ratios of 102:1 to 248:1. The 2S versions, MAW-900-2S upwards, reach 992:1.",
-      "The trade-off is effort against turns. The MAW-1800 needs about 206 kg rim pull and 15.5 turns, while the MAW-1800-2S needs about 14 kg over 248 turns. Valve mounting follows ISO 5211, with standard flanges from F05 to F35 and an optional alternative listed for each model.",
-      "Filter by sub-series and model, compare rim pull and weight in the table, and request a quote from Valvenok's UK team for your valve size.",
-    ],
-    points: [
-      "Output torque should exceed the valve's highest operating torque.",
-      "Rim pull shows the force needed at the handwheel rim; lower is easier to operate.",
-      "Check the flange and stem connection on the valve before ordering.",
-    ],
-  },
 
   // PDS and PLDS model lists: the range text now sits in the page header (about), not here.
 

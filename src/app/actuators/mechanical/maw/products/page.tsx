@@ -1,69 +1,37 @@
 'use client'
-import { GroupSiteLinks, groupSitesIn } from '@/src/app/Common/GroupVisitLinks'
-import { useState, useMemo } from 'react'
-import { Box, Typography } from '@mui/material'
-import { alpha } from '@mui/material/styles'
-import {
-  MAW_GEARBOX_DATA, MAW_GEARBOX_DESCRIPTION,
-  type MAWGearboxFilters, EMPTY_MAW_FILTERS,
-  applyMAWFilters, countByMAW, type AvailableCountsMAW,
-} from './hooks/mawGearboxData'
-import { MAWGearboxActiveFilters } from './components/MAWGearboxActiveFilters'
-import MAWGearboxTable from './components/MAWGearboxTable'
 
-const BRAND_GREEN = '#61D649'
-const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
+// MAW model list ("View all models"). Rows come from ./items.
+import ModelList, { type ListDef } from '@/src/app/pneumatic/actuators/_series/ModelList'
+import { STAGE_LABEL, type GearStage } from '@/src/app/pneumatic/actuators/_series/gearTypes'
+import { MAW_CATALOG, MAW_SIZES } from '../mawData'
+import { ITEMS } from './items'
 
-export default function MAWGearboxPage() {
-  const [filters, setFilters] = useState<MAWGearboxFilters>(EMPTY_MAW_FILTERS)
+const DEF: ListDef = {
+  title: 'MAW worm gear actuator models',
+  intro: `${ITEMS.length} Susin MAW quarter-turn worm gear actuators for ball, butterfly and plug valves and dampers, 125 to 32,000 Nm, as standard or with a single or double stage reduction. Open any model for its full figures and dimensions, then request a quote.`,
+  back: { href: '/actuators/mechanical/maw', label: 'MAW series overview' },
+  catalog: { href: MAW_CATALOG, label: 'MAW catalogue (PDF)' },
+  columns: ['Max torque', 'Ratio', 'Turns (90°)', 'Rim pull', 'ISO 5211', 'Weight'],
+  facets: [
+    { key: 'stage', title: 'Gearing', options: Object.values(STAGE_LABEL) },
+    { key: 'size', title: 'Size', options: MAW_SIZES },
+  ],
+  sorts: [
+    { key: 'model', label: 'Model' },
+    { key: 'torque', label: 'Torque', desc: true },
+    { key: 'rim', label: 'Rim pull' },
+    { key: 'weight', label: 'Weight' },
+  ],
+  placeholder: 'Search model or flange, e.g. MAW-300 or F25',
+  items: ITEMS,
+  fromParams: (sp): Record<string, string[]> => {
+    const out: Record<string, string[]> = {}
+    const size = sp.get('size'); if (size) out.size = [size]
+    const stage = sp.get('stage') as GearStage | null; if (stage && STAGE_LABEL[stage]) out.stage = [STAGE_LABEL[stage]]
+    return out
+  },
+}
 
-  const models = useMemo(() => applyMAWFilters(MAW_GEARBOX_DATA, filters, ''), [filters])
-
-  const availableCounts = useMemo<AvailableCountsMAW>(() => ({
-    subSeries: countByMAW(applyMAWFilters(MAW_GEARBOX_DATA, filters, 'subSeries'), c => c.subSeries),
-    models:    countByMAW(applyMAWFilters(MAW_GEARBOX_DATA, filters, 'models'),    c => c.model),
-  }), [filters])
-
-  const activeCount = Object.values(filters).reduce((acc, v) => acc + v.length, 0)
-
-  return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: '#f8f9fa' }}>
-      <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
-        <Typography variant="h1" fontWeight={800} mb={1} sx={{ color: BRAND_GREEN, fontFamily: PRIMARY_FONT }}>
-          {MAW_GEARBOX_DESCRIPTION.title}
-        </Typography>
-        <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 800, fontFamily: PRIMARY_FONT }}>
-          {MAW_GEARBOX_DESCRIPTION.description}
-        </Typography>
-        <GroupSiteLinks variant="inline" sites={groupSitesIn(MAW_GEARBOX_DESCRIPTION.title, MAW_GEARBOX_DESCRIPTION.description)} />
-        <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
-          {MAW_GEARBOX_DESCRIPTION.specs.map(s => (
-            <Box key={s} sx={{
-              px: 1.5, py: 0.5, borderRadius: '20px', fontSize: '0.75rem', fontWeight: 600,
-              bgcolor: alpha(BRAND_GREEN, 0.08), color: '#2d8a1e',
-              border: `1px solid ${alpha(BRAND_GREEN, 0.3)}`,
-              fontFamily: PRIMARY_FONT,
-            }}>
-              {s}
-            </Box>
-          ))}
-        </Box>
-      </Box>
-
-      <Box sx={{ p: { xs: 2, md: 3 }, flex: 1 }}>
-        <MAWGearboxActiveFilters filters={filters} setFilters={setFilters} />
-        <Typography variant="caption" fontWeight={700} color="text.disabled"
-          sx={{ display: 'block', mb: 1, fontFamily: PRIMARY_FONT }}>
-          {`${models.length} MODELS`}
-        </Typography>
-        <MAWGearboxTable
-          models={models}
-          filters={filters}
-          setFilters={setFilters}
-          availableCounts={availableCounts}
-          activeCount={activeCount}
-        />
-      </Box>
-    </Box>
-  )
+export default function MAWModelsPage() {
+  return <ModelList def={DEF} />
 }

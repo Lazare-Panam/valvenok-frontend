@@ -1,22 +1,17 @@
 import type { Metadata } from "next";
-import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
+import { MAB_IMAGE } from "../mabData";
+
+const TITLE = "MAB Bevel Gear Actuator Models, 250–18,000 Nm | Valvenok";
+const DESCRIPTION =
+  "All 28 Susin MAB bevel gear actuators, standard, 1S and 2S: torque, thrust, gear ratio, mechanical advantage, ISO 5210 flange, weight and dimensions. Request a quote.";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/actuators/mechanical/mab/products" },
-  title: { absolute: "MAB Series Bevel Gearboxes — All Models & Sizes | Valvenok" },
-  description:
-    "Browse MAB series bevel gearboxes for multi-turn valve operation. Filter by sub-series and model to find the configuration you need, then request a quote.",
-  openGraph: {
-    title: "MAB Series Bevel Gearboxes — All Models & Sizes | Valvenok",
-    description: "Browse MAB series bevel gearboxes for multi-turn valve operation. Filter by sub-series and model to find the configuration you need, then request a quote.",
-    type: "website",
-  },
+  title: { absolute: TITLE },
+  description: DESCRIPTION,
+  openGraph: { title: TITLE, description: DESCRIPTION, type: "website", images: [MAB_IMAGE] },
 };
 
-export default function MABGearboxLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return <>{children}<RangeCopy path="/actuators/mechanical/mab/products" /></>;
+export default function MABProductsLayout({ children }: { children: React.ReactNode }) {
+  return <>{children}</>;
 }

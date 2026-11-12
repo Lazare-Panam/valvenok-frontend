@@ -1,33 +1,17 @@
 import type { Metadata } from "next";
-import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
+import { MAW_IMAGE } from "../mawData";
 
-const TITLE = "MAW Worm Gearboxes for Valves: Models & Sizes | Valvenok";
+const TITLE = "MAW Worm Gear Actuator Models, 125–32,000 Nm | Valvenok";
 const DESCRIPTION =
-  "Browse MAW series worm gearboxes for quarter-turn valve actuation and drive systems. Filter by sub-series and model, then request a quote from Valvenok.";
-const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
+  "All 30 Susin MAW quarter-turn worm gear actuators, standard, 1S and 2S: torque, gear ratio, turns, rim pull, ISO 5211 flange, weight and dimensions. Request a quote.";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/actuators/mechanical/maw/products" },
   title: { absolute: TITLE },
   description: DESCRIPTION,
-  openGraph: {
-    title: TITLE,
-    description: DESCRIPTION,
-    type: "website",
-    images: [IMAGE],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: TITLE,
-    description: DESCRIPTION,
-    images: [IMAGE],
-  },
+  openGraph: { title: TITLE, description: DESCRIPTION, type: "website", images: [MAW_IMAGE] },
 };
 
-export default function MAWGearboxLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return <>{children}<RangeCopy path="/actuators/mechanical/maw/products" /></>;
+export default function MAWProductsLayout({ children }: { children: React.ReactNode }) {
+  return <>{children}</>;
 }
