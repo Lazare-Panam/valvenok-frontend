@@ -93,7 +93,7 @@ const SERIES_COUNT = CATEGORIES.reduce((n, c) => n + c.series.length, 0);
 
 const STATS = [
   { value: "5", unit: "types", label: "Pneumatic, electric, hydraulic, mechanical and limit switches" },
-  { value: String(SERIES_COUNT), unit: "series", label: "From Susin, KOSAPLUS, SPAC and Danfoss" },
+  { value: String(SERIES_COUNT), unit: "series", label: "From Susin, KOSAPLUS and SPAC" },
   { value: "ISO 5211", unit: "", label: "Standard mounting on quarter-turn actuators" },
   { value: "120,867", unit: "Nm", label: "Highest output torque (HD scotch yoke)" },
 ];

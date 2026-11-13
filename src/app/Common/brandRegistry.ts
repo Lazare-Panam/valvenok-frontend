@@ -66,16 +66,7 @@ export const BRANDS: Brand[] = [
     },
     sortOrder: 3,
   },
-  {
-    slug: "danfoss",
-    name: "Danfoss",
-    logo: `${V}/products/danfoss/new-logo.svg`,
-    mode: "featured",
-    makes: {
-      actuators: { text: "PVE actuators for proportional valves", href: "/actuators/electric/pvae32" },
-    },
-    sortOrder: 4,
-  },
+  // Danfoss hidden 13 Nov (pages kept live, logged on vk-z1 for clean-up)
 ];
 
 export interface BrandLink {

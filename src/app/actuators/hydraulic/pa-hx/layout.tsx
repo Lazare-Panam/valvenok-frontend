@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/actuators/hydraulic/pa-hx" },
   title: { absolute: TITLE },
   description: DESCRIPTION,
-  openGraph: { title: TITLE, description: DESCRIPTION, url: "/actuators/hydraulic/pa-hx", type: "website", images: [IMAGE] },
+  openGraph: { title: TITLE, description: DESCRIPTION, type: "website", images: [IMAGE] },
 };
 
 export default function PaHxLayout({ children }: { children: React.ReactNode }) {

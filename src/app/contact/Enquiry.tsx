@@ -11,7 +11,7 @@ import {
   Link as MuiLink,
 } from "@mui/material";
 import NextLink from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import PhoneOutlinedIcon from "@mui/icons-material/PhoneOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
@@ -48,6 +48,7 @@ export default function EnquiryForm() {
     message: "",
   });
 
+  const router = useRouter();
   const { showNotification } = useNotificationStore();
   const { mutate, isPending } = useSendEnquiry();
 
@@ -67,10 +68,8 @@ export default function EnquiryForm() {
           subject: "",
           message: "",
         });
-        showNotification({
-          message: "Enquiry Sent Successfully",
-          severity: "success",
-        });
+        // A page of its own after sending, so the enquiry can be tracked as a conversion
+        router.push("/contact/thank-you");
       },
       onError: (err: any) => {
         showNotification({

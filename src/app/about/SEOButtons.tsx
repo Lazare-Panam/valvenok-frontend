@@ -213,10 +213,6 @@ const GROUPS: { group: string; links: { label: string; href: string }[] }[] = [
         href: "/actuators/electric/itm/products",
       },
       {
-        label: "PVAE32 Electric Actuators",
-        href: "/actuators/electric/pvae32/products",
-      },
-      {
         label: "MAB Mechanical Actuators",
         href: "/actuators/mechanical/mab/products",
       },

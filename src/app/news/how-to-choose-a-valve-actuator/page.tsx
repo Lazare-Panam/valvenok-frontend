@@ -464,8 +464,7 @@ export default function ActuatorGuidePage() {
         cycle rating — the specification to look for if the valve modulates
         continuously rather than stroking occasionally. The ITM multi-turn
         series carries IP68 with an optional Ex d IIC T4 rating for
-        hazardous areas. The Danfoss PVE series provides electrohydraulic
-        control on 12V or 24V.
+        hazardous areas.
       </P>
       <Supplied img={`${IMG}/electric/itm.webp`} alt="Two Susin ITM multi-turn electric valve actuators" name="Susin ITM multi-turn electric actuators" line="Heavy-duty multi-turn electric actuators for gate, globe and sluice valves. IP68, Ex d IIC T4 optional." href="/actuators/electric/itm" />
       <P>

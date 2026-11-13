@@ -189,27 +189,6 @@ const VALVE_FAMILIES: Category[] = [
     image:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/sealed-valves/din-standard-bellows-sealed-globe-valve-plus.jpg",
   },
-  {
-    code: "DVC",
-    title: "Danfoss Valve Components",
-    subtitle: " Valve Components",
-    description:
-      "Danfoss valve components compatible with the PVG series, for mobile hydraulics in agricultural, construction and marine equipment.",
-    specs: [
-      "Danfoss OEM Quality",
-      "PVG Series Compatible",
-      "Mobile Hydraulics",
-      "Certification Varies by Model",
-      "Fast Availability",
-    ],
-    applications:
-      "Mobile Hydraulics, Agricultural Machinery, Construction Equipment, Marine, Industrial",
-    href: "/valves/valve-components",
-    image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/danfoss/dfe-vc.png",
-    logoUrl:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/danfoss/new-logo.svg",
-  },
 ];
 
 const TRUST_POINTS = [

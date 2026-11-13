@@ -208,13 +208,7 @@ export const NAV_GROUPS: NavGroup[] = [
           { label: "Check Valve", href: "/valves/sealed-valves/check-valves" },
         ],
       },
-      {
-        header: "Valve Components",
-        href: "/valves/valve-components",
-        items: [
-          { label: "Valve Components", href: "/valves/valve-components" },
-        ],
-      },
+
     ],
   },
   {
@@ -306,13 +300,7 @@ export const NAV_GROUPS: NavGroup[] = [
               { label: "View All Models", href: "/actuators/electric/itm/products" },
             ],
           },
-          {
-            label: "Danfoss PVE Actuators",
-            href: "/actuators/electric/pvae32",
-            children: [
-              { label: "View All Models", href: "/actuators/electric/pvae32/products" },
-            ],
-          },
+
         ],
       },
       {
@@ -670,8 +658,8 @@ const SHOWCASE_COLUMNS: Record<string, ShowcaseCategory> = {
   Accessories: "accessories",
 };
 for (const col of NAV_GROUPS.find((g) => g.id === "actuators")?.columns ?? []) {
-  // Our own series in this tab are Susin (Danfoss PVE aside), so the menu can group by brand
-  for (const it of col.items) if (!it.brand) it.brand = /danfoss/i.test(it.label) ? "Danfoss" : "Susin";
+  // Our own series in this tab are Susin, so the menu can group by brand
+  for (const it of col.items) if (!it.brand) it.brand = "Susin";
   const cat = SHOWCASE_COLUMNS[col.header];
   if (!cat) continue;
   col.items.push(

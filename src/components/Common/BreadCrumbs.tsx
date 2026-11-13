@@ -63,7 +63,7 @@ type BreadcrumbsProps = {
 const ACRONYMS = new Set([
   'ag', 'lpg', 'dbb', 'hp', 'jic', 'npt', 'bsp', 'aov', 'ss', 'ss316', 'vsi', 'h2', 'frl',
   // series codes
-  'iql', 'itl', 'itm', 'itq', 'qs', 'bvaa', 'itg', 'its', 'mab', 'maw', 'adf', 'hd', 'mhd', 'pds', 'plds', 'mplds', 'sra',
+  'iql', 'itl', 'itm', 'itq', 'qs', 'bvaa', 'pa', 'hx', 'panda', 'itg', 'its', 'mab', 'maw', 'adf', 'hd', 'mhd', 'pds', 'plds', 'mplds', 'sra',
   'esc', 'esnc', 'sdnc', 'sdnu', 'kls', 'ke', 'tg', 'fg', 'pvae32', 'ib', 'hb', 'sb', 'rss', 'wkm',
 ]);
 
@@ -95,7 +95,9 @@ const DEFAULT_LABELS: Record<string, string> = {
 // Turn "ag-fasani-check" into "AG Fasani Check"
 // Part numbers (all caps with digits, e.g. PNV-HP-S-2NF) are shown exactly as written
 const isPartNumber = (seg: string) => /^[A-Z0-9][A-Z0-9-]*\d[A-Z0-9-]*$/.test(seg) && /[A-Z]/.test(seg);
+const FIXED: Record<string, string> = { "thank-you": "Thank you" };
 const humanize = (segment: string) =>
+  FIXED[segment] ??
   isPartNumber(decodeURIComponent(segment)) ? decodeURIComponent(segment) :
   decodeURIComponent(segment)
     .replace(/[-_]/g, ' ')

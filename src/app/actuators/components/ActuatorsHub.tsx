@@ -46,7 +46,7 @@ const STATS = [
   { value: "5", unit: "types", label: "Pneumatic, electric, hydraulic, mechanical, accessories" },
   { value: "120,867", unit: "Nm", label: "Highest output torque (HD scotch yoke)" },
   { value: "ISO 5211", unit: "", label: "Standard mounting on quarter-turn actuators" },
-  { value: "4", unit: "brands", label: "Susin · KOSAPLUS · SPAC · Danfoss" },
+  { value: "3", unit: "brands", label: "Susin · KOSAPLUS · SPAC" },
 ];
 
 // Torque at a glance (maximum by category, from the series pages); log scale
@@ -675,7 +675,6 @@ function Brands() {
     { name: "Susin", logo: "https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp", text: "Scotch yoke and linear pneumatic actuators, quarter-turn, linear and multi-turn electric actuators, gearboxes and limit switch boxes.", links: [{ label: "About Susin", href: "/brands/susin" }, { label: "Pneumatic", href: "/pneumatic/actuators" }, { label: "Electric", href: "/actuators/electric" }] },
     { name: "KOSAPLUS", logo: "https://pblol2.blob.core.windows.net/valvenok-images/brands/kosaplus-logo.png", text: "Scotch yoke pneumatic actuators, compact electric actuators and limit switch boxes.", links: [], site: kosa },
     { name: "SPAC", logo: "https://pblol2.blob.core.windows.net/spac-images/spac-logo.webp", text: "Spring-return rack & pinion pneumatic actuators, priced and ready to order online.", links: [], site: spac },
-    { name: "Danfoss", logo: "https://pblol2.blob.core.windows.net/valvenok-images/products/danfoss/new-logo.svg", text: "Electrohydraulic actuators for proportional valves (PVE series).", links: [{ label: "Danfoss PVE actuators", href: "/actuators/electric/pvae32" }] },
   ];
   return (
     <Box component="section" id="brands" aria-labelledby="h2-brands" sx={{ scrollMarginTop: 190, py: { xs: 8, md: 11 } }}>

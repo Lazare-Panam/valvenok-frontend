@@ -1,6 +1,6 @@
-import SeriesPage from "../_series/SeriesPage";
-import { PA_HX } from "./paHxData";
+// PA-HX series page. The content and data sheet figures live in PaHxView.
+import PaHxView from "./PaHxView";
 
 export default function PaHxPage() {
-  return <SeriesPage def={PA_HX} />;
+  return <PaHxView />;
 }
