@@ -8,10 +8,10 @@ import { jack, mtg, mab, hmor } from '../pldsOverrideData'
 const overrides = (model: string): string[][] => {
   const k = (v: number) => `${v.toLocaleString('en-GB')} N`
   const out: string[][] = []
-  const j = jack.find(r => r.size === model); if (j) out.push(['Jack screw', '—', k(j.thrustN), '0.3 / 8.4', '360 N'])
+  const j = jack.find(r => r.size === model); if (j) out.push(['Jack screw', 'Not listed', k(j.thrustN), '0.3 / 8.4', '360 N'])
   const g = mtg.find(r => r.size === model); if (g) out.push(['MTG worm gear', g.model!, k(g.thrustN), '0.3 / 8.4', '360 N'])
   const b = mab.find(r => r.size === model); if (b) out.push(['MAB bevel gear', b.model!, k(b.thrustN), '0.3 / 8.4', '360 N'])
-  const h = hmor.find(r => `PLDS-${r[0]}` === model); if (h) out.push(['Hydraulic (HMOR)', `Pump ${h[1]} mm`, k(h[3]), '—', '—'])
+  const h = hmor.find(r => `PLDS-${r[0]}` === model); if (h) out.push(['Hydraulic (HMOR)', `Pump ${h[1]} mm`, k(h[3]), 'Not listed', 'Not listed'])
   return out
 }
 

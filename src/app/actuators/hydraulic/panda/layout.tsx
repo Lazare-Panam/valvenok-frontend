@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/actuators/hydraulic/panda" },
   title: { absolute: TITLE },
   description: DESCRIPTION,
-  openGraph: { title: TITLE, description: DESCRIPTION, url: "/actuators/hydraulic/panda", type: "website", images: [IMAGE] },
+  openGraph: { title: TITLE, description: DESCRIPTION, type: "website", images: [IMAGE] },
 };
 
 export default function PandaLayout({ children }: { children: React.ReactNode }) {

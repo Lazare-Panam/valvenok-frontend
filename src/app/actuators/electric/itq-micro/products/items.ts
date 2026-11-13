@@ -28,9 +28,9 @@ const RAW_ITEMS: Item[] = ITQM_MODELS.map((m, i) => ({
   sort: { model: i, torque: m.torqueNm },
   search: `${m.model} ${m.model.replace(' ', '')} ${m.torqueNm} Nm ${m.mounting} ${m.power} micro compact electric`,
   brief: [
-    ['Stem adaption', spec(m, 'Stem Adaption') ?? '—'],
+    ['Stem adaption', spec(m, 'Stem Adaption') ?? 'Not listed'],
     ['Manual operation', spec(m, 'Manual Operation') ? (m.model === 'ITQ 0080' ? 'M6 wrench, 7 turns' : 'Lever and hex wrench, 6 turns') : 'Not fitted'],
-    ['Duty cycle, on-off', spec(m, 'Duty Cycle (On/Off)', 'Duty Cycle') ?? '—'],
+    ['Duty cycle, on-off', spec(m, 'Duty Cycle (On/Off)', 'Duty Cycle') ?? 'Not listed'],
     ['Weight', weight(m)],
   ],
   specs: [

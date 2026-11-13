@@ -12,7 +12,7 @@ export const ITEMS: Item[] = MHD_ACTUATOR_DATA.map((m, i) => {
   const slug = m.model
   return {
     id: m.model, model: m.model, sub: `Size ${size} · ${m.yoke.includes('IS') ? 'symmetric' : 'canted'}, ${sr ? 'spring return' : 'double acting'}`, image: m.imageUrl,
-    cells: [{ text: `${m.yoke.includes('IS') ? 'Symmetric' : 'Canted'} · ${sr ? 'SR' : 'DA'}`, pill: 'grey' }, { text: `${nm(m.torqueNmMin)} – ${nm(m.torqueNmMax)} Nm`, pill: 'green' }, sr ? `${nm(m.springEndTorqueNmMin)} – ${nm(m.springEndTorqueNmMax)} Nm` : '—', m.iso5211],
+    cells: [{ text: `${m.yoke.includes('IS') ? 'Symmetric' : 'Canted'} · ${sr ? 'SR' : 'DA'}`, pill: 'grey' }, { text: `${nm(m.torqueNmMin)} – ${nm(m.torqueNmMax)} Nm`, pill: 'green' }, sr ? `${nm(m.springEndTorqueNmMin)} – ${nm(m.springEndTorqueNmMax)} Nm` : 'No spring, air closes', m.iso5211],
     facets: { yoke: m.yoke, action: m.action, size },
     sort: { model: i, torque: m.torqueNmMax, size: `${size}-${i}` },
     search: `${m.model} ${m.yoke} ${m.action} ${m.iso5211} MHD micro`,

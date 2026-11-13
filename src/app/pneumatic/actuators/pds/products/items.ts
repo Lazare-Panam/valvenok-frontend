@@ -15,7 +15,7 @@ const pdItems: Item[] = Array.from(new Set(PD_ACTUATOR_DATA.filter(r => r.series
   const desc = `Susin ${model} double acting scotch yoke actuator. Torque ${nm(lo)}–${nm(hi)} Nm at 2.8–8 bar, ISO 5211 ${r0.iso5211}.`
   return {
     id: model, model, sub: `Size ${s}`, image: r0.imageUrl,
-    cells: [{ text: 'Double acting', pill: 'grey' }, { text: `${nm(lo)} – ${nm(hi)} Nm`, pill: 'green' }, '—', r0.iso5211!, `${r0.airConsumptionOpen} L · ${TIME[s]} s`],
+    cells: [{ text: 'Double acting', pill: 'grey' }, { text: `${nm(lo)} – ${nm(hi)} Nm`, pill: 'green' }, 'No spring, air closes', r0.iso5211!, `${r0.airConsumptionOpen} L · ${TIME[s]} s`],
     facets: { action: 'Double acting', size: s, mount: r0.iso5211! },
     sort: { model: Number(s) * 10, torque: hi },
     search: `${model} PDS ${s} double acting DA ${r0.iso5211}`,

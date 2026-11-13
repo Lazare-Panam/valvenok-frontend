@@ -1,6 +1,6 @@
-import SeriesPage from "../_series/SeriesPage";
-import { PANDA } from "./pandaData";
+// PANDA series page. The content and brochure figures live in PandaView.
+import PandaView from "./PandaView";
 
 export default function PandaPage() {
-  return <SeriesPage def={PANDA} />;
+  return <PandaView />;
 }

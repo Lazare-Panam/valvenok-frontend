@@ -39,13 +39,13 @@ const RAW_ITEMS: Item[] = IQL_MODELS.map((m, i) => ({
   ],
   table: {
     title: 'Rated current by power supply',
-    head: ['Power supply', 'Rated current, 50 Hz', 'Rated current, 60 Hz'],
+    head: ['Power supply', 'Rated current, 50 Hz (or DC)', 'Rated current, 60 Hz'],
     rows: [
       ['1 phase, 110 VAC', ...pair(m.a110)],
       ['1 phase, 220 VAC', ...pair(m.a220)],
       ['3 phase, 380 VAC', ...pair(m.a380)],
       ['3 phase, 440 VAC', ...pair(m.a440)],
-      ['24 VDC', `${m.aDc} A`, '—'],
+      ['24 VDC', `${m.aDc} A`, 'Not applicable (DC)'],
     ],
   },
   note: 'Disc springs set the closing force for tight shut-off. Tell us the valve, stroke, force, power supply and control signal and we’ll confirm the model and options.',

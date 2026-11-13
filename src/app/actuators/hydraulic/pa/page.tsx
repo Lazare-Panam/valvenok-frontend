@@ -1,6 +1,6 @@
-import SeriesPage from "../_series/SeriesPage";
-import { PA } from "./paData";
+// PA series page. The content and brochure figures live in PaView.
+import PaView from "./PaView";
 
 export default function PaPage() {
-  return <SeriesPage def={PA} />;
+  return <PaView />;
 }

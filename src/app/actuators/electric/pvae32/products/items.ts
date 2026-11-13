@@ -3,7 +3,7 @@
 import type { Item } from '@/src/app/pneumatic/actuators/_series/modelTypes'
 import { PVE_MODELS, PVE_COMMON, PVE_IMAGE } from '../pveData'
 
-const reaction = (m: (typeof PVE_MODELS)[number]) => (m.t1 ? `${m.t1} ms / ${m.t2} ms` : '—')
+const reaction = (m: (typeof PVE_MODELS)[number]) => (m.t1 ? `${m.t1} ms / ${m.t2} ms` : 'Not listed')
 
 const RAW_ITEMS: Item[] = PVE_MODELS.map((m, i) => ({
   id: m.model,
@@ -21,7 +21,7 @@ const RAW_ITEMS: Item[] = PVE_MODELS.map((m, i) => ({
   search: `${m.model} Danfoss PVE PVG electrohydraulic actuator ${m.kind} ${m.functions}`,
   brief: [
     ['Fault monitoring', m.monitoring],
-    ['Hysteresis', m.hysteresis ?? '—'],
+    ['Hysteresis', m.hysteresis ?? 'Not listed'],
     ['Pilot pressure', m.pilot],
   ],
   specs: [
