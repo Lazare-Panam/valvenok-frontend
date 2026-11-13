@@ -1,34 +1,87 @@
-// HD models, shared by the model list and the per-model product pages.
-// HD model list ("View all models"). Figures from Susin's HD general specification
-// table (susingroup.com/products/hd-rotary); see hooks/hdActuatorData.
+// HD models in Susin's four series (ISD, ICD, ISR, ICR), shared by the model
+// list and the per-model product pages. Figures from ../hdData.
 import type { Item } from '../../_series/modelTypes'
-import { HD_ACTUATOR_DATA } from './hooks/hdActuatorData'
+import { HD_MODELS, HD_COMMON, HD_IMAGE, PRESSURES, seriesOf, maxTorque, springEnd, type HdModel } from '../hdData'
 
 const nm = (n: number) => n.toLocaleString('en-GB')
-// Max stem diameter / height (mm), from the same Susin table
-const STEM: Record<string, [string, number]> = { A1: ['SQ-22', 30], '01': ['Ø45', 45], '02': ['Ø65', 120], '03': ['Ø80', 130], '04': ['Ø110', 150], '05': ['Ø125', 185], '06': ['Ø165', 245] }
+const trio = (t: [number, number, number]) => t.map(nm).join(' / ')
+const DIM = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
 
-const RAW_ITEMS: Item[] = HD_ACTUATOR_DATA.map((m, i) => ({
-  id: m.model, model: `HD ${m.model}`, sub: 'IS & IC yoke · DA / SR', image: m.imageUrl,
-  cells: [{ text: `${nm(m.torqueNmMin)} – ${nm(m.torqueNmMax)} Nm`, pill: 'green' }, { text: `Spring ${nm(m.springEndTorqueNmMin)} – ${nm(m.springEndTorqueNmMax)} Nm`, pill: 'grey' }, m.iso5211, `${STEM[m.model][0]} · ${STEM[m.model][1]} mm`],
-  facets: { size: m.model, mount: m.iso5211 },
-  sort: { model: i, torque: m.torqueNmMax },
-  search: `HD ${m.model} ${m.iso5211} IS IC symmetric canted scotch yoke`,
-  specs: [
-    ['Body size', m.model], ['ISO 5211', m.iso5211],
-    ['Torque (Nm)', `${nm(m.torqueNmMin)} – ${nm(m.torqueNmMax)}`], ['Torque (lb-in)', `${nm(m.torqueLbInMin)} – ${nm(m.torqueLbInMax)}`],
-    ['Spring end torque (Nm)', `${nm(m.springEndTorqueNmMin)} – ${nm(m.springEndTorqueNmMax)}`], ['Spring end torque (lb-in)', `${nm(m.springEndTorqueLbInMin)} – ${nm(m.springEndTorqueLbInMax)}`],
-    ['Max stem diameter', STEM[m.model][0]], ['Max stem height', `${STEM[m.model][1]} mm`],
-    ['Over-travel', '±5°'], ['Air supply', '3.5 – 10 bar'], ['Temperature', '−20 to +85 °C'], ['Protection', 'IP66 / IP67'],
-  ],
-  note: 'Available as double acting, tandem double acting, spring return fail close or fail open, with a symmetric (IS) or canted (IC) yoke. Tell us the valve torque and we’ll size the cylinder and springs.',
-  rfq: { id: `hd-${m.model}`, name: `HD Series body size ${m.model} scotch yoke actuator`, brand: 'Susin', category: 'Pneumatic Actuators', categoryId: 'pneumatic-actuators', subCategory: 'HD Series', thumbnail: m.imageUrl, description: m.description, keySpecs: [{ label: 'Body size', value: m.model }, { label: 'ISO 5211', value: m.iso5211 }, { label: 'Torque', value: `${nm(m.torqueNmMin)} – ${nm(m.torqueNmMax)} Nm` }, { label: 'Spring end torque', value: `${nm(m.springEndTorqueNmMin)} – ${nm(m.springEndTorqueNmMax)} Nm` }], variantInfo: { count: 1, sizeRange: `Body size ${m.model}` } },
-}))
+const table = (m: HdModel): Item['table'] =>
+  m.da
+    ? {
+        title: 'Torque by air pressure, Nm (start / run / end)',
+        head: ['Air supply', 'Start', 'Run', 'End'],
+        rows: m.da.map((t, k) => [`${PRESSURES[k]} bar`, nm(t[0]), nm(t[1]), nm(t[2])]),
+      }
+    : {
+        title: 'Spring and air torque, Nm (start / run / end)',
+        head: ['Spring set', 'Torque', 'Start', 'Run', 'End'],
+        rows: m.sr!.flatMap((s) => [
+          [`${s.set} bar spring`, 'Spring', nm(s.spring[0]), nm(s.spring[1]), nm(s.spring[2])],
+          ...s.air.map((a) => [`${s.set} bar spring`, `Air at ${a.bar} bar`, nm(a.t[0]), nm(a.t[1]), nm(a.t[2])]),
+        ]),
+      }
 
+const RAW: Item[] = HD_MODELS.map((m, i) => {
+  const S = seriesOf(m.series)
+  const max = maxTorque(m)
+  const head = m.da ? `${nm(m.da[2][0])} Nm` : `${nm(m.sr![1].air[1].t[0])} Nm`
+  return {
+    id: m.model,
+    model: m.model,
+    sub: `${S.yoke} · ${S.action.toLowerCase()}`,
+    image: HD_IMAGE,
+    cells: [
+      { text: m.series, pill: 'grey' },
+      { text: head, pill: 'green' },
+      m.da ? `${nm(m.da[0][1])} – ${nm(max)} Nm` : `Up to ${nm(max)} Nm`,
+      m.sr ? `${nm(springEnd(m))} – ${nm(Math.max(...m.sr.map((s) => s.spring[0])))} Nm` : 'No spring, air closes',
+      `Body ${m.body}`,
+    ],
+    facets: { series: m.series, body: m.body, yoke: S.yoke, action: S.action },
+    sort: { model: i, torque: max, body: `${m.body}-${m.cylinder}` },
+    search: `${m.model} ${m.model.replace(' ', '')} ${m.series} ${S.yoke} ${S.action} body ${m.body} cylinder ${m.cylinder} HD scotch yoke`,
+    brief: m.da
+      ? [['Start torque at 5.5 bar', `${nm(m.da[2][0])} Nm`], ['End torque at 5.5 bar', `${nm(m.da[2][2])} Nm`]]
+      : [['Spring end torque, 4.2 / 5.5 bar sets', `${nm(m.sr![0].spring[2])} / ${nm(m.sr![1].spring[2])} Nm`], ['Air start, 5.5 bar on 5.5 bar spring', `${nm(m.sr![1].air[1].t[0])} Nm`]],
+    specs: [
+      ['Series', `${m.series}: ${S.yoke.toLowerCase()} yoke, ${S.action.toLowerCase()}`],
+      ['Body size', m.body],
+      ['Cylinder', m.cylinder],
+      ...(m.da
+        ? (PRESSURES.map((p, k) => [`Torque at ${p} bar, start / run / end`, `${trio(m.da![k])} Nm`]) as [string, string][])
+        : (m.sr!.map((s) => [`Spring torque, ${s.set} bar set, start / run / end`, `${trio(s.spring)} Nm`]) as [string, string][])),
+      ...(m.sr ? ([['Fail action', 'Fail closed or fail open']] as [string, string][]) : []),
+      ['Dimensions A – G', `${m.dims.map((v, k) => `${DIM[k]} ${v}`).join(', ')} mm`],
+      ...HD_COMMON,
+    ],
+    table: table(m),
+    note: m.sr
+      ? 'Each spring return model comes with a 4.2 or a 5.5 bar spring set. The 4.2 bar set is listed with air at 2.8, 4.2 and 5.5 bar, the 5.5 bar set with air at 4.2, 5.5 and 7 bar, as in Susin’s catalogue. Dimensions as on the catalogue drawing.'
+      : 'Torque at the start, run and end of the 90° stroke, from Susin’s technical data. Dimensions as on the catalogue drawing. Tell us the valve torque and air supply and we’ll confirm the model.',
+    rfq: {
+      id: `hd-${m.model.replace(' ', '-').toLowerCase()}`,
+      name: `${m.model} heavy-duty scotch yoke actuator`,
+      brand: 'Susin',
+      category: 'Pneumatic Actuators',
+      categoryId: 'pneumatic-actuators',
+      subCategory: `HD ${m.series} Series`,
+      thumbnail: HD_IMAGE,
+      description: `${m.model} heavy-duty scotch yoke actuator, ${S.yoke.toLowerCase()} yoke, ${S.action.toLowerCase()}, up to ${nm(max)} Nm.`,
+      keySpecs: [
+        { label: 'Series', value: m.series },
+        { label: 'Action', value: S.action },
+        { label: 'Max torque', value: `${nm(max)} Nm` },
+        { label: 'Body size', value: m.body },
+      ],
+      variantInfo: { count: 1, sizeRange: m.model },
+    },
+  }
+})
 
-// One product page per model: /pneumatic/actuators/hd/products/<slug>
 export const HD_PRODUCTS = '/pneumatic/actuators/hd/products'
-export const ITEMS: Item[] = RAW_ITEMS.map(i => {
+export const ITEMS: Item[] = RAW.map((i) => {
   const slug = i.model.replace(/\s+/g, '-')
-  return { ...i, tag: 'IS & IC yoke · DA / SR', slug, href: `${HD_PRODUCTS}/${slug}` }
+  return { ...i, tag: 'Heavy-duty scotch yoke', slug, href: `${HD_PRODUCTS}/${slug}` }
 })

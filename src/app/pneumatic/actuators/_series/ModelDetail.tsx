@@ -52,6 +52,11 @@ export default function ModelDetail({ item: m, items, series, badge }: { item: I
   const idx = items.findIndex((x) => x.id === m.id);
   const others = items.filter((x) => x.id !== m.id);
   const related = [...items.slice(Math.max(0, idx - 2), idx), ...items.slice(idx + 1, idx + 3)].slice(0, 4);
+  // Long ranges split into sub-series (e.g. HD ISD / ICD / ISR / ICR): the picker
+  // shows this model's group, with links to the other groups.
+  const group = m.facets.series;
+  const pickList = group ? items.filter((x) => x.facets.series === group) : items;
+  const groups = group ? Array.from(new Set(items.map((x) => x.facets.series))) : [];
   const facts = m.specs.filter(([k]) => k !== "Model").slice(0, series.facts);
   const schema = {
     "@context": "https://schema.org", "@type": "Product", name: `${B.name} ${m.model} ${series.kind.toLowerCase()}`, sku: m.model, mpn: m.model,
@@ -110,11 +115,25 @@ export default function ModelDetail({ item: m, items, series, badge }: { item: I
 
               <Box sx={{ mt: 3, p: { xs: 2, md: 2.5 }, borderRadius: "20px", bgcolor: T.surface, border: `1px solid ${T.border}` }}>
                 <Box sx={{ fontSize: "0.95rem", fontWeight: 800, color: T.ink, mb: 0.5 }}>Choose another model</Box>
+                {groups.length > 1 && (
+                  <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5, mb: 1.25 }}>
+                    {groups.map((g) => {
+                      const first = items.find((x) => x.facets.series === g)!;
+                      const on = g === group;
+                      return (
+                        <Box key={g} component={Link} href={on ? (m.href ?? series.products) : (first.href ?? series.products)} aria-current={on ? "true" : undefined}
+                          sx={{ px: 1.25, py: 0.4, borderRadius: 999, fontSize: "0.78rem", fontWeight: 800, textDecoration: "none", border: `1px solid ${on ? T.greenDark : T.border}`, bgcolor: on ? T.greenDark : "#fff", color: on ? "#fff" : T.ink, "&:hover": { borderColor: T.greenDark } }}>
+                          {g}
+                        </Box>
+                      );
+                    })}
+                  </Box>
+                )}
                 <Box sx={{ fontSize: "0.78rem", fontWeight: 700, color: T.muted, mb: 1.25 }}>
                   Showing: <Box component="span" sx={{ color: T.ink }}>{m.model} · {m.sub}</Box>
                 </Box>
                 <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.75 }}>
-                  {items.map((x) => (
+                  {pickList.map((x) => (
                     <Box key={x.id} component={Link} href={x.href ?? series.products} title={x.sub} aria-current={x.id === m.id ? "page" : undefined} sx={option(x.id === m.id)}>
                       {x.model}
                     </Box>

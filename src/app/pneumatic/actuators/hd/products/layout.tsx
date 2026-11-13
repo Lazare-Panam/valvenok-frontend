@@ -1,22 +1,17 @@
 import type { Metadata } from "next";
+import { HD_IMAGE } from "../hdData";
+
+const TITLE = "HD Scotch Yoke Actuator Models: ISD, ICD, ISR, ICR | Valvenok";
+const DESCRIPTION =
+  "All 64 Susin HD heavy-duty scotch yoke actuators: ISD and ICD double acting, ISR and ICR spring return, symmetric or canted yoke. Torque at 2.8 to 7 bar and dimensions for every model.";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/pneumatic/actuators/hd/products" },
-  title: "HD Series Variants",
-  description:
-    "Browse HD series actuator models — filter by model and ISO 5211 mounting to find the exact configuration you need.",
-  openGraph: {
-    title: "HD Series Actuators | Valvenok",
-    description:
-      "Browse HD series actuator models — filter by model and ISO 5211 mounting.",
-    type: "website",
-  },
+  title: { absolute: TITLE },
+  description: DESCRIPTION,
+  openGraph: { title: TITLE, description: DESCRIPTION, type: "website", images: [HD_IMAGE] },
 };
 
-export default function HDActuatorLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function HDProductsLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

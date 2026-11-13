@@ -183,6 +183,35 @@ function List({ d, initial }: { d: ListDef; initial: Filters }) {
     });
   })();
 
+  // Pagination (only shows when a list has more than one page)
+  const PAGE = 20;
+  const [page, setPage] = useState(1);
+  const pages = Math.max(1, Math.ceil(rows.length / PAGE));
+  const cur = Math.min(page, pages);
+  const pageRows = rows.slice((cur - 1) * PAGE, cur * PAGE);
+  const filterKey = JSON.stringify([filters, q, sortKey]);
+  const [lastKey, setLastKey] = useState(filterKey);
+  if (lastKey !== filterKey) { setLastKey(filterKey); setPage(1); }
+  const go = (n: number) => { setPage(n); setOpen(null); if (typeof window !== "undefined") document.getElementById("model-list-top")?.scrollIntoView({ behavior: "smooth", block: "start" }); };
+  const pager = pages > 1 && (
+    <Box component="nav" aria-label="Pages" sx={{ mt: 2.5, mb: 1, display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 1.5 }}>
+      <Box sx={{ fontSize: "0.85rem", color: T.body }}>
+        {(cur - 1) * PAGE + 1}–{Math.min(cur * PAGE, rows.length)} of {rows.length}
+      </Box>
+      <Box sx={{ display: "flex", gap: 0.75, flexWrap: "wrap" }}>
+        {[["‹ Prev", cur - 1, cur === 1], ...Array.from({ length: pages }, (_, k) => [String(k + 1), k + 1, false]), ["Next ›", cur + 1, cur === pages]].map(([label, n, dis]) => {
+          const on = label === String(cur);
+          return (
+            <Box key={String(label)} component="button" type="button" disabled={dis as boolean} aria-current={on ? "page" : undefined} onClick={() => go(n as number)}
+              sx={{ cursor: dis ? "default" : "pointer", fontFamily: "inherit", minWidth: 38, height: 38, px: 1.25, borderRadius: "10px", fontSize: "0.86rem", fontWeight: 700, border: `1px solid ${on ? T.greenDark : T.border}`, bgcolor: on ? T.greenDark : "#fff", color: on ? "#fff" : dis ? T.border : T.ink, "&:hover": dis || on ? {} : { borderColor: T.greenDark } }}>
+              {label}
+            </Box>
+          );
+        })}
+      </Box>
+    </Box>
+  );
+
   const sidebar = <Sidebar d={d} filters={filters} setFilters={setFilters} counts={counts} activeCount={activeCount} />;
   const chips = Object.entries(filters).flatMap(([k, vs]) => vs.map((v) => ({ k, v })));
   const cols = d.columns.length + 2;
@@ -218,7 +247,7 @@ function List({ d, initial }: { d: ListDef; initial: Filters }) {
             </Box>
           </Box>
           <Box sx={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 1, mb: 1.5 }}>
-            <Box sx={{ fontSize: "0.88rem", color: T.body }}>Showing <b style={{ color: T.ink }}>{rows.length}</b> of <b style={{ color: T.ink }}>{d.items.length}</b> models</Box>
+            <Box id="model-list-top" sx={{ fontSize: "0.88rem", color: T.body, scrollMarginTop: 160 }}>Showing <b style={{ color: T.ink }}>{rows.length}</b> of <b style={{ color: T.ink }}>{d.items.length}</b> models</Box>
             {chips.length > 0 && (
               <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.75 }}>
                 {chips.map((ch) => (
@@ -242,7 +271,7 @@ function List({ d, initial }: { d: ListDef; initial: Filters }) {
               </thead>
               <tbody>
                 {rows.length === 0 && <tr><td colSpan={cols} style={{ textAlign: "center", padding: "48px 16px" }}>No models match. Try removing a filter.</td></tr>}
-                {rows.map((m) => {
+                {pageRows.map((m) => {
                   const isOpen = open === m.id;
                   return (
                     <Fragment key={m.id}>
@@ -280,9 +309,10 @@ function List({ d, initial }: { d: ListDef; initial: Filters }) {
             </Box>
           </Box>
 
+          <Box sx={{ display: { xs: "none", md: "block" } }}>{pager}</Box>
           {/* phone cards */}
           <Box sx={{ display: { xs: "grid", md: "none" }, gap: 1.25 }}>
-            {rows.map((m) => {
+            {pageRows.map((m) => {
               const isOpen = open === m.id;
               return (
                 <Box key={m.id} sx={{ p: 1.75, borderRadius: "18px", bgcolor: "#fff", border: `1px solid ${T.border}` }}>
@@ -306,6 +336,7 @@ function List({ d, initial }: { d: ListDef; initial: Filters }) {
             })}
             {rows.length === 0 && <Box sx={{ p: 4, textAlign: "center", color: T.body }}>No models match. Try removing a filter.</Box>}
           </Box>
+          <Box sx={{ display: { xs: "block", md: "none" } }}>{pager}</Box>
         </Box>
 
         {quote && <RFQModal open={!!quote} onClose={() => setQuote(null)} product={quote} />}
