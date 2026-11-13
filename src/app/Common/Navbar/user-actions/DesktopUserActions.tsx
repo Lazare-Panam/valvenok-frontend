@@ -60,10 +60,11 @@ export default function DesktopUserActions({ barHeight }: Props) {
   };
   const iconSx = { fontSize: 20, flexShrink: 0 };
 
-  const BPMA_LOGO_URL =
-    "https://pblol2.blob.core.windows.net/valvenok-images/certfiicates/bpma-logo.jpg";
-  const BPMA_PDF_URL =
-    "https://pblol2.blob.core.windows.net/valvenok-images/certfiicates/BMPA.pdf";
+  // BVAA (British Valve & Actuator Association) membership. Links to the BVAA
+  // site until our member listing page there is available.
+  const BVAA_LOGO_URL =
+    "https://pblol2.blob.core.windows.net/valvenok-images/certfiicates/bvaa-logo.png";
+  const BVAA_URL = "https://www.bvaa.org.uk/";
 
   return (
     <Box sx={{ display: "flex", alignItems: "center", ml: "auto" }}>
@@ -87,10 +88,11 @@ export default function DesktopUserActions({ barHeight }: Props) {
           sx={{ height: Math.min(barHeight - 24, 52), width: "auto", display: "block" }}
         />
       </Box>
-      {/* BPMA MEMBERSHIP */}
+      {/* BVAA MEMBERSHIP */}
       <Box
         component="a"
-        href={BPMA_PDF_URL}
+        href={BVAA_URL}
+        aria-label="BVAA member: British Valve & Actuator Association"
         target="_blank"
         rel="noopener noreferrer"
         sx={{
@@ -108,8 +110,8 @@ export default function DesktopUserActions({ barHeight }: Props) {
       >
         <Box
           component="img"
-          src={BPMA_LOGO_URL}
-          alt="BPMA Member"
+          src={BVAA_LOGO_URL}
+          alt="BVAA member"
           sx={{
             height: Math.min(barHeight - 40, 30),
             width: "auto",

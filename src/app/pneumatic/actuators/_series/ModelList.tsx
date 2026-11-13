@@ -4,7 +4,7 @@
 // MHD / needle valve style: header, filter chips, search, sort, expandable rows
 // with full specs, Quote. Each series passes its rows as a ListDef.
 
-import { Suspense, useState, Fragment } from "react";
+import { Suspense, useState, useMemo, Fragment } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Box, Drawer, IconButton } from "@mui/material";
@@ -21,6 +21,7 @@ import { T, textReset } from "@/src/app/Landing/modern/tokens";
 
 export type { Cell, Item } from "./modelTypes";
 import type { Cell, Item } from "./modelTypes";
+import { buildFacets, type Facet } from "./autoFacets";
 export type ListDef = {
   title: string; // H1
   intro: string;
@@ -81,39 +82,104 @@ function Header({ d }: { d: ListDef }) {
   );
 }
 
-function Sidebar({ d, filters, setFilters, counts, activeCount }: { d: ListDef; filters: Filters; setFilters: (f: Filters) => void; counts: Record<string, Record<string, number>>; activeCount: number }) {
+// Filter panel: one collapsible group per filter. Short codes (sizes, flanges)
+// show as chips; everything else as checkbox rows with a count. The first few
+// groups, and any group with a selection, start open; long groups show 6
+// options with "Show all".
+function FilterGroup({ f, filters, counts, toggle, clear, defaultOpen }: { f: Facet; filters: Filters; counts: Record<string, Record<string, number>>; toggle: (k: string, v: string) => void; clear: (k: string) => void; defaultOpen: boolean }) {
+  const picked = filters[f.key] ?? [];
+  const [open, setOpen] = useState(defaultOpen || picked.length > 0);
+  const [all, setAll] = useState(false);
+  const chips = f.options.every((o) => o.length <= 9);
+  const LIMIT = chips ? 12 : 6;
+  const shown = all ? f.options : f.options.slice(0, LIMIT);
+  const id = `fg-${f.key}`;
+  return (
+    <Box sx={{ borderTop: `1px solid ${T.border}` }}>
+      <Box component="button" type="button" aria-expanded={open} aria-controls={id} onClick={() => setOpen(!open)}
+        sx={{ width: "100%", display: "flex", alignItems: "center", gap: 1, py: 1.5, px: 0, border: 0, bgcolor: "transparent", cursor: "pointer", fontFamily: "inherit", textAlign: "left" }}>
+        <Box component="span" sx={{ flex: 1, fontSize: "0.86rem", fontWeight: 800, color: T.ink }}>{f.title}</Box>
+        {picked.length > 0 && (
+          <Box component="span" sx={{ minWidth: 20, height: 20, px: 0.75, borderRadius: 999, bgcolor: T.greenDark, color: "#fff", fontSize: "0.7rem", fontWeight: 800, display: "inline-grid", placeItems: "center" }}>{picked.length}</Box>
+        )}
+        <Box component="span" aria-hidden sx={{ width: 22, height: 22, borderRadius: "50%", bgcolor: T.surface, display: "grid", placeItems: "center", transition: "transform .2s", transform: open ? "rotate(180deg)" : "none", "& svg": { width: 12, height: 12 } }}>
+          <svg viewBox="0 0 24 24" fill="none" stroke={T.ink} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6" /></svg>
+        </Box>
+      </Box>
+      {open && (
+        <Box id={id} sx={{ pb: 1.75 }}>
+          {chips ? (
+            <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.75 }}>
+              {shown.map((opt) => {
+                const n = counts[f.key]?.[opt] ?? 0;
+                const on = picked.includes(opt);
+                const off = !on && n === 0;
+                return (
+                  <Box key={opt} component="button" type="button" aria-pressed={on} disabled={off} onClick={() => toggle(f.key, opt)} title={`${n} models`}
+                    sx={{ cursor: off ? "default" : "pointer", fontFamily: "inherit", minWidth: 44, px: 1.25, py: 0.7, borderRadius: "10px", fontSize: "0.82rem", fontWeight: 700, border: `1.5px solid ${on ? T.greenDark : T.border}`, bgcolor: on ? T.greenSoft : "#fff", color: on ? T.greenDeep : T.ink, opacity: off ? 0.35 : 1, transition: "all .15s", "&:hover": off ? {} : { borderColor: T.greenDark } }}>
+                    {opt}
+                  </Box>
+                );
+              })}
+            </Box>
+          ) : (
+            <Box sx={{ display: "grid", gap: 0.25 }}>
+              {shown.map((opt) => {
+                const n = counts[f.key]?.[opt] ?? 0;
+                const on = picked.includes(opt);
+                const off = !on && n === 0;
+                return (
+                  <Box key={opt} component="label" sx={{ display: "flex", alignItems: "center", gap: 1.25, px: 1, py: 0.7, mx: -1, borderRadius: "10px", cursor: off ? "default" : "pointer", opacity: off ? 0.4 : 1, "&:hover": off ? {} : { bgcolor: T.surface } }}>
+                    <Box component="input" type="checkbox" checked={on} disabled={off} onChange={() => toggle(f.key, opt)}
+                      sx={{ appearance: "none", m: 0, flexShrink: 0, width: 18, height: 18, borderRadius: "5px", border: `1.5px solid ${on ? T.greenDark : "#C5D0C8"}`, bgcolor: on ? T.greenDark : "#fff", cursor: "inherit", display: "grid", placeItems: "center", transition: "all .15s",
+                        "&::after": { content: '""', width: 9, height: 5, border: "2px solid #fff", borderTop: 0, borderRight: 0, transform: "rotate(-45deg) translate(1px, -1px)", opacity: on ? 1 : 0 },
+                        "&:focus-visible": { outline: `2px solid ${T.green}`, outlineOffset: 2 } }} />
+                    <Box component="span" sx={{ flex: 1, fontSize: "0.86rem", fontWeight: on ? 700 : 500, color: T.ink, lineHeight: 1.35 }}>{opt}</Box>
+                    <Box component="span" sx={{ fontSize: "0.74rem", fontWeight: 700, color: on ? T.greenDark : T.muted, bgcolor: on ? T.greenSoft : T.surface, px: 0.9, py: 0.15, borderRadius: 999 }}>{n}</Box>
+                  </Box>
+                );
+              })}
+            </Box>
+          )}
+          <Box sx={{ display: "flex", gap: 2, mt: 1 }}>
+            {f.options.length > LIMIT && (
+              <Box component="button" type="button" onClick={() => setAll(!all)} sx={{ border: 0, bgcolor: "transparent", p: 0, cursor: "pointer", fontFamily: "inherit", fontSize: "0.8rem", fontWeight: 700, color: T.greenDark }}>
+                {all ? "Show less" : `Show all ${f.options.length}`}
+              </Box>
+            )}
+            {picked.length > 0 && (
+              <Box component="button" type="button" onClick={() => clear(f.key)} sx={{ border: 0, bgcolor: "transparent", p: 0, cursor: "pointer", fontFamily: "inherit", fontSize: "0.8rem", fontWeight: 700, color: T.muted, "&:hover": { color: T.ink } }}>
+                Clear
+              </Box>
+            )}
+          </Box>
+        </Box>
+      )}
+    </Box>
+  );
+}
+
+function Sidebar({ facets, filters, setFilters, counts, activeCount }: { facets: Facet[]; filters: Filters; setFilters: (f: Filters) => void; counts: Record<string, Record<string, number>>; activeCount: number }) {
   const toggle = (k: string, v: string) => {
     const cur = filters[k] ?? [];
     setFilters({ ...filters, [k]: cur.includes(v) ? cur.filter((x) => x !== v) : [...cur, v] });
   };
+  const clear = (k: string) => { const next = { ...filters }; delete next[k]; setFilters(next); };
   return (
     <Box sx={{ width: { xs: "100%", lg: 280 }, boxSizing: "border-box", p: 2.5, fontFamily: T.font }}>
-      <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 2 }}>
-        <Box sx={{ fontSize: "1rem", fontWeight: 800, color: T.ink }}>Filters</Box>
+      <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 1.5 }}>
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1, fontSize: "1.05rem", fontWeight: 800, color: T.ink }}>
+          <Box component="svg" viewBox="0 0 24 24" sx={{ width: 18, height: 18 }} fill="none" stroke={T.greenDark} strokeWidth="2.2" strokeLinecap="round"><path d="M4 6h16M7 12h10M10 18h4" /></Box>
+          Filters
+        </Box>
         {activeCount > 0 && (
-          <Box component="button" type="button" onClick={() => setFilters({})} sx={{ border: 0, bgcolor: "transparent", cursor: "pointer", fontFamily: "inherit", fontSize: "0.82rem", fontWeight: 700, color: T.greenDark, p: 0 }}>
+          <Box component="button" type="button" onClick={() => setFilters({})} sx={{ border: 0, bgcolor: T.greenSoft, borderRadius: 999, px: 1.25, py: 0.4, cursor: "pointer", fontFamily: "inherit", fontSize: "0.78rem", fontWeight: 700, color: T.greenDark }}>
             Clear all ({activeCount})
           </Box>
         )}
       </Box>
-      {d.facets.map((f) => (
-        <Box key={f.key} sx={{ borderTop: `1px solid ${T.border}`, py: 1.5 }}>
-          <Box sx={{ mb: 1.25, fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase !important", color: filters[f.key]?.length ? T.greenDark : T.muted }}>{f.title}</Box>
-          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.75 }}>
-            {f.options.map((opt) => {
-              const n = counts[f.key]?.[opt] ?? 0;
-              const on = !!filters[f.key]?.includes(opt);
-              const off = !on && n === 0;
-              return (
-                <Box key={opt} component="button" type="button" aria-pressed={on} disabled={off} onClick={() => toggle(f.key, opt)}
-                  sx={{ cursor: off ? "default" : "pointer", fontFamily: "inherit", display: "inline-flex", alignItems: "center", gap: 0.6, px: 1.25, py: 0.55, borderRadius: 999, fontSize: "0.8rem", fontWeight: on ? 700 : 600, border: `1px solid ${on ? T.greenDark : T.border}`, bgcolor: on ? T.greenDark : "#fff", color: on ? "#fff" : T.ink, opacity: off ? 0.4 : 1, transition: "all .15s", "&:hover": off ? {} : { borderColor: T.greenDark } }}>
-                  {opt}
-                  <Box component="span" sx={{ fontSize: "0.7rem", fontWeight: 700, color: on ? "rgba(255,255,255,0.8)" : T.muted }}>{n}</Box>
-                </Box>
-              );
-            })}
-          </Box>
-        </Box>
+      {facets.map((f, i) => (
+        <FilterGroup key={f.key} f={f} filters={filters} counts={counts} toggle={toggle} clear={clear} defaultOpen={i < 3} />
       ))}
     </Box>
   );
@@ -168,8 +234,9 @@ function List({ d, initial }: { d: ListDef; initial: Filters }) {
   const [open, setOpen] = useState<string | null>(null);
   const [quote, setQuote] = useState<ProductForRFQ | null>(null);
 
-  const matches = (m: Item, skip?: string) => d.facets.every((f) => f.key === skip || !filters[f.key]?.length || filters[f.key].includes(m.facets[f.key]));
-  const counts = Object.fromEntries(d.facets.map((f) => [f.key, d.items.filter((m) => matches(m, f.key)).reduce<Record<string, number>>((a, m) => ((a[m.facets[f.key]] = (a[m.facets[f.key]] ?? 0) + 1), a), {})]));
+  const facets = useMemo(() => buildFacets(d.columns, d.facets, d.items), [d]);
+  const matches = (m: Item, skip?: string) => facets.every((f) => f.key === skip || !filters[f.key]?.length || f.valuesOf(m).some((v) => filters[f.key].includes(v)));
+  const counts = Object.fromEntries(facets.map((f) => [f.key, d.items.filter((m) => matches(m, f.key)).reduce<Record<string, number>>((a, m) => { for (const v of f.valuesOf(m)) a[v] = (a[v] ?? 0) + 1; return a; }, {})]));
   const activeCount = Object.values(filters).reduce((n, v) => n + v.length, 0);
 
   const rows = (() => {
@@ -212,7 +279,7 @@ function List({ d, initial }: { d: ListDef; initial: Filters }) {
     </Box>
   );
 
-  const sidebar = <Sidebar d={d} filters={filters} setFilters={setFilters} counts={counts} activeCount={activeCount} />;
+  const sidebar = <Sidebar facets={facets} filters={filters} setFilters={setFilters} counts={counts} activeCount={activeCount} />;
   const chips = Object.entries(filters).flatMap(([k, vs]) => vs.map((v) => ({ k, v })));
   const cols = d.columns.length + 2;
 

@@ -19,22 +19,37 @@ const DA = PA_MODELS.filter((m) => m.kind === "Double acting");
 const SR = PA_MODELS.filter((m) => m.kind === "Spring return");
 const MAX = Math.max(...PA_MODELS.map((m) => m.torqueNm));
 
-const RUNGS: Rung[] = PA_MODELS.map((m, i) => ({
-  code: m.code,
-  tab: m.kind === "Double acting" ? "da" : "sr",
-  name: m.model,
-  note:
-    m.kind === "Double acting"
-      ? "Hydraulic open and close, reversible pump and motor."
-      : `Oil opens ${nm(m.open![0])} → ${nm(m.open![1])} Nm, spring closes ${nm(m.close![0])} → ${nm(m.close![1])} Nm. ISO 5211 ${m.dims!.flange}, ${m.dims!.oilL} L of oil.`,
-  lo: m.kind === "Double acting" ? m.torqueNm : m.close![1],
-  hi: m.torqueNm,
-  range: m.kind === "Double acting" ? `${nm(m.torqueNm)} Nm` : `${nm(m.close![1])} – ${nm(m.open![0])} Nm`,
-  side: m.kind === "Double acting" ? "open / close" : "spring end – oil start",
-  chips: [m.kind],
-  href: `/actuators/hydraulic/pa/products/${m.model.replace(/\s+/g, "-")}`,
-  tone: i % 2 ? "amber" : "blue",
-}));
+// Two rows: double acting and spring return, each opening its models in the list
+const RUNGS: Rung[] = [
+  {
+    code: "D",
+    tab: "",
+    name: "Double acting",
+    count: DA.length,
+    note: `Reversible pump drives the valve open and closed, with the same torque both ways. ${DA[0].code} – ${DA[DA.length - 1].code}.`,
+    lo: DA[0].torqueNm!,
+    hi: DA[DA.length - 1].torqueNm!,
+    range: `${nm(DA[0].torqueNm!)} – ${nm(DA[DA.length - 1].torqueNm!)} Nm`,
+    side: "open / close",
+    chips: ["Double acting"],
+    href: "/actuators/hydraulic/pa/products?type=Double%20acting",
+    tone: "blue",
+  },
+  {
+    code: "E",
+    tab: "",
+    name: "Spring return",
+    count: SR.length,
+    note: `Oil opens the valve and loads the spring; the spring closes it if power is lost. ${SR[0].code} – ${SR[SR.length - 1].code}.`,
+    lo: Math.min(...SR.filter((m) => m.close).map((m) => m.close![1])),
+    hi: Math.max(...SR.filter((m) => m.open).map((m) => m.open![0])),
+    range: `${nm(Math.min(...SR.filter((m) => m.close).map((m) => m.close![1])))} – ${nm(Math.max(...SR.filter((m) => m.open).map((m) => m.open![0])))} Nm`,
+    side: "spring end – oil start",
+    chips: ["Spring return", "Fail-safe"],
+    href: "/actuators/hydraulic/pa/products?type=Spring%20return",
+    tone: "amber",
+  },
+];
 
 const DEF: SeriesDef = {
   kicker: "Hydraulic actuators",
@@ -62,9 +77,8 @@ const DEF: SeriesDef = {
   how: <ElectroHydraulic pressure="max 180 bar" />,
   ladder: {
     kicker: "Sizes",
-    title: "Pick a size by torque",
-    lead: "Double acting sizes give the same torque both ways. Spring return sizes show the spring’s torque at the end of its stroke up to the oil’s torque at the start; the valve must need less than the spring end figure to close. Above 4,000 Nm, up to 10,000 Nm is available on request.",
-    tabs: [{ k: "da", label: `Double acting (${DA.length})` }, { k: "sr", label: `Spring return (${SR.length})` }],
+    title: "Double acting or spring return",
+    lead: "Double acting sizes give the same torque both ways. Spring return sizes run from the spring’s torque at the end of its stroke to the oil’s torque at the start; the valve must need less than the spring end figure to close. Above 4,000 Nm, up to 10,000 Nm is available on request. Every size is in the model list.",
     rungs: RUNGS,
     max: MAX,
     logFrom: 40,

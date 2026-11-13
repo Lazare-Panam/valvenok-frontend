@@ -229,7 +229,7 @@ export default function JoscarRegisteredPage() {
           {/* certificate on a soft panel, with floating badges */}
           <Box sx={{ position: 'relative', maxWidth: 520, width: '100%', mx: 'auto' }}>
             <Box sx={{ position: 'relative', aspectRatio: '1 / 1', borderRadius: '36px', overflow: 'hidden', border: `1px solid ${T.border}`, background: 'radial-gradient(70% 70% at 30% 20%, #FCE4EF 0%, transparent 60%), radial-gradient(70% 70% at 80% 90%, #DDF5D6 0%, transparent 60%), #FFFFFF', boxShadow: T.shadow }}>
-              <Box component="img" src={CERT} alt="Valvenok Limited JOSCAR registered certificate, issued by Hellios Information" sx={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'contain', transform: 'scale(1.32) translateY(1%)' }} />
+              <Box component="img" src={CERT} fetchPriority="high" loading="eager" decoding="async" alt="Valvenok Limited JOSCAR registered certificate, issued by Hellios Information" sx={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'contain', transform: 'scale(1.32) translateY(1%)' }} />
             </Box>
             <Box sx={{ position: 'absolute', left: { xs: 8, md: -28 }, top: { xs: 16, md: 48 }, display: 'flex', alignItems: 'center', gap: 1.25, px: 1.75, py: 1.25, borderRadius: '16px', bgcolor: '#fff', border: `1px solid ${T.border}`, boxShadow: T.shadowHover }}>
               <Box sx={{ ...iconBox(T.green, '#fff'), width: 34, height: 34, borderRadius: '50%' }}><CheckRoundedIcon sx={{ fontSize: 20 }} /></Box>
