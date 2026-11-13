@@ -12,7 +12,17 @@ const badgeOf = (i: Item) => {
   return c && typeof c !== "string" ? c.text : i.sub;
 };
 
+// The model picker and related cards only need a few fields per model. Sending
+// the full list (specs, tables, quote data) made every product page carry the
+// whole series, which pushed the build past Azure's size limit.
+const slimItem = (x: Item): Item => ({
+  id: x.id, model: x.model, sub: x.sub, image: x.image, href: x.href, slug: x.slug,
+  facets: x.facets.series ? { series: x.facets.series } : {},
+  cells: [], sort: {}, search: "", specs: [], rfq: x.rfq && { ...x.rfq, keySpecs: [], description: "" },
+});
+
 export function detailPage(items: Item[], series: SeriesMeta) {
+  const slim = items.map(slimItem);
   return {
     generateStaticParams: () => items.map((i) => ({ slug: i.slug! })),
     generateMetadata: async ({ params }: Props): Promise<Metadata> => {
@@ -32,7 +42,7 @@ export function detailPage(items: Item[], series: SeriesMeta) {
       const { slug } = await params;
       const i = items.find((x) => x.slug === slug);
       if (!i) notFound();
-      return <ModelDetail item={i} items={items} series={series} badge={badgeOf(i)} />;
+      return <ModelDetail item={i} items={slim} series={series} badge={badgeOf(i)} />;
     },
   };
 }

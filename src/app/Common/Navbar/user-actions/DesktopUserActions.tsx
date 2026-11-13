@@ -60,11 +60,11 @@ export default function DesktopUserActions({ barHeight }: Props) {
   };
   const iconSx = { fontSize: 20, flexShrink: 0 };
 
-  // BVAA (British Valve & Actuator Association) membership. Links to the BVAA
-  // site until our member listing page there is available.
+  // BVAA (British Valve & Actuator Association) membership: our BVAA page,
+  // which links on to bvaa.org.uk.
   const BVAA_LOGO_URL =
     "https://pblol2.blob.core.windows.net/valvenok-images/certfiicates/bvaa-logo.png";
-  const BVAA_URL = "https://www.bvaa.org.uk/";
+  const BVAA_URL = "/bvaa-member";
 
   return (
     <Box sx={{ display: "flex", alignItems: "center", ml: "auto" }}>
@@ -93,8 +93,6 @@ export default function DesktopUserActions({ barHeight }: Props) {
         component="a"
         href={BVAA_URL}
         aria-label="BVAA member: British Valve & Actuator Association"
-        target="_blank"
-        rel="noopener noreferrer"
         sx={{
           display: "flex",
           alignItems: "center",
