@@ -1,5 +1,5 @@
 // ITL Series electric linear actuators (1–6 kN).
-// Every value is from the Susin / i-Tork ITL catalogue (Electric - ITL.pdf):
+// Every value is from the Susin I-Tork ITL catalogue (Electric - ITL.pdf):
 // features p.2–3, technical data p.4, options p.5, ITL / IQL comparison p.7.
 import { SUSIN_CATALOG } from "@/src/app/Common/susinCatalogs";
 

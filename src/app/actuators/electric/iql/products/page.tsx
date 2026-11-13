@@ -7,7 +7,7 @@ import { ITEMS } from './items'
 
 const DEF: ListDef = {
   title: 'IQL electric linear actuator models',
-  intro: `${ITEMS.length} Susin IQL linear actuators for globe and control valves, 4 to 25 kN of thrust and 40 to 100 mm of stroke. Open any model for its full figures and rated currents, then request a quote.`,
+  intro: `${ITEMS.length} Susin I-Tork IQL linear actuators for globe and control valves, 4 to 25 kN of thrust and 40 to 100 mm of stroke. Open any model for its full figures and rated currents, then request a quote.`,
   back: { href: '/actuators/electric/iql', label: 'IQL series overview' },
   catalog: { href: IQL_CATALOG, label: 'IQL catalogue (PDF)' },
   columns: ['Thrust', 'Stroke', 'Speed 50 / 60 Hz', 'Weight'],

@@ -8,7 +8,7 @@ import { ITEMS } from './items'
 
 const DEF: ListDef = {
   title: 'ITG declutchable gear models',
-  intro: `${ITEMS.length} Susin ITG declutchable worm gears that fit between a pneumatic actuator and a quarter-turn valve for manual override, 60 to 28,000 Nm, as standard or with a single or double stage reduction. Open any model for its full figures and dimensions, then request a quote.`,
+  intro: `${ITEMS.length} Susin I-Tork ITG declutchable worm gears that fit between a pneumatic actuator and a quarter-turn valve for manual override, 60 to 28,000 Nm, as standard or with a single or double stage reduction. Open any model for its full figures and dimensions, then request a quote.`,
   back: { href: '/actuators/mechanical/itg', label: 'ITG series overview' },
   catalog: { href: ITG_CATALOG, label: 'ITG catalogue (PDF)' },
   columns: ['Max torque', 'Ratio', 'Turns (90°)', 'Rim pull', 'ISO 5211', 'Weight'],

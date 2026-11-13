@@ -1,5 +1,5 @@
 // MAW Series quarter-turn manual worm gear actuators, 125–32,000 Nm.
-// Every value is from the Susin MAW catalogue (Mechanical - MAW.pdf):
+// Every value is from the Susin I-Tork MAW catalogue (Mechanical - MAW.pdf):
 // features p.2, technical specifications p.3, dimensions p.4 (general),
 // p.5 (single stage helical reduction, 1S), p.6 (double stage, 2S),
 // materials, handwheels and rim effort chart p.7.

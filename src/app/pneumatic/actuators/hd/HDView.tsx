@@ -1,7 +1,7 @@
 "use client";
 
-// HD series page. Model figures are Susin's HD "General specification" table
-// (susingroup.com/products/hd-rotary), as are pressure and temperature; features from Susin's IS & IC catalogue.
+// HD series page. Model figures are Susin I-Tork's HD "General specification" table
+// (susingroup.com/products/hd-rotary), as are pressure and temperature; features from Susin I-Tork's IS & IC catalogue.
 
 import CompareArrowsOutlinedIcon from "@mui/icons-material/CompareArrowsOutlined";
 import SquareFootOutlinedIcon from "@mui/icons-material/SquareFootOutlined";
@@ -19,7 +19,7 @@ const TOTAL = HD_MODELS.length;
 const MAX = Math.max(...HD_MODELS.map(maxTorque));
 const MIN = Math.min(...HD_MODELS.filter((m) => m.da).map((m) => m.da![0][1]));
 
-// One rung per Susin series; each opens that series in the model list
+// One rung per Susin I-Tork series; each opens that series in the model list
 const RUNGS: Rung[] = HD_SERIES.map((S, i) => {
   const ms = HD_MODELS.filter((m) => m.series === S.code);
   const lo = Math.min(...ms.map((m) => (m.da ? m.da[0][1] : Math.min(...m.sr!.map((x) => x.spring[1])))));
@@ -45,7 +45,7 @@ const DEF: SeriesDef = {
   h1: ["HD heavy-duty", "scotch yoke"],
   lead: (
     <>
-      Susin heavy-duty scotch yoke actuators for large ball, butterfly and plug valves and dampers, on/off or modulating. Four series, ISD, ICD, ISR and ICR, with a symmetric or canted yoke, double acting or spring return: {TOTAL} models up to {nm(MAX)} Nm.
+      Susin I-Tork heavy-duty scotch yoke actuators for large ball, butterfly and plug valves and dampers, on/off or modulating. Four series, ISD, ICD, ISR and ICR, with a symmetric or canted yoke, double acting or spring return: {TOTAL} models up to {nm(MAX)} Nm.
     </>
   ),
   specs: [
@@ -60,7 +60,7 @@ const DEF: SeriesDef = {
   productsHref: "/pneumatic/actuators/hd/products",
   catalog: HD_CATALOG,
   image: HD_IMAGE,
-  imageAlt: "Susin HD heavy-duty scotch yoke pneumatic actuator",
+  imageAlt: "Susin I-Tork HD heavy-duty scotch yoke pneumatic actuator",
   howTitle: "One modular build, every configuration",
   how: <ModularBuild />,
   ladder: {
@@ -73,13 +73,13 @@ const DEF: SeriesDef = {
   },
   build: {
     title: "How it’s built",
-    imageAlt: "Susin HD actuator",
+    imageAlt: "Susin I-Tork HD actuator",
     points: [
       ["Modular", "Power cylinder, centre body and spring cartridge combine to suit the duty, and are interchangeable for service and spares."],
       ["Symmetric or canted yoke", "IS gives its highest torque at both ends of the stroke; IC at the open or the close end."],
       ["Ductile iron body", "Heavy-duty housing with a sealed, corrosion-resistant finish, rated IP66 / IP67."],
       ["Four configurations", "Double acting, tandem double acting, and spring return fail close or fail open."],
-      ["Standards", "ISO 5211 mounting (MSS-SP101 on request), tested to EN 15714-3:2009. Susin lists ATEX, SIL3 and PED compliance."],
+      ["Standards", "ISO 5211 mounting (MSS-SP101 on request), tested to EN 15714-3:2009. Susin I-Tork lists ATEX, SIL3 and PED compliance."],
     ],
   },
   extra: <HdTables />,
@@ -89,7 +89,7 @@ const DEF: SeriesDef = {
     { q: "How do I choose the model?", a: "Pick the series first: IS or IC yoke, double acting or spring return. Then take the valve’s highest torque, add a safety factor, and find the smallest model that delivers it at your lowest air supply in the technical tables. For spring return, the spring end torque must also close the valve. The model code gives the body size and cylinder, e.g. ISD 03-38 is body 03, cylinder 38.", icon: SquareFootOutlinedIcon },
     { q: "Double acting or spring return?", a: "Double acting (and tandem double acting) models use air to open and close. Spring return models use air one way and springs the other, so the valve goes to its safe position, fail close or fail open, if air is lost.", icon: ShieldOutlinedIcon },
     { q: "What air supply do they need?", a: "Instrument air, at 3.5 to 10 bar (40 to 145 psig). The standard temperature range is −20 to +85 °C, with −30 to +100 °C available as an option.", icon: AirOutlinedIcon },
-    { q: "What certification do they have?", a: "Susin lists ATEX, SIL3 and PED compliance, IP66 / IP67 protection and testing to EN 15714-3:2009 for the HD range. Ask for the certificate you need when you request a quote.", icon: VerifiedOutlinedIcon },
+    { q: "What certification do they have?", a: "Susin I-Tork lists ATEX, SIL3 and PED compliance, IP66 / IP67 protection and testing to EN 15714-3:2009 for the HD range. Ask for the certificate you need when you request a quote.", icon: VerifiedOutlinedIcon },
     { q: "Can they be operated by hand?", a: "Yes. A manual handwheel (jackscrew), hydraulic override or declutchable gearbox can be fitted, along with limit switches, solenoid valves and positioners.", icon: PanToolOutlinedIcon },
   ],
   cta: {

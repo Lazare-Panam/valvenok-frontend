@@ -1,7 +1,7 @@
 "use client";
 
 // IQL series page, on the shared series template. Every figure is from the
-// Susin / i-Tork IQL catalogue (see iqlData).
+// Susin I-Tork IQL catalogue (see iqlData).
 
 import SquareFootOutlinedIcon from "@mui/icons-material/SquareFootOutlined";
 import ElectricBoltOutlinedIcon from "@mui/icons-material/ElectricBoltOutlined";
@@ -36,7 +36,7 @@ const DEF: SeriesDef = {
   h1: ["IQL series", "linear electric"],
   lead: (
     <>
-      Susin electric linear actuators for globe and control valves. {TOTAL} models from 4 to {MAX} kN of thrust and 40 to 100 mm of stroke, on/off or modulating, on 24 VDC, single or 3 phase power.
+      Susin I-Tork electric linear actuators for globe and control valves. {TOTAL} models from 4 to {MAX} kN of thrust and 40 to 100 mm of stroke, on/off or modulating, on 24 VDC, single or 3 phase power.
     </>
   ),
   specs: [
@@ -51,7 +51,7 @@ const DEF: SeriesDef = {
   productsHref: "/actuators/electric/iql/products",
   catalog: IQL_CATALOG,
   image: IQL_IMAGE,
-  imageAlt: "Susin IQL electric linear actuators, one mounted on a globe valve",
+  imageAlt: "Susin I-Tork IQL electric linear actuators, one mounted on a globe valve",
   howTitle: "How a linear actuator works",
   how: <ElectricLinear speed="0.7–1.1 mm/s" display="Display (option)" />,
   ladder: {
@@ -63,7 +63,7 @@ const DEF: SeriesDef = {
   },
   build: {
     title: "How it’s built",
-    imageAlt: "Susin IQL electric linear actuators",
+    imageAlt: "Susin I-Tork IQL electric linear actuators",
     points: [
       ["Disc spring arrangement", "Sets an accurate closing force and gives tight shut-off on the seat."],
       ["Hard-anodised housing", "Aluminium alloy, epoxy powder coated against corrosive sites; seals and O-rings to IP67."],

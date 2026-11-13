@@ -4,6 +4,7 @@
 // MHD / needle valve style: header, filter chips, search, sort, expandable rows
 // with full specs, Quote. Each series passes its rows as a ListDef.
 
+import { titleCase } from "@/src/app/Common/titleCase";
 import { Suspense, useState, useMemo, Fragment } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -68,7 +69,7 @@ function Header({ d }: { d: ListDef }) {
           <Box component={Link} href={d.back.href} sx={{ display: "inline-flex", alignItems: "center", gap: 0.5, mb: 1.5, fontSize: "0.88rem", fontWeight: 700, color: T.greenDark, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
             <ArrowBackIcon sx={{ fontSize: 17 }} /> {d.back.label}
           </Box>
-          <Box component="h1" sx={{ m: 0, fontSize: { xs: "2rem", md: "2.7rem" }, fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1.1, color: T.ink }}>{d.title}</Box>
+          <Box component="h1" sx={{ m: 0, fontSize: { xs: "2rem", md: "2.7rem" }, fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1.1, color: T.ink }}>{titleCase(d.title)}</Box>
           <Box component="p" sx={{ m: 0, mt: 1, maxWidth: 680, fontSize: "1rem", lineHeight: 1.6, color: T.body }}>{d.intro}</Box>
         </Box>
         {d.catalog && (

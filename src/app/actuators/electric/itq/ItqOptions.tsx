@@ -23,7 +23,7 @@ const OPTIONS: { icon: SvgIconComponent; name: string; code: string; text: strin
   { icon: TuneOutlinedIcon, name: "Modulating control", code: "RPC", text: "Positions the valve from a 4–20 mA, 0–10 V, 2–10 V, 1–5 V or 0–5 V signal, with a 4–20 mA output, auto-calibration and reverse action. Modulating duty is S4, 30–50%, 300–1,200 starts an hour.", fits: "All sizes" },
   { icon: LanOutlinedIcon, name: "Bus communication", code: "Profibus · CANopen", text: "Connects the actuator to a Profibus or CANopen network.", fits: "With ICM2 / ICM3" },
   { icon: BatteryChargingFullOutlinedIcon, name: "Battery fail safe", code: "BP", text: "A rechargeable battery backup moves the valve to its pre-set fail position if mains power is lost. 24 VDC motor, open / close / alarm contacts.", fits: "1 phase, ITQ 0160–0500" },
-  { icon: LocalFireDepartmentOutlinedIcon, name: "Explosion proof", code: "EX", text: "Ex d II B T4, listed by Susin as approved by KTL, ATEX and NEPSI.", fits: "Option" },
+  { icon: LocalFireDepartmentOutlinedIcon, name: "Explosion proof", code: "EX", text: "Ex d II B T4, listed by Susin I-Tork as approved by KTL, ATEX and NEPSI.", fits: "Option" },
   { icon: WaterOutlinedIcon, name: "Watertight", code: "WT", text: "IP68, double O-ring sealed, for temporary submersion: 10 m head for 100 hours.", fits: "Option" },
   { icon: RotateRightOutlinedIcon, name: "Extended travel", code: "EXT", text: "Travel angles of 120°, 135°, 180° or 270° instead of the standard 90°.", fits: "Not with a gearbox" },
 ];
@@ -34,8 +34,8 @@ export default function ItqOptions() {
       <Box sx={wrap}>
         <Box sx={{ mb: 4 }}>
           <Kicker>Controls and options</Kicker>
-          <H2 id="h2-options">Set it up for your control system</H2>
-          <Lead>Every ITQ has two limit switches, torque switches, a space heater and a declutchable handwheel. These options from Susin’s catalogue add local control, feedback, modulating and fail-safe duty.</Lead>
+          <H2 id="h2-options">Set It Up for Your Control System</H2>
+          <Lead>Every ITQ has two limit switches, torque switches, a space heater and a declutchable handwheel. These options from Susin I-Tork’s catalogue add local control, feedback, modulating and fail-safe duty.</Lead>
         </Box>
         <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", lg: "repeat(4, 1fr)" }, gap: 1.5 }}>
           {OPTIONS.map(({ icon: Icon, name, code, text, fits }) => (

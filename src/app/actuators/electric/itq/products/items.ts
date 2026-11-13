@@ -1,5 +1,5 @@
 // ITQ models, shared by the model list and the per-model product pages.
-// Every figure is from the Susin / i-Tork ITQ catalogue (technical information
+// Every figure is from the Susin I-Tork ITQ catalogue (technical information
 // and standard specification, p.6); see ../itqData.
 import type { Item } from '@/src/app/pneumatic/actuators/_series/modelTypes'
 import { ITQ_MODELS, ITQ_IMAGE, type ITQModel } from '../itqData'

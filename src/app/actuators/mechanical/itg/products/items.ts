@@ -1,5 +1,5 @@
 // ITG models, shared by the model list and the per-model product pages.
-// Every figure is from the Susin ITG catalogue; see ../itgData.
+// Every figure is from the Susin I-Tork ITG catalogue; see ../itgData.
 import type { Item } from '@/src/app/pneumatic/actuators/_series/modelTypes'
 import { STAGE_LABEL } from '@/src/app/pneumatic/actuators/_series/gearTypes'
 import { ITG_MODELS, ITG_COMMON, ITG_IMAGE } from '../itgData'
@@ -69,7 +69,7 @@ const RAW_ITEMS: Item[] = ITG_MODELS.map((m, i) => {
         ['Handwheel', 'D4*', String(d.d4)],
       ],
     },
-    note: `Dimensions from Susin’s ${m.stage === 'Standard' ? 'general' : m.stage === '1S' ? 'single stage helical reduction' : 'double stage helical reduction'} drawing; letters as on the drawing. * L1, L3, L4, S and D4 are customised to the order, the rest are standard. Rim pull is Susin’s figure at full output torque on the recommended handwheel. Send us the valve and actuator flanges and the torque and we’ll confirm the model.`,
+    note: `Dimensions from Susin I-Tork’s ${m.stage === 'Standard' ? 'general' : m.stage === '1S' ? 'single stage helical reduction' : 'double stage helical reduction'} drawing; letters as on the drawing. * L1, L3, L4, S and D4 are customised to the order, the rest are standard. Rim pull is Susin I-Tork’s figure at full output torque on the recommended handwheel. Send us the valve and actuator flanges and the torque and we’ll confirm the model.`,
     rfq: {
       id: `itg-${m.model.toLowerCase()}`,
       name: `${m.model} declutchable worm gear`,

@@ -1,5 +1,5 @@
 // ITM models, shared by the model list and the per-model product pages.
-// Every figure is from the Susin / i-Tork ITM catalogue; see ../itmData.
+// Every figure is from the Susin I-Tork ITM catalogue; see ../itmData.
 import type { Item } from '@/src/app/pneumatic/actuators/_series/modelTypes'
 import { ITM_MODELS, ITM_COMMON, ITM_IMAGE, ITM_SPEEDS, ITM_STANDARD_SPEEDS } from '../itmData'
 
@@ -48,7 +48,7 @@ const RAW_ITEMS: Item[] = ITM_MODELS.map((m, i) => ({
       ...m.motors.map((x) => `${nm(x.torque[k][0])} / ${nm(x.torque[k][1])}`),
     ]),
   },
-  note: 'Max torque at each output speed and motor, at 50 / 60 Hz, from Susin’s speed torque table. Tell us the valve torque, thrust, stem and closing time and we’ll pick the speed and motor.',
+  note: 'Max torque at each output speed and motor, at 50 / 60 Hz, from Susin I-Tork’s speed torque table. Tell us the valve torque, thrust, stem and closing time and we’ll pick the speed and motor.',
   rfq: {
     id: `itm-${m.model.replace(' ', '').toLowerCase()}`,
     name: `${m.model} multi-turn electric actuator`,

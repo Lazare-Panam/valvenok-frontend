@@ -1,6 +1,6 @@
 "use client";
 
-// HD overview tables, as on Susin's HD page (susingroup.com/products/hd-rotary,
+// HD overview tables, as on Susin I-Tork's HD page (susingroup.com/products/hd-rotary,
 // Technical tables): the general specification by body size. Per-model torque tables are on each model's page.
 
 import { Box } from "@mui/material";
@@ -9,7 +9,7 @@ import { wrap, Kicker, H2, Lead } from "@/src/app/hydrogen-cryogenic/components/
 import { HD_ACTUATOR_DATA } from "./products/hooks/hdActuatorData";
 
 const nm = (n: number) => n.toLocaleString("en-GB");
-// Max stem diameter / height (mm), from the same Susin table
+// Max stem diameter / height (mm), from the same Susin I-Tork table
 const STEM: Record<string, [string, number]> = { A1: ["SQ-22", 30], "01": ["Ø45", 45], "02": ["Ø65", 120], "03": ["Ø80", 130], "04": ["Ø110", 150], "05": ["Ø125", 185], "06": ["Ø165", 245] };
 
 // Same look as the model list tables: pale header, small grey labels, light dividers
@@ -25,7 +25,7 @@ export default function HdTables() {
       <Box sx={wrap}>
         <Box sx={{ mb: 3 }}>
           <Kicker>Technical tables</Kicker>
-          <H2 id="h2-tables">General specification</H2>
+          <H2 id="h2-tables">General Specification</H2>
           <Lead>Torque, spring end torque and stem limits for each body size, across its cylinder and spring options. Each model’s full torque table is on its own page.</Lead>
         </Box>
 
@@ -62,7 +62,7 @@ export default function HdTables() {
           </Box>
         </Box>
 
-        <Box sx={{ mt: 1.5, fontSize: "0.78rem", color: T.muted }}>From Susin’s HD general specification table.</Box>
+        <Box sx={{ mt: 1.5, fontSize: "0.78rem", color: T.muted }}>From Susin I-Tork’s HD general specification table.</Box>
       </Box>
     </Box>
   );

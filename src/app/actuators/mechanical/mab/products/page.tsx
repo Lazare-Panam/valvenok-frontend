@@ -7,7 +7,7 @@ import { ITEMS } from './items'
 
 const DEF: ListDef = {
   title: 'MAB bevel gear actuator models',
-  intro: `${ITEMS.length} Susin MAB bevel gear actuators for gate, globe and other multi-turn valves, 250 to 18,000 Nm and 75 to 2,500 kN thrust, as standard or with a single or double stage reduction. Open any model for its full figures and dimensions, then request a quote.`,
+  intro: `${ITEMS.length} Susin I-Tork MAB bevel gear actuators for gate, globe and other multi-turn valves, 250 to 18,000 Nm and 75 to 2,500 kN thrust, as standard or with a single or double stage reduction. Open any model for its full figures and dimensions, then request a quote.`,
   back: { href: '/actuators/mechanical/mab', label: 'MAB series overview' },
   catalog: { href: MAB_CATALOG, label: 'MAB catalogue (PDF)' },
   columns: ['Max torque', 'Thrust', 'Ratio', 'Mech. advantage', 'ISO 5210', 'Weight'],

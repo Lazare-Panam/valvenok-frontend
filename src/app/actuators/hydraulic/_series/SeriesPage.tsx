@@ -1,5 +1,6 @@
 "use client";
 
+import { titleCase } from "@/src/app/Common/titleCase";
 import { useState } from "react";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
@@ -127,7 +128,7 @@ export default function SeriesPage({ def }: { def: SeriesDef }) {
             const cols = g.summary.map((k) => g.cols.find((c) => c.key === k)!);
             return (
               <Box key={g.key} sx={{ mb: 5 }}>
-                <Typography variant="subtitle1" component="h3" sx={{ fontWeight: 700, mb: 0.5 }}>{g.title}</Typography>
+                <Typography variant="subtitle1" component="h3" sx={{ fontWeight: 700, mb: 0.5 }}>{titleCase(g.title)}</Typography>
                 {g.note && <Typography variant="body2" sx={{ color: "text.secondary", mb: 1.5, textTransform: "none" }}>{g.note}</Typography>}
                 <Box sx={{ textTransform: "none", overflowX: "auto", border: "1px solid rgba(0,0,0,0.12)", borderRadius: 2, bgcolor: "#fff" }}>
                   <Box component="table" sx={tableSx}>

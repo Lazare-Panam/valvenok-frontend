@@ -6,6 +6,7 @@
 // model lists and quotes live on the category and series pages.
 // Figures come from our own series pages (nothing new is claimed here).
 
+import { titleCase } from "@/src/app/Common/titleCase";
 import * as React from "react";
 import Link from "next/link";
 import { Box } from "@mui/material";
@@ -93,7 +94,7 @@ const SERIES_COUNT = CATEGORIES.reduce((n, c) => n + c.series.length, 0);
 
 const STATS = [
   { value: "5", unit: "types", label: "Pneumatic, electric, hydraulic, mechanical and limit switches" },
-  { value: String(SERIES_COUNT), unit: "series", label: "From Susin, KOSAPLUS and SPAC" },
+  { value: String(SERIES_COUNT), unit: "series", label: "From Susin I-Tork, KOSAPLUS and SPAC" },
   { value: "ISO 5211", unit: "", label: "Standard mounting on quarter-turn actuators" },
   { value: "120,867", unit: "Nm", label: "Highest output torque (HD scotch yoke)" },
 ];
@@ -156,7 +157,7 @@ function Hero() {
         </Box>
         <Box component="h1" sx={{ m: 0, mb: 2, fontSize: { xs: "2.4rem", sm: "3.2rem", md: "4.2rem" }, fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1.02, color: T.ink }}>
           <Words text="Valve" />
-          <Words text="actuators" start={200} sx={gradientText} />
+          <Words text="Actuators" start={200} sx={gradientText} />
         </Box>
         <Box component="p" sx={{ m: 0, mx: "auto", maxWidth: 700, fontSize: { xs: "1rem", md: "1.12rem" }, lineHeight: 1.7, color: T.body }}>
           Pneumatic, electric, hydraulic and manual actuators to open, close and position your valves, plus limit switch boxes to report where they are. One UK supplier for the whole package.
@@ -232,7 +233,7 @@ function Finder() {
       <Box sx={{ ...wrap, display: "grid", gridTemplateColumns: { xs: "minmax(0,1fr)", md: "0.8fr 1.2fr" }, gap: { xs: 3, md: 7 }, alignItems: "center" }}>
         <Box>
           <Kicker>Actuator finder</Kicker>
-          <H2 id="h2-finder">Not sure which actuator?</H2>
+          <H2 id="h2-finder">Not Sure Which Actuator?</H2>
           <Lead>Pick what matters most at the valve and we’ll point you to the right type.</Lead>
         </Box>
         <Reveal from="right">
@@ -274,7 +275,7 @@ function Categories() {
       <Box sx={wrap}>
         <Box sx={{ textAlign: "center", mb: { xs: 4, md: 5 } }}>
           <Kicker>Categories</Kicker>
-          <H2 id="h2-types">Every actuator we supply</H2>
+          <H2 id="h2-types">Every Actuator We Supply</H2>
           <Lead center>Five types, {SERIES_COUNT} series. Each opens its full range with models and a quote.</Lead>
         </Box>
         <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", lg: "repeat(6, 1fr)" }, gap: { xs: 1.5, md: 2.5 }, "& > *": { gridColumn: { lg: "span 2" } }, "& > *:nth-of-type(n+4)": { gridColumn: { lg: "span 3" } } }}>
@@ -293,7 +294,7 @@ function Categories() {
                   <Box component="img" src={c.img} alt={c.title} loading="lazy" sx={{ height: { xs: 136, md: 160 }, width: "auto", maxWidth: "80%", objectFit: "contain", mixBlendMode: "multiply" }} />
                 </Box>
                 <Box sx={{ p: { xs: 2, md: 2.75 }, display: "flex", flexDirection: "column", flex: 1 }}>
-                  <Box component="h3" sx={{ m: 0, mb: 0.75, fontSize: { xs: "1.1rem", md: "1.25rem" }, fontWeight: 800, color: T.ink, letterSpacing: "-0.01em" }}>{c.title}</Box>
+                  <Box component="h3" sx={{ m: 0, mb: 0.75, fontSize: { xs: "1.1rem", md: "1.25rem" }, fontWeight: 800, color: T.ink, letterSpacing: "-0.01em" }}>{titleCase(c.title)}</Box>
                   <Box component="p" sx={{ m: 0, mb: 1.75, fontSize: "0.92rem", lineHeight: 1.55, color: T.body }}>{c.text}</Box>
                   <Box component="ul" sx={{ m: 0, mb: 2, p: 0, listStyle: "none", display: "flex", flexWrap: "wrap", gap: 0.75, flex: 1, alignContent: "flex-start" }}>
                     {c.series.map((s) => (
@@ -322,7 +323,7 @@ function HowToChoose() {
       <Box sx={wrap}>
         <Box sx={{ mb: { xs: 3.5, md: 5 }, maxWidth: 720 }}>
           <Kicker>How to choose</Kicker>
-          <H2 id="h2-how">Four questions pick the actuator</H2>
+          <H2 id="h2-how">Four Questions Pick the Actuator</H2>
           <Lead>Answer them in this order and the shortlist is usually one or two series.</Lead>
         </Box>
         <Box component="ol" sx={{ m: 0, p: 0, listStyle: "none", display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", md: "repeat(4, 1fr)" }, gap: { xs: 1.5, md: 2 }, counterReset: "s" }}>
@@ -358,7 +359,7 @@ function WithEvery() {
       <Box sx={{ ...wrap, display: "grid", gridTemplateColumns: { xs: "minmax(0,1fr)", md: "0.8fr 1.2fr" }, gap: { xs: 3, md: 6 }, alignItems: "center" }}>
         <Box>
           <Kicker>With every actuator</Kicker>
-          <H2 id="h2-with">Ready to fit and control</H2>
+          <H2 id="h2-with">Ready to Fit and Control</H2>
           <Lead>We quote the actuator as a package with the mounting and controls it needs, so it arrives ready for the valve.</Lead>
         </Box>
         <Reveal from="right">
@@ -386,7 +387,7 @@ function Uses() {
     <Box component="section" aria-labelledby="h2-uses" sx={{ py: { xs: 7, md: 9 } }}>
       <Box sx={wrap}>
         <Box sx={{ p: { xs: 3, md: 4 }, borderRadius: "24px", background: "linear-gradient(120deg, #EAF4FF 0%, #F1FAEE 100%)", border: "1px solid #DCE6F5" }}>
-          <Box component="h2" id="h2-uses" sx={{ m: 0, mb: 2, fontSize: { xs: "1.3rem", md: "1.55rem" }, fontWeight: 800, color: T.ink, letterSpacing: "-0.02em" }}>Where they’re used</Box>
+          <Box component="h2" id="h2-uses" sx={{ m: 0, mb: 2, fontSize: { xs: "1.3rem", md: "1.55rem" }, fontWeight: 800, color: T.ink, letterSpacing: "-0.02em" }}>Where They’re Used</Box>
           <Box component="ul" sx={{ m: 0, p: 0, listStyle: "none", display: "flex", flexWrap: "wrap", gap: 1 }}>
             {USES.map(([u, href]) => (
               <Box component="li" key={u}>
@@ -418,7 +419,7 @@ function Cta() {
       <Box sx={wrap}>
         <Box sx={{ p: { xs: 3.5, md: 6 }, borderRadius: "28px", background: `linear-gradient(120deg, ${L.mint} 0%, #EAF4FF 55%, #FFF7DD 100%)`, border: `1px solid ${T.border}`, display: "flex", flexDirection: { xs: "column", md: "row" }, alignItems: { md: "center" }, justifyContent: "space-between", gap: 3 }}>
           <Box>
-            <Box component="h2" id="h2-cta" sx={{ m: 0, mb: 1, fontSize: { xs: "1.6rem", md: "2.2rem" }, fontWeight: 800, letterSpacing: "-0.03em", color: T.ink }}>Need an actuator?</Box>
+            <Box component="h2" id="h2-cta" sx={{ m: 0, mb: 1, fontSize: { xs: "1.6rem", md: "2.2rem" }, fontWeight: 800, letterSpacing: "-0.03em", color: T.ink }}>Need an Actuator?</Box>
             <Box component="p" sx={{ m: 0, maxWidth: 620, lineHeight: 1.7, color: T.body }}>
               Send us the valve type and size, its torque if you know it, the supply available and the fail-safe position, and we’ll quote the actuator with its accessories.
             </Box>

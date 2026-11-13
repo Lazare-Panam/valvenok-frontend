@@ -1,7 +1,7 @@
 "use client";
 
 // ITL series page, on the shared series template. Every figure is from the
-// Susin / i-Tork ITL catalogue (see itlData).
+// Susin I-Tork ITL catalogue (see itlData).
 
 import SquareFootOutlinedIcon from "@mui/icons-material/SquareFootOutlined";
 import ElectricBoltOutlinedIcon from "@mui/icons-material/ElectricBoltOutlined";
@@ -35,7 +35,7 @@ const DEF: SeriesDef = {
   h1: ["ITL series", "linear electric"],
   lead: (
     <>
-      Susin compact electric linear actuators for 2-way and 3-way globe and control valves. {TOTAL} models from 1 to 6 kN of thrust, with a continuous-duty motor and universal power supply.
+      Susin I-Tork compact electric linear actuators for 2-way and 3-way globe and control valves. {TOTAL} models from 1 to 6 kN of thrust, with a continuous-duty motor and universal power supply.
     </>
   ),
   specs: [
@@ -50,7 +50,7 @@ const DEF: SeriesDef = {
   productsHref: "/actuators/electric/itl/products",
   catalog: ITL_CATALOG,
   image: ITL_IMAGE,
-  imageAlt: "Susin ITL electric linear actuator",
+  imageAlt: "Susin I-Tork ITL electric linear actuator",
   howTitle: "How a linear actuator works",
   how: <ElectricLinear />,
   ladder: {
@@ -62,7 +62,7 @@ const DEF: SeriesDef = {
   },
   build: {
     title: "How it’s built",
-    imageAlt: "Susin ITL electric linear actuator",
+    imageAlt: "Susin I-Tork ITL electric linear actuator",
     points: [
       ["Continuous-duty motor", "A 100% duty cycle motor, so it can run on/off continuously or modulate at over 1,200 starts an hour."],
       ["Adjustable speed", "1.2 mm/s, adjustable from 70 to 130% without losing force."],

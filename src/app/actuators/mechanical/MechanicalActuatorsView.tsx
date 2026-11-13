@@ -4,6 +4,7 @@
 // the Pneumatic, Electric and Hydraulic pages: centred hero with a series strip,
 // stats, finder, every series, a torque comparison, the rest of the package, FAQ.
 
+import { titleCase } from "@/src/app/Common/titleCase";
 import * as React from "react";
 import Link from "next/link";
 import { Box } from "@mui/material";
@@ -94,7 +95,7 @@ function Hero() {
         </Box>
         <Box component="h1" sx={{ m: 0, mb: 2, fontSize: { xs: "2.4rem", sm: "3.2rem", md: "4.2rem" }, fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1.02, color: T.ink }}>
           <Words text="Mechanical" />
-          <Words text="actuators" start={200} sx={gradientText} />
+          <Words text="Actuators" start={200} sx={gradientText} />
         </Box>
         <Box component="p" sx={{ m: 0, mx: "auto", maxWidth: 700, fontSize: { xs: "1rem", md: "1.12rem" }, lineHeight: 1.7, color: T.body }}>
           Gear operators for valves turned by hand: worm gears for quarter-turn valves up to 32,000 Nm, a declutchable override for actuated valves, and bevel gears for multi-turn gate and globe valves. No power or air needed.
@@ -164,7 +165,7 @@ function Finder() {
       <Box sx={{ ...wrap, display: "grid", gridTemplateColumns: { xs: "minmax(0,1fr)", md: "0.8fr 1.2fr" }, gap: { xs: 3, md: 7 }, alignItems: "center" }}>
         <Box>
           <Kicker>Gear finder</Kicker>
-          <H2 id="h2-finder">Not sure which gear?</H2>
+          <H2 id="h2-finder">Not Sure Which Gear?</H2>
           <Lead>Pick what the gear has to do and the torque your valve needs. We’ll point you to the series that fit.</Lead>
         </Box>
         <Reveal from="right">
@@ -239,7 +240,7 @@ function SeriesCard({ s }: { s: Series }) {
       </Box>
       <Box sx={{ p: { xs: 1.5, sm: 2.5 }, display: "flex", flexDirection: "column", flex: 1 }}>
         <Box sx={{ fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: T.muted, mb: 0.5 }}>{s.kind}</Box>
-        <Box component="h3" sx={{ m: 0, mb: 0.75, fontSize: { xs: "0.92rem", sm: "1.1rem" }, lineHeight: 1.25, fontWeight: 800, color: T.ink, letterSpacing: "-0.01em" }}>{s.name}</Box>
+        <Box component="h3" sx={{ m: 0, mb: 0.75, fontSize: { xs: "0.92rem", sm: "1.1rem" }, lineHeight: 1.25, fontWeight: 800, color: T.ink, letterSpacing: "-0.01em" }}>{titleCase(s.name)}</Box>
         <Box component="p" sx={{ m: 0, mb: { xs: 1.25, sm: 2 }, fontSize: { xs: "0.78rem", sm: "0.9rem" }, lineHeight: 1.5, color: T.body, flex: 1 }}>{s.text}</Box>
         <Box sx={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 1 }}>
           <Box component="span" sx={{ px: 1.25, py: 0.5, borderRadius: 999, bgcolor: T.greenSoft, color: T.greenDark, fontSize: { xs: "0.7rem", sm: "0.78rem" }, fontWeight: 700, whiteSpace: "nowrap" }}>{s.tag}</Box>
@@ -258,7 +259,7 @@ function Types() {
       <Box sx={wrap}>
         <Box sx={{ textAlign: "center", mb: { xs: 4, md: 5 } }}>
           <Kicker>Series</Kicker>
-          <H2 id="h2-types">Every mechanical actuator we supply</H2>
+          <H2 id="h2-types">Every Mechanical Actuator We Supply</H2>
           <Lead center>Pick a series to see every size and model, with torque, ratio and a quote.</Lead>
         </Box>
         <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "repeat(3, 1fr)" }, gap: { xs: 1.25, md: 2.5 } }}>
@@ -285,7 +286,7 @@ function Compare() {
       <Box sx={wrap}>
         <Box sx={{ mb: 4 }}>
           <Kicker>Torque ranges</Kicker>
-          <H2 id="h2-compare">How much torque does each series give?</H2>
+          <H2 id="h2-compare">How Much Torque Does Each Series Give?</H2>
           <Lead>Each bar shows the output torque range of a series, from 60 to 32,000 Nm on a log scale, including gear reduction attachments. Check each series’ model table for ratios and input torque.</Lead>
         </Box>
         <Box ref={ref} sx={{ borderRadius: "22px", bgcolor: "#fff", border: `1px solid ${T.border}`, boxShadow: T.shadow, p: { xs: 1.5, md: 2.5 } }}>
@@ -347,7 +348,7 @@ function CompleteLine() {
       <Box sx={wrap}>
         <Box sx={{ mb: 4 }}>
           <Kicker>Complete the package</Kicker>
-          <H2 id="h2-line">Controls and other actuators</H2>
+          <H2 id="h2-line">Controls and Other Actuators</H2>
           <Lead>Add a limit switch box to report the valve position, or automate the valve with a powered actuator.</Lead>
         </Box>
         <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr 1fr", lg: "repeat(4, 1fr)" }, gap: { xs: 1.25, md: 2.5 } }}>
@@ -359,7 +360,7 @@ function CompleteLine() {
                   <Box component="img" src={m.img} alt={m.title} loading="lazy" sx={{ height: { xs: 84, sm: 124 }, width: "auto", maxWidth: "78%", ...photo }} />
                 </Box>
                 <Box sx={{ p: { xs: 1.5, sm: 2.5 }, display: "flex", flexDirection: "column", flex: 1 }}>
-                  <Box component="h3" sx={{ m: 0, mb: 0.75, fontSize: { xs: "0.92rem", sm: "1.08rem" }, fontWeight: 800, color: T.ink }}>{m.title}</Box>
+                  <Box component="h3" sx={{ m: 0, mb: 0.75, fontSize: { xs: "0.92rem", sm: "1.08rem" }, fontWeight: 800, color: T.ink }}>{titleCase(m.title)}</Box>
                   <Box component="p" sx={{ m: 0, mb: 1.5, fontSize: { xs: "0.78rem", sm: "0.88rem" }, lineHeight: 1.5, color: T.body, flex: 1 }}>{m.text}</Box>
                   <Box component="span" sx={{ alignSelf: "flex-start", px: 1.25, py: 0.5, borderRadius: 999, bgcolor: T.greenSoft, color: T.greenDark, fontSize: "0.75rem", fontWeight: 700 }}>{m.tag}</Box>
                 </Box>
@@ -383,7 +384,7 @@ function Faq() {
       <Box sx={{ ...wrap, maxWidth: 900 }}>
         <Box sx={{ textAlign: "center", mb: 4 }}>
           <Kicker>FAQ</Kicker>
-          <H2 id="h2-faq">Mechanical actuator questions</H2>
+          <H2 id="h2-faq">Mechanical Actuator Questions</H2>
         </Box>
         <Box sx={{ display: "grid", gap: 1.25 }}>
           {FAQ.map((f, i) => (
@@ -418,7 +419,7 @@ function Cta() {
       <Box sx={wrap}>
         <Box sx={{ p: { xs: 3.5, md: 6 }, borderRadius: "28px", background: `linear-gradient(120deg, ${L.mint} 0%, #EAF4FF 55%, #FFF7DD 100%)`, border: `1px solid ${T.border}`, display: "flex", flexDirection: { xs: "column", md: "row" }, alignItems: { md: "center" }, justifyContent: "space-between", gap: 3 }}>
           <Box>
-            <Box component="h2" id="h2-cta" sx={{ m: 0, mb: 1, fontSize: { xs: "1.6rem", md: "2.2rem" }, fontWeight: 800, letterSpacing: "-0.03em", color: T.ink }}>Not sure which gear?</Box>
+            <Box component="h2" id="h2-cta" sx={{ m: 0, mb: 1, fontSize: { xs: "1.6rem", md: "2.2rem" }, fontWeight: 800, letterSpacing: "-0.03em", color: T.ink }}>Not Sure Which Gear?</Box>
             <Box component="p" sx={{ m: 0, maxWidth: 620, lineHeight: 1.7, color: T.body }}>
               Send us the valve, its torque, the mounting flange and whether it is quarter-turn or multi-turn, and we’ll size the gear and quote it.
             </Box>

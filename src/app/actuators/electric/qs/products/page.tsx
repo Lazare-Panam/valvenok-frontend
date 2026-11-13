@@ -7,7 +7,7 @@ import { ITEMS } from './items'
 
 const DEF: ListDef = {
   title: 'QS fail-safe electric actuator models',
-  intro: `${ITEMS.length} Susin QS spring return electric actuators, 50 to 300 Nm, that return the valve to its safe position in 1.8 s if power is lost. Open any model for its full figures, then request a quote.`,
+  intro: `${ITEMS.length} Susin I-Tork QS spring return electric actuators, 50 to 300 Nm, that return the valve to its safe position in 1.8 s if power is lost. Open any model for its full figures, then request a quote.`,
   back: { href: '/actuators/electric/qs', label: 'QS series overview' },
   catalog: { href: QS_CATALOG, label: 'QS catalogue (PDF)' },
   columns: ['Torque', 'Time 50 / 60 Hz', 'Spring return', 'ISO 5211', 'Weight'],

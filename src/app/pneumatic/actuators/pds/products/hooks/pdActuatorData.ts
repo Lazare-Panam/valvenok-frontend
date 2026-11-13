@@ -98,7 +98,7 @@ const makePD = (
   airConsumptionClose,
   iso5211,
   imageUrl: IMAGE,
-  description: `Susin ${model} double acting scotch yoke actuator, ${angle} position. Output torque ${torque_2_8_bar}–${torque_8_bar} Nm at 2.8–8 bar.`,
+  description: `Susin I-Tork ${model} double acting scotch yoke actuator, ${angle} position. Output torque ${torque_2_8_bar}–${torque_8_bar} Nm at 2.8–8 bar.`,
 })
 
 const makePDS = (
@@ -126,11 +126,11 @@ const makePDS = (
   springEndTorqueLbInMin,
   springEndTorqueLbInMax,
   imageUrl: IMAGE,
-  description: `Susin ${model} spring return scotch yoke actuator, ISO 5211 ${iso5211}. Air-stroke torque ${outputTorqueNmMin}–${outputTorqueNmMax} Nm at 4.2–7 bar, spring torque ${springEndTorqueNmMin}–${springEndTorqueNmMax} Nm.`,
+  description: `Susin I-Tork ${model} spring return scotch yoke actuator, ISO 5211 ${iso5211}. Air-stroke torque ${outputTorqueNmMin}–${outputTorqueNmMax} Nm at 4.2–7 bar, spring torque ${springEndTorqueNmMin}–${springEndTorqueNmMax} Nm.`,
 })
 
 export const PD_ACTUATOR_DATA: PDActuatorDTO[] = [
-  // PD: double acting. Susin PDS catalogue p.5 (torque Nm at 2.8–8 bar; air L/stroke at 5.5 bar)
+  // PD: double acting. Susin I-Tork PDS catalogue p.5 (torque Nm at 2.8–8 bar; air L/stroke at 5.5 bar)
   makePD('PD45',   '0°', 12, 16, 20, 26, 28, 34, 38, 0.12, 0.12, 'F03/F05/F07'),
   makePD('PD45',  '45°', 5, 7, 9, 11, 12, 14, 16, 0.12, 0.12, 'F03/F05/F07'),
   makePD('PD45',  '90°', 8, 12, 15, 18, 20, 23, 27, 0.12, 0.12, 'F03/F05/F07'),
@@ -179,7 +179,7 @@ export const PD_ACTUATOR_DATA: PDActuatorDTO[] = [
 export const PD_ACTUATOR_DESCRIPTION = {
   title: 'PDS Series Pneumatic Actuators',
   description:
-    'Susin PDS scotch yoke actuators: double acting (PD45–PD200, 5–4,635 Nm at 2.8–8 bar, shown at 0°, 45° and 90°) and spring return (PS45–PS200, spring torque 4.3–1,920 Nm). ISO 5211 mounting, F03 to F16.',
+    'Susin I-Tork PDS scotch yoke actuators: double acting (PD45–PD200, 5–4,635 Nm at 2.8–8 bar, shown at 0°, 45° and 90°) and spring return (PS45–PS200, spring torque 4.3–1,920 Nm). ISO 5211 mounting, F03 to F16.',
   specs: [
     'PD · PS',
     'Double Acting · Spring Return',

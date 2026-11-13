@@ -7,7 +7,7 @@ import { ITEMS } from './items'
 
 const DEF: ListDef = {
   title: 'PA electro-hydraulic actuator models',
-  intro: `${ITEMS.length} Susin PA high pressure electro-hydraulic part-turn actuators: 5 double acting (250 to 4,000 Nm) and 4 spring return (up to 2,100 Nm to open). Higher torques up to 10,000 Nm on request. Open any model for its full figures, then request a quote.`,
+  intro: `${ITEMS.length} Susin I-Tork PA high pressure electro-hydraulic part-turn actuators: 5 double acting (250 to 4,000 Nm) and 4 spring return (up to 2,100 Nm to open). Higher torques up to 10,000 Nm on request. Open any model for its full figures, then request a quote.`,
   back: { href: '/actuators/hydraulic/pa', label: 'PA series overview' },
   catalog: { href: PA_CATALOG, label: 'PANDA / PA brochure (PDF)' },
   columns: ['Torque (open)', 'Spring close, start / end', 'ISO 5211', 'A × B × C, mm', 'Oil'],

@@ -1,7 +1,7 @@
 "use client";
 
-// PDS series page. Every figure is from the Susin "PDS Series" catalogue
-// (torque tables p.5–7, dimensions p.8) and the Susin pneumatic IOM manual.
+// PDS series page. Every figure is from the Susin I-Tork "PDS Series" catalogue
+// (torque tables p.5–7, dimensions p.8) and the Susin I-Tork pneumatic IOM manual.
 
 import CompareArrowsOutlinedIcon from "@mui/icons-material/CompareArrowsOutlined";
 import SquareFootOutlinedIcon from "@mui/icons-material/SquareFootOutlined";
@@ -55,7 +55,7 @@ const DEF: SeriesDef = {
   h1: ["PDS series", "scotch yoke"],
   lead: (
     <>
-      Susin scotch yoke actuators from PDS 45 to PDS 200, for quarter-turn ball, butterfly and plug valves and dampers. Double acting (PD) up to {nm(DA_MAX)} Nm, or spring return (PS) with {nm(SPRING_MIN)}–{nm(SPRING_MAX)} Nm of spring torque.
+      Susin I-Tork scotch yoke actuators from PDS 45 to PDS 200, for quarter-turn ball, butterfly and plug valves and dampers. Double acting (PD) up to {nm(DA_MAX)} Nm, or spring return (PS) with {nm(SPRING_MIN)}–{nm(SPRING_MAX)} Nm of spring torque.
     </>
   ),
   specs: [
@@ -70,7 +70,7 @@ const DEF: SeriesDef = {
   productsHref: "/pneumatic/actuators/pds/products",
   catalog: SUSIN_CATALOG.PDS,
   image: IMAGE,
-  imageAlt: "Susin PDS series scotch yoke pneumatic actuator",
+  imageAlt: "Susin I-Tork PDS series scotch yoke pneumatic actuator",
   howTitle: "Why scotch yoke: torque across the stroke",
   how: <TorqueCurve />,
   ladder: {
@@ -83,7 +83,7 @@ const DEF: SeriesDef = {
   },
   build: {
     title: "How it’s built",
-    imageAlt: "Susin PDS series actuator",
+    imageAlt: "Susin I-Tork PDS series actuator",
     points: [
       ["Hardened scotch yoke", "More torque at the open and close positions, where a valve needs it most, in a compact unit."],
       ["Extruded anodised aluminium cylinder", "With O-rings treated for low friction and a long working life."],

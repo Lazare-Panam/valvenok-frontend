@@ -7,7 +7,7 @@ import { ITEMS, ITQ_BODIES, bodyOf } from './items'
 
 const DEF: ListDef = {
   title: 'ITQ electric actuator models',
-  intro: `${ITEMS.length} Susin ITQ quarter-turn electric actuators, 100 to 9,000 Nm. Filter by body, flange or 24 VDC, open any model for its full figures, then request a quote.`,
+  intro: `${ITEMS.length} Susin I-Tork ITQ quarter-turn electric actuators, 100 to 9,000 Nm. Filter by body, flange or 24 VDC, open any model for its full figures, then request a quote.`,
   back: { href: '/actuators/electric/itq', label: 'ITQ series overview' },
   catalog: { href: ITQ_CATALOG, label: 'ITQ catalogue (PDF)' },
   columns: ['Torque', 'Time 50 / 60 Hz', 'ISO 5211', 'Weight'],

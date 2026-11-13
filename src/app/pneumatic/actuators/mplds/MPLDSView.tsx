@@ -1,7 +1,7 @@
 "use client";
 
 // MPLDS series page: MPLD (double acting) and MPLS (spring return) micro linear
-// actuators. Every figure is from Susin's MPLD and MPLS pages on susingroup.com.
+// actuators. Every figure is from Susin I-Tork's MPLD and MPLS pages on susingroup.com.
 
 import * as React from "react";
 import { Box } from "@mui/material";
@@ -111,7 +111,7 @@ const DEF: SeriesDef = {
   h1: ["MPLDS micro", "linear actuators"],
   lead: (
     <>
-      Susin’s compact linear actuators for smaller valves: MPLD double acting, with {kn(MIN)} to {kn(MAX)} kN of thrust, and MPLS spring return for fail-safe duty. Four bore sizes from 100 to 200 mm.
+      Susin I-Tork’s compact linear actuators for smaller valves: MPLD double acting, with {kn(MIN)} to {kn(MAX)} kN of thrust, and MPLS spring return for fail-safe duty. Four bore sizes from 100 to 200 mm.
     </>
   ),
   specs: [
@@ -127,7 +127,7 @@ const DEF: SeriesDef = {
   catalog: "https://www.susingroup.com/products/mplds-linear",
   catalogLabel: "MPLDS on susingroup.com",
   image: MPLDS_IMAGE,
-  imageAlt: "Susin MPLDS micro linear pneumatic actuator",
+  imageAlt: "Susin I-Tork MPLDS micro linear pneumatic actuator",
   howTitle: "Spring return: fail-safe on air loss",
   how: <FailSafe />,
   ladder: {
@@ -139,7 +139,7 @@ const DEF: SeriesDef = {
   },
   build: {
     title: "How it’s built",
-    imageAlt: "Susin MPLDS actuator",
+    imageAlt: "Susin I-Tork MPLDS actuator",
     points: [
       ["Hard anodised aluminium body", "25–30 µm anodising with epoxy-coated end caps as standard."],
       ["Corrosion options", "Fully PU-coated (C5), marine grade with AISI 316 fasteners, PTFE-coated, electroless nickel plated, or fully stainless steel AISI 316."],

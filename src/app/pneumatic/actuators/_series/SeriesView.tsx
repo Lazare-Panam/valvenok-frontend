@@ -5,6 +5,7 @@
 // (each opens the model table filtered to it), a "how it's built" band, FAQ, CTA.
 // Each series (PDS, HD, PLDS) passes its catalogue data as a SeriesDef.
 
+import { titleCase } from "@/src/app/Common/titleCase";
 import * as React from "react";
 import Link from "next/link";
 import { Box } from "@mui/material";
@@ -70,8 +71,8 @@ function Hero({ d }: { d: SeriesDef }) {
             </Box>
           </Box>
           <Box component="h1" sx={{ m: 0, mb: 2.5, fontSize: { xs: "2.4rem", sm: "3rem", md: "3.8rem" }, fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.04, color: T.ink }}>
-            <Words text={d.h1[0]} />
-            <Words text={d.h1[1]} start={200} sx={gradientText} />
+            <Words text={titleCase(d.h1[0])} />
+            <Words text={titleCase(d.h1[1])} start={200} sx={gradientText} />
           </Box>
           <Lead>{d.lead}</Lead>
           <Box component="dl" sx={{ m: 0, mt: 3, display: "grid", gridTemplateColumns: { xs: "1fr 1fr", sm: "repeat(3, 1fr)" }, gap: 1, "& > div": { p: 1.5, borderRadius: "14px", bgcolor: "rgba(255,255,255,0.85)", border: `1px solid ${T.border}` }, "& dt": { fontSize: "0.72rem", fontWeight: 700, color: T.muted, textTransform: "uppercase", letterSpacing: "0.06em" }, "& dd": { m: 0, mt: 0.25, fontSize: "0.9rem", fontWeight: 700, color: T.ink } }}>
@@ -120,7 +121,7 @@ function Ladder({ d }: { d: SeriesDef }) {
         <Box sx={{ display: "flex", flexDirection: { xs: "column", md: "row" }, justifyContent: "space-between", alignItems: { md: "flex-end" }, gap: 2, mb: 4 }}>
           <Box>
             <Kicker>{d.ladder.kicker}</Kicker>
-            <H2 id="h2-models">{d.ladder.title}</H2>
+            <H2 id="h2-models">{titleCase(d.ladder.title)}</H2>
             <Lead>{d.ladder.lead}</Lead>
           </Box>
           {tabs && (
@@ -190,7 +191,7 @@ function Build({ d }: { d: SeriesDef }) {
             <Box component="img" src={b.image ?? d.image} alt={b.imageAlt ?? d.imageAlt} loading="lazy" sx={{ width: "100%", height: "auto", maxWidth: 520, maxHeight: 360, objectFit: "contain" }} />
           </Box>
           <Box>
-            <Box component="h2" id="h2-build" sx={{ m: 0, mb: 2, fontSize: { xs: "1.3rem", md: "1.55rem" }, fontWeight: 800, color: T.ink, letterSpacing: "-0.02em" }}>{b.title}</Box>
+            <Box component="h2" id="h2-build" sx={{ m: 0, mb: 2, fontSize: { xs: "1.3rem", md: "1.55rem" }, fontWeight: 800, color: T.ink, letterSpacing: "-0.02em" }}>{titleCase(b.title)}</Box>
             <Box component="ul" sx={{ m: 0, p: 0, listStyle: "none", display: "grid", gap: 1.5 }}>
               {b.points.map(([k, v]) => (
                 <Box component="li" key={k} sx={{ display: "flex", gap: 1.25 }}>
@@ -212,7 +213,7 @@ function Faq({ d }: { d: SeriesDef }) {
       <Box sx={{ ...wrap, maxWidth: 900 }}>
         <Box sx={{ textAlign: "center", mb: 4 }}>
           <Kicker>FAQ</Kicker>
-          <H2 id="h2-faq">{d.faqTitle}</H2>
+          <H2 id="h2-faq">{titleCase(d.faqTitle)}</H2>
         </Box>
         <Box sx={{ display: "grid", gap: 1.25 }}>
           {d.faq.map((f, i) => (
@@ -247,7 +248,7 @@ function Cta({ d }: { d: SeriesDef }) {
       <Box sx={wrap}>
         <Box sx={{ p: { xs: 3.5, md: 6 }, borderRadius: "28px", background: `linear-gradient(120deg, ${L.mint} 0%, #EAF4FF 55%, #FFF7DD 100%)`, border: `1px solid ${T.border}`, display: "flex", flexDirection: { xs: "column", md: "row" }, alignItems: { md: "center" }, justifyContent: "space-between", gap: 3 }}>
           <Box>
-            <Box component="h2" id="h2-cta" sx={{ m: 0, mb: 1, fontSize: { xs: "1.6rem", md: "2.2rem" }, fontWeight: 800, letterSpacing: "-0.03em", color: T.ink }}>{d.cta.title}</Box>
+            <Box component="h2" id="h2-cta" sx={{ m: 0, mb: 1, fontSize: { xs: "1.6rem", md: "2.2rem" }, fontWeight: 800, letterSpacing: "-0.03em", color: T.ink }}>{titleCase(d.cta.title)}</Box>
             <Box component="p" sx={{ m: 0, maxWidth: 620, lineHeight: 1.7, color: T.body }}>{d.cta.body}</Box>
           </Box>
           <Box sx={{ display: "flex", gap: 1.5, flexWrap: "wrap", flexShrink: 0 }}>

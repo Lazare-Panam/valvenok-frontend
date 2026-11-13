@@ -1,5 +1,5 @@
 // ITL models, shared by the model list and the per-model product pages.
-// Every figure is from the Susin / i-Tork ITL catalogue; see ../itlData.
+// Every figure is from the Susin I-Tork ITL catalogue; see ../itlData.
 import type { Item } from '@/src/app/pneumatic/actuators/_series/modelTypes'
 import { ITL_MODELS, ITL_COMMON, ITL_IMAGE } from '../itlData'
 

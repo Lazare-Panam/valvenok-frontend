@@ -4,6 +4,7 @@
 // group website (KOSAPLUS, SPAC), shown as feature cards that open that site.
 // Data comes from Common/showcase.ts, the same list the mega menu uses.
 
+import { titleCase } from "@/src/app/Common/titleCase";
 import { Box } from "@mui/material";
 import NorthEastRoundedIcon from "@mui/icons-material/NorthEastRounded";
 import { T } from "@/src/app/Landing/modern/tokens";
@@ -20,7 +21,7 @@ export default function GroupShowcase({ category, what }: { category: ShowcaseCa
       <Box sx={wrap}>
         <Box sx={{ mb: 4 }}>
           <Kicker>Also in our group</Kicker>
-          <H2 id="h2-group">More {what} we supply</H2>
+          <H2 id="h2-group">{titleCase(`More ${what} we supply`)}</H2>
           <Lead>
             Valvenok is also a distributor for {sites.join(" and ")}. Their full ranges, with model lists, prices and quotes, are on their own websites.
           </Lead>
@@ -38,7 +39,7 @@ export default function GroupShowcase({ category, what }: { category: ShowcaseCa
                 </Box>
                 <Box sx={{ p: { xs: 1.5, sm: 2 }, display: "flex", flexDirection: "column", flex: 1 }}>
                   <Box sx={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: T.muted, mb: 0.5 }}>{s.brandInfo.name}</Box>
-                  <Box component="h3" sx={{ m: 0, mb: 0.75, fontSize: { xs: "0.9rem", sm: "1rem" }, lineHeight: 1.3, fontWeight: 800, color: T.ink }}>{s.name}</Box>
+                  <Box component="h3" sx={{ m: 0, mb: 0.75, fontSize: { xs: "0.9rem", sm: "1rem" }, lineHeight: 1.3, fontWeight: 800, color: T.ink }}>{titleCase(s.name)}</Box>
                   <Box component="p" sx={{ m: 0, mb: 1.5, fontSize: { xs: "0.78rem", sm: "0.86rem" }, lineHeight: 1.5, color: T.body, flex: 1 }}>{s.line}</Box>
                   <Box className="go" component="span" sx={{ alignSelf: "flex-start", display: "inline-flex", alignItems: "center", gap: 0.5, px: 1.25, py: 0.5, borderRadius: 999, border: `1px solid ${T.border}`, fontSize: "0.76rem", fontWeight: 700, color: T.ink, transition: "all .2s", whiteSpace: "nowrap" }}>
                     Visit the website <NorthEastRoundedIcon sx={{ fontSize: 14 }} />

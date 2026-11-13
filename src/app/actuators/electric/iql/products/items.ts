@@ -1,5 +1,5 @@
 // IQL models, shared by the model list and the per-model product pages.
-// Every figure is from the Susin / i-Tork IQL catalogue; see ../iqlData.
+// Every figure is from the Susin I-Tork IQL catalogue; see ../iqlData.
 import type { Item } from '@/src/app/pneumatic/actuators/_series/modelTypes'
 import { IQL_MODELS, IQL_COMMON, IQL_IMAGE } from '../iqlData'
 

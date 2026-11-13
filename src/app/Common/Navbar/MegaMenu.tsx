@@ -101,7 +101,7 @@ function MenuRow({ label, href, active, onEnter, onClose, accent, external }: { 
 
 // Brand heading inside the category column: logo, name, and the site for group brands
 function BrandHead({ name, site, first }: { name: string; site?: string; first: boolean }) {
-  const b = BRANDS.find((x) => x.name.toLowerCase() === name.toLowerCase());
+  const b = BRANDS.find((x) => x.name.toLowerCase() === name.toLowerCase() || x.slug === name.toLowerCase());
   return (
     <Box sx={{ display: "flex", alignItems: "center", gap: 1, mt: first ? 0 : 1.75, mb: 0.5, px: 1.75 }}>
       {b && (

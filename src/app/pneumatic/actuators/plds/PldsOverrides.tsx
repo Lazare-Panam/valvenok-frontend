@@ -31,8 +31,8 @@ export default function PldsOverrides() {
       <Box sx={wrap}>
         <Box sx={{ mb: 4 }}>
           <Kicker>Manual overrides</Kicker>
-          <H2 id="h2-overrides">Move the valve by hand when there’s no air</H2>
-          <Lead>Four override types from Susin’s PLDS catalogue. Each model’s row in the model list shows the override that fits it, with its thrust.</Lead>
+          <H2 id="h2-overrides">Move the Valve by Hand When There’s No Air</H2>
+          <Lead>Four override types from Susin I-Tork’s PLDS catalogue. Each model’s row in the model list shows the override that fits it, with its thrust.</Lead>
         </Box>
         <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", lg: "repeat(4, 1fr)" }, gap: 1.5 }}>
           {CARDS.map((c, i) => (

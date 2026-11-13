@@ -1,5 +1,5 @@
 // QS models, shared by the model list and the per-model product pages.
-// Every figure is from the Susin / i-Tork QS fail-safe catalogue; see ../qsData.
+// Every figure is from the Susin I-Tork QS fail-safe catalogue; see ../qsData.
 import type { Item } from '@/src/app/pneumatic/actuators/_series/modelTypes'
 import { QS_MODELS, QS_COMMON, QS_IMAGE } from '../qsData'
 

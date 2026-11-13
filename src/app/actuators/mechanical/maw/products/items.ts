@@ -1,5 +1,5 @@
 // MAW models, shared by the model list and the per-model product pages.
-// Every figure is from the Susin MAW catalogue; see ../mawData.
+// Every figure is from the Susin I-Tork MAW catalogue; see ../mawData.
 import type { Item } from '@/src/app/pneumatic/actuators/_series/modelTypes'
 import { STAGE_LABEL } from '@/src/app/pneumatic/actuators/_series/gearTypes'
 import { MAW_MODELS, MAW_COMMON, MAW_IMAGE, MAW_REDUCTION } from '../mawData'
@@ -64,7 +64,7 @@ const RAW_ITEMS: Item[] = MAW_MODELS.map((m, i) => {
         ['Handwheel', 'ØM', String(d.m)],
       ],
     },
-    note: `Dimensions from Susin’s ${m.stage === 'Standard' ? 'general' : m.stage === '1S' ? 'single stage helical reduction' : 'double stage helical reduction'} drawing; letters as on the catalogue drawing. Rim pull is Susin’s figure at full output torque on the recommended handwheel. Send us the valve torque and flange and we’ll confirm the model.`,
+    note: `Dimensions from Susin I-Tork’s ${m.stage === 'Standard' ? 'general' : m.stage === '1S' ? 'single stage helical reduction' : 'double stage helical reduction'} drawing; letters as on the catalogue drawing. Rim pull is Susin I-Tork’s figure at full output torque on the recommended handwheel. Send us the valve torque and flange and we’ll confirm the model.`,
     rfq: {
       id: `maw-${m.model.toLowerCase()}`,
       name: `${m.model} worm gear actuator`,

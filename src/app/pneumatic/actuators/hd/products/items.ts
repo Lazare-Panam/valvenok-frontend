@@ -1,4 +1,4 @@
-// HD models in Susin's four series (ISD, ICD, ISR, ICR), shared by the model
+// HD models in Susin I-Tork's four series (ISD, ICD, ISR, ICR), shared by the model
 // list and the per-model product pages. Figures from ../hdData.
 import type { Item } from '../../_series/modelTypes'
 import { HD_MODELS, HD_COMMON, HD_IMAGE, PRESSURES, seriesOf, maxTorque, springEnd, type HdModel } from '../hdData'
@@ -58,8 +58,8 @@ const RAW: Item[] = HD_MODELS.map((m, i) => {
     ],
     table: table(m),
     note: m.sr
-      ? 'Each spring return model comes with a 4.2 or a 5.5 bar spring set. The 4.2 bar set is listed with air at 2.8, 4.2 and 5.5 bar, the 5.5 bar set with air at 4.2, 5.5 and 7 bar, as in Susin’s catalogue. Dimensions as on the catalogue drawing.'
-      : 'Torque at the start, run and end of the 90° stroke, from Susin’s technical data. Dimensions as on the catalogue drawing. Tell us the valve torque and air supply and we’ll confirm the model.',
+      ? 'Each spring return model comes with a 4.2 or a 5.5 bar spring set. The 4.2 bar set is listed with air at 2.8, 4.2 and 5.5 bar, the 5.5 bar set with air at 4.2, 5.5 and 7 bar, as in Susin I-Tork’s catalogue. Dimensions as on the catalogue drawing.'
+      : 'Torque at the start, run and end of the 90° stroke, from Susin I-Tork’s technical data. Dimensions as on the catalogue drawing. Tell us the valve torque and air supply and we’ll confirm the model.',
     rfq: {
       id: `hd-${m.model.replace(' ', '-').toLowerCase()}`,
       name: `${m.model} heavy-duty scotch yoke actuator`,

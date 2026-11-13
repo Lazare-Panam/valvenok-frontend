@@ -1,5 +1,5 @@
 // PA series: compact electro-hydraulic part-turn actuators, high pressure
-// (max 180 bar on board). Every value is from Susin's hydraulic brochure
+// (max 180 bar on board). Every value is from Susin I-Tork's hydraulic brochure
 // "Product Information: Electro Hydraulic Actuator, High Pressure PA / Low
 // Pressure PANDA": PA product selection p.5, technical data and dimensions p.6,
 // schematic p.7.

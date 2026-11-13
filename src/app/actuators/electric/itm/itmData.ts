@@ -1,5 +1,5 @@
 // ITM Series multi-turn electric actuators (177–2,942 Nm).
-// Every value is from the Susin / i-Tork ITM catalogue (Electric - ITM.pdf):
+// Every value is from the Susin I-Tork ITM catalogue (Electric - ITM.pdf):
 // standard specification p.3, electrical p.6, mechanical p.7, speed torque
 // table p.8, thrust / stem / flange / weight p.9.
 import { SUSIN_CATALOG } from "@/src/app/Common/susinCatalogs";

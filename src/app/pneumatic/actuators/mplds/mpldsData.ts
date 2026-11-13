@@ -1,4 +1,4 @@
-// MPLDS micro linear actuators, Susin. Figures from susingroup.com:
+// MPLDS micro linear actuators, Susin I-Tork. Figures from susingroup.com:
 // MPLD series thrust data sheet (double acting) and MPLS series dimension table (spring return).
 
 export type MPLDSize = {

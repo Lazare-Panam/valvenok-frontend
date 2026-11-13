@@ -7,7 +7,7 @@ import { ITEMS } from './items'
 
 const DEF: ListDef = {
   title: 'PANDA electro-hydraulic actuator models',
-  intro: `${ITEMS.length} Susin PANDA low pressure electro-hydraulic part-turn actuators: 14 double acting (46 to 7,207 Nm) and 13 spring return (up to 9,274 Nm to open). Open any model for its full figures, then request a quote.`,
+  intro: `${ITEMS.length} Susin I-Tork PANDA low pressure electro-hydraulic part-turn actuators: 14 double acting (46 to 7,207 Nm) and 13 spring return (up to 9,274 Nm to open). Open any model for its full figures, then request a quote.`,
   back: { href: '/actuators/hydraulic/panda', label: 'PANDA series overview' },
   catalog: { href: PANDA_CATALOG, label: 'PANDA / PA brochure (PDF)' },
   columns: ['Torque (open)', 'Spring close, start / end', 'ISO 5211', 'A × B × C, mm', 'Oil'],

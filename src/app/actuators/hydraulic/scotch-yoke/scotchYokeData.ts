@@ -1,7 +1,7 @@
 // HRS scotch yoke hydraulic actuators: HRSDA (double acting) and HRSSA (spring return),
 // hydraulic or electro-hydraulic (EHRSDA / EHRSSA).
 // Torque tables reuse the existing model list (adf/products/hooks/hrsdaData.ts, from the data sheet);
-// the other values come from the Susin "Hydraulic & Electro Hydraulic Actuator — Data Sheet"
+// the other values come from the Susin I-Tork "Hydraulic & Electro Hydraulic Actuator — Data Sheet"
 // (Hydraulic - HLP.pdf), Rotary Scotch Yoke pages 3–9.
 import { SUSIN_CATALOG } from "@/src/app/Common/susinCatalogs";
 import { HRSDA_DATA } from "../adf/products/hooks/hrsdaData";

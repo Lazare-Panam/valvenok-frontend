@@ -1,5 +1,5 @@
 // MHD (Micro) series scotch yoke pneumatic actuators, Susin I-Tork.
-// Figures from the Susin "Pneumatic Actuator Micro Series SS & CS" catalogue only.
+// Figures from the Susin I-Tork "Pneumatic Actuator Micro Series SS & CS" catalogue only.
 // Output torque = lowest to highest air torque in the catalogue tables (2.8–7 bar for
 // double acting; 4.2–7 bar air on both spring sets for spring return).
 
@@ -50,7 +50,7 @@ export function countByMHD<T>(items: T[], keyFn: (item: T) => string): Record<st
   return counts
 }
 
-// Photos from the Susin Micro series catalogue, on blob storage
+// Photos from the Susin I-Tork Micro series catalogue, on blob storage
 export const MHD_IMAGE = 'https://pblol2.blob.core.windows.net/valvenok-images/brands/susin/mhd.jpg'
 export const MHD_EXPLODED = 'https://pblol2.blob.core.windows.net/valvenok-images/brands/susin/mhd-exploded.jpg'
 
@@ -63,7 +63,7 @@ const make = (
   torqueNmMin, torqueNmMax, torqueLbInMin, torqueLbInMax,
   springEndTorqueNmMin, springEndTorqueNmMax, springEndTorqueLbInMin, springEndTorqueLbInMax,
   imageUrl: MHD_IMAGE,
-  description: `Susin MHD (Micro) ${model} scotch yoke pneumatic actuator, ${yoke.toLowerCase()} yoke, ${action.toLowerCase()}. ISO 5211 F07 / F10. Output torque ${torqueNmMin}–${torqueNmMax} Nm.`,
+  description: `Susin I-Tork MHD (Micro) ${model} scotch yoke pneumatic actuator, ${yoke.toLowerCase()} yoke, ${action.toLowerCase()}. ISO 5211 F07 / F10. Output torque ${torqueNmMin}–${torqueNmMax} Nm.`,
 })
 
 export const MHD_ACTUATOR_DATA: MHDActuatorDTO[] = [
@@ -86,6 +86,6 @@ export const MHD_TORQUE_RANGE = '63 – 1,474 Nm'
 export const MHD_ACTUATOR_DESCRIPTION = {
   title: 'MHD Series Micro Scotch Yoke Pneumatic Actuators',
   description:
-    'Susin MHD (Micro) scotch yoke pneumatic actuators for on/off and control of double offset butterfly valves. Symmetric (IS) and canted (IC) yokes, double acting and spring return, ISO 5211 F07 / F10, output torque 63 to 1,474 Nm.',
+    'Susin I-Tork MHD (Micro) scotch yoke pneumatic actuators for on/off and control of double offset butterfly valves. Symmetric (IS) and canted (IC) yokes, double acting and spring return, ISO 5211 F07 / F10, output torque 63 to 1,474 Nm.',
   specs: ['MHD (Micro) Series', 'IS & IC yokes', 'Double acting & spring return', 'ISO 5211 F07 / F10', '63 – 1,474 Nm'],
 }

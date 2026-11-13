@@ -8,7 +8,7 @@ import { ITEMS } from './items'
 
 const DEF: ListDef = {
   title: 'MAW worm gear actuator models',
-  intro: `${ITEMS.length} Susin MAW quarter-turn worm gear actuators for ball, butterfly and plug valves and dampers, 125 to 32,000 Nm, as standard or with a single or double stage reduction. Open any model for its full figures and dimensions, then request a quote.`,
+  intro: `${ITEMS.length} Susin I-Tork MAW quarter-turn worm gear actuators for ball, butterfly and plug valves and dampers, 125 to 32,000 Nm, as standard or with a single or double stage reduction. Open any model for its full figures and dimensions, then request a quote.`,
   back: { href: '/actuators/mechanical/maw', label: 'MAW series overview' },
   catalog: { href: MAW_CATALOG, label: 'MAW catalogue (PDF)' },
   columns: ['Max torque', 'Ratio', 'Turns (90°)', 'Rim pull', 'ISO 5211', 'Weight'],

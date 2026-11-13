@@ -7,7 +7,7 @@ import { ITEMS } from './items'
 
 const DEF: ListDef = {
   title: 'ITM multi-turn actuator models',
-  intro: `${ITEMS.length} Susin ITM multi-turn electric actuators for gate, globe and sluice valves, 177 to 2,942 Nm and up to 686 kN thrust. Open any model for its full figures and speed torque table, then request a quote.`,
+  intro: `${ITEMS.length} Susin I-Tork ITM multi-turn electric actuators for gate, globe and sluice valves, 177 to 2,942 Nm and up to 686 kN thrust. Open any model for its full figures and speed torque table, then request a quote.`,
   back: { href: '/actuators/electric/itm', label: 'ITM series overview' },
   catalog: { href: ITM_CATALOG, label: 'ITM catalogue (PDF)' },
   columns: ['Max torque', 'Thrust', 'Max stem', 'ISO 5210', 'Weight'],

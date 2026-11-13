@@ -1,11 +1,11 @@
 // OLD HD body-size pages (A1-06), kept live but out of the list until the clean-up (vk-z1).
-// HD model list ("View all models"). Figures from Susin's HD general specification
+// HD model list ("View all models"). Figures from Susin I-Tork's HD general specification
 // table (susingroup.com/products/hd-rotary); see hooks/hdActuatorData.
 import type { Item } from '../../_series/modelTypes'
 import { HD_ACTUATOR_DATA } from './hooks/hdActuatorData'
 
 const nm = (n: number) => n.toLocaleString('en-GB')
-// Max stem diameter / height (mm), from the same Susin table
+// Max stem diameter / height (mm), from the same Susin I-Tork table
 const STEM: Record<string, [string, number]> = { A1: ['SQ-22', 30], '01': ['Ø45', 45], '02': ['Ø65', 120], '03': ['Ø80', 130], '04': ['Ø110', 150], '05': ['Ø125', 185], '06': ['Ø165', 245] }
 
 const RAW_ITEMS: Item[] = HD_ACTUATOR_DATA.map((m, i) => ({

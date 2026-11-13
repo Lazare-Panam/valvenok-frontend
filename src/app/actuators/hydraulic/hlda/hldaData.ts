@@ -1,5 +1,5 @@
 // HLDA / EHLDA linear piston hydraulic actuators (double acting).
-// Every value below comes from the Susin "Hydraulic & Electro Hydraulic
+// Every value below comes from the Susin I-Tork "Hydraulic & Electro Hydraulic
 // Actuator" data sheet (Hydraulic - HLP.pdf), Linear Piston Actuator pages 18–19.
 import { SUSIN_CATALOG } from "@/src/app/Common/susinCatalogs";
 

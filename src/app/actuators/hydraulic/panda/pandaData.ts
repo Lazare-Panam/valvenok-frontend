@@ -1,5 +1,5 @@
 // PANDA series: compact electro-hydraulic part-turn actuators, low pressure
-// (max 8 bar on board). Every value is from Susin's hydraulic brochure
+// (max 8 bar on board). Every value is from Susin I-Tork's hydraulic brochure
 // "Product Information: Electro Hydraulic Actuator, High Pressure PA / Low
 // Pressure PANDA": product description p.2, PANDA product selection p.3,
 // technical data and dimensions p.4, schematic p.7.
@@ -41,7 +41,7 @@ const DA: [string, number][] = [
 
 // [code, open (hydraulic) start / end, close (spring) start / end]
 // E40: p.3 prints the same torques as E20 (245/187, 157/98), which looks like a
-// copy error; it is shown as "on request" until Susin confirms.
+// copy error; it is shown as "on request" until Susin I-Tork confirms.
 const SR: [string, [number, number] | null, [number, number] | null][] = [
   ["E10", [102, 77], [69, 44]], ["E15", [152, 118], [94, 60]], ["E20", [245, 187], [157, 98]],
   ["E30", [371, 245], [198, 126]], ["E40", null, null], ["E50", [638, 509], [399, 269]],

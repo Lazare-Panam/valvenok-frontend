@@ -7,7 +7,7 @@ import { ITEMS } from './items'
 
 const DEF: ListDef = {
   title: 'ITQ Micro electric actuator models',
-  intro: `${ITEMS.length} Susin ITQ Micro compact quarter-turn electric actuators, 25 to 80 Nm, for small ball and plug valves and dampers. Compare them side by side, open any model for its full figures, then request a quote.`,
+  intro: `${ITEMS.length} Susin I-Tork ITQ Micro compact quarter-turn electric actuators, 25 to 80 Nm, for small ball and plug valves and dampers. Compare them side by side, open any model for its full figures, then request a quote.`,
   back: { href: '/actuators/electric/itq-micro', label: 'ITQ Micro series overview' },
   catalog: { href: ITQM_CATALOG, label: 'ITQ Micro catalogue (PDF)' },
   columns: ['Torque', 'Time 50 / 60 Hz', 'ISO 5211', 'Power supply'],

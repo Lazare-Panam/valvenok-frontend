@@ -1,10 +1,10 @@
 // PLDS models, shared by the model list and the per-model product pages.
-// PLDS model list ("View all models"). Figures from the Susin PLDS catalogue; see hooks/pldsActuatorData.
+// PLDS model list ("View all models"). Figures from the Susin I-Tork PLDS catalogue; see hooks/pldsActuatorData.
 import type { Item } from '../../_series/modelTypes'
 import { PLDS_ACTUATOR_DATA } from './hooks/pldsActuatorData'
 import { jack, mtg, mab, hmor } from '../pldsOverrideData'
 
-// Manual overrides that fit each size (Susin PLDS catalogue, Types 1–4)
+// Manual overrides that fit each size (Susin I-Tork PLDS catalogue, Types 1–4)
 const overrides = (model: string): string[][] => {
   const k = (v: number) => `${v.toLocaleString('en-GB')} N`
   const out: string[][] = []

@@ -1,13 +1,13 @@
 'use client'
 
-// HD model list ("View all models"): Susin's ISD, ICD, ISR and ICR series.
+// HD model list ("View all models"): Susin I-Tork's ISD, ICD, ISR and ICR series.
 import ModelList, { type ListDef } from '../../_series/ModelList'
 import { HD_CATALOG, HD_BODIES } from '../hdData'
 import { ITEMS } from './items'
 
 const DEF: ListDef = {
   title: 'HD heavy-duty actuator models',
-  intro: `${ITEMS.length} Susin HD heavy-duty scotch yoke actuators in four series: ISD and ICD double acting, ISR and ICR spring return, with a symmetric (IS) or canted (IC) yoke. Open any model for its full torque table, then request a quote.`,
+  intro: `${ITEMS.length} Susin I-Tork HD heavy-duty scotch yoke actuators in four series: ISD and ICD double acting, ISR and ICR spring return, with a symmetric (IS) or canted (IC) yoke. Open any model for its full torque table, then request a quote.`,
   back: { href: '/pneumatic/actuators/hd', label: 'HD series overview' },
   catalog: { href: HD_CATALOG, label: 'IS & IC catalogue (PDF)' },
   columns: ['Series', 'Start torque, 5.5 bar', 'Air torque', 'Spring torque', 'Body'],

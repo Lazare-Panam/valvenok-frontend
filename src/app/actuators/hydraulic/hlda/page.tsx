@@ -166,7 +166,7 @@ export default function HLDAPage() {
                 variant="body1"
                 sx={{ color: "text.secondary", mb: 3, lineHeight: 1.8, textTransform: "none" }}
               >
-                Double acting linear piston actuators from Susin
+                Double acting linear piston actuators from Susin I-Tork
                 for globe, gate and control valves. Hydraulic (HLDA) or
                 electro-hydraulic (EHLDA), eleven bores from 32 to 200 mm, giving
                 6 to 402 kN of thrust at 100 to 160 bar. Up to 200 bar, IP66M /

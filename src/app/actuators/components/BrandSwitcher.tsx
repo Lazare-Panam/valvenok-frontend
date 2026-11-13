@@ -12,7 +12,7 @@ import { BRANDS } from "@/src/app/Common/brandRegistry";
 import { showcaseFor, type ShowcaseCategory } from "@/src/app/Common/showcase";
 
 export default function BrandSwitcher({ here, category }: { here: string[]; category: ShowcaseCategory }) {
-  const onPage = here.map((n) => BRANDS.find((b) => b.name === n)).filter(Boolean) as typeof BRANDS;
+  const onPage = here.map((n) => BRANDS.find((b) => b.name === n || b.slug === n.toLowerCase())).filter(Boolean) as typeof BRANDS;
   const seen = new Set<string>();
   const elsewhere = showcaseFor(category).filter((s) => !seen.has(s.brand) && seen.add(s.brand));
   const logo = (src: string, scale?: number) => (

@@ -3,7 +3,7 @@ import { HD_IMAGE } from "../hdData";
 
 const TITLE = "HD Scotch Yoke Actuator Models: ISD, ICD, ISR, ICR | Valvenok";
 const DESCRIPTION =
-  "All 64 Susin HD heavy-duty scotch yoke actuators: ISD and ICD double acting, ISR and ICR spring return, symmetric or canted yoke. Torque at 2.8 to 7 bar and dimensions for every model.";
+  "All 64 Susin I-Tork HD heavy-duty scotch yoke actuators: ISD and ICD double acting, ISR and ICR spring return, symmetric or canted yoke. Torque at 2.8 to 7 bar and dimensions for every model.";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/pneumatic/actuators/hd/products" },

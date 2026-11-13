@@ -1,4 +1,4 @@
-// PLDS manual override options, from Susin's PLDS catalogue (Pneumatic - PLDS.pdf,
+// PLDS manual override options, from Susin I-Tork's PLDS catalogue (Pneumatic - PLDS.pdf,
 // "Linear piston actuator with manual overrides", Types 1–4). Jack screw, MTG and MAB
 // all give 0.3 turns per mm (8.4 per inch) and need 360 N (81 lbs) rim pull.
 

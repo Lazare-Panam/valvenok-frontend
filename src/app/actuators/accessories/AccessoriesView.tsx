@@ -1,10 +1,11 @@
 "use client";
 
 // Accessories: type page under the Actuators tab, in the same format as the
-// Electric, Hydraulic and Mechanical pages. Limit switch boxes: Susin ITS.
-// (KOSAPLUS KLS is on the KOSAPLUS UK website.) ITS figures from Susin's ITS catalogue
+// Electric, Hydraulic and Mechanical pages. Limit switch boxes: Susin I-Tork ITS.
+// (KOSAPLUS KLS is on the KOSAPLUS UK website.) ITS figures from Susin I-Tork's ITS catalogue
 // (Accessories - ITS.pdf): ITS 200 weatherproof, ITS 400 explosion proof, ITS 500 special material.
 
+import { titleCase } from "@/src/app/Common/titleCase";
 import * as React from "react";
 import Link from "next/link";
 import { Box } from "@mui/material";
@@ -89,10 +90,10 @@ function Hero() {
         </Box>
         <Box component="h1" sx={{ m: 0, mb: 2, fontSize: { xs: "2.4rem", sm: "3.2rem", md: "4.2rem" }, fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1.02, color: T.ink }}>
           <Words text="Actuator" />
-          <Words text="accessories" start={200} sx={gradientText} />
+          <Words text="Accessories" start={200} sx={gradientText} />
         </Box>
         <Box component="p" sx={{ m: 0, mx: "auto", maxWidth: 700, fontSize: { xs: "1rem", md: "1.12rem" }, lineHeight: 1.7, color: T.body }}>
-          <Box component="strong" sx={{ fontWeight: 800, ...gradientText }}>Limit switch boxes</Box> that sit on top of the actuator and tell the control room when the valve is open or closed. Susin ITS boxes in weatherproof, explosion-proof and stainless versions, with mechanical switches or proximity sensors.
+          <Box component="strong" sx={{ fontWeight: 800, ...gradientText }}>Limit switch boxes</Box> that sit on top of the actuator and tell the control room when the valve is open or closed. Susin I-Tork ITS boxes in weatherproof, explosion-proof and stainless versions, with mechanical switches or proximity sensors.
         </Box>
         <Box sx={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 1.25, mt: 3.5 }}>
           <Box component="a" href="#finder" sx={pillBtn(true)}>
@@ -155,7 +156,7 @@ function Finder() {
       <Box sx={{ ...wrap, display: "grid", gridTemplateColumns: { xs: "minmax(0,1fr)", md: "0.8fr 1.2fr" }, gap: { xs: 3, md: 7 }, alignItems: "center" }}>
         <Box>
           <Kicker>Switch box finder</Kicker>
-          <H2 id="h2-finder">Which limit switch box?</H2>
+          <H2 id="h2-finder">Which Limit Switch Box?</H2>
           <Lead>Pick where the box will be installed or what it has to do. We’ll show the series and model that fit.</Lead>
         </Box>
         <Reveal from="right">
@@ -213,7 +214,7 @@ function SeriesCard({ s }: { s: Series }) {
       </Box>
       <Box sx={{ p: { xs: 1.5, sm: 2.5 }, display: "flex", flexDirection: "column", flex: 1 }}>
         <Box sx={{ fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: T.muted, mb: 0.5 }}>{s.kind}</Box>
-        <Box component="h3" sx={{ m: 0, mb: 0.75, fontSize: { xs: "0.92rem", sm: "1.1rem" }, lineHeight: 1.25, fontWeight: 800, color: T.ink, letterSpacing: "-0.01em" }}>{s.name}</Box>
+        <Box component="h3" sx={{ m: 0, mb: 0.75, fontSize: { xs: "0.92rem", sm: "1.1rem" }, lineHeight: 1.25, fontWeight: 800, color: T.ink, letterSpacing: "-0.01em" }}>{titleCase(s.name)}</Box>
         <Box component="p" sx={{ m: 0, mb: { xs: 1.25, sm: 2 }, fontSize: { xs: "0.78rem", sm: "0.9rem" }, lineHeight: 1.5, color: T.body, flex: 1 }}>{s.text}</Box>
         <Box sx={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 1 }}>
           <Box component="span" sx={{ px: 1.25, py: 0.5, borderRadius: 999, bgcolor: T.greenSoft, color: T.greenDark, fontSize: { xs: "0.7rem", sm: "0.78rem" }, fontWeight: 700, whiteSpace: "nowrap" }}>{s.tag}</Box>
@@ -232,7 +233,7 @@ function Types() {
       <Box sx={wrap}>
         <Box sx={{ textAlign: "center", mb: { xs: 4, md: 5 } }}>
           <Kicker>Limit switch boxes</Kicker>
-          <H2 id="h2-types">Every limit switch box we supply</H2>
+          <H2 id="h2-types">Every Limit Switch Box We Supply</H2>
           <Lead center>Open the series to see its models, options and a quote. Looking for KOSAPLUS KLS? It’s on the <Box component="a" href="https://www.kosaplus.co.uk/" target="_blank" rel="noopener" sx={{ color: T.greenDark, fontWeight: 700 }}>KOSAPLUS UK website ↗</Box></Lead>
         </Box>
         <Box sx={{ display: "grid", gridTemplateColumns: "1fr", gap: { xs: 1.25, md: 2.5 }, maxWidth: 430, mx: "auto" }}>
@@ -247,7 +248,7 @@ function Types() {
   );
 }
 
-// ITS 200 / 400 / 500 side by side, from Susin's ITS catalogue
+// ITS 200 / 400 / 500 side by side, from Susin I-Tork's ITS catalogue
 const MODELS = ["ITS 200", "ITS 400", "ITS 500"];
 const ROWS: [string, string, string, string][] = [
   ["For", "Safe areas, weatherproof", "Hazardous areas, explosion proof", "Offshore and corrosive service"],
@@ -268,7 +269,7 @@ function Compare() {
         <Box sx={{ mb: 4 }}>
           <Kicker>Side by side</Kicker>
           <H2 id="h2-compare">ITS 200, 400 or 500?</H2>
-          <Lead>All three report open and closed positions with a dome indicator. Here is how they differ, from Susin’s ITS catalogue.</Lead>
+          <Lead>All three report open and closed positions with a dome indicator. Here is how they differ, from Susin I-Tork’s ITS catalogue.</Lead>
         </Box>
         {/* Phones: one card per model */}
         <Box sx={{ display: { xs: "grid", md: "none" }, gap: 1.5 }}>
@@ -319,7 +320,7 @@ function CompleteLine() {
       <Box sx={wrap}>
         <Box sx={{ mb: 4 }}>
           <Kicker>Actuators</Kicker>
-          <H2 id="h2-line">The actuators they fit</H2>
+          <H2 id="h2-line">The Actuators They Fit</H2>
           <Lead>Limit switch boxes mount on top of our actuators. Pick the actuator type that drives your valve.</Lead>
         </Box>
         <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr 1fr", lg: "repeat(4, 1fr)" }, gap: { xs: 1.25, md: 2.5 } }}>
@@ -331,7 +332,7 @@ function CompleteLine() {
                   <Box component="img" src={m.img} alt={m.title} loading="lazy" sx={{ height: { xs: 84, sm: 124 }, width: "auto", maxWidth: "78%", ...photo }} />
                 </Box>
                 <Box sx={{ p: { xs: 1.5, sm: 2.5 }, display: "flex", flexDirection: "column", flex: 1 }}>
-                  <Box component="h3" sx={{ m: 0, mb: 0.75, fontSize: { xs: "0.92rem", sm: "1.08rem" }, fontWeight: 800, color: T.ink }}>{m.title}</Box>
+                  <Box component="h3" sx={{ m: 0, mb: 0.75, fontSize: { xs: "0.92rem", sm: "1.08rem" }, fontWeight: 800, color: T.ink }}>{titleCase(m.title)}</Box>
                   <Box component="p" sx={{ m: 0, mb: 1.5, fontSize: { xs: "0.78rem", sm: "0.88rem" }, lineHeight: 1.5, color: T.body, flex: 1 }}>{m.text}</Box>
                   <Box component="span" sx={{ alignSelf: "flex-start", px: 1.25, py: 0.5, borderRadius: 999, bgcolor: T.greenSoft, color: T.greenDark, fontSize: "0.75rem", fontWeight: 700 }}>{m.tag}</Box>
                 </Box>
@@ -355,7 +356,7 @@ function Faq() {
       <Box sx={{ ...wrap, maxWidth: 900 }}>
         <Box sx={{ textAlign: "center", mb: 4 }}>
           <Kicker>FAQ</Kicker>
-          <H2 id="h2-faq">Actuator accessory questions</H2>
+          <H2 id="h2-faq">Actuator Accessory Questions</H2>
         </Box>
         <Box sx={{ display: "grid", gap: 1.25 }}>
           {FAQ.map((f, i) => (
@@ -390,7 +391,7 @@ function Cta() {
       <Box sx={wrap}>
         <Box sx={{ p: { xs: 3.5, md: 6 }, borderRadius: "28px", background: `linear-gradient(120deg, ${L.mint} 0%, #EAF4FF 55%, #FFF7DD 100%)`, border: `1px solid ${T.border}`, display: "flex", flexDirection: { xs: "column", md: "row" }, alignItems: { md: "center" }, justifyContent: "space-between", gap: 3 }}>
           <Box>
-            <Box component="h2" id="h2-cta" sx={{ m: 0, mb: 1, fontSize: { xs: "1.6rem", md: "2.2rem" }, fontWeight: 800, letterSpacing: "-0.03em", color: T.ink }}>Need a limit switch box?</Box>
+            <Box component="h2" id="h2-cta" sx={{ m: 0, mb: 1, fontSize: { xs: "1.6rem", md: "2.2rem" }, fontWeight: 800, letterSpacing: "-0.03em", color: T.ink }}>Need a Limit Switch Box?</Box>
             <Box component="p" sx={{ m: 0, maxWidth: 620, lineHeight: 1.7, color: T.body }}>
               Tell us the actuator make and size, the area classification and the switch type you need, and we’ll match the box and bracket and quote it.
             </Box>

@@ -34,7 +34,7 @@ export default function PveMore() {
       <Box sx={wrap}>
         <Box sx={{ mb: 4 }}>
           <Kicker>More PVE actuators</Kicker>
-          <H2 id="h2-more">CAN bus and hazardous areas</H2>
+          <H2 id="h2-more">CAN Bus and Hazardous Areas</H2>
           <Lead>Beyond the analog Series 7, Danfoss makes PVE actuators for CAN bus machines and for explosive atmospheres.</Lead>
         </Box>
         <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" }, gap: 1.5 }}>

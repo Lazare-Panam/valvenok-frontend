@@ -1,8 +1,8 @@
-// HD heavy-duty scotch yoke actuators, as Susin's four series: ISD (symmetric
+// HD heavy-duty scotch yoke actuators, as Susin I-Tork's four series: ISD (symmetric
 // yoke, double acting), ICD (canted, double acting), ISR (symmetric, spring
-// return), ICR (canted, spring return). Torque tables from Susin's IS & IC
+// return), ICR (canted, spring return). Torque tables from Susin I-Tork's IS & IC
 // catalogue (Pneumatic - HD.pdf): symmetric data p.5-6, canted data p.7-8,
-// dimensions p.9. ISD 05-58 at 7 bar start uses Susin's website table
+// dimensions p.9. ISD 05-58 at 7 bar start uses Susin I-Tork's website table
 // (40,009 Nm); the PDF prints 10,009.
 // Units: Nm. Double acting: [start, run, end] at 2.8, 4.2, 5.5, 7 bar.
 // Spring return: per spring set (4.2 or 5.5 bar): spring [start, run, end],
@@ -268,7 +268,7 @@ export const maxTorque = (m: HdModel) => Math.max(...(m.da ? m.da.flat() : m.sr!
 export const springEnd = (m: HdModel) => (m.sr ? Math.min(...m.sr.map((s) => s.spring[2])) : 0);
 export const minTorque = (m: HdModel) => (m.da ? Math.min(...m.da.flat()) : Math.min(...m.sr!.map((s) => s.spring[1])));
 
-// Shared by every model (Susin HD catalogue and website general specification)
+// Shared by every model (Susin I-Tork HD catalogue and website general specification)
 export const HD_COMMON: [string, string][] = [
   ["Air supply", "3.5 – 10 bar"],
   ["Temperature", "−20 to +85 °C"],

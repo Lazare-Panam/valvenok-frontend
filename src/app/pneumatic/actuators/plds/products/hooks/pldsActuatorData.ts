@@ -70,7 +70,7 @@ const make = (
   thrustKnMin,
   thrustKnMax,
   imageUrl: IMAGE,
-  description: `Susin ${model} linear piston actuator, ${boreMm} mm bore. Double acting thrust ${thrustKnMin}–${thrustKnMax} kN at 2.8–7 bar; piston area ${pistonAreaMm2.toLocaleString("en-GB")} mm², stem ${stemSizeMm} mm, max travel ${maxTravelPldMm} mm (PLD) / ${maxTravelPlsMm} mm (PLS).`,
+  description: `Susin I-Tork ${model} linear piston actuator, ${boreMm} mm bore. Double acting thrust ${thrustKnMin}–${thrustKnMax} kN at 2.8–7 bar; piston area ${pistonAreaMm2.toLocaleString("en-GB")} mm², stem ${stemSizeMm} mm, max travel ${maxTravelPldMm} mm (PLD) / ${maxTravelPlsMm} mm (PLS).`,
 })
 
 export const PLDS_ACTUATOR_DATA: PLDSActuatorDTO[] = [
@@ -102,7 +102,7 @@ export const PLDS_ACTUATOR_DATA: PLDSActuatorDTO[] = [
 export const PLDS_ACTUATOR_DESCRIPTION = {
   title: 'PLDS Series Linear Pneumatic Actuators',
   description:
-    'Susin PLDS Series linear piston actuators, 100–975 mm bore, double acting thrust 1.8–444 kN at 2.8–7 bar. Piston areas from 7,850 to 746,241 mm², stem sizes 25–75 mm, max travel up to 1,067 mm.',
+    'Susin I-Tork PLDS Series linear piston actuators, 100–975 mm bore, double acting thrust 1.8–444 kN at 2.8–7 bar. Piston areas from 7,850 to 746,241 mm², stem sizes 25–75 mm, max travel up to 1,067 mm.',
   specs: [
     'PLDS Series',
     'Linear',

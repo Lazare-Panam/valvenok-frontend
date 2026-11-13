@@ -1,5 +1,5 @@
 // MAB Series bevel gear actuators (manual, multi-turn), 250–18,000 Nm.
-// Every value is from the Susin / i-Tork MAB catalogue (Mechanical - MAB.pdf):
+// Every value is from the Susin I-Tork MAB catalogue (Mechanical - MAB.pdf):
 // features p.2, technical specifications p.3, dimensions p.4 (standard),
 // p.5 (single stage reduction, 1S) and p.6 (double stage reduction, 2S),
 // material construction, handwheels and rim effort chart p.7.

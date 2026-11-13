@@ -1,5 +1,5 @@
 // ITQ Series heavy-duty quarter-turn electric actuators (100–9,000 Nm).
-// Every value below comes from the Susin / i-Tork ITQ catalogue (Electric - ITQ Heavy Duty.pdf),
+// Every value below comes from the Susin I-Tork ITQ catalogue (Electric - ITQ Heavy Duty.pdf),
 // "Technical information" table.
 import { SUSIN_CATALOG } from "@/src/app/Common/susinCatalogs";
 

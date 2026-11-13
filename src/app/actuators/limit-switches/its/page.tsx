@@ -65,7 +65,7 @@ const TECH_SPECS = [
   { label: "Manufacturer", value: "Susin Group (ISO 9001:2015 Certified)" },
 ];
 
-// From Susin's ITS catalogue (Accessories - ITS.pdf)
+// From Susin I-Tork's ITS catalogue (Accessories - ITS.pdf)
 const ITS_MODELS = [
   { model: "ITS 200", type: "Weatherproof", enclosure: "IP67, O-ring sealed", housing: "Aluminium die-cast, epoxy-polyester inside and outside", cable: "NPT1/2 (M20, BSP, PT, PG13.5, PF options)", temp: "-20°C to +80°C", switches: "2-SPDT mechanical (Form C); P&F proximity option" },
   { model: "ITS 400", type: "Explosion proof", enclosure: "Ex d IIC T6, IP67 (IP68 option), EN 50014 / 50018, Zone 1 & 2", housing: "Aluminium die-cast, epoxy-polyester outside", cable: "2 × PF3/4 (other threads optional)", temp: "-20°C to +80°C (~100°C and -40°C options)", switches: "2-SPDT; DPDT, P&F / Autonics proximity, magnetic sensors, 0–1 kΩ / 4–20 mA transmitter" },
@@ -213,7 +213,7 @@ export default function ITSPage() {
                 variant="body1"
                 sx={{ color: "text.secondary", mb: 3, lineHeight: 1.8 }}
               >
-                The ITS series from Susin are position monitoring switch boxes
+                The ITS series from Susin I-Tork are position monitoring switch boxes
                 for rotary valves and NAMUR actuators, with a 0°–90° dome
                 indicator. Three models: the weatherproof ITS 200 for small
                 actuators, the explosion-proof ITS 400 (Ex d IIC T6, Zone 1
@@ -353,7 +353,7 @@ export default function ITSPage() {
 
       <Divider />
 
-      {/* ── Models (from Susin's ITS catalogue) ── */}
+      {/* ── Models (from Susin I-Tork's ITS catalogue) ── */}
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: "#fff" }}>
         <Container maxWidth="lg">
           <Typography variant="h5" sx={{ fontWeight: 700, mb: 6 }}>

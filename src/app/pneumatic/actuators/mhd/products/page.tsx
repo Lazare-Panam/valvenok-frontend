@@ -12,7 +12,7 @@ const ACTION: Record<string, string> = { DA: 'Double acting', SR: 'Spring return
 
 const DEF: ListDef = {
   title: 'MHD micro actuator models',
-  intro: `${ITEMS.length} Susin scotch yoke models, ${MHD_TORQUE_RANGE}. Filter by yoke, action and size, open any model for its full figures, then request a quote.`,
+  intro: `${ITEMS.length} Susin I-Tork scotch yoke models, ${MHD_TORQUE_RANGE}. Filter by yoke, action and size, open any model for its full figures, then request a quote.`,
   back: { href: '/pneumatic/actuators/mhd', label: 'MHD series overview' },
   catalog: { href: SUSIN_CATALOG.MHD, label: 'catalogue (PDF)' },
   columns: ['Type', 'Output torque', 'Spring torque', 'ISO 5211'],

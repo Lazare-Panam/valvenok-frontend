@@ -23,8 +23,8 @@ export default function QsDifference() {
       <Box sx={wrap}>
         <Box sx={{ mb: 4 }}>
           <Kicker>What’s different</Kicker>
-          <H2 id="h2-diff">A spring that only works when it’s needed</H2>
-          <Lead>Susin’s QS uses an independent spring structure, held by a magnetic brake, rather than a spring the motor has to drive every stroke.</Lead>
+          <H2 id="h2-diff">A Spring That Only Works When It’s Needed</H2>
+          <Lead>Susin I-Tork’s QS uses an independent spring structure, held by a magnetic brake, rather than a spring the motor has to drive every stroke.</Lead>
         </Box>
         <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "repeat(3, 1fr)" }, gap: 1.5 }}>
           {POINTS.map(({ icon: Icon, title, text }) => (

@@ -1,5 +1,5 @@
 // ITG Series declutchable worm gear actuators (manual override), 60–28,000 Nm.
-// Every value is from the Susin ITG catalogue (Mechanical - ITG.pdf, scanned):
+// Every value is from the Susin I-Tork ITG catalogue (Mechanical - ITG.pdf, scanned):
 // application, features and declutch mechanism p.2, technical specifications
 // p.3, dimensions p.4 (general), p.5 (single stage helical reduction, 1S),
 // p.6 (double stage, 2S), materials, handwheels and rim effort chart p.7.

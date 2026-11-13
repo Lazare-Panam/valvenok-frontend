@@ -1,5 +1,5 @@
 // ITQ Micro models, shared by the model list and the per-model product pages.
-// Every figure is from the Susin / i-Tork ITQ Micro (economic style) catalogue;
+// Every figure is from the Susin I-Tork ITQ Micro (economic style) catalogue;
 // see ../itqMicroData.
 import type { Item } from '@/src/app/pneumatic/actuators/_series/modelTypes'
 import { ITQM_MODELS, type ITQMicroModel } from '../itqMicroData'

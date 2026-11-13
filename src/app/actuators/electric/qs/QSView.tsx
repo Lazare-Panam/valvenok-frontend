@@ -1,7 +1,7 @@
 "use client";
 
 // QS series page, on the shared series template. Every figure is from the
-// Susin / i-Tork QS fail-safe (spring return) catalogue: what is different
+// Susin I-Tork QS fail-safe (spring return) catalogue: what is different
 // (p.2), technical data and spring speed (p.3–4), dimensions (p.5).
 
 import ShieldOutlinedIcon from "@mui/icons-material/ShieldOutlined";
@@ -38,7 +38,7 @@ const DEF: SeriesDef = {
   h1: ["QS series", "fail-safe electric"],
   lead: (
     <>
-      Susin spring return electric actuators for ball, butterfly and plug valves that must go to a safe position when the power fails. {TOTAL} models from {MIN} to {MAX} Nm; an independent spiral spring returns the valve in 1.8 seconds.
+      Susin I-Tork spring return electric actuators for ball, butterfly and plug valves that must go to a safe position when the power fails. {TOTAL} models from {MIN} to {MAX} Nm; an independent spiral spring returns the valve in 1.8 seconds.
     </>
   ),
   specs: [
@@ -53,7 +53,7 @@ const DEF: SeriesDef = {
   productsHref: "/actuators/electric/qs/products",
   catalog: QS_CATALOG,
   image: QS_IMAGE,
-  imageAlt: "Susin QS series fail-safe spring return electric actuator",
+  imageAlt: "Susin I-Tork QS series fail-safe spring return electric actuator",
   howTitle: "How it fails safe",
   how: <SpringFailSafe motorTime="21–34 s" springTime="1.8 s" />,
   ladder: {
@@ -65,7 +65,7 @@ const DEF: SeriesDef = {
   },
   build: {
     title: "How it’s built",
-    imageAlt: "Susin QS fail-safe electric actuator",
+    imageAlt: "Susin I-Tork QS fail-safe electric actuator",
     points: [
       ["Magnetic brake and spiral spring", "The brake holds the spring while power is on. If power is lost it releases, and the spring alone turns the valve to its safe position in 1.8 s, or 2, 3 or 4 s as an option."],
       ["Special reducer", "The motor drives only the reducer in normal running, so it can be smaller and draw less current."],
@@ -81,8 +81,8 @@ const DEF: SeriesDef = {
     { q: "What happens when the power fails?", a: "The magnetic brake releases and the independent spiral spring turns the valve to its safe position in 1.8 seconds (2, 3 or 4 seconds as options). In normal running the motor drives only the reducer, not the spring.", icon: ShieldOutlinedIcon },
     { q: "How do I choose the size?", a: "Take the valve’s highest torque, add a safety factor, and pick the smallest QS that covers it. Motor and spring torque are the same on every model, so the valve gets the same torque on the spring stroke. Then check the ISO 5211 flange: F07 on QS05 and QS10, F10 / F12 on QS20 and QS30.", icon: SquareFootOutlinedIcon },
     { q: "Which supply voltages can it run on?", a: "AC 110, 220, 380 or 440 V, or 24 VDC.", icon: ElectricBoltOutlinedIcon },
-    { q: "Can it modulate as well as open and close?", a: "Yes. It runs on/off (S2, 30 min) or modulating (S4, 50%) with a 4–20 mA control signal, or 0–10, 0–5, 1–5 or 2–10 VDC as options. Susin notes that the ITQ series options are also available on the QS.", icon: TuneOutlinedIcon },
-    { q: "Is it suitable for hazardous areas?", a: "No. The QS is IP67 (IP68 option) but is not available explosion proof; Susin lists it as under development. For a hazardous area, the ITQ series has an explosion proof option.", icon: WarningAmberOutlinedIcon },
+    { q: "Can it modulate as well as open and close?", a: "Yes. It runs on/off (S2, 30 min) or modulating (S4, 50%) with a 4–20 mA control signal, or 0–10, 0–5, 1–5 or 2–10 VDC as options. Susin I-Tork notes that the ITQ series options are also available on the QS.", icon: TuneOutlinedIcon },
+    { q: "Is it suitable for hazardous areas?", a: "No. The QS is IP67 (IP68 option) but is not available explosion proof; Susin I-Tork lists it as under development. For a hazardous area, the ITQ series has an explosion proof option.", icon: WarningAmberOutlinedIcon },
     { q: "QS or ITQ with a battery backup?", a: "Both move the valve to a set position on power loss. The QS does it with a spring, from 50 to 300 Nm. The ITQ’s BP battery backup option does it with a rechargeable battery, on 1 phase ITQ 0160 to ITQ 0500.", icon: CompareArrowsOutlinedIcon },
   ],
   parent: { href: "/actuators/electric", label: "All electric actuators" },

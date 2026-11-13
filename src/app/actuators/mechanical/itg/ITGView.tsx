@@ -1,7 +1,7 @@
 "use client";
 
 // ITG series page, on the shared series template. Every figure is from the
-// Susin ITG declutchable worm gear catalogue (see itgData).
+// Susin I-Tork ITG declutchable worm gear catalogue (see itgData).
 
 import SquareFootOutlinedIcon from "@mui/icons-material/SquareFootOutlined";
 import PanToolOutlinedIcon from "@mui/icons-material/PanToolOutlined";
@@ -43,7 +43,7 @@ const DEF: SeriesDef = {
   h1: ["ITG series", "declutchable gear overrides"],
   lead: (
     <>
-      Susin declutchable worm gears that fit between a pneumatic actuator and a quarter-turn valve, so an operator can turn the valve by hand when the air fails or during commissioning and maintenance. {STANDARD.length} sizes from {nm(MIN)} to {nm(MAX)} Nm: {TOTAL} models with the reduction versions.
+      Susin I-Tork declutchable worm gears that fit between a pneumatic actuator and a quarter-turn valve, so an operator can turn the valve by hand when the air fails or during commissioning and maintenance. {STANDARD.length} sizes from {nm(MIN)} to {nm(MAX)} Nm: {TOTAL} models with the reduction versions.
     </>
   ),
   specs: [
@@ -58,7 +58,7 @@ const DEF: SeriesDef = {
   productsHref: "/actuators/mechanical/itg/products",
   catalog: ITG_CATALOG,
   image: ITG_IMAGE,
-  imageAlt: "Susin ITG declutchable worm gear with handwheel and declutch lever",
+  imageAlt: "Susin I-Tork ITG declutchable worm gear with handwheel and declutch lever",
   howTitle: "How a declutchable gear works",
   how: <WormGear declutch />,
   ladder: {
@@ -72,7 +72,7 @@ const DEF: SeriesDef = {
   build: {
     title: "How it’s built",
     image: ITG_ON_VALVE,
-    imageAlt: "Susin ITG declutchable gear mounted between a pneumatic actuator and a butterfly valve",
+    imageAlt: "Susin I-Tork ITG declutchable gear mounted between a pneumatic actuator and a butterfly valve",
     points: [
       ["Inline mounting", "The ITG bolts between the valve and the actuator, with a universal actuator mounting flange on top and the valve flange below, both ISO 5211."],
       ["Declutch lever", "In Auto the worm is out of mesh and the actuator drives the valve; in Manual the worm engages so the handwheel turns it."],
@@ -100,8 +100,8 @@ const DEF: SeriesDef = {
   faq: [
     { q: "How do I switch to manual?", a: "With the lever in Auto the gearbox connects to the pneumatic actuator. Pull the locking unit holder, turn the lever to Manual and check the gears are fully engaged with the worm; the handwheel now turns the valve. Put the lever back to Auto for pneumatic operation.", icon: SwapHorizOutlinedIcon },
     { q: "How do I choose the size?", a: "Take the valve torque and pick the smallest ITG whose output torque covers it. Then match the valve flange and the actuator flange (ISO 5211, standard or option) and the drive to the valve stem.", icon: SquareFootOutlinedIcon },
-    { q: "Does it work with spring-return actuators?", a: "Yes. Susin designed the ITG for both double-acting and spring-return pneumatic actuators.", icon: AirOutlinedIcon },
-    { q: "Standard, 1S or 2S?", a: "All gearings of a size have the same torque. A reduction stage lowers the rim pull but adds handwheel turns. Use the rim effort check above; Susin’s standard limit is 360 N.", icon: PanToolOutlinedIcon },
+    { q: "Does it work with spring-return actuators?", a: "Yes. Susin I-Tork designed the ITG for both double-acting and spring-return pneumatic actuators.", icon: AirOutlinedIcon },
+    { q: "Standard, 1S or 2S?", a: "All gearings of a size have the same torque. A reduction stage lowers the rim pull but adds handwheel turns. Use the rim effort check above; Susin I-Tork’s standard limit is 360 N.", icon: PanToolOutlinedIcon },
     { q: "ITG or MAW?", a: "The MAW is a manual worm gear on its own. The ITG sits under an actuator and only engages when you switch it to Manual, so the valve stays automated.", icon: LayersOutlinedIcon },
     { q: "Which temperatures can it take?", a: "Standard is −20 to +85 °C. A low temperature version covers −45 to +120 °C.", icon: ThermostatOutlinedIcon },
   ],

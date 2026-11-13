@@ -658,7 +658,7 @@ const SHOWCASE_COLUMNS: Record<string, ShowcaseCategory> = {
   Accessories: "accessories",
 };
 for (const col of NAV_GROUPS.find((g) => g.id === "actuators")?.columns ?? []) {
-  // Our own series in this tab are Susin, so the menu can group by brand
+  // Our own series in this tab are Susin I-Tork, so the menu can group by brand
   for (const it of col.items) if (!it.brand) it.brand = "Susin";
   const cat = SHOWCASE_COLUMNS[col.header];
   if (!cat) continue;

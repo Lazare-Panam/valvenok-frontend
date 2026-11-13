@@ -1,7 +1,7 @@
 "use client";
 
 // MAB series page, on the shared series template. Every figure is from the
-// Susin / i-Tork MAB bevel gear catalogue (see mabData).
+// Susin I-Tork MAB bevel gear catalogue (see mabData).
 
 import SquareFootOutlinedIcon from "@mui/icons-material/SquareFootOutlined";
 import PanToolOutlinedIcon from "@mui/icons-material/PanToolOutlined";
@@ -44,7 +44,7 @@ const DEF: SeriesDef = {
   h1: ["MAB series", "bevel gear actuators"],
   lead: (
     <>
-      Susin manual bevel gear actuators for gate, globe and other multi-turn valves. {STANDARD.length} sizes from {nm(MIN)} to {nm(MAX)} Nm with 75 to 2,500 kN of thrust, each as standard or with a single or double stage reduction: {TOTAL} models in all.
+      Susin I-Tork manual bevel gear actuators for gate, globe and other multi-turn valves. {STANDARD.length} sizes from {nm(MIN)} to {nm(MAX)} Nm with 75 to 2,500 kN of thrust, each as standard or with a single or double stage reduction: {TOTAL} models in all.
     </>
   ),
   specs: [
@@ -59,7 +59,7 @@ const DEF: SeriesDef = {
   productsHref: "/actuators/mechanical/mab/products",
   catalog: MAB_CATALOG,
   image: MAB_IMAGE,
-  imageAlt: "Susin MAB bevel gear actuator with handwheel",
+  imageAlt: "Susin I-Tork MAB bevel gear actuator with handwheel",
   howTitle: "How a bevel gear actuator works",
   how: <BevelGear ratio="4:1" />,
   ladder: {
@@ -73,7 +73,7 @@ const DEF: SeriesDef = {
   build: {
     title: "How it’s built",
     image: MAB_CUTAWAY,
-    imageAlt: "Cut-away of a Susin MAB bevel gear actuator showing the bevel gear, drive sleeve and input pinion",
+    imageAlt: "Cut-away of a Susin I-Tork MAB bevel gear actuator showing the bevel gear, drive sleeve and input pinion",
     points: [
       ["Spiral bevel gear and pinion", "Alloy steel EN-19 / AISI 1045, turning the drive through a right angle on thrust bearings."],
       ["Replaceable stem bush", "A splined aluminium bronze bush inside the ductile iron drive sleeve, held by two locknuts and easy to change for a new stem."],
@@ -99,10 +99,10 @@ const DEF: SeriesDef = {
   faqTitle: "MAB bevel gear questions",
   faq: [
     { q: "How do I choose the size?", a: "Start from the valve’s maximum torque and, for a rising stem, its thrust. Pick the smallest MAB whose torque and thrust both cover them, then check the stem fits (TW thread or keyed bore) and the ISO 5210 flange matches the valve.", icon: SquareFootOutlinedIcon },
-    { q: "Standard, 1S or 2S?", a: "All gearings of a size have the same torque and thrust. A single (1S) or double (2S) stage reduction raises the mechanical advantage, so there is less force on the rim but more turns of the handwheel. Use the rim effort check above: Susin’s standard limit is 360 N.", icon: PanToolOutlinedIcon },
+    { q: "Standard, 1S or 2S?", a: "All gearings of a size have the same torque and thrust. A single (1S) or double (2S) stage reduction raises the mechanical advantage, so there is less force on the rim but more turns of the handwheel. Use the rim effort check above: Susin I-Tork’s standard limit is 360 N.", icon: PanToolOutlinedIcon },
     { q: "Can an electric actuator drive it?", a: "Yes. The MOV flange on top is ISO 5210, so a multi-turn electric actuator can mount on the gearbox to make a motor operated valve.", icon: ElectricalServicesOutlinedIcon },
     { q: "Does it work with rising stems?", a: "Yes. The stem passes through the bronze stem bush in the drive sleeve and up into the stem cover. Allowable thrust runs from 75 kN on the MAB-075 to 2,500 kN on the MAB-2500.", icon: VerticalAlignTopOutlinedIcon },
-    { q: "Can it be buried or flooded?", a: "IP68 is one of the protection ratings Susin offers, alongside IP55, IP65 and IP67M. Tell us the site conditions and we’ll quote the right rating and paint system.", icon: WaterDropOutlinedIcon },
+    { q: "Can it be buried or flooded?", a: "IP68 is one of the protection ratings Susin I-Tork offers, alongside IP55, IP65 and IP67M. Tell us the site conditions and we’ll quote the right rating and paint system.", icon: WaterDropOutlinedIcon },
     { q: "Which temperatures can it take?", a: "Standard is −20 to +80 °C. Low temperature versions go from −45 to +100 °C and high temperature versions from −70 to +120 °C.", icon: ThermostatOutlinedIcon },
   ],
   parent: { href: "/actuators/mechanical", label: "All mechanical actuators" },

@@ -1,5 +1,5 @@
 // MHD models, shared by the model list and the per-model product pages.
-// Figures from the Susin "Pneumatic Actuator Micro Series SS & CS" catalogue (see hooks/mhdActuatorData).
+// Figures from the Susin I-Tork "Pneumatic Actuator Micro Series SS & CS" catalogue (see hooks/mhdActuatorData).
 import type { Item } from '../../_series/modelTypes'
 import { MHD_ACTUATOR_DATA } from './hooks/mhdActuatorData'
 

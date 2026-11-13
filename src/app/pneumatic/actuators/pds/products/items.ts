@@ -1,5 +1,5 @@
 // PDS models, shared by the model list and the per-model product pages.
-// PDS model list ("View all models"). Figures from the Susin PDS catalogue (see hooks/pdActuatorData).
+// PDS model list ("View all models"). Figures from the Susin I-Tork PDS catalogue (see hooks/pdActuatorData).
 import type { Item } from '../../_series/modelTypes'
 import { PD_ACTUATOR_DATA, type PDActuatorDTO } from './hooks/pdActuatorData'
 
@@ -12,7 +12,7 @@ const pdItems: Item[] = Array.from(new Set(PD_ACTUATOR_DATA.filter(r => r.series
   const rows = PD_ACTUATOR_DATA.filter(r => r.model === model)
   const r0 = rows[0], s = size(model)
   const lo = Math.min(...rows.map(r => r.torque_2_8_bar!)), hi = Math.max(...rows.map(r => r.torque_8_bar!))
-  const desc = `Susin ${model} double acting scotch yoke actuator. Torque ${nm(lo)}–${nm(hi)} Nm at 2.8–8 bar, ISO 5211 ${r0.iso5211}.`
+  const desc = `Susin I-Tork ${model} double acting scotch yoke actuator. Torque ${nm(lo)}–${nm(hi)} Nm at 2.8–8 bar, ISO 5211 ${r0.iso5211}.`
   return {
     id: model, model, sub: `Size ${s}`, image: r0.imageUrl,
     cells: [{ text: 'Double acting', pill: 'grey' }, { text: `${nm(lo)} – ${nm(hi)} Nm`, pill: 'green' }, 'No spring, air closes', r0.iso5211!, `${r0.airConsumptionOpen} L · ${TIME[s]} s`],

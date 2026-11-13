@@ -48,7 +48,7 @@ function ViewAllRow({ label, href, onClose }: { label: string; href: string; onC
 
 // Brand heading inside a category: logo, name, and the website for group brands
 function BrandHead({ name, site }: { name: string; site?: string }) {
-  const b = BRANDS.find((x) => x.name.toLowerCase() === name.toLowerCase());
+  const b = BRANDS.find((x) => x.name.toLowerCase() === name.toLowerCase() || x.slug === name.toLowerCase());
   return (
     <Box sx={{ display: "flex", alignItems: "center", gap: 1, px: 2, pt: 1.75, pb: 0.75 }}>
       {b && (

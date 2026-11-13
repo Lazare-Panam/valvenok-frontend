@@ -1,5 +1,5 @@
 // IQL Series electric linear actuators (4–25 kN).
-// Every value is from the Susin / i-Tork IQL catalogue (Electric - IQL.pdf):
+// Every value is from the Susin I-Tork IQL catalogue (Electric - IQL.pdf):
 // features p.2–3, technical data, electric data and options p.4.
 import { SUSIN_CATALOG } from "@/src/app/Common/susinCatalogs";
 

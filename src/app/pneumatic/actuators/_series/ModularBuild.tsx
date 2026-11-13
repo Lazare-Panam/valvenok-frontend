@@ -2,7 +2,7 @@
 
 // HD hero visual: the modular build. The centre body and pneumatic cylinder are
 // joined by a spring cartridge (spring return), then a hydraulic override,
-// cycling through the configurations Susin offers.
+// cycling through the configurations Susin I-Tork offers.
 
 import { Box } from "@mui/material";
 import { T } from "@/src/app/Landing/modern/tokens";

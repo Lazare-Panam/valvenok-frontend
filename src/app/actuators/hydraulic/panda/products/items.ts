@@ -1,5 +1,5 @@
 // PANDA models, shared by the model list and the per-model product pages.
-// Every figure is from Susin's PANDA / PA brochure; see ../pandaData.
+// Every figure is from Susin I-Tork's PANDA / PA brochure; see ../pandaData.
 import type { Item } from '@/src/app/pneumatic/actuators/_series/modelTypes'
 import { PANDA_MODELS, PANDA_COMMON, PANDA_IMAGE } from '../pandaData'
 
@@ -17,7 +17,7 @@ const RAW_ITEMS: Item[] = PANDA_MODELS.map((m, i) => {
         ['Valve connection (SW × depth)', d.conn],
         ['Oil volume', `${d.oilL} L`],
       ]
-    : [['Dimensions', 'On request (Susin lists dimensions for the smaller sizes only)']]
+    : [['Dimensions', 'On request (Susin I-Tork lists dimensions for the smaller sizes only)']]
   return {
     id: m.model,
     model: m.model,
@@ -49,8 +49,8 @@ const RAW_ITEMS: Item[] = PANDA_MODELS.map((m, i) => {
     ],
     note:
       m.code === 'E40'
-        ? 'Susin’s brochure prints the same torques for the E40 as for the E20, which looks like a misprint, so we confirm the E40 figures on your quote.'
-        : 'Torque from Susin’s product selection table; modulating actuators may differ from the listed dimensions. Send us the valve torque, flange and connection and we’ll confirm the model and order code.',
+        ? 'Susin I-Tork’s brochure prints the same torques for the E40 as for the E20, which looks like a misprint, so we confirm the E40 figures on your quote.'
+        : 'Torque from Susin I-Tork’s product selection table; modulating actuators may differ from the listed dimensions. Send us the valve torque, flange and connection and we’ll confirm the model and order code.',
     rfq: {
       id: `panda-${m.code.toLowerCase()}`,
       name: `${m.model} electro-hydraulic actuator`,

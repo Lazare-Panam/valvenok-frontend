@@ -1,7 +1,7 @@
 "use client";
 
 // ITM series page, on the shared series template. Every figure is from the
-// Susin / i-Tork ITM multi-turn catalogue (see itmData).
+// Susin I-Tork ITM multi-turn catalogue (see itmData).
 
 import SquareFootOutlinedIcon from "@mui/icons-material/SquareFootOutlined";
 import SpeedOutlinedIcon from "@mui/icons-material/SpeedOutlined";
@@ -38,7 +38,7 @@ const DEF: SeriesDef = {
   h1: ["ITM series", "multi-turn electric"],
   lead: (
     <>
-      Susin multi-turn electric actuators for gate, globe and sluice valves and sluice gates. {TOTAL} sizes from {nm(MIN)} to {nm(MAX)} Nm with up to 686 kN of thrust, integral controls and an IP68 enclosure.
+      Susin I-Tork multi-turn electric actuators for gate, globe and sluice valves and sluice gates. {TOTAL} sizes from {nm(MIN)} to {nm(MAX)} Nm with up to 686 kN of thrust, integral controls and an IP68 enclosure.
     </>
   ),
   specs: [
@@ -53,7 +53,7 @@ const DEF: SeriesDef = {
   productsHref: "/actuators/electric/itm/products",
   catalog: ITM_CATALOG,
   image: ITM_IMAGE,
-  imageAlt: "Susin ITM multi-turn electric actuators",
+  imageAlt: "Susin I-Tork ITM multi-turn electric actuators",
   howTitle: "How a multi-turn actuator works",
   how: <MultiTurnDrive />,
   ladder: {
@@ -67,7 +67,7 @@ const DEF: SeriesDef = {
   build: {
     title: "How it’s built",
     image: ITM_ON_VALVE,
-    imageAlt: "Susin ITM multi-turn actuators, one mounted on a rising-stem gate valve",
+    imageAlt: "Susin I-Tork ITM multi-turn actuators, one mounted on a rising-stem gate valve",
     points: [
       ["TENV motor", "Totally enclosed, high starting torque, class F insulation with a thermostat and a cooling plate. Mounted so it can be removed easily."],
       ["Single worm reduction gear", "Oil lubricated for quiet, efficient running and stable operation at low temperatures."],

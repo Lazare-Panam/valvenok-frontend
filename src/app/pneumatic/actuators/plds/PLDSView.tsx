@@ -1,6 +1,6 @@
 "use client";
 
-// PLDS series page. Every figure is from the Susin "PLDS Series" linear piston
+// PLDS series page. Every figure is from the Susin I-Tork "PLDS Series" linear piston
 // actuator catalogue (technical data, structural framework, materials, overrides).
 
 import CompareArrowsOutlinedIcon from "@mui/icons-material/CompareArrowsOutlined";
@@ -49,7 +49,7 @@ const DEF: SeriesDef = {
   h1: ["PLDS linear", "piston actuators"],
   lead: (
     <>
-      Susin linear piston actuators for on/off and control of knife edge, gate and globe control valves. {TOTAL} sizes from 100 to 975 mm bore, with {kn(MIN)} to {kn(MAX)} kN of thrust double acting, or spring return.
+      Susin I-Tork linear piston actuators for on/off and control of knife edge, gate and globe control valves. {TOTAL} sizes from 100 to 975 mm bore, with {kn(MIN)} to {kn(MAX)} kN of thrust double acting, or spring return.
     </>
   ),
   specs: [
@@ -64,7 +64,7 @@ const DEF: SeriesDef = {
   productsHref: "/pneumatic/actuators/plds/products",
   catalog: SUSIN_CATALOG.PLDS,
   image: IMAGE,
-  imageAlt: "Susin PLDS linear piston pneumatic actuator",
+  imageAlt: "Susin I-Tork PLDS linear piston pneumatic actuator",
   howTitle: "How a linear piston actuator works",
   how: <LinearCutaway />,
   ladder: {
@@ -77,7 +77,7 @@ const DEF: SeriesDef = {
   },
   build: {
     title: "How it’s built",
-    imageAlt: "Susin PLDS linear actuator",
+    imageAlt: "Susin I-Tork PLDS linear actuator",
     points: [
       ["Cast steel cylinder", "Honed and hot chrome plated inside; stainless steel or aluminium on request. Cast iron end covers, carbon steel optional."],
       ["Coated and sealed", "Zinc-rich epoxy coated piston and end flanges; NBR seals as standard, others on request."],

@@ -1,7 +1,7 @@
 "use client";
 
 // PA series page, on the shared series template. Every figure is from
-// Susin's PANDA / PA hydraulic brochure (see paData).
+// Susin I-Tork's PANDA / PA hydraulic brochure (see paData).
 
 import PowerOutlinedIcon from "@mui/icons-material/PowerOutlined";
 import SquareFootOutlinedIcon from "@mui/icons-material/SquareFootOutlined";
@@ -56,7 +56,7 @@ const DEF: SeriesDef = {
   h1: ["PA series", "electro-hydraulic, high pressure"],
   lead: (
     <>
-      Susin compact electro-hydraulic part-turn actuators working at up to 180 bar on board, for high torque from a small body. Motor, pump and oil are built in, so only electric power is needed. {DA.length} double acting sizes from {nm(DA[0].torqueNm)} to {nm(DA[DA.length - 1].torqueNm)} Nm, {SR.length} spring return sizes, and up to 10,000 Nm on request.
+      Susin I-Tork compact electro-hydraulic part-turn actuators working at up to 180 bar on board, for high torque from a small body. Motor, pump and oil are built in, so only electric power is needed. {DA.length} double acting sizes from {nm(DA[0].torqueNm)} to {nm(DA[DA.length - 1].torqueNm)} Nm, {SR.length} spring return sizes, and up to 10,000 Nm on request.
     </>
   ),
   specs: [
@@ -72,7 +72,7 @@ const DEF: SeriesDef = {
   catalog: PA_CATALOG,
   catalogLabel: "Download PANDA / PA brochure (PDF)",
   image: PA_IMAGE,
-  imageAlt: "Susin electro-hydraulic part-turn actuator with motor, pump and limit switch box",
+  imageAlt: "Susin I-Tork electro-hydraulic part-turn actuator with motor, pump and limit switch box",
   howTitle: "How an electro-hydraulic actuator works",
   how: <ElectroHydraulic pressure="max 180 bar" />,
   ladder: {

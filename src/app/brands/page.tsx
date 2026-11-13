@@ -49,7 +49,7 @@ const BRANDS = [
     href: "/brands/youngdo",
   },
   {
-    name: "Susin",
+    name: "Susin I-Tork",
     logo: "https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp",
     desc: "Electric and pneumatic valve actuators and position monitoring switches for process automation.",
     href: "/brands/susin",

@@ -1,7 +1,7 @@
 "use client";
 
 // ITQ series page, on the shared series template. Every figure is from the
-// Susin / i-Tork ITQ catalogue (features p.3, construction p.4–5, technical
+// Susin I-Tork ITQ catalogue (features p.3, construction p.4–5, technical
 // information and standard specification p.6, options p.7–8).
 
 import SquareFootOutlinedIcon from "@mui/icons-material/SquareFootOutlined";
@@ -46,7 +46,7 @@ const DEF: SeriesDef = {
   h1: ["ITQ series", "quarter-turn electric"],
   lead: (
     <>
-      Susin heavy-duty electric actuators for ball, butterfly and plug valves and dampers. {TOTAL} models from {nm(MIN)} to {nm(MAX)} Nm, on/off or modulating, with self-locking double worm gearing and a handwheel for manual operation.
+      Susin I-Tork heavy-duty electric actuators for ball, butterfly and plug valves and dampers. {TOTAL} models from {nm(MIN)} to {nm(MAX)} Nm, on/off or modulating, with self-locking double worm gearing and a handwheel for manual operation.
     </>
   ),
   specs: [
@@ -61,7 +61,7 @@ const DEF: SeriesDef = {
   productsHref: "/actuators/electric/itq/products",
   catalog: ITQ_CATALOG,
   image: ITQ_IMAGE,
-  imageAlt: "Susin ITQ series quarter-turn electric actuator",
+  imageAlt: "Susin I-Tork ITQ series quarter-turn electric actuator",
   howTitle: "How it drives the valve",
   how: <ElectricDrive />,
   ladder: {
@@ -75,7 +75,7 @@ const DEF: SeriesDef = {
   build: {
     title: "How it’s built",
     image: ITQ_ON_VALVE,
-    imageAlt: "Susin ITQ electric actuator with a local control module, mounted on a flanged ball valve",
+    imageAlt: "Susin I-Tork ITQ electric actuator with a local control module, mounted on a flanged ball valve",
     points: [
       ["Hard-anodised aluminium housing", "Anodised inside and out, with an external powder coat for severe industrial sites. All external bolts are stainless steel and captive."],
       ["Self-locking double worm gear", "Precisely machined with minimal backlash. It holds the valve in position against reverse torque, so no brake is needed."],
@@ -93,7 +93,7 @@ const DEF: SeriesDef = {
     { q: "On/off or modulating?", a: "On/off duty is S2, 10 to 30 minutes. With the RPC option the actuator positions the valve from a 4–20 mA or voltage signal; modulating duty is S4, 30 to 50% (25% on the larger models), at 300 to 1,200 starts an hour.", icon: TuneOutlinedIcon },
     { q: "What happens if the power fails?", a: "The double worm gear is self-locking, so the valve stays where it is. You can then turn it with the handwheel. For a fail-safe move to a set position, the BP battery backup option is available on 1 phase ITQ 0160 to ITQ 0500.", icon: PowerOffOutlinedIcon },
     { q: "How long does it take to open or close?", a: "From 21 seconds (ITQ 0100 at 50 Hz) to 178 seconds (ITQ 6000 and ITQ 9000). At 60 Hz each model is a little faster. The model list shows the time for every model.", icon: TimerOutlinedIcon },
-    { q: "Can it be used in hazardous areas?", a: "Yes, as an option: explosion proof Ex d II B T4, which Susin lists as approved by KTL, ATEX and NEPSI. Tell us the zone and gas group and we’ll confirm the build.", icon: LocalFireDepartmentOutlinedIcon },
+    { q: "Can it be used in hazardous areas?", a: "Yes, as an option: explosion proof Ex d II B T4, which Susin I-Tork lists as approved by KTL, ATEX and NEPSI. Tell us the zone and gas group and we’ll confirm the build.", icon: LocalFireDepartmentOutlinedIcon },
   ],
   parent: { href: "/actuators/electric", label: "All electric actuators" },
   cta: {

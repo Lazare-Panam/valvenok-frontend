@@ -7,7 +7,7 @@ import { ITEMS } from './items'
 import { PLDS_ACTUATOR_DATA } from './hooks/pldsActuatorData'
 const DEF: ListDef = {
   title: 'PLDS linear actuator models',
-  intro: `${ITEMS.length} Susin PLDS sizes from 100 to 975 mm bore, 1.8 to 444 kN double acting. Filter by stem size, open any model for its full figures, then request a quote.`,
+  intro: `${ITEMS.length} Susin I-Tork PLDS sizes from 100 to 975 mm bore, 1.8 to 444 kN double acting. Filter by stem size, open any model for its full figures, then request a quote.`,
   back: { href: '/pneumatic/actuators/plds', label: 'PLDS series overview' },
   catalog: { href: SUSIN_CATALOG.PLDS, label: 'catalogue (PDF)' },
   columns: ['Thrust, double acting', 'Piston area', 'Stem', 'Travel PLD / PLS'],

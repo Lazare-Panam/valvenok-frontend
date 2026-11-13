@@ -7,7 +7,7 @@ import { ITEMS } from './items'
 
 const DEF: ListDef = {
   title: 'ITL electric linear actuator models',
-  intro: `${ITEMS.length} Susin ITL linear actuators for globe and control valves, 1 to 6 kN of thrust and 15 to 50 mm of stroke. Open any model for its full figures, then request a quote.`,
+  intro: `${ITEMS.length} Susin I-Tork ITL linear actuators for globe and control valves, 1 to 6 kN of thrust and 15 to 50 mm of stroke. Open any model for its full figures, then request a quote.`,
   back: { href: '/actuators/electric/itl', label: 'ITL series overview' },
   catalog: { href: ITL_CATALOG, label: 'ITL catalogue (PDF)' },
   columns: ['Thrust', 'Stroke', 'Stroke time', 'Weight'],

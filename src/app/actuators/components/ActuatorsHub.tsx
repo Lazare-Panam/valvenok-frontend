@@ -6,6 +6,7 @@
 // Only the five categories are shown here; series live on the category pages.
 // Figures come from our own category and series pages.
 
+import { titleCase } from "@/src/app/Common/titleCase";
 import { brandsFor } from "@/src/app/Common/brandRegistry";
 import * as React from "react";
 import Link from "next/link";
@@ -46,7 +47,7 @@ const STATS = [
   { value: "5", unit: "types", label: "Pneumatic, electric, hydraulic, mechanical, accessories" },
   { value: "120,867", unit: "Nm", label: "Highest output torque (HD scotch yoke)" },
   { value: "ISO 5211", unit: "", label: "Standard mounting on quarter-turn actuators" },
-  { value: "3", unit: "brands", label: "Susin · KOSAPLUS · SPAC" },
+  { value: "3", unit: "brands", label: "Susin I-Tork · KOSAPLUS · SPAC" },
 ];
 
 // Torque at a glance (maximum by category, from the series pages); log scale
@@ -193,7 +194,7 @@ function Hero() {
           <Kicker>Products</Kicker>
           <Box component="h1" sx={{ m: 0, mb: 2.5, fontSize: { xs: "2.4rem", sm: "3rem", md: "3.9rem" }, fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.04, color: T.ink }}>
             <Words text="Valve" />
-            <Words text="actuators" start={250} sx={gradientText} />
+            <Words text="Actuators" start={250} sx={gradientText} />
           </Box>
           <Lead>
             Pneumatic, electric, hydraulic and manual actuators to open, close and position your valves, plus limit switch boxes to report where they are. One UK supplier for the whole automation package.
@@ -393,7 +394,7 @@ function Intro() {
         <Reveal from="right">
           <Kicker>How it works</Kicker>
           <H2 id="h2-intro">
-            <Box component="span" sx={gradientText}>A quarter turn,</Box> on command
+            <Box component="span" sx={gradientText}>A Quarter Turn,</Box> on Command
           </H2>
           <Lead>
             An actuator replaces the hand on the valve. It mounts on the valve’s top flange and turns the stem: a quarter turn for ball, butterfly and plug valves, many turns for gate and globe valves. Air, electricity or hydraulic power drives it; a spring can return it to a safe position if the supply fails. Valvenok supplies <Box component="strong" sx={{ color: T.ink }}>pneumatic, electric, hydraulic and manual actuators</Box>, plus the limit switches that report their position.
@@ -434,7 +435,7 @@ function Showcase() {
             <Box component="img" src={s.img} alt={s.title} sx={{ height: { xs: 190, md: 320 }, width: "auto", maxWidth: "80%", ...photo }} />
           </Box>
           <Box sx={{ animation: "wordIn .3s cubic-bezier(.2,.8,.2,1) .05s both" }}>
-            <Box component="h2" sx={{ m: 0, mb: 2, fontSize: { xs: "2.4rem", md: "3.6rem" }, fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1, color: T.ink }}>{s.title}</Box>
+            <Box component="h2" sx={{ m: 0, mb: 2, fontSize: { xs: "2.4rem", md: "3.6rem" }, fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1, color: T.ink }}>{titleCase(s.title)}</Box>
             <Box component="p" sx={{ m: 0, mb: 2, maxWidth: 520, fontSize: { xs: "1rem", md: "1.12rem" }, lineHeight: 1.7, color: T.body }}>{s.text}</Box>
             <Box component="span" sx={{ display: "inline-block", mb: 3.5, px: 1.5, py: 0.6, borderRadius: 999, bgcolor: "#fff", color: T.greenDark, fontSize: "0.85rem", fontWeight: 700 }}>{s.tag}</Box>
             <Box>
@@ -462,7 +463,7 @@ function CatCard({ c }: { c: Cat }) {
         <Box component="img" src={c.img} alt={c.title} loading="lazy" sx={{ height: { xs: 120, sm: 170 }, width: "auto", maxWidth: "78%", transition: "transform .4s", ...photo }} />
       </Box>
       <Box sx={{ p: { xs: 1.75, sm: 2.75 }, display: "flex", flexDirection: "column", flex: 1 }}>
-        <Box component="h3" sx={{ m: 0, mb: 0.75, fontSize: { xs: "1.05rem", sm: "1.3rem" }, lineHeight: 1.25, fontWeight: 800, color: T.ink, letterSpacing: "-0.01em" }}>{c.title}</Box>
+        <Box component="h3" sx={{ m: 0, mb: 0.75, fontSize: { xs: "1.05rem", sm: "1.3rem" }, lineHeight: 1.25, fontWeight: 800, color: T.ink, letterSpacing: "-0.01em" }}>{titleCase(c.title)}</Box>
         <Box component="p" sx={{ m: 0, mb: 2, fontSize: { xs: "0.85rem", sm: "0.92rem" }, lineHeight: 1.55, color: T.body, flex: 1 }}>{c.text}</Box>
         <Box sx={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 1 }}>
           <Box component="span" sx={{ px: 1.25, py: 0.5, borderRadius: 999, bgcolor: T.greenSoft, color: T.greenDark, fontSize: "0.78rem", fontWeight: 700, whiteSpace: "nowrap" }}>{c.tag}</Box>
@@ -481,7 +482,7 @@ function Categories() {
       <Box sx={wrap}>
         <Box sx={{ textAlign: "center", mb: { xs: 4, md: 5 } }}>
           <Kicker>Our categories</Kicker>
-          <H2 id="h2-cats">Every actuator we supply</H2>
+          <H2 id="h2-cats">Every Actuator We Supply</H2>
           <Lead center>Pick a category to see its series, sizes and models, with a quote on each.</Lead>
         </Box>
         <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", lg: "repeat(6, 1fr)" }, gap: { xs: 1.5, md: 2.5 }, "& > *": { gridColumn: { lg: "span 2" } }, "& > *:nth-of-type(n+4)": { gridColumn: { lg: "span 3" } } }}>
@@ -500,7 +501,7 @@ function TorqueChart() {
   const [ref, on] = useInView<HTMLDivElement>(0.25);
   return (
     <Box ref={ref} sx={{ p: { xs: 2.5, md: 4 }, borderRadius: "24px", bgcolor: "#fff", border: `1px solid ${T.border}`, boxShadow: T.shadow }}>
-      <Box component="h3" sx={{ m: 0, mb: 0.5, fontSize: "1.05rem", fontWeight: 800, color: T.ink }}>Torque range at a glance</Box>
+      <Box component="h3" sx={{ m: 0, mb: 0.5, fontSize: "1.05rem", fontWeight: 800, color: T.ink }}>Torque Range at a Glance</Box>
       <Box component="p" sx={{ m: 0, mb: 3, fontSize: "0.85rem", color: T.muted }}>Output torque by category, 10 to 120,867 Nm (log scale). Ratings vary by model.</Box>
       <Box sx={{ display: "grid", gap: 2.25 }}>
         {TORQUE.map((p, i) => (
@@ -528,7 +529,7 @@ function Why() {
       <Box sx={wrap}>
         <Box sx={{ textAlign: "center", mb: { xs: 4, md: 6 } }}>
           <Kicker>Buying from Valvenok</Kicker>
-          <H2 id="h2-why">Sized, fitted and ready to control</H2>
+          <H2 id="h2-why">Sized, Fitted and Ready to Control</H2>
         </Box>
         <Box sx={{ display: { xs: "grid", md: "flex" }, gridTemplateColumns: "repeat(2, auto)", justifyContent: "center", alignItems: "center", gap: { xs: 1.5, md: 2 }, mb: { xs: 7, md: 10 } }}>
           {CIRCLES.map(([big, small], k) => (
@@ -552,7 +553,7 @@ function Why() {
                 <Box component="li" sx={{ display: "flex", gap: 2.5, alignItems: "center" }}>
                   <Box sx={{ flexShrink: 0, width: 58, height: 58, borderRadius: "50%", bgcolor: T.greenSoft, border: "1px solid #CFEBC6", color: T.greenDark, display: "grid", placeItems: "center", "& svg": { fontSize: 28 } }}>{b.icon}</Box>
                   <Box>
-                    <Box component="h3" sx={{ m: 0, fontSize: { xs: "1.15rem", md: "1.35rem" }, fontWeight: 700, color: T.ink, letterSpacing: "-0.01em" }}>{b.title}</Box>
+                    <Box component="h3" sx={{ m: 0, fontSize: { xs: "1.15rem", md: "1.35rem" }, fontWeight: 700, color: T.ink, letterSpacing: "-0.01em" }}>{titleCase(b.title)}</Box>
                     <Box component="p" sx={{ m: 0, mt: 0.25, fontSize: "0.95rem", color: T.body, lineHeight: 1.55 }}>{b.text}</Box>
                   </Box>
                 </Box>
@@ -577,7 +578,7 @@ function Selector() {
       <Box sx={wrap}>
         <Box sx={{ mb: 4 }}>
           <Kicker>Quick selector</Kicker>
-          <H2 id="h2-which">Which actuator do I need?</H2>
+          <H2 id="h2-which">Which Actuator Do I Need?</H2>
           <Lead>Choose what matters most at the valve and we’ll point you to the right category.</Lead>
         </Box>
         <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" }, gap: { xs: 2.5, md: 4 }, alignItems: "stretch" }}>
@@ -619,7 +620,7 @@ function Specifying() {
       <Box sx={wrap}>
         <Box sx={{ mb: 4 }}>
           <Kicker>Before you order</Kicker>
-          <H2 id="h2-spec">Specifying an actuator</H2>
+          <H2 id="h2-spec">Specifying an Actuator</H2>
           <Lead>Check these six points before you order. If you’re unsure, send us the valve details and we’ll size it.</Lead>
         </Box>
         <Box component="ol" sx={{ m: 0, p: 0, listStyle: "none", display: "grid", gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" }, gap: 2 }}>
@@ -627,7 +628,7 @@ function Specifying() {
             <Box component="li" key={k} sx={{ display: "flex", gap: 2, p: 2.5, borderRadius: "18px", bgcolor: "#fff", border: `1px solid ${T.border}` }}>
               <Box sx={{ flexShrink: 0, width: 36, height: 36, borderRadius: "50%", bgcolor: T.greenSoft, color: T.greenDark, fontWeight: 800, display: "grid", placeItems: "center" }}>{i + 1}</Box>
               <Box>
-                <Box component="h3" sx={{ m: 0, mb: 0.5, fontSize: "1rem", fontWeight: 800, color: T.ink }}>{k}</Box>
+                <Box component="h3" sx={{ m: 0, mb: 0.5, fontSize: "1rem", fontWeight: 800, color: T.ink }}>{titleCase(k)}</Box>
                 <Box component="p" sx={{ m: 0, color: T.body, lineHeight: 1.65, fontSize: "0.93rem" }}>{v}</Box>
               </Box>
             </Box>
@@ -649,14 +650,14 @@ function Standards() {
       <Box sx={wrap}>
         <Box sx={{ mb: 4 }}>
           <Kicker>Standards</Kicker>
-          <H2 id="h2-std">Standards explained</H2>
+          <H2 id="h2-std">Standards Explained</H2>
           <Lead>Certification varies by model, so check the series page for each actuator.</Lead>
         </Box>
         <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", lg: "repeat(3, 1fr)" }, gap: 2 }}>
           {STANDARDS.map(([code, what, where], i) => (
             <Reveal key={code} delay={(i % 3) * 70}>
               <Box sx={{ height: "100%", boxSizing: "border-box", p: 2.5, borderRadius: "18px", bgcolor: "#fff", border: `1px solid ${T.border}` }}>
-                <Box component="h3" sx={{ m: 0, mb: 1, fontSize: "1.35rem", fontWeight: 800, letterSpacing: "-0.02em", ...gradientText }}>{code}</Box>
+                <Box component="h3" sx={{ m: 0, mb: 1, fontSize: "1.35rem", fontWeight: 800, letterSpacing: "-0.02em", ...gradientText }}>{titleCase(code)}</Box>
                 <Box component="p" sx={{ m: 0, mb: 1.5, fontSize: "0.9rem", lineHeight: 1.55, color: T.body }}>{what}</Box>
                 <Box component="p" sx={{ m: 0, fontSize: "0.78rem", fontWeight: 700, color: T.muted }}>Where: {where}</Box>
               </Box>
@@ -672,7 +673,7 @@ function Brands() {
   const kosa = groupSite("KOSAPLUS UK");
   const spac = groupSite("SPAC Pneumatic");
   const list = [
-    { name: "Susin", logo: "https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp", text: "Scotch yoke and linear pneumatic actuators, quarter-turn, linear and multi-turn electric actuators, gearboxes and limit switch boxes.", links: [{ label: "About Susin", href: "/brands/susin" }, { label: "Pneumatic", href: "/pneumatic/actuators" }, { label: "Electric", href: "/actuators/electric" }] },
+    { name: "Susin", logo: "https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp", text: "Scotch yoke and linear pneumatic actuators, quarter-turn, linear and multi-turn electric actuators, gearboxes and limit switch boxes.", links: [{ label: "About Susin I-Tork", href: "/brands/susin" }, { label: "Pneumatic", href: "/pneumatic/actuators" }, { label: "Electric", href: "/actuators/electric" }] },
     { name: "KOSAPLUS", logo: "https://pblol2.blob.core.windows.net/valvenok-images/brands/kosaplus-logo.png", text: "Scotch yoke pneumatic actuators, compact electric actuators and limit switch boxes.", links: [], site: kosa },
     { name: "SPAC", logo: "https://pblol2.blob.core.windows.net/spac-images/spac-logo.webp", text: "Spring-return rack & pinion pneumatic actuators, priced and ready to order online.", links: [], site: spac },
   ];
@@ -681,7 +682,7 @@ function Brands() {
       <Box sx={wrap}>
         <Box sx={{ mb: 4 }}>
           <Kicker>Shop by brand</Kicker>
-          <H2 id="h2-brands">The brands behind the range</H2>
+          <H2 id="h2-brands">The Brands Behind the Range</H2>
         </Box>
         <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", lg: "repeat(4, 1fr)" }, gap: 2.5 }}>
           {list.map((b, i) => (
@@ -716,7 +717,7 @@ function Faq() {
       <Box sx={{ ...wrap, maxWidth: 900 }}>
         <Box sx={{ textAlign: "center", mb: 4 }}>
           <Kicker>FAQ</Kicker>
-          <H2 id="h2-faq">Actuator questions</H2>
+          <H2 id="h2-faq">Actuator Questions</H2>
         </Box>
         <Box sx={{ display: "grid", gap: 1.25 }}>
           {HUB_FAQ.map((f, i) => (
@@ -751,7 +752,7 @@ function Cta() {
       <Box sx={wrap}>
         <Box sx={{ p: { xs: 3.5, md: 6 }, borderRadius: "28px", background: `linear-gradient(120deg, ${L.mint} 0%, #EAF4FF 55%, #FFF7DD 100%)`, border: `1px solid ${T.border}`, display: "flex", flexDirection: { xs: "column", md: "row" }, alignItems: { md: "center" }, justifyContent: "space-between", gap: 3 }}>
           <Box>
-            <Box component="h2" id="h2-cta" sx={{ m: 0, mb: 1, fontSize: { xs: "1.6rem", md: "2.2rem" }, fontWeight: 800, letterSpacing: "-0.03em", color: T.ink }}>Need help choosing?</Box>
+            <Box component="h2" id="h2-cta" sx={{ m: 0, mb: 1, fontSize: { xs: "1.6rem", md: "2.2rem" }, fontWeight: 800, letterSpacing: "-0.03em", color: T.ink }}>Need Help Choosing?</Box>
             <Box component="p" sx={{ m: 0, maxWidth: 620, lineHeight: 1.7, color: T.body }}>
               Send us the valve type and size, its torque if you know it, the supply available and the fail-safe position, and we’ll recommend the actuator and quote it with its accessories.
             </Box>

@@ -1,7 +1,7 @@
 "use client";
 
 // PANDA series page, on the shared series template. Every figure is from
-// Susin's PANDA / PA hydraulic brochure (see pandaData).
+// Susin I-Tork's PANDA / PA hydraulic brochure (see pandaData).
 
 import PowerOutlinedIcon from "@mui/icons-material/PowerOutlined";
 import SquareFootOutlinedIcon from "@mui/icons-material/SquareFootOutlined";
@@ -56,7 +56,7 @@ const DEF: SeriesDef = {
   h1: ["PANDA series", "electro-hydraulic, low pressure"],
   lead: (
     <>
-      Susin compact electro-hydraulic part-turn actuators with their own motor, pump and oil, at a maximum of 8 bar on board, so only electric power is needed. {DA.length} double acting sizes from {nm(DA[0].torqueNm!)} to {nm(DA[DA.length - 1].torqueNm!)} Nm and {SR.length} spring return sizes for fail-safe closing.
+      Susin I-Tork compact electro-hydraulic part-turn actuators with their own motor, pump and oil, at a maximum of 8 bar on board, so only electric power is needed. {DA.length} double acting sizes from {nm(DA[0].torqueNm!)} to {nm(DA[DA.length - 1].torqueNm!)} Nm and {SR.length} spring return sizes for fail-safe closing.
     </>
   ),
   specs: [
@@ -72,7 +72,7 @@ const DEF: SeriesDef = {
   catalog: PANDA_CATALOG,
   catalogLabel: "Download PANDA / PA brochure (PDF)",
   image: PANDA_IMAGE,
-  imageAlt: "Susin PANDA electro-hydraulic part-turn actuator with motor, pump and limit switch box",
+  imageAlt: "Susin I-Tork PANDA electro-hydraulic part-turn actuator with motor, pump and limit switch box",
   howTitle: "How an electro-hydraulic actuator works",
   how: <ElectroHydraulic />,
   ladder: {
@@ -87,7 +87,7 @@ const DEF: SeriesDef = {
     title: "How it’s built",
     points: [
       ["Only power needed", "Motor, pump, oil and control block are built in, so there is no compressed air or separate hydraulic supply."],
-      ["An alternative to air", "Susin developed the PANDA as an alternative to electric and pneumatic actuators: compact, simple to install and operate, with a NAMUR plate for the valve block."],
+      ["An alternative to air", "Susin I-Tork developed the PANDA as an alternative to electric and pneumatic actuators: compact, simple to install and operate, with a NAMUR plate for the valve block."],
       ["Reversible pump or spring", "Double acting units use a reversible pump and motor; on spring return units a solenoid valve holds the position."],
       ["Runs in oil", "Most wear parts are permanently wetted with oil, so the actuators run nearly free of wear."],
       ["Valve mounting", "Fits ISO 5211 valve flanges with a D, L or DS connection; 90° range, adjustable; speed set by a throttle."],

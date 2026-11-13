@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import SusinBrandView from "./SusinBrandView";
 
-const TITLE = "Susin Valve Actuators: Pneumatic, Electric, Hydraulic & Gearboxes | Valvenok";
+const TITLE = "Susin I-Tork Valve Actuators: Pneumatic, Electric, Hydraulic & Gearboxes | Valvenok";
 const DESCRIPTION =
-  "Every Susin actuator range on Valvenok: PDS, HD and MHD scotch yoke, ITQ, QS, ITM, ITL and IQL electric, PANDA, PA and scotch yoke hydraulic, MAW, ITG and MAB gearboxes and ITS limit switch boxes, with catalogues.";
+  "Every Susin I-Tork actuator range on Valvenok: PDS, HD and MHD scotch yoke, ITQ, QS, ITM, ITL and IQL electric, PANDA, PA and scotch yoke hydraulic, MAW, ITG and MAB gearboxes and ITS limit switch boxes, with catalogues.";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/brands/susin" },

@@ -1,5 +1,5 @@
 // QS Series fail-safe (spring return) electric actuators.
-// Every value below comes from the Susin / i-Tork QS catalogue (Electric - QS.pdf).
+// Every value below comes from the Susin I-Tork QS catalogue (Electric - QS.pdf).
 import { SUSIN_CATALOG } from "@/src/app/Common/susinCatalogs";
 
 export const QS_IMAGE =

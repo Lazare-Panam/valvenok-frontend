@@ -1,5 +1,5 @@
 // MAB models, shared by the model list and the per-model product pages.
-// Every figure is from the Susin / i-Tork MAB catalogue; see ../mabData.
+// Every figure is from the Susin I-Tork MAB catalogue; see ../mabData.
 import type { Item } from '@/src/app/pneumatic/actuators/_series/modelTypes'
 import { MAB_MODELS, MAB_COMMON, MAB_IMAGE, MAB_REDUCTION, STAGE_LABEL, rimEffort } from '../mabData'
 
@@ -64,7 +64,7 @@ const RAW_ITEMS: Item[] = MAB_MODELS.map((m, i) => {
         ['Stem cover', 'Thread', d.stemCover],
       ],
     },
-    note: `Dimensions from Susin’s ${m.stage === 'Standard' ? 'general' : m.stage === '1S' ? 'single stage reduction' : 'double stage reduction'} drawing; letters as on the catalogue drawing. Rim effort is the maximum torque divided by the mechanical advantage and the handwheel radius; Susin’s standard limit is 360 N. Send us the valve torque, thrust and stem and we’ll confirm the model.`,
+    note: `Dimensions from Susin I-Tork’s ${m.stage === 'Standard' ? 'general' : m.stage === '1S' ? 'single stage reduction' : 'double stage reduction'} drawing; letters as on the catalogue drawing. Rim effort is the maximum torque divided by the mechanical advantage and the handwheel radius; Susin I-Tork’s standard limit is 360 N. Send us the valve torque, thrust and stem and we’ll confirm the model.`,
     rfq: {
       id: `mab-${m.model.toLowerCase()}`,
       name: `${m.model} bevel gear actuator`,

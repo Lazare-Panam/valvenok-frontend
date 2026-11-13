@@ -1,9 +1,9 @@
 "use client";
 
-// Gearing and handwheel effort for Susin manual gear actuators (MAB, MAW, ITG),
+// Gearing and handwheel effort for Susin I-Tork manual gear actuators (MAB, MAW, ITG),
 // from each catalogue's technical specifications and rim effort chart:
 // input torque = output torque / MA, rim effort = input torque / handwheel
-// radius; Susin's standard maximum rim effort is 360 N.
+// radius; Susin I-Tork's standard maximum rim effort is 360 N.
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
@@ -107,7 +107,7 @@ export default function GearSizer({ name, models, products, text, lead, example 
             </Box>
           )}
           <Box sx={{ mt: 2, fontSize: "0.78rem", color: T.muted, lineHeight: 1.5 }}>
-            Rim effort = valve torque ÷ mechanical advantage ÷ handwheel radius, using Susin’s figures (mechanical advantage ±10%). Susin’s standard limit is 360 N. A guide only: we confirm the model from the full valve data.
+            Rim effort = valve torque ÷ mechanical advantage ÷ handwheel radius, using Susin I-Tork’s figures (mechanical advantage ±10%). Susin I-Tork’s standard limit is 360 N. A guide only: we confirm the model from the full valve data.
           </Box>
         </Box>
       </Box>

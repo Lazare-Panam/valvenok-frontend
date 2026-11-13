@@ -34,7 +34,7 @@ const site = (name: string) => GROUP_SITES.find((g) => g.name === name)?.url;
 export const BRANDS: Brand[] = [
   {
     slug: "susin",
-    name: "Susin",
+    name: "Susin I-Tork",
     logo: `${V}/logo/susin-logo.webp`,
     page: "/brands/susin",
     mode: "featured",

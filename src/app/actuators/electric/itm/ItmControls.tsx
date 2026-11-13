@@ -24,7 +24,7 @@ const ITEMS: { icon: SvgIconComponent; name: string; text: string; tag: string }
   { icon: ReportGmailerrorredOutlinedIcon, name: "Emergency shutdown", text: "On an ESD signal the actuator closes, stops or opens: you choose which.", tag: "Standard" },
   { icon: TuneOutlinedIcon, name: "Modulating control", text: "RPC positioning from 4–20 mA, 0–10, 2–10, 0–5 or 1–5 V, with a 4–20 mA output and a set fail position if the signal is lost. A CT current transmitter is also available.", tag: "Option" },
   { icon: LanOutlinedIcon, name: "Fieldbus", text: "Profibus, CANopen and other bus protocols.", tag: "Option" },
-  { icon: LocalFireDepartmentOutlinedIcon, name: "Explosion proof", text: "Ex d IIC T4, listed by Susin as an option for every ITM model.", tag: "Option" },
+  { icon: LocalFireDepartmentOutlinedIcon, name: "Explosion proof", text: "Ex d IIC T4, listed by Susin I-Tork as an option for every ITM model.", tag: "Option" },
 ];
 
 export default function ItmControls() {
@@ -33,7 +33,7 @@ export default function ItmControls() {
       <Box sx={wrap}>
         <Box sx={{ mb: 4 }}>
           <Kicker>Control and protection</Kicker>
-          <H2 id="h2-controls">Integral controls as standard</H2>
+          <H2 id="h2-controls">Integral Controls as Standard</H2>
           <Lead>Every ITM has its own starter, local controls and display, so it wires straight to 3 phase power and your control system.</Lead>
         </Box>
         <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", lg: "repeat(4, 1fr)" }, gap: 1.5 }}>

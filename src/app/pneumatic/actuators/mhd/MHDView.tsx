@@ -3,7 +3,7 @@
 // MHD (Micro) series page under Actuators › Pneumatic Actuators, in the same
 // format as Needle Valves: split hero with an animated scotch-yoke cut-away,
 // a ladder of the four configurations, an exploded-view band, FAQ.
-// Every figure is from the Susin "Pneumatic Actuator Micro Series SS & CS" catalogue.
+// Every figure is from the Susin I-Tork "Pneumatic Actuator Micro Series SS & CS" catalogue.
 
 import * as React from "react";
 import Link from "next/link";
@@ -71,15 +71,15 @@ function Hero() {
           <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, flexWrap: "wrap" }}>
             <Kicker>Pneumatic actuators</Kicker>
             <Box sx={{ mb: 1.25, display: "inline-flex", px: 1, py: 0.4, borderRadius: 999, bgcolor: "#fff", border: `1px solid ${T.border}` }}>
-              <Box component="img" src={SUSIN_LOGO} alt="Susin" sx={{ height: 18, width: "auto", display: "block" }} />
+              <Box component="img" src={SUSIN_LOGO} alt="Susin I-Tork" sx={{ height: 18, width: "auto", display: "block" }} />
             </Box>
           </Box>
           <Box component="h1" sx={{ m: 0, mb: 2.5, fontSize: { xs: "2.4rem", sm: "3rem", md: "3.8rem" }, fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.04, color: T.ink }}>
-            <Words text="MHD micro" />
-            <Words text="scotch yoke" start={200} sx={gradientText} />
+            <Words text="MHD Micro" />
+            <Words text="Scotch Yoke" start={200} sx={gradientText} />
           </Box>
           <Lead>
-            The compact member of the Susin scotch yoke family, for on/off and control of double offset butterfly valves. Symmetric or canted yoke, double acting or spring return: {TOTAL} models from {MHD_TORQUE_RANGE}.
+            The compact member of the Susin I-Tork scotch yoke family, for on/off and control of double offset butterfly valves. Symmetric or canted yoke, double acting or spring return: {TOTAL} models from {MHD_TORQUE_RANGE}.
           </Lead>
           <Box component="dl" sx={{ m: 0, mt: 3, display: "grid", gridTemplateColumns: { xs: "1fr 1fr", sm: "repeat(3, 1fr)" }, gap: 1, "& > div": { p: 1.5, borderRadius: "14px", bgcolor: "rgba(255,255,255,0.85)", border: `1px solid ${T.border}` }, "& dt": { fontSize: "0.72rem", fontWeight: 700, color: T.muted, textTransform: "uppercase", letterSpacing: "0.06em" }, "& dd": { m: 0, mt: 0.25, fontSize: "0.9rem", fontWeight: 700, color: T.ink } }}>
             {SPECS.map(([k, v]) => (
@@ -97,7 +97,7 @@ function Hero() {
           </Box>
           <Box sx={{ display: "flex", flexWrap: "wrap", columnGap: 2.5, rowGap: 0.75, mt: 2, fontSize: "0.85rem" }}>
             <Box component={Link} href="/brands/susin" sx={{ display: "inline-flex", alignItems: "center", gap: 0.5, color: T.greenDark, fontWeight: 600, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
-              About Susin <ArrowForwardRoundedIcon sx={{ fontSize: 14 }} />
+              About Susin I-Tork <ArrowForwardRoundedIcon sx={{ fontSize: 14 }} />
             </Box>
             <Box component="a" href={SUSIN_CATALOG.MHD} target="_blank" rel="noopener" sx={{ display: "inline-flex", alignItems: "center", gap: 0.5, color: T.greenDark, fontWeight: 600, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
               <DownloadRoundedIcon sx={{ fontSize: 16 }} /> Download catalogue (PDF)
@@ -129,7 +129,7 @@ function ConfigLadder() {
         <Box sx={{ display: "flex", flexDirection: { xs: "column", md: "row" }, justifyContent: "space-between", alignItems: { md: "flex-end" }, gap: 2, mb: 4 }}>
           <Box>
             <Kicker>Configurations</Kicker>
-            <H2 id="h2-models">Pick a yoke and action</H2>
+            <H2 id="h2-models">Pick a Yoke and Action</H2>
             <Lead>Four configurations, each in three sizes (01-12, 01-15, 01-17). Each one opens the model table filtered to it.</Lead>
           </Box>
           <Box role="tablist" aria-label="Yoke" sx={{ display: "inline-flex", p: 0.5, borderRadius: 999, bgcolor: T.surface, border: `1px solid ${T.border}`, alignSelf: { xs: "flex-start", md: "auto" } }}>
@@ -190,7 +190,7 @@ function ConfigLadder() {
   );
 }
 
-// Parts shown on the exploded view, from the Susin Micro series parts list (catalogue p.7).
+// Parts shown on the exploded view, from the Susin I-Tork Micro series parts list (catalogue p.7).
 // DI / CS = ductile iron or carbon steel; SS = stainless steel.
 const PARTS: { group: string; items: [number, string, string][] }[] = [
   { group: "Cylinder", items: [[1, "Cylinder", "SS"], [2, "Piston", "DI / CS"], [3, "Piston rod", "Chrome-plated steel"], [4, "Cylinder front cover", "DI / CS"], [5, "Cylinder end cover", "DI / CS"], [6, "Front cover bushing", "PTFE"], [7, "Tie rod", "SS"], [9, "Tie rod hex nut", "Steel"], [12, "Piston rod hex nut", "Steel"]] },
@@ -213,7 +213,7 @@ function Exploded() {
             <Box component="img" src={MHD_EXPLODED} alt="Exploded view of the MHD Micro scotch yoke actuator" loading="lazy" sx={{ width: "100%", height: "auto", maxWidth: 560 }} />
           </Box>
           <Box>
-            <Box component="h2" id="h2-build" sx={{ m: 0, mb: 2, fontSize: { xs: "1.3rem", md: "1.55rem" }, fontWeight: 800, color: T.ink, letterSpacing: "-0.02em" }}>Built to be serviced</Box>
+            <Box component="h2" id="h2-build" sx={{ m: 0, mb: 2, fontSize: { xs: "1.3rem", md: "1.55rem" }, fontWeight: 800, color: T.ink, letterSpacing: "-0.02em" }}>Built to Be Serviced</Box>
             <Box component="ul" sx={{ m: 0, p: 0, listStyle: "none", display: "grid", gap: 1.5 }}>
               {points.map(([k, v]) => (
                 <Box component="li" key={k} sx={{ display: "flex", gap: 1.25 }}>
@@ -224,7 +224,7 @@ function Exploded() {
             </Box>
           </Box>
           <Box sx={{ gridColumn: "1 / -1", pt: { xs: 1, md: 0 } }}>
-            <Box component="h3" sx={{ m: 0, mb: 1.5, fontSize: "1.05rem", fontWeight: 800, color: T.ink }}>What the numbers show</Box>
+            <Box component="h3" sx={{ m: 0, mb: 1.5, fontSize: "1.05rem", fontWeight: 800, color: T.ink }}>What the Numbers Show</Box>
             <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "repeat(3, 1fr)" }, gap: 1.5 }}>
               {PARTS.map((g) => (
                 <Box key={g.group} sx={{ p: 2, borderRadius: "16px", bgcolor: "#fff", border: "1px solid #DCE6F5" }}>
@@ -241,7 +241,7 @@ function Exploded() {
                 </Box>
               ))}
             </Box>
-            <Box sx={{ mt: 1.25, fontSize: "0.78rem", color: T.muted }}>From the Susin Micro series parts list. DI / CS: ductile iron or carbon steel; SS: stainless steel. The full list of 65 parts is in the catalogue.</Box>
+            <Box sx={{ mt: 1.25, fontSize: "0.78rem", color: T.muted }}>From the Susin I-Tork Micro series parts list. DI / CS: ductile iron or carbon steel; SS: stainless steel. The full list of 65 parts is in the catalogue.</Box>
           </Box>
         </Box>
       </Box>
@@ -255,7 +255,7 @@ function Faq() {
       <Box sx={{ ...wrap, maxWidth: 900 }}>
         <Box sx={{ textAlign: "center", mb: 4 }}>
           <Kicker>FAQ</Kicker>
-          <H2 id="h2-faq">MHD actuator questions</H2>
+          <H2 id="h2-faq">MHD Actuator Questions</H2>
         </Box>
         <Box sx={{ display: "grid", gap: 1.25 }}>
           {FAQ.map((f, i) => (
@@ -290,7 +290,7 @@ function Cta() {
       <Box sx={wrap}>
         <Box sx={{ p: { xs: 3.5, md: 6 }, borderRadius: "28px", background: `linear-gradient(120deg, ${L.mint} 0%, #EAF4FF 55%, #FFF7DD 100%)`, border: `1px solid ${T.border}`, display: "flex", flexDirection: { xs: "column", md: "row" }, alignItems: { md: "center" }, justifyContent: "space-between", gap: 3 }}>
           <Box>
-            <Box component="h2" id="h2-cta" sx={{ m: 0, mb: 1, fontSize: { xs: "1.6rem", md: "2.2rem" }, fontWeight: 800, letterSpacing: "-0.03em", color: T.ink }}>Know the model?</Box>
+            <Box component="h2" id="h2-cta" sx={{ m: 0, mb: 1, fontSize: { xs: "1.6rem", md: "2.2rem" }, fontWeight: 800, letterSpacing: "-0.03em", color: T.ink }}>Know the Model?</Box>
             <Box component="p" sx={{ m: 0, maxWidth: 620, lineHeight: 1.7, color: T.body }}>
               Compare all {TOTAL} MHD models by yoke, action and torque, or send us the valve torque and air pressure and we’ll pick the size.
             </Box>

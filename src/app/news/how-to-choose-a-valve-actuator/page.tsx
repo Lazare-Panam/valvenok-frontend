@@ -196,7 +196,7 @@ const FAQS = [
   },
   {
     q: "Which actuator type gives the highest torque?",
-    a: "Hydraulic and electro-hydraulic give the highest torque density — the most torque for a given physical size — which is why they suit extreme duty in confined space. Our electro-hydraulic range covers 46 to 10,000 Nm. For absolute torque, large scotch yoke pneumatic actuators reach further: the Susin HD range extends to 120,867 Nm. Manual worm gearboxes reach 32,000 Nm, though operated by hand rather than automatically.",
+    a: "Hydraulic and electro-hydraulic give the highest torque density — the most torque for a given physical size — which is why they suit extreme duty in confined space. Our electro-hydraulic range covers 46 to 10,000 Nm. For absolute torque, large scotch yoke pneumatic actuators reach further: the Susin I-Tork HD range extends to 120,867 Nm. Manual worm gearboxes reach 32,000 Nm, though operated by hand rather than automatically.",
   },
   {
     q: "What air quality does a pneumatic actuator need?",
@@ -208,7 +208,7 @@ const FAQS = [
   },
   {
     q: "Do I need an ATEX certified actuator?",
-    a: "Only if the valve is installed in a potentially explosive atmosphere, in which case the equipment must be certified for the zone. Pneumatic actuators have the simplest path because there are no electrical components to certify. Where certification is needed, our Susin HD pneumatic range carries ATEX, the PANDA and PA electro-hydraulic series are approved for Zone 1 and 2 with SIL 2 and SIL 3, and the ITM electric multi-turn series is available with an Ex d IIC T4 rating.",
+    a: "Only if the valve is installed in a potentially explosive atmosphere, in which case the equipment must be certified for the zone. Pneumatic actuators have the simplest path because there are no electrical components to certify. Where certification is needed, our Susin I-Tork HD pneumatic range carries ATEX, the PANDA and PA electro-hydraulic series are approved for Zone 1 and 2 with SIL 2 and SIL 3, and the ITM electric multi-turn series is available with an Ex d IIC T4 rating.",
   },
   {
     q: "What is ISO 5211 and why does it matter?",
@@ -386,7 +386,7 @@ export default function ActuatorGuidePage() {
 
       <H3>What we supply</H3>
       <P>
-        The Susin HD range in symmetric (IS) and canted (IC) configurations
+        The Susin I-Tork HD range in symmetric (IS) and canted (IC) configurations
         spans 132 to 120,867 Nm on 3.5–10 bar air, rated ISO 5211 with ATEX
         and SIL 3, working from −20°C to +85°C. The PDS rotary scotch yoke
         range runs on 3.5–8 bar in double acting (PD) and single acting
@@ -398,7 +398,7 @@ export default function ActuatorGuidePage() {
         MPLDS range works at 2.1–6.2 bar (30–90 psig) with IP66 protection
         where space is tight.
       </P>
-      <Supplied img={`${IMG}/pneumatic/hd.webp`} alt="Susin HD heavy-duty scotch yoke pneumatic actuator with filter regulator and solenoid valve" name="Susin HD heavy-duty pneumatic actuators" line="Scotch yoke, 132 to 120,867 Nm on 3.5–10 bar air, ATEX and SIL 3." href="/pneumatic/actuators/hd" />
+      <Supplied img={`${IMG}/pneumatic/hd.webp`} alt="Susin I-Tork HD heavy-duty scotch yoke pneumatic actuator with filter regulator and solenoid valve" name="Susin I-Tork HD heavy-duty pneumatic actuators" line="Scotch yoke, 132 to 120,867 Nm on 3.5–10 bar air, ATEX and SIL 3." href="/pneumatic/actuators/hd" />
 
       <H3>Getting the air supply right</H3>
       <P>
@@ -453,7 +453,7 @@ export default function ActuatorGuidePage() {
       </P>
       <H3>What we supply</H3>
       <P>
-        The Susin ITQ rotary series covers 100 to 9,000 Nm with a
+        The Susin I-Tork ITQ rotary series covers 100 to 9,000 Nm with a
         hard-anodised aluminium housing, IP67 and NEMA 4X/6 protection and a
         double worm self-locking gear, available on 110/220VAC, 380/440VAC
         or 24VDC and mounting to ISO 5211. The self-locking gear matters: it
@@ -466,7 +466,7 @@ export default function ActuatorGuidePage() {
         series carries IP68 with an optional Ex d IIC T4 rating for
         hazardous areas.
       </P>
-      <Supplied img={`${IMG}/electric/itm.webp`} alt="Two Susin ITM multi-turn electric valve actuators" name="Susin ITM multi-turn electric actuators" line="Heavy-duty multi-turn electric actuators for gate, globe and sluice valves. IP68, Ex d IIC T4 optional." href="/actuators/electric/itm" />
+      <Supplied img={`${IMG}/electric/itm.webp`} alt="Two Susin I-Tork ITM multi-turn electric valve actuators" name="Susin I-Tork ITM multi-turn electric actuators" line="Heavy-duty multi-turn electric actuators for gate, globe and sluice valves. IP68, Ex d IIC T4 optional." href="/actuators/electric/itm" />
       <P>
         Kosaplus covers the smaller end of electric quarter-turn duty across
         four families: the KE series from 8 to 2,000 Nm in spur gear and
@@ -513,7 +513,7 @@ export default function ActuatorGuidePage() {
       </P>
       <H3>What we supply</H3>
       <P>
-        The Susin PANDA and PA electro-hydraulic rotary series covers 46 to
+        The Susin I-Tork PANDA and PA electro-hydraulic rotary series covers 46 to
         10,000 Nm. PANDA operates at low pressure (8 bar), PA at high
         pressure (180 bar). Both mount to ISO 5211 and NAMUR, carry ATEX
         Zone 1 and 2 approval, SIL 2 and SIL 3 rating, and IP67/IP68 ingress
@@ -558,7 +558,7 @@ export default function ActuatorGuidePage() {
       </P>
       <H3>What we supply</H3>
       <P>
-        The Susin MAW quarter-turn worm gear series covers 100 to 32,000 Nm
+        The Susin I-Tork MAW quarter-turn worm gear series covers 100 to 32,000 Nm
         — self-locking, ISO 5211 direct mount, with ±5° fine stroke
         adjustment and IP54 through IP67M, working from −20°C to +85°C. It
         is designed for ball, butterfly and plug valves and is MOV
@@ -569,7 +569,7 @@ export default function ActuatorGuidePage() {
         quarter-turn industrial gear series spans 60 to 28,000 Nm to ISO
         5211/5210 with a declutchable manual override.
       </P>
-      <Supplied img={`${IMG}/mechanical/itg.webp`} alt="Susin ITG gear actuator with a handwheel" name="Susin ITG gear actuators" line="Handwheel gear operators for ball, butterfly and plug valves, ISO 5211 mounting." href="/actuators/mechanical/itg" />
+      <Supplied img={`${IMG}/mechanical/itg.webp`} alt="Susin I-Tork ITG gear actuator with a handwheel" name="Susin I-Tork ITG gear actuators" line="Handwheel gear operators for ball, butterfly and plug valves, ISO 5211 mounting." href="/actuators/mechanical/itg" />
 
       {/* ── SIZING ── */}
       <H2>Sizing an Actuator: Torque and Safety Factor</H2>
@@ -675,7 +675,7 @@ export default function ActuatorGuidePage() {
         Equipment for potentially explosive atmospheres must be certified
         for the zone it sits in. ATEX is the European regime; IECEx is the
         international equivalent, often preferred on export projects. Our
-        Susin HD pneumatic range carries ATEX, and the PANDA and PA
+        Susin I-Tork HD pneumatic range carries ATEX, and the PANDA and PA
         electro-hydraulic series are approved for Zone 1 and Zone 2. Where
         an electric actuator is required in a zoned area, the ITM multi-turn
         series is available with an Ex d IIC T4 rating. A pneumatic actuator
@@ -686,7 +686,7 @@ export default function ActuatorGuidePage() {
       <P>
         Where a safety instrumented function is assessed at SIL 2 or SIL 3
         under IEC 61508, every element in the loop must be justified against
-        the target — the actuator included. Our Susin HD pneumatic range
+        the target — the actuator included. Our Susin I-Tork HD pneumatic range
         carries SIL 3, and the PANDA and PA electro-hydraulic series carry
         SIL 2 and SIL 3.
       </P>
@@ -708,7 +708,7 @@ export default function ActuatorGuidePage() {
         items={[
           "ISO 5211 defines the flange and drive interface between a quarter-turn valve and its actuator. Both sides quoting the same ISO 5211 flange code means they bolt together without a bespoke bracket. Most of our quarter-turn range is ISO 5211.",
           "ISO 5210 does the same job for multi-turn valves — gate and globe. The MAB bevel gear series and the ITG series mount to ISO 5210.",
-          "NAMUR defines the interface for mounting accessories — solenoid valves, positioners, limit switch boxes — onto the actuator. The Susin PDS and the electro-hydraulic range are NAMUR compliant, and the Kosaplus range is built to NAMUR and DIN 3337.",
+          "NAMUR defines the interface for mounting accessories — solenoid valves, positioners, limit switch boxes — onto the actuator. The Susin I-Tork PDS and the electro-hydraulic range are NAMUR compliant, and the Kosaplus range is built to NAMUR and DIN 3337.",
           "Position feedback mounts on top. The Kosaplus KLS range gives visual indication plus switched output — KLS10 and KLS20 bodies, weatherproof to IP67/IP68 or explosion proof to Ex d IIC T6, with either two SPDT microswitches or PNP/NPN proximity sensors on 12–24V DC.",
         ]}
       />

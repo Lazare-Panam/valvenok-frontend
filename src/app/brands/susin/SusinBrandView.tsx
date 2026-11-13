@@ -1,6 +1,6 @@
 "use client";
 
-// Susin brand page: every Susin series, grouped the same way as the Actuators menu
+// Susin I-Tork brand page: every Susin I-Tork series, grouped the same way as the Actuators menu
 // (Pneumatic, Electric, Hydraulic, Mechanical, Accessories). The series cards come
 // straight from each type page's SERIES list, so this page never drifts from them.
 
@@ -67,7 +67,7 @@ const CATALOGUES: { group: string; items: { label: string; href: string; cover: 
 const CATALOGUE_COUNT = CATALOGUES.reduce((n, g) => n + g.items.length, 0);
 
 const STATS = [
-  { value: String(SERIES_COUNT), unit: "series", label: "Susin actuators and accessories on Valvenok" },
+  { value: String(SERIES_COUNT), unit: "series", label: "Susin I-Tork actuators and accessories on Valvenok" },
   { value: String(CATEGORIES.length), unit: "types", label: "Pneumatic, electric, hydraulic, mechanical, accessories" },
   { value: "120,867", unit: "Nm", label: "Highest output torque (HD scotch yoke)" },
   { value: String(CATALOGUE_COUNT), unit: "PDFs", label: "Catalogues and manuals to download" },
@@ -75,9 +75,9 @@ const STATS = [
 
 const FAQ_ICONS = [FactoryOutlinedIcon, Inventory2OutlinedIcon, DescriptionOutlinedIcon, HandshakeOutlinedIcon];
 const FAQ = [
-  { q: "What does Susin make?", a: `Valve actuators and accessories: pneumatic scotch yoke and linear actuators, quarter-turn, multi-turn and linear electric actuators, electro-hydraulic and hydraulic actuators, gear operators and limit switch boxes. Valvenok lists ${SERIES_COUNT} Susin series, grouped on this page the same way as our Actuators menu.` },
+  { q: "What does Susin I-Tork make?", a: `Valve actuators and accessories: pneumatic scotch yoke and linear actuators, quarter-turn, multi-turn and linear electric actuators, electro-hydraulic and hydraulic actuators, gear operators and limit switch boxes. Valvenok lists ${SERIES_COUNT} Susin I-Tork series, grouped on this page the same way as our Actuators menu.` },
   { q: "Can I get the actuator, gearbox and limit switch box together?", a: "Yes. Tell us the valve, its torque and the control you need, and we’ll quote the actuator with its mounting, a manual override if needed, and a limit switch box as one package." },
-  { q: "Where are the technical details?", a: "Each series page has the specifications and a full model list. The original Susin catalogues are in the downloads section on this page." },
+  { q: "Where are the technical details?", a: "Each series page has the specifications and a full model list. The original Susin I-Tork catalogues are in the downloads section on this page." },
   { q: "Do you also supply other actuator brands?", a: "Yes. We are also a distributor for KOSAPLUS and SPAC Pneumatic: their rack & pinion and further scotch yoke actuators are shown under “Also in our group” in the Actuators menu and on the type pages." },
 ];
 const SCHEMA = {
@@ -94,17 +94,17 @@ function Hero() {
       <Box aria-hidden sx={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(190,40,40,0.10) 1px, transparent 1px)", backgroundSize: "22px 22px", maskImage: "linear-gradient(180deg, black, transparent 80%)", pointerEvents: "none" }} />
       <Box sx={{ ...wrap, position: "relative", textAlign: "center" }}>
         <Box sx={{ mx: "auto", mb: 2.5, width: 92, height: 92, borderRadius: "24px", bgcolor: "#fff", border: `1px solid ${T.border}`, boxShadow: T.shadow, display: "grid", placeItems: "center" }}>
-          <Box component="img" src={LOGO} alt="Susin" sx={{ height: 64, objectFit: "contain" }} />
+          <Box component="img" src={LOGO} alt="Susin I-Tork" sx={{ height: 64, objectFit: "contain" }} />
         </Box>
         <Box sx={{ display: "flex", justifyContent: "center" }}>
           <Kicker>Brand</Kicker>
         </Box>
         <Box component="h1" sx={{ m: 0, mb: 2, fontSize: { xs: "2.4rem", sm: "3.2rem", md: "4.2rem" }, fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1.02, color: T.ink }}>
-          <Words text="Susin" />
-          <Words text="actuators" start={200} sx={gradientText} />
+          <Words text="Susin I-Tork" />
+          <Words text="Actuators" start={200} sx={gradientText} />
         </Box>
         <Box component="p" sx={{ m: 0, mx: "auto", maxWidth: 700, fontSize: { xs: "1rem", md: "1.12rem" }, lineHeight: 1.7, color: T.body }}>
-          Every Susin range we supply, in one place: {SERIES_COUNT} series of pneumatic, electric, hydraulic and mechanical actuators and limit switch boxes, with specifications, model lists and the original catalogues.
+          Every Susin I-Tork range we supply, in one place: {SERIES_COUNT} series of pneumatic, electric, hydraulic and mechanical actuators and limit switch boxes, with specifications, model lists and the original catalogues.
         </Box>
         <Box sx={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 1.25, mt: 3.5 }}>
           <Box component="a" href="#range" sx={pillBtn(true)}>
@@ -154,8 +154,8 @@ function ProductCard({ s, cat }: { s: Card; cat: (typeof CATEGORIES)[number] }) 
   return (
     <Box sx={{ position: "relative", display: "flex", flexDirection: "column", height: "100%", boxSizing: "border-box", borderRadius: "18px", bgcolor: "#fff", border: `1px solid ${T.border}`, overflow: "hidden", transition: "transform .25s, box-shadow .25s, border-color .25s", "&:hover": { transform: "translateY(-4px)", boxShadow: T.shadowHover, borderColor: "#CFEBC6" }, "&:hover .pic": { transform: "scale(1.06)" } }}>
       {/* Photo */}
-      <Box component={Link} href={s.href} aria-label={`Susin ${s.name}`} sx={{ position: "relative", display: "block", aspectRatio: "1 / 1", bgcolor: "#FAFAFA", borderBottom: `1px solid ${T.border}`, overflow: "hidden" }}>
-        <Box className="pic" component="img" src={s.img} alt={`Susin ${s.code} series`} loading="lazy"
+      <Box component={Link} href={s.href} aria-label={`Susin I-Tork ${s.name}`} sx={{ position: "relative", display: "block", aspectRatio: "1 / 1", bgcolor: "#FAFAFA", borderBottom: `1px solid ${T.border}`, overflow: "hidden" }}>
+        <Box className="pic" component="img" src={s.img} alt={`Susin I-Tork ${s.code} series`} loading="lazy"
           sx={{ position: "absolute", inset: "12%", width: "76%", height: "76%", transition: "transform .4s", ...photo }} />
         <Box component="span" sx={{ position: "absolute", top: 10, left: 10, display: { xs: "none", sm: "inline-flex" }, alignItems: "center", gap: 0.5, px: 1, py: 0.4, borderRadius: 999, bgcolor: "#fff", border: `1px solid ${T.border}`, fontSize: "0.68rem", fontWeight: 700, color: T.greenDark, "& svg": { fontSize: 13 } }}>
           <cat.icon /> {cat.title.replace(" actuators", "")}
@@ -164,7 +164,7 @@ function ProductCard({ s, cat }: { s: Card; cat: (typeof CATEGORIES)[number] }) 
       </Box>
       {/* Details */}
       <Box sx={{ p: { xs: 1.5, sm: 2 }, display: "flex", flexDirection: "column", flex: 1 }}>
-        <Box sx={{ fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: T.muted }}>Susin · {s.kind}</Box>
+        <Box sx={{ fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: T.muted }}>Susin I-Tork · {s.kind}</Box>
         <Box component={Link} href={s.href} sx={{ mt: 0.4, mb: 0.75, fontSize: { xs: "0.92rem", sm: "1.02rem" }, lineHeight: 1.25, fontWeight: 800, color: T.ink, textDecoration: "none", "&:hover": { color: T.greenDark } }}>{s.name}</Box>
         <Box sx={{ display: "flex", alignItems: "baseline", gap: 0.5, mb: 1.5 }}>
           <Box component="span" sx={{ fontSize: { xs: "0.95rem", sm: "1.05rem" }, fontWeight: 800, color: T.greenDark }}>{s.tag}</Box>
@@ -205,8 +205,8 @@ function Range() {
       <Box sx={wrap}>
         <Box sx={{ textAlign: "center", mb: { xs: 3, md: 4 } }}>
           <Kicker>The range</Kicker>
-          <H2 id="h2-range">Shop Susin actuators</H2>
-          <Lead center>Every Susin series we supply. Open a series for its specifications, full model list and a quote.</Lead>
+          <H2 id="h2-range">Shop Susin I-Tork Actuators</H2>
+          <Lead center>Every Susin I-Tork series we supply. Open a series for its specifications, full model list and a quote.</Lead>
         </Box>
 
         {/* Filter tabs (category ids double as anchors from the hero chips) */}
@@ -256,7 +256,7 @@ function Catalogues() {
       <Box sx={wrap}>
         <Box sx={{ mb: 3.5 }}>
           <Kicker>Downloads</Kicker>
-          <H2 id="h2-cat">Susin catalogues</H2>
+          <H2 id="h2-cat">Susin I-Tork Catalogues</H2>
           <Lead>The original catalogues and manuals as PDFs, for dimensions, options and ordering codes.</Lead>
         </Box>
 
@@ -275,7 +275,7 @@ function Catalogues() {
 
         <Box sx={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", flexWrap: "wrap", gap: 1, mb: 2.5, pb: 2, borderBottom: `1px solid ${T.border}` }}>
           <Box component="h3" sx={{ m: 0, fontSize: { xs: "1.4rem", md: "1.8rem" }, fontWeight: 800, letterSpacing: "-0.02em", color: T.ink }}>
-            {g.group} <Box component="span" sx={gradientText}>{g.group === "Accessories" ? "" : "actuators"}</Box>
+            {g.group} <Box component="span" sx={gradientText}>{g.group === "Accessories" ? "" : "Actuators"}</Box>
           </Box>
           <Box sx={{ fontSize: "0.9rem", color: T.muted }}>{g.items.length} document{g.items.length > 1 ? "s" : ""}</Box>
         </Box>
@@ -317,7 +317,7 @@ function Faq() {
       <Box sx={{ ...wrap, maxWidth: 900 }}>
         <Box sx={{ textAlign: "center", mb: 4 }}>
           <Kicker>FAQ</Kicker>
-          <H2 id="h2-faq">Susin questions</H2>
+          <H2 id="h2-faq">Susin I-Tork Questions</H2>
         </Box>
         <Box sx={{ display: "grid", gap: 1.25 }}>
           {FAQ.map((f, i) => (
@@ -352,9 +352,9 @@ function Cta() {
       <Box sx={wrap}>
         <Box sx={{ p: { xs: 3.5, md: 6 }, borderRadius: "28px", background: `linear-gradient(120deg, ${L.mint} 0%, #EAF4FF 55%, #FFF7DD 100%)`, border: `1px solid ${T.border}`, display: "flex", flexDirection: { xs: "column", md: "row" }, alignItems: { md: "center" }, justifyContent: "space-between", gap: 3 }}>
           <Box>
-            <Box component="h2" id="h2-cta" sx={{ m: 0, mb: 1, fontSize: { xs: "1.6rem", md: "2.2rem" }, fontWeight: 800, letterSpacing: "-0.03em", color: T.ink }}>Need a Susin actuator?</Box>
+            <Box component="h2" id="h2-cta" sx={{ m: 0, mb: 1, fontSize: { xs: "1.6rem", md: "2.2rem" }, fontWeight: 800, letterSpacing: "-0.03em", color: T.ink }}>Need a Susin I-Tork Actuator?</Box>
             <Box component="p" sx={{ m: 0, maxWidth: 620, lineHeight: 1.7, color: T.body }}>
-              Send us the valve, its torque, the supply you have and the fail-safe position, and we’ll pick the Susin series and size and quote it.
+              Send us the valve, its torque, the supply you have and the fail-safe position, and we’ll pick the Susin I-Tork series and size and quote it.
             </Box>
           </Box>
           <Box sx={{ display: "flex", gap: 1.5, flexWrap: "wrap", flexShrink: 0 }}>

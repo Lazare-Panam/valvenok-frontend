@@ -4,6 +4,7 @@
 // Pneumatic and Electric Actuators: centred hero with a series strip, stats,
 // finder, every type, a torque comparison, the rest of the package, FAQ.
 
+import { titleCase } from "@/src/app/Common/titleCase";
 import * as React from "react";
 import Link from "next/link";
 import { Box } from "@mui/material";
@@ -44,7 +45,7 @@ type Series = {
   note: string;
 };
 
-// Figures from Susin's hydraulic catalogues: the PANDA / PA brochure and the
+// Figures from Susin I-Tork's hydraulic catalogues: the PANDA / PA brochure and the
 // hydraulic & electro-hydraulic data sheet (PA-HX, HRSDA / HRSSA, HLDA tables).
 export const SERIES: Series[] = [
   { key: "panda", code: "PANDA", name: "PANDA electro-hydraulic, low pressure", kind: "Electro-hydraulic", brand: "Susin", text: "Compact units with their own pump, 8 bar on board: only electric power needed. Double acting or spring return.", tag: "46 – 9,274 Nm", min: 46, max: 9274, img: `${B}/ktc-panda-pa.jpg`, href: "/actuators/hydraulic/panda", icon: <CompressOutlinedIcon />, color: "#8FD47C", note: "8 bar · ATEX Zone 1 & 2" },
@@ -103,7 +104,7 @@ function Hero() {
         </Box>
         <Box component="h1" sx={{ m: 0, mb: 2, fontSize: { xs: "2.4rem", sm: "3.2rem", md: "4.2rem" }, fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1.02, color: T.ink }}>
           <Words text="Hydraulic" />
-          <Words text="actuators" start={200} sx={gradientText} />
+          <Words text="Actuators" start={200} sx={gradientText} />
         </Box>
         <Box component="p" sx={{ m: 0, mx: "auto", maxWidth: 700, fontSize: { xs: "1rem", md: "1.12rem" }, lineHeight: 1.7, color: T.body }}>
           Hydraulic power for quarter-turn valves, from 35 to 112,595 Nm: compact electro-hydraulic units that need only electric power, rack & pinion and scotch yoke actuators up to 200 bar for the largest valves, plus linear piston actuators up to 402 kN for globe, gate and control valves.
@@ -173,7 +174,7 @@ function Finder() {
       <Box sx={{ ...wrap, display: "grid", gridTemplateColumns: { xs: "minmax(0,1fr)", md: "0.8fr 1.2fr" }, gap: { xs: 3, md: 7 }, alignItems: "center" }}>
         <Box>
           <Kicker>Actuator finder</Kicker>
-          <H2 id="h2-finder">Not sure which actuator?</H2>
+          <H2 id="h2-finder">Not Sure Which Actuator?</H2>
           <Lead>Pick what the actuator has to do and the torque your valve needs. We’ll point you to the series that fit.</Lead>
         </Box>
         <Reveal from="right">
@@ -248,7 +249,7 @@ function SeriesCard({ s }: { s: Series }) {
       </Box>
       <Box sx={{ p: { xs: 1.5, sm: 2.5 }, display: "flex", flexDirection: "column", flex: 1 }}>
         <Box sx={{ fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: T.muted, mb: 0.5 }}>{s.kind}</Box>
-        <Box component="h3" sx={{ m: 0, mb: 0.75, fontSize: { xs: "0.92rem", sm: "1.1rem" }, lineHeight: 1.25, fontWeight: 800, color: T.ink, letterSpacing: "-0.01em" }}>{s.name}</Box>
+        <Box component="h3" sx={{ m: 0, mb: 0.75, fontSize: { xs: "0.92rem", sm: "1.1rem" }, lineHeight: 1.25, fontWeight: 800, color: T.ink, letterSpacing: "-0.01em" }}>{titleCase(s.name)}</Box>
         <Box component="p" sx={{ m: 0, mb: { xs: 1.25, sm: 2 }, fontSize: { xs: "0.78rem", sm: "0.9rem" }, lineHeight: 1.5, color: T.body, flex: 1 }}>{s.text}</Box>
         <Box sx={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 1 }}>
           <Box component="span" sx={{ px: 1.25, py: 0.5, borderRadius: 999, bgcolor: T.greenSoft, color: T.greenDark, fontSize: { xs: "0.7rem", sm: "0.78rem" }, fontWeight: 700, whiteSpace: "nowrap" }}>{s.tag}</Box>
@@ -267,7 +268,7 @@ function Types() {
       <Box sx={wrap}>
         <Box sx={{ textAlign: "center", mb: { xs: 4, md: 5 } }}>
           <Kicker>Types</Kicker>
-          <H2 id="h2-types">Every hydraulic actuator we supply</H2>
+          <H2 id="h2-types">Every Hydraulic Actuator We Supply</H2>
           <Lead center>Pick a type to see its sizes and torque tables, with a quote.</Lead>
         </Box>
         <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr 1fr", lg: "repeat(5, 1fr)" }, gap: { xs: 1.25, md: 2.5 } }}>
@@ -294,7 +295,7 @@ function Compare() {
       <Box sx={wrap}>
         <Box sx={{ mb: 4 }}>
           <Kicker>Torque ranges</Kicker>
-          <H2 id="h2-compare">How much torque does each type give?</H2>
+          <H2 id="h2-compare">How Much Torque Does Each Type Give?</H2>
           <Lead>Each bar shows the torque range of a rotary type, from 35 to 112,595 Nm on a log scale. Ratings vary by size and pressure, so check the torque tables. The HLDA linear piston is rated in thrust (6–402 kN), not torque.</Lead>
         </Box>
         <Box ref={ref} sx={{ borderRadius: "22px", bgcolor: "#fff", border: `1px solid ${T.border}`, boxShadow: T.shadow, p: { xs: 1.5, md: 2.5 } }}>
@@ -356,7 +357,7 @@ function CompleteLine() {
       <Box sx={wrap}>
         <Box sx={{ mb: 4 }}>
           <Kicker>Complete the package</Kicker>
-          <H2 id="h2-line">Controls and other actuators</H2>
+          <H2 id="h2-line">Controls and Other Actuators</H2>
           <Lead>Add a limit switch box to report the valve position, or choose another type where hydraulics aren’t the right fit.</Lead>
         </Box>
         <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr 1fr", lg: "repeat(4, 1fr)" }, gap: { xs: 1.25, md: 2.5 } }}>
@@ -368,7 +369,7 @@ function CompleteLine() {
                   <Box component="img" src={m.img} alt={m.title} loading="lazy" sx={{ height: { xs: 84, sm: 124 }, width: "auto", maxWidth: "78%", ...photo }} />
                 </Box>
                 <Box sx={{ p: { xs: 1.5, sm: 2.5 }, display: "flex", flexDirection: "column", flex: 1 }}>
-                  <Box component="h3" sx={{ m: 0, mb: 0.75, fontSize: { xs: "0.92rem", sm: "1.08rem" }, fontWeight: 800, color: T.ink }}>{m.title}</Box>
+                  <Box component="h3" sx={{ m: 0, mb: 0.75, fontSize: { xs: "0.92rem", sm: "1.08rem" }, fontWeight: 800, color: T.ink }}>{titleCase(m.title)}</Box>
                   <Box component="p" sx={{ m: 0, mb: 1.5, fontSize: { xs: "0.78rem", sm: "0.88rem" }, lineHeight: 1.5, color: T.body, flex: 1 }}>{m.text}</Box>
                   <Box component="span" sx={{ alignSelf: "flex-start", px: 1.25, py: 0.5, borderRadius: 999, bgcolor: T.greenSoft, color: T.greenDark, fontSize: "0.75rem", fontWeight: 700 }}>{m.tag}</Box>
                 </Box>
@@ -392,7 +393,7 @@ function Faq() {
       <Box sx={{ ...wrap, maxWidth: 900 }}>
         <Box sx={{ textAlign: "center", mb: 4 }}>
           <Kicker>FAQ</Kicker>
-          <H2 id="h2-faq">Hydraulic actuator questions</H2>
+          <H2 id="h2-faq">Hydraulic Actuator Questions</H2>
         </Box>
         <Box sx={{ display: "grid", gap: 1.25 }}>
           {FAQ.map((f, i) => (
@@ -427,7 +428,7 @@ function Cta() {
       <Box sx={wrap}>
         <Box sx={{ p: { xs: 3.5, md: 6 }, borderRadius: "28px", background: `linear-gradient(120deg, ${L.mint} 0%, #EAF4FF 55%, #FFF7DD 100%)`, border: `1px solid ${T.border}`, display: "flex", flexDirection: { xs: "column", md: "row" }, alignItems: { md: "center" }, justifyContent: "space-between", gap: 3 }}>
           <Box>
-            <Box component="h2" id="h2-cta" sx={{ m: 0, mb: 1, fontSize: { xs: "1.6rem", md: "2.2rem" }, fontWeight: 800, letterSpacing: "-0.03em", color: T.ink }}>Not sure which actuator?</Box>
+            <Box component="h2" id="h2-cta" sx={{ m: 0, mb: 1, fontSize: { xs: "1.6rem", md: "2.2rem" }, fontWeight: 800, letterSpacing: "-0.03em", color: T.ink }}>Not Sure Which Actuator?</Box>
             <Box component="p" sx={{ m: 0, maxWidth: 620, lineHeight: 1.7, color: T.body }}>
               Send us the valve, its torque, your power supply and the fail-safe position, and we’ll size the actuator and quote it with its controls.
             </Box>

@@ -20,7 +20,7 @@ const OPTIONS: { icon: SvgIconComponent; name: string; code: string; text: strin
   { icon: ToggleOnOutlinedIcon, name: "Local control", code: "LP4 · LM4", text: "A local control unit for single phase, or for 3 phase with a reversing contactor and transformer, for commissioning and emergency operation.", fits: "All models" },
   { icon: SettingsInputComponentOutlinedIcon, name: "Integral unit", code: "ICM 1 / 2", text: "Local control with a phase discriminator.", fits: "IQL 08 to IQL 25" },
   { icon: BatteryChargingFullOutlinedIcon, name: "Battery backup", code: "BP", text: "Fail safe on power loss: the valve goes open, closed or stays put, as you choose.", fits: "All models" },
-  { icon: LocalFireDepartmentOutlinedIcon, name: "Explosion proof", code: "Exd IIB T4", text: "An explosion-proof version, listed by Susin as available.", fits: "Option" },
+  { icon: LocalFireDepartmentOutlinedIcon, name: "Explosion proof", code: "Exd IIB T4", text: "An explosion-proof version, listed by Susin I-Tork as available.", fits: "Option" },
 ];
 
 export default function IqlOptions() {
@@ -29,8 +29,8 @@ export default function IqlOptions() {
       <Box sx={wrap}>
         <Box sx={{ mb: 4 }}>
           <Kicker>Controls and options</Kicker>
-          <H2 id="h2-options">Set it up for your control system</H2>
-          <Lead>Every IQL runs on/off as standard, with limit switches, a space heater and a handwheel. These options from Susin’s catalogue add modulating, feedback, local control and fail-safe duty.</Lead>
+          <H2 id="h2-options">Set It Up for Your Control System</H2>
+          <Lead>Every IQL runs on/off as standard, with limit switches, a space heater and a handwheel. These options from Susin I-Tork’s catalogue add modulating, feedback, local control and fail-safe duty.</Lead>
         </Box>
         <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", lg: "repeat(3, 1fr)" }, gap: 1.5 }}>
           {OPTIONS.map(({ icon: Icon, name, code, text, fits }) => (

@@ -1,5 +1,5 @@
 // PA models, shared by the model list and the per-model product pages.
-// Every figure is from Susin's PANDA / PA brochure; see ../paData.
+// Every figure is from Susin I-Tork's PANDA / PA brochure; see ../paData.
 import type { Item } from '@/src/app/pneumatic/actuators/_series/modelTypes'
 import { PA_MODELS, PA_COMMON, PA_IMAGE } from '../paData'
 
@@ -17,7 +17,7 @@ const RAW_ITEMS: Item[] = PA_MODELS.map((m, i) => {
         ['Valve connection (SW × depth)', d.conn],
         ['Oil volume', `${d.oilL} L`],
       ]
-    : [['Dimensions', 'On request (Susin lists dimensions for the spring return sizes only)']]
+    : [['Dimensions', 'On request (Susin I-Tork lists dimensions for the spring return sizes only)']]
   return {
     id: m.model,
     model: m.model,
@@ -47,7 +47,7 @@ const RAW_ITEMS: Item[] = PA_MODELS.map((m, i) => {
       ...dimSpecs,
       ...PA_COMMON,
     ],
-    note: 'Torque from Susin’s product selection table; higher torques up to 10,000 Nm are available on request. Send us the valve torque, flange and connection and we’ll confirm the model.',
+    note: 'Torque from Susin I-Tork’s product selection table; higher torques up to 10,000 Nm are available on request. Send us the valve torque, flange and connection and we’ll confirm the model.',
     rfq: {
       id: `pa-${m.code.toLowerCase()}`,
       name: `${m.model} electro-hydraulic actuator`,

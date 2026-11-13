@@ -1,4 +1,4 @@
-// Susin catalogue PDFs on blob storage (valvenok-images/catalogs/susin), one per series.
+// Susin I-Tork catalogue PDFs on blob storage (valvenok-images/catalogs/susin), one per series.
 // Use: SUSIN_CATALOG.MHD → link for a "Download catalogue" button.
 const BASE = "https://pblol2.blob.core.windows.net/valvenok-images/catalogs/susin/";
 const pdf = (name: string) => BASE + encodeURIComponent(name) + ".pdf";

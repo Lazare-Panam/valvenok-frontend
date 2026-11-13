@@ -6,7 +6,7 @@ import ModelList, { type ListDef } from '../../_series/ModelList'
 import { ITEMS, SIZES } from './items'
 const DEF: ListDef = {
   title: 'PDS scotch yoke actuator models',
-  intro: `${ITEMS.length} Susin PDS models in 10 sizes: PD double acting and PS spring return. Filter by action, size and mounting, open any model for its full figures, then request a quote.`,
+  intro: `${ITEMS.length} Susin I-Tork PDS models in 10 sizes: PD double acting and PS spring return. Filter by action, size and mounting, open any model for its full figures, then request a quote.`,
   back: { href: '/pneumatic/actuators/pds', label: 'PDS series overview' },
   catalog: { href: SUSIN_CATALOG.PDS, label: 'catalogue (PDF)' },
   columns: ['Type', 'Torque', 'Spring torque', 'ISO 5211', 'Air · time'],

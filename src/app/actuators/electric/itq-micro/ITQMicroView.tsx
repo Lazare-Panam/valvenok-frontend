@@ -1,7 +1,7 @@
 "use client";
 
 // ITQ Micro series page, on the shared series template. Every figure is from the
-// Susin / i-Tork ITQ Micro (economic style) catalogue: one page per model with
+// Susin I-Tork ITQ Micro (economic style) catalogue: one page per model with
 // its features, performance table and standard specification.
 
 import SquareFootOutlinedIcon from "@mui/icons-material/SquareFootOutlined";
@@ -38,7 +38,7 @@ const DEF: SeriesDef = {
   h1: ["ITQ Micro", "compact electric"],
   lead: (
     <>
-      Susin economic-style electric actuators for small ball and plug valves and dampers. {TOTAL} compact models from {MIN} to {MAX} Nm, ISO 5211 mounted, on/off or modulating.
+      Susin I-Tork economic-style electric actuators for small ball and plug valves and dampers. {TOTAL} compact models from {MIN} to {MAX} Nm, ISO 5211 mounted, on/off or modulating.
     </>
   ),
   specs: [
@@ -53,7 +53,7 @@ const DEF: SeriesDef = {
   productsHref: "/actuators/electric/itq-micro/products",
   catalog: ITQM_CATALOG,
   image: ITQM_IMAGE,
-  imageAlt: "Susin ITQ Micro compact electric actuators",
+  imageAlt: "Susin I-Tork ITQ Micro compact electric actuators",
   howTitle: "Three sizes for small valves",
   how: <MicroLineup />,
   ladder: {
@@ -65,7 +65,7 @@ const DEF: SeriesDef = {
   },
   build: {
     title: "How they’re built",
-    imageAlt: "Susin ITQ Micro electric actuators",
+    imageAlt: "Susin I-Tork ITQ Micro electric actuators",
     points: [
       ["ITQ 0020: free voltage, very compact", "A DC motor that runs on 85–265 VAC single phase (24 VAC/DC option), sized for small 1\" ball valves. IP66, O-ring sealed, with a PG11 gland and wires fitted."],
       ["ITQ 0040: spur gears and a declutchable lever", "An induction motor with high starting torque and thermal protection, spur gearing for high efficiency, and a dome position indicator. IP67."],

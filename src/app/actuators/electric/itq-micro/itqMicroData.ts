@@ -1,5 +1,5 @@
 // ITQ Micro (economic style) electric actuators for small valves.
-// Every value below comes from the Susin / i-Tork catalogue (Electric - ITQ Micro.pdf).
+// Every value below comes from the Susin I-Tork catalogue (Electric - ITQ Micro.pdf).
 import { SUSIN_CATALOG } from "@/src/app/Common/susinCatalogs";
 
 const BLOB = "https://pblol2.blob.core.windows.net/valvenok-images/brands/susin";

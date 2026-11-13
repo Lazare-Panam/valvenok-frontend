@@ -1,7 +1,7 @@
 "use client";
 
 // MAW series page, on the shared series template. Every figure is from the
-// Susin MAW worm gear catalogue (see mawData).
+// Susin I-Tork MAW worm gear catalogue (see mawData).
 
 import SquareFootOutlinedIcon from "@mui/icons-material/SquareFootOutlined";
 import PanToolOutlinedIcon from "@mui/icons-material/PanToolOutlined";
@@ -43,7 +43,7 @@ const DEF: SeriesDef = {
   h1: ["MAW series", "worm gear actuators"],
   lead: (
     <>
-      Susin quarter-turn manual worm gear actuators for ball, butterfly and plug valves and dampers. {STANDARD.length} sizes from {nm(MIN)} to {nm(MAX)} Nm, each as standard or, from the MAW-300, with a single or double stage reduction: {TOTAL} models in all.
+      Susin I-Tork quarter-turn manual worm gear actuators for ball, butterfly and plug valves and dampers. {STANDARD.length} sizes from {nm(MIN)} to {nm(MAX)} Nm, each as standard or, from the MAW-300, with a single or double stage reduction: {TOTAL} models in all.
     </>
   ),
   specs: [
@@ -58,7 +58,7 @@ const DEF: SeriesDef = {
   productsHref: "/actuators/mechanical/maw/products",
   catalog: MAW_CATALOG,
   image: MAW_IMAGE,
-  imageAlt: "Susin MAW worm gear actuator with handwheel",
+  imageAlt: "Susin I-Tork MAW worm gear actuator with handwheel",
   howTitle: "How a worm gear actuator works",
   how: <WormGear />,
   ladder: {
@@ -72,7 +72,7 @@ const DEF: SeriesDef = {
   build: {
     title: "How it’s built",
     image: MAW_EXPLODED,
-    imageAlt: "Exploded view of a Susin MAW worm gear actuator: housing, worm wheel, drive bush, worm shaft and handwheel",
+    imageAlt: "Exploded view of a Susin I-Tork MAW worm gear actuator: housing, worm wheel, drive bush, worm shaft and handwheel",
     points: [
       ["Worm and worm wheel", "A carbon steel worm shaft drives a ductile iron worm wheel, turning the valve 90° on bearings with thrust washers above and below."],
       ["Splined drive bush", "The splines let the valve stem key line up accurately."],
@@ -98,7 +98,7 @@ const DEF: SeriesDef = {
   faqTitle: "MAW worm gear questions",
   faq: [
     { q: "How do I choose the size?", a: "Take the valve’s maximum operating torque and pick the smallest MAW whose output torque covers it, then check the ISO 5211 flange (standard or option) and the stem fits the drive bush.", icon: SquareFootOutlinedIcon },
-    { q: "Standard, 1S or 2S?", a: "All gearings of a size have the same torque. A reduction stage raises the mechanical advantage, so the rim pull falls, but the handwheel takes more turns. Use the rim effort check above; Susin’s standard limit is 360 N.", icon: PanToolOutlinedIcon },
+    { q: "Standard, 1S or 2S?", a: "All gearings of a size have the same torque. A reduction stage raises the mechanical advantage, so the rim pull falls, but the handwheel takes more turns. Use the rim effort check above; Susin I-Tork’s standard limit is 360 N.", icon: PanToolOutlinedIcon },
     { q: "Which valves does it suit?", a: "Quarter-turn valves: ball, butterfly and plug valves and dampers, in general industry, chemical, power, HVAC and waterworks. For gate and globe valves, which need many turns, use a multi-turn bevel gear such as the MAB.", icon: CompareArrowsOutlinedIcon },
     { q: "Can I adjust the open and shut positions?", a: "Yes. Stop bolts set both end positions, with ±5° of adjustment.", icon: TuneOutlinedIcon },
     { q: "Can it be motorised later?", a: "Yes. An electric actuator mounts on the MOV flange to ISO 5210, and limit switches can be fitted on site without machining.", icon: ElectricalServicesOutlinedIcon },

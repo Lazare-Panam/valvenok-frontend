@@ -1,6 +1,6 @@
 "use client";
 
-// ITL or IQL: Susin's own comparison table from the ITL catalogue (p.7).
+// ITL or IQL: Susin I-Tork's own comparison table from the ITL catalogue (p.7).
 
 import Link from "next/link";
 import { Box } from "@mui/material";
@@ -15,8 +15,8 @@ export default function ItlVsIql() {
       <Box sx={wrap}>
         <Box sx={{ mb: 3 }}>
           <Kicker>ITL or IQL?</Kicker>
-          <H2 id="h2-vs">Two linear ranges, compared</H2>
-          <Lead>ITL is compact, faster and rated for continuous duty on universal power. IQL goes up to 10 kN and runs on 3 phase supplies too. Figures from Susin’s comparison table.</Lead>
+          <H2 id="h2-vs">Two Linear Ranges, Compared</H2>
+          <Lead>ITL is compact, faster and rated for continuous duty on universal power. IQL goes up to 10 kN and runs on 3 phase supplies too. Figures from Susin I-Tork’s comparison table.</Lead>
         </Box>
         <Box sx={{ overflowX: "auto", borderRadius: "20px", border: `1px solid ${T.border}`, bgcolor: "#fff" }}>
           <Box component="table" sx={{ width: "100%", minWidth: 720, borderCollapse: "collapse", fontSize: "0.88rem", "& th, & td": { px: 1.75, py: 1.2, borderBottom: `1px solid ${T.border}`, textAlign: "left", whiteSpace: "nowrap" }, "& thead th": { fontSize: "0.72rem", fontWeight: 800, letterSpacing: "0.06em", textTransform: "uppercase", color: T.muted, bgcolor: "#FAFCFA" }, "& tbody th": { fontWeight: 700, color: T.ink }, "& td": { color: T.body }, "& .itl": { bgcolor: "#F3FBF0", color: T.ink, fontWeight: 700 }, "& tr:last-of-type th, & tr:last-of-type td": { borderBottom: 0 } }}>
