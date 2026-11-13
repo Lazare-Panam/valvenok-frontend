@@ -17,6 +17,8 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import VerifiedUserOutlinedIcon from "@mui/icons-material/VerifiedUserOutlined";
 import WorkspacePremiumOutlinedIcon from "@mui/icons-material/WorkspacePremiumOutlined";
+import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
+import NextLink from "next/link";
 import { GROUP_SITES } from "../group";
 
 const BRAND_GREEN = "#61D649";
@@ -43,6 +45,7 @@ const FOOTER_LINKS = [
       { label: "News & Blog", href: "/news" },
       { label: "Quality & Compliance", href: "/quality" },
       { label: "JOSCAR Registered", href: "/joscar-registered" },
+      { label: "BVAA Member", href: "/bvaa-member" },
       { label: "Contact", href: "/contact" },
     ],
   },
@@ -291,12 +294,17 @@ export default function Footer() {
           </Stack>
           <Stack direction="row" spacing={1.25}>
             {[
-              { icon: VerifiedUserOutlinedIcon, label: "JOSCAR" },
-              { icon: WorkspacePremiumOutlinedIcon, label: "ISO 9001" },
-            ].map(({ icon: Icon, label }) => (
+              { icon: VerifiedUserOutlinedIcon, label: "JOSCAR", href: "/joscar-registered" },
+              { icon: GroupsOutlinedIcon, label: "BVAA", href: "/bvaa-member" },
+              { icon: WorkspacePremiumOutlinedIcon, label: "ISO 9001", href: undefined },
+            ].map(({ icon: Icon, label, href }) => (
               <Box
                 key={label}
+                {...(href ? { component: NextLink, href } : {})}
                 sx={{
+                  textDecoration: "none",
+                  transition: "background-color .15s",
+                  "&:hover": href ? { bgcolor: alpha("#fff", 0.18) } : {},
                   display: "flex",
                   alignItems: "center",
                   gap: 0.75,

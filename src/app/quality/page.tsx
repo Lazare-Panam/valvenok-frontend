@@ -10,6 +10,7 @@ import VerifiedOutlinedIcon from '@mui/icons-material/VerifiedOutlined';
 import EngineeringOutlinedIcon from '@mui/icons-material/EngineeringOutlined';
 import InventoryOutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 import HandshakeOutlinedIcon from '@mui/icons-material/HandshakeOutlined';
+import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
 import { alpha } from '@mui/material/styles';
 
 const PILLARS = [
@@ -17,6 +18,11 @@ const PILLARS = [
     icon: VerifiedOutlinedIcon,
     title: 'JOSCAR Registered',
     body: 'Valvenok is a JOSCAR-registered supplier, meeting the stringent compliance requirements of the UK defence and aerospace supply chain. Our registration is independently verified and regularly audited.',
+  },
+  {
+    icon: GroupsOutlinedIcon,
+    title: 'BVAA Member',
+    body: 'Valvenok is a member of the British Valve & Actuator Association, the UK trade association for the valve and actuator industry, with access to its technical reports, guides and brand-independent training.',
   },
   {
     icon: EngineeringOutlinedIcon,
@@ -44,6 +50,7 @@ const STANDARDS = [
   'Material Certs to EN 10204 3.1 / 3.2',
   'Hydrogen Service (H₂-ready) Components',
   'JOSCAR Registered Supplier',
+  'BVAA Member',
 ];
 
 const MATERIALS = [
@@ -132,7 +139,7 @@ export default function QualityPage() {
 
           <Grid container spacing={3}>
             {PILLARS.map(({ icon: Icon, title, body }, i) => (
-              <Grid size={{ xs: 12, md: 6 }} key={i}>
+              <Grid size={{ xs: 12, md: i === PILLARS.length - 1 && PILLARS.length % 2 ? 12 : 6 }} key={i}>
                 <Box
                   sx={{
                     p: 3.5,

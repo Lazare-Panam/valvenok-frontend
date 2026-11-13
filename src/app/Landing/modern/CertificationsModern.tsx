@@ -16,7 +16,9 @@ const STANDARDS = [
   "Material Certs to EN 10204 3.1 / 3.2",
   "Hydrogen Service (H₂-ready) Components",
   "JOSCAR Registered Supplier",
+  "BVAA Member",
 ];
+const LINKS: Record<string, string> = { "JOSCAR Registered Supplier": "/joscar-registered", "BVAA Member": "/bvaa-member" };
 
 export default function CertificationsModern() {
   return (
@@ -95,20 +97,21 @@ export default function CertificationsModern() {
 
         {/* Standards grid */}
         <Box
-          component="ul"
+          component="div"
           sx={{
             listStyle: "none",
             m: 0,
             p: 0,
             display: "grid",
-            gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", lg: "repeat(4, 1fr)" },
+            gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", lg: "repeat(3, 1fr)" },
           }}
         >
           {STANDARDS.map((s) => (
             <Box
-              component="li"
               key={s}
+              {...(LINKS[s] ? { component: Link, href: LINKS[s] } : { component: "div" })}
               sx={{
+                textDecoration: "none",
                 display: "flex",
                 alignItems: "center",
                 gap: 1.5,

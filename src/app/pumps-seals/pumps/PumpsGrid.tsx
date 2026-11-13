@@ -10,10 +10,6 @@ import { alpha } from "@mui/material/styles";
 import { Category } from "@/src/app/Common/Products_Page/ProductCard";
 import { CardGroupLinks } from "@/src/app/Common/GroupVisitLinks";
 
-const BPMA_LOGO_URL =
-  "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/bmpa-cert-frame.webp";
-const BPMA_PDF_URL =
-  "https://pblol2.blob.core.windows.net/valvenok-images/certfiicates/BMPA.pdf";
 
 export default function PumpsGrid({ families }: { families: Category[] }) {
   return (
@@ -218,71 +214,6 @@ export default function PumpsGrid({ families }: { families: Category[] }) {
             </Card>
           ))}
 
-          {/* CERTIFICATION CARD */}
-          {/* CERTIFICATION CARD */}
-          <Card
-            component="a"
-            href={BPMA_PDF_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            elevation={0}
-            sx={{
-              height: "100%",
-              display: "flex",
-              flexDirection: "column",
-              border: "1px solid",
-              borderColor: "divider",
-              borderRadius: 0,
-              textDecoration: "none",
-              bgcolor: "#fff",
-              transition: "all 0.3s ease",
-              "&:hover": {
-                borderColor: "primary.main",
-                transform: "translateY(-6px)",
-                boxShadow: (theme) =>
-                  `0 20px 40px ${alpha(theme.palette.primary.main, 0.1)}`,
-              },
-            }}
-          >
-            <Box
-              sx={{
-                position: "relative",
-                flexGrow: 1,
-                minHeight: 320,
-                bgcolor: "#fff",
-              }}
-            >
-              <Image
-                src={BPMA_LOGO_URL}
-                alt="BPMA Member"
-                fill
-                style={{ objectFit: "contain", padding: "16px" }}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
-            </Box>
-
-            <Box
-              sx={{
-                textAlign: "center",
-                py: 2,
-                borderTop: "1px solid",
-                borderColor: "divider",
-              }}
-            >
-              <Typography
-                sx={{
-                  fontFamily: '"Barlow Condensed", sans-serif',
-                  fontSize: "0.75rem",
-                  fontWeight: 800,
-                  letterSpacing: "0.08em",
-                  textTransform: "uppercase",
-                  color: "text.secondary",
-                }}
-              >
-                BPMA Member — View Certificate
-              </Typography>
-            </Box>
-          </Card>
         </Box>
       </Box>
     </Box>

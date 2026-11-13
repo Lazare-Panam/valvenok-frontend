@@ -149,6 +149,20 @@ export default function MobileUserActions({ onClose }: Props) {
           <ListItemText primary="Sign In" primaryTypographyProps={labelSx} />
         </ListItemButton>
       )}
+
+      {/* ACCREDITATIONS: the header logos are desktop-only */}
+      <Divider sx={{ my: 1 }} />
+      <Box sx={{ px: 2, py: 1.5, display: "flex", alignItems: "center", gap: 3 }}>
+        {[
+          { href: "/joscar-registered", src: "https://pblol2.blob.core.windows.net/valvenok-images/joscar-registered.png", alt: "JOSCAR registered supplier", h: 44 },
+          { href: "/bvaa-member", src: "https://pblol2.blob.core.windows.net/valvenok-images/certfiicates/bvaa-logo.png", alt: "BVAA member", h: 24 },
+        ].map((l) => (
+          <Box key={l.href} component="button" type="button" onClick={() => go(l.href)} aria-label={l.alt}
+            sx={{ border: 0, bgcolor: "transparent", p: 0, cursor: "pointer", display: "flex", alignItems: "center" }}>
+            <Box component="img" src={l.src} alt={l.alt} sx={{ height: l.h, width: "auto", display: "block" }} />
+          </Box>
+        ))}
+      </Box>
     </Box>
   );
 }

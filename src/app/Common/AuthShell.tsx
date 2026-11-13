@@ -128,6 +128,7 @@ export function OrDivider({ label = "or" }: { label?: string }) {
 const TRUST = [
   { icon: <LockOutlinedIcon />, text: "Secure sign-in" },
   { icon: <VerifiedUserOutlinedIcon />, text: "JOSCAR-registered supplier" },
+  { icon: <VerifiedUserOutlinedIcon />, text: "BVAA member" },
   { icon: <SupportAgentOutlinedIcon />, text: "UK support team" },
 ];
 

@@ -14,6 +14,7 @@ import BoltOutlinedIcon from "@mui/icons-material/BoltOutlined";
 import VerifiedOutlinedIcon from "@mui/icons-material/VerifiedOutlined";
 import HandshakeOutlinedIcon from "@mui/icons-material/HandshakeOutlined";
 import WorkspacePremiumOutlinedIcon from "@mui/icons-material/WorkspacePremiumOutlined";
+import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
 import ScienceOutlinedIcon from "@mui/icons-material/ScienceOutlined";
 import BubbleChartOutlinedIcon from "@mui/icons-material/BubbleChartOutlined";
 import { T, textReset } from "../Landing/modern/tokens";
@@ -121,6 +122,7 @@ function Hero() {
             </Box>
             <SpinRing />
             <FloatChip icon={<WorkspacePremiumOutlinedIcon fontSize="small" />} title="JOSCAR" sub="Registered Supplier" sx={{ left: { xs: 12, md: -40 }, bottom: { xs: -28, md: 40 } }} />
+            <FloatChip icon={<GroupsOutlinedIcon fontSize="small" />} title="BVAA" sub="Member" delay={0.6} sx={{ right: { sm: 12, md: -30 }, top: { sm: 16, md: 230 }, display: { xs: "none", sm: "block" } }} />
             <FloatChip icon={<ScienceOutlinedIcon fontSize="small" />} title="SS316" sub="Primary Material" delay={1.2} sx={{ right: { xs: 12, md: -24 }, bottom: { xs: -84, md: -26 }, display: { xs: "none", sm: "block" } }} />
             <FloatChip icon={<BubbleChartOutlinedIcon fontSize="small" />} title="H₂" sub="Hydrogen Ready" delay={2.1} sx={{ left: { md: "38%" }, top: { md: -30 }, display: { xs: "none", md: "block" } }} />
           </Box>
@@ -131,7 +133,7 @@ function Hero() {
 }
 
 // ───────────────────────── Marquee ─────────────────────────
-const MARQUEE = ["Valves", "Fittings", "Instrumentation", "UK Support", "SS316", "JOSCAR Registered", "Hydrogen Ready", "No Minimum Order", "Traceable Quality", "Straight Talking"];
+const MARQUEE = ["Valves", "Fittings", "Instrumentation", "UK Support", "SS316", "JOSCAR Registered", "BVAA Member", "Hydrogen Ready", "No Minimum Order", "Traceable Quality", "Straight Talking"];
 
 function Marquee() {
   const row = [...MARQUEE, ...MARQUEE];
