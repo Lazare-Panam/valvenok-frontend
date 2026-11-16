@@ -52,3 +52,17 @@ export const HLDA_COMMON = [
   { label: "Yoke Bushing", value: "Aluminium bronze" },
   { label: "Tie Rod", value: "Alloy steel" },
 ];
+
+export const PSI: Record<(typeof PRESSURES)[number], string> = { 100: "1,450 psi", 130: "1,886 psi", 160: "2,320 psi" };
+
+// Construction of material, standard (data sheet page 20)
+export const HLDA_MATERIALS: [string, string][] = [
+  ["Hydraulic cylinder", "Carbon steel, honed tube"],
+  ["Yoke", "Carbon steel"],
+  ["Piston", "Carbon steel"],
+  ["Piston rod", "Carbon steel, chromium plated"],
+  ["Seals and O-rings", "NBR / CFT"],
+  ["Yoke bushing", "Aluminium bronze"],
+  ["Top and bottom flanges", "Carbon steel"],
+  ["Tie rod", "Alloy steel"],
+];

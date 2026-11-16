@@ -379,6 +379,9 @@ export const NAV_GROUPS: NavGroup[] = [
           {
             label: "ITS Series — Limit Switch Box",
             href: "/actuators/limit-switches/its",
+            children: [
+              { label: "View All Models", href: "/actuators/limit-switches/its/products" },
+            ],
           },
         ],
       },

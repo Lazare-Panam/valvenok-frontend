@@ -7,7 +7,7 @@ import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import NorthEastRoundedIcon from "@mui/icons-material/NorthEastRounded";
 import StorefrontOutlinedIcon from "@mui/icons-material/StorefrontOutlined";
 import { NavGroup, NavItem } from "./Navbardata";
-import { brandsFor, BRANDS, type ProductType } from "../brandRegistry";
+import { brandsFor, BRANDS, type Brand, type ProductType } from "../brandRegistry";
 
 const INK = "#0E1B12";
 const GREEN = "#2E8B1E";
@@ -143,8 +143,21 @@ function ShowcaseCard({ item, onClose }: { item: NavItem; onClose: () => void })
   );
 }
 
+// Logo tile; brands without a logo file show their initials
+function BrandLogo({ brand, w, h }: { brand: Brand; w: number; h: number }) {
+  return (
+    <Box sx={{ flexShrink: 0, width: w, height: h, borderRadius: "10px", border: `1px solid ${BORDER}`, bgcolor: "#fff", display: "grid", placeItems: "center", overflow: "hidden" }}>
+      {brand.logo ? (
+        <Box component="img" src={brand.logo} alt="" sx={{ maxWidth: "78%", maxHeight: Math.round(h * 0.54), objectFit: "contain", transform: brand.logoScale ? `scale(${brand.logoScale})` : undefined }} />
+      ) : (
+        <Box component="span" sx={{ fontSize: "0.72rem", fontWeight: 800, color: GREEN, letterSpacing: "0.04em" }}>{brand.name.split(" ").map((w) => w[0]).join("")}</Box>
+      )}
+    </Box>
+  );
+}
+
 // Menu tabs that show a "Shop by brand" row, and the product type they cover
-const BRAND_TYPE: Record<string, ProductType> = { actuators: "actuators" };
+const BRAND_TYPE: Record<string, ProductType> = { actuators: "actuators", valves: "valves", "hydrogen-cryogenic": "hydrogen", "fittings-tubing": "fittings", instrumentation: "instrumentation" };
 
 // Bottom row of the dropdown: every brand that makes this product type, all in the
 // same card layout. Brands featured here link to their range on Valvenok ("View range");
@@ -152,37 +165,58 @@ const BRAND_TYPE: Record<string, ProductType> = { actuators: "actuators" };
 function BrandBar({ type, onClose }: { type: ProductType; onClose: () => void }) {
   const brands = brandsFor(type);
   if (!brands.length) return null;
-  const action = { display: "inline-flex", alignItems: "center", gap: 0.25, fontSize: "0.74rem", fontWeight: 700, color: GREEN, textDecoration: "none", whiteSpace: "nowrap", "&:hover": { textDecoration: "underline" } } as const;
+  const action = { display: "inline-flex", alignItems: "center", gap: 0.4, fontSize: "0.78rem", fontWeight: 700, color: GREEN, textDecoration: "none", whiteSpace: "nowrap", "&:hover": { textDecoration: "underline" } } as const;
   return (
-    <Box sx={{ gridColumn: "1 / -1", borderTop: `1px solid ${BORDER}`, background: "linear-gradient(90deg, #EEF9EA 0%, #F3FAF6 45%, #EEF6FD 100%)", px: 3, py: 2.25, display: "flex", alignItems: "center", gap: 2.5 }}>
-      <Box sx={{ flexShrink: 0, width: 190, display: "flex", gap: 1.25, alignItems: "flex-start" }}>
+    <Box sx={{ gridColumn: "1 / -1", borderTop: `1px solid ${BORDER}`, background: "linear-gradient(90deg, #EEF9EA 0%, #F3FAF6 45%, #EEF6FD 100%)", px: 3.5, pt: 2.5, pb: 3 }}>
+      <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, mb: 2 }}>
         <Box sx={{ flexShrink: 0, width: 34, height: 34, borderRadius: "10px", bgcolor: "#fff", border: `1px solid ${BORDER}`, display: "grid", placeItems: "center", color: GREEN }}>
           <StorefrontOutlinedIcon sx={{ fontSize: 19 }} />
         </Box>
-        <Box>
-          <Typography sx={{ fontSize: "0.92rem", fontWeight: 800, color: INK, lineHeight: 1.2, textTransform: "none !important" }}>Shop by brand</Typography>
-          <Typography sx={{ fontSize: "0.74rem", color: "#5B6B60", lineHeight: 1.4, mt: 0.4, textTransform: "none !important" }}>
-            <Box component="span" sx={{ color: GREEN, fontWeight: 800 }}>↗</Box> = the brand’s own website
-          </Typography>
+        <Typography sx={{ fontSize: "0.95rem", fontWeight: 800, color: INK, lineHeight: 1.2, textTransform: "none !important" }}>Shop by brand</Typography>
+        <Typography sx={{ fontSize: "0.76rem", color: "#5B6B60", lineHeight: 1.4, textTransform: "none !important" }}>
+          <Box component="span" sx={{ color: GREEN, fontWeight: 800 }}>↗</Box> = the brand’s own website
+        </Typography>
+        <Box component="a" href="/brands" onClick={onClose}
+          sx={{ ml: "auto", flexShrink: 0, display: "inline-flex", alignItems: "center", gap: 0.5, px: 2, py: 0.9, borderRadius: 999, bgcolor: GREEN, color: "#fff", fontSize: "0.84rem", fontWeight: 700, textDecoration: "none", whiteSpace: "nowrap", "&:hover": { bgcolor: "#256F18" } }}>
+          All brands <ArrowForwardRoundedIcon sx={{ fontSize: 16 }} />
         </Box>
       </Box>
-      <Box sx={{ flex: 1, display: "grid", gridTemplateColumns: `repeat(${brands.length}, minmax(0, 1fr))`, gap: 1.25 }}>
+      {brands.length > 4 ? (
+        <Box sx={{ flex: 1, display: "grid", gridTemplateColumns: "repeat(4, minmax(0, 1fr))", gap: 1.25 }}>
+          {brands.map(({ brand, text, href, external }) => (
+            <Box key={brand.slug} component="a" href={href} onClick={onClose} {...(external ? { target: "_blank", rel: "noopener" } : {})} title={text}
+              aria-label={`${brand.name}: ${text}${external ? " (opens their website)" : ""}`}
+              sx={{ display: "flex", alignItems: "center", gap: 1.25, p: 1, pr: 1.5, border: `1px solid ${BORDER}`, borderRadius: "14px", bgcolor: "#fff", textDecoration: "none", transition: "all .15s", "&:hover": { borderColor: "#BFE3B4", boxShadow: "0 4px 12px rgba(14,27,18,0.08)" } }}>
+              <BrandLogo brand={brand} w={50} h={40} />
+              <Box sx={{ minWidth: 0, flex: 1 }}>
+                <Box sx={{ display: "flex", alignItems: "center", gap: 0.4, fontSize: "0.8rem", fontWeight: 800, color: INK, lineHeight: 1.2, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                  {brand.name} {external && <NorthEastRoundedIcon sx={{ fontSize: 12, color: GREEN }} />}
+                </Box>
+                <Box sx={{ mt: 0.25, fontSize: "0.7rem", color: "#5B6B60", lineHeight: 1.35, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", textTransform: "none" }}>{text}</Box>
+              </Box>
+            </Box>
+          ))}
+        </Box>
+      ) : (
+      <Box sx={{ display: "grid", gridTemplateColumns: `repeat(4, minmax(0, 1fr))`, gap: 2 }}>
         {brands.map(({ brand, text, href, external }) => {
           const site = brand.website;
           return (
-            <Box key={brand.slug} sx={{ position: "relative", height: 98, boxSizing: "border-box", display: "flex", alignItems: "center", gap: 1.5, p: 1.25, pr: 1.5, border: `1px solid ${BORDER}`, borderRadius: "14px", bgcolor: "#fff", boxShadow: "0 1px 2px rgba(14,27,18,0.04)", transition: "all .15s", "&:hover": { borderColor: "#BFE3B4", boxShadow: "0 6px 18px rgba(14,27,18,0.08)", transform: "translateY(-1px)" } }}>
+            <Box key={brand.slug} sx={{ position: "relative", boxSizing: "border-box", display: "flex", flexDirection: "column", gap: 1.5, p: 2, border: `1px solid ${BORDER}`, borderRadius: "14px", bgcolor: "#fff", boxShadow: "0 1px 2px rgba(14,27,18,0.04)", transition: "all .15s", "&:hover": { borderColor: "#BFE3B4", boxShadow: "0 6px 18px rgba(14,27,18,0.08)", transform: "translateY(-1px)" } }}>
               <Box component="a" href={href} onClick={onClose} {...(external ? { target: "_blank", rel: "noopener" } : {})}
                 aria-label={`${brand.name}: ${text}${external ? " (opens their website)" : ""}`}
                 sx={{ position: "absolute", inset: 0, borderRadius: "14px", zIndex: 0 }} />
-              <Box sx={{ flexShrink: 0, width: 64, height: 56, borderRadius: "10px", border: `1px solid ${BORDER}`, bgcolor: "#fff", display: "grid", placeItems: "center", overflow: "hidden" }}>
-                <Box component="img" src={brand.logo} alt="" sx={{ maxWidth: "78%", maxHeight: 30, objectFit: "contain", transform: brand.logoScale ? `scale(${brand.logoScale})` : undefined }} />
-              </Box>
-              <Box sx={{ minWidth: 0, flex: 1, display: "flex", flexDirection: "column", gap: 0.25 }}>
-                <Box sx={{ fontSize: "0.88rem", fontWeight: 800, color: INK, lineHeight: 1.2 }}>{brand.name}</Box>
-                <Box sx={{ fontSize: "0.72rem", color: "#5B6B60", lineHeight: 1.3, overflow: "hidden", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", textTransform: "none" }} title={text}>
-                  {text}
+              <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, minWidth: 0 }}>
+                <BrandLogo brand={brand} w={56} h={48} />
+                <Box sx={{ minWidth: 0, flex: 1 }}>
+                  <Box sx={{ fontSize: "0.9rem", fontWeight: 800, color: INK, lineHeight: 1.25 }}>{brand.name}</Box>
+                  <Box sx={{ mt: 0.4, fontSize: "0.74rem", color: "#5B6B60", lineHeight: 1.4, overflow: "hidden", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", textTransform: "none" }} title={text}>
+                    {text}
+                  </Box>
                 </Box>
-                <Box sx={{ position: "relative", zIndex: 1, display: "flex", flexWrap: "wrap", columnGap: 1, mt: 0.25 }}>
+              </Box>
+              <Box sx={{ mt: "auto", pt: 1.25, borderTop: `1px solid ${BORDER}` }}>
+                <Box sx={{ position: "relative", zIndex: 1, display: "flex", flexWrap: "wrap", columnGap: 2, rowGap: 0.5 }}>
                   {!external && (
                     <Box component="a" href={href} onClick={onClose} sx={action}>
                       View range <ArrowForwardRoundedIcon sx={{ fontSize: 13 }} />
@@ -199,10 +233,7 @@ function BrandBar({ type, onClose }: { type: ProductType; onClose: () => void })
           );
         })}
       </Box>
-      <Box component="a" href="/brands" onClick={onClose}
-        sx={{ flexShrink: 0, display: "inline-flex", alignItems: "center", gap: 0.5, px: 1.75, py: 1, borderRadius: 999, bgcolor: GREEN, color: "#fff", fontSize: "0.84rem", fontWeight: 700, textDecoration: "none", whiteSpace: "nowrap", "&:hover": { bgcolor: "#256F18" } }}>
-        All brands <ArrowForwardRoundedIcon sx={{ fontSize: 16 }} />
-      </Box>
+      )}
     </Box>
   );
 }

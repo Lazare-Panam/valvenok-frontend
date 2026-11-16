@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     description:
       "Susin I-Tork ITS position monitoring switch boxes: ITS 200 weatherproof IP67, ITS 400 explosion proof Ex d IIC T6 (Zone 1 & 2), ITS 500 316L / Duplex stainless. Request a quote.",
     type: "website",
+    images: ["https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/limit-switches/susin-limit-switch.webp"],
   },
 };
 

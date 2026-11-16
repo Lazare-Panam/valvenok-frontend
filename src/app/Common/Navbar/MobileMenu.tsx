@@ -64,7 +64,7 @@ function BrandHead({ name, site }: { name: string; site?: string }) {
 }
 
 // Menu tabs that show "Shop by brand" (same list as the desktop dropdown)
-const BRAND_TYPE: Record<string, ProductType> = { actuators: "actuators" };
+const BRAND_TYPE: Record<string, ProductType> = { actuators: "actuators", valves: "valves", "hydrogen-cryogenic": "hydrogen", "fittings-tubing": "fittings", instrumentation: "instrumentation" };
 
 function ShopByBrand({ type, onClose }: { type: ProductType; onClose: () => void }) {
   const brands = brandsFor(type);
@@ -77,9 +77,11 @@ function ShopByBrand({ type, onClose }: { type: ProductType; onClose: () => void
         {brands.map(({ brand, text, href, external }) => (
           <Box key={brand.slug} component="a" href={href} onClick={onClose} {...(external ? { target: "_blank", rel: "noopener" } : {})}
             sx={{ display: "flex", flexDirection: "column", gap: 0.5, p: 1.25, borderRadius: "12px", bgcolor: "#fff", border: `1px solid ${BORDER}`, textDecoration: "none" }}>
-            <Box sx={{ height: 26, display: "flex", alignItems: "center", overflow: "hidden" }}>
-              <Box component="img" src={brand.logo} alt="" sx={{ maxHeight: 24, maxWidth: 72, objectFit: "contain", transformOrigin: "left center", transform: brand.logoScale ? `scale(${Math.min(brand.logoScale, 1.8)})` : undefined }} />
-            </Box>
+            {brand.logo && (
+              <Box sx={{ height: 26, display: "flex", alignItems: "center", overflow: "hidden" }}>
+                <Box component="img" src={brand.logo} alt="" sx={{ maxHeight: 24, maxWidth: 72, objectFit: "contain", transformOrigin: "left center", transform: brand.logoScale ? `scale(${Math.min(brand.logoScale, 1.8)})` : undefined }} />
+              </Box>
+            )}
             <Box sx={{ display: "flex", alignItems: "center", gap: 0.4, fontSize: "0.86rem", fontWeight: 800, color: INK }}>
               {brand.name} {external && <NorthEastRoundedIcon sx={{ fontSize: 14, color: HEADER_COLOR }} />}
             </Box>

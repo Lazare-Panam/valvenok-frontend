@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import { HLDA_IMAGE } from "../hldaData";
 
-const TITLE = "HLDA Linear Hydraulic Actuators — All 11 Models | Valvenok";
+const TITLE = "HLDA Linear Piston Hydraulic Actuator Models | Valvenok";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/actuators/hydraulic/hlda/products" },
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
     description: "HLDA-030 to HLDA-200 linear piston hydraulic actuators, 6–402 kN, with full thrust tables.",
     url: "/actuators/hydraulic/hlda/products",
     type: "website",
+    images: [HLDA_IMAGE],
   },
 };
 

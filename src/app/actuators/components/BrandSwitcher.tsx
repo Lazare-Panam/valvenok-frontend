@@ -15,7 +15,7 @@ export default function BrandSwitcher({ here, category }: { here: string[]; cate
   const onPage = here.map((n) => BRANDS.find((b) => b.name === n || b.slug === n.toLowerCase())).filter(Boolean) as typeof BRANDS;
   const seen = new Set<string>();
   const elsewhere = showcaseFor(category).filter((s) => !seen.has(s.brand) && seen.add(s.brand));
-  const logo = (src: string, scale?: number) => (
+  const logo = (src: string | undefined, scale?: number) => (
     <Box sx={{ flexShrink: 0, width: 40, height: 32, borderRadius: "8px", bgcolor: "#fff", border: `1px solid ${T.border}`, display: "grid", placeItems: "center", overflow: "hidden" }}>
       <Box component="img" src={src} alt="" sx={{ display: "block", maxWidth: 30, maxHeight: 22, objectFit: "contain", transform: scale ? `scale(${Math.min(scale, 2)})` : undefined }} />
     </Box>

@@ -1,13 +1,17 @@
 "use client";
 
 // Animated linear piston actuator cut-away: air on top drives the piston and stem
-// down to close the valve, air underneath drives it back up. Used by PLDS.
+// down to close the valve, air underneath drives it back up. Used by PLDS (air)
+// and HLDA (oil: the full bore closes, the rod side opens, so closing thrust is higher).
 
 import { Box } from "@mui/material";
 import { T } from "@/src/app/Landing/modern/tokens";
 import { useInView } from "@/src/app/Common/LightMotion";
 
-export default function LinearCutaway() {
+export default function LinearCutaway({ medium = "air" }: { medium?: "air" | "oil" }) {
+  const oil = medium === "oil";
+  const C = oil ? "#E2A93B" : "#7CB9F0";
+  const M = oil ? "Oil" : "Air";
   const [ref, on] = useInView<HTMLDivElement>(0.3);
   const lbl = { fontSize: 13, fontWeight: 700, fill: T.body, fontFamily: "inherit" } as const;
   return (
@@ -16,7 +20,7 @@ export default function LinearCutaway() {
         component="svg"
         viewBox="0 0 420 340"
         role="img"
-        aria-label="Cut-away of a linear piston actuator: air above the piston pushes the stem down to close the valve, air below lifts it to open"
+        aria-label={`Cut-away of a linear piston actuator: ${M.toLowerCase()} above the piston pushes the stem down to close the valve, ${M.toLowerCase()} below lifts it to open`}
         sx={{
           width: "100%", height: "auto", display: "block",
           "@keyframes lnMove": { "0%,12%": { transform: "translateY(0)" }, "42%,62%": { transform: "translateY(52px)" }, "92%,100%": { transform: "translateY(0)" } },
@@ -42,8 +46,8 @@ export default function LinearCutaway() {
         <rect x="126" y="36" width="5" height="114" fill="#9AA9B6" />
         <rect x="289" y="36" width="5" height="114" fill="#9AA9B6" />
         {/* air ports */}
-        <path className="airT" d="M60 48 H142" stroke="#7CB9F0" strokeWidth="6" strokeLinecap="round" strokeDasharray="8 7" />
-        <path className="airB" d="M360 138 H278" stroke="#7CB9F0" strokeWidth="6" strokeLinecap="round" strokeDasharray="8 7" />
+        <path className="airT" d="M60 48 H142" stroke={C} strokeWidth="6" strokeLinecap="round" strokeDasharray="8 7" />
+        <path className="airB" d="M360 138 H278" stroke={C} strokeWidth="6" strokeLinecap="round" strokeDasharray="8 7" />
         {/* yoke frame */}
         <path d="M150 166 L150 236 M270 166 L270 236" stroke="#9AA9B6" strokeWidth="8" strokeLinecap="round" />
         <rect x="140" y="232" width="140" height="12" rx="3" fill="#7C8B9A" />
@@ -60,8 +64,8 @@ export default function LinearCutaway() {
         {/* labels */}
         <text x="310" y="64" style={lbl}>Piston</text>
         <path d="M306 60 L278 62" stroke="#B9C4CE" strokeDasharray="3 3" />
-        <text x="16" y="40" style={lbl}>Air: close</text>
-        <text x="320" y="128" style={lbl}>Air: open</text>
+        <text x="16" y="40" style={lbl}>{M}: close</text>
+        <text x="320" y="128" style={lbl}>{M}: open</text>
         <text x="300" y="186" style={lbl}>Stem &amp; travel</text>
         <text x="300" y="202" style={lbl}>indicator</text>
         <path d="M296 184 L234 176" stroke="#B9C4CE" strokeDasharray="3 3" />
@@ -71,7 +75,7 @@ export default function LinearCutaway() {
       </Box>
       <Box sx={{ mt: 1.5, display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 2, fontSize: "0.8rem", fontWeight: 600, color: T.body }}>
         <Box component="span" sx={{ display: "inline-flex", alignItems: "center", gap: 0.75 }}>
-          <Box component="span" sx={{ width: 18, height: 4, borderRadius: 2, bgcolor: "#7CB9F0" }} /> Air drives the piston
+          <Box component="span" sx={{ width: 18, height: 4, borderRadius: 2, bgcolor: C }} /> {M} drives the piston
         </Box>
         <Box component="span" sx={{ display: "inline-flex", alignItems: "center", gap: 0.75 }}>
           <Box component="span" sx={{ width: 10, height: 10, borderRadius: 2, bgcolor: T.greenDark }} /> The stem moves in a straight line
