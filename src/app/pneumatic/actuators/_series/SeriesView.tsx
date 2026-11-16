@@ -49,7 +49,7 @@ export type SeriesDef = {
   howTitle: string;
   how: React.ReactNode; // animated cut-away
   ladder: { kicker: string; title: string; lead: string; tabs?: { k: string; label: string }[]; rungs: Rung[]; max: number; logFrom?: number /* log scale from this value, for wide ranges */ };
-  build: { title: string; image?: string; imageAlt?: string; points: [string, string][] };
+  build: { title: string; image?: string; imageAlt?: string; /** "cover": a real photo fills the frame edge to edge (default: cut-out product shot on white) */ imageFit?: "contain" | "cover"; points: [string, string][] };
   extra?: React.ReactNode; // series-specific section after the build band
   faqTitle: string;
   faq: { q: string; a: string; icon: SvgIconComponent }[];
@@ -186,10 +186,16 @@ function Build({ d }: { d: SeriesDef }) {
   return (
     <Box component="section" aria-labelledby="h2-build" sx={{ pb: { xs: 7, md: 10 } }}>
       <Box sx={wrap}>
-        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" }, gap: { xs: 3, md: 5 }, alignItems: "center", p: { xs: 3, md: 4 }, borderRadius: "24px", background: "linear-gradient(120deg, #EAF4FF 0%, #F3EEFF 100%)", border: "1px solid #DCE6F5" }}>
-          <Box sx={{ borderRadius: "18px", bgcolor: "#fff", p: 2, display: "grid", placeItems: "center", minHeight: 240 }}>
-            <Box component="img" src={b.image ?? d.image} alt={b.imageAlt ?? d.imageAlt} loading="lazy" sx={{ width: "100%", height: "auto", maxWidth: 520, maxHeight: 360, objectFit: "contain" }} />
-          </Box>
+        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: b.imageFit === "cover" ? "minmax(0, 380px) 1fr" : "1fr 1fr" }, gap: { xs: 3, md: 6 }, alignItems: "center", p: { xs: 3, md: 4 }, borderRadius: "24px", background: "linear-gradient(120deg, #EAF4FF 0%, #F3EEFF 100%)", border: "1px solid #DCE6F5" }}>
+          {b.imageFit === "cover" ? (
+            <Box sx={{ position: "relative", width: "100%", maxWidth: 380, justifySelf: "center", aspectRatio: { xs: "4 / 5", md: "3 / 4" }, borderRadius: "18px", overflow: "hidden", boxShadow: "0 12px 30px rgba(14,27,18,0.12)", border: "4px solid #fff" }}>
+              <Box component="img" src={b.image ?? d.image} alt={b.imageAlt ?? d.imageAlt} loading="lazy" sx={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%" }} />
+            </Box>
+          ) : (
+            <Box sx={{ borderRadius: "18px", bgcolor: "#fff", p: 2, display: "grid", placeItems: "center", minHeight: 240 }}>
+              <Box component="img" src={b.image ?? d.image} alt={b.imageAlt ?? d.imageAlt} loading="lazy" sx={{ width: "100%", height: "auto", maxWidth: 520, maxHeight: 360, objectFit: "contain" }} />
+            </Box>
+          )}
           <Box>
             <Box component="h2" id="h2-build" sx={{ m: 0, mb: 2, fontSize: { xs: "1.3rem", md: "1.55rem" }, fontWeight: 800, color: T.ink, letterSpacing: "-0.02em" }}>{titleCase(b.title)}</Box>
             <Box component="ul" sx={{ m: 0, p: 0, listStyle: "none", display: "grid", gap: 1.5 }}>

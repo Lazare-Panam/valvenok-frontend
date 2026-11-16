@@ -114,6 +114,8 @@ const DEF: SeriesDef = {
   },
   build: {
     title: "How it’s built",
+    imageAlt: "HLDA linear piston hydraulic actuator installed on a gate valve on site",
+    imageFit: "cover",
     points: [
       ["High strength stem", "A high yield strength actuator stem takes large thrust loads, with an outstanding strength-to-weight ratio."],
       ["Low friction cylinder", "Honed, hot chrome plated carbon steel cylinders and a chrome plated piston rod."],
