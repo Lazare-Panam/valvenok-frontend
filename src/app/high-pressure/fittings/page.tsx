@@ -23,7 +23,7 @@ const TECH_SPECS = [
 const BRANDS = [
   {
     name: 'Panam',
-    logo: 'https://pblol2.blob.core.windows.net/panam-images/panam-resize_smallest.jpg',
+    logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/panam-logo.png',
     href: '/high-pressure/fittings/products?brand=Panam',
     count: panamCount,
     blurb: 'SS 316 cone & thread fittings from 10,000 to 60,000 psi — adapters, reducers, male & female connectors, elbows, tees, crosses, hex nipples, unions, reducing & bulkhead unions, caps and plugs with NPT, MP and HP cone connections.',
@@ -102,7 +102,7 @@ export default function HighPressureFittingsLanding() {
                   }}
                 >
                   <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-                    <Box component="img" src={b.logo} alt={`${b.name} — view ${b.name} fittings`} sx={{ maxHeight: 40, maxWidth: 140, objectFit: 'contain', cursor: 'pointer' }} />
+                    <Box component="img" src={b.logo} alt={`${b.name} — view ${b.name} fittings`} sx={{ height: b.name === 'Panam' ? 44 : 28, maxWidth: 150, objectFit: 'contain', cursor: 'pointer' }} />
                     <Chip label={`${b.count} fittings`} sx={{ bgcolor: ACCENT, color: '#fff', fontWeight: 700 }} />
                   </Box>
                   <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>{b.blurb}</Typography>

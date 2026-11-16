@@ -22,7 +22,7 @@ import { T, textReset } from '@/src/app/Landing/modern/tokens'
 
 const BASE = '/high-pressure/valves/needle-valves'
 const LOGO: Record<string, string> = {
-  Panam: 'https://pblol2.blob.core.windows.net/panam-images/panam-resize_smallest.jpg',
+  Panam: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/panam-logo.png',
   Hiflux: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/hiflux-logo.png',
 }
 const SITE: Record<string, string> = { Panam: 'https://www.panamvalve.com/', Hiflux: 'https://www.hiflux.uk.com/' }
@@ -140,7 +140,7 @@ export default function NeedleValveDetailPage() {
             <Box sx={{ position: { md: 'sticky' }, top: { md: 150 } }}>
               <Box sx={{ position: 'relative', aspectRatio: '1 / 1', borderRadius: '28px', bgcolor: '#fff', border: `1px solid ${T.border}`, boxShadow: T.shadow, display: 'grid', placeItems: 'center', overflow: 'hidden' }}>
                 <Box component="img" src={v.imageUrl} alt={`${v.brand} ${v.partNumber} needle valve`} sx={{ width: '72%', height: '72%', objectFit: 'contain' }} />
-                <Box component="img" src={LOGO[v.brand]} alt={v.brand} sx={{ position: 'absolute', top: 18, left: 18, height: 26, maxWidth: 110, objectFit: 'contain' }} />
+                <Box component="img" src={LOGO[v.brand]} alt={v.brand} sx={{ position: 'absolute', top: 18, left: 18, height: v.brand === 'Panam' ? 32 : 21, maxWidth: 110, objectFit: 'contain' }} />
                 <Box sx={{ position: 'absolute', top: 16, right: 16, px: 1.5, py: 0.6, borderRadius: 999, bgcolor: T.greenSoft, color: T.greenDark, fontSize: '0.8rem', fontWeight: 800 }}>{v.pressureRating}</Box>
               </Box>
               <Box sx={{ mt: 1.5, display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 1 }}>

@@ -14,7 +14,7 @@ import { type ProductForRFQ } from '@/src/app/Common/RFQCard/RequestForQuoteCard
 import { T } from '@/src/app/Landing/modern/tokens'
 
 const LOGO: Record<string, string> = {
-  Panam: 'https://pblol2.blob.core.windows.net/panam-images/panam-resize_smallest.jpg',
+  Panam: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/panam-logo.png',
   Hiflux: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/hiflux-logo.png',
 }
 const detailHref = (r: HPNeedleValveDTO) => `/high-pressure/valves/needle-valves/products/${r.id}`
@@ -197,7 +197,7 @@ export default function HPNVTable({ models, filters, setFilters, availableCounts
                             <Box component={Link} href={detailHref(r)} onClick={(e: React.MouseEvent) => e.stopPropagation()} sx={{ fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace', fontWeight: 700, fontSize: '0.84rem', color: T.ink, textDecoration: 'none', '&:hover': { color: T.greenDark, textDecoration: 'underline' } }}>
                               {r.partNumber}
                             </Box>
-                            <Box component="img" src={LOGO[r.brand]} alt={r.brand} sx={{ display: 'block', mt: 0.4, height: 16, maxWidth: 64, objectFit: 'contain' }} />
+                            <Box component="img" src={LOGO[r.brand]} alt={r.brand} sx={{ display: 'block', mt: 0.4, height: r.brand === 'Panam' ? 20 : 13, maxWidth: 64, objectFit: 'contain' }} />
                           </Box>
                         </Box>
                       </td>
@@ -234,7 +234,7 @@ export default function HPNVTable({ models, filters, setFilters, availableCounts
                 </Box>
                 <Box sx={{ minWidth: 0, flex: 1 }}>
                   <Box component={Link} href={detailHref(r)} sx={{ fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace', fontWeight: 700, fontSize: '0.86rem', color: T.ink, textDecoration: 'none' }}>{r.partNumber}</Box>
-                  <Box component="img" src={LOGO[r.brand]} alt={r.brand} sx={{ display: 'block', mt: 0.4, height: 16, maxWidth: 64, objectFit: 'contain' }} />
+                  <Box component="img" src={LOGO[r.brand]} alt={r.brand} sx={{ display: 'block', mt: 0.4, height: r.brand === 'Panam' ? 20 : 13, maxWidth: 64, objectFit: 'contain' }} />
                 </Box>
                 <Box component="span" sx={{ ...pill, bgcolor: T.greenSoft, color: T.greenDark }}>{r.pressureRating}</Box>
               </Box>

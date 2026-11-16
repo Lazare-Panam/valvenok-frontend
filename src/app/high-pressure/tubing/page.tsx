@@ -27,7 +27,7 @@ const TECH_SPECS = [
 const BRANDS = [
   {
     name: 'Panam',
-    logo: 'https://pblol2.blob.core.windows.net/panam-images/panam-resize_smallest.jpg',
+    logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/panam-logo.png',
     count: PANAM_COUNT,
     blurb: 'Seamless tubing in standard and high-pressure ratings — SS 316, Monel, Copper, Duplex, Inconel, 6Mo and Hastelloy, imperial 1/16"–2" and metric 3mm–12mm.',
   },
@@ -88,7 +88,7 @@ export default function HighPressureTubingLanding() {
                     '&:hover': { borderColor: ACCENT, boxShadow: 3, transform: 'translateY(-2px)' },
                   }}>
                   <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-                    <Box component="img" src={b.logo} alt={b.name} sx={{ maxHeight: 40, maxWidth: 140, objectFit: 'contain' }} />
+                    <Box component="img" src={b.logo} alt={b.name} sx={{ height: b.name === 'Panam' ? 44 : 28, maxWidth: 150, objectFit: 'contain' }} />
                     <Chip label={`${b.count} items`} sx={{ bgcolor: ACCENT, color: '#fff', fontWeight: 700 }} />
                   </Box>
                   <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7, mb: 2 }}>{b.blurb}</Typography>

@@ -37,7 +37,7 @@ type OnSite = { name: string; logo?: string; scale?: number; dark?: boolean; cta
 
 const ON_SITE: OnSite[] = [
   { name: "Susin I-Tork", scale: 1.15, logo: `${V}/logo/susin-logo.webp`, desc: "Pneumatic, electric, hydraulic and mechanical actuators, and limit switch boxes.", cats: ["Actuators"], href: "/brands/susin" },
-  { name: "Panam", logo: "https://pblol2.blob.core.windows.net/panam-images/panam-resize_smallest.jpg", desc: "Instrumentation valves, manifolds and fittings for hydrogen, oil and gas and industrial applications.", cats: ["Valves", "Fittings", "Hydrogen"], href: "/valves/instrumentation-valves", website: "https://www.panamvalve.com/" },
+  { name: "Panam", logo: "https://pblol2.blob.core.windows.net/valvenok-images/brands/panam-logo.png", desc: "Instrumentation valves, manifolds and fittings for hydrogen, oil and gas and industrial applications.", cats: ["Valves", "Fittings", "Hydrogen"], href: "/valves/instrumentation-valves", website: "https://www.panamvalve.com/" },
   { name: "Mars Valves", scale: 1.6, logo: `${V}/brands/mars.png`, desc: "Ball valves: 2-piece, 3-piece, flanged, sanitary and fire-safe ranges.", cats: ["Valves"], href: "/brands/mars-valves", website: "https://www.marsvalvenok.com/" },
   { name: "Hiflux", logo: `${V}/brands/hiflux-logo.png`, desc: "High-pressure valves, fittings and tubing rated to 150,000 psi.", cats: ["Hydrogen", "Fittings"], href: "/brands/hiflux", website: "https://www.hiflux.uk.com/" },
   { name: "Value Valves", logo: `${V}/products/valves/butterfly-valves/logo.svg`, desc: "Butterfly valves and flow control solutions for industrial piping systems.", cats: ["Valves"], href: "/brands/value-valves" },

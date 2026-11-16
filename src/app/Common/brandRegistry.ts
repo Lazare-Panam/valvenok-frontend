@@ -74,7 +74,7 @@ export const BRANDS: Brand[] = [
   {
     slug: "panam",
     name: "Panam",
-    logo: "https://pblol2.blob.core.windows.net/panam-images/panam-resize_smallest.jpg",
+    logo: "https://pblol2.blob.core.windows.net/valvenok-images/brands/panam-logo.png",
     website: site("Panam Valves"),
     mode: "both",
     makes: {

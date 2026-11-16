@@ -13,7 +13,7 @@ const marqueFwd = keyframes`
 `;
 
 export const BRANDS = [
-  { name: 'PANAM Valves', logo: 'https://pblol2.blob.core.windows.net/panam-images/panam-resize_smallest.jpg' },
+  { name: 'PANAM Valves', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/panam-logo.png' },
   { name: 'Cameron', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/cameron-logo.png' },
   { name: 'Baker Hughes', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/baker-hughes-logo.png' },
   { name: 'Taylor Valve', logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/taylor-valve-logo.png' },

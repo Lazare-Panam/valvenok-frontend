@@ -25,7 +25,7 @@ const TECH_SPECS = [
 const BRANDS = [
   {
     name: 'Panam',
-    logo: 'https://pblol2.blob.core.windows.net/panam-images/panam-resize_smallest.jpg',
+    logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/panam-logo.png',
     count: PANAM_COUNT,
     blurb: 'SS 316 needle valves across the HP–HP6 series (10,000–60,000 psi). Straight, Angle, 3-Way and 2-Stem Manifold patterns with NPT, MP Cone and HP Cone connections.',
   },
@@ -84,7 +84,7 @@ export default function HPNeedleValvesLanding() {
               <Grid size={{ xs: 12, md: 6 }} key={b.name}>
                 <Paper variant="outlined" sx={{ p: 4, borderRadius: 2, height: '100%' }}>
                   <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-                    <Box component="img" src={b.logo} alt={b.name} sx={{ maxHeight: 40, maxWidth: 140, objectFit: 'contain' }} />
+                    <Box component="img" src={b.logo} alt={b.name} sx={{ height: b.name === 'Panam' ? 44 : 28, maxWidth: 150, objectFit: 'contain' }} />
                     <Chip label={`${b.count} models`} sx={{ bgcolor: ACCENT, color: '#fff', fontWeight: 700 }} />
                   </Box>
                   <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>{b.blurb}</Typography>

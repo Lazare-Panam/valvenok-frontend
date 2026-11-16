@@ -7,7 +7,7 @@ import Reveal from '@/src/app/Common/Reveal';
 const BRAND_TILES = [
   {
     name: 'Panam',
-    logo: 'https://pblol2.blob.core.windows.net/panam-images/panam-resize_smallest.jpg',
+    logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/panam-logo.png',
     desc: 'Instrumentation valves and fittings for global process industries.',
     href: '/quick-order',
     external: false,

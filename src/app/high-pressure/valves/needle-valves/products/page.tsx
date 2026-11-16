@@ -33,11 +33,11 @@ function Header() {
           </Box>
           <Box sx={{ display: 'flex', gap: 1.25, flexWrap: 'wrap' }}>
             {[
-              ['Panam', 'https://pblol2.blob.core.windows.net/panam-images/panam-resize_smallest.jpg', 'https://www.panamvalve.com/'],
+              ['Panam', 'https://pblol2.blob.core.windows.net/valvenok-images/brands/panam-logo.png', 'https://www.panamvalve.com/'],
               ['Hiflux', 'https://pblol2.blob.core.windows.net/valvenok-images/brands/hiflux-logo.png', 'https://www.hiflux.uk.com/'],
             ].map(([n, logo, url]) => (
               <Box key={n} component="a" href={url} target="_blank" rel="noopener" sx={{ display: 'inline-flex', alignItems: 'center', gap: 1, px: 1.75, py: 1, borderRadius: 999, bgcolor: '#fff', border: `1px solid ${T.border}`, textDecoration: 'none', color: T.ink, fontSize: '0.82rem', fontWeight: 700, '&:hover': { borderColor: T.greenDark } }}>
-                <Box component="img" src={logo} alt={n} sx={{ height: 18, maxWidth: 70, objectFit: 'contain' }} />
+                <Box component="img" src={logo} alt={n} sx={{ height: n === 'Panam' ? 22 : 14, maxWidth: 80, objectFit: 'contain' }} />
                 website <ArrowOutwardRoundedIcon sx={{ fontSize: 14 }} />
               </Box>
             ))}

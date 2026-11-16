@@ -209,7 +209,7 @@ const SCHEMA = {
 };
 
 export const BRAND_LOGO: Record<string, string> = {
-  Panam: "https://pblol2.blob.core.windows.net/panam-images/panam-resize_smallest.jpg",
+  Panam: "https://pblol2.blob.core.windows.net/valvenok-images/brands/panam-logo.png",
   Hiflux: "https://pblol2.blob.core.windows.net/valvenok-images/brands/hiflux-logo.png",
   Youngdo: IMG.youngdoLogo,
   "Value Valves": "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/logo.svg",

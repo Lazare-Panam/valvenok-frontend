@@ -17,7 +17,7 @@ export interface GroupSite {
 export const GROUP_SITES: GroupSite[] = [
   {
     name: "Panam Valves",
-    logo: "https://pblol2.blob.core.windows.net/panam-images/panam-resize_smallest.jpg",
+    logo: "https://pblol2.blob.core.windows.net/valvenok-images/brands/panam-logo.png",
     url: "https://www.panamvalve.com/",
     desc: "Instrumentation valves, manifolds and fittings for hydrogen, oil and gas and industrial applications.",
     operatedByValvenok: false,
