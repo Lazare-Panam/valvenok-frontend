@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: "Valvenok",
     images: [
       {
-        url: "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/ptfe_lined_butterfly.png",
+        url: "https://pblol2.blob.core.windows.net/valvenok-images/blogs/butterfly-valve-guide.jpg",
         width: 1200,
         height: 630,
         alt: "Butterfly Valve — PTFE Lined",

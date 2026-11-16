@@ -493,15 +493,22 @@ export function ArticleLayout({
       setItems((prev) => ordered.map((id) => prev.find((p) => p.id === id)!).filter(Boolean));
       return;
     }
-    const io = new IntersectionObserver(
-      (entries) => {
-        const visible = entries.filter((e) => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-        if (visible[0]) setActive(visible[0].target.id);
-      },
-      { rootMargin: "-120px 0px -65% 0px" },
-    );
-    els.forEach((e) => io.observe(e));
-    return () => io.disconnect();
+    // Active = the last heading scrolled past (just under the sticky header). At the
+    // very bottom of the page the last section wins, even if its heading can't reach the top.
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const line = 160;
+      let cur = els[0]?.id ?? "";
+      for (const e of els) if (e.getBoundingClientRect().top <= line) cur = e.id;
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) cur = els[els.length - 1]?.id ?? cur;
+      setActive(cur);
+    };
+    const onScroll = () => { if (!raf) raf = requestAnimationFrame(update); };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => { window.removeEventListener("scroll", onScroll); window.removeEventListener("resize", onScroll); if (raf) cancelAnimationFrame(raf); };
   }, [items]);
 
   return (
@@ -1392,10 +1399,10 @@ export function Tabs({ kicker, title, tabs }: { kicker?: string; title?: string;
   return (
     <Box sx={panelSx}>
       {title && <PanelHead kicker={kicker} title={title} />}
-      {/* One row on every screen: scrolls sideways on phones instead of stacking */}
-      <Box role="tablist" sx={{ display: "flex", gap: 0.5, flexWrap: "nowrap", overflowX: "auto", scrollbarWidth: "none", "&::-webkit-scrollbar": { display: "none" }, mb: 2.5, p: 0.5, bgcolor: T.surface, borderRadius: "14px", width: "fit-content", maxWidth: "100%", boxSizing: "border-box" }}>
+      {/* Tabs wrap onto more lines when they don't fit, so no label is ever cut off */}
+      <Box role="tablist" sx={{ display: "flex", gap: 0.5, flexWrap: "wrap", overflowX: "visible", scrollbarWidth: "none", "&::-webkit-scrollbar": { display: "none" }, mb: 2.5, p: 0.5, bgcolor: T.surface, borderRadius: "14px", width: "fit-content", maxWidth: "100%", boxSizing: "border-box" }}>
         {tabs.map((t, k) => (
-          <Box key={t.label} component="button" type="button" role="tab" aria-selected={k === i} onClick={() => setI(k)} sx={{ flexShrink: 0, whiteSpace: "nowrap", border: 0, cursor: "pointer", fontFamily: "inherit", fontSize: { xs: "0.85rem", md: "0.9rem" }, fontWeight: 600, px: { xs: 1.5, md: 2 }, py: 1, borderRadius: "10px", bgcolor: k === i ? "#fff" : "transparent", color: k === i ? T.greenDark : T.body, boxShadow: k === i ? "0 1px 3px rgba(14,27,18,0.12)" : "none", transition: "all .15s", "&:focus": { outline: "none" }, "&:focus-visible": { outline: `2px solid ${T.greenDark}`, outlineOffset: "-2px" } }}>
+          <Box key={t.label} component="button" type="button" role="tab" aria-selected={k === i} onClick={() => setI(k)} sx={{ flexShrink: 0, whiteSpace: { xs: "normal", sm: "nowrap" }, textAlign: "left", border: 0, cursor: "pointer", fontFamily: "inherit", fontSize: { xs: "0.82rem", md: "0.9rem" }, fontWeight: 600, px: { xs: 1.25, md: 2 }, py: 1, borderRadius: "10px", bgcolor: k === i ? "#fff" : "transparent", color: k === i ? T.greenDark : T.body, boxShadow: k === i ? "0 1px 3px rgba(14,27,18,0.12)" : "none", transition: "all .15s", "&:focus": { outline: "none" }, "&:focus-visible": { outline: `2px solid ${T.greenDark}`, outlineOffset: "-2px" } }}>
             {t.label}
           </Box>
         ))}
