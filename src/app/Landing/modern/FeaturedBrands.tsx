@@ -6,6 +6,7 @@ import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
 import { T, textReset } from "./tokens";
 import SectionHeader from "./SectionHeader";
 import PillButton from "./Buttons";
+import { swipeRow } from "./swipeRow";
 
 // The original FeaturedStrip brands, plus our Hiflux and Kosa Plus sister sites.
 const BRANDS = [
@@ -67,7 +68,7 @@ export default function FeaturedBrands() {
             </PillButton>
           }
         />
-        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)", md: "repeat(3, 1fr)", lg: "repeat(5, 1fr)" }, gap: 2.5 }}>
+        <Box sx={swipeRow({ sm: "repeat(2, 1fr)", md: "repeat(3, 1fr)", lg: "repeat(5, 1fr)" })}>
           {BRANDS.map((b) => (
             <Box
               key={b.name}

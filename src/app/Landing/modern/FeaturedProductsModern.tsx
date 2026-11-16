@@ -6,12 +6,13 @@ import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import { FEATURED_PRODUCTS } from "../FeaturedValvesData";
 import { T, textReset } from "./tokens";
 import SectionHeader from "./SectionHeader";
+import { swipeRow } from "./swipeRow";
 
 export default function FeaturedProductsModern() {
   return (
     <Box component="section" sx={{ ...textReset, width: "100%", boxSizing: "border-box", maxWidth: T.maxWidth, mx: "auto", px: { xs: 2, md: 4 }, py: { xs: 8, md: 12 } }}>
       <SectionHeader eyebrow="Premium Selection" title="Featured Products" />
-      <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", lg: "repeat(4, 1fr)" }, gap: 2.5 }}>
+      <Box sx={swipeRow({ sm: "1fr 1fr", lg: "repeat(4, 1fr)" })}>
         {FEATURED_PRODUCTS.map((p) => (
           <Box
             key={p.id}

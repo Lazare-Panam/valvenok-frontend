@@ -7,6 +7,7 @@ import { LATEST_INSIGHTS } from "../LatestInsightsData";
 import { T, textReset } from "./tokens";
 import SectionHeader from "./SectionHeader";
 import PillButton from "./Buttons";
+import { swipeRow } from "./swipeRow";
 
 export default function InsightsModern() {
   return (
@@ -20,7 +21,7 @@ export default function InsightsModern() {
           </PillButton>
         }
       />
-      <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", lg: "repeat(4, 1fr)" }, gap: 2.5 }}>
+      <Box sx={swipeRow({ sm: "1fr 1fr", lg: "repeat(4, 1fr)" })}>
         {LATEST_INSIGHTS.slice(0, 4).map((post) => (
           <Box
             key={post.link}
