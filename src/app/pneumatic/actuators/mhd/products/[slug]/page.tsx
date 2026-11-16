@@ -12,7 +12,7 @@ const p = detailPage(ITEMS, {
   facts: 6,
 });
 
-export const dynamicParams = false;
+export const dynamicParams = true; // rendered on first visit, then cached (see detailPage)
 export const generateStaticParams = p.generateStaticParams;
 export const generateMetadata = p.generateMetadata;
 export default p.Page;

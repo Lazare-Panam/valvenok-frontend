@@ -21,7 +21,7 @@ const isOld = async ({ params }: Props) => {
   return LEGACY_ITEMS.some((i) => i.slug === slug);
 };
 
-export const dynamicParams = false;
+export const dynamicParams = true; // rendered on first visit, then cached (see detailPage)
 export const generateStaticParams = () => [...p.generateStaticParams(), ...old.generateStaticParams()];
 export const generateMetadata = async (props: Props) => ((await isOld(props)) ? old.generateMetadata(props) : p.generateMetadata(props));
 export default async function HdModelPage(props: Props) {

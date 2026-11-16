@@ -24,7 +24,11 @@ const slimItem = (x: Item): Item => ({
 export function detailPage(items: Item[], series: SeriesMeta) {
   const slim = items.map(slimItem);
   return {
-    generateStaticParams: () => items.map((i) => ({ slug: i.slug! })),
+    // Model pages are not pre-built: about 460 of them at ~280 KB each pushed the
+    // build past Azure Static Web Apps' size limit (deploy failed 16 Nov 2026).
+    // With dynamicParams = true each page is rendered on its first visit and cached;
+    // unknown slugs still 404 in Page below.
+    generateStaticParams: () => [] as { slug: string }[],
     generateMetadata: async ({ params }: Props): Promise<Metadata> => {
       const { slug } = await params;
       const i = items.find((x) => x.slug === slug);
