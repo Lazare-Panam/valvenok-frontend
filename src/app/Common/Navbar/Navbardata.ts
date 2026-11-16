@@ -332,7 +332,7 @@ export const NAV_GROUPS: NavGroup[] = [
             label: "HRSDA / HRSSA — Hydraulic Scotch Yoke",
             href: "/actuators/hydraulic/scotch-yoke",
             children: [
-              { label: "View All Models", href: "/actuators/hydraulic/adf/products" },
+              { label: "View All Models", href: "/actuators/hydraulic/scotch-yoke/products" },
             ],
           },
           {

@@ -1,6 +1,6 @@
-import SeriesPage from "../_series/SeriesPage";
-import { SCOTCH_YOKE } from "./scotchYokeData";
+// HRS hydraulic scotch yoke series page. The content and data sheet figures live in HrsView.
+import HrsView from "./HrsView";
 
 export default function ScotchYokePage() {
-  return <SeriesPage def={SCOTCH_YOKE} />;
+  return <HrsView />;
 }
