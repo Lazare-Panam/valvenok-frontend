@@ -40,7 +40,7 @@ function ViewAllRow({ label, href, onClose }: { label: string; href: string; onC
   return (
     <ListItemButton component="a" href={href} onClick={onClose}
       sx={{ mx: 1.5, my: 1.25, px: 2, py: 1.1, borderRadius: "12px", bgcolor: "#EEF9EA", "&:hover": { bgcolor: "#E0F3D9" } }}>
-      <ListItemText primary={label} primaryTypographyProps={{ fontSize: "0.86rem", fontWeight: 700, color: HEADER_COLOR, textTransform: "none !important" }} />
+      <ListItemText primary={label} primaryTypographyProps={{ fontSize: "0.86rem", fontWeight: 700, color: HEADER_COLOR, textTransform: "capitalize !important" }} />
       <ArrowForwardRoundedIcon sx={{ fontSize: 18, color: HEADER_COLOR }} />
     </ListItemButton>
   );
@@ -58,7 +58,7 @@ function BrandHead({ name, site }: { name: string; site?: string }) {
       )}
       <Typography sx={{ fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase !important", color: MUTED }}>{name}</Typography>
       <Box sx={{ flex: 1, height: "1px", bgcolor: BORDER }} />
-      {site && <Typography sx={{ fontSize: "0.7rem", color: "#9AA69E", textTransform: "none !important" }}>{site}</Typography>}
+      {site && <Typography sx={{ fontSize: "0.7rem", color: "#9AA69E", textTransform: "capitalize !important" }}>{site}</Typography>}
     </Box>
   );
 }
@@ -71,8 +71,8 @@ function ShopByBrand({ type, onClose }: { type: ProductType; onClose: () => void
   if (!brands.length) return null;
   return (
     <Box sx={{ mt: 2, mx: 1.5, p: 1.5, borderRadius: "16px", background: "linear-gradient(135deg, #EEF9EA 0%, #EEF6FD 100%)", border: `1px solid ${BORDER}` }}>
-      <Typography sx={{ fontSize: "0.92rem", fontWeight: 800, color: INK, textTransform: "none !important" }}>Shop by brand</Typography>
-      <Typography sx={{ fontSize: "0.74rem", color: MUTED, mb: 1.25, textTransform: "none !important" }}>↗ = the brand’s own website</Typography>
+      <Typography sx={{ fontSize: "0.92rem", fontWeight: 800, color: INK, textTransform: "capitalize !important" }}>Shop by brand</Typography>
+      <Typography sx={{ fontSize: "0.74rem", color: MUTED, mb: 1.25, textTransform: "capitalize !important" }}>↗ = the brand’s own website</Typography>
       <Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1 }}>
         {brands.map(({ brand, text, href, external }) => (
           <Box key={brand.slug} component="a" href={href} onClick={onClose} {...(external ? { target: "_blank", rel: "noopener" } : {})}
@@ -90,7 +90,7 @@ function ShopByBrand({ type, onClose }: { type: ProductType; onClose: () => void
         ))}
       </Box>
       <ListItemButton component="a" href="/brands" onClick={onClose} sx={{ mt: 1.25, borderRadius: 999, bgcolor: HEADER_COLOR, justifyContent: "center", py: 0.9, "&:hover": { bgcolor: "#155a25" } }}>
-        <Typography sx={{ fontSize: "0.86rem", fontWeight: 700, color: "#fff", textTransform: "none !important" }}>All brands</Typography>
+        <Typography sx={{ fontSize: "0.86rem", fontWeight: 700, color: "#fff", textTransform: "capitalize !important" }}>All brands</Typography>
         <ArrowForwardRoundedIcon sx={{ fontSize: 17, color: "#fff", ml: 0.5 }} />
       </ListItemButton>
     </Box>
@@ -188,8 +188,8 @@ export default function MobileMenu({ onClose }: Props) {
                 <ListItemText
                   primary={col.header}
                   secondary={`${col.items.filter((i) => !i.external).length} series${col.items.some((i) => i.external) ? " · more from our group" : ""}`}
-                  primaryTypographyProps={{ fontSize: "0.98rem", fontWeight: 700, color: INK, textTransform: "none !important" }}
-                  secondaryTypographyProps={{ fontSize: "0.76rem", color: MUTED, mt: 0.25, textTransform: "none !important" }}
+                  primaryTypographyProps={{ fontSize: "0.98rem", fontWeight: 700, color: INK, textTransform: "capitalize !important" }}
+                  secondaryTypographyProps={{ fontSize: "0.76rem", color: MUTED, mt: 0.25, textTransform: "capitalize !important" }}
                 />
                 <ChevronRightIcon sx={{ color: BRAND_GREEN, fontSize: 20 }} />
               </ListItemButton>
@@ -206,7 +206,7 @@ export default function MobileMenu({ onClose }: Props) {
               <React.Fragment key={item.label}>
                 {item.external && !all[i - 1]?.external && (
                   <Box sx={{ mx: 2, mt: 2, pt: 1.5, borderTop: `1px solid ${BORDER}` }}>
-                    <Typography sx={{ fontSize: "0.8rem", fontWeight: 600, color: "#5B6B60", textTransform: "none !important" }}>Also in our group</Typography>
+                    <Typography sx={{ fontSize: "0.8rem", fontWeight: 600, color: "#5B6B60", textTransform: "capitalize !important" }}>Also in our group</Typography>
                   </Box>
                 )}
                 {item.brand && item.brand !== all[i - 1]?.brand && (
@@ -225,7 +225,7 @@ export default function MobileMenu({ onClose }: Props) {
                 >
                   <ListItemText
                     primary={item.label}
-                    primaryTypographyProps={{ fontSize: "0.9rem", fontWeight: 500, color: INK, lineHeight: 1.35, textTransform: "none !important" }}
+                    primaryTypographyProps={{ fontSize: "0.9rem", fontWeight: 500, color: INK, lineHeight: 1.35, textTransform: "capitalize !important" }}
                   />
                   {item.external ? (
                     <NorthEastRoundedIcon sx={{ color: MUTED, fontSize: 16, flexShrink: 0 }} />

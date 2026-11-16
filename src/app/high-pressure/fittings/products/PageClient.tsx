@@ -23,7 +23,7 @@ function PageHeader() {
   return (
     <Box sx={{ p: 4, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: 'background.paper' }}>
       <Button component={Link} href="/high-pressure/fittings" startIcon={<ArrowBackIcon />}
-        sx={{ mb: 1, fontWeight: 700, color: 'text.secondary', textTransform: 'none' }}>
+        sx={{ mb: 1, fontWeight: 700, color: 'text.secondary', textTransform: 'capitalize' }}>
         Fittings overview
       </Button>
       <Typography variant="h1" fontWeight={800} mb={1} sx={{ color: BRAND_GREEN, fontFamily: PRIMARY_FONT, fontSize: '1.8rem' }}>

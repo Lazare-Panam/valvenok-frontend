@@ -43,7 +43,7 @@ export const inputSx = {
   },
   "& .MuiInputLabel-root": { textTransform: "none" },
   "& .MuiInputLabel-root.Mui-focused": { color: T.greenDark },
-  "& .MuiFormHelperText-root": { ml: 0.5, fontWeight: 600, textTransform: "none" },
+  "& .MuiFormHelperText-root": { ml: 0.5, fontWeight: 600, textTransform: "capitalize" },
 } as const;
 
 export const primaryBtnSx = {
@@ -55,7 +55,7 @@ export const primaryBtnSx = {
   color: T.greenDeep,
   fontWeight: 700,
   fontSize: "1rem",
-  textTransform: "none",
+  textTransform: "capitalize",
   boxShadow: "none",
   transition: "transform .2s, box-shadow .2s",
   "&::after": { content: '""', position: "absolute", top: 0, bottom: 0, width: "40%", background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent)", animation: "sweep 2.8s ease-in-out infinite" },
@@ -71,7 +71,7 @@ export const secondaryBtnSx = {
   color: T.ink,
   fontWeight: 700,
   fontSize: "0.98rem",
-  textTransform: "none",
+  textTransform: "capitalize",
   "&:hover": { borderColor: T.greenDark, color: T.greenDark, bgcolor: T.greenSoft },
 } as const;
 

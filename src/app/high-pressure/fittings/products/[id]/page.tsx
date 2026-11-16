@@ -65,7 +65,7 @@ export default function FittingDetailPage() {
     <>
       <Container maxWidth="lg" sx={{ py: 6 }}>
         <Button startIcon={<ArrowBackIcon />} component={Link} href="/high-pressure/fittings/products"
-          sx={{ mb: 3, fontWeight: 700, color: 'text.secondary', textTransform: 'none' }}>
+          sx={{ mb: 3, fontWeight: 700, color: 'text.secondary', textTransform: 'capitalize' }}>
           Back to Fittings
         </Button>
 

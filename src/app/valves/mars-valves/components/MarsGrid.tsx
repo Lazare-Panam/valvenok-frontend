@@ -66,12 +66,12 @@ function MarsRow({ row }: { row: MarsSeriesDTO }) {
           <Stack direction="row" gap={1}>
             <Button size="small" variant="outlined"
               onClick={e => { e.stopPropagation(); goToDetail() }}
-              sx={{ fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px', textTransform: 'none', whiteSpace: 'nowrap' }}>
+              sx={{ fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px', textTransform: 'capitalize', whiteSpace: 'nowrap' }}>
               Details
             </Button>
             <Button size="small" variant="contained"
               onClick={e => { e.stopPropagation(); openQuote() }}
-              sx={{ fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px', textTransform: 'none', whiteSpace: 'nowrap', boxShadow: 'none', '&:hover': { boxShadow: 'none' } }}>
+              sx={{ fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px', textTransform: 'capitalize', whiteSpace: 'nowrap', boxShadow: 'none', '&:hover': { boxShadow: 'none' } }}>
               Request Quote
             </Button>
           </Stack>
@@ -109,11 +109,11 @@ function MarsRow({ row }: { row: MarsSeriesDTO }) {
                     </Stack>
                     <Stack direction="row" gap={2}>
                       <Button variant="contained" onClick={openQuote}
-                        sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px' }}>
+                        sx={{ textTransform: 'capitalize', fontWeight: 700, borderRadius: '6px' }}>
                         Request Quote
                       </Button>
                       <Button variant="outlined" onClick={goToDetail}
-                        sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px' }}>
+                        sx={{ textTransform: 'capitalize', fontWeight: 700, borderRadius: '6px' }}>
                         View Full Details
                       </Button>
                     </Stack>

@@ -82,7 +82,7 @@ export default function ManifoldsIndexPage() {
                 py: 2,
                 fontSize: "1rem",
                 fontWeight: 700,
-                textTransform: "none",
+                textTransform: "capitalize",
                 "&:hover": { bgcolor: "#fff", color: "#000" },
               }}
             >
@@ -100,7 +100,7 @@ export default function ManifoldsIndexPage() {
                 py: 2,
                 fontSize: "1rem",
                 fontWeight: 700,
-                textTransform: "none",
+                textTransform: "capitalize",
                 "&:hover": {
                   bgcolor: "rgba(255,255,255,0.08)",
                   borderColor: "#fff",
@@ -352,7 +352,7 @@ export default function ManifoldsIndexPage() {
                 sx={{
                   borderColor: "#61D649",
                   color: "#61D649",
-                  textTransform: "none",
+                  textTransform: "capitalize",
                   fontWeight: 700,
                   "&:hover": {
                     bgcolor: "#61D649",
@@ -467,7 +467,7 @@ export default function ManifoldsIndexPage() {
               sx={{
                 borderColor: "#61D649",
                 color: "#61D649",
-                textTransform: "none",
+                textTransform: "capitalize",
                 fontWeight: 700,
                 "&:hover": {
                   bgcolor: "#61D649",
@@ -562,7 +562,7 @@ export default function ManifoldsIndexPage() {
               sx={{
                 borderColor: "#61D649",
                 color: "#61D649",
-                textTransform: "none",
+                textTransform: "capitalize",
                 fontWeight: 700,
                 "&:hover": {
                   bgcolor: "#61D649",
@@ -676,7 +676,7 @@ export default function ManifoldsIndexPage() {
               px: 4,
               py: 1.5,
               fontWeight: 700,
-              textTransform: "none",
+              textTransform: "capitalize",
               borderRadius: 1,
               "&:hover": { bgcolor: "#4fbd3a" },
             }}

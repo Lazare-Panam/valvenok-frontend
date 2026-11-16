@@ -49,3 +49,24 @@ a {
     color-scheme: dark;
   }
 }
+
+/* Site convention (16 Nov 2026): every word of every text is capitalised,
+   headings and descriptions alike. Inherited, so a component's own style
+   (e.g. an uppercase label) still wins. */
+body {
+  text-transform: capitalize;
+}
+/* Buttons don't inherit text-transform by default */
+button {
+  text-transform: inherit;
+}
+/* Typed text, emails and units keep their case */
+input,
+textarea,
+select,
+code,
+pre,
+a[href^="mailto:"],
+.nocap {
+  text-transform: none !important;
+}

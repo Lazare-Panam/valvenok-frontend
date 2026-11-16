@@ -236,7 +236,7 @@ export default function EnquiryForm() {
               color: T.greenDeep,
               fontWeight: 700,
               fontSize: "1rem",
-              textTransform: "none",
+              textTransform: "capitalize",
               transition: "transform .2s, box-shadow .2s",
               "&::after": { content: '""', position: "absolute", top: 0, bottom: 0, width: "40%", background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent)", animation: "sweep 2.8s ease-in-out infinite" },
               "&:hover": { transform: "translateY(-2px)", boxShadow: "0 12px 28px -8px rgba(97,214,73,0.6)", background: `linear-gradient(90deg, ${T.green}, #7FDB6A)` },

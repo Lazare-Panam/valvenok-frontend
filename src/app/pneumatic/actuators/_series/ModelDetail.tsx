@@ -4,6 +4,7 @@
 // model pages: photo + key facts, a picker for the other models in the series,
 // quote / WhatsApp, full specs, the model's own table, help cards, nearby models.
 
+import { KeepUnits } from "@/src/app/Common/KeepUnits";
 import { titleCase } from "@/src/app/Common/titleCase";
 import { useState } from "react";
 import Link from "next/link";
@@ -178,7 +179,7 @@ export default function ModelDetail({ item: m, items, series, badge }: { item: I
 
           {m.table && (
             <Box sx={{ mt: 3 }}>
-              <Box component="h3" sx={{ m: 0, mb: 1.25, fontSize: "1.15rem", fontWeight: 800, color: T.ink }}>{titleCase(m.table.title ?? (m.table.head[0] === "Position" ? "Torque by air pressure (Nm)" : "Manual overrides for this size"))}</Box>
+              <Box component="h3" sx={{ m: 0, mb: 1.25, fontSize: "1.15rem", fontWeight: 800, color: T.ink }}><KeepUnits text={titleCase(m.table.title ?? (m.table.head[0] === "Position" ? "Torque by air pressure (Nm)" : "Manual overrides for this size"))} /></Box>
               <Box sx={{ overflowX: "auto", borderRadius: "16px", border: `1px solid ${T.border}`, bgcolor: "#fff" }}>
                 <Box component="table" sx={{ width: "100%", borderCollapse: "collapse", fontSize: "0.9rem", "& th, & td": { px: 2, py: 1.2, borderBottom: `1px solid ${T.border}`, textAlign: "left", whiteSpace: "nowrap" }, "& th": { fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: T.muted, bgcolor: "#FAFCFA" }, "& td": { color: T.ink }, "& td:first-of-type": { fontWeight: 800 } }}>
                   <thead><tr>{m.table.head.map((h) => <th key={h}>{h}</th>)}</tr></thead>

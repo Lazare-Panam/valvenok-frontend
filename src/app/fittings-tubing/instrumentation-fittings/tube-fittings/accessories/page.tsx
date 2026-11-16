@@ -59,7 +59,7 @@ function Sidebar({ filters, setFilters, activeCount }: { filters: Filters; setFi
     setFilters(prev => ({ ...prev, [key]: prev[key].includes(val) ? prev[key].filter(v => v !== val) : [...prev[key], val] }))
 
   const toggleSx = {
-    '& .MuiToggleButton-root': { fontSize: '0.7rem', py: 0.5, px: 1, textTransform: 'none' },
+    '& .MuiToggleButton-root': { fontSize: '0.7rem', py: 0.5, px: 1, textTransform: 'capitalize' },
     '& .Mui-selected': { bgcolor: `${theme.palette.primary.main} !important`, color: '#fff !important' },
   }
 

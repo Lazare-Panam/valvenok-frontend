@@ -316,7 +316,7 @@ function RegulatorRow({ row }: { row: GasRegulatorDTO }) {
               py: 0.5,
               px: 1.5,
               borderRadius: "4px",
-              textTransform: "none",
+              textTransform: "capitalize",
               whiteSpace: "nowrap",
               bgcolor: BRAND_GREEN,
               color: "#fff",
@@ -436,7 +436,7 @@ function RegulatorRow({ row }: { row: GasRegulatorDTO }) {
                     component="a"
                     href={CONTACT_HREF}
                     sx={{
-                      textTransform: "none",
+                      textTransform: "capitalize",
                       fontWeight: 700,
                       borderRadius: "6px",
                       bgcolor: BRAND_GREEN,

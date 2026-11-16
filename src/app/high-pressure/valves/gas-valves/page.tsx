@@ -106,7 +106,7 @@ function GasRow({ row }: { row: GasValve }) {
         <TableCell sx={{ py: 1, fontSize: '0.8rem', fontFamily: FONT }}>{row.certification}</TableCell>
         <TableCell sx={{ py: 1 }}>
           <Button size="small" variant="contained" onClick={e => { e.stopPropagation(); setModalOpen(true) }}
-            sx={{ fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px', textTransform: 'none', whiteSpace: 'nowrap', bgcolor: GREEN, color: '#fff', boxShadow: 'none', '&:hover': { bgcolor: '#50c23a', boxShadow: 'none' } }}>
+            sx={{ fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px', textTransform: 'capitalize', whiteSpace: 'nowrap', bgcolor: GREEN, color: '#fff', boxShadow: 'none', '&:hover': { bgcolor: '#50c23a', boxShadow: 'none' } }}>
             Request Quote
           </Button>
         </TableCell>
@@ -141,7 +141,7 @@ function GasRow({ row }: { row: GasValve }) {
                       ))}
                     </Stack>
                     <Button variant="contained" onClick={() => setModalOpen(true)}
-                      sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', bgcolor: GREEN, color: '#fff', '&:hover': { bgcolor: '#50c23a' }, fontFamily: FONT }}>
+                      sx={{ textTransform: 'capitalize', fontWeight: 700, borderRadius: '6px', bgcolor: GREEN, color: '#fff', '&:hover': { bgcolor: '#50c23a' }, fontFamily: FONT }}>
                       Request Quote
                     </Button>
                   </Box>

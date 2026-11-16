@@ -36,7 +36,7 @@ export default function SeriesFaq({ title, items }: { title: string; items: { q:
                   <Box component="h3" sx={{ m: 0, font: "inherit" }}>{f.q}</Box>
                 </Box>
               </Box>
-              <Box component="p" sx={{ m: 0, pl: { xs: 2.5, sm: "78px" }, pr: 2.5, pb: 2.25, color: "text.secondary", lineHeight: 1.7, textTransform: "none" }}>{f.a}</Box>
+              <Box component="p" sx={{ m: 0, pl: { xs: 2.5, sm: "78px" }, pr: 2.5, pb: 2.25, color: "text.secondary", lineHeight: 1.7, textTransform: "capitalize" }}>{f.a}</Box>
             </Box>
           ))}
         </Box>

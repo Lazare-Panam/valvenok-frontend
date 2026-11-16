@@ -61,7 +61,7 @@ export default function SeriesPage({ def }: { def: SeriesDef }) {
               <Typography variant="h6" sx={{ color: "text.secondary", fontWeight: 400, mb: 3 }}>
                 {def.subtitle}
               </Typography>
-              <Typography variant="body1" sx={{ color: "text.secondary", mb: 3, lineHeight: 1.8, textTransform: "none" }}>
+              <Typography variant="body1" sx={{ color: "text.secondary", mb: 3, lineHeight: 1.8, textTransform: "capitalize" }}>
                 {def.intro}
               </Typography>
               <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mb: 4 }}>
@@ -73,7 +73,7 @@ export default function SeriesPage({ def }: { def: SeriesDef }) {
                 {def.heroStats.map(({ label, value }) => (
                   <Box key={label}>
                     <Typography variant="caption" sx={{ color: "text.secondary", textTransform: "uppercase", letterSpacing: 1 }}>{label}</Typography>
-                    <Typography variant="body1" sx={{ fontWeight: 700, textTransform: "none" }}>{value}</Typography>
+                    <Typography variant="body1" sx={{ fontWeight: 700, textTransform: "capitalize" }}>{value}</Typography>
                   </Box>
                 ))}
               </Box>
@@ -88,7 +88,7 @@ export default function SeriesPage({ def }: { def: SeriesDef }) {
                 </Button>
               </Box>
               <Button href={def.catalog} target="_blank" rel="noopener" startIcon={<DownloadIcon />}
-                sx={{ mt: 2, fontWeight: 700, textTransform: "none", color: "#1c2e1a" }}>
+                sx={{ mt: 2, fontWeight: 700, textTransform: "capitalize", color: "#1c2e1a" }}>
                 {def.catalogLabel}
               </Button>
             </Grid>
@@ -107,7 +107,7 @@ export default function SeriesPage({ def }: { def: SeriesDef }) {
               <Grid size={{ xs: 12, sm: 6, md: 4 }} key={label}>
                 <Paper variant="outlined" sx={{ p: 3, borderRadius: 2, height: "100%" }}>
                   <Typography variant="caption" sx={{ color: "text.secondary", textTransform: "uppercase", letterSpacing: 1.5 }}>{label}</Typography>
-                  <Typography variant="body1" sx={{ fontWeight: 700, mt: 0.5, textTransform: "none" }}>{value}</Typography>
+                  <Typography variant="body1" sx={{ fontWeight: 700, mt: 0.5, textTransform: "capitalize" }}>{value}</Typography>
                 </Paper>
               </Grid>
             ))}
@@ -122,15 +122,15 @@ export default function SeriesPage({ def }: { def: SeriesDef }) {
         <Container maxWidth="lg">
           <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: 2, mb: 4 }}>
             <Typography variant="h5" component="h2" sx={{ fontWeight: 700 }}>Models</Typography>
-            <Button href={productsHref} size="small" sx={{ textTransform: "none", fontWeight: 700 }}>Full specifications →</Button>
+            <Button href={productsHref} size="small" sx={{ textTransform: "capitalize", fontWeight: 700 }}>Full specifications →</Button>
           </Box>
           {def.groups.map((g) => {
             const cols = g.summary.map((k) => g.cols.find((c) => c.key === k)!);
             return (
               <Box key={g.key} sx={{ mb: 5 }}>
                 <Typography variant="subtitle1" component="h3" sx={{ fontWeight: 700, mb: 0.5 }}>{titleCase(g.title)}</Typography>
-                {g.note && <Typography variant="body2" sx={{ color: "text.secondary", mb: 1.5, textTransform: "none" }}>{g.note}</Typography>}
-                <Box sx={{ textTransform: "none", overflowX: "auto", border: "1px solid rgba(0,0,0,0.12)", borderRadius: 2, bgcolor: "#fff" }}>
+                {g.note && <Typography variant="body2" sx={{ color: "text.secondary", mb: 1.5, textTransform: "capitalize" }}>{g.note}</Typography>}
+                <Box sx={{ textTransform: "capitalize", overflowX: "auto", border: "1px solid rgba(0,0,0,0.12)", borderRadius: 2, bgcolor: "#fff" }}>
                   <Box component="table" sx={tableSx}>
                     <thead>
                       <tr>{cols.map((c) => <th key={c.key}>{c.label}</th>)}</tr>
@@ -165,7 +165,7 @@ export default function SeriesPage({ def }: { def: SeriesDef }) {
                   </Box>
                   <Box>
                     <Typography variant="body2" sx={{ fontWeight: 700, mb: 0.5 }}>{title}</Typography>
-                    <Typography variant="body2" sx={{ color: "text.secondary", lineHeight: 1.6, textTransform: "none" }}>{body}</Typography>
+                    <Typography variant="body2" sx={{ color: "text.secondary", lineHeight: 1.6, textTransform: "capitalize" }}>{body}</Typography>
                   </Box>
                 </Paper>
               </Grid>

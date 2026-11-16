@@ -150,7 +150,7 @@ function DescriptionPanel({ content }: { content: ProductContent }) {
             lineHeight: 1.75,
             color: "text.secondary",
             mb: 2.5,
-            textTransform: "none",
+            textTransform: "capitalize",
           }}
         >
           {para}

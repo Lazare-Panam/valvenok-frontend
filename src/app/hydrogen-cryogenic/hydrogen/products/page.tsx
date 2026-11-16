@@ -115,7 +115,7 @@ function YoungdoRow({ row }: { row: YoungdoValve }) {
             onClick={e => { e.stopPropagation(); setModalOpen(true) }}
             sx={{
               fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5,
-              borderRadius: '4px', textTransform: 'none', whiteSpace: 'nowrap',
+              borderRadius: '4px', textTransform: 'capitalize', whiteSpace: 'nowrap',
               bgcolor: DARK_GREEN, color: '#fff', boxShadow: 'none',
               '&:hover': { bgcolor: '#2d4a2d', boxShadow: 'none' },
             }}
@@ -157,7 +157,7 @@ function YoungdoRow({ row }: { row: YoungdoValve }) {
                     <Button
                       variant="contained"
                       onClick={() => setModalOpen(true)}
-                      sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', bgcolor: DARK_GREEN, color: '#fff', '&:hover': { bgcolor: '#2d4a2d' }, fontFamily: PRIMARY_FONT }}
+                      sx={{ textTransform: 'capitalize', fontWeight: 700, borderRadius: '6px', bgcolor: DARK_GREEN, color: '#fff', '&:hover': { bgcolor: '#2d4a2d' }, fontFamily: PRIMARY_FONT }}
                     >
                       Request Quote
                     </Button>

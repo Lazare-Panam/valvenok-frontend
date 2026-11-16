@@ -268,7 +268,7 @@ function MeterRow({ row }: { row: WaterMeterDTO }) {
               py: 0.5,
               px: 1.5,
               borderRadius: "4px",
-              textTransform: "none",
+              textTransform: "capitalize",
               whiteSpace: "nowrap",
               bgcolor: BRAND_GREEN,
               color: "#fff",
@@ -374,7 +374,7 @@ function MeterRow({ row }: { row: WaterMeterDTO }) {
                     component="a"
                     href={buildMailto(row)}
                     sx={{
-                      textTransform: "none",
+                      textTransform: "capitalize",
                       fontWeight: 700,
                       borderRadius: "6px",
                       bgcolor: BRAND_GREEN,

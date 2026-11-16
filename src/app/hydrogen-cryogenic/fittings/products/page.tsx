@@ -130,7 +130,7 @@ function HifluxRow({ row }: { row: HifluxFitting }) {
             onClick={e => { e.stopPropagation(); setModalOpen(true) }}
             sx={{
               fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5,
-              borderRadius: '4px', textTransform: 'none', whiteSpace: 'nowrap',
+              borderRadius: '4px', textTransform: 'capitalize', whiteSpace: 'nowrap',
               bgcolor: ACCENT, color: '#fff', boxShadow: 'none',
               '&:hover': { bgcolor: '#4ab534', boxShadow: 'none' },
             }}
@@ -169,7 +169,7 @@ function HifluxRow({ row }: { row: HifluxFitting }) {
                     <Button
                       variant="contained"
                       onClick={() => setModalOpen(true)}
-                      sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', bgcolor: ACCENT, color: '#fff', '&:hover': { bgcolor: '#4ab534' }, fontFamily: PRIMARY_FONT }}
+                      sx={{ textTransform: 'capitalize', fontWeight: 700, borderRadius: '6px', bgcolor: ACCENT, color: '#fff', '&:hover': { bgcolor: '#4ab534' }, fontFamily: PRIMARY_FONT }}
                     >
                       Request Quote
                     </Button>

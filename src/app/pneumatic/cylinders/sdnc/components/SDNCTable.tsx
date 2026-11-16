@@ -39,7 +39,7 @@ const cartBtnSx = {
   py: 0.5,
   px: 1.5,
   borderRadius: '4px',
-  textTransform: 'none' as const,
+  textTransform: 'capitalize' as const,
   whiteSpace: 'nowrap' as const,
   boxShadow: 'none',
   backgroundColor: '#2e7d32',

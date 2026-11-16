@@ -38,6 +38,8 @@ const theme = createTheme({
         html: { scrollBehavior: "smooth" },
       },
     },
+    // Site convention (16 Nov 2026): every word of every text is capitalised,
+    // headings and descriptions alike. Units/codes can opt out with className="nocap".
     MuiTypography: {
       styleOverrides: {
         root: {

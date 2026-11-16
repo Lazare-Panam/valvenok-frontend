@@ -134,12 +134,12 @@ export default function ProductDetailLayout({
 
               <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
                 <Button size="large" onClick={onPrimary}
-                  sx={{ borderRadius: '6px', fontWeight: 800, py: 1.5, px: 4, fontSize: '1rem', textTransform: 'none', bgcolor: accent, color: '#fff', boxShadow: 'none', border: `1px solid ${accent}`, '&:hover': { bgcolor: accentHover, boxShadow: 'none' } }}>
+                  sx={{ borderRadius: '6px', fontWeight: 800, py: 1.5, px: 4, fontSize: '1rem', textTransform: 'capitalize', bgcolor: accent, color: '#fff', boxShadow: 'none', border: `1px solid ${accent}`, '&:hover': { bgcolor: accentHover, boxShadow: 'none' } }}>
                   {primaryLabel}
                 </Button>
                 {secondaryLabel && onSecondary && (
                   <Button size="large" onClick={onSecondary}
-                    sx={{ borderRadius: '6px', fontWeight: 700, py: 1.5, px: 3, fontSize: '0.9rem', textTransform: 'none', border: '1px solid', borderColor: 'divider', color: 'text.primary', '&:hover': { borderColor: 'text.primary' } }}>
+                    sx={{ borderRadius: '6px', fontWeight: 700, py: 1.5, px: 3, fontSize: '0.9rem', textTransform: 'capitalize', border: '1px solid', borderColor: 'divider', color: 'text.primary', '&:hover': { borderColor: 'text.primary' } }}>
                     {secondaryLabel}
                   </Button>
                 )}

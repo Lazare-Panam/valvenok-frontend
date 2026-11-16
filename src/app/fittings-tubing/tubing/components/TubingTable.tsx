@@ -75,7 +75,7 @@ function TubingRow({ row, detailBase }: { row: TubingDTO; detailBase?: string })
         <TableCell sx={{ py: 1 }}>
           <Button size="small" variant="contained"
             onClick={e => { e.stopPropagation(); openQuote() }}
-            sx={{ fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px', textTransform: 'none', whiteSpace: 'nowrap', boxShadow: 'none', '&:hover': { boxShadow: 'none' } }}>
+            sx={{ fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px', textTransform: 'capitalize', whiteSpace: 'nowrap', boxShadow: 'none', '&:hover': { boxShadow: 'none' } }}>
             Request Quote
           </Button>
         </TableCell>
@@ -106,12 +106,12 @@ function TubingRow({ row, detailBase }: { row: TubingDTO; detailBase?: string })
                     </Stack>
                     <Stack direction="row" spacing={2}>
                       <Button variant="contained" onClick={openQuote}
-                        sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px' }}>
+                        sx={{ textTransform: 'capitalize', fontWeight: 700, borderRadius: '6px' }}>
                         Request Quote
                       </Button>
                       {detailBase && (
                         <Button component={Link} href={`${detailBase}/${row.id}`} variant="outlined"
-                          sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px' }}>
+                          sx={{ textTransform: 'capitalize', fontWeight: 700, borderRadius: '6px' }}>
                           View details
                         </Button>
                       )}

@@ -63,7 +63,7 @@ function PCVRow({ row }: { row: PCVDto }) {
             endIcon={<ArrowForwardIcon sx={{ fontSize: "0.9rem !important" }} />}
             onClick={e => { e.stopPropagation(); goToProduct() }}
             sx={{
-              borderRadius: "6px", fontWeight: 700, fontSize: "0.68rem", textTransform: "none",
+              borderRadius: "6px", fontWeight: 700, fontSize: "0.68rem", textTransform: "capitalize",
               borderColor: alpha(theme.palette.primary.main, 0.4), color: theme.palette.primary.main,
               "&:hover": { bgcolor: theme.palette.primary.main, color: "#fff", borderColor: theme.palette.primary.main },
             }}

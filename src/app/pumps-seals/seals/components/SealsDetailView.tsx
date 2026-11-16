@@ -47,7 +47,7 @@ export function SealsDetailView({ model, onBack }: Props) {
         <Button
           startIcon={<ArrowBackIcon />}
           onClick={onBack}
-          sx={{ mb: 2, textTransform: 'none', fontWeight: 700 }}
+          sx={{ mb: 2, textTransform: 'capitalize', fontWeight: 700 }}
         >
           Back to all models
         </Button>

@@ -104,7 +104,7 @@ export default function Footer() {
         color: "white",
         fontFamily: FONT,
         "& *": { fontFamily: `${FONT} !important` },
-        "& p, & a, & span": { textTransform: "none" },
+        "& p, & a, & span": { textTransform: "capitalize" },
         background: "linear-gradient(115deg, #0F3314 0%, #1B5E1A 45%, #2E8B1E 85%, #3FAE2C 120%)",
         // Faint engineering grid, as on the Panam footer
         "&::before": {

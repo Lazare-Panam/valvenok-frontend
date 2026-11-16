@@ -25,7 +25,7 @@ function PageHeader() {
   return (
     <Box sx={{ p: 4, borderBottom: `1px solid ${theme.palette.divider}`, bgcolor: 'background.paper' }}>
       <Button component={Link} href="/high-pressure/tubing" startIcon={<ArrowBackIcon />}
-        sx={{ mb: 1, fontWeight: 700, color: 'text.secondary', textTransform: 'none' }}>
+        sx={{ mb: 1, fontWeight: 700, color: 'text.secondary', textTransform: 'capitalize' }}>
         Tubing overview
       </Button>
       <Typography variant="h1" fontWeight={800} mb={1} color="primary" sx={{ fontSize: '1.8rem' }}>

@@ -71,7 +71,7 @@ function TGValveRow({ v }: { v: TGValveDTO }) {
         <TableCell sx={{ py: 1, fontSize: '0.82rem', fontFamily: PRIMARY_FONT }}>{v.thread}</TableCell>
         <TableCell sx={{ py: 1 }}>
           <Button size="small" variant="contained" onClick={e => { e.stopPropagation(); openQuote() }}
-            sx={{ fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px', textTransform: 'none', whiteSpace: 'nowrap', bgcolor: BRAND_GREEN, color: '#fff', boxShadow: 'none', '&:hover': { bgcolor: '#50c23a', boxShadow: 'none' } }}>
+            sx={{ fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px', textTransform: 'capitalize', whiteSpace: 'nowrap', bgcolor: BRAND_GREEN, color: '#fff', boxShadow: 'none', '&:hover': { bgcolor: '#50c23a', boxShadow: 'none' } }}>
             Request Quote
           </Button>
         </TableCell>
@@ -97,7 +97,7 @@ function TGValveRow({ v }: { v: TGValveDTO }) {
                       <Spec label="Thread"        value={v.thread} />
                     </Stack>
                     <Button variant="contained" onClick={openQuote}
-                      sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_GREEN, color: '#fff', '&:hover': { bgcolor: '#50c23a' }, fontFamily: PRIMARY_FONT }}>
+                      sx={{ textTransform: 'capitalize', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_GREEN, color: '#fff', '&:hover': { bgcolor: '#50c23a' }, fontFamily: PRIMARY_FONT }}>
                       Request Quote
                     </Button>
                   </Box>
@@ -169,7 +169,7 @@ export default function TGValvesPage() {
             sx={{
               '& .MuiToggleButton-root': {
                 fontSize: '0.75rem', fontWeight: 700,
-                py: 0.5, px: 2, textTransform: 'none',
+                py: 0.5, px: 2, textTransform: 'capitalize',
                 borderColor: alpha(BRAND_GREEN, 0.3),
                 fontFamily: PRIMARY_FONT,
               },

@@ -297,7 +297,7 @@ export default function DielectricGasketPage() {
 
       <Box sx={{ bgcolor: 'background.paper', borderBottom: `1px solid ${theme.palette.divider}`, px: 4 }}>
         <Tabs value={tab} onChange={(_, v) => { setTab(v); setMobileOpen(false) }}
-          sx={{ '& .MuiTab-root': { fontWeight: 700, textTransform: 'none', fontSize: '0.9rem' }, '& .Mui-selected': { color: `${theme.palette.primary.main} !important` }, '& .MuiTabs-indicator': { bgcolor: theme.palette.primary.main } }}>
+          sx={{ '& .MuiTab-root': { fontWeight: 700, textTransform: 'capitalize', fontSize: '0.9rem' }, '& .Mui-selected': { color: `${theme.palette.primary.main} !important` }, '& .MuiTabs-indicator': { bgcolor: theme.palette.primary.main } }}>
           <Tab label={`Dielectric Fittings (${filteredD.length})`} />
           <Tab label={`Gaskets (${filteredG.length})`} />
         </Tabs>

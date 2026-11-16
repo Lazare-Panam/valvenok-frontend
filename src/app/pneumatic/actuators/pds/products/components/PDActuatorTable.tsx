@@ -21,7 +21,7 @@ const SERIES_COLORS: Record<string, string> = { PD: '#61D649', PS: '#2db82d' }
 // Green by default, inverts to white on hover
 const DETAIL_BTN_SX = {
   fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px',
-  textTransform: 'none' as const, whiteSpace: 'nowrap' as const, fontFamily: PRIMARY_FONT,
+  textTransform: 'capitalize' as const, whiteSpace: 'nowrap' as const, fontFamily: PRIMARY_FONT,
   bgcolor: BRAND_GREEN, color: '#fff', boxShadow: 'none', border: `1px solid ${BRAND_GREEN}`,
   '&:hover': { bgcolor: '#fff', color: BRAND_GREEN, boxShadow: 'none', borderColor: BRAND_GREEN },
 }
@@ -29,7 +29,7 @@ const DETAIL_BTN_SX = {
 // Solid green, darkens on hover
 const QUOTE_BTN_SX = {
   fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px',
-  textTransform: 'none' as const, whiteSpace: 'nowrap' as const, fontFamily: PRIMARY_FONT,
+  textTransform: 'capitalize' as const, whiteSpace: 'nowrap' as const, fontFamily: PRIMARY_FONT,
   bgcolor: BRAND_GREEN, color: '#fff', boxShadow: 'none',
   '&:hover': { bgcolor: '#50c23a', boxShadow: 'none' },
 }
@@ -135,7 +135,7 @@ function PDRow({ row }: { row: PDActuatorDTO }) {
                       <Spec label="Air Close"        value={`${row.airConsumptionClose} L @ 5.5 Bar`} />
                     </Stack>
                     <Button variant="contained" onClick={openQuote}
-                      sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_GREEN, color: '#fff', '&:hover': { bgcolor: '#50c23a' }, fontFamily: PRIMARY_FONT }}>
+                      sx={{ textTransform: 'capitalize', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_GREEN, color: '#fff', '&:hover': { bgcolor: '#50c23a' }, fontFamily: PRIMARY_FONT }}>
                       Request Quote
                     </Button>
                   </Box>
@@ -233,7 +233,7 @@ function PDSRow({ row }: { row: PDActuatorDTO }) {
                       <Spec label="Spring End Max (LB-IN)"    value={row.springEndTorqueLbInMax} />
                     </Stack>
                     <Button variant="contained" onClick={openQuote}
-                      sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_GREEN, color: '#fff', '&:hover': { bgcolor: '#50c23a' }, fontFamily: PRIMARY_FONT }}>
+                      sx={{ textTransform: 'capitalize', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_GREEN, color: '#fff', '&:hover': { bgcolor: '#50c23a' }, fontFamily: PRIMARY_FONT }}>
                       Request Quote
                     </Button>
                   </Box>

@@ -25,5 +25,8 @@ export const textReset = {
   // !important: the theme sets Barlow on every Typography class, which would
   // otherwise win over this inherited font.
   "& *": { fontFamily: `${T.font} !important` },
-  "& p, & span, & h1, & h2, & h3, & h4, & a, & li, & dt, & dd": { textTransform: "none" },
+  // Site convention: every word of every text capitalised (headings and descriptions)
+  "& p, & span, & a, & li, & dt, & dd, & h1, & h2, & h3, & h4, & h5, & h6": { textTransform: "capitalize" },
+  // Units and codes keep their case: <span className="nocap">mm</span>
+  "& .nocap": { textTransform: "none" },
 } as const;

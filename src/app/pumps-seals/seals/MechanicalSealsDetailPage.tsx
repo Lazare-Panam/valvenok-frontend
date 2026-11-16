@@ -69,7 +69,7 @@ export default function MechanicalSealDetailPage({ seal, onBack }: Props) {
           <Typography variant="body2" color="text.primary">{seal.partNumber}</Typography>
         </Breadcrumbs>
         <Button startIcon={<ArrowBackIcon />} onClick={onBack} size="small"
-          sx={{ textTransform: "none", fontWeight: 700 }}>
+          sx={{ textTransform: "capitalize", fontWeight: 700 }}>
           Back to results
         </Button>
       </Box>
@@ -119,7 +119,7 @@ export default function MechanicalSealDetailPage({ seal, onBack }: Props) {
 
             <Button variant="contained" size="large" startIcon={<ShoppingCartIcon />}
               onClick={handleAddToCart}
-              sx={{ textTransform: "none", fontWeight: 700, borderRadius: "8px", px: 4, py: 1.5 }}>
+              sx={{ textTransform: "capitalize", fontWeight: 700, borderRadius: "8px", px: 4, py: 1.5 }}>
               Add to Cart
             </Button>
           </Box>

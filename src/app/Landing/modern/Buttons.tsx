@@ -63,7 +63,7 @@ export default function PillButton({
         fontWeight: 600,
         fontSize: "0.95rem",
         textDecoration: "none",
-        textTransform: "none",
+        textTransform: "capitalize",
         whiteSpace: "nowrap",
         transition: "all .2s ease",
         "& svg": { fontSize: 18, transition: "transform .2s ease" },

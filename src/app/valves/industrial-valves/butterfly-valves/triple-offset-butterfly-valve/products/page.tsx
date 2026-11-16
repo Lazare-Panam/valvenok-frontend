@@ -222,7 +222,7 @@ function TOBVRow({ row }: { row: TOBVModelDTO }) {
         <TableCell sx={{ py: 1 }}>
           <Button size="small" variant="contained"
             onClick={e => { e.stopPropagation(); openQuote() }}
-            sx={{ fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px', textTransform: 'none',
+            sx={{ fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px', textTransform: 'capitalize',
               whiteSpace: 'nowrap', bgcolor: BRAND_GREEN, color: '#fff', boxShadow: 'none',
               '&:hover': { bgcolor: '#50c23a', boxShadow: 'none' } }}>
             Request Quote
@@ -268,7 +268,7 @@ function TOBVRow({ row }: { row: TOBVModelDTO }) {
                       ))}
                     </Box>
                     <Button variant="contained" onClick={openQuote}
-                      sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px',
+                      sx={{ textTransform: 'capitalize', fontWeight: 700, borderRadius: '6px',
                         bgcolor: BRAND_GREEN, color: '#fff', '&:hover': { bgcolor: '#50c23a' },
                         fontFamily: PRIMARY_FONT }}>
                       Request Quote

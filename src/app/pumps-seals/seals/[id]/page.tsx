@@ -99,7 +99,7 @@ export default function SealDetailPage() {
         <Button
           startIcon={<ArrowBackIcon sx={{ fontSize: 16 }} />}
           onClick={() => router.back()}
-          sx={{ mb: 2, textTransform: 'none', color: 'text.secondary', fontSize: '0.82rem' }}
+          sx={{ mb: 2, textTransform: 'capitalize', color: 'text.secondary', fontSize: '0.82rem' }}
         >
           Mechanical Seals
         </Button>
@@ -204,7 +204,7 @@ export default function SealDetailPage() {
                 startIcon={<ShoppingCartIcon />}
                 onClick={addToCart}
                 sx={{
-                  textTransform: 'none', fontWeight: 700,
+                  textTransform: 'capitalize', fontWeight: 700,
                   borderRadius: '8px', px: 4, py: 1.5,
                   fontSize: '0.95rem'
                 }}
@@ -215,7 +215,7 @@ export default function SealDetailPage() {
                 variant="outlined"
                 size="large"
                 sx={{
-                  textTransform: 'none', fontWeight: 700,
+                  textTransform: 'capitalize', fontWeight: 700,
                   borderRadius: '8px', px: 3, py: 1.5,
                   fontSize: '0.95rem'
                 }}

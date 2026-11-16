@@ -108,7 +108,7 @@ function IQLRow({ row }: { row: IQLActuatorDTO }) {
                       <Spec label="Weight (kg)"         value={row.weightKg} />
                     </Stack>
                       <Button variant="contained" onClick={openQuote}
-                        sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_GREEN, color: '#fff', '&:hover': { bgcolor: '#50c23a' }, fontFamily: PRIMARY_FONT }}>
+                        sx={{ textTransform: 'capitalize', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_GREEN, color: '#fff', '&:hover': { bgcolor: '#50c23a' }, fontFamily: PRIMARY_FONT }}>
                         Request Quote
                       </Button>
                   </Box>

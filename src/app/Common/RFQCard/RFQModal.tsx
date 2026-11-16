@@ -79,7 +79,7 @@ export default function RFQModal({ open, onClose, product }: RFQModalProps) {
           <CloseRoundedIcon sx={{ fontSize: 20 }} />
         </IconButton>
         <Box sx={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: GREEN_DARK }}>Request a quote</Box>
-        <Box component="h2" sx={{ m: 0, mt: 0.5, pr: 5, fontSize: { xs: '1.35rem', sm: '1.6rem' }, fontWeight: 800, letterSpacing: '-0.02em', color: INK, lineHeight: 1.2, textTransform: 'none' }}>
+        <Box component="h2" sx={{ m: 0, mt: 0.5, pr: 5, fontSize: { xs: '1.35rem', sm: '1.6rem' }, fontWeight: 800, letterSpacing: '-0.02em', color: INK, lineHeight: 1.2, textTransform: 'capitalize' }}>
           Price and lead time
         </Box>
 

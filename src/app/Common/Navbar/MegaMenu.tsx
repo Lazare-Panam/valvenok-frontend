@@ -57,7 +57,7 @@ function ColumnHead({ kicker, title, href, onClose }: { kicker: string; title: s
         <Typography sx={{ fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase !important", color: "#7A877F" }}>
           {kicker}
         </Typography>
-        <Typography sx={{ mt: 0.5, fontSize: "1rem", fontWeight: 700, color: INK, textTransform: "none" }}>{title}</Typography>
+        <Typography sx={{ mt: 0.5, fontSize: "1rem", fontWeight: 700, color: INK, textTransform: "capitalize" }}>{title}</Typography>
       </Box>
       <ViewAll href={href} onClose={onClose} />
     </Box>
@@ -111,7 +111,7 @@ function BrandHead({ name, site, first }: { name: string; site?: string; first: 
       )}
       <Typography sx={{ flexShrink: 0, fontSize: "0.66rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase !important", color: "#7A877F" }}>{name}</Typography>
       <Box sx={{ flex: 1, height: "1px", bgcolor: BORDER }} />
-      {site && <Typography sx={{ flexShrink: 0, fontSize: "0.68rem", color: "#9AA69E", textTransform: "none !important" }}>{site}</Typography>}
+      {site && <Typography sx={{ flexShrink: 0, fontSize: "0.68rem", color: "#9AA69E", textTransform: "capitalize !important" }}>{site}</Typography>}
     </Box>
   );
 }
@@ -123,14 +123,14 @@ function ShowcaseCard({ item, onClose }: { item: NavItem; onClose: () => void })
       <Typography sx={{ fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase !important", color: "#7A877F" }}>
         Also in our group · {item.brand}
       </Typography>
-      <Typography sx={{ mt: 0.5, mb: 2, fontSize: "1rem", fontWeight: 700, color: INK, textTransform: "none" }}>{item.label}</Typography>
+      <Typography sx={{ mt: 0.5, mb: 2, fontSize: "1rem", fontWeight: 700, color: INK, textTransform: "capitalize" }}>{item.label}</Typography>
       <Box component="a" href={item.href} target="_blank" rel="noopener" onClick={onClose}
         sx={{ display: "flex", gap: 2, alignItems: "center", p: 1.5, border: `1px solid ${BORDER}`, borderRadius: "14px", textDecoration: "none", bgcolor: "#fff", transition: "all .15s", "&:hover": { borderColor: "#BFE3B4", boxShadow: "0 6px 18px rgba(14,27,18,0.08)" }, "&:hover .go": { bgcolor: GREEN, color: "#fff" } }}>
         <Box sx={{ flexShrink: 0, width: 120, height: 96, borderRadius: "10px", bgcolor: "#F5F8F5", display: "grid", placeItems: "center", overflow: "hidden" }}>
           {item.image && <Box component="img" src={item.image} alt={item.label} sx={{ display: "block", width: "auto", height: "auto", maxWidth: 108, maxHeight: 84, objectFit: "contain", mixBlendMode: "multiply" }} />}
         </Box>
         <Box sx={{ minWidth: 0 }}>
-          <Box sx={{ fontSize: "0.86rem", color: "#5B6B60", lineHeight: 1.45, mb: 1.25, textTransform: "none" }}>{item.line}</Box>
+          <Box sx={{ fontSize: "0.86rem", color: "#5B6B60", lineHeight: 1.45, mb: 1.25, textTransform: "capitalize" }}>{item.line}</Box>
           <Box className="go" component="span" sx={{ display: "inline-flex", alignItems: "center", gap: 0.5, px: 1.5, py: 0.75, borderRadius: 999, bgcolor: SOFT, color: GREEN, fontSize: "0.82rem", fontWeight: 700, transition: "all .15s" }}>
             View on the website <NorthEastRoundedIcon sx={{ fontSize: 15 }} />
           </Box>
@@ -172,8 +172,8 @@ function BrandBar({ type, onClose }: { type: ProductType; onClose: () => void })
         <Box sx={{ flexShrink: 0, width: 34, height: 34, borderRadius: "10px", bgcolor: "#fff", border: `1px solid ${BORDER}`, display: "grid", placeItems: "center", color: GREEN }}>
           <StorefrontOutlinedIcon sx={{ fontSize: 19 }} />
         </Box>
-        <Typography sx={{ fontSize: "0.95rem", fontWeight: 800, color: INK, lineHeight: 1.2, textTransform: "none !important" }}>Shop by brand</Typography>
-        <Typography sx={{ fontSize: "0.76rem", color: "#5B6B60", lineHeight: 1.4, textTransform: "none !important" }}>
+        <Typography sx={{ fontSize: "0.95rem", fontWeight: 800, color: INK, lineHeight: 1.2, textTransform: "capitalize !important" }}>Shop by brand</Typography>
+        <Typography sx={{ fontSize: "0.76rem", color: "#5B6B60", lineHeight: 1.4, textTransform: "capitalize !important" }}>
           <Box component="span" sx={{ color: GREEN, fontWeight: 800 }}>↗</Box> = the brand’s own website
         </Typography>
         <Box component="a" href="/brands" onClick={onClose}
@@ -192,7 +192,7 @@ function BrandBar({ type, onClose }: { type: ProductType; onClose: () => void })
                 <Box sx={{ display: "flex", alignItems: "center", gap: 0.4, fontSize: "0.8rem", fontWeight: 800, color: INK, lineHeight: 1.2, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
                   {brand.name} {external && <NorthEastRoundedIcon sx={{ fontSize: 12, color: GREEN }} />}
                 </Box>
-                <Box sx={{ mt: 0.25, fontSize: "0.7rem", color: "#5B6B60", lineHeight: 1.35, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", textTransform: "none" }}>{text}</Box>
+                <Box sx={{ mt: 0.25, fontSize: "0.7rem", color: "#5B6B60", lineHeight: 1.35, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", textTransform: "capitalize" }}>{text}</Box>
               </Box>
             </Box>
           ))}
@@ -210,7 +210,7 @@ function BrandBar({ type, onClose }: { type: ProductType; onClose: () => void })
                 <BrandLogo brand={brand} w={56} h={48} />
                 <Box sx={{ minWidth: 0, flex: 1 }}>
                   <Box sx={{ fontSize: "0.9rem", fontWeight: 800, color: INK, lineHeight: 1.25 }}>{brand.name}</Box>
-                  <Box sx={{ mt: 0.4, fontSize: "0.74rem", color: "#5B6B60", lineHeight: 1.4, overflow: "hidden", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", textTransform: "none" }} title={text}>
+                  <Box sx={{ mt: 0.4, fontSize: "0.74rem", color: "#5B6B60", lineHeight: 1.4, overflow: "hidden", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", textTransform: "capitalize" }} title={text}>
                     {text}
                   </Box>
                 </Box>
@@ -282,7 +282,7 @@ export default function MegaMenu({ group, onClose }: Props) {
             <React.Fragment key={it.label}>
               {it.external && !items[i - 1]?.external && (
                 <Box sx={{ mt: 2.25, pt: 1.75, mx: 1.75, borderTop: `1px solid ${BORDER}` }}>
-                  <Typography sx={{ fontSize: "0.8rem", fontWeight: 600, color: "#5B6B60", textTransform: "none !important", lineHeight: 1.3 }}>
+                  <Typography sx={{ fontSize: "0.8rem", fontWeight: 600, color: "#5B6B60", textTransform: "capitalize !important", lineHeight: 1.3 }}>
                     Also in our group
                   </Typography>
                 </Box>

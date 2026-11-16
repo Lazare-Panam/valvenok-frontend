@@ -60,7 +60,7 @@ export default function NeedleValveDetailPage() {
     <>
       <Container maxWidth="lg" sx={{ py: 6 }}>
         <Button startIcon={<ArrowBackIcon />} component={Link} href="/high-pressure/valves/dbb-valves/products"
-          sx={{ mb: 3, fontWeight: 700, color: 'text.secondary', textTransform: 'none' }}>
+          sx={{ mb: 3, fontWeight: 700, color: 'text.secondary', textTransform: 'capitalize' }}>
           Back to DBB Valves
         </Button>
 

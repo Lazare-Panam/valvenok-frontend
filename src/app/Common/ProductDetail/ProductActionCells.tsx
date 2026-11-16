@@ -7,7 +7,7 @@ const GREEN = '#61D649'
 
 const baseBtn = {
   fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px',
-  textTransform: 'none' as const, whiteSpace: 'nowrap' as const, boxShadow: 'none',
+  textTransform: 'capitalize' as const, whiteSpace: 'nowrap' as const, boxShadow: 'none',
 }
 
 /**

@@ -64,7 +64,7 @@ function Row({ model }: { model: JICProductDTO }) {
         <TableCell sx={{ py: 1 }}>
           <Button size="small" variant="contained"
             onClick={e => { e.stopPropagation(); openQuote() }}
-            sx={{ fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px', textTransform: 'none', whiteSpace: 'nowrap', boxShadow: 'none', '&:hover': { boxShadow: 'none' } }}>
+            sx={{ fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px', textTransform: 'capitalize', whiteSpace: 'nowrap', boxShadow: 'none', '&:hover': { boxShadow: 'none' } }}>
             Request Quote
           </Button>
         </TableCell>
@@ -95,7 +95,7 @@ function Row({ model }: { model: JICProductDTO }) {
                       {model.p2Type && <Spec label="P2 Type" value={JIC_P1_TYPE_LABELS[model.p2Type] ?? model.p2Type} />}
                     </Stack>
                     <Button variant="contained" onClick={openQuote}
-                      sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px' }}>
+                      sx={{ textTransform: 'capitalize', fontWeight: 700, borderRadius: '6px' }}>
                       Request Quote
                     </Button>
                   </Box>

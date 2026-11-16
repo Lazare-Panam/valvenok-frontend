@@ -153,7 +153,7 @@ function Row({ model }: { model: MultistageCentrifugalPumpModel }) {
               py: 0.5,
               px: 1.5,
               borderRadius: "4px",
-              textTransform: "none",
+              textTransform: "capitalize",
               whiteSpace: "nowrap",
               boxShadow: "none",
               "&:hover": { boxShadow: "none" },
@@ -238,7 +238,7 @@ function Row({ model }: { model: MultistageCentrifugalPumpModel }) {
                       variant="contained"
                       onClick={openQuote}
                       sx={{
-                        textTransform: "none",
+                        textTransform: "capitalize",
                         fontWeight: 700,
                         borderRadius: "6px",
                       }}
@@ -416,7 +416,7 @@ export default function MultistageCentrifugalTable({
           startIcon={<FileDownloadIcon fontSize="small" />}
           onClick={handleExportToExcel}
           disabled={exporting || sorted.length === 0}
-          sx={{ textTransform: "none", fontWeight: 700 }}
+          sx={{ textTransform: "capitalize", fontWeight: 700 }}
         >
           {exporting ? "Exporting..." : "Import as Excel"}
         </Button>

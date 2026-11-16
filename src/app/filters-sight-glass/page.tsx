@@ -79,7 +79,7 @@ export default function SightGlassFiltrationPage() {
               py: 2,
               fontSize: "1rem",
               fontWeight: 700,
-              textTransform: "none",
+              textTransform: "capitalize",
               "&:hover": { bgcolor: "#fff", color: "#000" },
             }}
           >
@@ -248,7 +248,7 @@ export default function SightGlassFiltrationPage() {
                 mt: 3,
                 borderColor: "#61D649",
                 color: "#61D649",
-                textTransform: "none",
+                textTransform: "capitalize",
                 fontWeight: 700,
                 "&:hover": {
                   bgcolor: "#61D649",
@@ -379,7 +379,7 @@ export default function SightGlassFiltrationPage() {
               sx={{
                 borderColor: "#61D649",
                 color: "#61D649",
-                textTransform: "none",
+                textTransform: "capitalize",
                 fontWeight: 700,
                 "&:hover": {
                   bgcolor: "#61D649",

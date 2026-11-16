@@ -74,7 +74,7 @@ function HDRow({ row }: { row: HDActuatorDTO }) {
         <TableCell sx={{ py: 1 }}>
           <Stack direction="row" spacing={1}>
             <Button size="small" variant="contained" onClick={e => { e.stopPropagation(); openQuote() }}
-              sx={{ fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px', textTransform: 'none', whiteSpace: 'nowrap', bgcolor: BRAND_GREEN, color: '#fff', boxShadow: 'none', '&:hover': { bgcolor: '#50c23a', boxShadow: 'none' } }}>
+              sx={{ fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px', textTransform: 'capitalize', whiteSpace: 'nowrap', bgcolor: BRAND_GREEN, color: '#fff', boxShadow: 'none', '&:hover': { bgcolor: '#50c23a', boxShadow: 'none' } }}>
               Request Quote
             </Button>
           </Stack>
@@ -108,11 +108,11 @@ function HDRow({ row }: { row: HDActuatorDTO }) {
                     </Stack>
                     <Stack direction="row" spacing={2}>
                       <Button variant="outlined" href="/products"
-                        sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', borderColor: BRAND_GREEN, color: BRAND_GREEN, '&:hover': { borderColor: '#50c23a', color: '#50c23a', bgcolor: 'transparent' }, fontFamily: PRIMARY_FONT }}>
+                        sx={{ textTransform: 'capitalize', fontWeight: 700, borderRadius: '6px', borderColor: BRAND_GREEN, color: BRAND_GREEN, '&:hover': { borderColor: '#50c23a', color: '#50c23a', bgcolor: 'transparent' }, fontFamily: PRIMARY_FONT }}>
                         View Product
                       </Button>
                       <Button variant="contained" onClick={openQuote}
-                        sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_GREEN, color: '#fff', '&:hover': { bgcolor: '#50c23a' }, fontFamily: PRIMARY_FONT }}>
+                        sx={{ textTransform: 'capitalize', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_GREEN, color: '#fff', '&:hover': { bgcolor: '#50c23a' }, fontFamily: PRIMARY_FONT }}>
                         Request Quote
                       </Button>
                     </Stack>

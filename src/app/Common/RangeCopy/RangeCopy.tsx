@@ -18,7 +18,7 @@ export default function RangeCopy({ path }: { path: string }) {
           mx: "auto",
           px: { xs: 2, md: 5 },
           py: { xs: 5, md: 7 },
-          "& p, & li, & h2": { textTransform: "none" },
+          "& p, & li, & h2": { textTransform: "capitalize" },
         }}
       >
         <Box

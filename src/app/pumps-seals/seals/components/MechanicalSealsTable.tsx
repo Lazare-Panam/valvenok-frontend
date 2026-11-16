@@ -146,7 +146,7 @@ function SealRow({ seal }: { seal: MechanicalSealDTO }) {
     py: 0.5,
     px: 1.5,
     borderRadius: '4px',
-    textTransform: 'none',
+    textTransform: 'capitalize',
     whiteSpace: 'nowrap',
     boxShadow: 'none',
     backgroundColor: '#2e7d32',

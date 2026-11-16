@@ -118,7 +118,7 @@ export function MechanicalSealsSidebar({ filters, setFilters, filterOptions, fil
             size="small"
             variant={sizeUnit === 'mm' ? 'contained' : 'outlined'}
             onClick={() => setSizeUnit('mm')}
-            sx={{ fontSize: '0.65rem', py: 0.25, px: 1.5, minWidth: 0, borderRadius: '4px', textTransform: 'none' }}
+            sx={{ fontSize: '0.65rem', py: 0.25, px: 1.5, minWidth: 0, borderRadius: '4px', textTransform: 'capitalize' }}
           >
             MM
           </Button>
@@ -126,7 +126,7 @@ export function MechanicalSealsSidebar({ filters, setFilters, filterOptions, fil
             size="small"
             variant={sizeUnit === 'inch' ? 'contained' : 'outlined'}
             onClick={() => setSizeUnit('inch')}
-            sx={{ fontSize: '0.65rem', py: 0.25, px: 1.5, minWidth: 0, borderRadius: '4px', textTransform: 'none' }}
+            sx={{ fontSize: '0.65rem', py: 0.25, px: 1.5, minWidth: 0, borderRadius: '4px', textTransform: 'capitalize' }}
           >
             INCH
           </Button>

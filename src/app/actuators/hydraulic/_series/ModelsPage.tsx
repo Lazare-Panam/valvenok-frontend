@@ -20,14 +20,14 @@ function Spec({ label, value }: { label: string; value: string }) {
     <Box>
       <Typography variant="caption" color="text.secondary" fontWeight={700}
         sx={{ display: 'block', textTransform: 'uppercase', mb: 0.25, fontFamily: PRIMARY_FONT }}>{label}</Typography>
-      <Typography variant="body2" fontWeight={600} sx={{ fontFamily: PRIMARY_FONT, textTransform: 'none' }}>{value}</Typography>
+      <Typography variant="body2" fontWeight={600} sx={{ fontFamily: PRIMARY_FONT, textTransform: 'capitalize' }}>{value}</Typography>
     </Box>
   )
 }
 
 function Row({ def, g, row, onQuote }: { def: SeriesDef; g: ModelGroup; row: ModelRow; onQuote: (g: ModelGroup, r: ModelRow) => void }) {
   const [open, setOpen] = useState(false)
-  const cell = { py: 1, fontSize: '0.82rem', fontFamily: PRIMARY_FONT, textTransform: 'none' as const }
+  const cell = { py: 1, fontSize: '0.82rem', fontFamily: PRIMARY_FONT, textTransform: 'capitalize' as const }
   const cols = g.summary.map(k => g.cols.find(c => c.key === k)!)
   return (
     <>
@@ -42,7 +42,7 @@ function Row({ def, g, row, onQuote }: { def: SeriesDef; g: ModelGroup; row: Mod
         {cols.map((c, i) => <TableCell key={c.key} sx={{ ...cell, fontWeight: i === 0 ? 700 : 400 }}>{row[c.key]}</TableCell>)}
         <TableCell sx={{ py: 1 }}>
           <Button size="small" variant="contained" onClick={e => { e.stopPropagation(); onQuote(g, row) }}
-            sx={{ fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px', textTransform: 'none', whiteSpace: 'nowrap', bgcolor: BRAND_GREEN, color: '#fff', boxShadow: 'none', '&:hover': { bgcolor: '#50c23a', boxShadow: 'none' } }}>
+            sx={{ fontSize: '0.7rem', fontWeight: 700, py: 0.5, px: 1.5, borderRadius: '4px', textTransform: 'capitalize', whiteSpace: 'nowrap', bgcolor: BRAND_GREEN, color: '#fff', boxShadow: 'none', '&:hover': { bgcolor: '#50c23a', boxShadow: 'none' } }}>
             Request Quote
           </Button>
         </TableCell>
@@ -64,7 +64,7 @@ function Row({ def, g, row, onQuote }: { def: SeriesDef; g: ModelGroup; row: Mod
                       {def.common.map(c => <Spec key={c.label} label={c.label} value={c.value} />)}
                     </Stack>
                     <Button variant="contained" onClick={() => onQuote(g, row)}
-                      sx={{ textTransform: 'none', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_GREEN, color: '#fff', '&:hover': { bgcolor: '#50c23a' }, fontFamily: PRIMARY_FONT }}>
+                      sx={{ textTransform: 'capitalize', fontWeight: 700, borderRadius: '6px', bgcolor: BRAND_GREEN, color: '#fff', '&:hover': { bgcolor: '#50c23a' }, fontFamily: PRIMARY_FONT }}>
                       Request Quote
                     </Button>
                   </Box>
@@ -109,7 +109,7 @@ export default function ModelsPage({ def }: { def: SeriesDef }) {
         <Typography variant="h1" fontWeight={800} mb={1} sx={{ color: BRAND_GREEN, fontFamily: PRIMARY_FONT }}>
           {def.listTitle}
         </Typography>
-        <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 800, fontFamily: PRIMARY_FONT, textTransform: 'none' }}>
+        <Typography variant="body1" color="text.secondary" mb={2} sx={{ maxWidth: 800, fontFamily: PRIMARY_FONT, textTransform: 'capitalize' }}>
           {def.listIntro}
         </Typography>
         <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', alignItems: 'center' }}>
@@ -119,7 +119,7 @@ export default function ModelsPage({ def }: { def: SeriesDef }) {
             </Box>
           ))}
           <Button href={def.catalog} target="_blank" rel="noopener" size="small" startIcon={<DownloadIcon />}
-            sx={{ textTransform: 'none', fontWeight: 700, color: '#2d8a1e' }}>
+            sx={{ textTransform: 'capitalize', fontWeight: 700, color: '#2d8a1e' }}>
             Catalogue (PDF)
           </Button>
         </Box>
@@ -136,7 +136,7 @@ export default function ModelsPage({ def }: { def: SeriesDef }) {
               <Typography variant="h6" component="h2" sx={{ fontWeight: 800, fontFamily: PRIMARY_FONT, mb: 0.5 }}>
                 {g.title} <Box component="span" sx={{ color: 'text.disabled', fontWeight: 600, fontSize: '0.85rem' }}>· {g.rows.length} models</Box>
               </Typography>
-              {g.note && <Typography variant="body2" color="text.secondary" sx={{ mb: 1.5, fontFamily: PRIMARY_FONT, textTransform: 'none' }}>{g.note}</Typography>}
+              {g.note && <Typography variant="body2" color="text.secondary" sx={{ mb: 1.5, fontFamily: PRIMARY_FONT, textTransform: 'capitalize' }}>{g.note}</Typography>}
               <TableContainer sx={{ border: `1px solid ${alpha(BRAND_GREEN, 0.2)}`, borderRadius: '8px', bgcolor: 'background.paper' }}>
                 <Table size="small">
                   <TableHead>

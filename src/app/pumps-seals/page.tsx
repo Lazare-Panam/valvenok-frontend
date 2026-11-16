@@ -77,7 +77,7 @@ export default function PumpsAndSealsPage() {
               py: 2,
               fontSize: "1rem",
               fontWeight: 700,
-              textTransform: "none",
+              textTransform: "capitalize",
               "&:hover": { bgcolor: "#fff", color: "#000" },
             }}
           >

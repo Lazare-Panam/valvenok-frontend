@@ -54,7 +54,7 @@ export function GroupSiteLinks({ sites, variant }: { sites: GroupSite[]; variant
             gap: 0.5,
             fontWeight: 600,
             textDecoration: "none",
-            textTransform: "none",
+            textTransform: "capitalize",
             fontFamily: "var(--font-geist-sans), Inter, system-ui, sans-serif",
             transition: "all .15s",
             ...(hero
