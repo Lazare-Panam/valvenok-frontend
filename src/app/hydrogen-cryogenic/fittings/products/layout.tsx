@@ -5,7 +5,7 @@ const TITLE = "Hiflux High Pressure Fittings & Manifold Blocks | Valvenok";
 const DESCRIPTION =
   "27 Hiflux high pressure fittings, accessories, manifold blocks and tube caps rated 15,000 to 150,000 psi. Certification varies by product.";
 const IMAGE =
-  "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/logo.png";
+  "https://pblol2.blob.core.windows.net/valvenok-images/brands/hiflux-logo.png";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/hydrogen-cryogenic/fittings/products" },

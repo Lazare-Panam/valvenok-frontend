@@ -374,7 +374,7 @@ export default function KESeriesActuatorPage() {
               <Box sx={{ mb: 2 }}>
                 <Box
                   component="img"
-                  src="https://pblol2.blob.core.windows.net/valvenok-images/brands/kosaplus-logo.png"
+                  src="https://pblol2.blob.core.windows.net/kosaplus/logo/kosaplus-official-logo.svg"
                   alt="KOSAPLUS"
                   sx={{ height: 72, objectFit: "contain" }}
                 />

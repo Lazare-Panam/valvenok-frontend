@@ -31,7 +31,7 @@ const BRANDS = [
   },
   {
     name: 'Hiflux',
-    logo: 'https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/logo.png',
+    logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/hiflux-logo.png',
     count: HIFLUX_COUNT,
     blurb: 'Trunnion-style STS 316 ball valves from 10,000 to 60,000 psi with PEEK seats. Cone & Thread, NPT and PT connections in 2-Way 90° and 3-Way 90°/180° patterns.',
   },

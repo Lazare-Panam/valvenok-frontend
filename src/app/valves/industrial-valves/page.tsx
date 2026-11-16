@@ -44,64 +44,17 @@ export const VALVES: FeaturedValve[] = [
   name: "Globe Valves",
   category: "Globe Valves",
   categoryId: "globe-valves",
-  brand: "UTAM Syncercon",
+  brand: "Fisher · Bonney Forge",
   brandLogo:
-    "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/utam-logo.png",
+    "https://pblol2.blob.core.windows.net/valvenok-images/brands/fisher-logo.jpg",
   thumbnail:
     "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/globe-bonnet-valve.png",
   specs: [
-    { label: "Size Range", value: '½"–24" (DN15–DN600)' },
-    { label: "Pressure Class", value: "ASME Class 150 / 300" },
-    { label: "Bonnet Types", value: "Bolted & Union Bonnet" },
+    { label: "Pressure Class", value: "Up to Class 4500" },
+    { label: "Bonnet Types", value: "Lined & Welded Bonnet" },
   ],
 },
-{
-  id: "gate-valves",
-  name: "Gate Valves",
-  category: "Gate Valves",
-  categoryId: "gate-valves",
-  brand: "UTAM Syncercon",
-  brandLogo:
-    "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/utam-logo.png",
-  thumbnail:
-    "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/bolted-gate-valve.png",
-  specs: [
-    { label: "Size Range", value: '½"–24" (DN15–DN600)' },
-    { label: "Pressure Class", value: "ASME Class 150 / 300" },
-    { label: "Bonnet Types", value: "Bolted & Union Bonnet" },
-  ],
-},
-  {
-    id: "control-valves",
-    name: "Control Valves",
-    category: "Control Valves",
-    categoryId: "control-valves",
-    brand: "VSI – Valve Systems International",
-    brandLogo:
-      "https://pblol2.blob.core.windows.net/valvenok-images/brands/vsi.png",
-    thumbnail:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/Atlas-15.png",
-    specs: [
-      { label: "NPS", value: '2"' },
-      { label: "Flow Capacity (Cv)", value: "Up to 70" },
-      { label: "Rangeability (ISA 75.11)", value: "Up to 80:1" },
-      {
-        label: "Operating Pressure",
-        value: "0–5,000 psi DP (up to 10,000 psi with reduced trim)",
-      },
-      { label: "Control Range", value: "Up to 700:1 at +/-3% accuracy" },
-      { label: "Noise Level", value: "< 60 dB in choked flow" },
-      {
-        label: "Maintenance Cycle",
-        value: "2+ years (vs. 3–6 months standard)",
-      },
-      {
-        label: "Ideal For",
-        value:
-          'Highest capacity, high pressure, precision control in a 2" valve',
-      },
-    ],
-  },
+
   {
     id: "check-valves",
     name: "Check Valves",

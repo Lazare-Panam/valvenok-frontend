@@ -33,7 +33,7 @@ const BRANDS = [
   },
   {
     name: 'Hiflux',
-    logo: 'https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/logo.png',
+    logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/hiflux-logo.png',
     count: HIFLUX_COUNT,
     blurb: 'STS 316 cold-formed high-pressure seamless tubing from 10,000 to 150,000 psi. High-pressure nipples are listed in the Fittings catalogue; tube supports have their own table.',
   },

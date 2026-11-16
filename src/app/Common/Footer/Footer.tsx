@@ -58,7 +58,6 @@ const FOOTER_LINKS = [
       { label: "Panam Valves", href: "https://www.panamvalve.com/" },
       { label: "Pietro Fiorentini", href: "/brands/pietro-fiorentini" },
       { label: "Susin I-Tork", href: "/brands/susin" },
-      { label: "UTAM Valves", href: "/brands/utam-valves" },
       { label: "Value Valves", href: "/brands/value-valves" },
       // { label: "Walrus Pumps", href: "/brands/walrus-pumps" },
       { label: "Youngdo", href: "/brands/youngdo" },

@@ -31,7 +31,7 @@ const BRANDS = [
   },
   {
     name: 'Hiflux',
-    logo: 'https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/logo.png',
+    logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/hiflux-logo.png',
     count: HIFLUX_COUNT,
     blurb: 'Vee and Regulating stem needle valves to 60,000 psi, plus KOLAS-tested H70 (70 MPa) hydrogen fuel-station valves in STS 316CW.',
   },

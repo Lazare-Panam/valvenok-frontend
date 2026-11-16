@@ -69,17 +69,7 @@ export const POSTS = [
     category: "Technical Guide",
     link: "/news/butterfly-valve-guide",
   },
-  {
-    title:
-      "Valvenok Partners with VSI to Bring the Atlas SSCV to Severe Service",
-    desc: "Valvenok has partnered with Valve Systems International to represent the Atlas Severe Service Control Valve — engineered from first principles to eliminate cavitation at the source.",
-    thumbnail:
-      "https://pblol2.blob.core.windows.net/valvenok-images/blogs/vsi.jpeg",
-    author: "Valvenok Team",
-    date: "June 2026",
-    category: "Partnership Announcement",
-    link: "/news/valvenok-vsi-atlas-sscv-partnership",
-  },
+
   {
     title: "Valvenok Announces Partnership with Pietro Fiorentini",
     desc: "Italian innovation, delivered through Valvenok. We are now an Authorized Representative of Pietro Fiorentini — bringing world-class flow control, pressure management, and valve technologies to customers across the UK.",

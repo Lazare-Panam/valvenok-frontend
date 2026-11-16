@@ -15,7 +15,7 @@ import { ProductForRFQ } from "@/src/app/Common/RFQCard/RequestForQuoteCard";
 import { GroupSiteLinks, groupSitesIn } from "@/src/app/Common/GroupVisitLinks";
 
 const HIFLUX_LOGO =
-  "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/logo.png";
+  "https://pblol2.blob.core.windows.net/valvenok-images/brands/hiflux-logo.png";
 const ACCENT = "#61D649";
 
 const HIFLUX_PRODUCT: ProductForRFQ = {

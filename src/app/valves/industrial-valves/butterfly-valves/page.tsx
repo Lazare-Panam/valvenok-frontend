@@ -302,7 +302,7 @@ export default function ButterflyValvesIndexPage() {
         breadcrumb="Products / Valves / Butterfly Valves"
       />
       <ProcessValvesGrid families={BUTTERFLY_VALVE_SERIES} />
-      <RelatedLinks links={[{ label: "Triple Offset Butterfly Valves", href: "/triple-offset-butterfly-valves" }, { label: "401N Wafer Double Offset Butterfly Valve", href: "/valves/industrial-valves/butterfly-valves/401n-wafer-double-offset-butterfly-valve" }]} />
+      <RelatedLinks links={[{ label: "Triple Offset Butterfly Valves", href: "/triple-offset-butterfly-valves" }]} />
       <TrustStrip points={TRUST_POINTS} />
     </>
   );

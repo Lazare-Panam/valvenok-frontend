@@ -9,7 +9,7 @@ import RelatedLinks from "@/src/app/Common/Products_Page/RelatedLinks";
 export const metadata: Metadata = pageMetadata({
   title: "Industrial Globe Valves — Bolted, Welded & Lined | Valvenok",
   description:
-    "Lined, welded bonnet and bolted or union bonnet industrial globe valves from manufacturers including Fisher, Bonney Forge and UTAM Syncercon.",
+    "Lined and welded bonnet industrial globe valves from Fisher and Bonney Forge.",
   path: "/valves/industrial-valves/globe-valve",
 });
 
@@ -58,48 +58,8 @@ const GLOBE_VALVE_SERIES: Category[] = [
     logoUrl:
       "https://pblol2.blob.core.windows.net/valvenok-images/brands/bf-logo.jpg",
   },
-  {
-    code: "UTM-BBV",
-    title: "Globe Valve — Bolted Bonnet",
-    subtitle: "Bolted Bonnet Globe Valve — DN15 to DN600",
-    description:
-      "UTAM Syncercon globe valve designed for marine and shipbuilding applications, providing precise flow control and reliable performance in seawater and offshore environments. Bolted bonnet with outside screw & yoke, rising stem, in ASME Class 150/300 across DN15 to DN600.",
-    specs: [
-      '½" to 24" (DN15 to DN600)',
-      "ASME Class 150 / 300",
-      "Bolted Bonnet",
-      "Outside Screw & Yoke, Rising Stem",
-      "Handwheel & Gearbox Operated",
-      "Lloyd's Register Approved",
-    ],
-    applications: "Marine, Shipbuilding, Offshore, Seawater Service",
-    href: "/valves/industrial-valves/globe-valve/utam-bolted-bonnet-globe-valve",
-    image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/globe-bonnet-valve.png",
-    logoUrl:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/utam-logo.png",
-  },
-  {
-    code: "UTM-UBV",
-    title: "Globe Valve — Union Bonnet",
-    subtitle: "Union Bonnet Globe Valve — DN15 to DN100",
-    description:
-      "UTAM Syncercon globe valve, a linear motion valve with a union bonnet design, used to regulate or stop fluid flow with precise control in marine and shipbuilding applications. Handwheel operated with rising stem, in ASME Class 150/300 & PN32 across DN15 to DN100.",
-    specs: [
-      '½" to 4" (DN15 to DN100)',
-      "ASME Class 150 / 300 & PN32",
-      "Union Bonnet",
-      "Inside Screw, Rising Stem",
-      "Handwheel Operated",
-      "Lloyd's Register Approved",
-    ],
-    applications: "Marine, Shipbuilding, Offshore, Seawater Service",
-    href: "/valves/industrial-valves/globe-valve/utam-union-bonnet-globe-valve",
-    image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/bolted-bonnet-valve.png",
-    logoUrl:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/utam-logo.png",
-  },
+
+
 ];
 
 const TRUST_POINTS = [
@@ -116,7 +76,7 @@ export default function GlobeValvesIndexPage() {
       <ProductHero
         title="Globe Valves"
         subtitle="Industrial Globe Valve Range — Multi-Brand"
-        description="Valvenok supplies a comprehensive range of industrial globe valves engineered for precise flow regulation, throttling and critical isolation across demanding process conditions. From Fisher RSS lined globe valves for corrosive media service to Bonney Forge welded bonnet designs rated to Class 4500 and 11,250 psig, and UTAM Syncercon bolted and union bonnet globe valves for marine and shipbuilding service — every valve sourced from trusted global manufacturers and built for reliable, leak-tight performance."
+        description="Valvenok supplies a comprehensive range of industrial globe valves engineered for precise flow regulation, throttling and critical isolation across demanding process conditions. From Fisher RSS lined globe valves for corrosive media service to Bonney Forge welded bonnet designs rated to Class 4500 and 11,250 psig."
         imageSrc="https://pblol2.blob.core.windows.net/valvenok-images/products/valves/Automated_flanged_globe_valve.jpg"
         imageAlt="Industrial Globe Valves"
         breadcrumb="Products / Valves / Globe Valves"

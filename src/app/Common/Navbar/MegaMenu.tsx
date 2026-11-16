@@ -262,9 +262,14 @@ export default function MegaMenu({ group, onClose }: Props) {
           boxShadow: "0 2px 4px rgba(14,27,18,0.05), 0 24px 56px rgba(14,27,18,0.16)",
           border: `1px solid ${BORDER}`,
           borderRadius: "20px",
-          overflow: "hidden",
+          // Short screens: never taller than the space under the header; scroll inside
+          maxHeight: "calc(100vh - 210px)",
+          overflowY: "auto",
+          overflowX: "hidden",
+          overscrollBehavior: "contain",
           display: "grid",
           gridTemplateColumns: "260px 1fr 1.25fr",
+          alignContent: "start",
           minHeight: 320,
         }}
       >

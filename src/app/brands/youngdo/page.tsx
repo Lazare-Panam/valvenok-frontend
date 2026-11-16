@@ -6,7 +6,7 @@ import { Category } from "../../Common/Products_Page/ProductCard";
 import YoungdoGrid from "../../hydrogen-cryogenic/components/YoungdoGrid";
 
 const YOUNGDO_LOGO =
-  "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/top_logo.png";
+  "https://pblol2.blob.core.windows.net/valvenok-images/brands/youngdo-logo.png";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/brands/youngdo" },

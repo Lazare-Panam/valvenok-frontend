@@ -6,7 +6,7 @@ import { Category } from "../../Common/Products_Page/ProductCard";
 import ProcessValvesGrid from "../../valves/ProcessValvesGrid";
 
 const HIFLUX_LOGO =
-  "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/logo.png";
+  "https://pblol2.blob.core.windows.net/valvenok-images/brands/hiflux-logo.png";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/brands/hiflux" },

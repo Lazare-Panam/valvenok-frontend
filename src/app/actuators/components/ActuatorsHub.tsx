@@ -674,7 +674,7 @@ function Brands() {
   const spac = groupSite("SPAC Pneumatic");
   const list = [
     { name: "Susin", logo: "https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp", text: "Scotch yoke and linear pneumatic actuators, quarter-turn, linear and multi-turn electric actuators, gearboxes and limit switch boxes.", links: [{ label: "About Susin I-Tork", href: "/brands/susin" }, { label: "Pneumatic", href: "/pneumatic/actuators" }, { label: "Electric", href: "/actuators/electric" }] },
-    { name: "KOSAPLUS", logo: "https://pblol2.blob.core.windows.net/valvenok-images/brands/kosaplus-logo.png", text: "Scotch yoke pneumatic actuators, compact electric actuators and limit switch boxes.", links: [], site: kosa },
+    { name: "KOSAPLUS", logo: "https://pblol2.blob.core.windows.net/kosaplus/logo/kosaplus-official-logo.svg", text: "Scotch yoke pneumatic actuators, compact electric actuators and limit switch boxes.", links: [], site: kosa },
     { name: "SPAC", logo: "https://pblol2.blob.core.windows.net/spac-images/spac-logo.webp", text: "Spring-return rack & pinion pneumatic actuators, priced and ready to order online.", links: [], site: spac },
   ];
   return (

@@ -30,7 +30,7 @@ const BRANDS = [
   },
   {
     name: 'Hiflux',
-    logo: 'https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/logo.png',
+    logo: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/hiflux-logo.png',
     href: '/high-pressure/fittings/products?brand=Hiflux',
     count: hifluxCount,
     blurb: 'STS 316 cold-formed cone & thread fittings and dedicated accessories to 150,000 psi — elbows, tees, crosses plus glands, sleeves, collars, collets and plugs, including anti-vibration variants for high-vibration service.',

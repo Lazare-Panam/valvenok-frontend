@@ -23,7 +23,7 @@ import { T, textReset } from '@/src/app/Landing/modern/tokens'
 const BASE = '/high-pressure/valves/needle-valves'
 const LOGO: Record<string, string> = {
   Panam: 'https://pblol2.blob.core.windows.net/panam-images/panam-resize_smallest.jpg',
-  Hiflux: 'https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/logo.png',
+  Hiflux: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/hiflux-logo.png',
 }
 const SITE: Record<string, string> = { Panam: 'https://www.panamvalve.com/', Hiflux: 'https://www.hiflux.uk.com/' }
 const WA = (pn: string) => `https://wa.me/447368137917?text=${encodeURIComponent(`Hello Valvenok, I have a question about needle valve ${pn} (https://www.valvenok.com${BASE}/products/${pn}).`)}`

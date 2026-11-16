@@ -5,7 +5,7 @@ const TITLE = "Youngdo Hydrogen Cylinder Valve Models, 3–70 MPa | Valvenok";
 const DESCRIPTION =
   "Compare 13 Youngdo hydrogen cylinder valve models from 3 to 70 MPa. Certification (KGS, EC79, R134, IECEx and others) varies by model. Request a quote.";
 const IMAGE =
-  "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/top_logo.png";
+  "https://pblol2.blob.core.windows.net/valvenok-images/brands/youngdo-logo.png";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/hydrogen-cryogenic/hydrogen/products" },

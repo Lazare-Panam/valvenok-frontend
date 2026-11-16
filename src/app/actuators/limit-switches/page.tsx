@@ -39,7 +39,7 @@ const LIMIT_SWITCH_FAMILIES: Category[] = [
     image:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/limit-switches/ks-limit-switch.jpg",
     logoUrl:
-      "https://pblol2.blob.core.windows.net/valvenok-images/brands/kosaplus-logo.png",
+      "https://pblol2.blob.core.windows.net/kosaplus/logo/kosaplus-official-logo.svg",
   },
   {
     code: "ITS",

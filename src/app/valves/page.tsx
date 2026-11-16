@@ -57,11 +57,11 @@ const VALVE_FAMILIES: Category[] = [
     title: "Globe Valves",
     subtitle: "Industrial Globe Valve Range — Multi-Brand",
     description:
-      "Lined, welded, bolted and union bonnet globe valves from Fisher, Bonney Forge and UTAM, rated CL 150 to Class 4500 for flow regulation and throttling.",
+      "Lined and welded bonnet globe valves from Fisher and Bonney Forge, rated up to Class 4500 for flow regulation and throttling.",
     specs: [
-      "Lined, Welded, Bolted & Union Bonnet",
+      "Lined & Welded Bonnet",
       "CL 150 – Class 4500",
-      "Fisher · Bonney Forge · UTAM",
+      "Fisher · Bonney Forge",
       "Carbon, Bronze & Alloy Steel",
       "Screwed & Flanged End",
       "Flow Regulation & Throttling",
@@ -72,45 +72,6 @@ const VALVE_FAMILIES: Category[] = [
     image:
       "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/globe-bonnet-valve.png",
      },
-  {
-    code: "IGT",
-    title: "Gate Valves",
-    subtitle: "Industrial Gate Valve Range — UTAM Syncercon",
-    description:
-      "UTAM Syncercon bolted and union bonnet gate valves in bronze and duplex stainless, ASME Class 150/300, for marine and seawater service.",
-    specs: [
-      "Bolted & Union Bonnet",
-      "ASME Class 150 / 300",
-      "UTAM Syncercon",
-      "Bronze, Duplex Stainless",
-      "Screwed & Flanged End",
-      "Lloyd's Register Approved",
-    ],
-    applications: "Marine, Shipbuilding, Offshore, Seawater Service",
-    href: "/valves/industrial-valves/gate-valves",
-    image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/bolted-gate-valve.png",
-      },
-  {
-    code: "CVL",
-    title: "Control Valves",
-    subtitle: "Severe Service Control Valves — Atlas Series",
-    description:
-      "Atlas severe service control valves, 2\" to 4\" NPS, Cv up to 300 and 0–5,000 psi differential pressure, with a 700:1 control range.",
-    specs: [
-      '2" – 4" NPS',
-      "Cv Up to 300",
-      "0–5,000 psi DP",
-      "< 60 dB Choked Flow",
-      "2+ Year Maintenance Cycle",
-      "700:1 Control Range",
-    ],
-    applications:
-      "Oil & Gas, Petrochemical, Pump Testing, Storage Blowdown, High-Flow Process Control",
-    href: "/valves/industrial-valves/control-valves",
-    image:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/Atlas-15.png",
-  },
   {
     code: "CKV",
     title: "Check Valves",

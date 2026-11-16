@@ -7,7 +7,7 @@ import { Category } from "../../Common/Products_Page/ProductCard";
 import ProcessValvesGrid from "../../valves/ProcessValvesGrid";
 
 const KOSAPLUS_LOGO =
-  "https://pblol2.blob.core.windows.net/valvenok-images/brands/kosaplus-logo.png";
+  "https://pblol2.blob.core.windows.net/kosaplus/logo/kosaplus-official-logo.svg";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/brands/kosaplus" },

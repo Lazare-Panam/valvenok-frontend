@@ -15,7 +15,7 @@ import RFQModal from "@/src/app/Common/RFQCard/RFQModal";
 import { ProductForRFQ } from "@/src/app/Common/RFQCard/RequestForQuoteCard";
 
 const YOUNGDO_LOGO =
-  "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/top_logo.png";
+  "https://pblol2.blob.core.windows.net/valvenok-images/brands/youngdo-logo.png";
 
 const HYDROGEN_PRODUCT: ProductForRFQ = {
   id: "youngdo-hydrogen-valves",
@@ -191,7 +191,8 @@ export default function HydrogenValvesPage() {
                 sx={{
                   display: "inline-flex",
                   alignItems: "center",
-                  bgcolor: "#1a2e1a",
+                  bgcolor: "#fff",
+                  border: "1px solid #E5EBE6",
                   px: 2,
                   py: 1,
                   mb: 3,

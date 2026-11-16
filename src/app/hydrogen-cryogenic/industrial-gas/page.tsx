@@ -16,7 +16,7 @@ import { ProductForRFQ } from "@/src/app/Common/RFQCard/RequestForQuoteCard";
 import { alpha } from "@mui/material/styles";
 
 const YOUNGDO_LOGO =
-  "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/top_logo.png";
+  "https://pblol2.blob.core.windows.net/valvenok-images/brands/youngdo-logo.png";
 const BRAND_GREEN = "#61D649";
 
 const IGV_PRODUCT: ProductForRFQ = {
@@ -196,7 +196,8 @@ export default function IndustrialGasValvesPage() {
                 sx={{
                   display: "inline-flex",
                   alignItems: "center",
-                  bgcolor: BRAND_GREEN,
+                  bgcolor: "#fff",
+                  border: "1px solid #E5EBE6",
                   px: 2,
                   py: 1,
                   mb: 3,

@@ -21,7 +21,7 @@ import {
 
 const GREEN = '#61D649'
 const FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
-const YOUNGDO_LOGO = 'https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/top_logo.png'
+const YOUNGDO_LOGO = 'https://pblol2.blob.core.windows.net/valvenok-images/brands/youngdo-logo.png'
 
 function FilterGroup({ title, count, children }: { title: string; count?: number; children: React.ReactNode }) {
   return (

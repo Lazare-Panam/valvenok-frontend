@@ -35,7 +35,6 @@ const LIBRARY: Tile[] = [
   { src: `${BLOB}/valvenok-images/compressed-images/needle-valve.webp`, alt: "Hiflux high-pressure needle valve" },
   { src: `${BLOB}/mars-valves/mars-stock-coming.jpeg`, alt: "Mars valve stock arriving in the UK" },
   { src: `${BLOB}/valvenok-images/products/cryogenic/YEX-1100.png`, alt: "Cryogenic valve" },
-  { src: `${BLOB}/valvenok-images/blogs/vsi.jpeg`, alt: "Valvenok and VSI partnership" },
   { src: `${BLOB}/mars-valves/ball-valves/series-10-10.png`, alt: "MARS ball valve" },
   { src: `${BLOB}/valvenok-images/products/hiflux/manifold-block.png`, alt: "Hiflux manifold block" },
   { src: `${BLOB}/panam-images/products/actuators/ac-hero.jpg`, alt: "Pneumatic valve actuator" },

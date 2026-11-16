@@ -276,10 +276,7 @@ const GROUPS: { group: string; links: { label: string; href: string }[] }[] = [
     group: "Guides & News",
     links: [
       { label: "Butterfly Valve Guide", href: "/news/butterfly-valve-guide" },
-      {
-        label: "VSI Atlas SSCV Partnership",
-        href: "/news/valvenok-vsi-atlas-sscv-partnership",
-      },
+
       {
         label: "Pietro Fiorentini Partnership",
         href: "/news/pietro-fiorentini-partnership",

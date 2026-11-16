@@ -56,14 +56,5 @@ export const LATEST_INSIGHTS: InsightPost[] = [
     date: "April 2026",
     link: "/news/mechanical-seals-guide",
   },
-  {
-    title:
-      "Valvenok Partners with VSI to Bring the Atlas SSCV to Severe Service",
-    desc: "Valvenok has partnered with Valve Systems International to represent the Atlas Severe Service Control Valve — engineered from first principles to eliminate cavitation at the source.",
-    thumbnail:
-      "https://pblol2.blob.core.windows.net/valvenok-images/blogs/vsi.jpeg",
-    category: "Partnership Announcement",
-    date: "June 2026",
-    link: "/news/valvenok-vsi-atlas-sscv-partnership",
-  },
+
 ];

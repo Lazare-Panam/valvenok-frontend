@@ -50,7 +50,7 @@ export const IMG = {
   youngdoLpg: "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/YLC-2821.png",
   youngdoGas: "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/YOC-2820.png",
   cryo: "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/ben-kupke-ew-p24cvlr0-unsplash.webp",
-  youngdoLogo: "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/top_logo.png",
+  youngdoLogo: "https://pblol2.blob.core.windows.net/valvenok-images/brands/youngdo-logo.png",
 };
 
 /* ───────────────────────── data ───────────────────────── */
@@ -210,26 +210,25 @@ const SCHEMA = {
 
 export const BRAND_LOGO: Record<string, string> = {
   Panam: "https://pblol2.blob.core.windows.net/panam-images/panam-resize_smallest.jpg",
-  Hiflux: "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/logo.png",
+  Hiflux: "https://pblol2.blob.core.windows.net/valvenok-images/brands/hiflux-logo.png",
   Youngdo: IMG.youngdoLogo,
   "Value Valves": "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/logo.svg",
   "Pietro Fiorentini": "https://pblol2.blob.core.windows.net/valvenok-images/products/industrial-valves/logo.svg",
 };
 
-const DARK_LOGO = new Set(["Youngdo"]);
+// Wide wordmarks (Hiflux, Youngdo) sit a little lower so they match the stacked Panam logo
+const LOGO_H: Record<string, number> = { Panam: 28, Hiflux: 19, Youngdo: 20 };
 
 /** Brand logos in a white pill (top-left of each range card) */
 export function BrandBadge({ brands }: { brands: string }) {
   const names = brands.split("·").map((b) => b.trim()).filter((b) => BRAND_LOGO[b]);
   if (!names.length) return null;
-  // Youngdo's logo is white lettering, so it sits on a dark pill
-  const dark = names.some((n) => DARK_LOGO.has(n));
   return (
-    <Box sx={{ position: "absolute", top: 12, left: 12, display: "flex", alignItems: "center", gap: 1, px: 1.25, py: 0.6, borderRadius: 999, bgcolor: dark ? T.greenDeep : "#fff", boxShadow: "0 1px 4px rgba(14,27,18,0.08)" }}>
+    <Box sx={{ position: "absolute", top: 12, left: 12, display: "flex", alignItems: "center", gap: 1, px: 1.25, py: 0.6, borderRadius: 999, bgcolor: "#fff", boxShadow: "0 1px 4px rgba(14,27,18,0.08)" }}>
       {names.map((n, i) => (
         <React.Fragment key={n}>
           {i > 0 && <Box component="span" sx={{ width: "1px", height: 14, bgcolor: T.border }} />}
-          <Box component="img" src={BRAND_LOGO[n]} alt={n} title={n} sx={{ height: 24, maxWidth: 90, objectFit: "contain", display: "block" }} />
+          <Box component="img" src={BRAND_LOGO[n]} alt={n} title={n} sx={{ height: LOGO_H[n] ?? 24, maxWidth: 90, objectFit: "contain", display: "block" }} />
         </React.Fragment>
       ))}
     </Box>
@@ -1125,8 +1124,8 @@ function Brands() {
             <Reveal key={b.name} delay={i * 90}>
               <Box sx={{ height: "100%", boxSizing: "border-box", p: 3, borderRadius: "22px", bgcolor: "#fff", border: `1px solid ${T.border}`, display: "flex", flexDirection: "column" }}>
                 <Box sx={{ height: 52, display: "flex", alignItems: "center", mb: 2 }}>
-                  <Box sx={{ display: "inline-flex", alignItems: "center", ...(DARK_LOGO.has(b.name) ? { bgcolor: T.greenDeep, px: 2, py: 1.25, borderRadius: "12px" } : {}) }}>
-                    <Box component="img" src={b.logo} alt={`${b.name} logo`} sx={{ maxHeight: DARK_LOGO.has(b.name) ? 28 : 44, maxWidth: 150, objectFit: "contain", display: "block" }} />
+                  <Box sx={{ display: "inline-flex", alignItems: "center" }}>
+                    <Box component="img" src={b.logo} alt={`${b.name} logo`} sx={{ height: (LOGO_H[b.name] ?? 24) * 1.6, maxWidth: 160, objectFit: "contain", display: "block" }} />
                   </Box>
                 </Box>
                 <Box component="p" sx={{ m: 0, mb: 2, fontSize: "0.93rem", lineHeight: 1.6, color: T.body, flex: 1 }}>{b.text}</Box>

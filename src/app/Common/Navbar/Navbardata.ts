@@ -61,12 +61,8 @@ export const NAV_GROUPS: NavGroup[] = [
               { label: "Centric", href: "/valves/industrial-valves/butterfly-valves/centric-butterfly-valve" },
               { label: "Double Eccentric", href: "/valves/industrial-valves/butterfly-valves/double-eccentric-butterfly-valve" },
               { label: "Triple Offset", href: "/valves/industrial-valves/butterfly-valves/triple-offset-butterfly-valve" },
-              { label: "401N Double Offset Wafer", href: "/valves/industrial-valves/butterfly-valves/401n-wafer-double-offset-butterfly-valve" },
               { label: "AWWA C504 Double Flanged", href: "/valves/industrial-valves/butterfly-valves/awwa-c504-double-flanged-butterfly-valve" },
               { label: "PTFE Lined", href: "/valves/industrial-valves/butterfly-valves/ptfe-lined-butterfly-valve" },
-              { label: "S301E Wafer", href: "/valves/industrial-valves/butterfly-valves/s301e-wafer-butterfly-valve" },
-              { label: "S301E Wafer Lever", href: "/valves/industrial-valves/butterfly-valves/s301e-wafer-lever-butterfly-valve" },
-              { label: "S301E Lugged", href: "/valves/industrial-valves/butterfly-valves/s301e-lugged-butterfly-valve" },
               { label: "Butt Welded", href: "/valves/industrial-valves/butterfly-valves/butt-welded-butterfly-valve" },
               { label: "Anti-Condensation", href: "/valves/industrial-valves/butterfly-valves/anti-condensation-butterfly-valve" },
               { label: "Damper", href: "/valves/industrial-valves/butterfly-valves/damper-butterfly-valve" },
@@ -90,16 +86,6 @@ export const NAV_GROUPS: NavGroup[] = [
             children: [
               { brand: "Fisher", label: "Lined Globe Valve", href: "/valves/industrial-valves/globe-valve/fisher-rss-lined" },
               { brand: "Bonney Forge", label: "Globe Valves — Welded Bonnet", href: "/valves/industrial-valves/globe-valve/bonney-forge-welded-bonnet" },
-              { brand: "UTAM", label: "Globe Valve — Bolted Bonnet", href: "/valves/industrial-valves/globe-valve/utam-bolted-bonnet-globe-valve" },
-              { brand: "UTAM", label: "Globe Valve — Union Bonnet", href: "/valves/industrial-valves/globe-valve/utam-union-bonnet-globe-valve" },
-            ],
-          },
-          {
-            label: "Gate Valves",
-            href: "/valves/industrial-valves/gate-valves",
-            children: [
-              { brand: "UTAM", label: "Gate Valve — Bolted Bonnet", href: "/valves/industrial-valves/gate-valves/utam-bolted-bonnet-gate-valve" },
-              { brand: "UTAM", label: "Gate Valve — Union Bonnet", href: "/valves/industrial-valves/gate-valves/utam-union-bonnet-gate-valve" },
             ],
           },
           {
@@ -109,16 +95,6 @@ export const NAV_GROUPS: NavGroup[] = [
               { brand: "Velan", label: "Cast Steel Swing Check Valves", href: "/valves/industrial-valves/check-valves/velan-swing-check" },
               { brand: "Anderson Greenwood", label: "Bolted Bonnet Check Valves", href: "/valves/industrial-valves/check-valves/ag-fasani-check" },
               { brand: "Value Valves", label: "Dual Plate Check Valve", href: "/valves/industrial-valves/check-valves/dual-plate-check-valve" },
-            ],
-          },
-
-          {
-            label: "Control Valves",
-            href: "/valves/industrial-valves/control-valves",
-            children: [
-              { brand: "VSI", label: "Atlas 15 Severe Service Control Valve", href: "/valves/industrial-valves/control-valves/vsi-atlas-15" },
-              { brand: "VSI", label: "Atlas 21 Severe Service Control Valve", href: "/valves/industrial-valves/control-valves/vsi-atlas-21" },
-              { brand: "VSI", label: "Atlas 32 Severe Service Control Valve", href: "/valves/industrial-valves/control-valves/vsi-atlas-32" },
             ],
           },
         ],
@@ -663,7 +639,10 @@ const SHOWCASE_COLUMNS: Record<string, ShowcaseCategory> = {
 for (const col of NAV_GROUPS.find((g) => g.id === "actuators")?.columns ?? []) {
   // Our own series in this tab are Susin I-Tork, so the menu can group by brand
   for (const it of col.items) if (!it.brand) it.brand = "Susin";
-  const cat = SHOWCASE_COLUMNS[col.header];
+  // 16 Nov 2026: the "Also in our group" series (KOSAPLUS, SPAC) were taken out of
+  // the Actuators menu; those brands stay in the Shop by brand row. Set to true to restore.
+  const SHOW_GROUP_SERIES = false;
+  const cat = SHOW_GROUP_SERIES ? SHOWCASE_COLUMNS[col.header] : undefined;
   if (!cat) continue;
   col.items.push(
     ...showcaseFor(cat).map((s) => ({

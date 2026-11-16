@@ -90,7 +90,7 @@ export const APPS: App[] = [
       { name: "High-pressure valves", why: "Needle, ball, check and air-operated valves to 60,000 psi and beyond.", href: "/high-pressure/valves", img: "https://pblol2.blob.core.windows.net/panam-images/products/high-pressure/hp-dbb.jpg" },
       { name: "Wellhead & special valves", why: "Hiflux wellhead gauge, bleed and control valves.", href: "/hydrogen-cryogenic/valves/products?type=Special%20Valve", img: "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/Speical-valve.png" },
       { name: "Industrial ball valves", why: "Floating and trunnion ball valves for process isolation.", href: "/valves/industrial-valves/ball-valves", img: "https://pblol2.blob.core.windows.net/mars-valves/ball-valves/series90D.jpg" },
-      { name: "Gate valves", why: "Full-bore isolation for pipelines and process lines.", href: "/valves/industrial-valves/gate-valves", img: "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/bolted-gate-valve.png" },
+      { name: "Gate valves", why: "Full-bore isolation for pipelines and process lines.", href: "/valves/sealed-valves/gate-valves", img: "https://pblol2.blob.core.windows.net/valvenok-images/products/sealed-valves/ansi-standard-bellows-sealed-gate-valve.jpg" },
       { name: "Actuators", why: "Pneumatic, electric and hydraulic actuators to automate the valves.", href: "/actuators", img: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/pneumatic/hd.webp" },
     ],
     checks: [
@@ -123,7 +123,6 @@ export const APPS: App[] = [
     products: [
       { name: "PTFE / PFA lined butterfly valves", why: "A full lining keeps corrosive media off the body.", href: "/valves/industrial-valves/butterfly-valves/ptfe-lined-butterfly-valve", img: "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/ptfe_lined_butterfly.png" },
       { name: "Bellows sealed globe valves", why: "A metal bellows seals the stem, for zero-leak service.", href: "/valves/sealed-valves", img: "https://pblol2.blob.core.windows.net/valvenok-images/products/sealed-valves/din-standard-bellows-sealed-globe-valve-plus.jpg" },
-      { name: "Control valves", why: "Flow and pressure control for process lines.", href: "/valves/industrial-valves/control-valves", img: "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/Atlas-15.png" },
       { name: "Industrial ball valves", why: "Quarter-turn isolation in stainless and carbon steel.", href: "/valves/industrial-valves/ball-valves", img: "https://pblol2.blob.core.windows.net/mars-valves/ball-valves/series90D.jpg" },
       { name: "Mechanical seals", why: "Sealflex seals for pumps and agitators.", href: "/pumps-seals/seals", img: "https://pblol2.blob.core.windows.net/valvenok-images/products/mechanical-seals/AS103.jpg" },
     ],
@@ -184,9 +183,8 @@ export const APPS: App[] = [
     products: [
       { name: "Triple offset butterfly valves", why: "Metal-seated, bubble-tight shut-off at high temperature.", href: "/valves/industrial-valves/butterfly-valves/triple-offset-butterfly-valve", img: "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/butter-val.jpg" },
       { name: "Globe valves", why: "Throttling and isolation for steam and water.", href: "/valves/industrial-valves/globe-valve", img: "https://pblol2.blob.core.windows.net/valvenok-images/products/featured/globe-valve.png" },
-      { name: "Gate valves", why: "Full-bore isolation.", href: "/valves/industrial-valves/gate-valves", img: "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/bolted-gate-valve.png" },
+      { name: "Gate valves", why: "Full-bore isolation.", href: "/valves/sealed-valves/gate-valves", img: "https://pblol2.blob.core.windows.net/valvenok-images/products/sealed-valves/ansi-standard-bellows-sealed-gate-valve.jpg" },
       { name: "Check valves", why: "Stop backflow on pump and boiler feed lines.", href: "/valves/industrial-valves/check-valves", img: "https://pblol2.blob.core.windows.net/valvenok-images/products/featured/API-594-cast-steel-swing-check.png" },
-      { name: "Control valves", why: "Flow and pressure control.", href: "/valves/industrial-valves/control-valves", img: "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/Atlas-15.png" },
       { name: "Electric actuators", why: "Rotary, linear and multi-turn actuators.", href: "/actuators/electric", img: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/electric/itq.webp" },
     ],
     checks: [

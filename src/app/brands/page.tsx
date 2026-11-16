@@ -4,8 +4,6 @@
 // 1. Products on Valvenok: brands with a brand page or product pages on this site.
 // 2. Group websites: brands sold through their own website (KOSAPLUS); group brands
 //    that also have products here (Panam, Mars, Hiflux, SPAC) show a Website ↗ link in group 1.
-// 3. Available to order: manufacturers we are associated with whose products are not
-//    listed online yet; customers ask us for a quote.
 // Danfoss and Walrus Pumps stay hidden (logged on the clean-up task vk-z1).
 
 import * as React from "react";
@@ -15,7 +13,6 @@ import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import NorthEastRoundedIcon from "@mui/icons-material/NorthEastRounded";
 import StorefrontOutlinedIcon from "@mui/icons-material/StorefrontOutlined";
 import PublicOutlinedIcon from "@mui/icons-material/PublicOutlined";
-import RequestQuoteOutlinedIcon from "@mui/icons-material/RequestQuoteOutlined";
 import { T, textReset } from "@/src/app/Landing/modern/tokens";
 import { KeepUnits } from "@/src/app/Common/KeepUnits";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
@@ -36,49 +33,33 @@ import { wrap, Kicker, H2, Lead, pillBtn } from "@/src/app/hydrogen-cryogenic/co
 const V = "https://pblol2.blob.core.windows.net/valvenok-images";
 
 type Cat = "Valves" | "Actuators" | "Fittings" | "Hydrogen" | "Instrumentation";
-type OnSite = { name: string; logo?: string; scale?: number; dark?: boolean; desc: string; cats: Cat[]; href: string; website?: string };
+type OnSite = { name: string; logo?: string; scale?: number; dark?: boolean; cta?: string; external?: boolean; desc: string; cats: Cat[]; href: string; website?: string };
 
 const ON_SITE: OnSite[] = [
   { name: "Susin I-Tork", scale: 1.15, logo: `${V}/logo/susin-logo.webp`, desc: "Pneumatic, electric, hydraulic and mechanical actuators, and limit switch boxes.", cats: ["Actuators"], href: "/brands/susin" },
   { name: "Panam", logo: "https://pblol2.blob.core.windows.net/panam-images/panam-resize_smallest.jpg", desc: "Instrumentation valves, manifolds and fittings for hydrogen, oil and gas and industrial applications.", cats: ["Valves", "Fittings", "Hydrogen"], href: "/valves/instrumentation-valves", website: "https://www.panamvalve.com/" },
   { name: "Mars Valves", scale: 1.6, logo: `${V}/brands/mars.png`, desc: "Ball valves: 2-piece, 3-piece, flanged, sanitary and fire-safe ranges.", cats: ["Valves"], href: "/brands/mars-valves", website: "https://www.marsvalvenok.com/" },
-  { name: "Hiflux", logo: `${V}/products/hiflux/logo.png`, desc: "High-pressure valves, fittings and tubing rated to 150,000 psi.", cats: ["Hydrogen", "Fittings"], href: "/brands/hiflux", website: "https://www.hiflux.uk.com/" },
+  { name: "Hiflux", logo: `${V}/brands/hiflux-logo.png`, desc: "High-pressure valves, fittings and tubing rated to 150,000 psi.", cats: ["Hydrogen", "Fittings"], href: "/brands/hiflux", website: "https://www.hiflux.uk.com/" },
   { name: "Value Valves", logo: `${V}/products/valves/butterfly-valves/logo.svg`, desc: "Butterfly valves and flow control solutions for industrial piping systems.", cats: ["Valves"], href: "/brands/value-valves" },
-  { name: "UTAM Valves", logo: `${V}/products/valves/utam-logo.png`, desc: "Industrial and marine valves, including bolted and union bonnet globe and gate valves.", cats: ["Valves"], href: "/brands/utam-valves" },
   { name: "Pietro Fiorentini", logo: `${V}/products/industrial-valves/logo.svg`, desc: "Gas distribution valves, control ball valves and pressure regulators for natural gas and hydrogen networks.", cats: ["Valves", "Instrumentation"], href: "/brands/pietro-fiorentini" },
-  { name: "Youngdo", scale: 1.3, dark: true, logo: `${V}/products/cryogenic/top_logo.png`, desc: "Hydrogen, LPG and industrial gas cylinder valves for high-pressure gas storage and distribution.", cats: ["Hydrogen", "Valves"], href: "/brands/youngdo" },
+  { name: "Youngdo", logo: `${V}/brands/youngdo-logo.png`, desc: "Hydrogen, LPG and industrial gas cylinder valves for high-pressure gas storage and distribution.", cats: ["Hydrogen", "Valves"], href: "/brands/youngdo" },
   { name: "Adaptix", logo: `${V}/brands/Adaptix/adaptix-logo.png`, desc: "Sanitary tri-clamp fittings: clamps, ferrules, blind covers and sight glass end caps.", cats: ["Fittings"], href: "/fittings-tubing/sanitary-fittings" },
   { name: "SPAC", logo: "https://pblol2.blob.core.windows.net/spac-images/spac-logo.webp", desc: "Pneumatic push-in fittings and tubing here; rack & pinion actuators on their own website.", cats: ["Fittings"], href: "/fittings-tubing/pneumatic-fittings", website: "https://www.spacpneumatic.co.uk/" },
-  { name: "ISIS Fluid Control", logo: `${V}/logo/logo-isis.svg`, desc: "S301E wafer and lugged butterfly valves.", cats: ["Valves"], href: "/valves/industrial-valves/butterfly-valves/s301e-wafer-butterfly-valve" },
-  { name: "VSI", logo: `${V}/brands/vsi.png`, desc: "Atlas severe service control valves.", cats: ["Valves"], href: "/valves/industrial-valves/control-valves" },
   { name: "Cameron", logo: `${V}/brands/cameron-logo.png`, desc: "WKM 370D flanged ball valve.", cats: ["Valves"], href: "/valves/industrial-valves/ball-valves/cameron-wkm-370d" },
   { name: "Fisher", scale: 1.3, logo: `${V}/brands/fisher-logo.jpg`, desc: "Lined globe valve.", cats: ["Valves"], href: "/valves/industrial-valves/globe-valve/fisher-rss-lined" },
   { name: "Bettis", logo: `${V}/brands/bettis-logo.png`, desc: "Actuated ball valves.", cats: ["Valves", "Actuators"], href: "/valves/industrial-valves/ball-valves/bettis-rpx" },
   { name: "Velan", logo: `${V}/brands/velan-logo.png`, desc: "Cast steel swing check valves.", cats: ["Valves"], href: "/valves/industrial-valves/check-valves/velan-swing-check" },
   { name: "Anderson Greenwood", scale: 1.8, logo: `${V}/brands/anderson-greewood-logo.jpg`, desc: "Bolted bonnet check valves.", cats: ["Valves"], href: "/valves/industrial-valves/check-valves/ag-fasani-check" },
-  { name: "Bonney Forge", desc: "Welded bonnet globe valves.", cats: ["Valves"], href: "/valves/industrial-valves/globe-valve/bonney-forge-welded-bonnet" },
+  { name: "Bonney Forge", logo: `${V}/brands/bf-logo.jpg`, desc: "Welded bonnet globe valves.", cats: ["Valves"], href: "/valves/industrial-valves/globe-valve/bonney-forge-welded-bonnet" },
+  // Products to be added later: KOSAPLUS links to its own website for now, FHT to an enquiry
+  { name: "KOSAPLUS", logo: "https://pblol2.blob.core.windows.net/kosaplus/logo/kosaplus-official-logo.svg", desc: "Scotch yoke and rack & pinion pneumatic actuators, electric actuators and limit switch boxes.", cats: ["Actuators"], href: "https://www.kosaplus.co.uk/", external: true, cta: "Visit website" },
+  { name: "FHT Valves", logo: `${V}/brands/fht-valves-logo.png`, desc: "Industrial ball valves. Products coming soon; ask us for a quote now.", cats: ["Valves"], href: "/contact", cta: "Ask about FHT" },
 ];
 
-const GROUP_ONLY = [
-  { name: "KOSAPLUS", logo: `${V}/brands/kosaplus-logo.png`, scale: 2.2, desc: "Electric and pneumatic valve actuators and explosion-proof position indicators.", website: "https://www.kosaplus.co.uk/" },
+const GROUP_ONLY: { name: string; logo: string; desc: string; website: string; scale?: number }[] = [
+  { name: "KOSAPLUS", logo: "https://pblol2.blob.core.windows.net/kosaplus/logo/kosaplus-official-logo.svg", desc: "Electric and pneumatic valve actuators and explosion-proof position indicators.", website: "https://www.kosaplus.co.uk/" },
 ];
 
-// Associated manufacturers; descriptions as they were on this page before
-const ON_REQUEST: { name: string; logo: string; desc: string; scale?: number }[] = [
-  { name: "Baker Hughes", scale: 1.3, logo: `${V}/brands/baker-hughes-logo.png`, desc: "Energy technology and industrial equipment" },
-  { name: "Siemens", logo: `${V}/brands/siemens-logo.png`, desc: "Industrial control technology" },
-  { name: "Endress+Hauser", logo: `${V}/brands/endress-hauser.svg`, desc: "Process automation instrumentation" },
-  { name: "Leser", logo: `${V}/brands/LESER-logo.png`, desc: "Safety valves" },
-  { name: "Crosby", logo: `${V}/brands/crosby_logo.png`, desc: "Pressure relief valves" },
-  { name: "Taylor Valve Technology", logo: `${V}/brands/taylor-valve-logo.png`, desc: "Safety relief and choke valves" },
-  { name: "Mercer Valves", logo: `${V}/brands/mercer-logo.jpg`, desc: "Pressure relief valves" },
-  { name: "Aquatrol", logo: `${V}/brands/aquatrol-logo.png`, desc: "Safety and relief valves" },
-  { name: "Hydroseal", scale: 2.8, logo: `${V}/brands/hydroseal-logo.png`, desc: "Safety and relief valves" },
-  { name: "FHT Valves", logo: `${V}/brands/fht-valves-logo.png`, desc: "Industrial ball valves" },
-  { name: "Batu Valves", logo: `${V}/brands/batu-logo.png`, desc: "Flow control and boiler valves" },
-  { name: "Knuckle Valves", scale: 2.6, logo: `${V}/brands/knuckle-valve-logo.png`, desc: "Specialised industrial valves" },
-  { name: "Tormac", logo: `${V}/brands/tormac.svg`, desc: "Valves and flow control" },
-];
 
 const CATS: ("All" | Cat)[] = ["All", "Valves", "Actuators", "Fittings", "Hydrogen", "Instrumentation"];
 const initials = (n: string) => n.split(" ").map((w) => w[0]).join("").slice(0, 3);
@@ -153,7 +134,7 @@ function Hero() {
           <Box sx={{ mt: 4, display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 1.25, maxWidth: 560, animation: "wordIn .9s ease .7s both" }}>
             {stat(ON_SITE.length, "Brands with products here", "#online", L.mint)}
             {stat(GROUP_ONLY.length + ON_SITE.filter((b) => b.website).length, "With their own website", "#group", "#E3F3FF")}
-            {stat(ON_REQUEST.length, "More available to order", "#on-request", "#FFF5D6")}
+            {stat(CATS.length - 1, "Product categories", "#online", "#FFF5D6")}
           </Box>
         </Box>
         <LogoWall />
@@ -275,7 +256,7 @@ function Online({ cat, setCat }: { cat: "All" | Cat; setCat: (c: "All" | Cat) =>
           {list.map((b, i) => (
             <Reveal key={b.name} delay={(i % 4) * 60}>
               <Box sx={{ position: "relative", height: "100%", display: "flex", flexDirection: "column", borderRadius: "22px", overflow: "hidden", bgcolor: "#fff", border: `1px solid ${T.border}`, transition: "all .2s", "&:hover": { transform: "translateY(-4px)", boxShadow: T.shadowHover, borderColor: "#BFE3B4" }, "&:hover img": { transform: "scale(1.06)" } }}>
-                <Box component={Link} href={b.href} aria-label={`${b.name}: view products`} sx={{ position: "absolute", inset: 0, zIndex: 0 }} />
+                <Box component={b.external ? "a" : Link} href={b.href} {...(b.external ? { target: "_blank", rel: "noopener" } : {})} aria-label={`${b.name}: ${b.cta ?? "view products"}`} sx={{ position: "absolute", inset: 0, zIndex: 0 }} />
                 <Logo src={b.logo} name={b.name} scale={b.scale} dark={b.dark} />
                 <Box sx={{ p: { xs: 1.5, sm: 2.25 }, display: "flex", flexDirection: "column", gap: 1, flex: 1 }}>
                   <Box sx={{ display: { xs: "none", sm: "flex" }, flexWrap: "wrap", gap: 0.5 }}>
@@ -286,8 +267,8 @@ function Online({ cat, setCat }: { cat: "All" | Cat; setCat: (c: "All" | Cat) =>
                   <Typography component="h3" sx={{ fontSize: { xs: "0.95rem", sm: "1.1rem" }, fontWeight: 800, color: T.ink, lineHeight: 1.25 }}>{b.name}</Typography>
                   <Typography sx={{ fontSize: { xs: "0.78rem", sm: "0.88rem" }, color: T.body, lineHeight: 1.5 }}><KeepUnits text={b.desc} /></Typography>
                   <Box sx={{ mt: "auto", pt: 1.25, borderTop: `1px solid ${T.border}`, display: "flex", flexWrap: "wrap", columnGap: 2, rowGap: 0.5, position: "relative", zIndex: 1, "& a": { fontSize: { xs: "0.78rem", sm: "0.86rem" } } }}>
-                    <Box component={Link} href={b.href} sx={{ display: "inline-flex", alignItems: "center", gap: 0.5, fontSize: "0.86rem", fontWeight: 700, color: T.greenDark, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
-                      View products <ArrowForwardRoundedIcon sx={{ fontSize: 16 }} />
+                    <Box component={b.external ? "a" : Link} href={b.href} {...(b.external ? { target: "_blank", rel: "noopener" } : {})} sx={{ display: "inline-flex", alignItems: "center", gap: 0.5, fontSize: "0.86rem", fontWeight: 700, color: T.greenDark, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
+                      {b.cta ?? "View products"} {b.external ? <NorthEastRoundedIcon sx={{ fontSize: 14 }} /> : <ArrowForwardRoundedIcon sx={{ fontSize: 16 }} />}
                     </Box>
                     {b.website && (
                       <Box component="a" href={b.website} target="_blank" rel="noopener" sx={{ display: "inline-flex", alignItems: "center", gap: 0.4, fontSize: "0.86rem", fontWeight: 700, color: T.body, textDecoration: "none", "&:hover": { color: T.greenDark } }}>
@@ -343,55 +324,6 @@ function Group() {
   );
 }
 
-// Open section (no outer frame): a joined directory grid with hairline dividers
-function OnRequest() {
-  return (
-    <Box component="section" id="on-request" aria-labelledby="h2-request" sx={{ scrollMarginTop: 120, py: { xs: 7, md: 10 } }}>
-      <Box sx={wrap}>
-        <Box sx={{ display: "flex", flexWrap: "wrap", alignItems: "flex-end", justifyContent: "space-between", gap: 3, mb: 4 }}>
-          <Box sx={{ maxWidth: 680 }}>
-            <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, mb: 1 }}>
-              <Box sx={{ width: 40, height: 40, borderRadius: "12px", bgcolor: "#FFF0C2", color: "#8A6100", display: "grid", placeItems: "center" }}><RequestQuoteOutlinedIcon /></Box>
-              <Kicker>Available to order</Kicker>
-            </Box>
-            <H2 id="h2-request">More Brands We Work With</H2>
-            <Lead>We are associated with these manufacturers too. Their products aren’t listed online yet, so tell us the brand, model or part number and we’ll come back with price and lead time.</Lead>
-          </Box>
-          <Box sx={{ display: "flex", gap: 1.25, flexWrap: "wrap" }}>
-            <Box component={Link} href="/contact" sx={pillBtn(true)}>Ask for a quote <ArrowForwardRoundedIcon sx={{ fontSize: 18 }} /></Box>
-            <Box component={Link} href="/quick-order" sx={pillBtn(false)}>Quick Order</Box>
-          </Box>
-        </Box>
-
-        <Box sx={{ borderRadius: "24px", overflow: "hidden", border: `1px solid ${T.border}`, bgcolor: "#fff", display: "grid", gridTemplateColumns: { xs: "1fr 1fr", sm: "repeat(3, 1fr)", md: "repeat(4, 1fr)", lg: "repeat(5, 1fr)" } }}>
-          {ON_REQUEST.map((b) => (
-            <Box key={b.name} component={Link} href="/contact" aria-label={`Ask about ${b.name}`}
-              sx={{ position: "relative", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: 0.75, px: 1.5, py: 2.5, bgcolor: "#fff", outline: `1px solid ${T.border}`, outlineOffset: "-0.5px", textDecoration: "none", transition: "background .2s", "&:hover": { bgcolor: "#FBFDF8" }, "&:hover .ask": { opacity: 1, transform: "none" } }}>
-              <Box sx={{ height: 52, width: "100%", display: "grid", placeItems: "center", overflow: "hidden" }}>
-                <Box component="img" src={b.logo} alt="" loading="lazy" sx={{ maxHeight: 40, maxWidth: "78%", objectFit: "contain", transition: "transform .25s", transform: b.scale ? `scale(${b.scale})` : undefined }} />
-              </Box>
-              <Box sx={{ fontSize: "0.88rem", fontWeight: 800, color: T.ink, lineHeight: 1.2 }}>{b.name}</Box>
-              <Box sx={{ fontSize: "0.74rem", color: T.muted, lineHeight: 1.35 }}>{b.desc}</Box>
-              <Box className="ask" sx={{ mt: 0.5, display: "inline-flex", alignItems: "center", gap: 0.4, fontSize: "0.76rem", fontWeight: 700, color: T.greenDark, opacity: { xs: 1, md: 0 }, transform: { md: "translateY(4px)" }, transition: "opacity .2s, transform .2s" }}>
-                Ask about this brand <ArrowForwardRoundedIcon sx={{ fontSize: 14 }} />
-              </Box>
-            </Box>
-          ))}
-        </Box>
-
-        <Box sx={{ mt: 3, p: { xs: 2, md: 2.5 }, borderRadius: "18px", bgcolor: "#FFF8E4", border: "1px dashed #E8C766", display: "flex", flexWrap: "wrap", alignItems: "center", gap: 2 }}>
-          <Box sx={{ flexShrink: 0, width: 44, height: 44, borderRadius: "14px", bgcolor: "#fff", color: "#8A6100", display: "grid", placeItems: "center" }}><SearchRoundedIcon /></Box>
-          <Box sx={{ flex: 1, minWidth: 220 }}>
-            <Box sx={{ fontSize: "1.02rem", fontWeight: 800, color: T.ink }}>Looking for a brand that isn’t listed?</Box>
-            <Box sx={{ mt: 0.25, fontSize: "0.92rem", color: T.body }}>Ask us anyway and we’ll check whether we can supply it.</Box>
-          </Box>
-          <Box component={Link} href="/contact" sx={pillBtn(true)}>Ask about a brand <ArrowForwardRoundedIcon sx={{ fontSize: 18 }} /></Box>
-        </Box>
-      </Box>
-    </Box>
-  );
-}
-
 // Full-width closing band, centred
 function Cta() {
   return (
@@ -424,7 +356,6 @@ export default function BrandsPage() {
       <ShopBar onPick={pick} />
       <Online cat={cat} setCat={setCat} />
       <Group />
-      <OnRequest />
       <Cta />
     </MotionRoot>
   );

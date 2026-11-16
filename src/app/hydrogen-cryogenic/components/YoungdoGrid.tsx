@@ -10,7 +10,7 @@ import { alpha } from "@mui/material/styles";
 import { Category } from "@/src/app/Common/Products_Page/ProductCard";
 import { CardGroupLinks } from "@/src/app/Common/GroupVisitLinks";
 
-const YOUNGDO_LOGO = "https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/top_logo.png";
+const YOUNGDO_LOGO = "https://pblol2.blob.core.windows.net/valvenok-images/brands/youngdo-logo.png";
 
 export default function YoungdoGrid({ families }: { families: Category[] }) {
   return (
@@ -43,14 +43,14 @@ export default function YoungdoGrid({ families }: { families: Category[] }) {
                 },
               }}
             >
-              {/* Youngdo brand strip — always dark */}
+              {/* Youngdo brand strip: white, the logo has dark lettering */}
               <Box
                 sx={{
                   px: 3,
                   py: 1.5,
                   borderBottom: "1px solid",
                   borderColor: "divider",
-                  bgcolor: "#1a2e1a",
+                  bgcolor: "#fff",
                   display: "flex",
                   alignItems: "center",
                 }}

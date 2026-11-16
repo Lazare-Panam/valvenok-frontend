@@ -30,7 +30,7 @@ import BrandLogos from "@/src/app/actuators/components/BrandLogos";
 const V = "https://pblol2.blob.core.windows.net/valvenok-images";
 const LOGO: Record<string, string> = {
   Susin: `${V}/logo/susin-logo.webp`,
-  KOSAPLUS: `${V}/brands/kosaplus-logo.png`,
+  KOSAPLUS: "https://pblol2.blob.core.windows.net/kosaplus/logo/kosaplus-official-logo.svg",
   Danfoss: `${V}/products/danfoss/new-logo.svg`,
 };
 

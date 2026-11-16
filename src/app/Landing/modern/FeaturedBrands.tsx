@@ -44,7 +44,7 @@ const BRANDS = [
   },
   {
     name: "Hiflux",
-    logo: "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/logo.png",
+    logo: "https://pblol2.blob.core.windows.net/valvenok-images/brands/hiflux-logo.png",
     desc: "High pressure valves, cone and thread fittings, tubing and tooling.",
     href: "https://www.hiflux.uk.com/",
     external: true,
@@ -53,8 +53,7 @@ const BRANDS = [
   {
     name: "Kosa Plus",
     // The logo file has wide margins, so it is shown larger to match the others.
-    logo: "https://pblol2.blob.core.windows.net/valvenok-images/brands/kosaplus-logo.png",
-    logoScale: 1.9,
+    logo: "https://pblol2.blob.core.windows.net/kosaplus/logo/kosaplus-official-logo.svg",
     desc: "Pneumatic and electric valve actuators and position indicators.",
     href: "https://www.kosaplus.co.uk/",
     external: true,

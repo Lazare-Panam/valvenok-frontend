@@ -193,7 +193,7 @@ export default function ADSeriesPage() {
               >
                 <Box
                   component="img"
-                  src="https://pblol2.blob.core.windows.net/valvenok-images/brands/kosaplus-logo.png"
+                  src="https://pblol2.blob.core.windows.net/kosaplus/logo/kosaplus-official-logo.svg"
                   alt="Kosaplus"
                   sx={{ maxHeight: 96, maxWidth: 140, objectFit: "contain" }}
                 />

@@ -235,7 +235,8 @@ export default function GlobeValveDetailPage() {
   const valve = GLOBE_VALVES.find((v) => v.id === id);
   const product = GLOBE_VALVE_RFQ.find((p) => p.id === id);
   const similarProducts = GLOBE_VALVE_RFQ.filter(
-    (p) => p.categoryId === valve?.categoryId && p.id !== id,
+    // UTAM hidden 16 Nov 2026: its pages stay live but aren't suggested
+    (p) => p.categoryId === valve?.categoryId && p.id !== id && !p.id.startsWith("utam-"),
   ).slice(0, 3);
 
   if (!valve || !product) {

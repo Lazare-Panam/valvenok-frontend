@@ -15,7 +15,7 @@ import { T } from '@/src/app/Landing/modern/tokens'
 
 const LOGO: Record<string, string> = {
   Panam: 'https://pblol2.blob.core.windows.net/panam-images/panam-resize_smallest.jpg',
-  Hiflux: 'https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/logo.png',
+  Hiflux: 'https://pblol2.blob.core.windows.net/valvenok-images/brands/hiflux-logo.png',
 }
 const detailHref = (r: HPNeedleValveDTO) => `/high-pressure/valves/needle-valves/products/${r.id}`
 

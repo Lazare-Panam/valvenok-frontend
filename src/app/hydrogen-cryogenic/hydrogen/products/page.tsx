@@ -14,7 +14,7 @@ import FilterListIcon from '@mui/icons-material/FilterList'
 import RFQModal from '@/src/app/Common/RFQCard/RFQModal'
 import { ProductForRFQ } from '@/src/app/Common/RFQCard/RequestForQuoteCard'
 
-const YOUNGDO_LOGO = 'https://pblol2.blob.core.windows.net/valvenok-images/products/cryogenic/top_logo.png'
+const YOUNGDO_LOGO = 'https://pblol2.blob.core.windows.net/valvenok-images/brands/youngdo-logo.png'
 const DARK_GREEN = '#61D649'
 const PRIMARY_FONT = '"Inter", "Roboto", "Helvetica", Arial, sans-serif'
 

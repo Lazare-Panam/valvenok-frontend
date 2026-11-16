@@ -360,7 +360,6 @@ const ABOUT = [
       <>
         For buyers, our <Link href="/news/uk-valve-stockist">guide to buying from a UK stockist</Link> covers lead times,
         minimum order quantities and how to check a supplier. Company news includes our partnership announcements with{" "}
-        <Link href="/news/valvenok-vsi-atlas-sscv-partnership">Valve Systems International (VSI)</Link>,{" "}
         <Link href="/news/pietro-fiorentini-partnership">Pietro Fiorentini</Link>,{" "}
         <Link href="/news/valvenok-kosa-plus-partnership">Kosa Plus</Link> and{" "}
         <Link href="/news/mars-valve-partnership">Mars Valves</Link>, and an{" "}

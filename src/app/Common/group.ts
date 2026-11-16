@@ -33,7 +33,7 @@ export const GROUP_SITES: GroupSite[] = [
   },
   {
     name: "Hiflux UK",
-    logo: "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/logo.png",
+    logo: "https://pblol2.blob.core.windows.net/valvenok-images/brands/hiflux-logo.png",
     url: "https://www.hiflux.uk.com/",
     desc: "Authorised UK and EU distributor of HIFLUX high-pressure valves, fittings and tubing rated to 150,000 psi.",
     operatedByValvenok: false,
@@ -49,8 +49,7 @@ export const GROUP_SITES: GroupSite[] = [
   },
   {
     name: "KOSAPLUS UK",
-    logo: "https://pblol2.blob.core.windows.net/valvenok-images/brands/kosaplus-logo.png",
-    logoScale: 1.9,
+    logo: "https://pblol2.blob.core.windows.net/kosaplus/logo/kosaplus-official-logo.svg",
     url: "https://www.kosaplus.co.uk/",
     desc: "Authorised UK distributor of KOSAPLUS pneumatic and electric valve actuators.",
     operatedByValvenok: true,

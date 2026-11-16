@@ -19,7 +19,7 @@ export const FEATURED_PRODUCTS: FeaturedValve[] = [
     categoryId: "high-pressure-valves",
     brand: "Hiflux",
     brandLogo:
-      "https://pblol2.blob.core.windows.net/valvenok-images/products/hiflux/logo.png",
+      "https://pblol2.blob.core.windows.net/valvenok-images/brands/hiflux-logo.png",
     logoHeight: 36,
     thumbnail:
       "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/needle-valve.webp",
@@ -148,7 +148,7 @@ export const FEATURED_PRODUCTS: FeaturedValve[] = [
     categoryId: "pneumatic-actuators",
     brand: "Kosaplus",
     brandLogo:
-      "https://pblol2.blob.core.windows.net/valvenok-images/brands/kosaplus-logo.png",
+      "https://pblol2.blob.core.windows.net/kosaplus/logo/kosaplus-official-logo.svg",
     logoHeight: 78,
     thumbnail:
       "https://pblol2.blob.core.windows.net/panam-images/products/actuators/AD-Series.jpeg",

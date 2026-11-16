@@ -47,8 +47,7 @@ export const BRANDS: Brand[] = [
   {
     slug: "kosaplus",
     name: "KOSAPLUS",
-    logo: `${V}/brands/kosaplus-logo.png`,
-    logoScale: 2.2,
+    logo: "https://pblol2.blob.core.windows.net/kosaplus/logo/kosaplus-official-logo.svg",
     website: site("KOSAPLUS UK"),
     mode: "own-site",
     makes: {
@@ -88,7 +87,7 @@ export const BRANDS: Brand[] = [
   {
     slug: "hiflux",
     name: "Hiflux",
-    logo: `${V}/products/hiflux/logo.png`,
+    logo: `${V}/brands/hiflux-logo.png`,
     page: "/brands/hiflux",
     website: site("Hiflux UK"),
     mode: "both",
@@ -118,15 +117,6 @@ export const BRANDS: Brand[] = [
     sortOrder: 13,
   },
   {
-    slug: "utam-valves",
-    name: "UTAM",
-    logo: `${V}/products/valves/utam-logo.png`,
-    page: "/brands/utam-valves",
-    mode: "featured",
-    makes: { valves: { text: "Globe and gate valves" } },
-    sortOrder: 14,
-  },
-  {
     slug: "pietro-fiorentini",
     name: "Pietro Fiorentini",
     logo: `${V}/products/industrial-valves/logo.svg`,
@@ -137,14 +127,6 @@ export const BRANDS: Brand[] = [
       instrumentation: { text: "Gas pressure regulators", href: "/instrumentation/gas-pressure-regulator" },
     },
     sortOrder: 15,
-  },
-  {
-    slug: "vsi",
-    name: "VSI",
-    logo: `${V}/brands/vsi.png`,
-    mode: "featured",
-    makes: { valves: { text: "Atlas severe service control valves", href: "/valves/industrial-valves/control-valves" } },
-    sortOrder: 16,
   },
   {
     slug: "cameron",
@@ -189,9 +171,27 @@ export const BRANDS: Brand[] = [
   {
     slug: "bonney-forge",
     name: "Bonney Forge",
+    logo: `${V}/brands/bf-logo.jpg`,
     mode: "featured",
     makes: { valves: { text: "Welded bonnet globe valves", href: "/valves/industrial-valves/globe-valve/bonney-forge-welded-bonnet" } },
     sortOrder: 22,
+  },
+  // No product pages yet: these link to an enquiry
+  {
+    slug: "fht-valves",
+    name: "FHT Valves",
+    logo: `${V}/brands/fht-valves-logo.png`,
+    mode: "featured",
+    makes: { valves: { text: "Industrial ball valves", href: "/contact" } },
+    sortOrder: 24,
+  },
+  {
+    slug: "batu-valves",
+    name: "Batu Valves",
+    logo: `${V}/brands/batu-logo.png`,
+    mode: "featured",
+    makes: { valves: { text: "Flow control and boiler valves", href: "/contact" } },
+    sortOrder: 25,
   },
   {
     slug: "adaptix",
