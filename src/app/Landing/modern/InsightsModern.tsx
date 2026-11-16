@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { Box, Typography } from "@mui/material";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
-import { LATEST_INSIGHTS } from "../LatestInsightsData";
+// Newest first, straight from the News page list, so the latest article always shows here
+import { POSTS } from "@/src/app/news/posts";
 import { T, textReset } from "./tokens";
 import SectionHeader from "./SectionHeader";
 import PillButton from "./Buttons";
@@ -22,7 +23,7 @@ export default function InsightsModern() {
         }
       />
       <Box sx={swipeRow({ sm: "1fr 1fr", lg: "repeat(4, 1fr)" })}>
-        {LATEST_INSIGHTS.slice(0, 4).map((post) => (
+        {POSTS.slice(0, 4).map((post) => (
           <Box
             key={post.link}
             component={Link}

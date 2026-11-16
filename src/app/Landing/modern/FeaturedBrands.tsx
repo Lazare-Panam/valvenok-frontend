@@ -19,6 +19,14 @@ const BRANDS = [
     accent: "#1E88E5",
   },
   {
+    name: "Susin I-Tork",
+    logo: "https://pblol2.blob.core.windows.net/valvenok-images/logo/susin-logo.webp",
+    desc: "Pneumatic, electric, hydraulic and mechanical actuators, and limit switch boxes.",
+    href: "/brands/susin",
+    external: false,
+    accent: "#D7262E",
+  },
+  {
     name: "Value Valves",
     logo: "https://pblol2.blob.core.windows.net/valvenok-images/products/valves/butterfly-valves/logo.svg",
     desc: "Butterfly valves and flow control solutions for industrial piping systems.",
@@ -68,7 +76,7 @@ export default function FeaturedBrands() {
             </PillButton>
           }
         />
-        <Box sx={swipeRow({ sm: "repeat(2, 1fr)", md: "repeat(3, 1fr)", lg: "repeat(5, 1fr)" })}>
+        <Box sx={swipeRow({ sm: "repeat(2, 1fr)", md: "repeat(3, 1fr)", lg: "repeat(6, 1fr)" })}>
           {BRANDS.map((b) => (
             <Box
               key={b.name}

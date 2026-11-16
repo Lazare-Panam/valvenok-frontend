@@ -17,6 +17,7 @@ import StorefrontOutlinedIcon from "@mui/icons-material/StorefrontOutlined";
 import PublicOutlinedIcon from "@mui/icons-material/PublicOutlined";
 import RequestQuoteOutlinedIcon from "@mui/icons-material/RequestQuoteOutlined";
 import { T, textReset } from "@/src/app/Landing/modern/tokens";
+import { KeepUnits } from "@/src/app/Common/KeepUnits";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import TuneOutlinedIcon from "@mui/icons-material/TuneOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
@@ -283,7 +284,7 @@ function Online({ cat, setCat }: { cat: "All" | Cat; setCat: (c: "All" | Cat) =>
                     ))}
                   </Box>
                   <Typography component="h3" sx={{ fontSize: { xs: "0.95rem", sm: "1.1rem" }, fontWeight: 800, color: T.ink, lineHeight: 1.25 }}>{b.name}</Typography>
-                  <Typography sx={{ fontSize: { xs: "0.78rem", sm: "0.88rem" }, color: T.body, lineHeight: 1.5 }}>{b.desc}</Typography>
+                  <Typography sx={{ fontSize: { xs: "0.78rem", sm: "0.88rem" }, color: T.body, lineHeight: 1.5 }}><KeepUnits text={b.desc} /></Typography>
                   <Box sx={{ mt: "auto", pt: 1.25, borderTop: `1px solid ${T.border}`, display: "flex", flexWrap: "wrap", columnGap: 2, rowGap: 0.5, position: "relative", zIndex: 1, "& a": { fontSize: { xs: "0.78rem", sm: "0.86rem" } } }}>
                     <Box component={Link} href={b.href} sx={{ display: "inline-flex", alignItems: "center", gap: 0.5, fontSize: "0.86rem", fontWeight: 700, color: T.greenDark, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
                       View products <ArrowForwardRoundedIcon sx={{ fontSize: 16 }} />
