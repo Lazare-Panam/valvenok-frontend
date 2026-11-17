@@ -38,14 +38,14 @@ export default function ElectroHydraulic({ pressure = "max 8 bar" }: { pressure?
     flowB: sr ? { "0%,100%": op(0) } : { "0%,56%": op(0), "58%,88%": op(1), "91%,100%": op(0) },
     flowR: sr ? { "0%,56%": op(0), "58%,88%": op(1), "91%,100%": op(0) } : { "0%,100%": op(0) },
     motor: sr ? { "0%,8%": op(0), "10%,38%": op(1), "41%,100%": op(0) } : { "0%,8%": op(0), "10%,38%": op(1), "41%,56%": op(0), "58%,88%": op(1), "91%,100%": op(0) },
-    c1: { "0%,6%": op(1), "10%,100%": op(0) },
-    c2: { "0%,8%": op(0), "11%,37%": op(1), "41%,100%": op(0) },
-    c3: { "0%,39%": op(0), "42%,54%": op(1), "57%,100%": op(0) },
-    c4: { "0%,56%": op(0), "59%,87%": op(1), "91%,100%": op(0) },
-    c5: { "0%,90%": op(0), "94%,100%": op(1) },
+    c1: { "0%,6%": op(1), "8%,100%": op(0) },
+    c2: { "0%,8.5%": op(0), "10.5%,36%": op(1), "38%,100%": op(0) },
+    c3: { "0%,38.5%": op(0), "40.5%,53%": op(1), "55%,100%": op(0) },
+    c4: { "0%,55.5%": op(0), "57.5%,87%": op(1), "89%,100%": op(0) },
+    c5: { "0%,89.5%": op(0), "91.5%,100%": op(1) },
   };
   const caps = sr
-    ? ["Valve shut", "Motor runs: oil opens the valve and loads the spring", "Open: the solenoid valve holds it", "Solenoid releases: the spring closes, oil returns to the tank", "Valve shut"]
+    ? ["Valve shut", "Motor runs: oil opens the valve and loads the spring", "Open: the solenoid valve holds it", "Solenoid releases: the spring shuts the valve", "Valve shut"]
     : ["Valve shut", "Pump forward: oil opens the valve", "Open: motor stops, the position holds", "Pump reverses: oil closes the valve", "Valve shut"];
 
   const PX = 70, PY = 176; // pump

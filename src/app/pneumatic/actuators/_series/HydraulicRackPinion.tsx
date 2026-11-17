@@ -35,11 +35,11 @@ export default function HydraulicRackPinion({ pressure = "80 – 160 bar" }: { p
     springR: { "0%,8%": { transform: "scaleX(1)" }, "40%,56%": { transform: "scaleX(.45)" }, "90%,100%": { transform: "scaleX(1)" } },
     inA: { "0%,8%": op(0), "10%,38%": op(1), "41%,100%": op(0) },
     inB: { "0%,56%": op(0), "58%,88%": op(1), "91%,100%": op(0) },
-    c1: { "0%,6%": op(1), "10%,100%": op(0) },
-    c2: { "0%,8%": op(0), "11%,37%": op(1), "41%,100%": op(0) },
-    c3: { "0%,39%": op(0), "42%,54%": op(1), "57%,100%": op(0) },
-    c4: { "0%,56%": op(0), "59%,87%": op(1), "91%,100%": op(0) },
-    c5: { "0%,90%": op(0), "94%,100%": op(1) },
+    c1: { "0%,6%": op(1), "8%,100%": op(0) },
+    c2: { "0%,8.5%": op(0), "10.5%,36%": op(1), "38%,100%": op(0) },
+    c3: { "0%,38.5%": op(0), "40.5%,53%": op(1), "55%,100%": op(0) },
+    c4: { "0%,55.5%": op(0), "57.5%,87%": op(1), "89%,100%": op(0) },
+    c5: { "0%,89.5%": op(0), "91.5%,100%": op(1) },
   };
   const caps = sr
     ? ["Valve shut", "Oil in at port A: pistons move apart and compress the springs", "Turned 90°: valve open, held by pressure", "Pressure released: the springs drive the pistons back", "Valve shut: the fail-safe position"]
@@ -101,17 +101,17 @@ export default function HydraulicRackPinion({ pressure = "80 – 160 bar" }: { p
               <g className="sr"><path d="M314 150 L322 128 L332 172 L342 128 L352 172 L362 128 L372 172 L380 150" fill="none" stroke={GREEN} strokeWidth="3.5" /></g>
             </>
           )}
-          {/* left piston + rack (top) */}
+          {/* left piston + rack (bottom): moving left, it turns the pinion clockwise */}
           <g className="pl">
             <rect x="106" y="114" width="18" height="72" rx="4" fill={DARK} />
-            <rect x="124" y="114" width="96" height="14" fill={STEEL} />
-            {Array.from({ length: 10 }, (_, k) => <rect key={k} x={128 + k * 9} y="126" width="5" height="7" fill={DARK} />)}
+            <rect x="124" y="172" width="96" height="14" fill={STEEL} />
+            {Array.from({ length: 10 }, (_, k) => <rect key={k} x={128 + k * 9} y="167" width="5" height="7" fill={DARK} />)}
           </g>
-          {/* right piston + rack (bottom) */}
+          {/* right piston + rack (top): moving right, it turns the pinion clockwise too */}
           <g className="pr">
             <rect x="296" y="114" width="18" height="72" rx="4" fill={DARK} />
-            <rect x="200" y="172" width="96" height="14" fill={STEEL} />
-            {Array.from({ length: 10 }, (_, k) => <rect key={k} x={204 + k * 9} y="167" width="5" height="7" fill={DARK} />)}
+            <rect x="200" y="114" width="96" height="14" fill={STEEL} />
+            {Array.from({ length: 10 }, (_, k) => <rect key={k} x={204 + k * 9} y="126" width="5" height="7" fill={DARK} />)}
           </g>
         </g>
 

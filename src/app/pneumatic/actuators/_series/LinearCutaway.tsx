@@ -54,13 +54,16 @@ export default function LinearCutaway({ medium = "air" }: { medium?: "air" | "oi
         {/* piston + stem + plug, moving together */}
         <g className="mv">
           <rect x="144" y="52" width="132" height="22" rx="4" fill={T.greenDark} />
-          <rect x="203" y="74" width="14" height="196" rx="3" fill="#9AA9B6" />
+          <rect x="203" y="74" width="14" height="176" rx="3" fill="#9AA9B6" />
           <rect x="188" y="172" width="44" height="6" rx="2" fill={T.green} />
-          <path d="M196 270 H224 L218 286 H202 Z" fill="#5C6B7A" />
+          <path d="M192 244 H228 V252 Q228 266 210 268 Q192 266 192 252 Z" fill="#5C6B7A" />
+          <text x="316" y="262" style={lbl}>Plug</text>
+          <path d="M312 258 L232 256" stroke="#B9C4CE" strokeDasharray="3 3" />
         </g>
         {/* valve body */}
         <rect x="120" y="256" width="180" height="70" rx="12" fill="#E2554F" opacity=".12" stroke="#C2413B" strokeWidth="2" />
-        <path d="M120 300 H192 L198 306 M300 300 H228 L222 306" stroke="#C2413B" strokeWidth="2" fill="none" />
+        {/* seat ring: the plug closes on its bevelled edge */}
+        <path d="M121 310 H190 L201 322 H121 Z M299 310 H230 L219 322 H299 Z" fill="#C2413B" opacity=".85" />
         {/* labels */}
         <text x="310" y="64" style={lbl}>Piston</text>
         <path d="M306 60 L278 62" stroke="#B9C4CE" strokeDasharray="3 3" />
@@ -71,7 +74,9 @@ export default function LinearCutaway({ medium = "air" }: { medium?: "air" | "oi
         <path d="M296 184 L234 176" stroke="#B9C4CE" strokeDasharray="3 3" />
         <text x="16" y="216" style={lbl}>Yoke</text>
         <path d="M54 212 L146 206" stroke="#B9C4CE" strokeDasharray="3 3" />
-        <text x="16" y="296" style={lbl}>Valve</text>
+        <text x="16" y="284" style={lbl}>Valve</text>
+        <text x="16" y="322" style={lbl}>Seat</text>
+        <path d="M56 317 L130 316" stroke="#B9C4CE" strokeDasharray="3 3" />
       </Box>
       <Box sx={{ mt: 1.5, display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 2, fontSize: "0.8rem", fontWeight: 600, color: T.body }}>
         <Box component="span" sx={{ display: "inline-flex", alignItems: "center", gap: 0.75 }}>

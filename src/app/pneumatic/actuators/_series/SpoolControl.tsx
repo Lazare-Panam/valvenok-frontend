@@ -16,7 +16,7 @@ export default function SpoolControl() {
   const lbl = { fontSize: 15, fontWeight: 700, fill: T.body, fontFamily: "inherit" } as const;
   const run = (name: string, timing = "ease-in-out") => (on ? `${name} ${CYCLE} ${timing} infinite` : "none");
   // 0–14 neutral · 18–40 P→A · 44–58 neutral · 62–84 P→B · 88–100 neutral
-  const spool = { "0%,14%": { transform: "translateX(0)" }, "20%,40%": { transform: "translateX(-46px)" }, "46%,58%": { transform: "translateX(0)" }, "64%,84%": { transform: "translateX(46px)" }, "90%,100%": { transform: "translateX(0)" } };
+  const spool = { "0%,14%": { transform: "translateX(0)" }, "20%,40%": { transform: "translateX(-30px)" }, "46%,58%": { transform: "translateX(0)" }, "64%,84%": { transform: "translateX(30px)" }, "90%,100%": { transform: "translateX(0)" } };
   const needle = { "0%,14%": { transform: "rotate(0deg)" }, "20%,40%": { transform: "rotate(-60deg)" }, "46%,58%": { transform: "rotate(0deg)" }, "64%,84%": { transform: "rotate(60deg)" }, "90%,100%": { transform: "rotate(0deg)" } };
   return (
     <Box ref={ref}>
@@ -62,7 +62,7 @@ export default function SpoolControl() {
         {/* PVG valve section with spool */}
         <rect x="200" y="106" width="190" height="64" rx="10" fill="#EEF2F6" stroke="#C9D3DD" strokeWidth="2" />
         <g className="spool">
-          <rect x="222" y="126" width="146" height="24" rx="12" fill="#8C9AA8" />
+          <rect x="236" y="126" width="118" height="24" rx="12" fill="#8C9AA8" />
           <rect x="258" y="122" width="16" height="32" rx="4" fill="#5C6B7A" />
           <rect x="316" y="122" width="16" height="32" rx="4" fill="#5C6B7A" />
         </g>

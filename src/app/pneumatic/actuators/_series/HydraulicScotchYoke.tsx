@@ -55,11 +55,11 @@ export default function HydraulicScotchYoke({ pressure = "up to 200 bar" }: { pr
     spring: timeline((s) => ({ transform: `scaleX(${(1 - 0.7 * s).toFixed(3)})` })),
     inA: sr ? { "0%,8%": op(0), "11%,55%": op(1), "58%,88%": op(0.4), "92%,100%": op(0) } : { "0%,8%": op(0), "11%,55%": op(1), "58%,100%": op(0) },
     inB: { "0%,6%": op(1), "9%,56%": op(0), "59%,100%": op(1) },
-    c1: { "0%,6%": op(1), "10%,100%": op(0) },
-    c2: { "0%,8%": op(0), "11%,37%": op(1), "41%,100%": op(0) },
-    c3: { "0%,39%": op(0), "42%,54%": op(1), "57%,100%": op(0) },
-    c4: { "0%,56%": op(0), "59%,87%": op(1), "91%,100%": op(0) },
-    c5: { "0%,90%": op(0), "94%,100%": op(1) },
+    c1: { "0%,6%": op(1), "8%,100%": op(0) },
+    c2: { "0%,8.5%": op(0), "10.5%,36%": op(1), "38%,100%": op(0) },
+    c3: { "0%,38.5%": op(0), "40.5%,53%": op(1), "55%,100%": op(0) },
+    c4: { "0%,55.5%": op(0), "57.5%,87%": op(1), "89%,100%": op(0) },
+    c5: { "0%,89.5%": op(0), "91.5%,100%": op(1) },
   };
   const caps = sr
     ? ["Valve shut", "Oil in at port A: the spring compresses", "Turned 90°: open, held by pressure", "Pressure released: the spring drives back", "Valve shut: the fail-safe position"]
