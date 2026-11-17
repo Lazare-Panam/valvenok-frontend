@@ -26,6 +26,7 @@ export type SeriesMeta = {
   products: string; // model list URL
   catalog: { href: string; label: string };
   facts: number; // how many specs to show as key-fact tiles
+  picker?: boolean; // false: no "Choose another model" box, the page is about this model only
 };
 
 import { brandOf } from "./brands";
@@ -115,6 +116,7 @@ export default function ModelDetail({ item: m, items, series, badge }: { item: I
                 ))}
               </Box>
 
+              {series.picker !== false && (
               <Box sx={{ mt: 3, p: { xs: 2, md: 2.5 }, borderRadius: "20px", bgcolor: T.surface, border: `1px solid ${T.border}` }}>
                 <Box sx={{ fontSize: "0.95rem", fontWeight: 800, color: T.ink, mb: 0.5 }}>Choose another model</Box>
                 {groups.length > 1 && (
@@ -142,6 +144,7 @@ export default function ModelDetail({ item: m, items, series, badge }: { item: I
                   ))}
                 </Box>
               </Box>
+              )}
 
               <Box sx={{ mt: 3, display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" }, gap: 1.25 }}>
                 <Box component="button" type="button" onClick={() => setOpen(true)} sx={btn(true)}>

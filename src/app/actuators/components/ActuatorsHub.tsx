@@ -191,7 +191,18 @@ function Hero() {
       <LightBackdrop />
       <Box sx={{ ...wrap, position: "relative", display: "grid", gridTemplateColumns: { xs: "minmax(0, 1fr)", md: "1fr 1fr" }, gap: { xs: 3.5, md: 7 }, alignItems: "center" }}>
         <Box>
-          <Kicker>Products</Kicker>
+          <Box sx={{ display: "flex", flexWrap: "wrap", alignItems: "center", columnGap: 1.5, rowGap: 1, mb: 1.5, "& > *": { mb: "0 !important" } }}>
+            <Kicker>Products</Kicker>
+            {brandsFor("actuators").filter((b) => !b.external).map(({ brand, href }) => (
+              <Box key={brand.slug} component={Link} href={href} aria-label={`${brand.name}: our main actuator brand`}
+                sx={{ display: "inline-flex", alignItems: "center", gap: 1, pl: 0.5, pr: 1.5, py: 0.5, borderRadius: "14px", bgcolor: T.greenSoft, border: `1px solid #CFEBC6`, textDecoration: "none", transition: "all .15s", "&:hover": { borderColor: T.green, transform: "translateY(-1px)" } }}>
+                <Box sx={{ width: 38, height: 38, borderRadius: "10px", bgcolor: "#fff", border: "1px solid #E3EEDF", display: "grid", placeItems: "center", overflow: "hidden" }}>
+                  <Box component="img" src={brand.logo} alt="" sx={{ display: "block", width: 34, height: 34, objectFit: "contain" }} />
+                </Box>
+                <Box component="span" sx={{ fontSize: "0.8rem", fontWeight: 700, color: T.greenDark, whiteSpace: "nowrap" }}>By {brand.name}</Box>
+              </Box>
+            ))}
+          </Box>
           <Box component="h1" sx={{ m: 0, mb: 2.5, fontSize: { xs: "2.4rem", sm: "3rem", md: "3.9rem" }, fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.04, color: T.ink }}>
             <Words text="Valve" />
             <Words text="Actuators" start={250} sx={gradientText} />

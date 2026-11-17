@@ -13,6 +13,7 @@ const meta = {
   products: HD_PRODUCTS,
   catalog: { href: SUSIN_CATALOG.HD, label: "IS & IC catalogue (PDF)" },
   facts: 6,
+  picker: false, // one page per model: no switching to other models from here
 };
 const p = detailPage(ITEMS, meta);
 const old = detailPage(LEGACY_ITEMS, meta);
