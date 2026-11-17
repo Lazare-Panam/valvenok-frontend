@@ -46,8 +46,8 @@ type Series = {
 // Figures from each series page (MAW, ITG, MAB)
 export const SERIES: Series[] = [
   // Ascending order of max torque
-  { key: "mab", code: "MAB", name: "MAB bevel gear", kind: "Multi-turn", brand: "Susin", text: "Bevel gear operators for gate, globe and sluice valves, with thrust bases from 75 to 2,500 kN. IP68, ISO 5210 mounting.", tag: "250 – 18,000 Nm", min: 250, max: 18000, img: `${V}/products/actuators/mechanical/mab.webp`, href: "/actuators/mechanical/mab", icon: <SyncOutlinedIcon />, color: "#B7A6F0", note: "Multi-turn · IP68 · 75–2,500 kN thrust" },
-  { key: "itg", code: "ITG", name: "ITG declutchable gear", kind: "Quarter-turn override", brand: "Susin", text: "Fits between an actuator and the valve: a declutch lever switches from automatic to handwheel operation. Works with pneumatic, hydraulic and electric actuators.", tag: "60 – 28,000 Nm", min: 60, max: 28000, img: `${V}/products/actuators/mechanical/itg.webp`, href: "/actuators/mechanical/itg", icon: <PanToolOutlinedIcon />, color: "#F4C95D", note: "Manual override · ISO 5211 / 5210" },
+  { key: "mab", code: "MAB", name: "MAB bevel gear", kind: "Multi-turn", brand: "Susin", text: "Bevel gear operators for gate, globe and other linear valves, with 75 to 2,500 kN of thrust. IP68, ISO 5210 mounting.", tag: "250 – 18,000 Nm", min: 250, max: 18000, img: `${V}/products/actuators/mechanical/mab.webp`, href: "/actuators/mechanical/mab", icon: <SyncOutlinedIcon />, color: "#B7A6F0", note: "Multi-turn · IP68 · 75–2,500 kN thrust" },
+  { key: "itg", code: "ITG", name: "ITG declutchable gear", kind: "Quarter-turn override", brand: "Susin", text: "Fits between an actuator and the valve: a declutch lever switches from automatic to handwheel operation. Works with pneumatic and electric actuators.", tag: "60 – 28,000 Nm", min: 60, max: 28000, img: `${V}/products/actuators/mechanical/itg.webp`, href: "/actuators/mechanical/itg", icon: <PanToolOutlinedIcon />, color: "#F4C95D", note: "Manual override · ISO 5211 / 5210" },
   { key: "maw", code: "MAW", name: "MAW worm gear", kind: "Quarter-turn", brand: "Susin", text: "Manual worm gear operators for ball, butterfly and plug valves, with a handwheel and position indicator. ISO 5211 mounting.", tag: "125 – 32,000 Nm", min: 125, max: 32000, img: `${V}/products/actuators/mechanical/worm-gearboxes.webp`, href: "/actuators/mechanical/maw", icon: <RotateRightOutlinedIcon />, color: "#8FD47C", note: "Handwheel · ISO 5211 · up to IP67M" },
 ];
 const S = Object.fromEntries(SERIES.map((s) => [s.key, s]));
@@ -56,7 +56,7 @@ const ROTARY = SERIES;
 const STATS = [
   { value: String(SERIES.length), unit: "series", label: "Worm gear, declutchable override and bevel gear" },
   { value: "32,000", unit: "Nm", label: "Highest output torque (MAW)" },
-  { value: "2,500", unit: "kN", label: "Highest thrust (MAB thrust base)" },
+  { value: "2,500", unit: "kN", label: "Highest thrust (MAB)" },
   { value: "IP68", unit: "", label: "Submersible protection (MAB)" },
 ];
 
@@ -64,7 +64,7 @@ const STATS = [
 const DUTIES: { label: string; picks: string[]; rotary: boolean }[] = [
   { label: "Hand-operate a quarter-turn valve", picks: ["maw", "itg"], rotary: true },
   { label: "Manual override on an actuated valve", picks: ["itg"], rotary: true },
-  { label: "Gate, globe or sluice valve (multi-turn)", picks: ["mab"], rotary: true },
+  { label: "Gate, globe or other linear valve (multi-turn)", picks: ["mab"], rotary: true },
   { label: "Buried or flooded location (IP68)", picks: ["mab"], rotary: true },
 ];
 const TORQUES = [100, 1000, 5000, 18000, 28000, 32000];
@@ -72,9 +72,9 @@ const nm = (n: number) => n.toLocaleString("en-GB");
 
 const FAQ_ICONS = [CompareArrowsOutlinedIcon, PanToolOutlinedIcon, ExtensionOutlinedIcon, AcUnitOutlinedIcon, StraightenOutlinedIcon];
 const FAQ = [
-  { q: "Worm gear or bevel gear?", a: "Worm gear operators (MAW, ITG) turn quarter-turn valves such as ball, butterfly and plug valves through 90°. Bevel gear operators (MAB) are multi-turn, for gate, globe and sluice valves that need many turns of the stem." },
+  { q: "Worm gear or bevel gear?", a: "Worm gear operators (MAW, ITG) turn quarter-turn valves such as ball, butterfly and plug valves through 90°. Bevel gear operators (MAB) are multi-turn, for gate, globe and other linear valves that need many turns of the stem." },
   { q: "What is a declutchable gear override?", a: "The ITG fits between an actuator and the valve. In normal service the actuator drives the valve; a declutch lever disengages it so the valve can be turned by handwheel, for example during commissioning or a power or air failure." },
-  { q: "Can I fit an actuator later?", a: "The ITG is made to work with pneumatic (double acting and spring return), hydraulic and electric actuators. Tell us the actuator and valve and we’ll confirm the mounting." },
+  { q: "Can I fit an actuator later?", a: "The ITG is made to work with pneumatic (double acting and spring return) actuators, and with electric actuators on an ISO 5210 (MOV) flange. Tell us the actuator and valve and we’ll confirm the mounting." },
   { q: "Are low and high temperature versions available?", a: "Yes. The standard range is about -20°C to +85°C (MAB -20°C to +80°C), with low-temperature options down to -45°C and high-temperature options on the series pages." },
   { q: "Which mounting standards do they use?", a: "Quarter-turn gears (MAW, ITG) mount to ISO 5211 valve flanges; the ITG also offers ISO 5210. Multi-turn MAB gears use ISO 5210." },
 ];
@@ -329,7 +329,7 @@ function Compare() {
           ))}
         </Box>
         <Box sx={{ mt: 1.5, fontSize: "0.85rem", color: T.muted }}>
-          MAB thrust bases take 75 to 2,500 kN of axial load: see the MAB page.
+          MAB gear operators take 75 to 2,500 kN of thrust: see the MAB page.
         </Box>
       </Box>
     </Box>

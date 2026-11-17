@@ -18,6 +18,7 @@ import MenuBookOutlinedIcon from "@mui/icons-material/MenuBookOutlined";
 import RFQModal from "@/src/app/Common/RFQCard/RFQModal";
 import { T, textReset } from "@/src/app/Landing/modern/tokens";
 import type { Item } from "./modelTypes";
+import ModelConfigurator from "./ModelConfigurator";
 
 export type SeriesMeta = {
   name: string; // "PDS"
@@ -48,6 +49,7 @@ const option = (on: boolean) => ({
 
 export default function ModelDetail({ item: m, items, series, badge }: { item: Item; items: Item[]; series: SeriesMeta; badge: string }) {
   const [open, setOpen] = useState(false);
+  const [rfq, setRfq] = useState(m.rfq); // the configurator swaps in the chosen order code
   const B = brandOf(m.rfq.brand);
   const url = m.href ?? series.products;
   const type = m.cells.find((c) => typeof c !== "string" && c.pill === "grey");
@@ -134,7 +136,7 @@ export default function ModelDetail({ item: m, items, series, badge }: { item: I
                   </Box>
                 )}
                 <Box sx={{ fontSize: "0.78rem", fontWeight: 700, color: T.muted, mb: 1.25 }}>
-                  Showing: <Box component="span" sx={{ color: T.ink }}>{m.model} · {m.sub}</Box>
+                  Showing: <Box component="span" sx={{ color: T.ink }}>{m.model} · <KeepUnits text={m.sub} /></Box>
                 </Box>
                 <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.75 }}>
                   {pickList.map((x) => (
@@ -147,7 +149,7 @@ export default function ModelDetail({ item: m, items, series, badge }: { item: I
               )}
 
               <Box sx={{ mt: 3, display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" }, gap: 1.25 }}>
-                <Box component="button" type="button" onClick={() => setOpen(true)} sx={btn(true)}>
+                <Box component="button" type="button" onClick={() => { setRfq(m.rfq); setOpen(true); }} sx={btn(true)}>
                   Request a quote <ArrowForwardRoundedIcon sx={{ fontSize: 18 }} />
                 </Box>
                 <Box component="a" href={WA(m.model, url, B.name)} target="_blank" rel="noopener" sx={btn(false)}>Ask on WhatsApp</Box>
@@ -180,7 +182,13 @@ export default function ModelDetail({ item: m, items, series, badge }: { item: I
             {m.specs.map(([k, v]) => <div key={k}><dt><KeepUnits text={k} /></dt><dd><KeepUnits text={v} /></dd></div>)}
           </Box>
 
-          {m.table && (
+          {m.configurator && (
+            <ModelConfigurator cfg={m.configurator} onQuote={(code, picks) => {
+              setRfq({ ...m.rfq, name: `${code} (${m.rfq.name})`, description: `${code}: ${picks.map(([k, v]) => `${k.toLowerCase()} ${v}`).join(", ")}. ${m.rfq.description}`, keySpecs: [{ label: "Model number", value: code }, ...picks.map(([label, value]) => ({ label, value })), ...m.rfq.keySpecs.filter((k) => !picks.some(([l]) => l === k.label))], variantInfo: { ...m.rfq.variantInfo, sizeRange: code } });
+              setOpen(true);
+            }} />
+          )}
+          {!m.configurator && m.table && (
             <Box sx={{ mt: 3 }}>
               <Box component="h3" sx={{ m: 0, mb: 1.25, fontSize: "1.15rem", fontWeight: 800, color: T.ink }}><KeepUnits text={titleCase(m.table.title ?? (m.table.head[0] === "Position" ? "Torque by air pressure (Nm)" : "Manual overrides for this size"))} /></Box>
               <Box sx={{ overflowX: "auto", borderRadius: "16px", border: `1px solid ${T.border}`, bgcolor: "#fff" }}>
@@ -229,7 +237,7 @@ export default function ModelDetail({ item: m, items, series, badge }: { item: I
                     <Box component="img" src={r.image} alt={`${B.name} ${r.model}`} loading="lazy" sx={{ width: "72%", height: "76%", objectFit: "contain", mixBlendMode: "multiply" }} />
                   </Box>
                   <Box sx={{ mt: 1.25, fontFamily: mono, fontWeight: 700, fontSize: "0.86rem", color: T.ink }}>{r.model}</Box>
-                  <Box sx={{ mt: 0.25, fontSize: "0.8rem", color: T.body }}>{r.sub}</Box>
+                  <Box sx={{ mt: 0.25, fontSize: "0.8rem", color: T.body }}><KeepUnits text={r.sub} /></Box>
                 </Box>
               ))}
             </Box>
@@ -237,7 +245,7 @@ export default function ModelDetail({ item: m, items, series, badge }: { item: I
         </Box>
       )}
 
-      <RFQModal open={open} onClose={() => setOpen(false)} product={m.rfq} />
+      <RFQModal open={open} onClose={() => setOpen(false)} product={rfq} />
     </Box>
   );
 }

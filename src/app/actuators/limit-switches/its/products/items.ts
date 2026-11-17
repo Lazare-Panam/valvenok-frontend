@@ -42,15 +42,15 @@ const RAW: Item[] = ITS_MODELS.map((m, i) => {
       ...ITS_COMMON,
       ...materials,
     ],
-    table: {
-      title: 'Model number options for this housing',
-      head: ['Code', 'Option', 'Type'],
-      rows: [
-        ...sw.map((o) => [`ITS ${m.digit}${o.code}`, o.text, o.group]),
-        ...ce.map((c) => [c.code, `${c.text} cable entry`, 'Cable entry (last letter)']),
+    configurator: {
+      title: `Build your ${m.model} model number`,
+      prefix: `ITS ${m.digit}`,
+      steps: [
+        { label: 'Switches', options: sw.map((o) => ({ code: o.code, text: o.text, group: o.group })) },
+        { label: 'Cable entry', options: ce.map((c) => ({ code: c.code, text: c.text })) },
       ],
+      note: `Options from Susin I-Tork’s ITS catalogue (p.8)${all ? '; position outputs and the 3/4" and M25 entries are for the ITS 400 and 500 only' : ''}. Tell us the actuator and the area classification with your quote and we’ll confirm the build.`,
     },
-    note: `From Susin I-Tork’s ITS catalogue. A model number is ITS + housing (${m.digit}) + switch type + switch option + cable entry letter, e.g. ITS ${m.digit}00${all ? 'A' : 'F'}. Tell us the actuator, the switches you need and the area classification and we’ll confirm the model.`,
     rfq: {
       id: `its-${m.digit}00`,
       name: `${m.model} limit switch box`,

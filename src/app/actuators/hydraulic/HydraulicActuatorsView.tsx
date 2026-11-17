@@ -50,12 +50,12 @@ type Series = {
 // hydraulic & electro-hydraulic data sheet (PA-HX, HRSDA / HRSSA, HLDA tables).
 export const SERIES: Series[] = [
   // Rotary series in ascending order of max torque, then the linear HLDA
-  { key: "pa", code: "PA", name: "PA electro-hydraulic, high pressure", kind: "Electro-hydraulic", brand: "Susin", text: "High-pressure compact units at up to 180 bar for more torque from a small body; up to 10,000 Nm on request.", tag: "250 – 4,000 Nm", min: 250, max: 4000, img: `${B}/ktc-panda-pa.jpg`, href: "/actuators/hydraulic/pa", icon: <BoltOutlinedIcon />, color: "#F4C95D", note: "180 bar · ATEX Zone 1 & 2" },
-  { key: "lp", code: "LP-HD / LP-HS", name: "LP-HD / LP-HS low-pressure scotch yoke", kind: "Electro-hydraulic", brand: "Susin", text: "A scotch yoke actuator with its own 8 bar motor and pump: no compressed air needed. Double acting, or spring return to fail close or open.", tag: "Up to 4,635 Nm", min: 20.68, max: 4635, img: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/hydraulic/lp-hd.webp", href: "/actuators/hydraulic/lp-scotch-yoke", icon: <AirOutlinedIcon />, color: "#F2B84B", note: "8 bar on board · Zone 1 & 2" },
+  { key: "pa", code: "PA", name: "PA electro-hydraulic, high pressure", kind: "Electro-hydraulic", brand: "Susin", text: "High-pressure compact units at up to 180 bar for more torque from a small body; up to 10,000 Nm on request.", tag: "65 – 4,000 Nm", min: 65, max: 4000, img: `${B}/ktc-panda-pa.jpg`, href: "/actuators/hydraulic/pa", icon: <BoltOutlinedIcon />, color: "#F4C95D", note: "180 bar · ATEX Zone 1 & 2" },
+  { key: "lp", code: "LP-HD / LP-HS", name: "LP-HD / LP-HS low-pressure scotch yoke", kind: "Electro-hydraulic", brand: "Susin", text: "A scotch yoke actuator with its own 8 bar motor and pump: no compressed air needed. Double acting, or spring return to fail close or open.", tag: "Up to 4,635 Nm", min: 5.1, max: 4635, img: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/hydraulic/lp-hd.webp", href: "/actuators/hydraulic/lp-scotch-yoke", icon: <AirOutlinedIcon />, color: "#F2B84B", note: "8 bar on board · Zone 1 & 2" },
   { key: "panda", code: "PANDA", name: "PANDA electro-hydraulic, low pressure", kind: "Electro-hydraulic", brand: "Susin", text: "Compact units with their own pump, 8 bar on board: only electric power needed. Double acting or spring return.", tag: "46 – 9,274 Nm", min: 46, max: 9274, img: `${B}/ktc-panda-pa.jpg`, href: "/actuators/hydraulic/panda", icon: <CompressOutlinedIcon />, color: "#8FD47C", note: "8 bar · ATEX Zone 1 & 2" },
   { key: "pahx", code: "PA-HX", name: "PA-HX rack & pinion", kind: "Hydraulic rack & pinion", brand: "Susin", text: "Hydraulic rack & pinion at 80–160 bar: double acting, spring to close or spring to open, 26 models.", tag: "35 – 10,000 Nm", min: 35, max: 10000, img: `${B}/pa-hx.jpg`, href: "/actuators/hydraulic/pa-hx", icon: <SettingsOutlinedIcon />, color: "#F4A6A0", note: "80–160 bar · DA & spring return" },
   { key: "hrs", code: "HRSDA / HRSSA", name: "Scotch yoke, HRSDA / HRSSA", kind: "Hydraulic scotch yoke", brand: "Susin", text: "Hydraulic or electro-hydraulic scotch yoke for the largest valves, up to 200 bar: double acting (HRSDA) or spring return (HRSSA).", tag: "147 – 112,595 Nm", min: 147, max: 112595, img: `${B}/ktc-hrsda.jpg`, href: "/actuators/hydraulic/scotch-yoke", icon: <FitnessCenterOutlinedIcon />, color: "#B7A6F0", note: "Up to 200 bar · DA & spring return" },
-  { key: "hlda", code: "HLDA", name: "HLDA linear piston, double acting", kind: "Linear piston", brand: "Susin", text: "Hydraulic (HLDA) or electro-hydraulic (EHLDA) linear piston for globe, gate and control valves: 11 bores from 32 to 200 mm, up to 200 bar.", tag: "6 – 402 kN", img: `${B}/ktc-hlda.jpg`, href: "/actuators/hydraulic/hlda", icon: <SwapVertOutlinedIcon />, color: "#7CB9F0", note: "Linear · IP66M / IP67M" },
+  { key: "hlda", code: "HLDA", name: "HLDA linear piston, double acting", kind: "Linear piston", brand: "Susin", text: "Hydraulic (HLDA) or electro-hydraulic (EHLDA) linear piston for linear valves, onshore and offshore: 11 bores from 32 to 200 mm, up to 200 bar.", tag: "6 – 402 kN", img: `${B}/ktc-hlda.jpg`, href: "/actuators/hydraulic/hlda", icon: <SwapVertOutlinedIcon />, color: "#7CB9F0", note: "Linear · IP66M / IP67M" },
 ];
 const S = Object.fromEntries(SERIES.map((s) => [s.key, s]));
 const ROTARY = SERIES.filter((s) => s.max);
@@ -110,7 +110,7 @@ function Hero() {
           <Words text="Actuators" start={200} sx={gradientText} />
         </Box>
         <Box component="p" sx={{ m: 0, mx: "auto", maxWidth: 700, fontSize: { xs: "1rem", md: "1.12rem" }, lineHeight: 1.7, color: T.body }}>
-          Hydraulic power for quarter-turn valves, from 35 to 112,595 Nm: compact electro-hydraulic units that need only electric power, rack & pinion and scotch yoke actuators up to 200 bar for the largest valves, plus linear piston actuators up to 402 kN for globe, gate and control valves.
+          Hydraulic power for quarter-turn valves, from 5.1 to 112,595 Nm: compact electro-hydraulic units that need only electric power, rack & pinion and scotch yoke actuators up to 200 bar for the largest valves, plus linear piston actuators up to 402 kN for onshore and offshore valves.
         </Box>
         <Box sx={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 1.25, mt: 3.5 }}>
           <Box component="a" href="#finder" sx={pillBtn(true)}>
@@ -299,7 +299,7 @@ function Compare() {
         <Box sx={{ mb: 4 }}>
           <Kicker>Torque ranges</Kicker>
           <H2 id="h2-compare">How Much Torque Does Each Type Give?</H2>
-          <Lead>Each bar shows the torque range of a rotary type, from 35 to 112,595 Nm on a log scale. Ratings vary by size and pressure, so check the torque tables. The HLDA linear piston is rated in thrust (6–402 kN), not torque.</Lead>
+          <Lead>Each bar shows the torque range of a rotary type, from 5.1 to 112,595 Nm on a log scale. Ratings vary by size and pressure, so check the torque tables. The HLDA linear piston is rated in thrust (6–402 kN), not torque.</Lead>
         </Box>
         <Box ref={ref} sx={{ borderRadius: "22px", bgcolor: "#fff", border: `1px solid ${T.border}`, boxShadow: T.shadow, p: { xs: 1.5, md: 2.5 } }}>
           <Box sx={{ display: { xs: "none", md: "grid" }, gridTemplateColumns: "300px 1fr 150px", gap: 3, px: 1.5, pb: 1.25, borderBottom: `1px solid ${T.border}` }}>

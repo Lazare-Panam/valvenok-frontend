@@ -227,6 +227,9 @@ export const NAV_GROUPS: NavGroup[] = [
           {
             label: "MPLDS Series — Micro Linear Double Acting",
             href: "/pneumatic/actuators/mplds",
+            children: [
+              { label: "View All Models", href: "/pneumatic/actuators/mplds/products" },
+            ],
           },
         ],
       },

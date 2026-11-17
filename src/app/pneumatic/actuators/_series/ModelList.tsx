@@ -35,6 +35,7 @@ export type ListDef = {
   items: Item[];
   fromParams?: (sp: URLSearchParams) => Filters; // links from the series page
   brief?: string[]; // spec labels shown when a row is opened (the rest is on the product page)
+  autoFacets?: false; // false: only the list's own facets (short lists where column filters add clutter)
 };
 export type Filters = Record<string, string[]>;
 
@@ -52,8 +53,8 @@ const quoteBtn = {
 
 const renderCell = (c: Cell) => {
   if (typeof c === "string") return <KeepUnits text={c} />;
-  if (c.pill === "green") return <Box component="span" sx={{ ...pill, bgcolor: T.greenSoft, color: T.greenDark }}>{c.text}</Box>;
-  if (c.pill === "grey") return <Box component="span" sx={{ ...pill, bgcolor: T.surface, color: T.ink, border: `1px solid ${T.border}` }}>{c.text}</Box>;
+  if (c.pill === "green") return <Box component="span" sx={{ ...pill, bgcolor: T.greenSoft, color: T.greenDark }}><KeepUnits text={c.text} /></Box>;
+  if (c.pill === "grey") return <Box component="span" sx={{ ...pill, bgcolor: T.surface, color: T.ink, border: `1px solid ${T.border}` }}><KeepUnits text={c.text} /></Box>;
   return c.text;
 };
 const thumb = (m: Item, box: number) => (
@@ -71,7 +72,7 @@ function Header({ d }: { d: ListDef }) {
             <ArrowBackIcon sx={{ fontSize: 17 }} /> {d.back.label}
           </Box>
           <Box component="h1" sx={{ m: 0, fontSize: { xs: "2rem", md: "2.7rem" }, fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1.1, color: T.ink }}>{titleCase(d.title)}</Box>
-          <Box component="p" sx={{ m: 0, mt: 1, maxWidth: 680, fontSize: "1rem", lineHeight: 1.6, color: T.body }}>{d.intro}</Box>
+          <Box component="p" sx={{ m: 0, mt: 1, maxWidth: 680, fontSize: "1rem", lineHeight: 1.6, color: T.body }}><KeepUnits text={d.intro} /></Box>
         </Box>
         {d.catalog && (
           <Box component="a" href={d.catalog.href} target="_blank" rel="noopener" sx={{ flexShrink: 0, alignSelf: "flex-start", mt: { md: 5.5 }, display: "inline-flex", alignItems: "center", gap: 1, px: 1.75, py: 1, borderRadius: 999, bgcolor: "#fff", border: `1px solid ${T.border}`, textDecoration: "none", color: T.ink, fontSize: "0.82rem", fontWeight: 700, "&:hover": { borderColor: T.greenDark } }}>
@@ -119,7 +120,7 @@ function FilterGroup({ f, filters, counts, toggle, clear, defaultOpen }: { f: Fa
                 return (
                   <Box key={opt} component="button" type="button" aria-pressed={on} disabled={off} onClick={() => toggle(f.key, opt)} title={`${n} models`}
                     sx={{ cursor: off ? "default" : "pointer", fontFamily: "inherit", minWidth: 44, px: 1.25, py: 0.7, borderRadius: "10px", fontSize: "0.82rem", fontWeight: 700, border: `1.5px solid ${on ? T.greenDark : T.border}`, bgcolor: on ? T.greenSoft : "#fff", color: on ? T.greenDeep : T.ink, opacity: off ? 0.35 : 1, transition: "all .15s", "&:hover": off ? {} : { borderColor: T.greenDark } }}>
-                    {opt}
+                    <KeepUnits text={opt} />
                   </Box>
                 );
               })}
@@ -136,7 +137,7 @@ function FilterGroup({ f, filters, counts, toggle, clear, defaultOpen }: { f: Fa
                       sx={{ appearance: "none", m: 0, flexShrink: 0, width: 18, height: 18, borderRadius: "5px", border: `1.5px solid ${on ? T.greenDark : "#C5D0C8"}`, bgcolor: on ? T.greenDark : "#fff", cursor: "inherit", display: "grid", placeItems: "center", transition: "all .15s",
                         "&::after": { content: '""', width: 9, height: 5, border: "2px solid #fff", borderTop: 0, borderRight: 0, transform: "rotate(-45deg) translate(1px, -1px)", opacity: on ? 1 : 0 },
                         "&:focus-visible": { outline: `2px solid ${T.green}`, outlineOffset: 2 } }} />
-                    <Box component="span" sx={{ flex: 1, fontSize: "0.86rem", fontWeight: on ? 700 : 500, color: T.ink, lineHeight: 1.35 }}>{opt}</Box>
+                    <Box component="span" sx={{ flex: 1, fontSize: "0.86rem", fontWeight: on ? 700 : 500, color: T.ink, lineHeight: 1.35 }}><KeepUnits text={opt} /></Box>
                     <Box component="span" sx={{ fontSize: "0.74rem", fontWeight: 700, color: on ? T.greenDark : T.muted, bgcolor: on ? T.greenSoft : T.surface, px: 0.9, py: 0.15, borderRadius: 999 }}>{n}</Box>
                   </Box>
                 );
@@ -204,7 +205,7 @@ function Details({ m, onQuote, brief }: { m: Item; onQuote: () => void; brief?: 
       </Box>
       <Box sx={{ minWidth: 0 }}>
         <Box component="dl" sx={{ m: 0, display: "grid", gridTemplateColumns: { xs: "1fr 1fr", md: "repeat(4, 1fr)" }, gap: 1.5, mb: 2, "& dt": { fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: T.muted }, "& dd": { m: 0, mt: 0.25, fontSize: "0.88rem", fontWeight: 700, color: T.ink } }}>
-          {specs.map(([k, v]) => <div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}
+          {specs.map(([k, v]) => <div key={k}><dt><KeepUnits text={k} /></dt><dd><KeepUnits text={v} /></dd></div>)}
         </Box>
         {!short && m.table && (
           <Box sx={{ overflowX: "auto", mb: 2, borderRadius: "12px", border: `1px solid ${T.border}`, bgcolor: "#fff" }}>
@@ -236,7 +237,7 @@ function List({ d, initial }: { d: ListDef; initial: Filters }) {
   const [open, setOpen] = useState<string | null>(null);
   const [quote, setQuote] = useState<ProductForRFQ | null>(null);
 
-  const facets = useMemo(() => buildFacets(d.columns, d.facets, d.items), [d]);
+  const facets = useMemo(() => (d.autoFacets === false ? buildFacets([], d.facets, d.items) : buildFacets(d.columns, d.facets, d.items)), [d]);
   const matches = (m: Item, skip?: string) => facets.every((f) => f.key === skip || !filters[f.key]?.length || f.valuesOf(m).some((v) => filters[f.key].includes(v)));
   const counts = Object.fromEntries(facets.map((f) => [f.key, d.items.filter((m) => matches(m, f.key)).reduce<Record<string, number>>((a, m) => { for (const v of f.valuesOf(m)) a[v] = (a[v] ?? 0) + 1; return a; }, {})]));
   const activeCount = Object.values(filters).reduce((n, v) => n + v.length, 0);
@@ -321,7 +322,7 @@ function List({ d, initial }: { d: ListDef; initial: Filters }) {
               <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.75 }}>
                 {chips.map((ch) => (
                   <Box key={ch.k + ch.v} component="button" type="button" aria-label={`Remove ${ch.v}`} onClick={() => setFilters({ ...filters, [ch.k]: filters[ch.k].filter((x) => x !== ch.v) })} sx={{ cursor: "pointer", fontFamily: T.font, display: "inline-flex", alignItems: "center", gap: 0.5, pl: 1.25, pr: 0.75, py: 0.45, borderRadius: 999, border: "1px solid #CFEBC6", bgcolor: T.greenSoft, color: T.greenDark, fontSize: "0.8rem", fontWeight: 700 }}>
-                    {ch.v} <CloseRoundedIcon sx={{ fontSize: 15 }} />
+                    <KeepUnits text={ch.v} /> <CloseRoundedIcon sx={{ fontSize: 15 }} />
                   </Box>
                 ))}
               </Box>
@@ -355,7 +356,7 @@ function List({ d, initial }: { d: ListDef; initial: Filters }) {
                               {m.href
                                 ? <Box component={Link} href={m.href} onClick={(e: React.MouseEvent) => e.stopPropagation()} sx={{ fontFamily: mono, fontWeight: 700, fontSize: "0.86rem", color: T.ink, textDecoration: "none", "&:hover": { color: T.greenDark, textDecoration: "underline" } }}>{m.model}</Box>
                                 : <Box sx={{ fontFamily: mono, fontWeight: 700, fontSize: "0.86rem", color: T.ink }}>{m.model}</Box>}
-                              <Box sx={{ fontSize: "0.74rem", color: T.muted }}>{m.sub}</Box>
+                              <Box sx={{ fontSize: "0.74rem", color: T.muted }}><KeepUnits text={m.sub} /></Box>
                             </Box>
                           </Box>
                         </td>
@@ -389,7 +390,7 @@ function List({ d, initial }: { d: ListDef; initial: Filters }) {
                     {thumb(m, 56)}
                     <Box sx={{ minWidth: 0, flex: 1 }}>
                       <Box component={m.href ? Link : "div"} href={m.href} sx={{ display: "block", fontFamily: mono, fontWeight: 700, fontSize: "0.9rem", color: T.ink, textDecoration: "none" }}>{m.model}</Box>
-                      <Box sx={{ fontSize: "0.8rem", color: T.body }}>{m.sub}</Box>
+                      <Box sx={{ fontSize: "0.8rem", color: T.body }}><KeepUnits text={m.sub} /></Box>
                     </Box>
                   </Box>
                   <Box sx={{ mt: 1.25, display: "flex", flexWrap: "wrap", gap: 0.75 }}>

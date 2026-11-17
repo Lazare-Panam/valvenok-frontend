@@ -71,7 +71,7 @@ const DEF: SeriesDef = {
     points: [
       ["TENV motor", "Totally enclosed, high starting torque, class F insulation with a thermostat and a cooling plate. Mounted so it can be removed easily."],
       ["Single worm reduction gear", "Oil lubricated for quiet, efficient running and stable operation at low temperatures."],
-      ["Detachable thrust unit", "Fits to the valve on its own, before the actuator, with ductile drive bushings for rising or non-rising stems. ISO 5210 mounting."],
+      ["Detachable thrust unit", "Fits to the valve on its own, before the actuator, with two drive bushing types, for quarter-turn and multi-turn use. ISO 5210 mounting."],
       ["Top-mounted handwheel", "Switch to manual with the lever, even while the motor runs; the actuator returns to electric on its own when the motor starts."],
       ["Sealed to IP68", "10 m for 100 hours, with a double-sealed terminal compartment, so the inside stays dry when the terminal cover is off."],
       ["Built in", "52-pin (top handle) or 75-pin (side handle) terminals, a 10 W space heater and an aluminium alloy body."],

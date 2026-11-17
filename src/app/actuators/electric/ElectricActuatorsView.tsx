@@ -113,7 +113,7 @@ function Hero() {
           <Words text="Actuators" start={200} sx={gradientText} />
         </Box>
         <Box component="p" sx={{ m: 0, mx: "auto", maxWidth: 700, fontSize: { xs: "1rem", md: "1.12rem" }, lineHeight: 1.7, color: T.body }}>
-          Seven series for valves where there’s power but no air: quarter-turn from 25 to 9,000 Nm, multi-turn for gate and globe valves, linear up to 25 kN, and a spring-return series that fails safe when the power goes.
+          Six series for valves where there’s power but no air: quarter-turn from 25 to 9,000 Nm, multi-turn for gate and globe valves, linear up to 25 kN, and a spring-return series that fails safe when the power goes.
         </Box>
         <Box sx={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 1.25, mt: 3.5 }}>
           <Box component="a" href="#finder" sx={pillBtn(true)}>

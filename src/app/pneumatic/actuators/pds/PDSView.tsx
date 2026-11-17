@@ -28,7 +28,7 @@ const DA_MAX = Math.max(...PD_ALL.map((r) => torques(r)[1]));
 const PS_ALL = PD_ACTUATOR_DATA.filter((r) => r.series === "PS");
 const SPRING_MIN = Math.min(...PS_ALL.map((r) => r.springEndTorqueNmMin!));
 const SPRING_MAX = Math.max(...PS_ALL.map((r) => r.springEndTorqueNmMax!));
-const MODELS = PD_ALL.length / 3 + PS_ALL.length; // PD rows are listed at 0°, 45° and 90°
+const MODELS = PD_ALL.length / 3 + PS_ALL.length + 1; // PD rows are listed at 0°, 45° and 90°; + the PD40 rack & pinion
 
 const RUNGS: Rung[] = SIZES.map((size, i) => {
   const pd = PD_ALL.filter((r) => r.model === `PD${size}`);
@@ -59,7 +59,7 @@ const DEF: SeriesDef = {
     </>
   ),
   specs: [
-    ["Models", `${MODELS} (10 sizes)`],
+    ["Models", `${MODELS} (10 sizes + PD40)`],
     ["Torque, double acting", `${nm(DA_MIN)} – ${nm(DA_MAX)} Nm`],
     ["Air supply", "2.8 – 8 bar"],
     ["Temperature", "−20 to +80 °C"],
@@ -76,7 +76,7 @@ const DEF: SeriesDef = {
   ladder: {
     kicker: "Sizes",
     title: "Pick a size by torque",
-    lead: "Ten body sizes, each as double acting (PD) or spring return (PS). The bar shows double acting torque from 2.8 to 8 bar; each size opens its models in the table.",
+    lead: "Ten scotch yoke body sizes, each as double acting (PD) or spring return (PS), plus the small PD40 rack & pinion (5.6 – 16 Nm) in the model list. The bar shows double acting torque from 2.8 to 8 bar; each size opens its models in the table.",
     rungs: RUNGS,
     max: DA_MAX,
     logFrom: 4,

@@ -40,7 +40,30 @@ const psItems: Item[] = PD_ACTUATOR_DATA.filter(r => r.series === 'PS').map(r =>
   }
 })
 
-const RAW_ITEMS = [...pdItems, ...psItems]
+// PD40: the small rack & pinion model on catalogue p.9. Same torque at every
+// position (rack & pinion), so its table is by pressure only. Figures as printed.
+const PD40_TORQUE = [5.6, 7, 8.4, 11, 12, 14, 16] // 2.8, 3.5, 4.2, 5.5, 6, 7, 8 bar
+const pd40Image = pdItems[0].image // the PDS series photo (no separate PD40 photo)
+const pd40: Item = {
+  id: 'PD40', model: 'PD40', sub: 'Size 40 · rack & pinion', image: pd40Image,
+  cells: [{ text: 'Double acting', pill: 'grey' }, { text: '5.6 – 16 Nm', pill: 'green' }, 'No spring, air closes', 'F03/F05', '0.04 L · < 0.3 s'],
+  facets: { action: 'Double acting', size: '40', mount: 'F03/F05' },
+  sort: { model: 400, torque: 16 },
+  search: 'PD40 PDS 40 double acting DA rack and pinion rack & pinion F03/F05 small',
+  tag: 'Rack & pinion, double acting',
+  specs: [
+    ['Model', 'PD40'], ['Action', 'Double acting'], ['ISO 5211', 'F03/F05'], ['Torque', '5.6 – 16 Nm (2.8 – 8 bar)'],
+    ['Air per stroke (5.5 bar)', '0.04 L'], ['Operating time (5.5 bar)', '< 0.3 s'],
+    ['Design', 'Rack & pinion: the same torque at every position'], ['Drive', '9 × 9 mm square, 11 mm deep'],
+    ['Flange PCD', '35 / 50 mm, 4-M5 / M6'], ['Air ports', '2 × PT 1/8"'],
+    ['Dimensions A × B × C', '107 × 60 × 33 mm'], ['Weight', '1.1 kg'], ['Temperature', '−20 to +80 °C'],
+  ],
+  table: { title: 'Torque by air pressure (Nm)', head: ['Position', ...BARS.map(([, b]) => `${b} bar`)], rows: [['Any', ...PD40_TORQUE.map((t) => nm(t))]] },
+  note: 'From the PDS catalogue, p.9 (PD40 rack & pinion). Include appropriate safety factors when sizing.',
+  rfq: { id: 'PD40', name: 'PDS Series PD40 rack & pinion actuator', brand: 'Susin', category: 'Pneumatic Actuators', categoryId: 'pneumatic-actuators', subCategory: 'PDS Series', thumbnail: pd40Image, description: 'Susin I-Tork PD40 double acting rack & pinion actuator. Torque 5.6–16 Nm at 2.8–8 bar, ISO 5211 F03/F05, 9 × 9 drive.', keySpecs: [{ label: 'Model', value: 'PD40' }, { label: 'ISO 5211', value: 'F03/F05' }, { label: 'Torque', value: '5.6 – 16 Nm' }], variantInfo: { count: 1, sizeRange: 'Size 40' } },
+}
+
+const RAW_ITEMS = [pd40, ...pdItems, ...psItems]
 export const SIZES = Array.from(new Set(RAW_ITEMS.map(i => i.facets.size))).sort((a, b) => Number(a) - Number(b))
 
 

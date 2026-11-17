@@ -54,7 +54,7 @@ const DEF: SeriesDef = {
     ["Air supply", "3.5 – 10 bar"],
     ["Temperature", "−20 to +85 °C"],
     ["Mounting", "ISO 5211 F10–F40"],
-    ["Protection", "IP66 / IP67"],
+    ["Protection", "IP66"],
   ],
   total: TOTAL,
   productsHref: "/pneumatic/actuators/hd/products",
@@ -77,9 +77,9 @@ const DEF: SeriesDef = {
     points: [
       ["Modular", "Power cylinder, centre body and spring cartridge combine to suit the duty, and are interchangeable for service and spares."],
       ["Symmetric or canted yoke", "IS gives its highest torque at both ends of the stroke; IC at the open or the close end."],
-      ["Ductile iron body", "Heavy-duty housing with a sealed, corrosion-resistant finish, rated IP66 / IP67."],
-      ["Four configurations", "Double acting, tandem double acting, and spring return fail close or fail open."],
-      ["Standards", "ISO 5211 mounting (MSS-SP101 on request), tested to EN 15714-3:2009. Susin I-Tork lists ATEX, SIL3 and PED compliance."],
+      ["Ductile iron body", "Heavy-duty housing with a sealed, corrosion-resistant finish, rated IP66."],
+      ["Four configurations", "Double acting, or spring return fail close or fail open, each with a symmetric (IS) or canted (IC) yoke."],
+      ["Standards", "ISO 5211 mounting (MSS-SP101 on request); Susin I-Tork lists the range as ATEX / IECEx certified for hazardous areas."],
     ],
   },
   extra: <HdTables />,
@@ -87,9 +87,9 @@ const DEF: SeriesDef = {
   faq: [
     { q: "Symmetric (IS) or canted (IC) yoke?", a: "A symmetric yoke gives its highest torque at both ends of the 90° stroke. A canted yoke gives its highest torque at either the close or the open end, which suits valves that need most torque at one end.", icon: CompareArrowsOutlinedIcon },
     { q: "How do I choose the model?", a: "Pick the series first: IS or IC yoke, double acting or spring return. Then take the valve’s highest torque, add a safety factor, and find the smallest model that delivers it at your lowest air supply in the technical tables. For spring return, the spring end torque must also close the valve. The model code gives the body size and cylinder, e.g. ISD 03-38 is body 03, cylinder 38.", icon: SquareFootOutlinedIcon },
-    { q: "Double acting or spring return?", a: "Double acting (and tandem double acting) models use air to open and close. Spring return models use air one way and springs the other, so the valve goes to its safe position, fail close or fail open, if air is lost.", icon: ShieldOutlinedIcon },
+    { q: "Double acting or spring return?", a: "Double acting models use air to open and close. Spring return models use air one way and springs the other, so the valve goes to its safe position, fail close or fail open, if air is lost.", icon: ShieldOutlinedIcon },
     { q: "What air supply do they need?", a: "Instrument air, at 3.5 to 10 bar (40 to 145 psig). The standard temperature range is −20 to +85 °C, with −30 to +100 °C available as an option.", icon: AirOutlinedIcon },
-    { q: "What certification do they have?", a: "Susin I-Tork lists ATEX, SIL3 and PED compliance, IP66 / IP67 protection and testing to EN 15714-3:2009 for the HD range. Ask for the certificate you need when you request a quote.", icon: VerifiedOutlinedIcon },
+    { q: "What certification do they have?", a: "Susin I-Tork lists the HD range as ATEX / IECEx certified for hazardous areas, IP66, with ISO 5211 and NAMUR mounting. If your project needs another certificate, such as SIL or PED, tell us when you request a quote and we’ll confirm it with Susin I-Tork.", icon: VerifiedOutlinedIcon },
     { q: "Can they be operated by hand?", a: "Yes. A manual handwheel (jackscrew), hydraulic override or declutchable gearbox can be fitted, along with limit switches, solenoid valves and positioners.", icon: PanToolOutlinedIcon },
   ],
   cta: {

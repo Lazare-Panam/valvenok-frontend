@@ -272,8 +272,7 @@ export const minTorque = (m: HdModel) => (m.da ? Math.min(...m.da.flat()) : Math
 export const HD_COMMON: [string, string][] = [
   ["Air supply", "3.5 – 10 bar"],
   ["Temperature", "−20 to +85 °C"],
-  ["Protection", "IP66 / IP67"],
+  ["Protection", "IP66"],
   ["Over-travel", "±5°"],
   ["Mounting", "ISO 5211 (MSS-SP101 on request)"],
-  ["Testing", "EN 15714-3:2009"],
 ];

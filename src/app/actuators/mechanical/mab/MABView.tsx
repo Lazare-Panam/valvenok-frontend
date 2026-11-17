@@ -44,7 +44,7 @@ const DEF: SeriesDef = {
   h1: ["MAB series", "bevel gear actuators"],
   lead: (
     <>
-      Susin I-Tork manual bevel gear actuators for gate, globe and other multi-turn valves. {STANDARD.length} sizes from {nm(MIN)} to {nm(MAX)} Nm with 75 to 2,500 kN of thrust, each as standard or with a single or double stage reduction: {TOTAL} models in all.
+      Susin I-Tork manual bevel gear actuators for gate, globe and other multi-turn valves. {STANDARD.length} sizes from {nm(MIN)} to {nm(MAX)} Nm with 75 to 2,500 kN of thrust, as standard and, on the larger sizes, with a single or double stage reduction: {TOTAL} models in all.
     </>
   ),
   specs: [
