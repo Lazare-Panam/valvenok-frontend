@@ -10,6 +10,7 @@ const p = detailPage(ITEMS, {
   products: ITQ_PRODUCTS,
   catalog: { href: ITQ_CATALOG, label: "ITQ catalogue (PDF)" },
   facts: 6,
+  picker: false, // one page per model: no switching to other models from here
 });
 
 export const dynamicParams = true; // rendered on first visit, then cached (see detailPage)

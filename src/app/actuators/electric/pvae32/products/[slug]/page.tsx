@@ -10,6 +10,7 @@ const p = detailPage(ITEMS, {
   products: PVE_PRODUCTS,
   catalog: { href: PVE_TI, label: "PVE technical information (PDF)" },
   facts: 6,
+  picker: false, // one page per model: no switching to other models from here
 });
 
 export const dynamicParams = true; // rendered on first visit, then cached (see detailPage)
