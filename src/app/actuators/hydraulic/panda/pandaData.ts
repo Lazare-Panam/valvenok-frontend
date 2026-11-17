@@ -40,11 +40,11 @@ const DA: [string, number][] = [
 ];
 
 // [code, open (hydraulic) start / end, close (spring) start / end]
-// E40: p.3 prints the same torques as E20 (245/187, 157/98), which looks like a
-// copy error; it is shown as "on request" until Susin I-Tork confirms.
+// E40: p.3 prints the same torques as E20 (245/187, 157/98); shown as printed,
+// with a note that torque is confirmed on the quote.
 const SR: [string, [number, number] | null, [number, number] | null][] = [
   ["E10", [102, 77], [69, 44]], ["E15", [152, 118], [94, 60]], ["E20", [245, 187], [157, 98]],
-  ["E30", [371, 245], [198, 126]], ["E40", null, null], ["E50", [638, 509], [399, 269]],
+  ["E30", [371, 245], [198, 126]], ["E40", [245, 187], [157, 98]], ["E50", [638, 509], [399, 269]],
   ["E60", [846, 657], [568, 379]], ["E70", [1192, 946], [756, 510]], ["E80", [1994, 1608], [1251, 865]],
   ["E90", [2840, 2228], [1922, 1309]], ["E100", [3989, 3124], [2620, 1754]],
   ["E110", [4099, 3335], [2971, 2207]], ["E120", [9274, 7403], [5939, 4068]],

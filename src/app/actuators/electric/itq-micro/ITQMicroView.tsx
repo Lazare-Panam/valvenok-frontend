@@ -47,7 +47,7 @@ const DEF: SeriesDef = {
     ["Operating time", "11 – 16 s"],
     ["Enclosure", "IP66 / IP67"],
     ["Mounting", "ISO 5211 F03 – F07"],
-    ["Temperature", "−20 to +70 °C"],
+    ["Temperature", "−20 to +70 °C (ITQ 0020: −10 to +65 °C)"],
   ],
   total: TOTAL,
   productsHref: "/actuators/electric/itq-micro/products",

@@ -49,7 +49,7 @@ const RAW_ITEMS: Item[] = PANDA_MODELS.map((m, i) => {
     ],
     note:
       m.code === 'E40'
-        ? 'Susin I-Tork’s brochure prints the same torques for the E40 as for the E20, which looks like a misprint, so we confirm the E40 figures on your quote.'
+        ? 'Figures as printed in the KTC catalogue (the same as the E20); we confirm torque with every quote.'
         : 'Torque from Susin I-Tork’s product selection table; modulating actuators may differ from the listed dimensions. Send us the valve torque, flange and connection and we’ll confirm the model and order code.',
     rfq: {
       id: `panda-${m.code.toLowerCase()}`,

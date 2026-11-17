@@ -28,7 +28,7 @@ export const ITQM_MODELS: ITQMicroModel[] = [
     mounting: "ISO 5211 F03",
     power: "85–265 VAC 1Ph (option 24 VAC/DC)",
     enclosure: "IP66",
-    weightKg: null,
+    weightKg: 1, // catalogue p.2 performance table
     image: `${BLOB}/itq-0020.jpg`,
     summary: "For small 1\" ball valve automation. Free voltage, very compact and light.",
     specs: [

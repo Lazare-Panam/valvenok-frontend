@@ -78,7 +78,7 @@ const DEF: SeriesDef = {
   ladder: {
     kicker: "Sizes",
     title: "Double acting or spring return",
-    lead: "Double acting sizes give the same torque both ways. Spring return sizes run from the spring’s torque at the end of its stroke to the oil’s torque at the start; the valve must need less than the spring end figure to close. The E40 is on request. Every size is in the model list.",
+    lead: "Double acting sizes give the same torque both ways. Spring return sizes run from the spring’s torque at the end of its stroke to the oil’s torque at the start; the valve must need less than the spring end figure to close. Every size is in the model list.",
     rungs: RUNGS,
     max: MAX,
     logFrom: 30,
