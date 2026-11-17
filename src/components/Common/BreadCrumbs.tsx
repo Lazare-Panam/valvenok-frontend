@@ -63,7 +63,7 @@ type BreadcrumbsProps = {
 const ACRONYMS = new Set([
   'ag', 'lpg', 'dbb', 'hp', 'jic', 'npt', 'bsp', 'aov', 'ss', 'ss316', 'vsi', 'h2', 'frl',
   // series codes
-  'iql', 'itl', 'itm', 'itq', 'qs', 'bvaa', 'hrsda', 'hrssa', 'hlda', 'ehlda', 'pa', 'hx', 'panda', 'itg', 'its', 'mab', 'maw', 'adf', 'hd', 'mhd', 'pds', 'plds', 'mplds', 'sra',
+  'iql', 'itl', 'itm', 'itq', 'qs', 'bvaa', 'hrsda', 'hrssa', 'lp', 'hlda', 'ehlda', 'pa', 'hx', 'panda', 'itg', 'its', 'mab', 'maw', 'adf', 'hd', 'mhd', 'pds', 'plds', 'mplds', 'sra',
   'esc', 'esnc', 'sdnc', 'sdnu', 'kls', 'ke', 'tg', 'fg', 'pvae32', 'ib', 'hb', 'sb', 'rss', 'wkm',
 ]);
 

@@ -110,7 +110,7 @@ export default function ModelDetail({ item: m, items, series, badge }: { item: I
                 {facts.map(([k, v]) => (
                   <Box key={k} sx={{ p: 1.5, borderRadius: "14px", bgcolor: "#fff", border: `1px solid ${T.border}` }}>
                     <Box sx={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase !important", color: T.muted }}>{k}</Box>
-                    <Box sx={{ mt: 0.25, fontSize: "0.92rem", fontWeight: 800, color: T.ink, lineHeight: 1.3 }}>{v}</Box>
+                    <Box sx={{ mt: 0.25, fontSize: "0.92rem", fontWeight: 800, color: T.ink, lineHeight: 1.3 }}><KeepUnits text={v} /></Box>
                   </Box>
                 ))}
               </Box>
@@ -174,7 +174,7 @@ export default function ModelDetail({ item: m, items, series, badge }: { item: I
             "& dt": { px: 2.25, py: 1.5, fontSize: "0.85rem", fontWeight: 600, color: T.body },
             "& dd": { m: 0, px: 2.25, py: 1.5, fontSize: "0.92rem", fontWeight: 700, color: T.ink },
           }}>
-            {m.specs.map(([k, v]) => <div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}
+            {m.specs.map(([k, v]) => <div key={k}><dt><KeepUnits text={k} /></dt><dd><KeepUnits text={v} /></dd></div>)}
           </Box>
 
           {m.table && (
@@ -182,8 +182,8 @@ export default function ModelDetail({ item: m, items, series, badge }: { item: I
               <Box component="h3" sx={{ m: 0, mb: 1.25, fontSize: "1.15rem", fontWeight: 800, color: T.ink }}><KeepUnits text={titleCase(m.table.title ?? (m.table.head[0] === "Position" ? "Torque by air pressure (Nm)" : "Manual overrides for this size"))} /></Box>
               <Box sx={{ overflowX: "auto", borderRadius: "16px", border: `1px solid ${T.border}`, bgcolor: "#fff" }}>
                 <Box component="table" sx={{ width: "100%", borderCollapse: "collapse", fontSize: "0.9rem", "& th, & td": { px: 2, py: 1.2, borderBottom: `1px solid ${T.border}`, textAlign: "left", whiteSpace: "nowrap" }, "& th": { fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: T.muted, bgcolor: "#FAFCFA" }, "& td": { color: T.ink }, "& td:first-of-type": { fontWeight: 800 } }}>
-                  <thead><tr>{m.table.head.map((h) => <th key={h}>{h}</th>)}</tr></thead>
-                  <tbody>{m.table.rows.map((r, i) => <tr key={i}>{r.map((c, j) => <td key={j}>{c}</td>)}</tr>)}</tbody>
+                  <thead><tr>{m.table.head.map((h) => <th key={h}><KeepUnits text={h} /></th>)}</tr></thead>
+                  <tbody>{m.table.rows.map((r, i) => <tr key={i}>{r.map((c, j) => <td key={j}><KeepUnits text={c} /></td>)}</tr>)}</tbody>
                 </Box>
               </Box>
             </Box>

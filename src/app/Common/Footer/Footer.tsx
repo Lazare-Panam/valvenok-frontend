@@ -32,9 +32,8 @@ const FOOTER_LINKS = [
       { label: "Hydrogen & High Pressure", href: "/hydrogen-cryogenic" },
       { label: "Valves", href: "/valves" },
       { label: "Actuators", href: "/actuators" },
+      { label: "Tubings & Fittings", href: "/fittings-tubing" },
       { label: "Instrumentation", href: "/instrumentation" },
-      { label: "Pumps & Seals", href: "/pumps-seals" },
-      { label: "Industrial Pumps", href: "/pumps-seals/pumps" },
     ],
   },
   {

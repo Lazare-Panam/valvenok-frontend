@@ -21,6 +21,7 @@ export const SUSIN_CATALOG = {
   HLP: pdf("Hydraulic - HLP"),
   KTC_HYDRAULIC: pdf("Hydraulic - KTC hydraulic"),
   KTC_ELECTRICAL: pdf("Hydraulic - KTC electrical"),
+  LP: pdf("Hydraulic - LP low pressure"),
   // mechanical
   ITG: pdf("Mechanical - ITG"),
   MAB: pdf("Mechanical - MAB"),

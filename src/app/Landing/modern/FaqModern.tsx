@@ -12,7 +12,6 @@ import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
 import PublicOutlinedIcon from "@mui/icons-material/PublicOutlined";
 import ManageSearchOutlinedIcon from "@mui/icons-material/ManageSearchOutlined";
 import AssignmentReturnOutlinedIcon from "@mui/icons-material/AssignmentReturnOutlined";
-import AccountBalanceOutlinedIcon from "@mui/icons-material/AccountBalanceOutlined";
 import HelpOutlineRoundedIcon from "@mui/icons-material/HelpOutlineRounded";
 import { FAQS } from "../FAQSection";
 import { T, textReset } from "./tokens";
@@ -26,7 +25,6 @@ const ICONS = [
   PublicOutlinedIcon,
   ManageSearchOutlinedIcon,
   AssignmentReturnOutlinedIcon,
-  AccountBalanceOutlinedIcon,
 ];
 
 export default function FaqModern() {

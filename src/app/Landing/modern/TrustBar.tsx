@@ -4,15 +4,13 @@ import { Box, Typography } from "@mui/material";
 import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
 import SupportAgentOutlinedIcon from "@mui/icons-material/SupportAgentOutlined";
 import VerifiedOutlinedIcon from "@mui/icons-material/VerifiedOutlined";
-import AccountBalanceOutlinedIcon from "@mui/icons-material/AccountBalanceOutlined";
 import { T, textReset } from "./tokens";
 
-// Same four items as the original DeliveryBanner ticker.
+// Delivery, support and JOSCAR. (“Trade Credit Accounts Available” removed 17 Nov 2026: not offered.)
 const ITEMS = [
   { icon: LocalShippingOutlinedIcon, title: "Free UK Delivery on Orders Over £150" },
   { icon: SupportAgentOutlinedIcon, title: "UK-Based Technical Support" },
   { icon: VerifiedOutlinedIcon, title: "JOSCAR Registered Supplier" },
-  { icon: AccountBalanceOutlinedIcon, title: "Trade Credit Accounts Available" },
 ];
 
 export default function TrustBar() {
@@ -21,7 +19,7 @@ export default function TrustBar() {
       <Box
         sx={{
           display: "grid",
-          gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", md: "repeat(4, 1fr)" },
+          gridTemplateColumns: { xs: "1fr", sm: "repeat(3, 1fr)" },
           bgcolor: "#fff",
           border: `1px solid ${T.border}`,
           borderRadius: T.radius,
@@ -38,9 +36,8 @@ export default function TrustBar() {
               gap: 1.75,
               px: { xs: 2, md: 3 },
               py: { xs: 1.5, md: 2.75 },
-              borderLeft: { md: i === 0 ? "none" : `1px solid ${T.border}` },
-              borderTop: { xs: i > 0 ? `1px solid ${T.border}` : "none", sm: i > 1 ? `1px solid ${T.border}` : "none", md: "none" },
-              borderRight: { xs: "none", sm: i % 2 === 0 ? `1px solid ${T.border}` : "none", md: "none" },
+              borderLeft: { sm: i === 0 ? "none" : `1px solid ${T.border}` },
+              borderTop: { xs: i > 0 ? `1px solid ${T.border}` : "none", sm: "none" },
             }}
           >
             <Box

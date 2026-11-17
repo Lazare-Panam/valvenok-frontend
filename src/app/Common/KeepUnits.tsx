@@ -3,7 +3,7 @@
 // <KeepUnits text="Dimensions, mm" /> → "Dimensions, mm", not "Dimensions, Mm".
 import * as React from "react";
 
-const UNITS = /(\b(?:mm|cm|kN|psi|bar|barg|kg|lbf|lb·in|lb-in|rpm|kW|mA|kΩ|vs|e\.g\.|i\.e\.)(?![\w-]))/g;
+const UNITS = /(\b(?:mm|cm|kN|psi|bar|barg|kg|lbf|lb·in|lb-in|rpm|kW|mA|kΩ|vs|e\.g\.|i\.e\.)(?![\w-])|µm|(?<=\d ?)s(?![\w-]))/g;
 
 export function KeepUnits({ text }: { text: string }) {
   const parts = text.split(UNITS);

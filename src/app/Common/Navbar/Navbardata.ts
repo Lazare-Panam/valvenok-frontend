@@ -318,6 +318,13 @@ export const NAV_GROUPS: NavGroup[] = [
               { label: "View All Models", href: "/actuators/hydraulic/hlda/products" },
             ],
           },
+          {
+            label: "LP-HD / LP-HS — Low-Pressure Scotch Yoke",
+            href: "/actuators/hydraulic/lp-scotch-yoke",
+            children: [
+              { label: "View All Models", href: "/actuators/hydraulic/lp-scotch-yoke/products" },
+            ],
+          },
         ],
       },
       {

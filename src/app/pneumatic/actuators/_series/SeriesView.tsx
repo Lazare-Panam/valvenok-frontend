@@ -98,12 +98,15 @@ function Hero({ d }: { d: SeriesDef }) {
             </Box>
           </Box>
         </Box>
+        <Box sx={{ alignSelf: "center", width: "100%", "& > div": { height: "auto !important" } }}>
         <Reveal from="right">
+          {/* Natural height (no empty space inside), centred against the text column */}
           <Box sx={{ p: { xs: 2, md: 3 }, borderRadius: "28px", bgcolor: "#fff", border: `1px solid ${T.border}`, boxShadow: T.shadow }}>
             <Box sx={{ mb: 1, fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: T.greenDark }}>{d.howTitle}</Box>
             {d.how}
           </Box>
         </Reveal>
+        </Box>
       </Box>
     </Box>
   );

@@ -39,6 +39,7 @@ export type ListDef = {
 export type Filters = Record<string, string[]>;
 
 import { brandOf } from "./brands";
+import { KeepUnits } from "@/src/app/Common/KeepUnits";
 const mono = "ui-monospace, SFMono-Regular, Menlo, monospace";
 const CHEVRON = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%230E1B12' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`;
 const selectSx = { appearance: "none", WebkitAppearance: "none", backgroundImage: CHEVRON, backgroundRepeat: "no-repeat", backgroundPosition: "right 2px center", backgroundSize: "12px", cursor: "pointer", fontFamily: "inherit", fontWeight: 700, color: T.ink, outline: 0 } as const;
@@ -50,7 +51,7 @@ const quoteBtn = {
 } as const;
 
 const renderCell = (c: Cell) => {
-  if (typeof c === "string") return c;
+  if (typeof c === "string") return <KeepUnits text={c} />;
   if (c.pill === "green") return <Box component="span" sx={{ ...pill, bgcolor: T.greenSoft, color: T.greenDark }}>{c.text}</Box>;
   if (c.pill === "grey") return <Box component="span" sx={{ ...pill, bgcolor: T.surface, color: T.ink, border: `1px solid ${T.border}` }}>{c.text}</Box>;
   return c.text;
