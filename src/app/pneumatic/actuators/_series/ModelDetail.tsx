@@ -63,15 +63,9 @@ export default function ModelDetail({ item: m, items, series, badge }: { item: I
   const pickList = group ? items.filter((x) => x.facets.series === group) : items;
   const groups = group ? Array.from(new Set(items.map((x) => x.facets.series))) : [];
   const facts = m.specs.filter(([k]) => k !== "Model").slice(0, series.facts);
-  const schema = {
-    "@context": "https://schema.org", "@type": "Product", name: `${B.name} ${m.model} ${series.kind.toLowerCase()}`, sku: m.model, mpn: m.model,
-    brand: { "@type": "Brand", name: B.name }, image: m.image, description: m.rfq.description, category: m.rfq.category,
-    additionalProperty: m.specs.map(([name, value]) => ({ "@type": "PropertyValue", name, value })),
-  };
 
   return (
     <Box sx={{ ...textReset, bgcolor: "#fff" }}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
       {/* Top: photo + key facts */}
       <Box component="section" sx={{ background: "linear-gradient(180deg, #F6FAF5 0%, #FFFFFF 100%)", pt: { xs: 3, md: 5 }, pb: { xs: 4, md: 5 } }}>

@@ -108,15 +108,9 @@ export default function ClampDetail({ id }: { id: string }) {
   const sameType = CLAMPS.filter((x) => x.type === c.type && x.id !== c.id);
   const idx = CLAMPS.filter((x) => x.type === c.type).findIndex((x) => x.id === c.id);
   const related = [...sameType.slice(Math.max(0, idx - 2), idx), ...sameType.slice(idx, idx + 2)].slice(0, 4);
-  const schema = {
-    "@context": "https://schema.org", "@type": "Product", name: `${SAN_BRAND} ${c.partNumber} tri-clamp`, sku: c.partNumber, mpn: c.partNumber,
-    brand: { "@type": "Brand", name: SAN_BRAND }, image: c.img, description: plainName(c), category: "Tri-clamp clamps",
-    additionalProperty: specs.slice(2, 11).map(([name, value]) => ({ "@type": "PropertyValue", name, value })),
-  };
 
   return (
     <Box sx={{ ...textReset, bgcolor: "#fff" }}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
       {/* Top: photo + key facts */}
       <Box component="section" sx={{ background: "linear-gradient(180deg, #F6FAF5 0%, #FFFFFF 100%)", pt: { xs: 3, md: 5 }, pb: { xs: 4, md: 5 } }}>

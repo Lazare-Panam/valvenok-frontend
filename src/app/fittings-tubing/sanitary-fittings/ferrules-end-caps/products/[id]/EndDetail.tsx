@@ -143,16 +143,10 @@ export default function EndDetail({ id }: { id: string }) {
     ...(isFerrule && sight ? [{ k: "Sight glass end cap", code: sight.partNumber, note: `Glass ${sight.glass} mm`, href: endHref(sight), img: sight.img }] : []),
   ];
 
-  const schema = {
-    "@context": "https://schema.org", "@type": "Product", name: `${SAN_BRAND} ${e.partNumber} ${e.kind.toLowerCase()}`, sku: e.partNumber, mpn: e.partNumber,
-    brand: { "@type": "Brand", name: SAN_BRAND }, image: e.img, description: plainName(e), category: "Tri-clamp ferrules and end caps",
-    additionalProperty: specs.slice(1, 10).map(([name, value]) => ({ "@type": "PropertyValue", name, value })),
-  };
   const imgSx = (w: string) => (cover ? { width: "100%", height: "100%", objectFit: "cover" } : { width: w, height: w, objectFit: "contain" });
 
   return (
     <Box sx={{ ...textReset, bgcolor: "#fff" }}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
       {/* Top: photo + key facts */}
       <Box component="section" sx={{ background: "linear-gradient(180deg, #F6FAF5 0%, #FFFFFF 100%)", pt: { xs: 3, md: 5 }, pb: { xs: 4, md: 5 } }}>
