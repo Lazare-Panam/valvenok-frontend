@@ -117,16 +117,10 @@ export default function NeedleValveDetailPage() {
   }
   const sameSeries = HP_NEEDLE_VALVE_DATA.filter(x => x.brand === v.brand && x.series === v.series && x.id !== v.id)
   const related = [...sameSeries.filter(x => x.configuration === v.configuration), ...sameSeries.filter(x => x.configuration !== v.configuration)].slice(0, 4)
-  const schema = {
-    '@context': 'https://schema.org', '@type': 'Product', name: `${v.brand} ${v.partNumber} needle valve`, sku: v.partNumber, mpn: v.partNumber,
-    brand: { '@type': 'Brand', name: v.brand }, image: v.imageUrl, description: v.description, category: 'Needle valves',
-    additionalProperty: specs.slice(2).map(([name, value]) => ({ '@type': 'PropertyValue', name, value })),
-  }
   const copy = () => { navigator.clipboard?.writeText(v.partNumber); setCopied(true); setTimeout(() => setCopied(false), 1500) }
 
   return (
     <Box sx={{ ...textReset, bgcolor: '#fff' }}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
       {/* Top: photo + key facts */}
       <Box component="section" sx={{ background: `linear-gradient(180deg, #F6FAF5 0%, #FFFFFF 100%)`, pt: { xs: 3, md: 5 }, pb: { xs: 4, md: 5 } }}>

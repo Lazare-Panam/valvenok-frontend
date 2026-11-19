@@ -18,6 +18,7 @@ import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import VerifiedUserOutlinedIcon from "@mui/icons-material/VerifiedUserOutlined";
 import WorkspacePremiumOutlinedIcon from "@mui/icons-material/WorkspacePremiumOutlined";
 import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
+import ExpandMoreRoundedIcon from "@mui/icons-material/ExpandMoreRounded";
 import NextLink from "next/link";
 import { GROUP_SITES } from "../group";
 
@@ -147,8 +148,8 @@ export default function Footer() {
         }}
       />
 
-      <Container maxWidth="xl" sx={{ position: "relative", px: { xs: 2, md: 4 }, pt: { xs: 8, md: 11 }, pb: 4 }}>
-        <Grid container spacing={{ xs: 5, md: 4 }}>
+      <Container maxWidth="xl" sx={{ position: "relative", px: { xs: 2, md: 4 }, pt: { xs: 5, md: 11 }, pb: 4 }}>
+        <Grid container spacing={{ xs: 3.5, md: 4 }}>
           {/* ── Brand + contact ── */}
           <Grid size={{ xs: 12, md: 4 }}>
             <Box
@@ -165,12 +166,12 @@ export default function Footer() {
                 </Box>
               </Typography>
             </Box>
-            <Typography sx={{ mt: 2.5, maxWidth: 380, color: alpha("#fff", 0.8), fontSize: "0.95rem", lineHeight: 1.7 }}>
+            <Typography sx={{ mt: { xs: 2, md: 2.5 }, maxWidth: 380, color: alpha("#fff", 0.8), fontSize: "0.95rem", lineHeight: 1.7 }}>
               UK supplier of Hydraulic, Pneumatic, and Instrumentation components. Engineering excellence delivered fast to Global
               Procurement Teams.
             </Typography>
 
-            <Stack spacing={1.5} sx={{ mt: 3 }}>
+            <Stack spacing={1.25} sx={{ mt: { xs: 2, md: 3 } }}>
               <Box component="a" href="mailto:sales@valvenok.com" sx={{ ...contactRow, textDecoration: "none", "&:hover": { color: "#fff" } }}>
                 <EmailOutlinedIcon sx={{ fontSize: 18, mt: 0.2 }} />
                 sales@valvenok.com
@@ -215,9 +216,9 @@ export default function Footer() {
             </IconButton>
           </Grid>
 
-          {/* ── Link columns ── */}
+          {/* ── Link columns (tablet / desktop) ── */}
           {FOOTER_LINKS.map((section) => (
-            <Grid size={{ xs: 6, sm: 3, md: 2 }} key={section.title}>
+            <Grid size={{ xs: 6, sm: 3, md: 2 }} key={section.title} sx={{ display: { xs: "none", sm: "block" } }}>
               <Typography sx={headSx}>{section.title}</Typography>
               <Stack spacing={1.4}>
                 {section.links.map((link) => (
@@ -234,22 +235,60 @@ export default function Footer() {
               </Stack>
             </Grid>
           ))}
+
+          {/* ── Link sections on phones: tap to open, so the footer stays short ── */}
+          <Grid size={12} sx={{ display: { xs: "block", sm: "none" } }}>
+            <Box sx={{ borderTop: "1px solid", borderColor: alpha("#fff", 0.18) }}>
+              {FOOTER_LINKS.map((section) => (
+                <Box
+                  key={section.title}
+                  component="details"
+                  sx={{
+                    borderBottom: "1px solid",
+                    borderColor: alpha("#fff", 0.18),
+                    "& summary": { listStyle: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "space-between", py: 1.75 },
+                    "& summary::-webkit-details-marker": { display: "none" },
+                    "& summary .chev": { transition: "transform .2s" },
+                    "&[open] summary .chev": { transform: "rotate(180deg)" },
+                  }}
+                >
+                  <Box component="summary">
+                    <Typography component="span" sx={{ ...headSx, mb: 0 }}>{section.title}</Typography>
+                    <ExpandMoreRoundedIcon className="chev" sx={{ fontSize: 22, color: alpha("#fff", 0.8) }} />
+                  </Box>
+                  <Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", columnGap: 2, rowGap: 1.25, pb: 2 }}>
+                    {section.links.map((link) => (
+                      <Link
+                        key={link.label}
+                        href={link.href}
+                        underline="none"
+                        sx={{ ...linkSx, fontSize: "0.88rem" }}
+                        {...(link.href.startsWith("http") ? { target: "_blank", rel: "noopener" } : {})}
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </Box>
+                </Box>
+              ))}
+            </Box>
+          </Grid>
         </Grid>
 
         {/* ── Group companies: brand-name anchors only ── */}
         <Box
           sx={{
-            mt: { xs: 6, md: 8 },
-            pt: 3,
-            borderTop: "1px solid",
+            mt: { xs: 3, md: 8 },
+            pt: { xs: 0, md: 3 },
+            borderTop: { xs: 0, md: "1px solid" },
             borderColor: alpha("#fff", 0.18),
             display: "flex",
             flexWrap: "wrap",
             alignItems: "center",
-            gap: { xs: 1.5, md: 1 },
+            gap: { xs: 0.75, md: 1 },
           }}
         >
-          <Typography sx={{ ...headSx, mb: 0, mr: { md: 2 }, width: { xs: "100%", md: "auto" } }}>Group companies</Typography>
+          <Typography sx={{ ...headSx, mb: { xs: 0.5, md: 0 }, mr: { md: 2 }, width: { xs: "100%", md: "auto" } }}>Group companies</Typography>
           {GROUP_SITES.map((g) => (
             <Box
               key={g.url}
@@ -258,13 +297,13 @@ export default function Footer() {
               target="_blank"
               rel="noopener"
               sx={{
-                px: 1.75,
-                py: 0.75,
+                px: { xs: 1.25, md: 1.75 },
+                py: { xs: 0.5, md: 0.75 },
                 borderRadius: 999,
                 border: "1px solid",
                 borderColor: alpha("#fff", 0.25),
                 color: alpha("#fff", 0.88),
-                fontSize: "0.88rem",
+                fontSize: { xs: "0.8rem", md: "0.88rem" },
                 fontWeight: 500,
                 textDecoration: "none",
                 transition: "all .2s",
