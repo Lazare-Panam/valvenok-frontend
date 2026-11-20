@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
-const DEFAULT_OG_IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
+const DEFAULT_OG_IMAGE =
+  "https://pblol2.blob.core.windows.net/valvenok-images/valvenok-new-logo.jpeg";
 
 type PageMetaInput = {
   title: string;
@@ -19,11 +20,19 @@ type PageMetaInput = {
  * and openGraph (including og:url) — which made child pages look like
  * duplicates of their parent. Setting every field here stops that leak.
  */
-export function pageMetadata({ title, description, path, index = true, image }: PageMetaInput): Metadata {
+export function pageMetadata({
+  title,
+  description,
+  path,
+  index = true,
+  image,
+}: PageMetaInput): Metadata {
   // Always emit the full branded title. Relying on the root "%s | Valvenok"
   // template isn't safe: any ancestor layout with a plain string title resets
   // it, which left some pages without the brand suffix.
-  const fullTitle = title.endsWith("| Valvenok") ? title : `${title} | Valvenok`;
+  const fullTitle = title.endsWith("| Valvenok")
+    ? title
+    : `${title} | Valvenok`;
   return {
     title: { absolute: fullTitle },
     description,
@@ -47,7 +56,9 @@ function humanizeSlug(slug: string): string {
     .split(/[-_]+/)
     .filter(Boolean)
     .map((w) =>
-      /\d/.test(w) || w.length <= 3 ? w.toUpperCase() : w.charAt(0).toUpperCase() + w.slice(1),
+      /\d/.test(w) || w.length <= 3
+        ? w.toUpperCase()
+        : w.charAt(0).toUpperCase() + w.slice(1),
     )
     .join(" ");
 }
@@ -69,7 +80,9 @@ export function detailRouteMetadata(
   // "<title> | Valvenok" within ~68 characters.
   const fits = (t: string) => t.length + " | Valvenok".length <= 68;
   const title =
-    [`${base}: Specifications & Quote`, `${base}: Specs & Quote`, base].find(fits) ?? base;
+    [`${base}: Specifications & Quote`, `${base}: Specs & Quote`, base].find(
+      fits,
+    ) ?? base;
   const lead = `${name} from Valvenok's ${category.toLowerCase()} range.`;
   const tails = [
     " View the specifications, sizes and options, then request a quote from our UK team.",
@@ -78,7 +91,9 @@ export function detailRouteMetadata(
   ];
   return pageMetadata({
     title,
-    description: lead + (tails.find((t) => (lead + t).length <= 155) ?? tails[tails.length - 1]),
+    description:
+      lead +
+      (tails.find((t) => (lead + t).length <= 155) ?? tails[tails.length - 1]),
     path: `${basePath}/${slug}`,
     image,
   });

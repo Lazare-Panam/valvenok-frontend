@@ -4,7 +4,8 @@ import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 const TITLE = "High Pressure Pipe Elbows, SS316 Threaded | Valvenok";
 const DESCRIPTION =
   "SS316 high pressure pipe elbow fittings across pressure ratings and thread configurations for instrumentation and process lines. Request a quote.";
-const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
+const IMAGE =
+  "https://pblol2.blob.core.windows.net/valvenok-images/valvenok-new-logo.jpeg";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/high-pressure/pipe-fittings/elbows" },
@@ -29,5 +30,10 @@ export default function PipeElbowLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}<RangeCopy path="/high-pressure/pipe-fittings/elbows" /></>;
+  return (
+    <>
+      {children}
+      <RangeCopy path="/high-pressure/pipe-fittings/elbows" />
+    </>
+  );
 }

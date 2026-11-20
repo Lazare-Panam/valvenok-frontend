@@ -31,7 +31,7 @@ export const metadata = {
     siteName: "Valvenok",
     images: [
       {
-        url: "https://pblol2.blob.core.windows.net/valvenok-images/logo.png",
+        url: "https://pblol2.blob.core.windows.net/valvenok-images/valvenok-new-logo.jpeg",
         width: 1200,
         height: 630,
       },

@@ -1,11 +1,26 @@
 "use client";
 
-import { ArticleLayout, Lead, H2, P, UL, KeyTakeaways, Quote, Cards, FAQ, CTA, RelatedLinks, Stepper, Checklist } from "../components/Article";
+import {
+  ArticleLayout,
+  Lead,
+  H2,
+  P,
+  UL,
+  KeyTakeaways,
+  Quote,
+  Cards,
+  FAQ,
+  CTA,
+  RelatedLinks,
+  Stepper,
+  Checklist,
+} from "../components/Article";
 import { T } from "@/src/app/Landing/modern/tokens";
 
 const SLUG = "/news/uk-valve-stockist";
 const ARTICLE_URL = "https://www.valvenok.com/news/uk-valve-stockist";
-const COVER = "https://pblol2.blob.core.windows.net/valvenok-images/blogs/uk-valve-stockist.jpg";
+const COVER =
+  "https://pblol2.blob.core.windows.net/valvenok-images/blogs/uk-valve-stockist.jpg";
 const HEADLINE = "Why Buy Valves From a UK Stockist";
 const DESCRIPTION =
   "No minimum order on standard catalogue items, and a company you can verify — a UK supplier based in Bicester, Oxfordshire since 2018.";
@@ -140,7 +155,10 @@ const schema = {
       publisher: {
         "@type": "Organization",
         name: "Valvenok",
-        logo: { "@type": "ImageObject", url: "https://pblol2.blob.core.windows.net/valvenok-images/logo.png" },
+        logo: {
+          "@type": "ImageObject",
+          url: "https://pblol2.blob.core.windows.net/valvenok-images/valvenok-new-logo.jpeg",
+        },
       },
       datePublished: "2026-09-11",
       dateModified: "2026-09-11",
@@ -160,7 +178,9 @@ const schema = {
 // Plain (non-link) industry labels.
 function IndustryTags({ items }: { items: string[] }) {
   return (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: 8, margin: "32px 0" }}>
+    <div
+      style={{ display: "flex", flexWrap: "wrap", gap: 8, margin: "32px 0" }}
+    >
       {items.map((ind) => (
         <span
           key={ind}
@@ -194,68 +214,83 @@ export default function UkValveStockistPage() {
         date: "September 2026",
         readMinutes: 6,
         cover: COVER,
-        coverAlt: "Valves on a stockroom shelf: ball, globe, butterfly, check, manifold and needle valves",
+        coverAlt:
+          "Valves on a stockroom shelf: ball, globe, butterfly, check, manifold and needle valves",
       }}
     >
       <Lead>
-        Industrial buyers rarely search for a valve by proximity — they search by product and specification. But when a
-        common part is holding up a live project, where that part ships from suddenly matters a great deal. A valve on an
-        overseas order carries a manufacturing lead time and customs clearance that you have to manage yourself. A
-        UK-based supplier takes that on and tells you up front what to expect.
+        Industrial buyers rarely search for a valve by proximity — they search
+        by product and specification. But when a common part is holding up a
+        live project, where that part ships from suddenly matters a great deal.
+        A valve on an overseas order carries a manufacturing lead time and
+        customs clearance that you have to manage yourself. A UK-based supplier
+        takes that on and tells you up front what to expect.
       </Lead>
 
       <KeyTakeaways title="Key Takeaways" items={TAKEAWAYS} />
 
       <P>
-        Valvenok has been based in Bicester, Oxfordshire since 2018, supplying valves, actuators, instrumentation
-        fittings, pumps and seals to engineers and procurement teams across the country. This guide sets out what a UK
-        base actually buys you — on lead time, on documentation, and on the simple question of whether you are dealing
-        with a company you can verify.
+        Valvenok has been based in Bicester, Oxfordshire since 2018, supplying
+        valves, actuators, instrumentation fittings, pumps and seals to
+        engineers and procurement teams across the country. This guide sets out
+        what a UK base actually buys you — on lead time, on documentation, and
+        on the simple question of whether you are dealing with a company you can
+        verify.
       </P>
 
       <H2>Why Buying From a UK-Based Stockist Matters</H2>
       <P>
-        The advantage of a UK stockist is not one thing — it is a stack of small certainties that each remove a delay or a
-        risk from the purchase. Taken together, they are why procurement teams keep a UK source on the approved vendor list
-        even when an overseas price looks lower on paper.
+        The advantage of a UK stockist is not one thing — it is a stack of small
+        certainties that each remove a delay or a risk from the purchase. Taken
+        together, they are why procurement teams keep a UK source on the
+        approved vendor list even when an overseas price looks lower on paper.
       </P>
-      <Cards items={UK_BASE_BENEFITS.map((b) => ({ title: b.label, body: b.desc }))} />
+      <Cards
+        items={UK_BASE_BENEFITS.map((b) => ({ title: b.label, body: b.desc }))}
+      />
 
       <H2>What We Supply</H2>
       <P>
-        Valvenok supplies fittings, valves, adapters and components — availability varies by item and is confirmed on
-        quotation. The range spans:
+        Valvenok supplies fittings, valves, adapters and components —
+        availability varies by item and is confirmed on quotation. The range
+        spans:
       </P>
       <UL items={STOCK_CATEGORIES} />
       <P>
-        There is no minimum order. That was the reason the business was started — sourcing quality components in the
-        quantity actually needed, rather than the quantity a distributor wanted to sell.
+        There is no minimum order. That was the reason the business was started
+        — sourcing quality components in the quantity actually needed, rather
+        than the quantity a distributor wanted to sell.
       </P>
 
       <Quote cite="Valvenok Team">
-        &quot;Ask for the lead time up front — a good supplier will confirm it on the quotation, not after the order.&quot;
+        &quot;Ask for the lead time up front — a good supplier will confirm it
+        on the quotation, not after the order.&quot;
       </Quote>
 
       <H2>Who We Supply</H2>
       <P>
-        Valvenok supplies engineers, procurement teams, maintenance departments, OEMs and system integrators — from
-        single-item urgent spares to scheduled supply against a frame contract. JOSCAR registration, achieved in 2020,
-        opened the door to defence and aerospace supply chains, and the company works across oil and gas, energy, marine,
-        chemical processing, water, power, and food and beverage applications.
+        Valvenok supplies engineers, procurement teams, maintenance departments,
+        OEMs and system integrators — from single-item urgent spares to
+        scheduled supply against a frame contract. JOSCAR registration, achieved
+        in 2020, opened the door to defence and aerospace supply chains, and the
+        company works across oil and gas, energy, marine, chemical processing,
+        water, power, and food and beverage applications.
       </P>
 
       <H2>Delivery Across Oxfordshire and the UK</H2>
       <P>
-        Bicester sits between Oxford, Milton Keynes and Banbury, within easy reach of the M40 and A34 — so courier coverage
-        across Oxfordshire, Buckinghamshire, Northamptonshire and Warwickshire is straightforward, and Valvenok supplies
-        customers nationwide. For urgent requirements, a quick call before ordering is usually the fastest way to confirm
-        what can be with you and when.
+        Bicester sits between Oxford, Milton Keynes and Banbury, within easy
+        reach of the M40 and A34 — so courier coverage across Oxfordshire,
+        Buckinghamshire, Northamptonshire and Warwickshire is straightforward,
+        and Valvenok supplies customers nationwide. For urgent requirements, a
+        quick call before ordering is usually the fastest way to confirm what
+        can be with you and when.
       </P>
 
       <H2>What to Expect When You Send an Enquiry</H2>
       <P>
-        Valvenok operates as a technical extension of your procurement and design teams. An enquiry follows four clear
-        steps.
+        Valvenok operates as a technical extension of your procurement and
+        design teams. An enquiry follows four clear steps.
       </P>
       <Stepper
         kicker="Four steps"

@@ -24,7 +24,8 @@ import { GROUP_SITES } from "../group";
 
 const BRAND_GREEN = "#61D649";
 const FONT = "var(--font-geist-sans), Inter, system-ui, sans-serif";
-const LOGO_URL = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
+const LOGO_URL =
+  "https://pblol2.blob.core.windows.net/valvenok-images/valvenok-new-logo.jpeg";
 
 const FOOTER_LINKS = [
   {
@@ -92,7 +93,14 @@ export default function Footer() {
     color: "#fff",
     mb: 2.5,
   };
-  const contactRow = { display: "flex", gap: 1.25, alignItems: "flex-start", color: alpha("#fff", 0.85), fontSize: "0.92rem", lineHeight: 1.55 };
+  const contactRow = {
+    display: "flex",
+    gap: 1.25,
+    alignItems: "flex-start",
+    color: alpha("#fff", 0.85),
+    fontSize: "0.92rem",
+    lineHeight: 1.55,
+  };
 
   return (
     <Box
@@ -104,7 +112,8 @@ export default function Footer() {
         fontFamily: FONT,
         "& *": { fontFamily: `${FONT} !important` },
         "& p, & a, & span": { textTransform: "capitalize" },
-        background: "linear-gradient(115deg, #0F3314 0%, #1B5E1A 45%, #2E8B1E 85%, #3FAE2C 120%)",
+        background:
+          "linear-gradient(115deg, #0F3314 0%, #1B5E1A 45%, #2E8B1E 85%, #3FAE2C 120%)",
         // Faint engineering grid, as on the Panam footer
         "&::before": {
           content: '""',
@@ -130,7 +139,8 @@ export default function Footer() {
           height: 640,
           borderRadius: "50%",
           border: "1px solid rgba(255,255,255,0.14)",
-          boxShadow: "0 0 0 80px rgba(255,255,255,0.03), 0 0 0 160px rgba(255,255,255,0.025)",
+          boxShadow:
+            "0 0 0 80px rgba(255,255,255,0.03), 0 0 0 160px rgba(255,255,255,0.025)",
           pointerEvents: "none",
         }}
       />
@@ -148,7 +158,15 @@ export default function Footer() {
         }}
       />
 
-      <Container maxWidth="xl" sx={{ position: "relative", px: { xs: 2, md: 4 }, pt: { xs: 5, md: 11 }, pb: 4 }}>
+      <Container
+        maxWidth="xl"
+        sx={{
+          position: "relative",
+          px: { xs: 2, md: 4 },
+          pt: { xs: 5, md: 11 },
+          pb: 4,
+        }}
+      >
         <Grid container spacing={{ xs: 3.5, md: 4 }}>
           {/* ── Brand + contact ── */}
           <Grid size={{ xs: 12, md: 4 }}>
@@ -156,34 +174,90 @@ export default function Footer() {
               component="a"
               href="/"
               aria-label="Valvenok home"
-              sx={{ display: "inline-flex", alignItems: "center", gap: 1.5, px: 2, py: 1, borderRadius: "16px", bgcolor: "#fff", boxShadow: "0 8px 24px rgba(0,0,0,0.15)" }}
+              sx={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 1.5,
+                px: 2,
+                py: 1,
+                borderRadius: "16px",
+                bgcolor: "#fff",
+                boxShadow: "0 8px 24px rgba(0,0,0,0.15)",
+              }}
             >
-              <Box component="img" src={LOGO_URL} alt="Valvenok" sx={{ height: 48, width: "auto", display: "block" }} />
-              <Typography sx={{ fontWeight: 800, fontSize: "1rem", letterSpacing: "0.04em", color: "#123D17", textTransform: "uppercase !important" }}>
+              <Box
+                component="img"
+                src={LOGO_URL}
+                alt="Valvenok"
+                sx={{ height: 48, width: "auto", display: "block" }}
+              />
+              <Typography
+                sx={{
+                  fontWeight: 800,
+                  fontSize: "1rem",
+                  letterSpacing: "0.04em",
+                  color: "#123D17",
+                  textTransform: "uppercase !important",
+                }}
+              >
                 Industrial{" "}
-                <Box component="span" sx={{ color: "#2E8B1E", textTransform: "uppercase !important" }}>
+                <Box
+                  component="span"
+                  sx={{
+                    color: "#2E8B1E",
+                    textTransform: "uppercase !important",
+                  }}
+                >
                   Supplies
                 </Box>
               </Typography>
             </Box>
-            <Typography sx={{ mt: { xs: 2, md: 2.5 }, maxWidth: 380, color: alpha("#fff", 0.8), fontSize: "0.95rem", lineHeight: 1.7 }}>
-              UK supplier of Hydraulic, Pneumatic, and Instrumentation components. Engineering excellence delivered fast to Global
+            <Typography
+              sx={{
+                mt: { xs: 2, md: 2.5 },
+                maxWidth: 380,
+                color: alpha("#fff", 0.8),
+                fontSize: "0.95rem",
+                lineHeight: 1.7,
+              }}
+            >
+              UK supplier of Hydraulic, Pneumatic, and Instrumentation
+              components. Engineering excellence delivered fast to Global
               Procurement Teams.
             </Typography>
 
             <Stack spacing={1.25} sx={{ mt: { xs: 2, md: 3 } }}>
-              <Box component="a" href="mailto:sales@valvenok.com" sx={{ ...contactRow, textDecoration: "none", "&:hover": { color: "#fff" } }}>
+              <Box
+                component="a"
+                href="mailto:sales@valvenok.com"
+                sx={{
+                  ...contactRow,
+                  textDecoration: "none",
+                  "&:hover": { color: "#fff" },
+                }}
+              >
                 <EmailOutlinedIcon sx={{ fontSize: 18, mt: 0.2 }} />
                 sales@valvenok.com
               </Box>
-              <Box component="a" href="tel:+447368137917" sx={{ ...contactRow, textDecoration: "none", "&:hover": { color: "#fff" } }}>
+              <Box
+                component="a"
+                href="tel:+447368137917"
+                sx={{
+                  ...contactRow,
+                  textDecoration: "none",
+                  "&:hover": { color: "#fff" },
+                }}
+              >
                 <PhoneOutlinedIcon sx={{ fontSize: 18, mt: 0.2 }} />
                 +44 7368 137917
               </Box>
               <Box sx={contactRow}>
                 <LocationOnOutlinedIcon sx={{ fontSize: 18, mt: 0.2 }} />
                 <Box>
-                  <Box component="span" sx={{ fontWeight: 700, color: "#fff", display: "block" }}>
+                  <Box
+                    component="span"
+                    sx={{ fontWeight: 700, color: "#fff", display: "block" }}
+                  >
                     Valvenok Ltd.
                   </Box>
                   St. Edburgs Hall, Priory Rd
@@ -209,7 +283,11 @@ export default function Footer() {
                 border: "1px solid",
                 borderColor: alpha("#fff", 0.35),
                 transition: "all .2s ease",
-                "&:hover": { bgcolor: "#fff", color: "#123D17", transform: "translateY(-2px)" },
+                "&:hover": {
+                  bgcolor: "#fff",
+                  color: "#123D17",
+                  transform: "translateY(-2px)",
+                },
               }}
             >
               <LinkedInIcon fontSize="small" />
@@ -218,7 +296,11 @@ export default function Footer() {
 
           {/* ── Link columns (tablet / desktop) ── */}
           {FOOTER_LINKS.map((section) => (
-            <Grid size={{ xs: 6, sm: 3, md: 2 }} key={section.title} sx={{ display: { xs: "none", sm: "block" } }}>
+            <Grid
+              size={{ xs: 6, sm: 3, md: 2 }}
+              key={section.title}
+              sx={{ display: { xs: "none", sm: "block" } }}
+            >
               <Typography sx={headSx}>{section.title}</Typography>
               <Stack spacing={1.4}>
                 {section.links.map((link) => (
@@ -227,7 +309,9 @@ export default function Footer() {
                     href={link.href}
                     underline="none"
                     sx={linkSx}
-                    {...(link.href.startsWith("http") ? { target: "_blank", rel: "noopener" } : {})}
+                    {...(link.href.startsWith("http")
+                      ? { target: "_blank", rel: "noopener" }
+                      : {})}
                   >
                     {link.label}
                   </Link>
@@ -238,7 +322,9 @@ export default function Footer() {
 
           {/* ── Link sections on phones: tap to open, so the footer stays short ── */}
           <Grid size={12} sx={{ display: { xs: "block", sm: "none" } }}>
-            <Box sx={{ borderTop: "1px solid", borderColor: alpha("#fff", 0.18) }}>
+            <Box
+              sx={{ borderTop: "1px solid", borderColor: alpha("#fff", 0.18) }}
+            >
               {FOOTER_LINKS.map((section) => (
                 <Box
                   key={section.title}
@@ -246,24 +332,46 @@ export default function Footer() {
                   sx={{
                     borderBottom: "1px solid",
                     borderColor: alpha("#fff", 0.18),
-                    "& summary": { listStyle: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "space-between", py: 1.75 },
+                    "& summary": {
+                      listStyle: "none",
+                      cursor: "pointer",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      py: 1.75,
+                    },
                     "& summary::-webkit-details-marker": { display: "none" },
                     "& summary .chev": { transition: "transform .2s" },
                     "&[open] summary .chev": { transform: "rotate(180deg)" },
                   }}
                 >
                   <Box component="summary">
-                    <Typography component="span" sx={{ ...headSx, mb: 0 }}>{section.title}</Typography>
-                    <ExpandMoreRoundedIcon className="chev" sx={{ fontSize: 22, color: alpha("#fff", 0.8) }} />
+                    <Typography component="span" sx={{ ...headSx, mb: 0 }}>
+                      {section.title}
+                    </Typography>
+                    <ExpandMoreRoundedIcon
+                      className="chev"
+                      sx={{ fontSize: 22, color: alpha("#fff", 0.8) }}
+                    />
                   </Box>
-                  <Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", columnGap: 2, rowGap: 1.25, pb: 2 }}>
+                  <Box
+                    sx={{
+                      display: "grid",
+                      gridTemplateColumns: "1fr 1fr",
+                      columnGap: 2,
+                      rowGap: 1.25,
+                      pb: 2,
+                    }}
+                  >
                     {section.links.map((link) => (
                       <Link
                         key={link.label}
                         href={link.href}
                         underline="none"
                         sx={{ ...linkSx, fontSize: "0.88rem" }}
-                        {...(link.href.startsWith("http") ? { target: "_blank", rel: "noopener" } : {})}
+                        {...(link.href.startsWith("http")
+                          ? { target: "_blank", rel: "noopener" }
+                          : {})}
                       >
                         {link.label}
                       </Link>
@@ -288,7 +396,16 @@ export default function Footer() {
             gap: { xs: 0.75, md: 1 },
           }}
         >
-          <Typography sx={{ ...headSx, mb: { xs: 0.5, md: 0 }, mr: { md: 2 }, width: { xs: "100%", md: "auto" } }}>Group companies</Typography>
+          <Typography
+            sx={{
+              ...headSx,
+              mb: { xs: 0.5, md: 0 },
+              mr: { md: 2 },
+              width: { xs: "100%", md: "auto" },
+            }}
+          >
+            Group companies
+          </Typography>
           {GROUP_SITES.map((g) => (
             <Box
               key={g.url}
@@ -307,7 +424,11 @@ export default function Footer() {
                 fontWeight: 500,
                 textDecoration: "none",
                 transition: "all .2s",
-                "&:hover": { bgcolor: "#fff", color: "#123D17", borderColor: "#fff" },
+                "&:hover": {
+                  bgcolor: "#fff",
+                  color: "#123D17",
+                  borderColor: "#fff",
+                },
               }}
             >
               {g.name}
@@ -318,22 +439,47 @@ export default function Footer() {
         <Divider sx={{ mt: 3, mb: 3, borderColor: alpha("#fff", 0.18) }} />
 
         {/* ── Bottom bar ── */}
-        <Stack direction={{ xs: "column", md: "row" }} justifyContent="space-between" alignItems="center" spacing={2}>
-          <Stack direction={{ xs: "column", sm: "row" }} alignItems="center" spacing={{ xs: 1.5, sm: 3 }}>
-            <Typography sx={{ color: alpha("#fff", 0.75), fontSize: "0.85rem" }}>
+        <Stack
+          direction={{ xs: "column", md: "row" }}
+          justifyContent="space-between"
+          alignItems="center"
+          spacing={2}
+        >
+          <Stack
+            direction={{ xs: "column", sm: "row" }}
+            alignItems="center"
+            spacing={{ xs: 1.5, sm: 3 }}
+          >
+            <Typography
+              sx={{ color: alpha("#fff", 0.75), fontSize: "0.85rem" }}
+            >
               © {new Date().getFullYear()} Valvenok. All rights reserved.
             </Typography>
             {/* Google "Preferred sources" button. publisher.js (loaded in app/layout.tsx) injects the button
                 into this div by its `google-add-preferred-source-btn` attribute. Plain <div>, NOT MUI <Box>:
                 Box filters props through Emotion's is-prop-valid, which would strip this non-standard
                 attribute. suppressHydrationWarning because Google's async script may populate it around hydration. */}
-            <div suppressHydrationWarning {...({ "google-add-preferred-source-btn": "", "data-theme": "dark" } as Record<string, string>)} />
+            <div
+              suppressHydrationWarning
+              {...({
+                "google-add-preferred-source-btn": "",
+                "data-theme": "dark",
+              } as Record<string, string>)}
+            />
           </Stack>
           <Stack direction="row" spacing={1.25}>
             {[
-              { icon: VerifiedUserOutlinedIcon, label: "JOSCAR", href: "/joscar-registered" },
+              {
+                icon: VerifiedUserOutlinedIcon,
+                label: "JOSCAR",
+                href: "/joscar-registered",
+              },
               { icon: GroupsOutlinedIcon, label: "BVAA", href: "/bvaa-member" },
-              { icon: WorkspacePremiumOutlinedIcon, label: "ISO 9001", href: undefined },
+              {
+                icon: WorkspacePremiumOutlinedIcon,
+                label: "ISO 9001",
+                href: undefined,
+              },
             ].map(({ icon: Icon, label, href }) => (
               <Box
                 key={label}
@@ -354,7 +500,16 @@ export default function Footer() {
                 }}
               >
                 <Icon sx={{ fontSize: 15, color: BRAND_GREEN }} />
-                <Typography sx={{ fontWeight: 700, fontSize: "0.75rem", letterSpacing: "0.08em", color: "#fff" }}>{label}</Typography>
+                <Typography
+                  sx={{
+                    fontWeight: 700,
+                    fontSize: "0.75rem",
+                    letterSpacing: "0.08em",
+                    color: "#fff",
+                  }}
+                >
+                  {label}
+                </Typography>
               </Box>
             ))}
           </Stack>

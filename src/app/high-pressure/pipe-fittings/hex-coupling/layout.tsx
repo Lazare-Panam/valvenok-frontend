@@ -4,7 +4,8 @@ import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 const TITLE = "High Pressure Hex Couplings & Reducing Couplings | Valvenok";
 const DESCRIPTION =
   "SS316 high pressure hex couplings and reducing hex couplings across pressure ratings and thread configurations for instrumentation and process lines.";
-const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
+const IMAGE =
+  "https://pblol2.blob.core.windows.net/valvenok-images/valvenok-new-logo.jpeg";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/high-pressure/pipe-fittings/hex-coupling" },
@@ -29,5 +30,10 @@ export default function PipeCouplingLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}<RangeCopy path="/high-pressure/pipe-fittings/hex-coupling" /></>;
+  return (
+    <>
+      {children}
+      <RangeCopy path="/high-pressure/pipe-fittings/hex-coupling" />
+    </>
+  );
 }

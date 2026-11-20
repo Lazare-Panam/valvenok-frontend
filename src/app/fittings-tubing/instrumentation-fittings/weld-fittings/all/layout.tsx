@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 const TITLE = "Weld Fittings — SS316 | Valvenok";
 const DESCRIPTION =
   "SS316 tube socket weld fittings with NPT threads: connectors, elbows and tees, 1/8-2in or 6-38mm tube OD.";
-const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
+const IMAGE =
+  "https://pblol2.blob.core.windows.net/valvenok-images/valvenok-new-logo.jpeg";
 
 export const metadata: Metadata = {
   alternates: {

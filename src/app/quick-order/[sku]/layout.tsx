@@ -26,7 +26,7 @@ export async function generateMetadata({
   const canonicalUrl = `https://www.valvenok.com/quick-order/${sku}`;
   const image = product.cloudinaryId
     ? [product.cloudinaryId]
-    : "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
+    : "https://pblol2.blob.core.windows.net/valvenok-images/valvenok-new-logo.jpeg";
 
   return {
     title: { absolute: fullTitle },

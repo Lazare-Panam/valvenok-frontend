@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   description:
     "UK supplier of industrial valves, actuators and SS316 instrumentation fittings, plus hydrogen components, from 27 brands including PANAM.",
   icons: {
-    icon: "https://pblol2.blob.core.windows.net/valvenok-images/logo.png",
+    icon: "https://pblol2.blob.core.windows.net/valvenok-images/valvenok-new-logo.jpeg",
   },
   metadataBase: new URL("https://www.valvenok.com"),
   // No twitter title/description here on purpose: a child segment that sets
@@ -52,7 +52,9 @@ export const metadata: Metadata = {
   // own openGraph (falling back to the page title/description).
   twitter: {
     card: "summary_large_image",
-    images: ["https://pblol2.blob.core.windows.net/valvenok-images/logo.png"],
+    images: [
+      "https://pblol2.blob.core.windows.net/valvenok-images/valvenok-new-logo.jpeg",
+    ],
   },
 };
 
@@ -82,7 +84,7 @@ export default function RootLayout({
               name: "Valvenok",
               legalName: "Valvenok Ltd",
               url: "https://www.valvenok.com",
-              logo: "https://pblol2.blob.core.windows.net/valvenok-images/logo.png",
+              logo: "https://pblol2.blob.core.windows.net/valvenok-images/valvenok-new-logo.jpeg",
               contactPoint: {
                 "@type": "ContactPoint",
                 telephone: "+44-7368 137917",
@@ -92,7 +94,9 @@ export default function RootLayout({
               },
               sameAs: ["https://uk.linkedin.com/company/valvenok-ltd"],
               // Group sites run by Valvenok Ltd itself
-              subOrganization: GROUP_SITES.filter((g) => g.operatedByValvenok).map((g) => ({
+              subOrganization: GROUP_SITES.filter(
+                (g) => g.operatedByValvenok,
+              ).map((g) => ({
                 "@type": "Organization",
                 name: g.name,
                 url: g.url,

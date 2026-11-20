@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 const TITLE = "5-Valve Manifolds | Valvenok";
 const DESCRIPTION =
   "5-valve manifolds across multiple connection types, mountings and pressure ratings.";
-const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
+const IMAGE =
+  "https://pblol2.blob.core.windows.net/valvenok-images/valvenok-new-logo.jpeg";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/dbb-manifolds/manifolds/5VM" },

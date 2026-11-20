@@ -4,7 +4,8 @@ import RangeCopy from "@/src/app/Common/RangeCopy/RangeCopy";
 const TITLE = "JIC Fittings: 37° Flare SS316 Hydraulic | Valvenok";
 const DESCRIPTION =
   "The full range of SS316 37° JIC flare fittings in NPT, BSPT, BSPP, SAE and metric threads: connectors, elbows, tees, unions, plugs and adapters.";
-const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
+const IMAGE =
+  "https://pblol2.blob.core.windows.net/valvenok-images/valvenok-new-logo.jpeg";
 
 export const metadata: Metadata = {
   alternates: {
@@ -31,5 +32,10 @@ export default function JICProductAllLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}<RangeCopy path="/fittings-tubing/instrumentation-fittings/jic-fittings/all" /></>;
+  return (
+    <>
+      {children}
+      <RangeCopy path="/fittings-tubing/instrumentation-fittings/jic-fittings/all" />
+    </>
+  );
 }

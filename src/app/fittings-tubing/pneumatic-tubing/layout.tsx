@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 const TITLE = "Pneumatic Tubing | Valvenok";
 const DESCRIPTION =
   "SPAC polyurethane tubing, standard, recoil and anti-spark variants.";
-const IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/logo.png";
+const IMAGE =
+  "https://pblol2.blob.core.windows.net/valvenok-images/valvenok-new-logo.jpeg";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/fittings-tubing/pneumatic-tubing" },
