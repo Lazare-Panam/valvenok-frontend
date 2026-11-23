@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Box, Typography } from "@mui/material";
 import { keyframes } from "@mui/system";
-import { T, textReset } from "./homeTokens";
+import { T, accentText, textReset } from "./homeTokens";
 import { Eyebrow } from "./HomeSectionHeader";
 import PillButton from "./HomeButtons";
 import { BRAND, withAlpha } from "@/src/theme/brand";
@@ -23,20 +23,19 @@ const CERT_IMAGE = "https://pblol2.blob.core.windows.net/valvenok-images/certfii
 export default function JoscarModern() {
   return (
     <Box component="section" sx={{ ...textReset, width: "100%", boxSizing: "border-box", maxWidth: T.maxWidth, mx: "auto", px: { xs: 2, md: 4 }, py: { xs: 8, md: 11 } }}>
+      {/* No box of its own (23 Nov 2026): text and certificate sit straight on the band */}
       <Box
         sx={{
-          borderRadius: "26px",
-          overflow: "hidden",
           display: "grid",
           gridTemplateColumns: { xs: "1fr", md: "1.2fr 1fr" },
-          border: `1px solid ${T.border}`,
-          background: `radial-gradient(600px 300px at 100% 100%, ${withAlpha(BRAND.main, 0.18)}, transparent 60%), ${T.brandSoft}`,
+          alignItems: "center",
+          gap: { xs: 2, md: 6 },
         }}
       >
-        <Box sx={{ p: { xs: 3.5, md: 6 } }}>
+        <Box>
           <Eyebrow>JOSCAR Registered</Eyebrow>
           <Typography component="h2" sx={{ mt: 2, fontWeight: 700, fontSize: { xs: "1.8rem", md: "2.4rem" }, letterSpacing: "-0.03em", lineHeight: 1.15, color: T.ink }}>
-            Why JOSCAR Matters for Your Supply Chain ?
+            Why JOSCAR Matters for Your <Box component="span" sx={accentText}>Supply Chain</Box> ?
           </Typography>
           <Typography sx={{ mt: 2, fontSize: "1.02rem", lineHeight: 1.75, color: T.body }}>
             JOSCAR — the Joint Supply Chain Accreditation Register — is the defence and aerospace industry&apos;s single pre-qualification

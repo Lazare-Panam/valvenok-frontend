@@ -77,8 +77,8 @@ function stockOf(p: P) {
   return { label: `In stock · ${p.stockQuantity}`, color: T.greenDark, dot: T.green };
 }
 
-export default function ProductTable() {
-  const [search, setSearch] = useState('');
+export default function ProductTable({ initialSearch = "" }: { initialSearch?: string }) {
+  const [search, setSearch] = useState(initialSearch);
   const [fam, setFam] = useState('All');
   const [cat, setCat] = useState('All');
   const [bands, setBands] = useState<BandKey[]>([]);

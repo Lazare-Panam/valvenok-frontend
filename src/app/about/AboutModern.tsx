@@ -220,6 +220,13 @@ const MILESTONES = [
   { year: "2020", title: "JOSCAR Registration", body: "Achieved JOSCAR registration, opening the door to defence and aerospace supply chains and cementing our commitment to compliance and traceability." },
   { year: "2022", title: "Hydrogen-Ready Range", body: "Launched our H₂-ready product line in response to growing demand from the clean energy sector, stocking components rated and tested for hydrogen service." },
   { year: "2024", title: "Expanded Product Range", body: "Broadened our range across fittings, valves, adapters, and instrumentation components, with availability and lead times confirmed on every quotation." },
+  { year: "2026", title: "BVAA Membership", body: "Joined the British Valve & Actuator Association, the UK trade body for valve and actuator companies, with membership approved by the BVAA Board." },
+];
+
+const STORY_FACTS = [
+  { value: "27", label: "Manufacturers, one account" },
+  { value: "No", label: "Minimum order quantity" },
+  { value: "Free", label: "UK delivery on orders over £150" },
 ];
 
 function Story() {
@@ -263,6 +270,19 @@ function Story() {
               We built a business around one principle: hold the stock, ship it fast, and make the process as frictionless as possible for the
               people actually doing the work.
             </Typography>
+            <Typography sx={{ ...body, mt: 2 }}>
+              Today that means one account for valves, actuators, fittings and instrumentation from 27 manufacturers, with stock and lead times
+              confirmed on every quote, backed by JOSCAR registration since 2020 and BVAA membership since 2026.
+            </Typography>
+            {/* Three facts from the rest of the site (23 Nov 2026), so this side balances the timeline */}
+            <Box sx={{ mt: 4, display: "grid", gridTemplateColumns: { xs: "1fr", sm: "repeat(3, 1fr)" }, gap: 1.5 }}>
+              {STORY_FACTS.map(({ value, label }) => (
+                <Box key={label} sx={{ p: 2.25, borderRadius: T.radiusSm, bgcolor: "#fff", border: `1px solid ${T.border}`, boxShadow: T.shadow }}>
+                  <Box sx={{ fontSize: "1.6rem", fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1, color: T.greenDark }}>{value}</Box>
+                  <Box sx={{ mt: 0.75, fontSize: "0.85rem", fontWeight: 500, lineHeight: 1.4, color: T.body }}>{label}</Box>
+                </Box>
+              ))}
+            </Box>
           </Reveal>
         </Box>
 

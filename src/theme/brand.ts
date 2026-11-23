@@ -103,6 +103,50 @@ export function withAlpha(hex: string, a: number): string {
   return `rgba(${(n >> 16) & 255},${(n >> 8) & 255},${n & 255},${a})`;
 }
 
+/** Partner colours for teal on the homepage (23 Nov 2026). Each option has the
+ *  same roles; ACCENT below picks the active one. Teal stays the brand colour.
+ *   bold  — strong fills (icon boxes)
+ *   deep  — highlighted words and stats (readable on white)
+ *   text  — text on accent tags (readable)
+ *   soft  — blobs and borders (pastel mid)
+ *   blob2 — second blob shade
+ *   light — tag / label backgrounds
+ *   wash  — section background washes */
+export const BUTTER = {
+  bold: "#FFDE78",
+  deep: "#B9780F", // highlighted words / stats (readable)
+  text: "#8A6400",
+  soft: "#FFDE78",
+  blob2: "#FFDE78",
+  light: "#FFF1C2",
+  wash: "#FFF8DD",
+} satisfies Record<string, string>;
+
+export const PLUM = {
+  bold: "#6D2E46",
+  deep: "#8A3A58", // lighter plum for highlighted words / stats
+  text: "#6D2E46",
+  soft: "#D9AFC0", // mauve (blobs, borders)
+  blob2: "#F2B8C6", // dusty rose
+  light: "#F2E1E8", // pink-mauve tag fill
+  wash: "#FAF1F4",
+} satisfies Record<string, string>;
+
+export const COPPER = {
+  bold: "#B87333", // copper (icon fills)
+  deep: "#9C5A25", // darker copper for highlighted words / stats
+  text: "#8A4F1E", // text on copper tags
+  soft: "#D9A77A", // rose-gold (borders, light accents)
+  blob2: "#E8D6BA", // sand / champagne (accents on dark photos)
+  light: "#F6E6D6", // tag / icon-box fill
+  wash: "#FBF5EF", // section washes
+} satisfies Record<string, string>;
+
+/** Accent gradient for highlighted words, numbers and solid icon boxes. */
+export const accentGradient = (a: { bold: string; deep: string }) => `linear-gradient(170deg, ${a.deep} 0%, ${a.bold} 100%)`;
+
+/** Active homepage partner colour. Saved designs: git branches design/aqua-butter, design/teal-plum. */
+
 /** The logo's own gradient (measured from valvenok-new-logo, top → bottom). */
 export const LOGO = {
   top: "#4FAAAF",
@@ -124,6 +168,25 @@ export function mix(from: string, to: string, t: number): string {
 /** Light version of the logo gradient, for pills on dark photos (text: LOGO.bottom). */
 export const LOGO_GRADIENT_LIGHT = `linear-gradient(170deg, ${mix(LOGO.top, BRAND.white, 0.8)} 0%, ${mix(LOGO.top, BRAND.white, 0.55)} 55%, ${mix(LOGO.mid, BRAND.white, 0.6)} 100%)`;
 export const LOGO_GRADIENT_LIGHT_HOVER = `linear-gradient(170deg, ${mix(LOGO.top, BRAND.white, 0.6)} 0%, ${mix(LOGO.mid, BRAND.white, 0.45)} 100%)`;
+
+/** Accent built from the logo colours (23 Nov 2026): replaces copper, so the homepage
+ *  uses only brand colours. Same roles as COPPER / BUTTER / PLUM above. */
+export const LOGO_ACCENT = {
+  bold: LOGO.top, // #4FAAAF icon fills
+  deep: LOGO.mid, // #316A7D highlighted words / stats
+  text: LOGO.bottom, // #1D425C text on accent tags
+  soft: mix(LOGO.top, BRAND.white, 0.45), // borders, light accents
+  blob2: mix(LOGO.top, BRAND.white, 0.55), // highlights on dark backgrounds
+  light: mix(LOGO.top, BRAND.white, 0.86), // tag / icon-box fill
+  wash: mix(LOGO.top, BRAND.white, 0.94), // section washes
+};
+
+/** The active accent. */
+export const ACCENT = LOGO_ACCENT;
+
+/** Deep sections, footer and quote banner (23 Nov 2026): like the logo, teal at the top
+ *  fading to deep navy at the bottom, muted to match the hero photo's tone. */
+export const LOGO_DEEP_GRADIENT = `linear-gradient(180deg, ${mix(LOGO.mid, LOGO.top, 0.3)} 0%, ${LOGO.mid} 35%, ${LOGO.bottom} 75%, ${mix(LOGO.bottom, "#000000", 0.25)} 100%)`;
 
 /** Brand line under the header: light → brand → deep. */
 export const BRAND_LINE = `linear-gradient(90deg, ${TEAL[400]} 0%, ${TEAL[600]} 50%, ${TEAL[800]} 100%)`;

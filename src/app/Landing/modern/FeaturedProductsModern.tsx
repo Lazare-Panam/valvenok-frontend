@@ -4,14 +4,14 @@ import Link from "next/link";
 import { Box, Typography } from "@mui/material";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import { FEATURED_PRODUCTS } from "../FeaturedValvesData";
-import { T, textReset } from "./homeTokens";
+import { CARD, CARD_HOVER, T, textReset } from "./homeTokens";
+import { ACCENT, BRAND, withAlpha } from "@/src/theme/brand";
 import SectionHeader from "./HomeSectionHeader";
 import { swipeRow } from "./swipeRow";
-import { BRAND } from "@/src/theme/brand";
 
 export default function FeaturedProductsModern() {
   return (
-    <Box component="section" sx={{ ...textReset, width: "100%", boxSizing: "border-box", maxWidth: T.maxWidth, mx: "auto", px: { xs: 2, md: 4 }, py: { xs: 8, md: 12 } }}>
+    <Box component="section" sx={{ ...textReset, width: "100%", boxSizing: "border-box", maxWidth: T.maxWidth, mx: "auto", px: { xs: 2, md: 4 }, py: { xs: 8, md: 11 } }}>
       <SectionHeader eyebrow="Premium Selection" title="Featured Products" />
       <Box sx={swipeRow({ sm: "1fr 1fr", lg: "repeat(4, 1fr)" })}>
         {FEATURED_PRODUCTS.map((p) => (
@@ -22,18 +22,22 @@ export default function FeaturedProductsModern() {
             sx={{
               display: "flex",
               flexDirection: "column",
-              bgcolor: BRAND.white,
-              border: `1px solid ${T.border}`,
-              borderRadius: T.radius,
-              overflow: "hidden",
-              textDecoration: "none",
-              transition: "all .25s ease",
-              "&:hover": { boxShadow: T.shadowHover, transform: "translateY(-3px)" },
+              ...CARD,
+              "&:hover": CARD_HOVER,
               "&:hover .fp-img": { transform: "scale(1.05)" },
               "&:hover .fp-cta": { color: T.brandDark, gap: 1 },
             }}
           >
-            <Box sx={{ position: "relative", height: 200, bgcolor: T.surface }}>
+            <Box
+              sx={{
+                // Product "stage" (23 Nov 2026): every photo on the same soft spotlight with a floor shadow
+                position: "relative",
+                height: 210,
+                background: `radial-gradient(70% 70% at 50% 42%, ${BRAND.white} 0%, ${BRAND.wash} 70%, ${ACCENT.wash} 100%)`,
+                borderBottom: `1px solid ${T.border}`,
+                "&::after": { content: '""', position: "absolute", left: "22%", right: "22%", bottom: 22, height: 14, borderRadius: "50%", background: `radial-gradient(closest-side, ${withAlpha(BRAND.ink, 0.16)}, transparent)`, pointerEvents: "none" },
+              }}
+            >
               <Box
                 component="img"
                 src={p.brandLogo}
@@ -51,10 +55,11 @@ export default function FeaturedProductsModern() {
                   position: "absolute",
                   inset: 0,
                   m: "auto",
-                  maxWidth: "70%",
-                  maxHeight: "75%",
+                  maxWidth: "68%",
+                  maxHeight: "72%",
                   objectFit: "contain",
                   mixBlendMode: "multiply",
+                  zIndex: 1,
                   transition: "transform .4s ease",
                 }}
               />

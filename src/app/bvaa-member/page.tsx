@@ -92,7 +92,7 @@ export default function BvaaMemberPage() {
               BVAA <Box component="span" sx={{ color: BLUE }}>member</Box>
             </Box>
             <Box component="p" sx={{ m: 0, mt: 2.5, maxWidth: 560, fontSize: { xs: '1.02rem', md: '1.12rem' }, lineHeight: 1.7, color: T.body }}>
-              Valvenok is a member of the British Valve & Actuator Association, the UK trade association for companies that make, supply and service industrial valves and actuators.
+              Valvenok joined the British Valve & Actuator Association in 2026. The BVAA is the UK trade association for companies that make, supply and service industrial valves and actuators.
             </Box>
             <Box sx={{ mt: 3.5, display: 'flex', flexWrap: 'wrap', gap: 1.5 }}>
               <Box component={Link} href="/contact" sx={pillBtn(true)}>Request a quote <ArrowForwardRoundedIcon sx={{ fontSize: 18 }} /></Box>
@@ -105,7 +105,7 @@ export default function BvaaMemberPage() {
               <Box sx={{ textAlign: 'center' }}>
                 <Box component="img" src={LOGO} alt="BVAA, British Valve & Actuator Association" sx={{ width: { xs: 220, md: 280 }, height: 'auto', display: 'block', mx: 'auto' }} />
                 <Box sx={{ mt: 2.5, fontSize: '0.95rem', fontWeight: 700, color: T.ink }}>British Valve & Actuator Association</Box>
-                <Box sx={{ mt: 0.5, fontSize: '0.82rem', color: T.muted }}>Member company: Valvenok Ltd</Box>
+                <Box sx={{ mt: 0.5, fontSize: '0.82rem', color: T.muted }}>Valvenok Ltd · member since 2026</Box>
               </Box>
             </Box>
             <Box sx={{ position: 'absolute', left: { xs: 8, md: -28 }, bottom: { xs: -18, md: -22 }, display: 'flex', alignItems: 'center', gap: 1.25, px: 1.75, py: 1.25, borderRadius: '16px', bgcolor: '#fff', border: `1px solid ${T.border}`, boxShadow: T.shadowHover }}>

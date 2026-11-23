@@ -8,7 +8,7 @@ import ChevronLeftRoundedIcon from "@mui/icons-material/ChevronLeftRounded";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 import { T, textReset } from "./homeTokens";
 import PillButton from "./HomeButtons";
-import { AQUA, BRAND, withAlpha } from "@/src/theme/brand";
+import { ACCENT, BRAND, withAlpha } from "@/src/theme/brand";
 
 // Slide copy is unchanged from the original HeroSlider. Images swapped for
 // high-resolution originals (served resized by next/image).
@@ -146,7 +146,7 @@ export default function HeroModern() {
                 letterSpacing: "0.08em",
               }}
             >
-              <Box component="span" sx={{ width: 7, height: 7, borderRadius: "50%", bgcolor: AQUA.glowDeep }} />
+              <Box component="span" sx={{ width: 7, height: 7, borderRadius: "50%", bgcolor: ACCENT.blob2 }} />
               {slide.upperTag}
             </Box>
 
@@ -168,7 +168,7 @@ export default function HeroModern() {
                   <Box
                     component="span"
                     sx={{
-                      background: `linear-gradient(90deg, ${AQUA.glowDeep}, ${AQUA.soft}, ${AQUA.glowDeep})`,
+                      background: `linear-gradient(90deg, ${ACCENT.blob2}, ${BRAND.white}, ${ACCENT.soft}, ${ACCENT.blob2})`,
                       backgroundSize: "200% auto",
                       WebkitBackgroundClip: "text",
                       backgroundClip: "text",
@@ -235,7 +235,7 @@ export default function HeroModern() {
                     sx={{
                       position: "absolute",
                       inset: 0,
-                      bgcolor: AQUA.soft,
+                      bgcolor: ACCENT.blob2,
                       transformOrigin: "left",
                       animation: `${fill} ${s.duration}ms linear both`,
                     }}

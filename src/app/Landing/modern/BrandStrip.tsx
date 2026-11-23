@@ -53,8 +53,8 @@ export default function BrandStrip() {
               bgcolor: BRAND.white,
               border: `1px solid ${T.border}`,
               boxShadow: `0 2px 10px ${withAlpha(BRAND.ink, 0.06)}`,
-              transition: "box-shadow .2s, transform .2s",
-              "&:hover": { boxShadow: `0 8px 24px ${withAlpha(BRAND.ink, 0.12)}`, transform: "translateY(-2px)" },
+              transition: "box-shadow .2s, transform .2s, border-color .2s",
+              "&:hover": { boxShadow: `0 8px 24px ${withAlpha(BRAND.ink, 0.12)}`, transform: "translateY(-2px)", borderColor: withAlpha(BRAND.main, 0.35) },
             }}
           >
             <Box
@@ -63,12 +63,12 @@ export default function BrandStrip() {
                 height: 48,
                 px: 1.5,
                 borderRadius: 999,
-                bgcolor: T.surface,
                 display: "grid",
                 placeItems: "center",
               }}
             >
               <Box
+                className="bs-logo"
                 component="img"
                 src={b.logo}
                 alt={i < BRANDS.length ? `${b.name} logo` : ""}

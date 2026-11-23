@@ -3,10 +3,21 @@
 import Link from "next/link";
 import { Box } from "@mui/material";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
-import { T } from "./homeTokens";
+import { T, WARM_HOVER } from "./homeTokens";
+import { useDarkZone } from "./PastelZone";
 import { BRAND, BRAND_GRADIENT, BRAND_GRADIENT_HOVER, LOGO, LOGO_GRADIENT_LIGHT, LOGO_GRADIENT_LIGHT_HOVER, withAlpha } from "@/src/theme/brand";
 
 type Variant = "primary" | "glow" | "secondary" | "ghostDark" | "light";
+
+/** The hero's button (23 Nov 2026): light logo gradient, logo-navy text. Used for every
+ *  button that sits directly on a dark band or photo. */
+export const GLOW_PILL = {
+  background: LOGO_GRADIENT_LIGHT,
+  color: LOGO.bottom,
+  border: "1px solid transparent",
+  boxShadow: `0 6px 18px -8px ${withAlpha(LOGO.top, 0.5)}`,
+  "&:hover": { background: LOGO_GRADIENT_LIGHT_HOVER },
+} as const;
 
 const styles: Record<Variant, object> = {
   primary: {
@@ -18,19 +29,13 @@ const styles: Record<Variant, object> = {
   },
   // On dark backgrounds (hero): bright aqua gradient with dark text
   // On dark photos (hero): light version of the logo gradient, logo-navy text
-  glow: {
-    background: LOGO_GRADIENT_LIGHT,
-    color: LOGO.bottom,
-    border: "1px solid transparent",
-    boxShadow: `0 6px 18px -8px ${withAlpha(LOGO.top, 0.5)}`,
-    "&:hover": { background: LOGO_GRADIENT_LIGHT_HOVER },
-  },
+  glow: GLOW_PILL,
 
   secondary: {
     bgcolor: BRAND.white,
     color: T.ink,
     border: `1px solid ${T.border}`,
-    "&:hover": { borderColor: T.ink },
+    "&:hover": WARM_HOVER,
   },
   ghostDark: {
     bgcolor: "transparent",
@@ -59,6 +64,9 @@ export default function PillButton({
   arrow?: boolean;
   external?: boolean;
 }) {
+  // On a dark band, normal buttons switch to the hero's glow pill
+  const dark = useDarkZone();
+  const look = dark && (variant === "primary" || variant === "secondary") ? "glow" : variant;
   return (
     <Box
       component={Link}
@@ -80,7 +88,7 @@ export default function PillButton({
         transition: "all .2s ease",
         "& svg": { fontSize: 18, transition: "transform .2s ease" },
         "&:hover svg": { transform: "translateX(3px)" },
-        ...styles[variant],
+        ...styles[look],
       }}
     >
       {children}

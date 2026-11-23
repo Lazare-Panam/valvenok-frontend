@@ -5,15 +5,15 @@ import { Box, Typography } from "@mui/material";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 // Newest first, straight from the News page list, so the latest article always shows here
 import { POSTS } from "@/src/app/news/posts";
-import { T, textReset } from "./homeTokens";
+import { CARD, CARD_HOVER, T, textReset } from "./homeTokens";
 import SectionHeader from "./HomeSectionHeader";
 import PillButton from "./HomeButtons";
 import { swipeRow } from "./swipeRow";
-import { BRAND } from "@/src/theme/brand";
+import { ACCENT } from "@/src/theme/brand";
 
 export default function InsightsModern() {
   return (
-    <Box component="section" sx={{ ...textReset, width: "100%", boxSizing: "border-box", maxWidth: T.maxWidth, mx: "auto", px: { xs: 2, md: 4 }, py: { xs: 8, md: 12 } }}>
+    <Box component="section" sx={{ ...textReset, width: "100%", boxSizing: "border-box", maxWidth: T.maxWidth, mx: "auto", px: { xs: 2, md: 4 }, py: { xs: 8, md: 11 } }}>
       <SectionHeader
         eyebrow="Engineering Insights"
         title="Latest From The Team"
@@ -32,13 +32,8 @@ export default function InsightsModern() {
             sx={{
               display: "flex",
               flexDirection: "column",
-              bgcolor: BRAND.white,
-              border: `1px solid ${T.border}`,
-              borderRadius: T.radius,
-              overflow: "hidden",
-              textDecoration: "none",
-              transition: "all .25s ease",
-              "&:hover": { boxShadow: T.shadowHover, transform: "translateY(-3px)" },
+              ...CARD,
+              "&:hover": CARD_HOVER,
               "&:hover img": { transform: "scale(1.04)" },
               "&:hover .read": { color: T.brandDark },
             }}
@@ -54,7 +49,7 @@ export default function InsightsModern() {
             </Box>
             <Box sx={{ p: 2.5, display: "flex", flexDirection: "column", flex: 1 }}>
               <Box sx={{ display: "flex", alignItems: "center", gap: 1, fontSize: "0.75rem" }}>
-                <Box component="span" sx={{ px: 1, py: 0.25, borderRadius: 999, bgcolor: T.brandSoft, color: T.brandDark, fontWeight: 600 }}>
+                <Box component="span" sx={{ px: 1, py: 0.25, borderRadius: 999, bgcolor: ACCENT.light, color: ACCENT.text, fontWeight: 600 }}>
                   {post.category}
                 </Box>
                 <Box component="span" sx={{ color: T.muted }}>

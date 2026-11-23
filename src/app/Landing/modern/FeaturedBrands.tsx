@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Box, Typography } from "@mui/material";
 import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
-import { T, textReset } from "./homeTokens";
+import { CARD, CARD_HOVER, T, textReset } from "./homeTokens";
 import SectionHeader from "./HomeSectionHeader";
 import PillButton from "./HomeButtons";
 import { swipeRow } from "./swipeRow";
@@ -64,7 +64,7 @@ const BRANDS = [
 
 export default function FeaturedBrands() {
   return (
-    <Box component="section" sx={{ ...textReset, mt: { xs: 7, md: 10 }, bgcolor: "transparent" }}>
+    <Box component="section" sx={{ ...textReset, bgcolor: "transparent" }}>
       <Box sx={{ maxWidth: T.maxWidth, mx: "auto", px: { xs: 2, md: 4 }, py: { xs: 8, md: 11 } }}>
         <SectionHeader
           eyebrow="Featured Brands"
@@ -86,13 +86,8 @@ export default function FeaturedBrands() {
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                bgcolor: BRAND.white,
-                border: `1px solid ${T.border}`,
-                borderRadius: "22px",
-                overflow: "hidden",
-                textDecoration: "none",
-                transition: "all .3s ease",
-                "&:hover": { boxShadow: T.shadowHover, transform: "translateY(-4px)" },
+                ...CARD,
+                "&:hover": CARD_HOVER,
                 "&:hover .brand-logo": { scale: "1.06" },
                 "&:hover .brand-cta": { bgcolor: T.ink, color: BRAND.white, borderColor: T.ink },
               }}
@@ -105,7 +100,7 @@ export default function FeaturedBrands() {
                   placeItems: "center",
                   background: `radial-gradient(260px 160px at 50% 60%, ${BRAND.white} 0%, ${T.surface} 100%)`,
                   borderBottom: `1px solid ${T.border}`,
-                  "&::before": { content: '""', position: "absolute", top: 0, left: 0, right: 0, height: 4, bgcolor: b.accent },
+
                 }}
               >
                 <Box

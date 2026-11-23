@@ -2,8 +2,8 @@
 
 import { Box, Typography } from "@mui/material";
 import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
-import { T, textReset } from "./homeTokens";
-import { AQUA, BRAND, BRAND_GRADIENT, TEAL, withAlpha } from "@/src/theme/brand";
+import { T, accentText, textReset } from "./homeTokens";
+import { AQUA, BRAND, BRAND_GRADIENT, withAlpha } from "@/src/theme/brand";
 
 // Same copy as the original ValuePropBanner.
 const POINTS = [
@@ -14,7 +14,7 @@ const POINTS = [
 
 export default function ValuePropModern() {
   return (
-    <Box component="section" sx={{ ...textReset, width: "100%", boxSizing: "border-box", maxWidth: T.maxWidth, mx: "auto", px: { xs: 2, md: 4 }, pt: { xs: 8, md: 11 } }}>
+    <Box component="section" sx={{ ...textReset, width: "100%", boxSizing: "border-box", maxWidth: T.maxWidth, mx: "auto", px: { xs: 2, md: 4 }, py: { xs: 8, md: 11 } }}>
       <Box
         sx={{
           position: "relative",
@@ -37,7 +37,7 @@ export default function ValuePropModern() {
       >
         <Box>
           <Typography component="h2" sx={{ fontWeight: 700, fontSize: { xs: "1.9rem", md: "2.5rem" }, letterSpacing: "-0.03em", lineHeight: 1.1, color: T.ink }}>
-            Buy Direct. <Box component="span" sx={{ background: `linear-gradient(90deg, ${TEAL[800]}, ${TEAL[600]}, ${TEAL[500]}, ${TEAL[600]}, ${TEAL[800]})`, backgroundSize: "200% auto", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", animation: "shine 4s linear infinite" }}>Zero Middleman.</Box>
+            Buy Direct. <Box component="span" sx={accentText}>Zero Middleman.</Box>
           </Typography>
           <Typography sx={{ mt: 2, fontSize: "1.05rem", lineHeight: 1.7, color: T.body, maxWidth: 560 }}>
             For our partner brands we are an authorised distributor buying direct from the manufacturer, so there is no reseller

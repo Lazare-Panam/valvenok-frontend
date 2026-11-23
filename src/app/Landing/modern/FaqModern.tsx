@@ -14,7 +14,7 @@ import ManageSearchOutlinedIcon from "@mui/icons-material/ManageSearchOutlined";
 import AssignmentReturnOutlinedIcon from "@mui/icons-material/AssignmentReturnOutlined";
 import HelpOutlineRoundedIcon from "@mui/icons-material/HelpOutlineRounded";
 import { FAQS } from "../FAQSection";
-import { T, textReset } from "./homeTokens";
+import { CHIP, T, textReset } from "./homeTokens";
 import SectionHeader from "./HomeSectionHeader";
 import { BRAND, BRAND_GRADIENT, BRAND_GRADIENT_HOVER, withAlpha } from "@/src/theme/brand";
 
@@ -54,7 +54,7 @@ export default function FaqModern() {
           maxWidth: T.maxWidth,
           mx: "auto",
           px: { xs: 2, md: 4 },
-          py: { xs: 8, md: 12 },
+          py: { xs: 8, md: 11 },
           display: "grid",
           gridTemplateColumns: { xs: "1fr", md: "0.75fr 1.25fr" },
           gap: { xs: 3, md: 8 },
@@ -160,8 +160,7 @@ export default function FaqModern() {
                       borderRadius: "12px",
                       display: "grid",
                       placeItems: "center",
-                      bgcolor: isOpen ? T.brandSoft : T.surface,
-                      color: T.brandDark,
+                      ...(isOpen ? CHIP.accent : CHIP.soft),
                       transition: "background-color .2s",
                     }}
                   >

@@ -67,25 +67,25 @@ export default function Home() {
       </h1>
       <HeroModern />
       <TrustBar />
-      {/* Bands alternate white / pale aqua, one section each */}
+      {/* Bands step white → mist → dark, getting gradually deeper, then repeat (PastelZone) */}
       <PastelZone tone="white">
         <BrandStrip />
         <CertificationsModern />
         <QuickNavModern />
       </PastelZone>
-      <PastelZone tone="aqua">
+      <PastelZone tone="mist">
         <FeaturedBrands />
       </PastelZone>
-      <PastelZone tone="white">
+      <PastelZone tone="dark" photo={0}>
         <ValuePropModern />
       </PastelZone>
-      <PastelZone tone="aqua">
+      <PastelZone tone="white">
         <WhoWeAreModern />
       </PastelZone>
-      <PastelZone tone="white">
+      <PastelZone tone="mist">
         <FeaturedProductsModern />
       </PastelZone>
-      <PastelZone tone="aqua">
+      <PastelZone tone="dark" photo={1}>
         <CoreProducts />
         <StatsModern />
       </PastelZone>
@@ -94,16 +94,16 @@ export default function Home() {
       <PastelZone tone="white">
         <InsightsModern />
       </PastelZone>
-      <PastelZone tone="aqua">
+      <PastelZone tone="mist">
         <SocialWall />
       </PastelZone>
-      <PastelZone tone="white">
+      <PastelZone tone="dark" photo={2}>
         <FaqModern />
       </PastelZone>
-      <PastelZone tone="aqua">
+      <PastelZone tone="white">
         <FindUsModern />
       </PastelZone>
-      <PastelZone tone="white">
+      <PastelZone tone="mist">
         <JoscarModern />
       </PastelZone>
     </HomeFlowLayer>

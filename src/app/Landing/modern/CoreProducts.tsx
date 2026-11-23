@@ -7,32 +7,38 @@ import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import SubdirectoryArrowRightRoundedIcon from "@mui/icons-material/SubdirectoryArrowRightRounded";
 import { T, textReset } from "./homeTokens";
 import SectionHeader from "./HomeSectionHeader";
-import { AQUA, BRAND, BRAND_GRADIENT, BRAND_GRADIENT_HOVER, LOGO, withAlpha } from "@/src/theme/brand";
+import { GLOW_PILL } from "./HomeButtons";
+import { useDarkZone } from "./PastelZone";
+import { AQUA, BRAND, BRAND_GRADIENT, BRAND_GRADIENT_HOVER, ACCENT, LOGO, withAlpha } from "@/src/theme/brand";
 
 // Same data as the original Categories section.
+// Same categories, links and sub-groups as the main menu (Navbardata.ts), 23 Nov 2026
 const CATEGORIES = [
   {
     name: "Valves",
     img: "https://pblol2.blob.core.windows.net/mars-valves/ball-valves/series-10-10.png",
-    href: "/valves/instrumentation-valves/ball-valves",
+    href: "/valves",
     tag: "Heavy Duty",
     count: "280+",
     subs: [
-      { name: "Process Valves", href: "/valves/" },
+      { name: "Process Valves", href: "/valves" },
+      { name: "Instrumentation Valves", href: "/valves/instrumentation-valves" },
       { name: "Sealed Valves", href: "/valves/sealed-valves" },
-      {
-        name: "Instrumentation Valves",
-        href: "/valves/instrumentation-valves",
-      },
     ],
   },
   {
     name: "Actuators",
     img: "https://pblol2.blob.core.windows.net/valvenok-images/products/actuators/hydraulic/adf.webp",
-    href: "/pneumatic/actuators",
+    href: "/actuators",
     tag: "Precision",
     count: "50+",
-    subs: [{ name: "Pneumatic Actuators", href: "/pneumatic/actuators" }],
+    subs: [
+      { name: "Pneumatic Actuators", href: "/pneumatic/actuators" },
+      { name: "Electric Actuators", href: "/actuators/electric" },
+      { name: "Hydraulic Actuators", href: "/actuators/hydraulic" },
+      { name: "Mechanical Actuators", href: "/actuators/mechanical" },
+      { name: "Accessories", href: "/actuators/accessories" },
+    ],
   },
   {
     name: "Hydrogen & High Pressure",
@@ -41,38 +47,23 @@ const CATEGORIES = [
     tag: "New",
     count: "40+",
     subs: [
-      {
-        name: "Hydrogen Cylinder Valves",
-        href: "/hydrogen-cryogenic/hydrogen",
-      },
-      { name: "LPG Cylinder Valves", href: "/hydrogen-cryogenic/lpg" },
-      {
-        name: "Industrial Gas Valves",
-        href: "/hydrogen-cryogenic/industrial-gas",
-      },
+      { name: "Hydrogen Valves", href: "/high-pressure/valves" },
+      { name: "Hydrogen Fittings", href: "/high-pressure/fittings" },
+      { name: "Hydrogen Tubing", href: "/high-pressure/tubing" },
+      { name: "Gas & Cryogenic", href: "/high-pressure/valves/gas-valves" },
     ],
   },
   {
-    name: "Fittings & Instrumentation Valves",
+    name: "Tubings & Fittings",
     img: "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/hp-nv.webp",
-    href: "/fittings-tubing/instrumentation-fittings/jic-fittings",
+    href: "/fittings-tubing",
     tag: "Most Popular",
     count: "450+",
     subs: [
-      {
-        name: "Flare Fittings",
-        href: "/fittings-tubing/instrumentation-fittings/jic-fittings/",
-      },
-      { name: "Instrumentation Valves", href: "/valves" },
-      {
-        name: "Pipe Fittings",
-        href: "/fittings-tubing/instrumentation-fittings/pipe-fittings",
-      },
-      {
-        name: "Weld Fittings",
-        href: "/fittings-tubing/instrumentation-fittings/weld-fittings",
-      },
-      { name: "SS Tubing", href: "/fittings-tubing/tubing" },
+      { name: "Tubings", href: "/fittings-tubing/tubing" },
+      { name: "Instrumentation Fittings", href: "/fittings-tubing/instrumentation-fittings" },
+      { name: "Sanitary Fittings", href: "/fittings-tubing/sanitary-fittings" },
+      { name: "Pneumatic Fittings & Tubing", href: "/fittings-tubing/pneumatic-fittings" },
     ],
   },
   {
@@ -102,11 +93,25 @@ const PANEL_BG = [
 // Open panel: white, with a pale aqua glow behind the product (23 Nov 2026)
 const ACTIVE_BG = `radial-gradient(520px 400px at 76% 50%, ${AQUA.mistLight} 0%, transparent 70%), ${BRAND.white}`;
 
+// Category tabs. Light band: white tabs, the selected one in the logo gradient.
+// Dark band (23 Nov 2026): glass tabs with white text, the selected one is the hero's glow
+// pill, so it clearly stands out from the background.
+const TAB = { border: `1px solid ${T.border}`, background: BRAND.white, color: T.ink, "&:hover": { borderColor: T.brand } };
+const TAB_ACTIVE = { border: `1px solid ${LOGO.mid}`, background: BRAND_GRADIENT, color: BRAND.white, "&:hover": { borderColor: T.brand } };
+const TAB_ON_DARK = {
+  border: `1px solid ${withAlpha(BRAND.white, 0.35)}`,
+  background: withAlpha(BRAND.white, 0.08),
+  color: BRAND.white,
+  "&:hover": { background: withAlpha(BRAND.white, 0.16), borderColor: withAlpha(BRAND.white, 0.6) },
+};
+const TAB_ON_DARK_ACTIVE = { ...GLOW_PILL, boxShadow: `0 8px 22px -8px ${withAlpha(BRAND.ink, 0.6)}` };
+
 export default function CoreProducts() {
-  const [active, setActive] = useState(3); // Fittings & Instrumentation Valves
+  const [active, setActive] = useState(3); // Tubings & Fittings
+  const dark = useDarkZone();
 
   return (
-    <Box component="section" sx={{ ...textReset, width: "100%", boxSizing: "border-box", maxWidth: T.maxWidth, mx: "auto", px: { xs: 2, md: 4 }, py: { xs: 8, md: 12 } }}>
+    <Box component="section" sx={{ ...textReset, width: "100%", boxSizing: "border-box", maxWidth: T.maxWidth, mx: "auto", px: { xs: 2, md: 4 }, pt: { xs: 8, md: 11 }, pb: { xs: 5, md: 6 } }}>
       <SectionHeader eyebrow="Browse by Category" title="Explore Our Catalog" />
 
       {/* Tabs */}
@@ -123,14 +128,11 @@ export default function CoreProducts() {
               px: 2.25,
               py: 1.1,
               borderRadius: 999,
-              border: `1px solid ${i === active ? LOGO.mid : T.border}`,
-              background: i === active ? BRAND_GRADIENT : BRAND.white,
-              color: i === active ? BRAND.white : T.ink,
               fontSize: "0.92rem",
               fontWeight: 600,
               cursor: "pointer",
               transition: "all .2s",
-              "&:hover": { borderColor: T.brand },
+              ...(dark ? (i === active ? TAB_ON_DARK_ACTIVE : TAB_ON_DARK) : i === active ? TAB_ACTIVE : TAB),
             }}
           >
             {cat.name}
@@ -258,7 +260,7 @@ export default function CoreProducts() {
                 }}
               >
                 <Box sx={{ display: "flex", alignItems: "center", gap: 1.25, mb: 2 }}>
-                  <Box component="span" sx={{ px: 1.5, py: 0.5, borderRadius: 999, background: BRAND_GRADIENT, color: BRAND.white, fontSize: "0.78rem", fontWeight: 700 }}>
+                  <Box component="span" sx={{ px: 1.5, py: 0.5, borderRadius: 999, bgcolor: ACCENT.light, color: ACCENT.text, fontSize: "0.78rem", fontWeight: 700 }}>
                     {cat.tag}
                   </Box>
                   <Box component="span" sx={{ fontSize: "0.85rem", color: T.brandDark, fontWeight: 700 }}>

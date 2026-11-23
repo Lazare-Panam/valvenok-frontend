@@ -4,7 +4,9 @@ import { Box } from '@mui/material';
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 import VerifiedOutlinedIcon from '@mui/icons-material/VerifiedOutlined';
+import { Suspense } from 'react';
 import ProductTable from './ProductTable';
+import ProductTableWithQuery from './ProductTableWithQuery';
 import OrderCart from './OrderCart';
 import MobileCartBar from './MobileCartBar';
 import { GroupSiteLinks, groupSitesIn } from '@/src/app/Common/GroupVisitLinks';
@@ -53,7 +55,11 @@ export default function QuickOrderPage() {
       </Box>
 
       <Box sx={{ maxWidth: 1400, mx: 'auto', px: { xs: 2, md: 4 }, pt: { xs: 3, md: 4 }, display: 'flex', gap: 3, alignItems: 'flex-start' }}>
-        <ProductTable />
+        {/* ?q= (from the homepage search box) pre-fills the search. While prerendering,
+            the plain table renders, so the product list is still in the HTML. */}
+        <Suspense fallback={<ProductTable />}>
+          <ProductTableWithQuery />
+        </Suspense>
         <OrderCart />
       </Box>
 

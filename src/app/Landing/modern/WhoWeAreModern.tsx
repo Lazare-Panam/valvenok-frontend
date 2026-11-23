@@ -17,11 +17,16 @@ import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
 import ScienceOutlinedIcon from "@mui/icons-material/ScienceOutlined";
 import BubbleChartOutlinedIcon from "@mui/icons-material/BubbleChartOutlined";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
-import { T, textReset } from "./homeTokens";
-import { KF, gradientTextBright, Squiggle, useInView } from "@/src/app/Common/LightMotion";
-import { AQUA, BRAND, BRAND_GRADIENT, BRAND_GRADIENT_HOVER, withAlpha } from "@/src/theme/brand";
+import { CHIP, T, accentText, textReset } from "./homeTokens";
+import { KF, Squiggle, useInView } from "@/src/app/Common/LightMotion";
+import { AQUA, BRAND, BRAND_GRADIENT, BRAND_GRADIENT_HOVER, ACCENT, LOGO, withAlpha } from "@/src/theme/brand";
+import { useDarkZone } from "./PastelZone";
+import { GLOW_PILL } from "./HomeButtons";
+import { PILL_ON_DARK, PILL_ON_LIGHT } from "./HomeSectionHeader";
 
 const VIDEO = "https://pblol2.blob.core.windows.net/valvenok-images/valvenok-ecosystem-12s.mp4";
+// Still of the finished skid (taken from the video, counters cropped) shown until it plays
+const POSTER = "/images/home/ecosystem-poster.jpg";
 const SKY = BRAND.hoverBorder, SUN = BRAND.hoverBorder;
 
 function EcosystemVideo() {
@@ -43,9 +48,9 @@ function EcosystemVideo() {
   }, []);
   return (
     <>
-      {/* light shimmer until the first frame is ready (no stand-in photo) */}
-      <Box aria-hidden sx={{ position: "absolute", inset: 0, background: `linear-gradient(110deg, ${BRAND.surface} 30%, ${AQUA.mistFaint} 50%, ${BRAND.surface} 70%)`, backgroundSize: "200% 100%", animation: "shine 1.6s linear infinite", opacity: ready ? 0 : 1, transition: "opacity .5s" }} />
-      <video ref={ref} src={load ? VIDEO : undefined} autoPlay={load && !still} muted loop playsInline preload={still ? "metadata" : "none"}
+      {/* poster still until the video's first frame is ready, so the frame is never empty */}
+      <Box aria-hidden component="img" src={POSTER} alt="" sx={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block", opacity: ready ? 0 : 1, transition: "opacity .6s ease" }} />
+      <video ref={ref} src={load ? VIDEO : undefined} poster={POSTER} autoPlay={load && !still} muted loop playsInline preload={still ? "metadata" : "none"}
         onLoadedData={() => setReady(true)}
         aria-label="Valvenok: 27 manufacturer partners, 1000+ products, JOSCAR registered supplier"
         style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block", opacity: ready ? 1 : 0, transition: "opacity .6s ease" }} />
@@ -53,11 +58,11 @@ function EcosystemVideo() {
   );
 }
 
-function Chip({ icon, title, sub, delay }: { icon: React.ReactNode; title: string; sub: string; delay: number }) {
+function Chip({ icon, title, sub, delay, warm = false }: { icon: React.ReactNode; title: string; sub: string; delay: number; warm?: boolean }) {
   return (
     <Box sx={{ animation: `floaty 5s ease-in-out ${delay}s infinite` }}>
       <Box sx={{ display: "flex", alignItems: "center", gap: 1.25, p: 1.25, pr: 2, borderRadius: "18px", bgcolor: withAlpha(BRAND.white, 0.86), backdropFilter: "blur(10px)", border: `1px solid ${withAlpha(BRAND.white, 0.9)}`, boxShadow: `0 1px 2px ${withAlpha(BRAND.ink, 0.05)}, 0 14px 34px ${withAlpha(BRAND.hover, 0.14)}`, transition: "transform .2s", "&:hover": { transform: "scale(1.05)" } }}>
-        <Box sx={{ flexShrink: 0, width: 38, height: 38, borderRadius: "12px", background: `linear-gradient(140deg, ${AQUA.mistFaint}, ${BRAND.tint})`, color: T.brandDark, display: "grid", placeItems: "center", animation: `pulseRing 2.6s ease-out ${delay}s infinite` }}>{icon}</Box>
+        <Box sx={{ flexShrink: 0, width: 38, height: 38, borderRadius: "12px", ...(warm ? CHIP.accent : CHIP.soft), display: "grid", placeItems: "center", animation: `pulseRing 2.6s ease-out ${delay}s infinite` }}>{icon}</Box>
         <Box sx={{ minWidth: 0 }}>
           <Typography sx={{ fontWeight: 800, color: T.ink, lineHeight: 1.2, fontSize: "0.92rem" }}>{title}</Typography>
           <Typography sx={{ fontSize: "0.76rem", color: T.muted, whiteSpace: "nowrap" }}>{sub}</Typography>
@@ -81,10 +86,10 @@ function Orbit({ size, dur, reverse, dots }: { size: number; dur: number; revers
 function Stage() {
   const left = [
     <Chip key="h2" icon={<BubbleChartOutlinedIcon fontSize="small" />} title="H₂" sub="Hydrogen Ready" delay={0} />,
-    <Chip key="joscar" icon={<WorkspacePremiumOutlinedIcon fontSize="small" />} title="JOSCAR" sub="Registered Supplier" delay={1.2} />,
+    <Chip key="joscar" icon={<WorkspacePremiumOutlinedIcon fontSize="small" />} title="JOSCAR" sub="Registered Supplier" delay={1.2} warm />,
   ];
   const right = [
-    <Chip key="bvaa" icon={<GroupsOutlinedIcon fontSize="small" />} title="BVAA" sub="Member" delay={0.6} />,
+    <Chip key="bvaa" icon={<GroupsOutlinedIcon fontSize="small" />} title="BVAA" sub="Member" delay={0.6} warm />,
     <Chip key="ss316" icon={<ScienceOutlinedIcon fontSize="small" />} title="SS316" sub="Primary Material" delay={1.8} />,
   ];
   const col = { display: { xs: "none", sm: "flex" }, flexDirection: "column", justifyContent: "space-around", gap: 4, alignSelf: "stretch", py: 7, position: "relative", zIndex: 2 } as const;
@@ -155,31 +160,40 @@ function Facts() {
   );
 }
 
+// The two buttons under the text. Light band: logo gradient + white. Dark band: the hero's
+// glow pill + a white outline, as in the hero and the quote banner (23 Nov 2026).
+const BUTTON = { display: "inline-flex", alignItems: "center", gap: 0.75, px: 2.75, py: 1.3, borderRadius: 999, fontWeight: 700, fontSize: "0.95rem", textDecoration: "none", transition: "transform .2s" };
+const LIFT = { transform: "translateY(-2px)" };
+const PRIMARY = { ...BUTTON, background: BRAND_GRADIENT, color: BRAND.white, boxShadow: `0 10px 24px ${withAlpha(BRAND.main, 0.35)}`, "&:hover": { ...LIFT, background: BRAND_GRADIENT_HOVER } };
+const SECONDARY = { ...BUTTON, bgcolor: BRAND.white, color: T.ink, border: `1px solid ${T.border}`, "&:hover": LIFT };
+const OUTLINE_ON_DARK = { ...BUTTON, bgcolor: "transparent", color: BRAND.white, border: `1px solid ${withAlpha(BRAND.white, 0.45)}`, "&:hover": { ...LIFT, bgcolor: withAlpha(BRAND.white, 0.08) } };
+
 export default function WhoWeAreModern() {
-  const body = { fontSize: "1.05rem", lineHeight: 1.8, color: T.body };
+  const dark = useDarkZone();
+  const body = { fontSize: "1.05rem", lineHeight: 1.8, color: dark ? withAlpha(BRAND.white, 0.8) : T.body };
   return (
     <Box component="section" sx={{ ...textReset, ...KF, position: "relative", overflow: "hidden", "@media (prefers-reduced-motion: reduce)": { "& *": { animation: "none !important" } } }}>
       {/* light backdrop */}
       <Box aria-hidden sx={{ position: "absolute", inset: 0, backgroundImage: `radial-gradient(${withAlpha(BRAND.hover, 0.13)} 1px, transparent 1px)`, backgroundSize: "22px 22px", maskImage: "radial-gradient(ellipse at 30% 50%, black, transparent 75%)", pointerEvents: "none" }} />
 
-      <Box sx={{ position: "relative", width: "100%", boxSizing: "border-box", maxWidth: T.maxWidth, mx: "auto", px: { xs: 2, md: 4 }, py: { xs: 9, md: 13 } }}>
+      <Box sx={{ position: "relative", width: "100%", boxSizing: "border-box", maxWidth: T.maxWidth, mx: "auto", px: { xs: 2, md: 4 }, py: { xs: 8, md: 11 } }}>
         <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", lg: "auto minmax(0, 600px)" }, gap: { xs: 7, lg: 10 }, alignItems: "center", justifyContent: "center" }}>
           <Stage />
 
           <Box sx={{ maxWidth: 680, justifySelf: "center" }}>
-            <Box sx={{ display: "inline-flex", alignItems: "center", gap: 1, px: 1.5, py: 0.6, borderRadius: 999, bgcolor: withAlpha(BRAND.white, 0.8), border: `1px solid ${T.border}`, fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: T.brandDark }}>
-              <Box component="span" sx={{ width: 7, height: 7, borderRadius: "50%", bgcolor: T.brand, animation: "pulseRing 2s ease-out infinite" }} /> About Valvenok
+            <Box sx={{ display: "inline-flex", alignItems: "center", gap: 1, px: 1.5, py: 0.6, borderRadius: 999, ...(dark ? PILL_ON_DARK : PILL_ON_LIGHT), fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase" }}>
+              <Box component="span" sx={{ width: 7, height: 7, borderRadius: "50%", bgcolor: dark ? LOGO.mid : AQUA.glow, animation: "pulseRing 2s ease-out infinite" }} /> About Valvenok
             </Box>
-            <Typography component="h2" sx={{ mt: 2.5, fontWeight: 800, fontSize: { xs: "2.4rem", md: "3.4rem" }, letterSpacing: "-0.035em", lineHeight: 1.05, color: T.ink }}>
+            <Typography component="h2" sx={{ mt: 2.5, fontWeight: 800, fontSize: { xs: "2.4rem", md: "3.4rem" }, letterSpacing: "-0.035em", lineHeight: 1.05, color: dark ? BRAND.white : T.ink }}>
               Who{" "}
               <Box component="span" sx={{ position: "relative", display: "inline-block" }}>
-                <Box component="span" sx={gradientTextBright}>we are</Box>
+                <Box component="span" sx={dark ? { color: ACCENT.blob2 } : accentText}>we are</Box>
                 <Squiggle delay={0.4} color={AQUA.glow} />
               </Box>
             </Typography>
             <Typography sx={{ ...body, mt: 3.5 }}>
               We&apos;re{" "}
-              <Box component="span" sx={{ fontWeight: 700, color: T.ink }}>
+              <Box component="span" sx={{ fontWeight: 700, color: dark ? BRAND.white : T.ink }}>
                 Valvenok
               </Box>{" "}
               — and we&apos;re now also an official authorised distributor of genuine MARS industrial valves, supplying authentic products
@@ -203,7 +217,7 @@ export default function WhoWeAreModern() {
                   <Typography component="h3" sx={{ fontWeight: 700, fontSize: "1.2rem", color: T.ink }}>
                     Why buy from us?
                   </Typography>
-                  <Typography sx={{ ...body, mt: 0.75, fontSize: "0.98rem" }}>
+                  <Typography sx={{ ...body, color: T.body, mt: 0.75, fontSize: "0.98rem" }}>
                     Whether you need a single valve or a complete project supply, we offer competitive pricing and expert technical guidance — with
                     knowledgeable support from enquiry through to delivery.
                   </Typography>
@@ -212,10 +226,10 @@ export default function WhoWeAreModern() {
             </Box>
 
             <Box sx={{ mt: 3.5, display: "flex", gap: 1.5, flexWrap: "wrap" }}>
-              <Box component={Link} href="/about" sx={{ display: "inline-flex", alignItems: "center", gap: 0.75, px: 2.75, py: 1.3, borderRadius: 999, background: BRAND_GRADIENT, color: BRAND.white, fontWeight: 700, fontSize: "0.95rem", textDecoration: "none", boxShadow: `0 10px 24px ${withAlpha(BRAND.main, 0.35)}`, transition: "transform .2s", "&:hover": { transform: "translateY(-2px)", background: BRAND_GRADIENT_HOVER } }}>
+              <Box component={Link} href="/about" sx={dark ? { ...BUTTON, ...GLOW_PILL, "&:hover": { ...GLOW_PILL["&:hover"], ...LIFT } } : PRIMARY}>
                 More about us <ArrowForwardRoundedIcon sx={{ fontSize: 18 }} />
               </Box>
-              <Box component={Link} href="/contact" sx={{ display: "inline-flex", alignItems: "center", gap: 0.75, px: 2.75, py: 1.3, borderRadius: 999, bgcolor: BRAND.white, color: T.ink, fontWeight: 700, fontSize: "0.95rem", textDecoration: "none", border: `1px solid ${T.border}`, transition: "transform .2s", "&:hover": { transform: "translateY(-2px)" } }}>
+              <Box component={Link} href="/contact" sx={dark ? OUTLINE_ON_DARK : SECONDARY}>
                 Request a quote
               </Box>
             </Box>

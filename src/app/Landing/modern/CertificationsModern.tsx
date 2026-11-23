@@ -4,8 +4,8 @@ import Link from "next/link";
 import { Box, Typography } from "@mui/material";
 import VerifiedRoundedIcon from "@mui/icons-material/VerifiedRounded";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
-import { T, textReset } from "./homeTokens";
-import { AQUA, BRAND, withAlpha } from "@/src/theme/brand";
+import { T, WARM_HOVER, textReset } from "./homeTokens";
+import { BRAND, LOGO, LOGO_GRADIENT_LIGHT, withAlpha } from "@/src/theme/brand";
 
 // Same list as the original CertificationsStrip.
 const STANDARDS = [
@@ -44,22 +44,29 @@ export default function CertificationsModern() {
             justifyContent: "space-between",
             gap: 3,
             color: T.ink,
-            background: `radial-gradient(420px 260px at 0% 0%, ${AQUA.mistFaint} 0%, transparent 70%), ${BRAND.white}`,
-            backgroundSize: "300% 300%",
-            animation: "bgShift 12s ease infinite",
-            "@keyframes bgShift": { "0%": { backgroundPosition: "0% 50%" }, "50%": { backgroundPosition: "100% 50%" }, "100%": { backgroundPosition: "0% 50%" } },
-            "@media (prefers-reduced-motion: reduce)": { animation: "none" },
+            // Light logo gradient so the panel isn't all white (23 Nov 2026)
+            background: LOGO_GRADIENT_LIGHT,
+            "@media (prefers-reduced-motion: reduce)": { animation: "none", "&::after": { animation: "none" } },
+            // Decorative rings (23 Nov 2026): thin concentric teal rings fading out from the
+            // bottom-right corner, kept inside this panel and behind the text
+            overflow: "hidden",
+            "& > *": { position: "relative", zIndex: 1 },
             "&::after": {
               content: '""',
               position: "absolute",
-              right: -60,
-              bottom: -60,
-              width: 200,
-              height: 200,
+              right: -110,
+              bottom: -110,
+              width: 260,
+              height: 260,
               borderRadius: "50%",
-              border: `1px solid ${withAlpha(BRAND.main, 0.25)}`,
-              boxShadow: `0 0 0 40px ${withAlpha(BRAND.white, 0.35)}`,
+              zIndex: 0,
+              pointerEvents: "none",
+              background: `radial-gradient(circle, ${withAlpha(BRAND.white, 0.9)} 0 5px, transparent 6px), repeating-radial-gradient(circle, transparent 0 22px, ${withAlpha(LOGO.mid, 0.4)} 22px 23.5px, transparent 23.5px 34px)`,
+              maskImage: "radial-gradient(circle, black 30%, transparent 70%)",
+              WebkitMaskImage: "radial-gradient(circle, black 30%, transparent 70%)",
+              animation: "ringPulse 6s ease-in-out infinite",
             },
+            "@keyframes ringPulse": { "0%,100%": { transform: "scale(1)", opacity: 0.9 }, "50%": { transform: "scale(1.06)", opacity: 1 } },
           }}
         >
           <Box>
@@ -89,7 +96,7 @@ export default function CertificationsModern() {
               fontSize: "0.88rem",
               fontWeight: 600,
               textDecoration: "none",
-              "&:hover": { bgcolor: T.brandSoft },
+              "&:hover": { bgcolor: WARM_HOVER.bgcolor },
             }}
           >
             View Our Quality Standards <ArrowForwardRoundedIcon sx={{ fontSize: 16 }} />
@@ -121,7 +128,7 @@ export default function CertificationsModern() {
                 borderBottom: `1px solid ${T.border}`,
                 borderRight: `1px solid ${T.border}`,
                 transition: "background-color .2s",
-                "&:hover": { bgcolor: T.brandSoft },
+                "&:hover": { bgcolor: WARM_HOVER.bgcolor },
               }}
             >
               <VerifiedRoundedIcon sx={{ fontSize: 22, color: T.brand, flexShrink: 0 }} />

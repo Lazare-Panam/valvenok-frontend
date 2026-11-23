@@ -9,6 +9,8 @@ import ArticleOutlinedIcon from "@mui/icons-material/ArticleOutlined";
 import { T, textReset } from "./homeTokens";
 import { Eyebrow } from "./HomeSectionHeader";
 import { BRAND, withAlpha } from "@/src/theme/brand";
+import { useDarkZone } from "./PastelZone";
+import { GLOW_PILL } from "./HomeButtons";
 
 // Modelled on the "Join the Conversation" wall on bray.com: two full-width rows of
 // 140px tiles drifting slowly in opposite directions, faded towards both edges,
@@ -117,7 +119,7 @@ function Row({ items, reverse = false, described = false, cta }: { items: Tile[]
   );
 }
 
-function CtaButton({ href, external, icon, children, color }: { href: string; external?: boolean; icon: React.ReactNode; children: React.ReactNode; color: string }) {
+function CtaButton({ href, external, icon, children, color, glow = false }: { href: string; external?: boolean; icon: React.ReactNode; children: React.ReactNode; color?: string; glow?: boolean }) {
   return (
     <Box
       component={external ? "a" : Link}
@@ -140,6 +142,7 @@ function CtaButton({ href, external, icon, children, color }: { href: string; ex
         boxShadow: `4px 4px 8px ${withAlpha(BRAND.body, 0.25)}`,
         transition: "transform .2s, filter .2s",
         "&:hover": { transform: "translateY(-2px)", filter: "brightness(1.08)" },
+        ...(glow ? { ...GLOW_PILL, "&:hover": { ...GLOW_PILL["&:hover"], transform: "translateY(-2px)" } } : {}),
       }}
     >
       {icon}
@@ -149,14 +152,17 @@ function CtaButton({ href, external, icon, children, color }: { href: string; ex
 }
 
 export default function SocialWall() {
+  const dark = useDarkZone();
+  // On a dark band the buttons use the hero's glow pill
+  const button = (light: string) => (dark ? { glow: true } : { color: light });
   return (
-    <Box component="section" sx={{ ...textReset, width: "100%", boxSizing: "border-box", pt: { xs: 6, md: 8 }, pb: { xs: 5, md: 7.5 }, overflow: "hidden" }}>
+    <Box component="section" sx={{ ...textReset, width: "100%", boxSizing: "border-box", py: { xs: 8, md: 11 }, overflow: "hidden" }}>
       <Box sx={{ maxWidth: T.maxWidth, mx: "auto", px: { xs: 2, md: 4 } }}>
         <Eyebrow>Join the conversation</Eyebrow>
-        <Typography component="h2" sx={{ mt: 2, fontWeight: 700, letterSpacing: "-0.03em", lineHeight: 1.1, fontSize: { xs: "2rem", md: "2.75rem" }, color: T.ink, maxWidth: 560 }}>
+        <Typography component="h2" sx={{ mt: 2, fontWeight: 700, letterSpacing: "-0.03em", lineHeight: 1.1, fontSize: { xs: "2rem", md: "2.75rem" }, color: dark ? BRAND.white : T.ink, maxWidth: 560 }}>
           Stay informed, stay inspired
         </Typography>
-        <Typography sx={{ mt: 1.5, maxWidth: 560, fontSize: "1.05rem", lineHeight: 1.65, color: T.body }}>
+        <Typography sx={{ mt: 1.5, maxWidth: 560, fontSize: "1.05rem", lineHeight: 1.65, color: dark ? withAlpha(BRAND.white, 0.78) : T.body }}>
           New partnerships, product ranges and technical guides from Valvenok. Follow us to see them first.
         </Typography>
       </Box>
@@ -179,7 +185,7 @@ export default function SocialWall() {
           items={ROW_A}
           described
           cta={
-            <CtaButton href={LINKEDIN} external color={BRAND.hover} icon={<LinkedInIcon />}>
+            <CtaButton href={LINKEDIN} external {...button(BRAND.hover)} icon={<LinkedInIcon />}>
               Follow us on LinkedIn
             </CtaButton>
           }
@@ -188,7 +194,7 @@ export default function SocialWall() {
           items={ROW_B}
           reverse
           cta={
-            <CtaButton href="/news" color={T.brandDark} icon={<ArticleOutlinedIcon />}>
+            <CtaButton href="/news" {...button(T.brandDark)} icon={<ArticleOutlinedIcon />}>
               Read our latest news
             </CtaButton>
           }

@@ -7,30 +7,32 @@ import TuneOutlinedIcon from "@mui/icons-material/TuneOutlined";
 import BuildOutlinedIcon from "@mui/icons-material/BuildOutlined";
 import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
-import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
-import { T, textReset } from "./homeTokens";
-import { BRAND, BRAND_GRADIENT, withAlpha } from "@/src/theme/brand";
+import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
+import { CARD, CARD_HOVER, T, textReset } from "./homeTokens";
+import { BRAND, BRAND_GRADIENT, LOGO, withAlpha } from "@/src/theme/brand";
 
 // Each card opens its category page (not a deep sub-page).
 const QUICK_LINKS = [
-  { name: "Valves", href: "/valves", icon: TuneOutlinedIcon },
-  { name: "Actuators", href: "/pneumatic/actuators", icon: SettingsOutlinedIcon },
-  { name: "Hydrogen & High Pressure", href: "/hydrogen-cryogenic", icon: AcUnitOutlinedIcon },
-  { name: "Fittings & Instrumentation", href: "/fittings-tubing", icon: BuildOutlinedIcon },
-  { name: "Filters", href: "/filters-sight-glass", icon: FilterAltOutlinedIcon },
+  { name: "Valves", sub: "Ball, butterfly, check & more", href: "/valves", icon: TuneOutlinedIcon },
+  { name: "Actuators", sub: "Pneumatic, electric & hydraulic", href: "/pneumatic/actuators", icon: SettingsOutlinedIcon },
+  { name: "Hydrogen & High Pressure", sub: "Cone & thread, H₂-ready", href: "/hydrogen-cryogenic", icon: AcUnitOutlinedIcon },
+  { name: "Fittings & Instrumentation", sub: "Tube fittings, manifolds & tubing", href: "/fittings-tubing", icon: BuildOutlinedIcon },
+  { name: "Filters", sub: "Filters & sight glasses", href: "/filters-sight-glass", icon: FilterAltOutlinedIcon },
 ];
 
+// Compact horizontal cards (23 Nov 2026): logo-gradient icon chip, name with one line of
+// detail, a round arrow button, and a logo-gradient line that grows along the bottom on hover.
 export default function QuickNavModern() {
   return (
-    <Box component="nav" aria-label="Product categories" sx={{ ...textReset, width: "100%", boxSizing: "border-box", maxWidth: T.maxWidth, mx: "auto", px: { xs: 2, md: 4 }, pt: { xs: 2, md: 2.5 } }}>
+    <Box component="nav" aria-label="Product categories" sx={{ ...textReset, width: "100%", boxSizing: "border-box", maxWidth: T.maxWidth, mx: "auto", px: { xs: 2, md: 4 }, pt: { xs: 2, md: 2.5 }, pb: { xs: 6, md: 8 } }}>
       <Box
         sx={{
           display: "grid",
-          gridTemplateColumns: { xs: "1fr 1fr", sm: "repeat(3, 1fr)", lg: "repeat(5, 1fr)" },
+          gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", md: "repeat(3, 1fr)", lg: "repeat(5, 1fr)" },
           gap: 2,
         }}
       >
-        {QUICK_LINKS.map(({ name, href, icon: Icon }) => (
+        {QUICK_LINKS.map(({ name, sub, href, icon: Icon }) => (
           <Box
             key={name}
             component={Link}
@@ -38,40 +40,72 @@ export default function QuickNavModern() {
             sx={{
               position: "relative",
               display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-              gap: 2.5,
-              minHeight: 132,
-              p: 2.25,
-              borderRadius: T.radius,
-              border: `1px solid ${T.border}`,
-              bgcolor: BRAND.white,
+              alignItems: "center",
+              gap: 1.75,
+              minHeight: 84,
+              px: 2,
+              py: 1.75,
+              ...CARD,
               color: T.ink,
               textDecoration: "none",
-              overflow: "hidden",
-              transition: "all .25s ease",
-              "& .qn-icon": { transition: "all .25s ease" },
-              "& .qn-arrow": { transition: "all .25s ease" },
-              // Light hover (23 Nov 2026): pale aqua card instead of a dark fill
-              "&:hover": {
-                bgcolor: BRAND.white,
-                borderColor: BRAND.main,
-                color: T.brandDeep,
-                transform: "translateY(-3px)",
-                boxShadow: `0 14px 28px ${withAlpha(BRAND.main, 0.14)}`,
+              // logo-gradient line along the bottom, grows in on hover
+              "&::after": {
+                content: '""',
+                position: "absolute",
+                left: 0,
+                bottom: 0,
+                height: 3,
+                width: "100%",
+                background: `linear-gradient(90deg, ${LOGO.top}, ${LOGO.mid}, ${LOGO.bottom})`,
+                transform: "scaleX(0)",
+                transformOrigin: "left",
+                transition: "transform .35s ease",
               },
-              "&:hover .qn-icon": { background: BRAND_GRADIENT, color: BRAND.white },
-              "&:hover .qn-arrow": { opacity: 1, transform: "translate(0,0)" },
+              "& .qn-arrow": { transition: "all .25s ease" },
+              "&:hover": CARD_HOVER,
+              "&:hover::after": { transform: "scaleX(1)" },
+              "&:hover .qn-arrow": { background: BRAND_GRADIENT, color: BRAND.white, borderColor: "transparent", transform: "translateX(2px)" },
             }}
           >
-            <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
-              <Box className="qn-icon" sx={{ width: 46, height: 46, borderRadius: "14px", display: "grid", placeItems: "center", bgcolor: T.brandSoft, color: T.brandDark }}>
-                <Icon sx={{ fontSize: 24 }} />
-              </Box>
-              <ArrowOutwardRoundedIcon className="qn-arrow" sx={{ fontSize: 20, opacity: 0, transform: "translate(-4px,4px)" }} />
+            <Box
+              sx={{
+                flexShrink: 0,
+                width: 48,
+                height: 48,
+                borderRadius: "14px",
+                display: "grid",
+                placeItems: "center",
+                background: BRAND_GRADIENT,
+                color: BRAND.white,
+                boxShadow: `0 8px 18px -8px ${withAlpha(LOGO.bottom, 0.6)}`,
+              }}
+            >
+              <Icon sx={{ fontSize: 24 }} />
             </Box>
-            <Box component="span" sx={{ fontSize: "0.98rem", fontWeight: 600, lineHeight: 1.3 }}>
-              {name}
+            <Box sx={{ flex: 1, minWidth: 0 }}>
+              <Box component="span" sx={{ display: "block", fontSize: "0.98rem", fontWeight: 700, lineHeight: 1.25 }}>
+                {name}
+              </Box>
+              <Box component="span" sx={{ display: "block", mt: 0.4, fontSize: "0.8rem", color: T.muted, lineHeight: 1.35 }}>
+                {sub}
+              </Box>
+            </Box>
+            <Box
+              className="qn-arrow"
+              sx={{
+                flexShrink: 0,
+                width: 32,
+                height: 32,
+                borderRadius: "50%",
+                // hidden when five cards share a row (the page is never wider than 1536px),
+                // so the names have room; the bottom line still shows the hover
+                display: { xs: "grid", lg: "none" },
+                placeItems: "center",
+                border: `1px solid ${T.border}`,
+                color: T.brandDeep,
+              }}
+            >
+              <ArrowForwardRoundedIcon sx={{ fontSize: 18 }} />
             </Box>
           </Box>
         ))}

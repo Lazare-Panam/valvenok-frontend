@@ -22,7 +22,7 @@ import ExpandMoreRoundedIcon from "@mui/icons-material/ExpandMoreRounded";
 import NextLink from "next/link";
 import { GROUP_SITES } from "../group";
 import { usePathname } from "next/navigation";
-import { AQUA, BRAND, TEAL } from "@/src/theme/brand";
+import { AQUA, BRAND, LOGO_DEEP_GRADIENT } from "@/src/theme/brand";
 
 const BRAND_GREEN = "#61D649";
 
@@ -35,7 +35,7 @@ const GREEN_FOOTER = {
   mid: "#2E8B1E",
 };
 const TEAL_FOOTER = {
-  bg: `linear-gradient(115deg, ${TEAL[950]} 0%, ${TEAL[850]} 45%, ${TEAL[700]} 85%, ${TEAL[500]} 120%)`,
+  bg: LOGO_DEEP_GRADIENT, // logo colours, same as the homepage dark sections
   accent: AQUA.glow,
   deep: BRAND.deep,
   mid: BRAND.main,
