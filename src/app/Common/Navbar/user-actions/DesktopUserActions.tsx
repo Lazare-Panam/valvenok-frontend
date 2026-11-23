@@ -139,7 +139,7 @@ export default function DesktopUserActions({ barHeight }: Props) {
           sx={{
             "& .MuiBadge-badge": {
               bgcolor: BRAND.main,
-              color: "#fff",
+              color: BRAND.white,
               fontWeight: 700,
               height: 18,
               minWidth: 18,

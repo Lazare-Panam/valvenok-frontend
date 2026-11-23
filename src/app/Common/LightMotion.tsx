@@ -8,6 +8,7 @@
 import * as React from "react";
 import { Box } from "@mui/material";
 import { T } from "../Landing/modern/tokens";
+import { AQUA, TEAL, withAlpha } from "@/src/theme/brand";
 
 export const L = {
   mint: "#EAF8E4",
@@ -44,6 +45,25 @@ export const gradientText = {
   color: "transparent",
   animation: "shine 4s linear infinite",
 } as const;
+
+// ── Homepage-only (teal, 23 Nov 2026). Other pages keep the green look above. ──
+/** Deep → brand → bright teal sweep for highlighted headline words. */
+export const gradientTextBright = {
+  background: `linear-gradient(90deg, ${TEAL[800]}, ${TEAL[600]}, ${TEAL[500]}, ${TEAL[600]}, ${TEAL[800]})`,
+  backgroundSize: "200% auto",
+  WebkitBackgroundClip: "text",
+  backgroundClip: "text",
+  color: "transparent",
+  animation: "shine 4s linear infinite",
+} as const;
+
+/** Light aqua glows for the drifting background blobs (#E4FFFF only). */
+export const LA = {
+  neon: withAlpha(AQUA.mistFaint, 0.9),
+  soft: withAlpha(AQUA.mistFaint, 0.7),
+  mist: withAlpha(AQUA.mistFaint, 0.8),
+  glow: withAlpha(AQUA.mistFaint, 0.6),
+};
 
 export function MotionRoot({ children, sx }: { children: React.ReactNode; sx?: object }) {
   return (
@@ -118,10 +138,10 @@ export function Words({ text, start = 0, sx }: { text: string; start?: number; s
 }
 
 /** Hand-drawn underline that draws itself under the parent inline-block */
-export function Squiggle({ delay = 0.9 }: { delay?: number }) {
+export function Squiggle({ delay = 0.9, color = T.green }: { delay?: number; color?: string }) {
   return (
     <Box component="svg" aria-hidden viewBox="0 0 300 20" preserveAspectRatio="none" sx={{ position: "absolute", left: 0, bottom: { xs: -8, md: -12 }, width: "100%", height: { xs: 12, md: 18 } }}>
-      <path d="M4 14 C 60 2, 120 18, 180 8 S 270 4, 296 12" fill="none" stroke={T.green} strokeWidth="5" strokeLinecap="round" strokeDasharray="320" style={{ animation: `draw 1.2s ease ${delay}s both` }} />
+      <path d="M4 14 C 60 2, 120 18, 180 8 S 270 4, 296 12" fill="none" stroke={color} strokeWidth="5" strokeLinecap="round" strokeDasharray="320" style={{ animation: `draw 1.2s ease ${delay}s both` }} />
     </Box>
   );
 }

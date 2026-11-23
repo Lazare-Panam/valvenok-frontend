@@ -3,9 +3,10 @@
 import Image from "next/image";
 import { Box, Typography } from "@mui/material";
 import { keyframes } from "@mui/system";
-import { T, textReset } from "./tokens";
-import { Eyebrow } from "./SectionHeader";
-import PillButton from "./Buttons";
+import { T, textReset } from "./homeTokens";
+import { Eyebrow } from "./HomeSectionHeader";
+import PillButton from "./HomeButtons";
+import { BRAND, withAlpha } from "@/src/theme/brand";
 
 // Same copy as the original AboutContact (JOSCAR) section.
 const sweep = keyframes`
@@ -29,7 +30,7 @@ export default function JoscarModern() {
           display: "grid",
           gridTemplateColumns: { xs: "1fr", md: "1.2fr 1fr" },
           border: `1px solid ${T.border}`,
-          background: `radial-gradient(600px 300px at 100% 100%, rgba(97,214,73,0.18), transparent 60%), ${T.greenSoft}`,
+          background: `radial-gradient(600px 300px at 100% 100%, ${withAlpha(BRAND.main, 0.18)}, transparent 60%), ${T.brandSoft}`,
         }}
       >
         <Box sx={{ p: { xs: 3.5, md: 6 } }}>
@@ -51,7 +52,7 @@ export default function JoscarModern() {
         </Box>
         <Box sx={{ position: "relative", minHeight: { xs: 340, md: 480 }, display: "grid", placeItems: "center", p: { xs: 3, md: 5 } }}>
           {/* Soft glow behind the certificate */}
-          <Box sx={{ position: "absolute", width: "70%", height: "70%", borderRadius: "50%", background: "radial-gradient(circle, rgba(97,214,73,0.35), transparent 70%)", filter: "blur(20px)" }} />
+          <Box sx={{ position: "absolute", width: "70%", height: "70%", borderRadius: "50%", background: `radial-gradient(circle, ${withAlpha(BRAND.main, 0.35)}, transparent 70%)`, filter: "blur(20px)" }} />
           <Box
             sx={{
               position: "relative",
@@ -76,7 +77,7 @@ export default function JoscarModern() {
                   top: "-20%",
                   bottom: "-20%",
                   width: "35%",
-                  background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.75), transparent)",
+                  background: `linear-gradient(90deg, transparent, ${withAlpha(BRAND.white, 0.75)}, transparent)`,
                   animation: `${sweep} 3.6s ease-in-out infinite`,
                   "@media (prefers-reduced-motion: reduce)": { animation: "none" },
                 },

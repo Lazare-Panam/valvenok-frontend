@@ -3,8 +3,9 @@ import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 import PhoneOutlinedIcon from "@mui/icons-material/PhoneOutlined";
 import MailOutlineRoundedIcon from "@mui/icons-material/MailOutlineRounded";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
-import { T, textReset } from "./tokens";
-import { Eyebrow } from "./SectionHeader";
+import { T, textReset } from "./homeTokens";
+import { Eyebrow } from "./HomeSectionHeader";
+import { BRAND } from "@/src/theme/brand";
 
 // "Find us" section: contact details next to an embedded Google map of the
 // Bicester office. Same address, phone and email as the footer and Contact page.
@@ -17,13 +18,13 @@ const DIRECTIONS = `https://www.google.com/maps/dir/?api=1&destination=${MAP_QUE
 function Row({ icon, children }: { icon: React.ReactNode; children: React.ReactNode }) {
   return (
     <Box sx={{ display: "flex", gap: 2, alignItems: "flex-start" }}>
-      <Box sx={{ flexShrink: 0, width: 44, height: 44, borderRadius: "14px", bgcolor: T.greenSoft, color: T.greenDark, display: "grid", placeItems: "center" }}>{icon}</Box>
+      <Box sx={{ flexShrink: 0, width: 44, height: 44, borderRadius: "14px", bgcolor: T.brandSoft, color: T.brandDark, display: "grid", placeItems: "center" }}>{icon}</Box>
       <Box sx={{ pt: 0.25, minWidth: 0 }}>{children}</Box>
     </Box>
   );
 }
 
-const linkSx = { color: T.ink, fontWeight: 600, textDecoration: "none", "&:hover": { color: T.greenDark } } as const;
+const linkSx = { color: T.ink, fontWeight: 600, textDecoration: "none", "&:hover": { color: T.brandDark } } as const;
 
 export default function FindUsModern() {
   return (
@@ -43,7 +44,7 @@ export default function FindUsModern() {
           overflow: "hidden",
           border: `1px solid ${T.border}`,
           boxShadow: T.shadow,
-          bgcolor: "#fff",
+          bgcolor: BRAND.white,
         }}
       >
         {/* Details */}
@@ -90,7 +91,7 @@ export default function FindUsModern() {
               fontSize: "0.95rem",
               textDecoration: "none",
               transition: "all .15s",
-              "&:hover": { borderColor: T.greenDark, color: T.greenDark, bgcolor: T.greenSoft },
+              "&:hover": { borderColor: T.brandDark, color: T.brandDark, bgcolor: T.brandSoft },
               "&:hover svg": { transform: "translateX(3px)" },
               "& svg": { transition: "transform .15s" },
             }}

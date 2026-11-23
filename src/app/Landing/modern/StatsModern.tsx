@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Box, Typography } from "@mui/material";
-import { T, textReset } from "./tokens";
+import { T, textReset } from "./homeTokens";
+import { AQUA, BRAND } from "@/src/theme/brand";
 
 // Same figures as the original StatsBand.
 const STATS = [
@@ -73,7 +74,7 @@ export default function StatsModern() {
           "@keyframes shine": { "0%": { backgroundPosition: "0% 50%" }, "100%": { backgroundPosition: "200% 50%" } },
         }}
       >
-        {STATS.map((s, i) => (
+        {STATS.map((s) => (
           <Box
             key={s.label}
             sx={{
@@ -83,12 +84,12 @@ export default function StatsModern() {
               position: "relative",
               overflow: "hidden",
               borderRadius: "22px",
-              bgcolor: ["#EAF8E4", "#E6F4FD", "#FFF6DA", "#F1ECFB"][i % 4],
+              bgcolor: BRAND.white,
               border: `1px solid ${T.border}`,
               boxShadow: T.shadow,
               transition: "transform .25s, box-shadow .25s",
               "&:hover": { transform: "translateY(-6px)", boxShadow: T.shadowHover },
-              "&::before": { content: '""', position: "absolute", left: 0, right: 0, top: 0, height: 4, background: `linear-gradient(90deg, ${T.green}, #8FD9F0, #FFD978, ${T.green})`, backgroundSize: "200% auto", animation: "shine 3s linear infinite" },
+              "&::before": { content: '""', position: "absolute", left: 0, right: 0, top: 0, height: 4, background: `linear-gradient(90deg, ${T.brand}, ${AQUA.glow}, ${AQUA.soft}, ${T.brand})`, backgroundSize: "200% auto", animation: "shine 3s linear infinite" },
             }}
           >
             <Typography
@@ -96,13 +97,13 @@ export default function StatsModern() {
                 fontWeight: 700,
                 fontSize: { xs: "2.4rem", md: "3.2rem" },
                 letterSpacing: "-0.04em",
-                color: T.greenDark,
+                color: T.brandDark,
                 lineHeight: 1,
                 fontVariantNumeric: "tabular-nums",
               }}
             >
               <CountUp value={s.num} start={inView} />
-              <Box component="span" sx={{ color: T.green }}>
+              <Box component="span" sx={{ color: T.brand }}>
                 {s.unit}
               </Box>
             </Typography>

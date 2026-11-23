@@ -22,7 +22,7 @@ import MobileMenu from "./MobileMenu";
 import DesktopUserActions from "./user-actions/DesktopUserActions";
 import { NAV_GROUPS, NavGroup } from "./Navbardata";
 import NavTopStrip from "./NavTopStrip";
-import { BRAND, BRAND_LINE, TEAL } from "@/src/theme/brand";
+import { BRAND, BRAND_GRADIENT, BRAND_GRADIENT_HOVER, withAlpha } from "@/src/theme/brand";
 import { useCartStore } from "@/src/app/cart/hooks/useCartStore";
 import { useHydrated } from "./user-actions/useHydrated";
 
@@ -122,15 +122,13 @@ export default function Navbar() {
       {/* ── Main bar: logo, account actions, quote CTA ── */}
       <Box
         sx={{
-          bgcolor: "rgba(255,255,255,0.96)",
+          bgcolor: withAlpha(BRAND.white, 0.96),
           backdropFilter: "saturate(180%) blur(10px)",
-          // Desktop: one header block, so no line between the logo bar and the menu row
-          borderBottom: "none",
-          boxShadow: { xs: scrolled ? "0 10px 24px -16px rgba(1,40,41,0.35)" : "none", md: "none" },
+          boxShadow: { xs: scrolled ? `0 10px 24px -16px ${withAlpha(BRAND.ink, 0.35)}` : "none", md: "none" },
           height: LOGO_HEIGHT,
           position: "relative",
-          // Phones: the menu row is hidden, so the brand line sits under the logo bar
-          "&::after": { content: '""', display: { xs: "block", md: "none" }, position: "absolute", left: 0, right: 0, bottom: 0, height: "3px", background: BRAND_LINE },
+          // Phones: the menu row is hidden, so the header's edge sits under the logo bar
+          borderBottom: { xs: `1px solid ${BRAND.border}`, md: "none" },
         }}
       >
         <Container maxWidth="xl" sx={{ px: { xs: 2, md: 4 }, height: "100%" }}>
@@ -152,15 +150,15 @@ export default function Navbar() {
                   py: 1.1,
                   borderRadius: 999,
                   // Soft brand gradient
-                  background: `linear-gradient(135deg, ${TEAL[500]} 0%, ${TEAL[700]} 100%)`,
-                  color: "#fff",
+                  background: BRAND_GRADIENT,
+                  color: BRAND.white,
                   fontSize: "0.9rem",
                   fontWeight: 600,
                   textDecoration: "none",
                   whiteSpace: "nowrap",
-                  boxShadow: "0 6px 16px -8px rgba(0,112,112,0.6)",
+                  boxShadow: `0 6px 16px -8px ${withAlpha(BRAND.hover, 0.6)}`,
                   transition: "background-color .2s, box-shadow .2s",
-                  "&:hover": { background: `linear-gradient(135deg, ${TEAL[600]} 0%, ${TEAL[800]} 100%)`, boxShadow: "0 8px 20px -8px rgba(0,112,112,0.7)" },
+                  "&:hover": { background: BRAND_GRADIENT_HOVER, boxShadow: `0 8px 20px -8px ${withAlpha(BRAND.hover, 0.7)}` },
                 }}
               >
                 Request a quote
@@ -186,7 +184,7 @@ export default function Navbar() {
                 <Badge
                   badgeContent={hydrated ? totalItems : 0}
                   invisible={!hydrated || totalItems === 0}
-                  sx={{ "& .MuiBadge-badge": { bgcolor: BRAND.main, color: "#fff", fontWeight: 700, fontSize: "10px", height: 17, minWidth: 17 } }}
+                  sx={{ "& .MuiBadge-badge": { bgcolor: BRAND.main, color: BRAND.white, fontWeight: 700, fontSize: "10px", height: 17, minWidth: 17 } }}
                 >
                   <ShoppingCartOutlinedIcon />
                 </Badge>
@@ -203,8 +201,8 @@ export default function Navbar() {
                 width: 44,
                 height: 44,
                 bgcolor: TEAL_DEEP,
-                color: "#fff",
-                "&:hover": { bgcolor: TEAL_DARK, color: "#fff" },
+                color: BRAND.white,
+                "&:hover": { bgcolor: TEAL_DARK, color: BRAND.white },
               }}
             >
               <MenuIcon />
@@ -217,11 +215,11 @@ export default function Navbar() {
       <Box
         ref={navBarRef}
         sx={{
-          // Option A (23 Nov 2026): white menu row, brand line as the header's bottom edge
-          bgcolor: "rgba(255,255,255,0.96)",
+          // Option A (23 Nov 2026): white menu row with a thin border as the header's edge
+          borderBottom: `1px solid ${BRAND.border}`,
+          bgcolor: withAlpha(BRAND.white, 0.96),
           backdropFilter: "saturate(180%) blur(10px)",
-          "&::after": { content: '""', position: "absolute", left: 0, right: 0, bottom: 0, height: "3px", background: BRAND_LINE },
-          boxShadow: scrolled ? "0 10px 24px -16px rgba(1,40,41,0.35)" : "none",
+          boxShadow: scrolled ? `0 10px 24px -16px ${withAlpha(BRAND.ink, 0.35)}` : "none",
           transition: "box-shadow .25s",
           display: { xs: "none", md: "block" },
           position: "relative",

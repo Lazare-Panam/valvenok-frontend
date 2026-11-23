@@ -8,7 +8,7 @@ import NorthEastRoundedIcon from "@mui/icons-material/NorthEastRounded";
 import StorefrontOutlinedIcon from "@mui/icons-material/StorefrontOutlined";
 import { NavGroup, NavItem } from "./Navbardata";
 import { brandsFor, BRANDS, type Brand, type ProductType } from "../brandRegistry";
-import { BRAND } from "@/src/theme/brand";
+import { BRAND, withAlpha } from "@/src/theme/brand";
 
 const INK = BRAND.ink;
 const TEAL = BRAND.hover;
@@ -86,8 +86,8 @@ function MenuRow({ label, href, active, onEnter, onClose, accent, external }: { 
         fontSize: "0.9rem",
         fontWeight: active ? 600 : 500,
         color: active ? TEAL : INK,
-        bgcolor: active ? (accent ? SOFT : "#fff") : "transparent",
-        boxShadow: active && !accent ? "0 1px 3px rgba(1,40,41,0.08)" : "none",
+        bgcolor: active ? (accent ? SOFT : BRAND.white) : "transparent",
+        boxShadow: active && !accent ? `0 1px 3px ${withAlpha(BRAND.ink, 0.08)}` : "none",
         borderLeft: accent ? `3px solid ${active ? TEAL : "transparent"}` : "none",
         textDecoration: "none",
         transition: "all .12s",
@@ -126,7 +126,7 @@ function ShowcaseCard({ item, onClose }: { item: NavItem; onClose: () => void })
       </Typography>
       <Typography sx={{ mt: 0.5, mb: 2, fontSize: "1rem", fontWeight: 700, color: INK, textTransform: "capitalize" }}>{item.label}</Typography>
       <Box component="a" href={item.href} target="_blank" rel="noopener" onClick={onClose}
-        sx={{ display: "flex", gap: 2, alignItems: "center", p: 1.5, border: `1px solid ${BORDER}`, borderRadius: "14px", textDecoration: "none", bgcolor: "#fff", transition: "all .15s", "&:hover": { borderColor: BRAND.hoverBorder, boxShadow: "0 6px 18px rgba(1,40,41,0.08)" }, "&:hover .go": { bgcolor: TEAL, color: "#fff" } }}>
+        sx={{ display: "flex", gap: 2, alignItems: "center", p: 1.5, border: `1px solid ${BORDER}`, borderRadius: "14px", textDecoration: "none", bgcolor: BRAND.white, transition: "all .15s", "&:hover": { borderColor: BRAND.hoverBorder, boxShadow: `0 6px 18px ${withAlpha(BRAND.ink, 0.08)}` }, "&:hover .go": { bgcolor: TEAL, color: BRAND.white } }}>
         <Box sx={{ flexShrink: 0, width: 120, height: 96, borderRadius: "10px", bgcolor: BRAND.wash, display: "grid", placeItems: "center", overflow: "hidden" }}>
           {item.image && <Box component="img" src={item.image} alt={item.label} sx={{ display: "block", width: "auto", height: "auto", maxWidth: 108, maxHeight: 84, objectFit: "contain", mixBlendMode: "multiply" }} />}
         </Box>
@@ -147,7 +147,7 @@ function ShowcaseCard({ item, onClose }: { item: NavItem; onClose: () => void })
 // Logo tile; brands without a logo file show their initials
 function BrandLogo({ brand, w, h }: { brand: Brand; w: number; h: number }) {
   return (
-    <Box sx={{ flexShrink: 0, width: w, height: h, borderRadius: "10px", border: `1px solid ${BORDER}`, bgcolor: "#fff", display: "grid", placeItems: "center", overflow: "hidden" }}>
+    <Box sx={{ flexShrink: 0, width: w, height: h, borderRadius: "10px", border: `1px solid ${BORDER}`, bgcolor: BRAND.white, display: "grid", placeItems: "center", overflow: "hidden" }}>
       {brand.logo ? (
         <Box component="img" src={brand.logo} alt="" sx={{ maxWidth: "78%", maxHeight: Math.round(h * 0.54), objectFit: "contain", transform: brand.logoScale ? `scale(${brand.logoScale})` : undefined }} />
       ) : (
@@ -170,7 +170,7 @@ function BrandBar({ type, onClose }: { type: ProductType; onClose: () => void })
   return (
     <Box sx={{ gridColumn: "1 / -1", borderTop: `1px solid ${BORDER}`, background: `linear-gradient(90deg, ${BRAND.tint} 0%, ${BRAND.wash} 45%, ${BRAND.wash} 100%)`, px: 3.5, pt: 2.5, pb: 3 }}>
       <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, mb: 2 }}>
-        <Box sx={{ flexShrink: 0, width: 34, height: 34, borderRadius: "10px", bgcolor: "#fff", border: `1px solid ${BORDER}`, display: "grid", placeItems: "center", color: TEAL }}>
+        <Box sx={{ flexShrink: 0, width: 34, height: 34, borderRadius: "10px", bgcolor: BRAND.white, border: `1px solid ${BORDER}`, display: "grid", placeItems: "center", color: TEAL }}>
           <StorefrontOutlinedIcon sx={{ fontSize: 19 }} />
         </Box>
         <Typography sx={{ fontSize: "0.95rem", fontWeight: 800, color: INK, lineHeight: 1.2, textTransform: "capitalize !important" }}>Shop by brand</Typography>
@@ -178,7 +178,7 @@ function BrandBar({ type, onClose }: { type: ProductType; onClose: () => void })
           <Box component="span" sx={{ color: TEAL, fontWeight: 800 }}>↗</Box> = the brand’s own website
         </Typography>
         <Box component="a" href="/brands" onClick={onClose}
-          sx={{ ml: "auto", flexShrink: 0, display: "inline-flex", alignItems: "center", gap: 0.5, px: 2, py: 0.9, borderRadius: 999, bgcolor: TEAL, color: "#fff", fontSize: "0.84rem", fontWeight: 700, textDecoration: "none", whiteSpace: "nowrap", "&:hover": { bgcolor: BRAND.deep } }}>
+          sx={{ ml: "auto", flexShrink: 0, display: "inline-flex", alignItems: "center", gap: 0.5, px: 2, py: 0.9, borderRadius: 999, bgcolor: TEAL, color: BRAND.white, fontSize: "0.84rem", fontWeight: 700, textDecoration: "none", whiteSpace: "nowrap", "&:hover": { bgcolor: BRAND.deep } }}>
           All brands <ArrowForwardRoundedIcon sx={{ fontSize: 16 }} />
         </Box>
       </Box>
@@ -187,7 +187,7 @@ function BrandBar({ type, onClose }: { type: ProductType; onClose: () => void })
           {brands.map(({ brand, text, href, external }) => (
             <Box key={brand.slug} component="a" href={href} onClick={onClose} {...(external ? { target: "_blank", rel: "noopener" } : {})} title={text}
               aria-label={`${brand.name}: ${text}${external ? " (opens their website)" : ""}`}
-              sx={{ display: "flex", alignItems: "center", gap: 1.25, p: 1, pr: 1.5, border: `1px solid ${BORDER}`, borderRadius: "14px", bgcolor: "#fff", textDecoration: "none", transition: "all .15s", "&:hover": { borderColor: BRAND.hoverBorder, boxShadow: "0 4px 12px rgba(1,40,41,0.08)" } }}>
+              sx={{ display: "flex", alignItems: "center", gap: 1.25, p: 1, pr: 1.5, border: `1px solid ${BORDER}`, borderRadius: "14px", bgcolor: BRAND.white, textDecoration: "none", transition: "all .15s", "&:hover": { borderColor: BRAND.hoverBorder, boxShadow: `0 4px 12px ${withAlpha(BRAND.ink, 0.08)}` } }}>
               <BrandLogo brand={brand} w={50} h={40} />
               <Box sx={{ minWidth: 0, flex: 1 }}>
                 <Box sx={{ display: "flex", alignItems: "center", gap: 0.4, fontSize: "0.8rem", fontWeight: 800, color: INK, lineHeight: 1.2, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
@@ -203,7 +203,7 @@ function BrandBar({ type, onClose }: { type: ProductType; onClose: () => void })
         {brands.map(({ brand, text, href, external }) => {
           const site = brand.website;
           return (
-            <Box key={brand.slug} sx={{ position: "relative", boxSizing: "border-box", display: "flex", flexDirection: "column", gap: 1.5, p: 2, border: `1px solid ${BORDER}`, borderRadius: "14px", bgcolor: "#fff", boxShadow: "0 1px 2px rgba(1,40,41,0.04)", transition: "all .15s", "&:hover": { borderColor: BRAND.hoverBorder, boxShadow: "0 6px 18px rgba(1,40,41,0.08)", transform: "translateY(-1px)" } }}>
+            <Box key={brand.slug} sx={{ position: "relative", boxSizing: "border-box", display: "flex", flexDirection: "column", gap: 1.5, p: 2, border: `1px solid ${BORDER}`, borderRadius: "14px", bgcolor: BRAND.white, boxShadow: `0 1px 2px ${withAlpha(BRAND.ink, 0.04)}`, transition: "all .15s", "&:hover": { borderColor: BRAND.hoverBorder, boxShadow: `0 6px 18px ${withAlpha(BRAND.ink, 0.08)}`, transform: "translateY(-1px)" } }}>
               <Box component="a" href={href} onClick={onClose} {...(external ? { target: "_blank", rel: "noopener" } : {})}
                 aria-label={`${brand.name}: ${text}${external ? " (opens their website)" : ""}`}
                 sx={{ position: "absolute", inset: 0, borderRadius: "14px", zIndex: 0 }} />
@@ -260,7 +260,7 @@ export default function MegaMenu({ group, onClose }: Props) {
           mt: 1,
           width: "min(1240px, calc(100vw - 32px))",
           bgcolor: "white",
-          boxShadow: "0 2px 4px rgba(1,40,41,0.05), 0 24px 56px rgba(1,40,41,0.16)",
+          boxShadow: `0 2px 4px ${withAlpha(BRAND.ink, 0.05)}, 0 24px 56px ${withAlpha(BRAND.ink, 0.16)}`,
           border: `1px solid ${BORDER}`,
           borderRadius: "20px",
           // Short screens: never taller than the space under the header; scroll inside

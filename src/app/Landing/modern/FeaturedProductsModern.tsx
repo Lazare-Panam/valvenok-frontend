@@ -4,9 +4,10 @@ import Link from "next/link";
 import { Box, Typography } from "@mui/material";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import { FEATURED_PRODUCTS } from "../FeaturedValvesData";
-import { T, textReset } from "./tokens";
-import SectionHeader from "./SectionHeader";
+import { T, textReset } from "./homeTokens";
+import SectionHeader from "./HomeSectionHeader";
 import { swipeRow } from "./swipeRow";
+import { BRAND } from "@/src/theme/brand";
 
 export default function FeaturedProductsModern() {
   return (
@@ -21,7 +22,7 @@ export default function FeaturedProductsModern() {
             sx={{
               display: "flex",
               flexDirection: "column",
-              bgcolor: "#fff",
+              bgcolor: BRAND.white,
               border: `1px solid ${T.border}`,
               borderRadius: T.radius,
               overflow: "hidden",
@@ -29,7 +30,7 @@ export default function FeaturedProductsModern() {
               transition: "all .25s ease",
               "&:hover": { boxShadow: T.shadowHover, transform: "translateY(-3px)" },
               "&:hover .fp-img": { transform: "scale(1.05)" },
-              "&:hover .fp-cta": { color: T.greenDark, gap: 1 },
+              "&:hover .fp-cta": { color: T.brandDark, gap: 1 },
             }}
           >
             <Box sx={{ position: "relative", height: 200, bgcolor: T.surface }}>
@@ -59,7 +60,7 @@ export default function FeaturedProductsModern() {
               />
             </Box>
             <Box sx={{ p: 2.5, display: "flex", flexDirection: "column", flex: 1 }}>
-              <Typography sx={{ fontSize: "0.75rem", fontWeight: 600, color: T.greenDark }}>{p.category}</Typography>
+              <Typography sx={{ fontSize: "0.75rem", fontWeight: 600, color: T.brandDark }}>{p.category}</Typography>
               <Typography component="h3" sx={{ mt: 0.5, fontWeight: 700, fontSize: "1.02rem", lineHeight: 1.35, color: T.ink }}>
                 {p.name}
               </Typography>

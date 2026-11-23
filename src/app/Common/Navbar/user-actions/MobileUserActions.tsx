@@ -108,7 +108,7 @@ export default function MobileUserActions({ onClose }: Props) {
           sx={{
             "& .MuiBadge-badge": {
               bgcolor: BRAND.main,
-              color: "#fff",
+              color: BRAND.white,
               borderRadius: 0,
               fontWeight: 900,
               height: 18,

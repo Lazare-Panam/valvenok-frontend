@@ -1,10 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Box } from "@mui/material";
+import { BRAND_GRADIENT } from "@/src/theme/brand";
 
 export default function ScrollProgress() {
   const [progress, setProgress] = useState(0);
+  // Homepage is on the new teal palette (23 Nov 2026); other pages keep the theme green for now
+  const isHome = usePathname() === "/";
 
   useEffect(() => {
     const onScroll = () => {
@@ -29,7 +33,7 @@ export default function ScrollProgress() {
         left: 0,
         height: "3px",
         width: `${progress}%`,
-        bgcolor: "primary.main",
+        ...(isHome ? { background: BRAND_GRADIENT } : { bgcolor: "primary.main" }),
         zIndex: 2000,
         transition: "width 0.1s ease-out",
       }}

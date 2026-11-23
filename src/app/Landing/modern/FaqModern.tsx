@@ -14,8 +14,9 @@ import ManageSearchOutlinedIcon from "@mui/icons-material/ManageSearchOutlined";
 import AssignmentReturnOutlinedIcon from "@mui/icons-material/AssignmentReturnOutlined";
 import HelpOutlineRoundedIcon from "@mui/icons-material/HelpOutlineRounded";
 import { FAQS } from "../FAQSection";
-import { T, textReset } from "./tokens";
-import SectionHeader from "./SectionHeader";
+import { T, textReset } from "./homeTokens";
+import SectionHeader from "./HomeSectionHeader";
+import { BRAND, BRAND_GRADIENT, BRAND_GRADIENT_HOVER, withAlpha } from "@/src/theme/brand";
 
 // One icon per question, in the same order as FAQS.
 const ICONS = [
@@ -69,10 +70,10 @@ export default function FaqModern() {
               mt: { xs: -1, md: -1 },
               p: 3.5,
               borderRadius: "20px",
-              bgcolor: "#fff",
+              bgcolor: BRAND.white,
               border: `1px solid ${T.border}`,
               boxShadow: T.shadow,
-              background: `linear-gradient(180deg, #fff 0%, ${T.greenSoft} 140%)`,
+              background: `linear-gradient(180deg, ${BRAND.white} 0%, ${T.brandSoft} 140%)`,
             }}
           >
             <Box
@@ -82,9 +83,9 @@ export default function FaqModern() {
                 borderRadius: "16px",
                 display: "grid",
                 placeItems: "center",
-                color: "#fff",
-                background: `linear-gradient(140deg, #3FAE2C 0%, ${T.greenDark} 100%)`,
-                boxShadow: "0 10px 24px rgba(46,139,30,0.35)",
+                color: BRAND.white,
+                background: `linear-gradient(140deg, ${BRAND.main} 0%, ${T.brandDark} 100%)`,
+                boxShadow: `0 10px 24px ${withAlpha(BRAND.hover, 0.35)}`,
               }}
             >
               <SupportAgentRoundedIcon />
@@ -101,13 +102,13 @@ export default function FaqModern() {
                 gap: 1,
                 py: 1.4,
                 borderRadius: "12px",
-                bgcolor: T.green,
-                color: T.greenDeep,
+                background: BRAND_GRADIENT,
+                color: BRAND.white,
                 fontWeight: 600,
                 fontSize: "0.95rem",
                 textDecoration: "none",
-                transition: "background-color .2s",
-                "&:hover": { bgcolor: "#55C93E" },
+                transition: "background .2s",
+                "&:hover": { background: BRAND_GRADIENT_HOVER },
                 "& svg": { transition: "transform .2s" },
                 "&:hover svg": { transform: "translateX(3px)" },
               }}
@@ -125,12 +126,12 @@ export default function FaqModern() {
               <Box
                 key={item.q}
                 sx={{
-                  bgcolor: "#fff",
-                  border: `1px solid ${isOpen ? "#BFE3B4" : T.border}`,
+                  bgcolor: BRAND.white,
+                  border: `1px solid ${isOpen ? BRAND.hoverBorder : T.border}`,
                   borderRadius: "16px",
                   transition: "border-color .2s, box-shadow .2s",
                   boxShadow: isOpen ? T.shadow : "none",
-                  "&:hover": { borderColor: "#BFE3B4" },
+                  "&:hover": { borderColor: BRAND.hoverBorder },
                 }}
               >
                 <Box
@@ -159,8 +160,8 @@ export default function FaqModern() {
                       borderRadius: "12px",
                       display: "grid",
                       placeItems: "center",
-                      bgcolor: isOpen ? T.greenSoft : T.surface,
-                      color: T.greenDark,
+                      bgcolor: isOpen ? T.brandSoft : T.surface,
+                      color: T.brandDark,
                       transition: "background-color .2s",
                     }}
                   >
@@ -177,8 +178,8 @@ export default function FaqModern() {
                       borderRadius: "50%",
                       display: "grid",
                       placeItems: "center",
-                      bgcolor: isOpen ? T.green : T.surface,
-                      color: isOpen ? T.greenDeep : T.greenDark,
+                      background: isOpen ? BRAND_GRADIENT : T.surface,
+                      color: isOpen ? BRAND.white : T.brandDark,
                       transition: "all .2s",
                       transform: isOpen ? "rotate(45deg)" : "none",
                     }}

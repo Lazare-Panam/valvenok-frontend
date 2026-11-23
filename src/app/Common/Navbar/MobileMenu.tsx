@@ -77,7 +77,7 @@ function ShopByBrand({ type, onClose }: { type: ProductType; onClose: () => void
       <Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1 }}>
         {brands.map(({ brand, text, href, external }) => (
           <Box key={brand.slug} component="a" href={href} onClick={onClose} {...(external ? { target: "_blank", rel: "noopener" } : {})}
-            sx={{ display: "flex", flexDirection: "column", gap: 0.5, p: 1.25, borderRadius: "12px", bgcolor: "#fff", border: `1px solid ${BORDER}`, textDecoration: "none" }}>
+            sx={{ display: "flex", flexDirection: "column", gap: 0.5, p: 1.25, borderRadius: "12px", bgcolor: BRAND.white, border: `1px solid ${BORDER}`, textDecoration: "none" }}>
             {brand.logo && (
               <Box sx={{ height: 26, display: "flex", alignItems: "center", overflow: "hidden" }}>
                 <Box component="img" src={brand.logo} alt="" sx={{ maxHeight: 24, maxWidth: 72, objectFit: "contain", transformOrigin: "left center", transform: brand.logoScale ? `scale(${Math.min(brand.logoScale, 1.8)})` : undefined }} />
@@ -91,8 +91,8 @@ function ShopByBrand({ type, onClose }: { type: ProductType; onClose: () => void
         ))}
       </Box>
       <ListItemButton component="a" href="/brands" onClick={onClose} sx={{ mt: 1.25, borderRadius: 999, bgcolor: HEADER_COLOR, justifyContent: "center", py: 0.9, "&:hover": { bgcolor: BRAND.hover } }}>
-        <Typography sx={{ fontSize: "0.86rem", fontWeight: 700, color: "#fff", textTransform: "capitalize !important" }}>All brands</Typography>
-        <ArrowForwardRoundedIcon sx={{ fontSize: 17, color: "#fff", ml: 0.5 }} />
+        <Typography sx={{ fontSize: "0.86rem", fontWeight: 700, color: BRAND.white, textTransform: "capitalize !important" }}>All brands</Typography>
+        <ArrowForwardRoundedIcon sx={{ fontSize: 17, color: BRAND.white, ml: 0.5 }} />
       </ListItemButton>
     </Box>
   );
@@ -254,7 +254,7 @@ export default function MobileMenu({ onClose }: Props) {
               >
                 <ListItemText
                   primary={child.brand ? `${child.brand} · ${child.label}` : child.label}
-                  primaryTypographyProps={{ fontSize: "0.85rem", color: "#444" }}
+                  primaryTypographyProps={{ fontSize: "0.85rem", color: BRAND.body }}
                 />
               </ListItemButton>
             ))}

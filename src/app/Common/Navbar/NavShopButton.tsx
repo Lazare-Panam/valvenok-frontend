@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import Link from "next/link";
 import StorefrontOutlinedIcon from "@mui/icons-material/StorefrontOutlined";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { BRAND } from "@/src/theme/brand";
 
 interface Props {
   open: boolean;
@@ -36,7 +37,7 @@ export default function NavShopButton({
         border: "none",
         borderRadius: "0px",
         bgcolor: "primary.main",
-        color: "#fff",
+        color: BRAND.white,
         textDecoration: "none",
         fontFamily: '"Barlow Condensed", sans-serif',
         fontSize: "17px",

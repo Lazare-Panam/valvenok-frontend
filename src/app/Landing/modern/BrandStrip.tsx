@@ -3,7 +3,8 @@
 import { Box, Typography } from "@mui/material";
 import { keyframes } from "@mui/system";
 import { BRANDS } from "../Brands";
-import { T, textReset } from "./tokens";
+import { T, textReset } from "./homeTokens";
+import { BRAND, withAlpha } from "@/src/theme/brand";
 
 const scroll = keyframes`from { transform: translateX(0); } to { transform: translateX(-50%); }`;
 
@@ -20,8 +21,8 @@ export default function BrandStrip() {
         position: "relative",
         overflow: "hidden",
         py: { xs: 3, md: 3.5 },
-        maskImage: "linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent)",
-        WebkitMaskImage: "linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent)",
+        maskImage: `linear-gradient(90deg, transparent, ${BRAND.ink} 6%, ${BRAND.ink} 94%, transparent)`,
+        WebkitMaskImage: `linear-gradient(90deg, transparent, ${BRAND.ink} 6%, ${BRAND.ink} 94%, transparent)`,
         "&:hover .brand-track": { animationPlayState: "paused" },
       }}
     >
@@ -49,11 +50,11 @@ export default function BrandStrip() {
               pl: 1,
               pr: 3,
               borderRadius: 999,
-              bgcolor: "#fff",
+              bgcolor: BRAND.white,
               border: `1px solid ${T.border}`,
-              boxShadow: "0 2px 10px rgba(14,27,18,0.06)",
+              boxShadow: `0 2px 10px ${withAlpha(BRAND.ink, 0.06)}`,
               transition: "box-shadow .2s, transform .2s",
-              "&:hover": { boxShadow: "0 8px 24px rgba(14,27,18,0.12)", transform: "translateY(-2px)" },
+              "&:hover": { boxShadow: `0 8px 24px ${withAlpha(BRAND.ink, 0.12)}`, transform: "translateY(-2px)" },
             }}
           >
             <Box

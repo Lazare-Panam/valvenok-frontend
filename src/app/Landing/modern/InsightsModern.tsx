@@ -5,10 +5,11 @@ import { Box, Typography } from "@mui/material";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 // Newest first, straight from the News page list, so the latest article always shows here
 import { POSTS } from "@/src/app/news/posts";
-import { T, textReset } from "./tokens";
-import SectionHeader from "./SectionHeader";
-import PillButton from "./Buttons";
+import { T, textReset } from "./homeTokens";
+import SectionHeader from "./HomeSectionHeader";
+import PillButton from "./HomeButtons";
 import { swipeRow } from "./swipeRow";
+import { BRAND } from "@/src/theme/brand";
 
 export default function InsightsModern() {
   return (
@@ -31,7 +32,7 @@ export default function InsightsModern() {
             sx={{
               display: "flex",
               flexDirection: "column",
-              bgcolor: "#fff",
+              bgcolor: BRAND.white,
               border: `1px solid ${T.border}`,
               borderRadius: T.radius,
               overflow: "hidden",
@@ -39,7 +40,7 @@ export default function InsightsModern() {
               transition: "all .25s ease",
               "&:hover": { boxShadow: T.shadowHover, transform: "translateY(-3px)" },
               "&:hover img": { transform: "scale(1.04)" },
-              "&:hover .read": { color: T.greenDark },
+              "&:hover .read": { color: T.brandDark },
             }}
           >
             <Box sx={{ height: 170, overflow: "hidden", bgcolor: T.surface }}>
@@ -53,7 +54,7 @@ export default function InsightsModern() {
             </Box>
             <Box sx={{ p: 2.5, display: "flex", flexDirection: "column", flex: 1 }}>
               <Box sx={{ display: "flex", alignItems: "center", gap: 1, fontSize: "0.75rem" }}>
-                <Box component="span" sx={{ px: 1, py: 0.25, borderRadius: 999, bgcolor: T.greenSoft, color: T.greenDark, fontWeight: 600 }}>
+                <Box component="span" sx={{ px: 1, py: 0.25, borderRadius: 999, bgcolor: T.brandSoft, color: T.brandDark, fontWeight: 600 }}>
                   {post.category}
                 </Box>
                 <Box component="span" sx={{ color: T.muted }}>

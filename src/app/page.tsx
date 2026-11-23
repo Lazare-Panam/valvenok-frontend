@@ -15,6 +15,7 @@ import SocialWall from "./Landing/modern/SocialWall";
 import JoscarModern from "./Landing/modern/JoscarModern";
 import FindUsModern from "./Landing/modern/FindUsModern";
 import PastelZone from "./Landing/modern/PastelZone";
+import HomeFlowLayer from "./Landing/modern/HomeFlowLayer";
 
 // For Next.js App Router (metadata object)
 export const metadata = {
@@ -42,7 +43,7 @@ export const metadata = {
 };
 export default function Home() {
   return (
-    <>
+    <HomeFlowLayer>
       {/* Canonical written by hand: Next.js metadata strips the trailing slash
           from the root URL, and crawlers then report a canonical mismatch for
           https://www.valvenok.com/. React hoists this <link> into <head>. */}
@@ -66,34 +67,45 @@ export default function Home() {
       </h1>
       <HeroModern />
       <TrustBar />
-      <PastelZone tone="mint">
+      {/* Bands alternate white / pale aqua, one section each */}
+      <PastelZone tone="white">
         <BrandStrip />
         <CertificationsModern />
         <QuickNavModern />
       </PastelZone>
-      <PastelZone tone="sky">
+      <PastelZone tone="aqua">
         <FeaturedBrands />
+      </PastelZone>
+      <PastelZone tone="white">
         <ValuePropModern />
       </PastelZone>
-      <PastelZone tone="butter">
+      <PastelZone tone="aqua">
         <WhoWeAreModern />
+      </PastelZone>
+      <PastelZone tone="white">
         <FeaturedProductsModern />
       </PastelZone>
-      <PastelZone tone="mint">
+      <PastelZone tone="aqua">
         <CoreProducts />
         <StatsModern />
       </PastelZone>
       {/* TestimonialsSection removed until there are genuine, attributable
           customer quotes — the previous copy was illustrative (UK ASA rules). */}
-      <PastelZone tone="lilac">
+      <PastelZone tone="white">
         <InsightsModern />
       </PastelZone>
-      <SocialWall />
-      <PastelZone tone="sky">
+      <PastelZone tone="aqua">
+        <SocialWall />
+      </PastelZone>
+      <PastelZone tone="white">
         <FaqModern />
+      </PastelZone>
+      <PastelZone tone="aqua">
         <FindUsModern />
       </PastelZone>
-      <JoscarModern />
-    </>
+      <PastelZone tone="white">
+        <JoscarModern />
+      </PastelZone>
+    </HomeFlowLayer>
   );
 }

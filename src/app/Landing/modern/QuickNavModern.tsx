@@ -8,7 +8,8 @@ import BuildOutlinedIcon from "@mui/icons-material/BuildOutlined";
 import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
-import { T, textReset } from "./tokens";
+import { T, textReset } from "./homeTokens";
+import { BRAND, BRAND_GRADIENT, withAlpha } from "@/src/theme/brand";
 
 // Each card opens its category page (not a deep sub-page).
 const QUICK_LINKS = [
@@ -44,26 +45,27 @@ export default function QuickNavModern() {
               p: 2.25,
               borderRadius: T.radius,
               border: `1px solid ${T.border}`,
-              bgcolor: "#fff",
+              bgcolor: BRAND.white,
               color: T.ink,
               textDecoration: "none",
               overflow: "hidden",
               transition: "all .25s ease",
               "& .qn-icon": { transition: "all .25s ease" },
               "& .qn-arrow": { transition: "all .25s ease" },
+              // Light hover (23 Nov 2026): pale aqua card instead of a dark fill
               "&:hover": {
-                bgcolor: T.greenDeep,
-                borderColor: T.greenDeep,
-                color: "#fff",
+                bgcolor: BRAND.white,
+                borderColor: BRAND.main,
+                color: T.brandDeep,
                 transform: "translateY(-3px)",
-                boxShadow: "0 16px 32px rgba(18,61,23,0.25)",
+                boxShadow: `0 14px 28px ${withAlpha(BRAND.main, 0.14)}`,
               },
-              "&:hover .qn-icon": { bgcolor: T.green, color: T.greenDeep },
+              "&:hover .qn-icon": { background: BRAND_GRADIENT, color: BRAND.white },
               "&:hover .qn-arrow": { opacity: 1, transform: "translate(0,0)" },
             }}
           >
             <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
-              <Box className="qn-icon" sx={{ width: 46, height: 46, borderRadius: "14px", display: "grid", placeItems: "center", bgcolor: T.greenSoft, color: T.greenDark }}>
+              <Box className="qn-icon" sx={{ width: 46, height: 46, borderRadius: "14px", display: "grid", placeItems: "center", bgcolor: T.brandSoft, color: T.brandDark }}>
                 <Icon sx={{ fontSize: 24 }} />
               </Box>
               <ArrowOutwardRoundedIcon className="qn-arrow" sx={{ fontSize: 20, opacity: 0, transform: "translate(-4px,4px)" }} />

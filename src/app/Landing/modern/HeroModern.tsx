@@ -6,8 +6,9 @@ import { Box, IconButton, Typography } from "@mui/material";
 import { keyframes } from "@mui/system";
 import ChevronLeftRoundedIcon from "@mui/icons-material/ChevronLeftRounded";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
-import { T, textReset } from "./tokens";
-import PillButton from "./Buttons";
+import { T, textReset } from "./homeTokens";
+import PillButton from "./HomeButtons";
+import { AQUA, BRAND, withAlpha } from "@/src/theme/brand";
 
 // Slide copy is unchanged from the original HeroSlider. Images swapped for
 // high-resolution originals (served resized by next/image).
@@ -84,7 +85,7 @@ export default function HeroModern() {
           minHeight: { xs: 560, md: 640 },
           display: "flex",
           alignItems: "center",
-          bgcolor: T.greenDeep,
+          bgcolor: T.brandDeep,
         }}
       >
         {/* All slide images stay mounted and cross-fade, so changes are instant */}
@@ -119,8 +120,9 @@ export default function HeroModern() {
             position: "absolute",
             inset: 0,
             background: {
-              xs: "linear-gradient(180deg, rgba(10,32,14,0.55) 0%, rgba(10,32,14,0.9) 70%)",
-              md: "linear-gradient(90deg, rgba(10,32,14,0.94) 0%, rgba(10,32,14,0.82) 40%, rgba(10,32,14,0.25) 72%, rgba(10,32,14,0.05) 100%)",
+              xs: `linear-gradient(180deg, ${withAlpha(BRAND.ink, 0.55)} 0%, ${withAlpha(BRAND.ink, 0.9)} 70%)`,
+              // Dark behind the text, fading out by the middle so the photo keeps its own colours
+              md: `linear-gradient(90deg, ${withAlpha(BRAND.ink, 0.9)} 0%, ${withAlpha(BRAND.ink, 0.7)} 35%, ${withAlpha(BRAND.ink, 0.15)} 60%, transparent 75%)`,
             },
           }}
         />
@@ -135,16 +137,16 @@ export default function HeroModern() {
                 px: 1.5,
                 py: 0.6,
                 borderRadius: 999,
-                bgcolor: "rgba(255,255,255,0.1)",
-                border: "1px solid rgba(255,255,255,0.2)",
+                bgcolor: withAlpha(BRAND.white, 0.1),
+                border: `1px solid ${withAlpha(BRAND.white, 0.2)}`,
                 backdropFilter: "blur(6px)",
-                color: "#D8F5CF",
+                color: BRAND.tintStrong,
                 fontSize: "0.75rem",
                 fontWeight: 600,
                 letterSpacing: "0.08em",
               }}
             >
-              <Box component="span" sx={{ width: 7, height: 7, borderRadius: "50%", bgcolor: T.green }} />
+              <Box component="span" sx={{ width: 7, height: 7, borderRadius: "50%", bgcolor: AQUA.glowDeep }} />
               {slide.upperTag}
             </Box>
 
@@ -156,17 +158,17 @@ export default function HeroModern() {
                 letterSpacing: "-0.035em",
                 lineHeight: 1.05,
                 fontSize: { xs: "2.1rem", sm: "3.1rem", md: "3.75rem" },
-                color: "#fff",
+                color: BRAND.white,
               }}
             >
               {slide.title}{" "}
               <Box component="span" sx={{ display: "block" }}>
-                {/* Shimmering gradient, as on the About page (brighter greens for the dark photo) */}
+                {/* Shimmering bright-aqua gradient: the light aquas read best on the dark photo */}
                 <Box component="span" key={slide.accent}>
                   <Box
                     component="span"
                     sx={{
-                      background: "linear-gradient(90deg, #61D649, #9BEA7E, #B8F0D4, #61D649)",
+                      background: `linear-gradient(90deg, ${AQUA.glowDeep}, ${AQUA.soft}, ${AQUA.glowDeep})`,
                       backgroundSize: "200% auto",
                       WebkitBackgroundClip: "text",
                       backgroundClip: "text",
@@ -182,12 +184,12 @@ export default function HeroModern() {
               </Box>
             </Typography>
 
-            <Typography sx={{ mt: 2.5, fontSize: { xs: "0.98rem", md: "1.12rem" }, lineHeight: 1.7, color: "rgba(255,255,255,0.8)", maxWidth: 560 }}>
+            <Typography sx={{ mt: 2.5, fontSize: { xs: "0.98rem", md: "1.12rem" }, lineHeight: 1.7, color: withAlpha(BRAND.white, 0.8), maxWidth: 560 }}>
               {slide.description}
             </Typography>
 
             <Box sx={{ mt: 4 }}>
-              <PillButton href={slide.href}>{slide.btnText}</PillButton>
+              <PillButton href={slide.href} variant="glow">{slide.btnText}</PillButton>
             </Box>
           </Box>
         </Box>
@@ -223,7 +225,7 @@ export default function HeroModern() {
                   borderRadius: 999,
                   overflow: "hidden",
                   cursor: "pointer",
-                  bgcolor: "rgba(255,255,255,0.35)",
+                  bgcolor: withAlpha(BRAND.white, 0.35),
                   transition: "width .3s ease",
                 }}
               >
@@ -233,7 +235,7 @@ export default function HeroModern() {
                     sx={{
                       position: "absolute",
                       inset: 0,
-                      bgcolor: T.green,
+                      bgcolor: AQUA.soft,
                       transformOrigin: "left",
                       animation: `${fill} ${s.duration}ms linear both`,
                     }}
@@ -253,11 +255,11 @@ export default function HeroModern() {
               sx={{
                 width: { xs: 36, md: 44 },
                 height: { xs: 36, md: 44 },
-                color: "#fff",
-                border: "1px solid rgba(255,255,255,0.35)",
-                bgcolor: "rgba(255,255,255,0.08)",
+                color: BRAND.white,
+                border: `1px solid ${withAlpha(BRAND.white, 0.35)}`,
+                bgcolor: withAlpha(BRAND.white, 0.08),
                 backdropFilter: "blur(6px)",
-                "&:hover": { bgcolor: "rgba(255,255,255,0.18)" },
+                "&:hover": { bgcolor: withAlpha(BRAND.white, 0.18) },
               }}
             >
               {b.icon}

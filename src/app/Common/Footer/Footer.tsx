@@ -21,8 +21,25 @@ import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
 import ExpandMoreRoundedIcon from "@mui/icons-material/ExpandMoreRounded";
 import NextLink from "next/link";
 import { GROUP_SITES } from "../group";
+import { usePathname } from "next/navigation";
+import { AQUA, BRAND, TEAL } from "@/src/theme/brand";
 
 const BRAND_GREEN = "#61D649";
+
+// The homepage is on the new teal palette (23 Nov 2026); other pages keep the
+// green footer until they move over. Teal colours come from src/theme/brand.ts.
+const GREEN_FOOTER = {
+  bg: "linear-gradient(115deg, #0F3314 0%, #1B5E1A 45%, #2E8B1E 85%, #3FAE2C 120%)",
+  accent: BRAND_GREEN,
+  deep: "#123D17",
+  mid: "#2E8B1E",
+};
+const TEAL_FOOTER = {
+  bg: `linear-gradient(115deg, ${TEAL[950]} 0%, ${TEAL[850]} 45%, ${TEAL[700]} 85%, ${TEAL[500]} 120%)`,
+  accent: AQUA.glow,
+  deep: BRAND.deep,
+  mid: BRAND.main,
+};
 const FONT = "var(--font-geist-sans), Inter, system-ui, sans-serif";
 const LOGO_URL =
   "https://pblol2.blob.core.windows.net/valvenok-images/valvenok-new-logo.jpeg";
@@ -77,6 +94,7 @@ const FOOTER_LINKS = [
 ];
 
 export default function Footer() {
+  const P = usePathname() === "/" ? TEAL_FOOTER : GREEN_FOOTER;
   const linkSx = {
     color: alpha("#fff", 0.82),
     fontSize: "0.92rem",
@@ -113,7 +131,7 @@ export default function Footer() {
         "& *": { fontFamily: `${FONT} !important` },
         "& p, & a, & span": { textTransform: "capitalize" },
         background:
-          "linear-gradient(115deg, #0F3314 0%, #1B5E1A 45%, #2E8B1E 85%, #3FAE2C 120%)",
+          P.bg,
         // Faint engineering grid, as on the Panam footer
         "&::before": {
           content: '""',
@@ -196,7 +214,7 @@ export default function Footer() {
                   fontWeight: 800,
                   fontSize: "1rem",
                   letterSpacing: "0.04em",
-                  color: "#123D17",
+                  color: P.deep,
                   textTransform: "uppercase !important",
                 }}
               >
@@ -204,7 +222,7 @@ export default function Footer() {
                 <Box
                   component="span"
                   sx={{
-                    color: "#2E8B1E",
+                    color: P.mid,
                     textTransform: "uppercase !important",
                   }}
                 >
@@ -285,7 +303,7 @@ export default function Footer() {
                 transition: "all .2s ease",
                 "&:hover": {
                   bgcolor: "#fff",
-                  color: "#123D17",
+                  color: P.deep,
                   transform: "translateY(-2px)",
                 },
               }}
@@ -426,7 +444,7 @@ export default function Footer() {
                 transition: "all .2s",
                 "&:hover": {
                   bgcolor: "#fff",
-                  color: "#123D17",
+                  color: P.deep,
                   borderColor: "#fff",
                 },
               }}
@@ -499,7 +517,7 @@ export default function Footer() {
                   borderColor: alpha("#fff", 0.22),
                 }}
               >
-                <Icon sx={{ fontSize: 15, color: BRAND_GREEN }} />
+                <Icon sx={{ fontSize: 15, color: P.accent }} />
                 <Typography
                   sx={{
                     fontWeight: 700,

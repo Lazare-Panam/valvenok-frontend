@@ -4,7 +4,8 @@ import { Box, Typography } from "@mui/material";
 import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
 import SupportAgentOutlinedIcon from "@mui/icons-material/SupportAgentOutlined";
 import VerifiedOutlinedIcon from "@mui/icons-material/VerifiedOutlined";
-import { T, textReset } from "./tokens";
+import { T, textReset } from "./homeTokens";
+import { BRAND } from "@/src/theme/brand";
 
 // Delivery, support and JOSCAR. (“Trade Credit Accounts Available” removed 17 Nov 2026: not offered.)
 const ITEMS = [
@@ -20,7 +21,7 @@ export default function TrustBar() {
         sx={{
           display: "grid",
           gridTemplateColumns: { xs: "1fr", sm: "repeat(3, 1fr)" },
-          bgcolor: "#fff",
+          bgcolor: BRAND.white,
           border: `1px solid ${T.border}`,
           borderRadius: T.radius,
           boxShadow: T.shadow,
@@ -48,8 +49,8 @@ export default function TrustBar() {
                 borderRadius: "12px",
                 display: "grid",
                 placeItems: "center",
-                bgcolor: T.greenSoft,
-                color: T.greenDark,
+                bgcolor: T.brandSoft,
+                color: T.brandDark,
               }}
             >
               <Icon fontSize="small" />

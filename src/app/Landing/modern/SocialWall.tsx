@@ -6,8 +6,9 @@ import { Box, Typography } from "@mui/material";
 import { keyframes } from "@mui/system";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import ArticleOutlinedIcon from "@mui/icons-material/ArticleOutlined";
-import { T, textReset } from "./tokens";
-import { Eyebrow } from "./SectionHeader";
+import { T, textReset } from "./homeTokens";
+import { Eyebrow } from "./HomeSectionHeader";
+import { BRAND, withAlpha } from "@/src/theme/brand";
 
 // Modelled on the "Join the Conversation" wall on bray.com: two full-width rows of
 // 140px tiles drifting slowly in opposite directions, faded towards both edges,
@@ -80,8 +81,8 @@ function Row({ items, reverse = false, described = false, cta }: { items: Tile[]
           width: "100%",
           overflow: "hidden",
           // Fades out at both edges, strongest in the centre
-          maskImage: "linear-gradient(to right, transparent 0%, rgba(0,0,0,.15) 10%, rgba(0,0,0,.4) 50%, rgba(0,0,0,.15) 90%, transparent 100%)",
-          WebkitMaskImage: "linear-gradient(to right, transparent 0%, rgba(0,0,0,.15) 10%, rgba(0,0,0,.4) 50%, rgba(0,0,0,.15) 90%, transparent 100%)",
+          maskImage: `linear-gradient(to right, transparent 0%, ${withAlpha(BRAND.ink, 0.15)} 10%, ${withAlpha(BRAND.ink, 0.4)} 50%, ${withAlpha(BRAND.ink, 0.15)} 90%, transparent 100%)`,
+          WebkitMaskImage: `linear-gradient(to right, transparent 0%, ${withAlpha(BRAND.ink, 0.15)} 10%, ${withAlpha(BRAND.ink, 0.4)} 50%, ${withAlpha(BRAND.ink, 0.15)} 90%, transparent 100%)`,
         }}
       >
         <Box
@@ -103,7 +104,7 @@ function Row({ items, reverse = false, described = false, cta }: { items: Tile[]
               <Box
                 key={i}
                 aria-hidden={labelled ? undefined : true}
-                sx={{ position: "relative", flexShrink: 0, width: { xs: 121, md: TILE }, height: { xs: 121, md: TILE }, bgcolor: "#DCE5DE", overflow: "hidden" }}
+                sx={{ position: "relative", flexShrink: 0, width: { xs: 121, md: TILE }, height: { xs: 121, md: TILE }, bgcolor: BRAND.border, overflow: "hidden" }}
               >
                 <Image src={p.src} alt={p.alt} fill sizes={`${TILE}px`} quality={75} loading="lazy" style={{ objectFit: "cover", objectPosition: "top" }} />
               </Box>
@@ -130,13 +131,13 @@ function CtaButton({ href, external, icon, children, color }: { href: string; ex
         width: { xs: 220, md: 250 },
         height: { xs: 48, md: 75 },
         borderRadius: "10px",
-        border: "1px solid rgba(255,255,255,0.9)",
+        border: `1px solid ${withAlpha(BRAND.white, 0.9)}`,
         bgcolor: color,
-        color: "#fff",
+        color: BRAND.white,
         fontWeight: 600,
         fontSize: { xs: "0.92rem", md: "1rem" },
         textDecoration: "none",
-        boxShadow: "4px 4px 8px rgba(57,57,56,0.25)",
+        boxShadow: `4px 4px 8px ${withAlpha(BRAND.body, 0.25)}`,
         transition: "transform .2s, filter .2s",
         "&:hover": { transform: "translateY(-2px)", filter: "brightness(1.08)" },
       }}
@@ -178,7 +179,7 @@ export default function SocialWall() {
           items={ROW_A}
           described
           cta={
-            <CtaButton href={LINKEDIN} external color="#0E76A8" icon={<LinkedInIcon />}>
+            <CtaButton href={LINKEDIN} external color={BRAND.hover} icon={<LinkedInIcon />}>
               Follow us on LinkedIn
             </CtaButton>
           }
@@ -187,7 +188,7 @@ export default function SocialWall() {
           items={ROW_B}
           reverse
           cta={
-            <CtaButton href="/news" color={T.greenDark} icon={<ArticleOutlinedIcon />}>
+            <CtaButton href="/news" color={T.brandDark} icon={<ArticleOutlinedIcon />}>
               Read our latest news
             </CtaButton>
           }

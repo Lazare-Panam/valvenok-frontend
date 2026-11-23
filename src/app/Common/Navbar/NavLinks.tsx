@@ -4,7 +4,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { NAV_LINKS } from "./Navbardata";
-import { BRAND } from "@/src/theme/brand";
+import { BRAND, withAlpha } from "@/src/theme/brand";
 
 export const navItem = {
   display: "flex",
@@ -71,7 +71,7 @@ export default function NavLinks({ collapsed, measureRef }: { collapsed: boolean
         {open && (
           <Box
             role="menu"
-            sx={{ position: "absolute", top: "calc(100% + 8px)", right: 0, zIndex: 400, minWidth: 200, p: 1, borderRadius: "16px", bgcolor: "#fff", border: `1px solid ${BRAND.border}`, boxShadow: "0 18px 40px -12px rgba(1,40,41,0.25)" }}
+            sx={{ position: "absolute", top: "calc(100% + 8px)", right: 0, zIndex: 400, minWidth: 200, p: 1, borderRadius: "16px", bgcolor: BRAND.white, border: `1px solid ${BRAND.border}`, boxShadow: `0 18px 40px -12px ${withAlpha(BRAND.ink, 0.25)}` }}
           >
             {NAV_LINKS.map((link) => (
               <Box key={link.label} component="a" role="menuitem" href={link.href} sx={{ ...navItem, px: 1.75, py: 1.1, borderRadius: "10px", fontSize: "0.92rem", color: BRAND.ink, boxShadow: "none", "&:hover": { color: BRAND.hover, bgcolor: BRAND.tint, boxShadow: "none" } }}>

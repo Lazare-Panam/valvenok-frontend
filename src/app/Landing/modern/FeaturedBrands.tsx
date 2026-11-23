@@ -3,10 +3,11 @@
 import Link from "next/link";
 import { Box, Typography } from "@mui/material";
 import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
-import { T, textReset } from "./tokens";
-import SectionHeader from "./SectionHeader";
-import PillButton from "./Buttons";
+import { T, textReset } from "./homeTokens";
+import SectionHeader from "./HomeSectionHeader";
+import PillButton from "./HomeButtons";
 import { swipeRow } from "./swipeRow";
+import { BRAND } from "@/src/theme/brand";
 
 // The original FeaturedStrip brands, plus our Hiflux and Kosa Plus sister sites.
 const BRANDS = [
@@ -16,7 +17,7 @@ const BRANDS = [
     desc: "Instrumentation valves and fittings for global process industries.",
     href: "https://www.panamvalve.com/",
     external: true,
-    accent: "#1E88E5",
+    accent: BRAND.main,
   },
   {
     name: "Susin I-Tork",
@@ -24,7 +25,7 @@ const BRANDS = [
     desc: "Pneumatic, electric, hydraulic and mechanical actuators, and limit switch boxes.",
     href: "/brands/susin",
     external: false,
-    accent: "#D7262E",
+    accent: BRAND.deep,
   },
   {
     name: "Value Valves",
@@ -32,7 +33,7 @@ const BRANDS = [
     desc: "Butterfly valves and flow control solutions for industrial piping systems.",
     href: "/valves/industrial-valves/butterfly-valves/centric-butterfly-valve/products",
     external: false,
-    accent: "#1D3F8F",
+    accent: BRAND.hover,
   },
   {
     name: "Mars Valves",
@@ -40,7 +41,7 @@ const BRANDS = [
     desc: "Industrial valve solutions for a wide range of flow control applications.",
     href: "https://www.marsvalvenok.com/",
     external: true,
-    accent: "#E3262B",
+    accent: BRAND.deep,
   },
   {
     name: "Hiflux",
@@ -48,7 +49,7 @@ const BRANDS = [
     desc: "High pressure valves, cone and thread fittings, tubing and tooling.",
     href: "https://www.hiflux.uk.com/",
     external: true,
-    accent: "#1D8FD8",
+    accent: BRAND.main,
   },
   {
     name: "Kosa Plus",
@@ -57,7 +58,7 @@ const BRANDS = [
     desc: "Pneumatic and electric valve actuators and position indicators.",
     href: "https://www.kosaplus.co.uk/",
     external: true,
-    accent: "#1F4E9C",
+    accent: BRAND.hover,
   },
 ];
 
@@ -85,7 +86,7 @@ export default function FeaturedBrands() {
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                bgcolor: "#fff",
+                bgcolor: BRAND.white,
                 border: `1px solid ${T.border}`,
                 borderRadius: "22px",
                 overflow: "hidden",
@@ -93,7 +94,7 @@ export default function FeaturedBrands() {
                 transition: "all .3s ease",
                 "&:hover": { boxShadow: T.shadowHover, transform: "translateY(-4px)" },
                 "&:hover .brand-logo": { scale: "1.06" },
-                "&:hover .brand-cta": { bgcolor: T.ink, color: "#fff", borderColor: T.ink },
+                "&:hover .brand-cta": { bgcolor: T.ink, color: BRAND.white, borderColor: T.ink },
               }}
             >
               <Box
@@ -102,7 +103,7 @@ export default function FeaturedBrands() {
                   height: 170,
                   display: "grid",
                   placeItems: "center",
-                  background: `radial-gradient(260px 160px at 50% 60%, #fff 0%, ${T.surface} 100%)`,
+                  background: `radial-gradient(260px 160px at 50% 60%, ${BRAND.white} 0%, ${T.surface} 100%)`,
                   borderBottom: `1px solid ${T.border}`,
                   "&::before": { content: '""', position: "absolute", top: 0, left: 0, right: 0, height: 4, bgcolor: b.accent },
                 }}

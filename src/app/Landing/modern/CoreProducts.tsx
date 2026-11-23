@@ -5,8 +5,9 @@ import Link from "next/link";
 import { Box, Typography } from "@mui/material";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import SubdirectoryArrowRightRoundedIcon from "@mui/icons-material/SubdirectoryArrowRightRounded";
-import { T, textReset } from "./tokens";
-import SectionHeader from "./SectionHeader";
+import { T, textReset } from "./homeTokens";
+import SectionHeader from "./HomeSectionHeader";
+import { AQUA, BRAND, BRAND_GRADIENT, BRAND_GRADIENT_HOVER, LOGO, withAlpha } from "@/src/theme/brand";
 
 // Same data as the original Categories section.
 const CATEGORIES = [
@@ -90,14 +91,16 @@ const CATEGORIES = [
 // Panel backgrounds: soft neutral tints so the cut-out product shots read
 // cleanly; the active panel lifts to white.
 const PANEL_BG = [
-  "linear-gradient(170deg, #F7FAF7 0%, #ECF2ED 100%)",
-  "linear-gradient(170deg, #F6F8FA 0%, #EBEFF3 100%)",
-  "linear-gradient(170deg, #F8F8F5 0%, #EEEEE8 100%)",
-  "linear-gradient(170deg, #F5F9F6 0%, #E8F0EA 100%)",
-  "linear-gradient(170deg, #F7F7F9 0%, #ECECF1 100%)",
-  "linear-gradient(170deg, #F6F9F5 0%, #EAF1E7 100%)",
+  // White cards so they stand out from the pale aqua page background (23 Nov 2026)
+  `linear-gradient(180deg, ${BRAND.white} 0%, ${BRAND.white} 70%, ${BRAND.wash} 100%)`,
+  `linear-gradient(180deg, ${BRAND.white} 0%, ${BRAND.white} 70%, ${BRAND.wash} 100%)`,
+  `linear-gradient(180deg, ${BRAND.white} 0%, ${BRAND.white} 70%, ${BRAND.wash} 100%)`,
+  `linear-gradient(180deg, ${BRAND.white} 0%, ${BRAND.white} 70%, ${BRAND.wash} 100%)`,
+  `linear-gradient(180deg, ${BRAND.white} 0%, ${BRAND.white} 70%, ${BRAND.wash} 100%)`,
+  `linear-gradient(180deg, ${BRAND.white} 0%, ${BRAND.white} 70%, ${BRAND.wash} 100%)`,
 ];
-const ACTIVE_BG = `radial-gradient(700px 420px at 85% 50%, #FFFFFF 0%, transparent 70%), linear-gradient(135deg, #FFFFFF 0%, ${"#EEF9EA"} 100%)`;
+// Open panel: white, with a pale aqua glow behind the product (23 Nov 2026)
+const ACTIVE_BG = `radial-gradient(520px 400px at 76% 50%, ${AQUA.mistLight} 0%, transparent 70%), ${BRAND.white}`;
 
 export default function CoreProducts() {
   const [active, setActive] = useState(3); // Fittings & Instrumentation Valves
@@ -120,14 +123,14 @@ export default function CoreProducts() {
               px: 2.25,
               py: 1.1,
               borderRadius: 999,
-              border: `1px solid ${i === active ? T.green : T.border}`,
-              bgcolor: i === active ? T.green : "#fff",
-              color: i === active ? T.greenDeep : T.ink,
+              border: `1px solid ${i === active ? LOGO.mid : T.border}`,
+              background: i === active ? BRAND_GRADIENT : BRAND.white,
+              color: i === active ? BRAND.white : T.ink,
               fontSize: "0.92rem",
               fontWeight: 600,
               cursor: "pointer",
               transition: "all .2s",
-              "&:hover": { borderColor: T.green },
+              "&:hover": { borderColor: T.brand },
             }}
           >
             {cat.name}
@@ -150,13 +153,13 @@ export default function CoreProducts() {
                 borderRadius: "24px",
                 cursor: isActive ? "default" : "pointer",
                 background: isActive ? ACTIVE_BG : PANEL_BG[i % PANEL_BG.length],
-                border: `1px solid ${isActive ? "#CFE6C8" : T.border}`,
+                border: `1px solid ${isActive ? withAlpha(BRAND.main, 0.35) : BRAND.border}`,
                 flex: { md: isActive ? "6 1 0" : "1 1 0" },
                 minWidth: 0,
                 minHeight: { xs: isActive ? 640 : 84, md: "auto" },
                 transition: "flex .6s cubic-bezier(.2,.8,.2,1), min-height .4s ease, box-shadow .3s",
-                boxShadow: isActive ? "0 24px 48px rgba(14,27,18,0.12)" : "none",
-                "&:hover": isActive ? {} : { borderColor: "#CFE6C8" },
+                boxShadow: isActive ? `0 24px 48px ${withAlpha(BRAND.main, 0.16)}` : `0 6px 18px ${withAlpha(BRAND.ink, 0.05)}`,
+                "&:hover": isActive ? {} : { borderColor: BRAND.hoverBorder },
                 "&::before": {
                   content: '""',
                   position: "absolute",
@@ -165,8 +168,8 @@ export default function CoreProducts() {
                   right: -160,
                   top: -160,
                   borderRadius: "50%",
-                  border: "1px solid rgba(46,139,30,0.08)",
-                  boxShadow: "0 0 0 70px rgba(46,139,30,0.025), 0 0 0 140px rgba(46,139,30,0.02)",
+                  border: `1px solid ${withAlpha(AQUA.glow, 0.25)}`,
+                  boxShadow: `0 0 0 70px ${withAlpha(AQUA.mistLight, 0.35)}, 0 0 0 140px ${withAlpha(AQUA.mistFaint, 0.3)}`,
                 },
               }}
             >
@@ -177,8 +180,9 @@ export default function CoreProducts() {
                   display: "grid",
                   placeItems: "center",
                   borderRadius: "50%",
-                  background: "radial-gradient(circle, #ffffff 0%, #EEF6EC 70%)",
-                  boxShadow: "0 16px 40px rgba(14,27,18,0.12)",
+                  background: `radial-gradient(circle, ${BRAND.white} 0%, ${BRAND.white} 45%, ${AQUA.mistFaint} 100%)`,
+                  border: `1px solid ${withAlpha(AQUA.soft, 0.6)}`,
+                  boxShadow: `0 0 0 10px ${withAlpha(AQUA.mistFaint, 0.8)}, 0 20px 50px ${withAlpha(BRAND.main, 0.18)}`,
                   transition: "all .6s cubic-bezier(.2,.8,.2,1)",
                   ...(isActive
                     ? { width: { xs: 170, md: 340 }, height: { xs: 170, md: 340 }, right: { xs: "50%", md: 56 }, top: { xs: 24, md: "50%" }, transform: { xs: "translateX(50%)", md: "translateY(-50%)" } }
@@ -254,16 +258,18 @@ export default function CoreProducts() {
                 }}
               >
                 <Box sx={{ display: "flex", alignItems: "center", gap: 1.25, mb: 2 }}>
-                  <Box component="span" sx={{ px: 1.5, py: 0.5, borderRadius: 999, bgcolor: T.green, color: T.greenDeep, fontSize: "0.78rem", fontWeight: 700 }}>
+                  <Box component="span" sx={{ px: 1.5, py: 0.5, borderRadius: 999, background: BRAND_GRADIENT, color: BRAND.white, fontSize: "0.78rem", fontWeight: 700 }}>
                     {cat.tag}
                   </Box>
-                  <Box component="span" sx={{ fontSize: "0.85rem", color: T.muted, fontWeight: 600 }}>
+                  <Box component="span" sx={{ fontSize: "0.85rem", color: T.brandDark, fontWeight: 700 }}>
                     {cat.count} Products
                   </Box>
                 </Box>
                 <Typography component="h3" sx={{ fontWeight: 700, fontSize: { xs: "1.8rem", md: "2.4rem" }, letterSpacing: "-0.03em", lineHeight: 1.1 }}>
                   {cat.name}
                 </Typography>
+                {/* Short aqua accent under the title */}
+                <Box aria-hidden sx={{ mt: 1.5, width: 56, height: 4, borderRadius: 999, background: `linear-gradient(90deg, ${AQUA.glow}, ${BRAND.main})` }} />
                 <Box component="ul" sx={{ listStyle: "none", p: 0, m: 0, mt: 2.5, display: "grid", gap: 1 }}>
                   {cat.subs.map((sub) => (
                     <Box component="li" key={sub.name}>
@@ -279,7 +285,7 @@ export default function CoreProducts() {
                           textDecoration: "none",
                           fontSize: "0.98rem",
                           fontWeight: 500,
-                          "&:hover": { color: T.greenDark, "& .sub-ic": { bgcolor: T.green, color: T.greenDeep, borderColor: T.green } },
+                          "&:hover": { color: T.brandDark, "& .sub-ic": { background: BRAND_GRADIENT, color: BRAND.white, borderColor: "transparent" } },
                         }}
                       >
                         <Box
@@ -290,9 +296,9 @@ export default function CoreProducts() {
                             borderRadius: "9px",
                             display: "grid",
                             placeItems: "center",
-                            bgcolor: "#fff",
-                            border: `1px solid ${T.border}`,
-                            color: T.greenDark,
+                            bgcolor: AQUA.mistFaint,
+                            border: `1px solid ${withAlpha(AQUA.soft, 0.7)}`,
+                            color: T.brandDark,
                             transition: "all .2s",
                           }}
                         >
@@ -315,14 +321,14 @@ export default function CoreProducts() {
                     px: 2.75,
                     py: 1.4,
                     borderRadius: "12px",
-                    bgcolor: T.green,
-                    color: T.greenDeep,
+                    background: BRAND_GRADIENT,
+                    color: BRAND.white,
                     fontWeight: 700,
                     fontSize: "0.95rem",
                     whiteSpace: { xs: "normal", md: "nowrap" },
                     textDecoration: "none",
                     transition: "all .2s",
-                    "&:hover": { bgcolor: "#55C93E", transform: "translateY(-2px)", boxShadow: "0 10px 24px -8px rgba(97,214,73,0.6)" },
+                    "&:hover": { background: BRAND_GRADIENT_HOVER, transform: "translateY(-2px)", boxShadow: `0 10px 24px -8px ${withAlpha(BRAND.main, 0.6)}` },
                     "& svg": { transition: "transform .2s" },
                     "&:hover svg": { transform: "translateX(3px)" },
                   }}
