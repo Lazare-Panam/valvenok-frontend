@@ -203,7 +203,7 @@ function Hero() {
 }
 
 // ───────────────────────── Marquee (outlined) ─────────────────────────
-const MARQUEE = ["Valves", "Fittings", "Instrumentation", "UK Support", "SS316", "JOSCAR Registered", "BVAA Member", "Hydrogen Ready", "No Minimum Order", "Traceable Quality", "Straight Talking"];
+const MARQUEE = ["Valves", "Fittings", "Instrumentation", "UK Support", "SS316", "JOSCAR Registered", "BVAA Member", "Hydrogen Ready", "No Minimum Order", "Traceable Quality"];
 
 function Marquee() {
   const row = [...MARQUEE, ...MARQUEE];
@@ -271,16 +271,17 @@ function LogoWall() {
                   display: "grid",
                   placeItems: "center",
                   borderRadius: "18px",
+                  overflow: "hidden",
                   bgcolor: BRAND.white,
                   border: `1px solid ${T.border}`,
                   boxShadow: T.shadow,
                   transition: "transform .25s, box-shadow .25s, border-color .25s",
-                  "& img": { filter: "grayscale(1)", opacity: 0.6, transition: "filter .3s, opacity .3s" },
                   "&:hover": { transform: "translateY(-4px)", boxShadow: T.shadowHover, borderColor: withAlpha(LOGO.top, 0.4) },
-                  "&:hover img": { filter: "none", opacity: 1 },
+                  "& img": { transition: "transform .3s" },
+                  "&:hover img": { transform: "scale(1.06)" },
                 }}
               >
-                <Box component="img" src={b.logo} alt={`${b.name} logo`} loading="lazy" sx={{ maxWidth: "64%", maxHeight: "52%", objectFit: "contain", transform: b.scale ? `scale(${b.scale})` : undefined }} />
+                <Box component="img" src={b.logo} alt={`${b.name} logo`} loading="lazy" sx={{ display: "block", width: "auto", height: "auto", maxWidth: "68%", maxHeight: { xs: 46, md: 58 }, objectFit: "contain" }} />
               </Box>
             ))}
           </Box>
