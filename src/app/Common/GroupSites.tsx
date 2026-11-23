@@ -5,6 +5,10 @@ import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
 import { GROUP_SITES } from "./group";
 import { T, textReset } from "../Landing/modern/tokens";
 import { Eyebrow } from "../Landing/modern/SectionHeader";
+import { Eyebrow as TealEyebrow } from "../Landing/modern/HomeSectionHeader";
+import { T as TT } from "../Landing/modern/homeTokens";
+import { BRAND } from "@/src/theme/brand";
+import { swipeRow } from "../Landing/modern/swipeRow";
 
 const host = (url: string) => new URL(url).hostname.replace(/^www\./, "");
 
@@ -14,18 +18,25 @@ export default function GroupSites({
   title = "Our group",
   subtitle,
   compact = false,
+  teal = false,
 }: {
   title?: string;
   subtitle?: string;
   compact?: boolean;
+  /** New teal palette (About page, 23 Nov 2026); Contact stays green until it moves over. */
+  teal?: boolean;
 }) {
+  const E = teal ? TealEyebrow : Eyebrow;
+  const tone = teal
+    ? { hoverBorder: BRAND.hoverBorder, go: TT.brandSoft, goText: TT.brandDark, goHover: TT.brand, goHoverText: BRAND.white }
+    : { hoverBorder: "#BFE3B4", go: T.greenSoft, goText: T.greenDark, goHover: T.green, goHoverText: T.greenDeep };
   return (
     <Box
       component="section"
       sx={{ ...textReset, width: "100%", boxSizing: "border-box", maxWidth: compact ? 1240 : T.maxWidth, mx: "auto", px: { xs: 2, md: 4 }, py: compact ? { xs: 5, md: 7 } : { xs: 8, md: 11 } }}
     >
       <Box sx={{ mb: { xs: 3, md: 4 }, maxWidth: 720 }}>
-        <Eyebrow>Group companies</Eyebrow>
+        <E>Group companies</E>
         <Typography component="h2" sx={{ mt: 2, fontWeight: 700, letterSpacing: "-0.03em", lineHeight: 1.1, fontSize: compact ? { xs: "1.6rem", md: "2rem" } : { xs: "2rem", md: "2.75rem" }, color: T.ink }}>
           {title}
         </Typography>
@@ -33,11 +44,15 @@ export default function GroupSites({
       </Box>
 
       <Box
-        sx={{
-          display: "grid",
-          gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)", lg: compact ? "repeat(5, 1fr)" : "repeat(3, 1fr)" },
-          gap: 2,
-        }}
+        sx={
+          teal
+            ? swipeRow({ sm: "repeat(2, 1fr)", lg: compact ? "repeat(5, 1fr)" : "repeat(3, 1fr)" }, 2)
+            : {
+                display: "grid",
+                gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)", lg: compact ? "repeat(5, 1fr)" : "repeat(3, 1fr)" },
+                gap: 2,
+              }
+        }
       >
         {GROUP_SITES.map((g) => (
           <Box
@@ -55,8 +70,8 @@ export default function GroupSites({
               border: `1px solid ${T.border}`,
               textDecoration: "none",
               transition: "transform .25s ease, box-shadow .25s ease, border-color .25s",
-              "&:hover": { transform: "translateY(-3px)", boxShadow: T.shadowHover, borderColor: "#BFE3B4" },
-              "&:hover .go": { bgcolor: T.green, color: T.greenDeep, transform: "rotate(45deg)" },
+              "&:hover": { transform: "translateY(-3px)", boxShadow: T.shadowHover, borderColor: tone.hoverBorder },
+              "&:hover .go": { bgcolor: tone.goHover, color: tone.goHoverText, transform: "rotate(45deg)" },
             }}
           >
             <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 1, mb: 2.5 }}>
@@ -69,7 +84,7 @@ export default function GroupSites({
                   sx={{ maxHeight: "100%", maxWidth: "100%", objectFit: "contain", objectPosition: "left center", transform: g.logoScale ? `scale(${g.logoScale})` : undefined, transformOrigin: "left center" }}
                 />
               </Box>
-              <Box className="go" sx={{ flexShrink: 0, width: 32, height: 32, borderRadius: "50%", display: "grid", placeItems: "center", bgcolor: T.greenSoft, color: T.greenDark, transition: "all .25s" }}>
+              <Box className="go" sx={{ flexShrink: 0, width: 32, height: 32, borderRadius: "50%", display: "grid", placeItems: "center", bgcolor: tone.go, color: tone.goText, transition: "all .25s" }}>
                 <ArrowOutwardRoundedIcon sx={{ fontSize: 16 }} />
               </Box>
             </Box>
@@ -79,7 +94,7 @@ export default function GroupSites({
               </Typography>
             </Box>
             <Typography sx={{ mt: 1, flex: 1, fontSize: compact ? "0.86rem" : "0.95rem", lineHeight: 1.6, color: T.body }}>{g.desc}</Typography>
-            <Box component="span" sx={{ mt: 2, fontSize: "0.82rem", fontWeight: 600, color: T.greenDark }}>
+            <Box component="span" sx={{ mt: 2, fontSize: "0.82rem", fontWeight: 600, color: tone.goText }}>
               {host(g.url)}
             </Box>
           </Box>

@@ -20,6 +20,7 @@ const eslintConfig = defineConfig([
       "src/app/page.tsx",
       "src/app/Landing/modern/**/*.{ts,tsx}",
       "src/app/Common/Navbar/**/*.{ts,tsx}",
+      "src/app/about/**/*.{ts,tsx}",
       "src/theme/**/*.{ts,tsx}",
     ],
     ignores: [

@@ -3,8 +3,9 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
-import { T, textReset } from "../Landing/modern/tokens";
-import SectionHeader from "../Landing/modern/SectionHeader";
+import { T, textReset } from "../Landing/modern/homeTokens";
+import SectionHeader from "../Landing/modern/HomeSectionHeader";
+import { BRAND } from "@/src/theme/brand";
 
 // One-off curated list of deep pages that currently have only one internal
 // link pointing to them (per SEO audit). Adding this second link here is
@@ -322,7 +323,7 @@ export default function SEOButtons() {
         <SectionHeader eyebrow="Browse By Category" title="Explore our full range" />
         <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" }, gap: 2.5 }}>
           {GROUPS.map(({ group, links }) => (
-            <Box key={group} sx={{ p: { xs: 2.5, md: 3 }, borderRadius: T.radius, bgcolor: "#fff", border: `1px solid ${T.border}`, boxShadow: T.shadow }}>
+            <Box key={group} sx={{ p: { xs: 2.5, md: 3 }, minWidth: 0, overflow: "hidden", borderRadius: T.radius, bgcolor: BRAND.white, border: `1px solid ${T.border}`, boxShadow: T.shadow }}>
               <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mb: 2 }}>
                 <Typography component="h3" sx={{ fontWeight: 700, fontSize: "1.05rem", color: T.ink }}>
                   {group}
@@ -331,7 +332,23 @@ export default function SEOButtons() {
                   {links.length} {links.length === 1 ? "link" : "links"}
                 </Box>
               </Box>
-              <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+              <Box
+                sx={{
+                  // Phones: two rows that scroll sideways, so the section isn't several screens tall
+                  display: { xs: "grid", md: "flex" },
+                  gridTemplateRows: { xs: links.length > 3 ? "auto auto" : "auto" },
+                  gridAutoFlow: "column",
+                  gridAutoColumns: "max-content",
+                  flexWrap: "wrap",
+                  gap: 1,
+                  overflowX: { xs: "auto", md: "visible" },
+                  mx: { xs: -2.5, md: 0 },
+                  px: { xs: 2.5, md: 0 },
+                  pb: { xs: 0.5, md: 0 },
+                  scrollbarWidth: "none",
+                  "&::-webkit-scrollbar": { display: "none" },
+                }}
+              >
                 {links.map(({ label, href }) => (
                   <Box
                     key={href}
@@ -348,7 +365,7 @@ export default function SEOButtons() {
                       border: `1px solid ${T.border}`,
                       bgcolor: T.surface,
                       transition: "all .15s",
-                      "&:hover": { borderColor: T.greenDark, color: T.greenDark, bgcolor: T.greenSoft },
+                      "&:hover": { borderColor: T.brandDark, color: T.brandDark, bgcolor: T.brandSoft },
                     }}
                   >
                     {label}

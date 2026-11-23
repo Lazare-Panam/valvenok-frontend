@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { isTealPage } from "@/src/theme/tealPages";
 import { Box } from "@mui/material";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import RequestQuoteOutlinedIcon from "@mui/icons-material/RequestQuoteOutlined";
@@ -13,7 +14,7 @@ import { BRAND, BRAND_GRADIENT, BRAND_GRADIENT_HOVER, withAlpha } from "@/src/th
 export default function FloatingQuote() {
   const pathname = usePathname();
   // Homepage is on the new teal palette (23 Nov 2026); other pages keep green for now
-  const isHome = pathname === "/";
+  const isHome = isTealPage(pathname);
   const visible = useScrollTrigger({ disableHysteresis: true, threshold: 500 });
   if (pathname === "/contact") return null;
   // News articles keep an "On this page" menu down the left, so the pill sits bottom left there

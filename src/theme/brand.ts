@@ -188,6 +188,14 @@ export const ACCENT = LOGO_ACCENT;
  *  fading to deep navy at the bottom, muted to match the hero photo's tone. */
 export const LOGO_DEEP_GRADIENT = `linear-gradient(180deg, ${mix(LOGO.mid, LOGO.top, 0.3)} 0%, ${LOGO.mid} 35%, ${LOGO.bottom} 75%, ${mix(LOGO.bottom, "#000000", 0.25)} 100%)`;
 
+/** Softer band (23 Nov 2026): the logo's light-to-mid teal, no navy, so the coloured
+ *  bands blend with the white and mist bands around them. White text still reads on it. */
+export const LOGO_SOFT_GRADIENT = `linear-gradient(180deg, ${mix(LOGO.top, BRAND.white, 0.08)} 0%, ${mix(LOGO.top, LOGO.mid, 0.3)} 55%, ${mix(LOGO.top, LOGO.mid, 0.6)} 100%)`;
+
+/** Light tint band (23 Nov 2026): starts at the same aqua the mist band ends on (AQUA.mistLight)
+ *  and deepens gently towards the logo teal, so the bands read as one family. Dark text on top. */
+export const LOGO_TINT_GRADIENT = `linear-gradient(180deg, ${AQUA.mistLight} 0%, ${mix(AQUA.mistLight, LOGO.top, 0.14)} 45%, ${mix(AQUA.mistLight, LOGO.top, 0.3)} 100%)`;
+
 /** Brand line under the header: light → brand → deep. */
 export const BRAND_LINE = `linear-gradient(90deg, ${TEAL[400]} 0%, ${TEAL[600]} 50%, ${TEAL[800]} 100%)`;
 

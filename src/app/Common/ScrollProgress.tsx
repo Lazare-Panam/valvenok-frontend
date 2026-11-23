@@ -2,13 +2,14 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { isTealPage } from "@/src/theme/tealPages";
 import { Box } from "@mui/material";
 import { BRAND_GRADIENT } from "@/src/theme/brand";
 
 export default function ScrollProgress() {
   const [progress, setProgress] = useState(0);
   // Homepage is on the new teal palette (23 Nov 2026); other pages keep the theme green for now
-  const isHome = usePathname() === "/";
+  const isHome = isTealPage(usePathname());
 
   useEffect(() => {
     const onScroll = () => {

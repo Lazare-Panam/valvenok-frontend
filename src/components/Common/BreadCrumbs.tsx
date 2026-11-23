@@ -8,6 +8,8 @@ import { Box } from '@mui/material';
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import { T } from '@/src/app/Landing/modern/tokens';
+import { BRAND } from '@/src/theme/brand';
+import { isTealPage } from '@/src/theme/tealPages';
 import { NAV_GROUPS, type NavItem } from '@/src/app/Common/Navbar/Navbardata';
 import { APPS } from '@/src/app/applications/data';
 
@@ -116,6 +118,10 @@ export default function Breadcrumbs({
   hideOnHome = true,
 }: BreadcrumbsProps) {
   const pathname = usePathname();
+  // Teal on pages already on the new palette (src/theme/tealPages.ts), green elsewhere
+  const C = isTealPage(pathname)
+    ? { strip: BRAND.wash, chevron: BRAND.subtle, pill: BRAND.tint, pillBorder: BRAND.hoverBorder, accent: BRAND.hover, border: BRAND.border }
+    : { strip: '#FBFCFB', chevron: '#B5C0B8', pill: T.greenSoft, pillBorder: '#CFEBC6', accent: T.greenDark, border: T.border };
   // On narrow screens the trail scrolls sideways: start at the end so the
   // current page is always in view.
   const scroller = React.useRef<HTMLDivElement>(null);
@@ -176,8 +182,8 @@ export default function Breadcrumbs({
       aria-label="Breadcrumb"
       sx={{
         // A light strip of its own under the menu line, softer than the old grey band
-        bgcolor: "#FBFCFB",
-        borderBottom: `1px solid ${T.border}`,
+        bgcolor: C.strip,
+        borderBottom: `1px solid ${C.border}`,
         fontFamily: T.font,
         '& *': { fontFamily: `${T.font} !important` },
       }}
@@ -210,7 +216,7 @@ export default function Breadcrumbs({
             const isHome = idx === 0;
             return (
               <Box component="li" key={idx} sx={{ display: 'flex', alignItems: 'center', gap: 0.75 }}>
-                {idx > 0 && <ChevronRightRoundedIcon aria-hidden sx={{ fontSize: 18, color: '#B5C0B8' }} />}
+                {idx > 0 && <ChevronRightRoundedIcon aria-hidden sx={{ fontSize: 18, color: C.chevron }} />}
                 {isLast || !crumb.href ? (
                   <Box
                     component="span"
@@ -221,9 +227,9 @@ export default function Breadcrumbs({
                       px: 1.25,
                       py: 0.4,
                       borderRadius: 999,
-                      bgcolor: T.greenSoft,
-                      border: '1px solid #CFEBC6',
-                      color: T.greenDark,
+                      bgcolor: C.pill,
+                      border: `1px solid ${C.pillBorder}`,
+                      color: C.accent,
                       fontSize: '0.8rem',
                       fontWeight: 600,
                       maxWidth: { xs: 220, sm: 420 },
@@ -247,15 +253,15 @@ export default function Breadcrumbs({
                       textDecoration: 'none',
                       borderRadius: 999,
                       transition: 'color .15s',
-                      '&:hover': { color: T.greenDark },
-                      '&:hover .home': { bgcolor: T.greenDark, color: '#fff' },
+                      '&:hover': { color: C.accent },
+                      '&:hover .home': { bgcolor: C.accent, color: '#fff' },
                     }}
                   >
                     {isHome && (
                       <Box
                         component="span"
                         className="home"
-                        sx={{ width: 26, height: 26, borderRadius: '50%', bgcolor: '#fff', border: `1px solid ${T.border}`, color: T.greenDark, display: 'grid', placeItems: 'center', transition: 'all .15s' }}
+                        sx={{ width: 26, height: 26, borderRadius: '50%', bgcolor: '#fff', border: `1px solid ${C.border}`, color: C.accent, display: 'grid', placeItems: 'center', transition: 'all .15s' }}
                       >
                         <HomeRoundedIcon sx={{ fontSize: 15 }} />
                       </Box>

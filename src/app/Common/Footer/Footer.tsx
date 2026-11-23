@@ -22,6 +22,7 @@ import ExpandMoreRoundedIcon from "@mui/icons-material/ExpandMoreRounded";
 import NextLink from "next/link";
 import { GROUP_SITES } from "../group";
 import { usePathname } from "next/navigation";
+import { isTealPage } from "@/src/theme/tealPages";
 import { AQUA, BRAND, LOGO_DEEP_GRADIENT } from "@/src/theme/brand";
 
 const BRAND_GREEN = "#61D649";
@@ -94,7 +95,7 @@ const FOOTER_LINKS = [
 ];
 
 export default function Footer() {
-  const P = usePathname() === "/" ? TEAL_FOOTER : GREEN_FOOTER;
+  const P = isTealPage(usePathname()) ? TEAL_FOOTER : GREEN_FOOTER;
   const linkSx = {
     color: alpha("#fff", 0.82),
     fontSize: "0.92rem",
