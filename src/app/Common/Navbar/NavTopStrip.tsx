@@ -4,8 +4,9 @@ import { Box, Container } from "@mui/material";
 import PhoneIcon from "@mui/icons-material/PhoneOutlined";
 import EmailIcon from "@mui/icons-material/EmailOutlined";
 import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
+import { BRAND } from "@/src/theme/brand";
 
-const BODY = "#4B5A50";
+const BODY = BRAND.hover;
 
 const linkSx = {
   display: "inline-flex",
@@ -16,27 +17,27 @@ const linkSx = {
   fontWeight: 500,
   textDecoration: "none",
   transition: "color 0.2s ease",
-  "&:hover": { color: "#2E8B1E" },
+  "&:hover": { color: BRAND.deep },
 };
 
 export default function NavTopStrip() {
   return (
-    <Box sx={{ bgcolor: "#F6FAF5", display: { xs: "none", md: "block" } }}>
+    <Box sx={{ bgcolor: BRAND.wash, borderBottom: `1px solid ${BRAND.border}`, display: { xs: "none", md: "block" } }}>
       <Container maxWidth="xl" sx={{ px: { xs: 2, md: 4 } }}>
         <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 40, gap: 3 }}>
           <Box sx={{ display: "flex", alignItems: "center", gap: 3 }}>
             <Box sx={{ ...linkSx, "&:hover": {} }}>
-              <LocalShippingOutlinedIcon sx={{ fontSize: 16, color: "#2E8B1E" }} />
+              <LocalShippingOutlinedIcon sx={{ fontSize: 16, color: BRAND.main }} />
               Free UK delivery on orders over £150
             </Box>
           </Box>
           <Box sx={{ display: "flex", alignItems: "center", gap: 3 }}>
             <Box component="a" href="tel:+447368137917" sx={linkSx}>
-              <PhoneIcon sx={{ fontSize: 15 }} />
+              <PhoneIcon sx={{ fontSize: 15, color: BRAND.main }} />
               +44 7368 137917
             </Box>
             <Box component="a" href="mailto:sales@valvenok.com" sx={linkSx}>
-              <EmailIcon sx={{ fontSize: 15 }} />
+              <EmailIcon sx={{ fontSize: 15, color: BRAND.main }} />
               sales@valvenok.com
             </Box>
           </Box>

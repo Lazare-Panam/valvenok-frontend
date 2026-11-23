@@ -4,20 +4,21 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { NAV_LINKS } from "./Navbardata";
+import { BRAND } from "@/src/theme/brand";
 
 export const navItem = {
   display: "flex",
   alignItems: "center",
   px: 1.5,
   py: 0.75,
-  borderRadius: 999,
-  color: "#0E1B12",
+  borderRadius: 0,
+  color: BRAND.ink,
   fontSize: "0.92rem",
   fontWeight: 500,
   textDecoration: "none",
   whiteSpace: "nowrap",
   transition: "all 0.15s",
-  "&:hover": { color: "#2E8B1E", bgcolor: "#EEF9EA" },
+  "&:hover": { color: BRAND.hover, boxShadow: `inset 0 -2px 0 ${BRAND.main}` },
   // Narrower desktop windows: tighter, so the whole row fits
   "@media (max-width:1339.95px)": { px: 1, fontSize: "0.86rem" },
 } as const;
@@ -62,7 +63,7 @@ export default function NavLinks({ collapsed, measureRef }: { collapsed: boolean
           aria-expanded={open}
           onClick={() => setOpen((o) => !o)}
           onFocus={show}
-          sx={{ ...navItem, gap: 0.25, border: 0, bgcolor: open ? "#EEF9EA" : "transparent", color: open ? "#2E8B1E" : "#0E1B12", cursor: "pointer", fontFamily: "inherit" }}
+          sx={{ ...navItem, gap: 0.25, border: 0, bgcolor: "transparent", color: open ? BRAND.hover : BRAND.ink, boxShadow: open ? `inset 0 -2px 0 ${BRAND.main}` : "none", cursor: "pointer", fontFamily: "inherit" }}
         >
           More
           <KeyboardArrowDownIcon sx={{ fontSize: 18, transition: "transform 0.2s", transform: open ? "rotate(180deg)" : "none" }} />
@@ -70,10 +71,10 @@ export default function NavLinks({ collapsed, measureRef }: { collapsed: boolean
         {open && (
           <Box
             role="menu"
-            sx={{ position: "absolute", top: "calc(100% + 8px)", right: 0, zIndex: 400, minWidth: 200, p: 1, borderRadius: "16px", bgcolor: "#fff", border: "1px solid #E5EBE6", boxShadow: "0 18px 40px -12px rgba(14,27,18,0.25)" }}
+            sx={{ position: "absolute", top: "calc(100% + 8px)", right: 0, zIndex: 400, minWidth: 200, p: 1, borderRadius: "16px", bgcolor: "#fff", border: `1px solid ${BRAND.border}`, boxShadow: "0 18px 40px -12px rgba(1,40,41,0.25)" }}
           >
             {NAV_LINKS.map((link) => (
-              <Box key={link.label} component="a" role="menuitem" href={link.href} sx={{ ...navItem, px: 1.75, py: 1.1, borderRadius: "10px", fontSize: "0.92rem" }}>
+              <Box key={link.label} component="a" role="menuitem" href={link.href} sx={{ ...navItem, px: 1.75, py: 1.1, borderRadius: "10px", fontSize: "0.92rem", color: BRAND.ink, boxShadow: "none", "&:hover": { color: BRAND.hover, bgcolor: BRAND.tint, boxShadow: "none" } }}>
                 {link.label}
               </Box>
             ))}

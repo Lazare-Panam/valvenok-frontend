@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="28 3 411 411">
+  <!-- Valvenok symbol mark (bar, stem, two rings), traced from the new logo -->
+  <defs>
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="0" y1="70" x2="0" y2="346">
+      <stop offset="0" stop-color="#4FAAAF"/>
+      <stop offset="0.65" stop-color="#316A7D"/>
+      <stop offset="1" stop-color="#1D425C"/>
+    </linearGradient>
+  </defs>
+  <polygon points="51,70 434,70 416,109 33,109" fill="url(#g)"/>
+  <rect x="312" y="105" width="40" height="50" fill="url(#g)"/>
+  <g fill="none" stroke="url(#g)" stroke-width="44.5">
+    <circle cx="149.5" cy="247.5" r="76.25"/>
+    <circle cx="325.5" cy="247.5" r="76.25"/>
+  </g>
+</svg>

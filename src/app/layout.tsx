@@ -42,9 +42,8 @@ export const metadata: Metadata = {
   },
   description:
     "UK supplier of industrial valves, actuators and SS316 instrumentation fittings, plus hydrogen components, from 27 brands including PANAM.",
-  icons: {
-    icon: "https://pblol2.blob.core.windows.net/valvenok-images/valvenok-new-logo.jpeg",
-  },
+  // Tab icon: src/app/icon.svg, favicon.ico and apple-icon.png (Next.js file convention).
+  // The full logo is too wide to read at 16px, so the icon is just the logo's symbol mark.
   metadataBase: new URL("https://www.valvenok.com"),
   // No twitter title/description here on purpose: a child segment that sets
   // openGraph but not twitter would otherwise keep these homepage values.

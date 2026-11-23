@@ -11,8 +11,6 @@ import {
   ListItemIcon,
   Typography,
   InputBase,
-  alpha,
-  useTheme,
 } from "@mui/material";
 import BoltIcon from "@mui/icons-material/Bolt";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCartOutlined";
@@ -25,6 +23,7 @@ import { useUserStore } from "@/src/store/useUserStore";
 import { useCartStore } from "@/src/app/cart/hooks/useCartStore";
 import { useLogout } from "@/src/app/login/hooks/useLogout";
 import { useHydrated } from "./useHydrated";
+import { BRAND } from "@/src/theme/brand";
 
 interface Props {
   barHeight: number;
@@ -32,7 +31,6 @@ interface Props {
 
 export default function DesktopUserActions({ barHeight }: Props) {
   const router = useRouter();
-  const theme = useTheme();
   const onLogout = useLogout();
   const hydrated = useHydrated();
   const { user, isAuthenticated } = useUserStore();
@@ -47,15 +45,15 @@ export default function DesktopUserActions({ barHeight }: Props) {
     py: 1,
     gap: 0.75,
     borderRadius: 999,
-    color: "#0E1B12",
+    color: BRAND.ink,
     fontSize: "0.9rem",
     fontWeight: 500,
     cursor: "pointer",
     whiteSpace: "nowrap",
     transition: "all 0.2s ease-in-out",
     "&:hover": {
-      color: "#2E8B1E",
-      bgcolor: alpha(theme.palette.primary.main, 0.1),
+      color: BRAND.hover,
+      bgcolor: BRAND.tint,
     },
   };
   const iconSx = { fontSize: 20, flexShrink: 0 };
@@ -126,10 +124,10 @@ export default function DesktopUserActions({ barHeight }: Props) {
 
       {/* QUICK ORDER */}
       <Box
-        sx={{ ...itemSx, color: "#2E8B1E" }}
+        sx={{ ...itemSx, color: BRAND.hover }}
         onClick={() => router.push("/quick-order")}
       >
-        <BoltIcon sx={{ ...iconSx, color: "#2E8B1E" }} />
+        <BoltIcon sx={{ ...iconSx, color: BRAND.hover }} />
         Quick Order
       </Box>
 
@@ -138,9 +136,10 @@ export default function DesktopUserActions({ barHeight }: Props) {
         <Badge
           badgeContent={hydrated ? totalItems : 0}
           invisible={!hydrated || totalItems === 0}
-          color="primary"
           sx={{
             "& .MuiBadge-badge": {
+              bgcolor: BRAND.main,
+              color: "#fff",
               fontWeight: 700,
               height: 18,
               minWidth: 18,
@@ -161,7 +160,7 @@ export default function DesktopUserActions({ barHeight }: Props) {
               sx={{
                 width: 28,
                 height: 28,
-                bgcolor: "primary.main",
+                bgcolor: BRAND.main,
                 color: "white",
                 fontSize: "12px",
                 fontWeight: 700,
