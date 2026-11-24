@@ -2,6 +2,15 @@
 // cards at the end of each article.
 export const POSTS = [
   {
+    title: "Butterfly Valve vs Ball Valve vs Gate Valve: When a Butterfly Valve Wins",
+    desc: "Weight, length, cost and shut-off compared, when to use a butterfly valve (and when not to), and five questions to settle before you ask for a quote.",
+    thumbnail: "https://pblol2.blob.core.windows.net/valvenok-images/blogs/butterfly-valve-vs-ball-valve-vs-gate-valve.jpg",
+    author: "Valvenok Team",
+    date: "November 2026",
+    category: "Technical Guide",
+    link: "/news/butterfly-valve-vs-ball-valve-vs-gate-valve",
+  },
+  {
     title: "L-Port vs T-Port 3-Way Ball Valves: Flow Paths, Applications and How to Specify",
     desc: "Every flow position for L-port and T-port 3-way ball valves, when to use each for diverting, mixing and bypass, and an enquiry checklist for a first-time-right quote.",
     thumbnail: "https://pblol2.blob.core.windows.net/valvenok-images/blogs/l-port-vs-t-port-3-way-ball-valve.jpg",
