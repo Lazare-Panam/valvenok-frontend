@@ -67,43 +67,37 @@ export default function Home() {
       </h1>
       <HeroModern />
       <TrustBar />
-      {/* Bands step white → mist → dark, getting gradually deeper, then repeat (PastelZone) */}
-      <PastelZone tone="white">
+      {/* Pastel bands as before the rebrand (restored 24 Nov 2026): mint, sky, butter, mint, lilac, sky */}
+      <PastelZone tone="mint">
         <BrandStrip />
         <CertificationsModern />
         <QuickNavModern />
       </PastelZone>
-      <PastelZone tone="mist">
+      <PastelZone tone="sky">
         <FeaturedBrands />
-      </PastelZone>
-      <PastelZone tone="dark" photo={0}>
         <ValuePropModern />
       </PastelZone>
-      <PastelZone tone="white">
+      <PastelZone tone="butter">
         <WhoWeAreModern />
-      </PastelZone>
-      <PastelZone tone="mist">
         <FeaturedProductsModern />
       </PastelZone>
-      <PastelZone tone="dark" photo={1}>
+      <PastelZone tone="mint">
         <CoreProducts />
         <StatsModern />
       </PastelZone>
       {/* TestimonialsSection removed until there are genuine, attributable
           customer quotes — the previous copy was illustrative (UK ASA rules). */}
-      <PastelZone tone="white">
+      <PastelZone tone="lilac">
         <InsightsModern />
       </PastelZone>
-      <PastelZone tone="mist">
+      <PastelZone tone="plain">
         <SocialWall />
       </PastelZone>
-      <PastelZone tone="dark" photo={2}>
+      <PastelZone tone="sky">
         <FaqModern />
-      </PastelZone>
-      <PastelZone tone="white">
         <FindUsModern />
       </PastelZone>
-      <PastelZone tone="mist">
+      <PastelZone tone="plain">
         <JoscarModern />
       </PastelZone>
     </HomeFlowLayer>

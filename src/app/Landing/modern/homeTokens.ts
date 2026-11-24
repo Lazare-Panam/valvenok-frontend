@@ -1,4 +1,4 @@
-import { ACCENT, AQUA, BRAND, accentGradient, withAlpha } from "@/src/theme/brand";
+import { ACCENT, AQUA, BRAND, accentGradient, withAlpha, PILL } from "@/src/theme/brand";
 // HOMEPAGE-ONLY tokens (teal, 23 Nov 2026). The rest of the site still uses ./tokens
 // (green) until the new colours roll out page by page. Colours are aliases of
 // src/theme/brand.ts — change them there.
@@ -39,7 +39,7 @@ export const textReset = {
 export const CHIP = {
   aqua: { bgcolor: AQUA.mistFaint, color: T.brandDark },
   soft: { bgcolor: ACCENT.light, color: ACCENT.text }, // default icon box
-  accent: { background: accentGradient(ACCENT), color: BRAND.white }, // active / open state
+  accent: { background: PILL.green, color: PILL.greenDeep }, // active / open state (flat green, 24 Nov 2026)
 } as const;
 /** Icon-box colours (23 Nov 2026: one consistent style, no alternating). */
 export const chipTone = () => CHIP.soft;

@@ -3,7 +3,7 @@
 import { Box, Typography } from "@mui/material";
 import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
 import { T, accentText, textReset } from "./homeTokens";
-import { AQUA, BRAND, BRAND_GRADIENT, withAlpha } from "@/src/theme/brand";
+import { AQUA, BRAND, withAlpha, PILL } from "@/src/theme/brand";
 
 // Same copy as the original ValuePropBanner.
 const POINTS = [
@@ -62,7 +62,7 @@ export default function ValuePropModern() {
                 "&:hover": { transform: "translateX(6px)" },
               }}
             >
-              <Box sx={{ flexShrink: 0, width: 24, height: 24, borderRadius: "50%", display: "grid", placeItems: "center", background: BRAND_GRADIENT, color: BRAND.white }}>
+              <Box sx={{ flexShrink: 0, width: 24, height: 24, borderRadius: "50%", display: "grid", placeItems: "center", background: PILL.green, color: PILL.greenDeep }}>
                 <CheckRoundedIcon sx={{ fontSize: 16 }} />
               </Box>
               <Typography sx={{ color: T.ink, fontWeight: 500 }}>{pt}</Typography>

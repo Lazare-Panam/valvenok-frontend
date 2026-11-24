@@ -16,7 +16,7 @@ import HelpOutlineRoundedIcon from "@mui/icons-material/HelpOutlineRounded";
 import { FAQS } from "../FAQSection";
 import { CHIP, T, textReset } from "./homeTokens";
 import SectionHeader from "./HomeSectionHeader";
-import { BRAND, BRAND_GRADIENT, BRAND_GRADIENT_HOVER, withAlpha } from "@/src/theme/brand";
+import { BRAND, withAlpha, PILL } from "@/src/theme/brand";
 
 // One icon per question, in the same order as FAQS.
 const ICONS = [
@@ -102,13 +102,13 @@ export default function FaqModern() {
                 gap: 1,
                 py: 1.4,
                 borderRadius: "12px",
-                background: BRAND_GRADIENT,
-                color: BRAND.white,
+                background: PILL.green,
+                color: PILL.greenDeep,
                 fontWeight: 600,
                 fontSize: "0.95rem",
                 textDecoration: "none",
                 transition: "background .2s",
-                "&:hover": { background: BRAND_GRADIENT_HOVER },
+                "&:hover": { background: PILL.greenHover },
                 "& svg": { transition: "transform .2s" },
                 "&:hover svg": { transform: "translateX(3px)" },
               }}
@@ -177,8 +177,8 @@ export default function FaqModern() {
                       borderRadius: "50%",
                       display: "grid",
                       placeItems: "center",
-                      background: isOpen ? BRAND_GRADIENT : T.surface,
-                      color: isOpen ? BRAND.white : T.brandDark,
+                      background: isOpen ? PILL.green : T.surface,
+                      color: isOpen ? PILL.greenDeep : T.brandDark,
                       transition: "all .2s",
                       transform: isOpen ? "rotate(45deg)" : "none",
                     }}

@@ -3,30 +3,19 @@
 import Link from "next/link";
 import { Box } from "@mui/material";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
-import { T, WARM_HOVER } from "./homeTokens";
+import { T } from "./homeTokens";
 import { useDarkZone } from "./PastelZone";
-import { BRAND, BRAND_GRADIENT, BRAND_GRADIENT_HOVER, LOGO, LOGO_GRADIENT_LIGHT, LOGO_GRADIENT_LIGHT_HOVER, withAlpha } from "@/src/theme/brand";
+import { BRAND, withAlpha, PILL } from "@/src/theme/brand";
 
 type Variant = "primary" | "glow" | "secondary" | "ghostDark" | "light";
 
 /** The hero's button (23 Nov 2026): light logo gradient, logo-navy text. Used for every
  *  button that sits directly on a dark band or photo. */
-export const GLOW_PILL = {
-  background: LOGO_GRADIENT_LIGHT,
-  color: LOGO.bottom,
-  border: "1px solid transparent",
-  boxShadow: `0 6px 18px -8px ${withAlpha(LOGO.top, 0.5)}`,
-  "&:hover": { background: LOGO_GRADIENT_LIGHT_HOVER },
-} as const;
+// 24 Nov 2026: back to the original flat bright-green pill everywhere
+export const GLOW_PILL = PILL.solid;
 
 const styles: Record<Variant, object> = {
-  primary: {
-    background: BRAND_GRADIENT,
-    color: BRAND.white,
-    border: "1px solid transparent",
-    boxShadow: `0 6px 16px -8px ${withAlpha(BRAND.hover, 0.6)}`,
-    "&:hover": { background: BRAND_GRADIENT_HOVER },
-  },
+  primary: PILL.solid,
   // On dark backgrounds (hero): bright aqua gradient with dark text
   // On dark photos (hero): light version of the logo gradient, logo-navy text
   glow: GLOW_PILL,
@@ -35,7 +24,7 @@ const styles: Record<Variant, object> = {
     bgcolor: BRAND.white,
     color: T.ink,
     border: `1px solid ${T.border}`,
-    "&:hover": WARM_HOVER,
+    "&:hover": { borderColor: T.ink },
   },
   ghostDark: {
     bgcolor: "transparent",

@@ -19,7 +19,7 @@ import BubbleChartOutlinedIcon from "@mui/icons-material/BubbleChartOutlined";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import { CHIP, T, accentText, textReset } from "./homeTokens";
 import { KF, Squiggle, useInView } from "@/src/app/Common/LightMotion";
-import { AQUA, BRAND, BRAND_GRADIENT, BRAND_GRADIENT_HOVER, ACCENT, LOGO, withAlpha } from "@/src/theme/brand";
+import { AQUA, BRAND, ACCENT, LOGO, withAlpha, PILL } from "@/src/theme/brand";
 import { useDarkZone } from "./PastelZone";
 import { GLOW_PILL } from "./HomeButtons";
 import { PILL_ON_DARK, PILL_ON_LIGHT } from "./HomeSectionHeader";
@@ -164,7 +164,7 @@ function Facts() {
 // glow pill + a white outline, as in the hero and the quote banner (23 Nov 2026).
 const BUTTON = { display: "inline-flex", alignItems: "center", gap: 0.75, px: 2.75, py: 1.3, borderRadius: 999, fontWeight: 700, fontSize: "0.95rem", textDecoration: "none", transition: "transform .2s" };
 const LIFT = { transform: "translateY(-2px)" };
-const PRIMARY = { ...BUTTON, background: BRAND_GRADIENT, color: BRAND.white, boxShadow: `0 10px 24px ${withAlpha(BRAND.main, 0.35)}`, "&:hover": { ...LIFT, background: BRAND_GRADIENT_HOVER } };
+const PRIMARY = { ...BUTTON, background: PILL.green, color: PILL.greenDeep, boxShadow: `0 10px 24px ${withAlpha(PILL.green, 0.35)}`, "&:hover": { ...LIFT, background: PILL.greenHover } };
 const SECONDARY = { ...BUTTON, bgcolor: BRAND.white, color: T.ink, border: `1px solid ${T.border}`, "&:hover": LIFT };
 const OUTLINE_ON_DARK = { ...BUTTON, bgcolor: "transparent", color: BRAND.white, border: `1px solid ${withAlpha(BRAND.white, 0.45)}`, "&:hover": { ...LIFT, bgcolor: withAlpha(BRAND.white, 0.08) } };
 

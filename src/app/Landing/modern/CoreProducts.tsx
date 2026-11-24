@@ -9,7 +9,7 @@ import { T, textReset } from "./homeTokens";
 import SectionHeader from "./HomeSectionHeader";
 import { GLOW_PILL } from "./HomeButtons";
 import { useDarkZone } from "./PastelZone";
-import { AQUA, BRAND, BRAND_GRADIENT, BRAND_GRADIENT_HOVER, ACCENT, LOGO, withAlpha } from "@/src/theme/brand";
+import { AQUA, BRAND, ACCENT, withAlpha, PILL } from "@/src/theme/brand";
 
 // Same data as the original Categories section.
 // Same categories, links and sub-groups as the main menu (Navbardata.ts), 23 Nov 2026
@@ -97,7 +97,7 @@ const ACTIVE_BG = `radial-gradient(520px 400px at 76% 50%, ${AQUA.mistLight} 0%,
 // Dark band (23 Nov 2026): glass tabs with white text, the selected one is the hero's glow
 // pill, so it clearly stands out from the background.
 const TAB = { border: `1px solid ${T.border}`, background: BRAND.white, color: T.ink, "&:hover": { borderColor: T.brand } };
-const TAB_ACTIVE = { border: `1px solid ${LOGO.mid}`, background: BRAND_GRADIENT, color: BRAND.white, "&:hover": { borderColor: T.brand } };
+const TAB_ACTIVE = { ...PILL.solid, "&:hover": { borderColor: PILL.green } };
 const TAB_ON_DARK = {
   border: `1px solid ${withAlpha(BRAND.white, 0.35)}`,
   background: withAlpha(BRAND.white, 0.08),
@@ -287,7 +287,7 @@ export default function CoreProducts() {
                           textDecoration: "none",
                           fontSize: "0.98rem",
                           fontWeight: 500,
-                          "&:hover": { color: T.brandDark, "& .sub-ic": { background: BRAND_GRADIENT, color: BRAND.white, borderColor: "transparent" } },
+                          "&:hover": { color: T.brandDark, "& .sub-ic": { background: PILL.green, color: PILL.greenDeep, borderColor: PILL.green } },
                         }}
                       >
                         <Box
@@ -323,14 +323,14 @@ export default function CoreProducts() {
                     px: 2.75,
                     py: 1.4,
                     borderRadius: "12px",
-                    background: BRAND_GRADIENT,
-                    color: BRAND.white,
+                    background: PILL.green,
+                    color: PILL.greenDeep,
                     fontWeight: 700,
                     fontSize: "0.95rem",
                     whiteSpace: { xs: "normal", md: "nowrap" },
                     textDecoration: "none",
                     transition: "all .2s",
-                    "&:hover": { background: BRAND_GRADIENT_HOVER, transform: "translateY(-2px)", boxShadow: `0 10px 24px -8px ${withAlpha(BRAND.main, 0.6)}` },
+                    "&:hover": { background: PILL.greenHover, transform: "translateY(-2px)" },
                     "& svg": { transition: "transform .2s" },
                     "&:hover svg": { transform: "translateX(3px)" },
                   }}

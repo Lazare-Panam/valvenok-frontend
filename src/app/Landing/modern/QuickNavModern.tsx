@@ -9,7 +9,7 @@ import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import { CARD, CARD_HOVER, T, textReset } from "./homeTokens";
-import { BRAND, BRAND_GRADIENT, LOGO, withAlpha } from "@/src/theme/brand";
+import { PASTEL, pastelPair, PILL } from "@/src/theme/brand";
 
 // Each card opens its category page (not a deep sub-page).
 const QUICK_LINKS = [
@@ -32,7 +32,7 @@ export default function QuickNavModern() {
           gap: 2,
         }}
       >
-        {QUICK_LINKS.map(({ name, sub, href, icon: Icon }) => (
+        {QUICK_LINKS.map(({ name, sub, href, icon: Icon }, i) => (
           <Box
             key={name}
             component={Link}
@@ -56,7 +56,7 @@ export default function QuickNavModern() {
                 bottom: 0,
                 height: 3,
                 width: "100%",
-                background: `linear-gradient(90deg, ${LOGO.top}, ${LOGO.mid}, ${LOGO.bottom})`,
+                background: PASTEL.rainbow,
                 transform: "scaleX(0)",
                 transformOrigin: "left",
                 transition: "transform .35s ease",
@@ -64,7 +64,7 @@ export default function QuickNavModern() {
               "& .qn-arrow": { transition: "all .25s ease" },
               "&:hover": CARD_HOVER,
               "&:hover::after": { transform: "scaleX(1)" },
-              "&:hover .qn-arrow": { background: BRAND_GRADIENT, color: BRAND.white, borderColor: "transparent", transform: "translateX(2px)" },
+              "&:hover .qn-arrow": { background: PILL.green, color: PILL.greenDeep, borderColor: PILL.green, transform: "translateX(2px)" },
             }}
           >
             <Box
@@ -75,9 +75,9 @@ export default function QuickNavModern() {
                 borderRadius: "14px",
                 display: "grid",
                 placeItems: "center",
-                background: BRAND_GRADIENT,
-                color: BRAND.white,
-                boxShadow: `0 8px 18px -8px ${withAlpha(LOGO.bottom, 0.6)}`,
+                // each category its own pastel (24 Nov 2026)
+                bgcolor: pastelPair(i).tint,
+                color: pastelPair(i).ink,
               }}
             >
               <Icon sx={{ fontSize: 24 }} />

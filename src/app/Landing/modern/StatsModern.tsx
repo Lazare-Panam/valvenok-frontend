@@ -7,7 +7,7 @@ import WorkspacesOutlinedIcon from "@mui/icons-material/WorkspacesOutlined";
 import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
 import { CARD, CARD_HOVER, T, textReset } from "./homeTokens";
-import { ACCENT, BRAND, BRAND_GRADIENT, LOGO, LOGO_GRADIENT_LIGHT, accentGradient, withAlpha } from "@/src/theme/brand";
+import { BRAND, LOGO, LOGO_GRADIENT_LIGHT, withAlpha, PASTEL, pastelPair, pastelFade } from "@/src/theme/brand";
 import { useDarkZone } from "./PastelZone";
 
 // Same figures as the original StatsBand.
@@ -126,7 +126,7 @@ export default function StatsModern() {
           position: "relative",
         }}
       >
-        {STATS.map((s) => (
+        {STATS.map((s, i) => (
           <Box
             key={s.label}
             sx={{
@@ -136,7 +136,11 @@ export default function StatsModern() {
               textAlign: "left",
               position: "relative",
               ...CARD,
+              // original pastel cards (24 Nov 2026): each its own tint, green → sky → sun bar on top
+              background: pastelFade(pastelPair(i).tint),
               "& > *": { position: "relative", zIndex: 1 },
+              "&::before": { content: '""', position: "absolute", left: 0, right: 0, top: 0, height: 4, zIndex: 2, background: PASTEL.rainbow, backgroundSize: "200% auto", animation: "shine 3s linear infinite" },
+              "@keyframes shine": { "0%": { backgroundPosition: "0% 50%" }, "100%": { backgroundPosition: "200% 50%" } },
               "&::after": {
                 content: '""',
                 position: "absolute",
@@ -147,7 +151,7 @@ export default function StatsModern() {
                 borderRadius: "50%",
                 zIndex: 0,
                 pointerEvents: "none",
-                background: `repeating-radial-gradient(circle, transparent 0 20px, ${withAlpha(LOGO.top, 0.3)} 20px 21.5px, transparent 21.5px 32px)`,
+                background: `repeating-radial-gradient(circle, transparent 0 20px, ${withAlpha(pastelPair(i).ink, 0.18)} 20px 21.5px, transparent 21.5px 32px)`,
                 maskImage: "radial-gradient(circle, black 25%, transparent 70%)",
                 WebkitMaskImage: "radial-gradient(circle, black 25%, transparent 70%)",
                 transition: "transform .5s ease",
@@ -156,7 +160,7 @@ export default function StatsModern() {
               "&:hover::after": { transform: "scale(1.12)" },
             }}
           >
-            <Box sx={{ width: 44, height: 44, borderRadius: "14px", display: "grid", placeItems: "center", background: BRAND_GRADIENT, color: BRAND.white, boxShadow: `0 8px 18px -8px ${withAlpha(LOGO.bottom, 0.6)}` }}>
+            <Box sx={{ width: 44, height: 44, borderRadius: "14px", display: "grid", placeItems: "center", bgcolor: BRAND.white, color: pastelPair(i).ink, boxShadow: T.shadow }}>
               <s.Icon sx={{ fontSize: 22 }} />
             </Box>
             <Typography
@@ -167,11 +171,7 @@ export default function StatsModern() {
                 letterSpacing: "-0.04em",
                 lineHeight: 1,
                 fontVariantNumeric: "tabular-nums",
-                // number in the logo gradient
-                background: accentGradient(ACCENT),
-                WebkitBackgroundClip: "text",
-                backgroundClip: "text",
-                color: "transparent",
+                color: pastelPair(i).ink,
                 display: "inline-block",
               }}
             >

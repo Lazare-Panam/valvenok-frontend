@@ -185,7 +185,7 @@ export default function SocialWall() {
           items={ROW_A}
           described
           cta={
-            <CtaButton href={LINKEDIN} external {...button(BRAND.hover)} icon={<LinkedInIcon />}>
+            <CtaButton href={LINKEDIN} external {...button(BRAND.linkedin)} icon={<LinkedInIcon />}>
               Follow us on LinkedIn
             </CtaButton>
           }

@@ -8,7 +8,7 @@
 import * as React from "react";
 import { Box } from "@mui/material";
 import { T } from "../Landing/modern/tokens";
-import { AQUA, TEAL, withAlpha } from "@/src/theme/brand";
+import { AQUA, SCALE, withAlpha } from "@/src/theme/brand";
 
 export const L = {
   mint: "#EAF8E4",
@@ -61,7 +61,7 @@ export const gradientText = {
 // ── Homepage-only (teal, 23 Nov 2026). Other pages keep the green look above. ──
 /** Deep → brand → bright teal sweep for highlighted headline words. */
 export const gradientTextBright = {
-  background: `linear-gradient(90deg, ${TEAL[800]}, ${TEAL[600]}, ${TEAL[500]}, ${TEAL[600]}, ${TEAL[800]})`,
+  background: `linear-gradient(90deg, ${SCALE[800]}, ${SCALE[600]}, ${SCALE[500]}, ${SCALE[600]}, ${SCALE[800]})`,
   backgroundSize: "200% auto",
   WebkitBackgroundClip: "text",
   backgroundClip: "text",

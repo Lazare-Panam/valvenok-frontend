@@ -2,13 +2,13 @@
 
 import { Box, Typography } from "@mui/material";
 import { T, accentText } from "./homeTokens";
-import { AQUA, BRAND, ACCENT, BRAND_GRADIENT, LOGO, LOGO_GRADIENT_LIGHT, withAlpha } from "@/src/theme/brand";
+import { BRAND, ACCENT, withAlpha, PILL } from "@/src/theme/brand";
 import { useBand, useDarkZone } from "./PastelZone";
 
 /** Label pills on the homepage bands (23 Nov 2026), the opposite of the band they sit on:
  *  light band → deep logo gradient with white text; dark band → light logo gradient, navy text. */
-export const PILL_ON_LIGHT = { color: BRAND.white, background: BRAND_GRADIENT, border: "1px solid transparent", boxShadow: `0 6px 16px -8px ${withAlpha(LOGO.bottom, 0.5)}` } as const;
-export const PILL_ON_DARK = { color: LOGO.bottom, background: LOGO_GRADIENT_LIGHT, border: "1px solid transparent", boxShadow: `0 6px 16px -8px ${withAlpha(BRAND.ink, 0.5)}` } as const;
+export const PILL_ON_LIGHT = PILL.label;
+export const PILL_ON_DARK = PILL.labelDark;
 
 export function Eyebrow({ children, dark: darkProp }: { children: React.ReactNode; dark?: boolean }) {
   // Inside a dark band the pill switches to its dark style unless told otherwise
@@ -37,7 +37,7 @@ export function Eyebrow({ children, dark: darkProp }: { children: React.ReactNod
         ...pill,
       }}
     >
-      <Box component="span" sx={{ width: 6, height: 6, borderRadius: "50%", bgcolor: dark ? LOGO.mid : AQUA.glowDeep, boxShadow: `0 0 0 3px ${withAlpha(dark ? LOGO.top : AQUA.glow, 0.25)}` }} />
+      <Box component="span" sx={{ width: 6, height: 6, borderRadius: "50%", bgcolor: PILL.green }} />
       {children}
     </Box>
   );
