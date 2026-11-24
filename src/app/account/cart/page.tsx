@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Box, Typography, Paper, Table, TableBody, TableCell,
   TableContainer, TableHead, TableRow, Chip, CircularProgress,
@@ -11,7 +11,7 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { fetchCartApi, removeFromCartApi } from '@/src/api/cartApi';
-import { createCheckoutSessionApi } from '@/src/api/paymentApi';
+import EnquiryModal from '@/src/app/quick-order/EnquiryModal';
 import DashboardLayout from '../components/Sidebar';
 import { useRouter } from 'next/navigation';
 import { useUserStore } from '@/src/store/useUserStore';
@@ -55,15 +55,8 @@ export default function SavedCartPage() {
     },
   });
 
-  const { mutate: checkout, isPending: isCheckingOut } = useMutation({
-    mutationFn: createCheckoutSessionApi,
-    onSuccess: (url) => {
-      window.location.href = url;
-    },
-    onError: () => {
-      showNotification({ message: 'Failed to initiate checkout. Please try again.', severity: 'error' });
-    },
-  });
+  // Stripe checkout is switched off (24 Nov 2026): the saved cart is sent as an enquiry instead
+  const [enquiryOpen, setEnquiryOpen] = useState(false);
 
   const cartTotal = cartItems?.reduce(
     (sum, item) => sum + item.unitPrice * item.quantity, 0
@@ -295,14 +288,19 @@ export default function SavedCartPage() {
                 <Button
                   fullWidth
                   variant="contained"
-                  disabled={isCheckingOut}
-                  onClick={() => checkout()}
+                  onClick={() => setEnquiryOpen(true)}
                   sx={{ borderRadius: 0, fontWeight: 900, textTransform: 'uppercase', py: 1.5 }}
                 >
-                  {isCheckingOut ? 'Redirecting to Stripe...' : 'Proceed to Checkout'}
+                  Send enquiry
                 </Button>
               </Paper>
             </Box>
+            <EnquiryModal
+              open={enquiryOpen}
+              onClose={() => setEnquiryOpen(false)}
+              lines={(cartItems ?? []).map((item) => ({ id: item.id, partNumber: item.productCode, name: item.productDescription, quantity: item.quantity, price: item.unitPrice }))}
+              onSent={() => {}}
+            />
           </>
         )}
       </Box>

@@ -36,7 +36,7 @@ export default function QuickOrderPage() {
               Quick Order
             </Box>
             <Box component="p" sx={{ m: 0, mt: 1, fontSize: '1rem', lineHeight: 1.6, color: T.body }}>
-              Search by part number, add to your basket and check out in minutes. Prices are shown ex VAT, with no minimum order.
+              Search by part number, add parts to your enquiry and send it to us. We confirm price, stock and lead time in our reply. Prices shown are a guide, ex VAT, with no minimum order.
             </Box>
             <GroupSiteLinks variant="inline" sites={groupSitesIn('Panam Fittings — SS316')} />
           </Box>

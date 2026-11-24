@@ -1,26 +1,25 @@
 'use client';
 
-import Link from 'next/link';
+import { useState } from 'react';
 import { Box } from '@mui/material';
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import RemoveRoundedIcon from '@mui/icons-material/RemoveRounded';
 import DeleteOutlineRoundedIcon from '@mui/icons-material/DeleteOutlineRounded';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
-import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
 import { T } from '@/src/app/Landing/modern/tokens';
 import { useCartStore } from '../cart/hooks/useCartStore';
+import EnquiryModal from './EnquiryModal';
 
 const mono = 'ui-monospace, SFMono-Regular, Menlo, monospace';
-const FREE_DELIVERY = 150;
 
 const step = { display: 'grid', placeItems: 'center', width: 26, height: 26, borderRadius: '50%', border: `1px solid ${T.border}`, bgcolor: '#fff', color: T.ink, cursor: 'pointer', '&:hover': { borderColor: T.greenDark } } as const;
 
 export default function OrderCart() {
   const { items, removeItem, updateQuantity, clearCart } = useCartStore();
+  const [open, setOpen] = useState(false);
   const totalItems = items.reduce((s, i) => s + i.quantity, 0);
   const total = items.reduce((s, i) => s + i.price * i.quantity, 0);
-  const toFree = Math.max(0, FREE_DELIVERY - total);
 
   return (
     <Box sx={{ width: 360, flexShrink: 0, position: 'sticky', top: 140, display: { xs: 'none', lg: 'block' } }}>
@@ -31,7 +30,7 @@ export default function OrderCart() {
               <ShoppingCartOutlinedIcon sx={{ fontSize: 19 }} />
             </Box>
             <Box>
-              <Box component="h2" sx={{ m: 0, fontSize: '1.02rem', fontWeight: 800, color: T.ink }}>Your order</Box>
+              <Box component="h2" sx={{ m: 0, fontSize: '1.02rem', fontWeight: 800, color: T.ink }}>Your enquiry</Box>
               <Box sx={{ fontSize: '0.78rem', color: T.muted }}>{items.length ? `${items.length} ${items.length === 1 ? 'line' : 'lines'} · ${totalItems} pcs` : 'Nothing added yet'}</Box>
             </Box>
           </Box>
@@ -48,8 +47,8 @@ export default function OrderCart() {
             <Box sx={{ width: 56, height: 56, mx: 'auto', borderRadius: '50%', display: 'grid', placeItems: 'center', bgcolor: T.surface, color: T.muted }}>
               <ShoppingCartOutlinedIcon sx={{ fontSize: 26 }} />
             </Box>
-            <Box sx={{ mt: 1.5, fontSize: '0.95rem', fontWeight: 700, color: T.ink }}>Your basket is empty</Box>
-            <Box sx={{ mt: 0.5, fontSize: '0.85rem', color: T.body }}>Add parts from the list to build your order.</Box>
+            <Box sx={{ mt: 1.5, fontSize: '0.95rem', fontWeight: 700, color: T.ink }}>Your enquiry is empty</Box>
+            <Box sx={{ mt: 0.5, fontSize: '0.85rem', color: T.body }}>Add parts from the list, then send them to us for a quote.</Box>
           </Box>
         ) : (
           <>
@@ -80,30 +79,20 @@ export default function OrderCart() {
             </Box>
 
             <Box sx={{ px: 2.5, py: 2, bgcolor: '#FAFCFA', borderTop: `1px solid ${T.border}` }}>
-              {/* Free delivery progress */}
-              <Box sx={{ mb: 1.75 }}>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.75, fontSize: '0.8rem', fontWeight: 600, color: toFree ? T.body : T.greenDark }}>
-                  <LocalShippingOutlinedIcon sx={{ fontSize: 17 }} />
-                  {toFree ? <>£{toFree.toFixed(2)} more for free UK delivery</> : 'Free UK delivery unlocked'}
-                </Box>
-                <Box sx={{ mt: 0.75, height: 6, borderRadius: 999, bgcolor: T.border, overflow: 'hidden' }}>
-                  <Box sx={{ height: '100%', width: `${Math.min(100, (total / FREE_DELIVERY) * 100)}%`, bgcolor: T.green, borderRadius: 999, transition: 'width .3s' }} />
-                </Box>
-              </Box>
               <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-                <Box sx={{ fontSize: '0.88rem', color: T.body }}>Subtotal (ex VAT)</Box>
+                <Box sx={{ fontSize: '0.88rem', color: T.body }}>Guide subtotal (ex VAT)</Box>
                 <Box sx={{ fontSize: '1.35rem', fontWeight: 800, color: T.ink, letterSpacing: '-0.02em' }}>£{total.toFixed(2)}</Box>
               </Box>
-              <Box sx={{ fontSize: '0.76rem', color: T.muted, mb: 2 }}>VAT is calculated at checkout</Box>
-              <Link href="/cart" style={{ textDecoration: 'none' }}>
-                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 0.75, height: 48, borderRadius: 999, bgcolor: T.green, color: T.greenDeep, fontWeight: 700, fontSize: '0.95rem', '&:hover': { bgcolor: '#55C93E' } }}>
-                  Go to cart and checkout <ArrowForwardRoundedIcon sx={{ fontSize: 19 }} />
-                </Box>
-              </Link>
+              <Box sx={{ fontSize: '0.76rem', color: T.muted, mb: 2 }}>We confirm price, stock and lead time in our reply</Box>
+              <Box component="button" type="button" onClick={() => setOpen(true)}
+                sx={{ width: '100%', border: 0, font: 'inherit', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 0.75, height: 48, borderRadius: 999, bgcolor: T.green, color: T.greenDeep, fontWeight: 700, fontSize: '0.95rem', '&:hover': { bgcolor: '#55C93E' } }}>
+                Send enquiry <ArrowForwardRoundedIcon sx={{ fontSize: 19 }} />
+              </Box>
             </Box>
           </>
         )}
       </Box>
+      <EnquiryModal open={open} onClose={() => setOpen(false)} />
     </Box>
   );
 }

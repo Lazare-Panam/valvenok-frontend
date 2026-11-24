@@ -330,7 +330,7 @@ function DeliveryPanel() {
             {[
               "Delivery options and timescales are listed on our Delivery page",
               "Larger or made-to-order items may take longer",
-              "Shipping costs calculated at checkout",
+              "Delivery confirmed in our quote",
               "Free UK delivery on orders over £150+VAT",
             ].map((item, i) => (
               <Box component="li" key={i} sx={{ display: "flex", gap: 1, mb: 0.75 }}>

@@ -297,7 +297,7 @@ export default function ProductTable({ initialSearch = "" }: { initialSearch?: s
                         sx={{ display: 'grid', placeItems: 'center', width: 32, height: 32, borderRadius: '50%', border: 0, bgcolor: '#fff', color: T.ink, cursor: 'pointer', '&:hover': { bgcolor: T.border } }}>
                         <RemoveRoundedIcon sx={{ fontSize: 18 }} />
                       </Box>
-                      <Box sx={{ fontSize: '0.88rem', fontWeight: 800, color: T.greenDeep, whiteSpace: 'nowrap' }}>{line.quantity} in cart</Box>
+                      <Box sx={{ fontSize: '0.88rem', fontWeight: 800, color: T.greenDeep, whiteSpace: 'nowrap' }}>{line.quantity} in enquiry</Box>
                       <Box component="button" type="button" aria-label="One more" onClick={() => updateQuantity(p.sku, line.quantity + 1)}
                         sx={{ display: 'grid', placeItems: 'center', width: 32, height: 32, borderRadius: '50%', border: 0, bgcolor: T.greenDeep, color: '#fff', cursor: 'pointer', '&:hover': { bgcolor: T.ink } }}>
                         <AddRoundedIcon sx={{ fontSize: 18 }} />
@@ -307,7 +307,7 @@ export default function ProductTable({ initialSearch = "" }: { initialSearch?: s
                     <Box component="button" type="button" disabled={out} onClick={() => add(p)}
                       sx={{ flex: 1, [MID]: { flex: 'none' }, minWidth: 140, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 0.75, px: 2.25, height: 42, borderRadius: 999, border: 0, font: 'inherit', fontSize: '0.9rem', fontWeight: 700, cursor: out ? 'not-allowed' : 'pointer',
                         bgcolor: out ? T.surface : T.green, color: out ? T.muted : T.greenDeep, transition: 'all .15s', '&:hover': out ? {} : { bgcolor: '#55C93E' } }}>
-                      {out ? 'Unavailable' : <><AddShoppingCartRoundedIcon sx={{ fontSize: 18 }} />Add to cart</>}
+                      {out ? 'Unavailable' : <><AddShoppingCartRoundedIcon sx={{ fontSize: 18 }} />Add to enquiry</>}
                     </Box>
                   )}
                 </Box>

@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   alternates: { canonical: "/quick-order" },
   title: { absolute: "Quick Order — Buy PANAM SS316 Fittings Online | Valvenok" },
-  description: 'Fast procurement for Panam SS316 fittings and instrumentation components. Search by part number, add to basket, and checkout in minutes. No minimum order.',
+  description: 'Fast procurement for Panam SS316 fittings and instrumentation components. Search by part number, add parts to an enquiry and get a confirmed quote. No minimum order.',
   keywords: [
     'SS316 fittings quick order',
     'Panam fittings UK',

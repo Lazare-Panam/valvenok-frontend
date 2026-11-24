@@ -74,7 +74,7 @@ export default function AddToCartSection({ product }: { product: ProductQuickOrd
           startIcon={inCart ? <CheckIcon sx={{ fontSize: 15 }} /> : <AddShoppingCartIcon sx={{ fontSize: 15 }} />}
           sx={{ fontFamily: '"Barlow Condensed", sans-serif', fontWeight: 800, fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.08em', px: 3, py: 1.25, boxShadow: 'none', borderRadius: '3px', bgcolor: inCart ? (t) => alpha(t.palette.primary.main, 0.15) : 'primary.main', color: inCart ? 'primary.main' : 'text.primary', border: '1px solid', borderColor: 'primary.main', cursor: inCart ? 'default' : 'pointer', '&:hover': { boxShadow: 'none', bgcolor: inCart ? (t) => alpha(t.palette.primary.main, 0.15) : 'primary.dark' } }}
         >
-          {outOfStock ? 'Unavailable' : inCart ? 'Added to Cart' : `Add ${qty} to Cart`}
+          {outOfStock ? 'Unavailable' : inCart ? 'Added to Enquiry' : `Add ${qty} to Enquiry`}
         </Button>
         {!inCart && !outOfStock && (
           <Typography sx={{ fontFamily: '"Barlow Condensed", sans-serif', fontSize: '13px', fontWeight: 700, color: 'text.secondary' }}>
