@@ -27,7 +27,7 @@ import BoltOutlinedIcon from "@mui/icons-material/BoltOutlined";
 import WorkspacePremiumOutlinedIcon from "@mui/icons-material/WorkspacePremiumOutlined";
 import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
 import SupportAgentOutlinedIcon from "@mui/icons-material/SupportAgentOutlined";
-import { MotionRoot, LightBackdrop, Words, gradientText, Reveal, L, Blob } from "@/src/app/Common/LightMotion";
+import { MotionRoot, LightBackdrop, Words, gradientText, Reveal, L, Blob, PASTELS } from "@/src/app/Common/LightMotion";
 import { wrap, Kicker, H2, Lead, pillBtn } from "@/src/app/hydrogen-cryogenic/components/HydrogenHub";
 
 import { ON_SITE, type Cat } from "./brandsData";
@@ -122,11 +122,11 @@ function Hero() {
 // Shop by category: one tile per product type with its brand count and logos;
 // a tile sets the brand filter below and scrolls to it.
 const CAT_INFO: { cat: Cat; icon: React.ReactNode; tint: string; ink: string }[] = [
-  { cat: "Valves", icon: <TuneOutlinedIcon />, tint: L.mint, ink: T.greenDark },
-  { cat: "Actuators", icon: <SettingsOutlinedIcon />, tint: "#E3F3FF", ink: "#1F6FB2" },
-  { cat: "Fittings", icon: <BuildOutlinedIcon />, tint: "#FFF5D6", ink: "#8A6100" },
-  { cat: "Hydrogen", icon: <AcUnitOutlinedIcon />, tint: "#EEE9FF", ink: "#5B43B5" },
-  { cat: "Instrumentation", icon: <SpeedOutlinedIcon />, tint: "#E6F7F2", ink: "#1E7D63" },
+  { cat: "Valves", icon: <TuneOutlinedIcon />, ...PASTELS[0] },
+  { cat: "Actuators", icon: <SettingsOutlinedIcon />, ...PASTELS[1] },
+  { cat: "Fittings", icon: <BuildOutlinedIcon />, ...PASTELS[2] },
+  { cat: "Hydrogen", icon: <AcUnitOutlinedIcon />, ...PASTELS[3] },
+  { cat: "Instrumentation", icon: <SpeedOutlinedIcon />, ...PASTELS[4] },
 ];
 
 function ShopBar({ onPick }: { onPick: (c: Cat) => void }) {

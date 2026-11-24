@@ -3,8 +3,8 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
-import { T, textReset } from "../Landing/modern/homeTokens";
-import SectionHeader from "../Landing/modern/HomeSectionHeader";
+import { T, textReset } from "../Landing/modern/tokens";
+import SectionHeader from "../Landing/modern/SectionHeader";
 import { BRAND } from "@/src/theme/brand";
 
 // One-off curated list of deep pages that currently have only one internal
@@ -365,7 +365,7 @@ export default function SEOButtons() {
                       border: `1px solid ${T.border}`,
                       bgcolor: T.surface,
                       transition: "all .15s",
-                      "&:hover": { borderColor: T.brandDark, color: T.brandDark, bgcolor: T.brandSoft },
+                      "&:hover": { borderColor: T.greenDark, color: T.greenDark, bgcolor: T.greenSoft },
                     }}
                   >
                     {label}

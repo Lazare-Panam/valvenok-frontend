@@ -18,6 +18,18 @@ export const L = {
   cream: "#FBFDF8",
 };
 
+/** Pastel pairs from the Brands page category cards: soft tint + matching ink (icon/text).
+ *  Order: mint-green, sky-blue, sun-yellow, lilac, aqua. */
+export const PASTELS = [
+  { tint: L.mint, ink: T.greenDark },
+  { tint: "#E3F3FF", ink: "#1F6FB2" },
+  { tint: "#FFF5D6", ink: "#8A6100" },
+  { tint: "#EEE9FF", ink: "#5B43B5" },
+  { tint: "#E6F7F2", ink: "#1E7D63" },
+] as const;
+/** Card background in a pastel, fading to white (as the Brands category cards). */
+export const pastelCard = (tint: string) => `linear-gradient(160deg, ${tint} 0%, #fff 75%)`;
+
 export const KF = {
   "@keyframes drift": {
     "0%": { transform: "translate(0,0) scale(1)", borderRadius: "42% 58% 60% 40% / 45% 45% 55% 55%" },

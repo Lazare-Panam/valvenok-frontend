@@ -9,7 +9,10 @@ import {
   Drawer,
   useTheme,
   useMediaQuery,
+  GlobalStyles,
 } from "@mui/material";
+import { usePathname } from "next/navigation";
+import { isTealPage } from "@/src/theme/tealPages";
 import MenuIcon from "@mui/icons-material/Menu";
 import BoltIcon from "@mui/icons-material/Bolt";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
@@ -22,14 +25,15 @@ import MobileMenu from "./MobileMenu";
 import DesktopUserActions from "./user-actions/DesktopUserActions";
 import { NAV_GROUPS, NavGroup } from "./Navbardata";
 import NavTopStrip from "./NavTopStrip";
-import { BRAND, BRAND_GRADIENT, BRAND_GRADIENT_HOVER, withAlpha } from "@/src/theme/brand";
+import { BRAND, withAlpha } from "@/src/theme/brand";
+import { NAV, navVars } from "./navTheme";
 import { useCartStore } from "@/src/app/cart/hooks/useCartStore";
 import { useHydrated } from "./user-actions/useHydrated";
 
-const TEAL_DARK = BRAND.hover;
-const TEAL_DEEP = BRAND.deep;
-const INK = BRAND.ink;
-const BORDER = BRAND.border;
+const TEAL_DARK = NAV.hover;
+const TEAL_DEEP = NAV.deep;
+const INK = NAV.ink;
+const BORDER = NAV.border;
 const FONT = "var(--font-geist-sans), Inter, system-ui, sans-serif";
 const LOGO_HEIGHT = 76;
 const NAV_HEIGHT = 48;
@@ -105,7 +109,12 @@ export default function Navbar() {
     };
   }, []);
 
+  // Teal on the teal pages, the original green everywhere else (sets the NAV.x colours)
+  const teal = isTealPage(usePathname());
+
   return (
+    <>
+    <GlobalStyles styles={{ ":root": navVars(teal) }} />
     <Box
       sx={{
         position: "sticky",
@@ -128,7 +137,7 @@ export default function Navbar() {
           height: LOGO_HEIGHT,
           position: "relative",
           // Phones: the menu row is hidden, so the header's edge sits under the logo bar
-          borderBottom: { xs: `1px solid ${BRAND.border}`, md: "none" },
+          borderBottom: { xs: `1px solid ${NAV.border}`, md: "none" },
         }}
       >
         <Container maxWidth="xl" sx={{ px: { xs: 2, md: 4 }, height: "100%" }}>
@@ -149,16 +158,16 @@ export default function Navbar() {
                   px: 2.25,
                   py: 1.1,
                   borderRadius: 999,
-                  // Soft brand gradient
-                  background: BRAND_GRADIENT,
-                  color: BRAND.white,
+                  // Teal pages: soft brand gradient. Elsewhere: the original bright green (navTheme)
+                  background: NAV.cta,
+                  color: NAV.ctaInk,
                   fontSize: "0.9rem",
                   fontWeight: 600,
                   textDecoration: "none",
                   whiteSpace: "nowrap",
-                  boxShadow: `0 6px 16px -8px ${withAlpha(BRAND.hover, 0.6)}`,
+                  boxShadow: NAV.ctaShadow,
                   transition: "background-color .2s, box-shadow .2s",
-                  "&:hover": { background: BRAND_GRADIENT_HOVER, boxShadow: `0 8px 20px -8px ${withAlpha(BRAND.hover, 0.7)}` },
+                  "&:hover": { background: NAV.ctaHover, boxShadow: NAV.ctaShadowHover },
                 }}
               >
                 Request a quote
@@ -184,7 +193,7 @@ export default function Navbar() {
                 <Badge
                   badgeContent={hydrated ? totalItems : 0}
                   invisible={!hydrated || totalItems === 0}
-                  sx={{ "& .MuiBadge-badge": { bgcolor: BRAND.main, color: BRAND.white, fontWeight: 700, fontSize: "10px", height: 17, minWidth: 17 } }}
+                  sx={{ "& .MuiBadge-badge": { bgcolor: NAV.main, color: BRAND.white, fontWeight: 700, fontSize: "10px", height: 17, minWidth: 17 } }}
                 >
                   <ShoppingCartOutlinedIcon />
                 </Badge>
@@ -216,7 +225,7 @@ export default function Navbar() {
         ref={navBarRef}
         sx={{
           // Option A (23 Nov 2026): white menu row with a thin border as the header's edge
-          borderBottom: `1px solid ${BRAND.border}`,
+          borderBottom: `1px solid ${NAV.border}`,
           bgcolor: withAlpha(BRAND.white, 0.96),
           backdropFilter: "saturate(180%) blur(10px)",
           boxShadow: scrolled ? `0 10px 24px -16px ${withAlpha(BRAND.ink, 0.35)}` : "none",
@@ -227,7 +236,7 @@ export default function Navbar() {
       >
         <Container maxWidth="xl" sx={{ px: { xs: 2, md: 4 } }}>
           {/* Short divider between the logo bar and the menu (container width, not full bleed) */}
-          <Box aria-hidden sx={{ height: "1px", bgcolor: BRAND.divider }} />
+          <Box aria-hidden sx={{ height: "1px", bgcolor: NAV.divider }} />
           <Box ref={rowRef} sx={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "center", height: NAV_HEIGHT, gap: 0.5 }}>
             <Box ref={groupsRef} sx={{ display: "flex", alignItems: "center", gap: 0.5, flexShrink: 0 }}>
             {NAV_GROUPS.map((group) => {
@@ -247,15 +256,15 @@ export default function Navbar() {
                     py: 0.75,
                     "@media (max-width:1339.95px)": { px: 1, fontSize: "0.86rem" },
                     borderRadius: 0,
-                    color: active ? BRAND.hover : BRAND.ink,
+                    color: active ? NAV.hover : NAV.ink,
                     // Open tab: thin teal underline instead of a filled pill
-                    boxShadow: active ? `inset 0 -2px 0 ${BRAND.main}` : "none",
+                    boxShadow: active ? `inset 0 -2px 0 ${NAV.main}` : "none",
                     fontSize: "0.92rem",
                     fontWeight: 500,
                     textDecoration: "none",
                     whiteSpace: "nowrap",
                     transition: "all 0.15s",
-                    "&:hover": { color: BRAND.hover, boxShadow: `inset 0 -2px 0 ${BRAND.main}` },
+                    "&:hover": { color: NAV.hover, boxShadow: `inset 0 -2px 0 ${NAV.main}` },
                     ...(tight && { px: "6px !important", fontSize: "0.82rem !important" }),
                   }}
                 >
@@ -320,5 +329,6 @@ export default function Navbar() {
         <MobileMenu onClose={() => setMobileOpen(false)} />
       </Drawer>
     </Box>
+    </>
   );
 }

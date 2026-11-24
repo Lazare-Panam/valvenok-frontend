@@ -206,3 +206,24 @@ export const shade = (a: number) => withAlpha(BRAND.ink, a);
 export const BRAND_CSS_VARS: Record<string, string> = Object.fromEntries(
   Object.entries(BRAND).map(([k, v]) => [`--vk-${k.replace(/[A-Z]/g, (c) => "-" + c.toLowerCase())}`, v]),
 );
+
+/** The navbar's original green (before the teal rebrand). Used for the navbar on every page
+ *  except the teal ones in src/theme/tealPages.ts (24 Nov 2026). Same role names as BRAND. */
+export const NAV_GREEN = {
+  main: "#61D649",
+  hover: "#2E8B1E",
+  deep: "#123D17",
+  tint: "#EEF9EA",
+  tintStrong: "#DDF3D6",
+  wash: "#F6FAF5",
+  border: "#E5EBE6",
+  divider: "#EEF2EF",
+  hoverBorder: "#BFE3B4",
+  ink: "#0E1B12",
+  body: "#4B5A50",
+  muted: "#5B6B60",
+  subtle: "#7A877F",
+  faint: "#9AA69E",
+  faintest: "#B5C0B8",
+  ctaHover: "#55C93E",
+} as const;

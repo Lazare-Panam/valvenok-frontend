@@ -24,6 +24,7 @@ import { useCartStore } from "@/src/app/cart/hooks/useCartStore";
 import { useLogout } from "@/src/app/login/hooks/useLogout";
 import { useHydrated } from "./useHydrated";
 import { BRAND } from "@/src/theme/brand";
+import { NAV } from "../navTheme";
 
 interface Props {
   barHeight: number;
@@ -45,15 +46,15 @@ export default function DesktopUserActions({ barHeight }: Props) {
     py: 1,
     gap: 0.75,
     borderRadius: 999,
-    color: BRAND.ink,
+    color: NAV.ink,
     fontSize: "0.9rem",
     fontWeight: 500,
     cursor: "pointer",
     whiteSpace: "nowrap",
     transition: "all 0.2s ease-in-out",
     "&:hover": {
-      color: BRAND.hover,
-      bgcolor: BRAND.tint,
+      color: NAV.hover,
+      bgcolor: NAV.tint,
     },
   };
   const iconSx = { fontSize: 20, flexShrink: 0 };
@@ -124,10 +125,10 @@ export default function DesktopUserActions({ barHeight }: Props) {
 
       {/* QUICK ORDER */}
       <Box
-        sx={{ ...itemSx, color: BRAND.hover }}
+        sx={{ ...itemSx, color: NAV.hover }}
         onClick={() => router.push("/quick-order")}
       >
-        <BoltIcon sx={{ ...iconSx, color: BRAND.hover }} />
+        <BoltIcon sx={{ ...iconSx, color: NAV.hover }} />
         Quick Order
       </Box>
 
@@ -138,7 +139,7 @@ export default function DesktopUserActions({ barHeight }: Props) {
           invisible={!hydrated || totalItems === 0}
           sx={{
             "& .MuiBadge-badge": {
-              bgcolor: BRAND.main,
+              bgcolor: NAV.main,
               color: BRAND.white,
               fontWeight: 700,
               height: 18,
@@ -160,7 +161,7 @@ export default function DesktopUserActions({ barHeight }: Props) {
               sx={{
                 width: 28,
                 height: 28,
-                bgcolor: BRAND.main,
+                bgcolor: NAV.main,
                 color: "white",
                 fontSize: "12px",
                 fontWeight: 700,

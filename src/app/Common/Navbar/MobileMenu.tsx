@@ -18,9 +18,10 @@ import { BRANDS, brandsFor, type ProductType } from "../brandRegistry";
 import { NAV_GROUPS, NAV_LINKS, NavColumn, NavItem } from "./Navbardata";
 import MobileUserActions from "./user-actions/MobileUserActions";
 import { BRAND } from "@/src/theme/brand";
+import { NAV } from "./navTheme";
 
-const BRAND_TEAL = BRAND.main;
-const HEADER_COLOR = BRAND.deep;
+const BRAND_TEAL = NAV.main;
+const HEADER_COLOR = NAV.deep;
 
 interface Props {
   onClose: () => void;
@@ -32,15 +33,15 @@ type PanelLevel =
   | { type: "items"; colHeader: string; colHref?: string; items: NavItem[] }
   | { type: "children"; parentLabel: string; parentHref?: string; children: NavItem[] };
 
-const INK = BRAND.ink;
-const MUTED = BRAND.subtle;
-const BORDER = BRAND.divider;
+const INK = NAV.ink;
+const MUTED = NAV.subtle;
+const BORDER = NAV.divider;
 
 // Green "View all …" row at the top of a panel
 function ViewAllRow({ label, href, onClose }: { label: string; href: string; onClose: () => void }) {
   return (
     <ListItemButton component="a" href={href} onClick={onClose}
-      sx={{ mx: 1.5, my: 1.25, px: 2, py: 1.1, borderRadius: "12px", bgcolor: BRAND.tint, "&:hover": { bgcolor: BRAND.tintStrong } }}>
+      sx={{ mx: 1.5, my: 1.25, px: 2, py: 1.1, borderRadius: "12px", bgcolor: NAV.tint, "&:hover": { bgcolor: NAV.tintStrong } }}>
       <ListItemText primary={label} primaryTypographyProps={{ fontSize: "0.86rem", fontWeight: 700, color: HEADER_COLOR, textTransform: "capitalize !important" }} />
       <ArrowForwardRoundedIcon sx={{ fontSize: 18, color: HEADER_COLOR }} />
     </ListItemButton>
@@ -59,7 +60,7 @@ function BrandHead({ name, site }: { name: string; site?: string }) {
       )}
       <Typography sx={{ fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase !important", color: MUTED }}>{name}</Typography>
       <Box sx={{ flex: 1, height: "1px", bgcolor: BORDER }} />
-      {site && <Typography sx={{ fontSize: "0.7rem", color: BRAND.faint, textTransform: "capitalize !important" }}>{site}</Typography>}
+      {site && <Typography sx={{ fontSize: "0.7rem", color: NAV.faint, textTransform: "capitalize !important" }}>{site}</Typography>}
     </Box>
   );
 }
@@ -71,7 +72,7 @@ function ShopByBrand({ type, onClose }: { type: ProductType; onClose: () => void
   const brands = brandsFor(type);
   if (!brands.length) return null;
   return (
-    <Box sx={{ mt: 2, mx: 1.5, p: 1.5, borderRadius: "16px", background: `linear-gradient(135deg, ${BRAND.tint} 0%, ${BRAND.wash} 100%)`, border: `1px solid ${BORDER}` }}>
+    <Box sx={{ mt: 2, mx: 1.5, p: 1.5, borderRadius: "16px", background: `linear-gradient(135deg, ${NAV.tint} 0%, ${NAV.wash} 100%)`, border: `1px solid ${BORDER}` }}>
       <Typography sx={{ fontSize: "0.92rem", fontWeight: 800, color: INK, textTransform: "capitalize !important" }}>Shop by brand</Typography>
       <Typography sx={{ fontSize: "0.74rem", color: MUTED, mb: 1.25, textTransform: "capitalize !important" }}>↗ = the brand’s own website</Typography>
       <Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1 }}>
@@ -86,11 +87,11 @@ function ShopByBrand({ type, onClose }: { type: ProductType; onClose: () => void
             <Box sx={{ display: "flex", alignItems: "center", gap: 0.4, fontSize: "0.86rem", fontWeight: 800, color: INK }}>
               {brand.name} {external && <NorthEastRoundedIcon sx={{ fontSize: 14, color: HEADER_COLOR }} />}
             </Box>
-            <Box sx={{ fontSize: "0.72rem", color: BRAND.muted, lineHeight: 1.35 }}>{text}</Box>
+            <Box sx={{ fontSize: "0.72rem", color: NAV.muted, lineHeight: 1.35 }}>{text}</Box>
           </Box>
         ))}
       </Box>
-      <ListItemButton component="a" href="/brands" onClick={onClose} sx={{ mt: 1.25, borderRadius: 999, bgcolor: HEADER_COLOR, justifyContent: "center", py: 0.9, "&:hover": { bgcolor: BRAND.hover } }}>
+      <ListItemButton component="a" href="/brands" onClick={onClose} sx={{ mt: 1.25, borderRadius: 999, bgcolor: HEADER_COLOR, justifyContent: "center", py: 0.9, "&:hover": { bgcolor: NAV.hover } }}>
         <Typography sx={{ fontSize: "0.86rem", fontWeight: 700, color: BRAND.white, textTransform: "capitalize !important" }}>All brands</Typography>
         <ArrowForwardRoundedIcon sx={{ fontSize: 17, color: BRAND.white, ml: 0.5 }} />
       </ListItemButton>
@@ -116,8 +117,8 @@ export default function MobileMenu({ onClose }: Props) {
             alignItems: "center",
             px: 1,
             py: 0.5,
-            borderBottom: `1px solid ${BRAND.divider}`,
-            bgcolor: BRAND.wash,
+            borderBottom: `1px solid ${NAV.divider}`,
+            bgcolor: NAV.wash,
           }}
         >
           <IconButton onClick={pop} size="small">
@@ -154,7 +155,7 @@ export default function MobileMenu({ onClose }: Props) {
                 onClick={() =>
                   push({ type: "columns", groupId: group.id, groupLabel: group.label, groupHref: group.href, columns: group.columns })
                 }
-                sx={{ px: 2, py: 1.2, borderBottom: `1px solid ${BRAND.divider}` }}
+                sx={{ px: 2, py: 1.2, borderBottom: `1px solid ${NAV.divider}` }}
               >
                 <ListItemText
                   primary={group.label}
@@ -207,7 +208,7 @@ export default function MobileMenu({ onClose }: Props) {
               <React.Fragment key={item.label}>
                 {item.external && !all[i - 1]?.external && (
                   <Box sx={{ mx: 2, mt: 2, pt: 1.5, borderTop: `1px solid ${BORDER}` }}>
-                    <Typography sx={{ fontSize: "0.8rem", fontWeight: 600, color: BRAND.muted, textTransform: "capitalize !important" }}>Also in our group</Typography>
+                    <Typography sx={{ fontSize: "0.8rem", fontWeight: 600, color: NAV.muted, textTransform: "capitalize !important" }}>Also in our group</Typography>
                   </Box>
                 )}
                 {item.brand && item.brand !== all[i - 1]?.brand && (
@@ -231,7 +232,7 @@ export default function MobileMenu({ onClose }: Props) {
                   {item.external ? (
                     <NorthEastRoundedIcon sx={{ color: MUTED, fontSize: 16, flexShrink: 0 }} />
                   ) : (
-                    <ChevronRightIcon sx={{ color: BRAND.faintest, fontSize: 18, flexShrink: 0 }} />
+                    <ChevronRightIcon sx={{ color: NAV.faintest, fontSize: 18, flexShrink: 0 }} />
                   )}
                 </ListItemButton>
               </React.Fragment>
@@ -250,11 +251,11 @@ export default function MobileMenu({ onClose }: Props) {
                 href={child.href}
                 disabled={!child.href}
                 onClick={onClose}
-                sx={{ px: 2, py: 1, borderBottom: `1px solid ${BRAND.divider}` }}
+                sx={{ px: 2, py: 1, borderBottom: `1px solid ${NAV.divider}` }}
               >
                 <ListItemText
                   primary={child.brand ? `${child.brand} · ${child.label}` : child.label}
-                  primaryTypographyProps={{ fontSize: "0.85rem", color: BRAND.body }}
+                  primaryTypographyProps={{ fontSize: "0.85rem", color: NAV.body }}
                 />
               </ListItemButton>
             ))}

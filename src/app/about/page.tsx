@@ -21,7 +21,6 @@ export default function AboutPage() {
     <>
       <AboutModern>
         <GroupSites
-          teal
           title="Our group"
           subtitle="Valvenok works alongside specialist websites across the group. Each one focuses on a single range, so you can go straight to the experts for that product."
         />

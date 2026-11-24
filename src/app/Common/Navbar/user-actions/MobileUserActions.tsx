@@ -20,6 +20,7 @@ import { useCartStore } from "@/src/app/cart/hooks/useCartStore";
 import { useLogout } from "@/src/app/login/hooks/useLogout";
 import { useHydrated } from "./useHydrated";
 import { BRAND } from "@/src/theme/brand";
+import { NAV } from "../navTheme";
 
 interface Props {
   onClose: () => void;
@@ -60,12 +61,12 @@ export default function MobileUserActions({ onClose }: Props) {
     <Box>
       {/* USER HEADER (authed only) */}
       {isAuthed && (
-        <Box sx={{ px: 2, py: 2, bgcolor: BRAND.wash, display: "flex", alignItems: "center", gap: 2 }}>
+        <Box sx={{ px: 2, py: 2, bgcolor: NAV.wash, display: "flex", alignItems: "center", gap: 2 }}>
           <Avatar
             sx={{
               width: 40,
               height: 40,
-              bgcolor: BRAND.main,
+              bgcolor: NAV.main,
               color: "white",
               fontSize: "14px",
               fontWeight: 900,
@@ -95,8 +96,8 @@ export default function MobileUserActions({ onClose }: Props) {
       )}
 
       {/* QUICK ORDER */}
-      <ListItemButton onClick={() => go("/quick-order")} sx={{ ...rowSx, color: BRAND.hover }}>
-        <BoltIcon sx={{ fontSize: 26, color: BRAND.hover }} />
+      <ListItemButton onClick={() => go("/quick-order")} sx={{ ...rowSx, color: NAV.hover }}>
+        <BoltIcon sx={{ fontSize: 26, color: NAV.hover }} />
         <ListItemText primary="Quick Order" primaryTypographyProps={labelSx} />
       </ListItemButton>
 
@@ -107,7 +108,7 @@ export default function MobileUserActions({ onClose }: Props) {
           invisible={!hydrated || totalItems === 0}
           sx={{
             "& .MuiBadge-badge": {
-              bgcolor: BRAND.main,
+              bgcolor: NAV.main,
               color: BRAND.white,
               borderRadius: 0,
               fontWeight: 900,

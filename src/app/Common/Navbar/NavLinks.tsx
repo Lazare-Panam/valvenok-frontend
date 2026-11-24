@@ -5,6 +5,7 @@ import Box from "@mui/material/Box";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { NAV_LINKS } from "./Navbardata";
 import { BRAND, withAlpha } from "@/src/theme/brand";
+import { NAV } from "./navTheme";
 
 export const navItem = {
   display: "flex",
@@ -12,13 +13,13 @@ export const navItem = {
   px: 1.5,
   py: 0.75,
   borderRadius: 0,
-  color: BRAND.ink,
+  color: NAV.ink,
   fontSize: "0.92rem",
   fontWeight: 500,
   textDecoration: "none",
   whiteSpace: "nowrap",
   transition: "all 0.15s",
-  "&:hover": { color: BRAND.hover, boxShadow: `inset 0 -2px 0 ${BRAND.main}` },
+  "&:hover": { color: NAV.hover, boxShadow: `inset 0 -2px 0 ${NAV.main}` },
   // Narrower desktop windows: tighter, so the whole row fits
   "@media (max-width:1339.95px)": { px: 1, fontSize: "0.86rem" },
 } as const;
@@ -63,7 +64,7 @@ export default function NavLinks({ collapsed, measureRef }: { collapsed: boolean
           aria-expanded={open}
           onClick={() => setOpen((o) => !o)}
           onFocus={show}
-          sx={{ ...navItem, gap: 0.25, border: 0, bgcolor: "transparent", color: open ? BRAND.hover : BRAND.ink, boxShadow: open ? `inset 0 -2px 0 ${BRAND.main}` : "none", cursor: "pointer", fontFamily: "inherit" }}
+          sx={{ ...navItem, gap: 0.25, border: 0, bgcolor: "transparent", color: open ? NAV.hover : NAV.ink, boxShadow: open ? `inset 0 -2px 0 ${NAV.main}` : "none", cursor: "pointer", fontFamily: "inherit" }}
         >
           More
           <KeyboardArrowDownIcon sx={{ fontSize: 18, transition: "transform 0.2s", transform: open ? "rotate(180deg)" : "none" }} />
@@ -71,10 +72,10 @@ export default function NavLinks({ collapsed, measureRef }: { collapsed: boolean
         {open && (
           <Box
             role="menu"
-            sx={{ position: "absolute", top: "calc(100% + 8px)", right: 0, zIndex: 400, minWidth: 200, p: 1, borderRadius: "16px", bgcolor: BRAND.white, border: `1px solid ${BRAND.border}`, boxShadow: `0 18px 40px -12px ${withAlpha(BRAND.ink, 0.25)}` }}
+            sx={{ position: "absolute", top: "calc(100% + 8px)", right: 0, zIndex: 400, minWidth: 200, p: 1, borderRadius: "16px", bgcolor: BRAND.white, border: `1px solid ${NAV.border}`, boxShadow: `0 18px 40px -12px ${withAlpha(BRAND.ink, 0.25)}` }}
           >
             {NAV_LINKS.map((link) => (
-              <Box key={link.label} component="a" role="menuitem" href={link.href} sx={{ ...navItem, px: 1.75, py: 1.1, borderRadius: "10px", fontSize: "0.92rem", color: BRAND.ink, boxShadow: "none", "&:hover": { color: BRAND.hover, bgcolor: BRAND.tint, boxShadow: "none" } }}>
+              <Box key={link.label} component="a" role="menuitem" href={link.href} sx={{ ...navItem, px: 1.75, py: 1.1, borderRadius: "10px", fontSize: "0.92rem", color: NAV.ink, boxShadow: "none", "&:hover": { color: NAV.hover, bgcolor: NAV.tint, boxShadow: "none" } }}>
                 {link.label}
               </Box>
             ))}

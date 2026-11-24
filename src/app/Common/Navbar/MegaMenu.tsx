@@ -9,11 +9,12 @@ import StorefrontOutlinedIcon from "@mui/icons-material/StorefrontOutlined";
 import { NavGroup, NavItem } from "./Navbardata";
 import { brandsFor, BRANDS, type Brand, type ProductType } from "../brandRegistry";
 import { BRAND, withAlpha } from "@/src/theme/brand";
+import { NAV } from "./navTheme";
 
-const INK = BRAND.ink;
-const TEAL = BRAND.hover;
-const SOFT = BRAND.tint;
-const BORDER = BRAND.border;
+const INK = NAV.ink;
+const TEAL = NAV.hover;
+const SOFT = NAV.tint;
+const BORDER = NAV.border;
 
 interface Props {
   group: NavGroup;
@@ -43,7 +44,7 @@ function ViewAll({ href, onClose }: { href?: string; onClose: () => void }) {
         fontSize: "0.78rem",
         fontWeight: 600,
         textDecoration: "none",
-        "&:hover": { bgcolor: BRAND.tintStrong },
+        "&:hover": { bgcolor: NAV.tintStrong },
       }}
     >
       View all <ArrowForwardRoundedIcon sx={{ fontSize: 14 }} />
@@ -55,7 +56,7 @@ function ColumnHead({ kicker, title, href, onClose }: { kicker: string; title: s
   return (
     <Box sx={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 2, mb: 2 }}>
       <Box>
-        <Typography sx={{ fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase !important", color: BRAND.subtle }}>
+        <Typography sx={{ fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase !important", color: NAV.subtle }}>
           {kicker}
         </Typography>
         <Typography sx={{ mt: 0.5, fontSize: "1rem", fontWeight: 700, color: INK, textTransform: "capitalize" }}>{title}</Typography>
@@ -91,7 +92,7 @@ function MenuRow({ label, href, active, onEnter, onClose, accent, external }: { 
         borderLeft: accent ? `3px solid ${active ? TEAL : "transparent"}` : "none",
         textDecoration: "none",
         transition: "all .12s",
-        "& svg": { color: active ? TEAL : BRAND.faintest, fontSize: 18 },
+        "& svg": { color: active ? TEAL : NAV.faintest, fontSize: 18 },
       }}
     >
       {label}
@@ -110,9 +111,9 @@ function BrandHead({ name, site, first }: { name: string; site?: string; first: 
           <Box component="img" src={b.logo} alt="" sx={{ maxWidth: "100%", maxHeight: 18, objectFit: "contain", transform: b.logoScale ? `scale(${Math.min(b.logoScale, 2.4)})` : undefined }} />
         </Box>
       )}
-      <Typography sx={{ flexShrink: 0, fontSize: "0.66rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase !important", color: BRAND.subtle }}>{name}</Typography>
+      <Typography sx={{ flexShrink: 0, fontSize: "0.66rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase !important", color: NAV.subtle }}>{name}</Typography>
       <Box sx={{ flex: 1, height: "1px", bgcolor: BORDER }} />
-      {site && <Typography sx={{ flexShrink: 0, fontSize: "0.68rem", color: BRAND.faint, textTransform: "capitalize !important" }}>{site}</Typography>}
+      {site && <Typography sx={{ flexShrink: 0, fontSize: "0.68rem", color: NAV.faint, textTransform: "capitalize !important" }}>{site}</Typography>}
     </Box>
   );
 }
@@ -121,22 +122,22 @@ function BrandHead({ name, site, first }: { name: string; site?: string; first: 
 function ShowcaseCard({ item, onClose }: { item: NavItem; onClose: () => void }) {
   return (
     <Box>
-      <Typography sx={{ fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase !important", color: BRAND.subtle }}>
+      <Typography sx={{ fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase !important", color: NAV.subtle }}>
         Also in our group · {item.brand}
       </Typography>
       <Typography sx={{ mt: 0.5, mb: 2, fontSize: "1rem", fontWeight: 700, color: INK, textTransform: "capitalize" }}>{item.label}</Typography>
       <Box component="a" href={item.href} target="_blank" rel="noopener" onClick={onClose}
-        sx={{ display: "flex", gap: 2, alignItems: "center", p: 1.5, border: `1px solid ${BORDER}`, borderRadius: "14px", textDecoration: "none", bgcolor: BRAND.white, transition: "all .15s", "&:hover": { borderColor: BRAND.hoverBorder, boxShadow: `0 6px 18px ${withAlpha(BRAND.ink, 0.08)}` }, "&:hover .go": { bgcolor: TEAL, color: BRAND.white } }}>
-        <Box sx={{ flexShrink: 0, width: 120, height: 96, borderRadius: "10px", bgcolor: BRAND.wash, display: "grid", placeItems: "center", overflow: "hidden" }}>
+        sx={{ display: "flex", gap: 2, alignItems: "center", p: 1.5, border: `1px solid ${BORDER}`, borderRadius: "14px", textDecoration: "none", bgcolor: BRAND.white, transition: "all .15s", "&:hover": { borderColor: NAV.hoverBorder, boxShadow: `0 6px 18px ${withAlpha(BRAND.ink, 0.08)}` }, "&:hover .go": { bgcolor: TEAL, color: BRAND.white } }}>
+        <Box sx={{ flexShrink: 0, width: 120, height: 96, borderRadius: "10px", bgcolor: NAV.wash, display: "grid", placeItems: "center", overflow: "hidden" }}>
           {item.image && <Box component="img" src={item.image} alt={item.label} sx={{ display: "block", width: "auto", height: "auto", maxWidth: 108, maxHeight: 84, objectFit: "contain", mixBlendMode: "multiply" }} />}
         </Box>
         <Box sx={{ minWidth: 0 }}>
-          <Box sx={{ fontSize: "0.86rem", color: BRAND.muted, lineHeight: 1.45, mb: 1.25, textTransform: "capitalize" }}>{item.line}</Box>
+          <Box sx={{ fontSize: "0.86rem", color: NAV.muted, lineHeight: 1.45, mb: 1.25, textTransform: "capitalize" }}>{item.line}</Box>
           <Box className="go" component="span" sx={{ display: "inline-flex", alignItems: "center", gap: 0.5, px: 1.5, py: 0.75, borderRadius: 999, bgcolor: SOFT, color: TEAL, fontSize: "0.82rem", fontWeight: 700, transition: "all .15s" }}>
             View on the website <NorthEastRoundedIcon sx={{ fontSize: 15 }} />
           </Box>
           {item.href && (
-            <Box sx={{ mt: 0.75, fontSize: "0.74rem", color: BRAND.faint, textTransform: "none" }}>{new URL(item.href).hostname.replace(/^www\./, "")}</Box>
+            <Box sx={{ mt: 0.75, fontSize: "0.74rem", color: NAV.faint, textTransform: "none" }}>{new URL(item.href).hostname.replace(/^www\./, "")}</Box>
           )}
         </Box>
       </Box>
@@ -168,17 +169,17 @@ function BrandBar({ type, onClose }: { type: ProductType; onClose: () => void })
   if (!brands.length) return null;
   const action = { display: "inline-flex", alignItems: "center", gap: 0.4, fontSize: "0.78rem", fontWeight: 700, color: TEAL, textDecoration: "none", whiteSpace: "nowrap", "&:hover": { textDecoration: "underline" } } as const;
   return (
-    <Box sx={{ gridColumn: "1 / -1", borderTop: `1px solid ${BORDER}`, background: `linear-gradient(90deg, ${BRAND.tint} 0%, ${BRAND.wash} 45%, ${BRAND.wash} 100%)`, px: 3.5, pt: 2.5, pb: 3 }}>
+    <Box sx={{ gridColumn: "1 / -1", borderTop: `1px solid ${BORDER}`, background: `linear-gradient(90deg, ${NAV.tint} 0%, ${NAV.wash} 45%, ${NAV.wash} 100%)`, px: 3.5, pt: 2.5, pb: 3 }}>
       <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, mb: 2 }}>
         <Box sx={{ flexShrink: 0, width: 34, height: 34, borderRadius: "10px", bgcolor: BRAND.white, border: `1px solid ${BORDER}`, display: "grid", placeItems: "center", color: TEAL }}>
           <StorefrontOutlinedIcon sx={{ fontSize: 19 }} />
         </Box>
         <Typography sx={{ fontSize: "0.95rem", fontWeight: 800, color: INK, lineHeight: 1.2, textTransform: "capitalize !important" }}>Shop by brand</Typography>
-        <Typography sx={{ fontSize: "0.76rem", color: BRAND.muted, lineHeight: 1.4, textTransform: "capitalize !important" }}>
+        <Typography sx={{ fontSize: "0.76rem", color: NAV.muted, lineHeight: 1.4, textTransform: "capitalize !important" }}>
           <Box component="span" sx={{ color: TEAL, fontWeight: 800 }}>↗</Box> = the brand’s own website
         </Typography>
         <Box component="a" href="/brands" onClick={onClose}
-          sx={{ ml: "auto", flexShrink: 0, display: "inline-flex", alignItems: "center", gap: 0.5, px: 2, py: 0.9, borderRadius: 999, bgcolor: TEAL, color: BRAND.white, fontSize: "0.84rem", fontWeight: 700, textDecoration: "none", whiteSpace: "nowrap", "&:hover": { bgcolor: BRAND.deep } }}>
+          sx={{ ml: "auto", flexShrink: 0, display: "inline-flex", alignItems: "center", gap: 0.5, px: 2, py: 0.9, borderRadius: 999, bgcolor: TEAL, color: BRAND.white, fontSize: "0.84rem", fontWeight: 700, textDecoration: "none", whiteSpace: "nowrap", "&:hover": { bgcolor: NAV.deep } }}>
           All brands <ArrowForwardRoundedIcon sx={{ fontSize: 16 }} />
         </Box>
       </Box>
@@ -187,13 +188,13 @@ function BrandBar({ type, onClose }: { type: ProductType; onClose: () => void })
           {brands.map(({ brand, text, href, external }) => (
             <Box key={brand.slug} component="a" href={href} onClick={onClose} {...(external ? { target: "_blank", rel: "noopener" } : {})} title={text}
               aria-label={`${brand.name}: ${text}${external ? " (opens their website)" : ""}`}
-              sx={{ display: "flex", alignItems: "center", gap: 1.25, p: 1, pr: 1.5, border: `1px solid ${BORDER}`, borderRadius: "14px", bgcolor: BRAND.white, textDecoration: "none", transition: "all .15s", "&:hover": { borderColor: BRAND.hoverBorder, boxShadow: `0 4px 12px ${withAlpha(BRAND.ink, 0.08)}` } }}>
+              sx={{ display: "flex", alignItems: "center", gap: 1.25, p: 1, pr: 1.5, border: `1px solid ${BORDER}`, borderRadius: "14px", bgcolor: BRAND.white, textDecoration: "none", transition: "all .15s", "&:hover": { borderColor: NAV.hoverBorder, boxShadow: `0 4px 12px ${withAlpha(BRAND.ink, 0.08)}` } }}>
               <BrandLogo brand={brand} w={50} h={40} />
               <Box sx={{ minWidth: 0, flex: 1 }}>
                 <Box sx={{ display: "flex", alignItems: "center", gap: 0.4, fontSize: "0.8rem", fontWeight: 800, color: INK, lineHeight: 1.2, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
                   {brand.name} {external && <NorthEastRoundedIcon sx={{ fontSize: 12, color: TEAL }} />}
                 </Box>
-                <Box sx={{ mt: 0.25, fontSize: "0.7rem", color: BRAND.muted, lineHeight: 1.35, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", textTransform: "capitalize" }}>{text}</Box>
+                <Box sx={{ mt: 0.25, fontSize: "0.7rem", color: NAV.muted, lineHeight: 1.35, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", textTransform: "capitalize" }}>{text}</Box>
               </Box>
             </Box>
           ))}
@@ -203,7 +204,7 @@ function BrandBar({ type, onClose }: { type: ProductType; onClose: () => void })
         {brands.map(({ brand, text, href, external }) => {
           const site = brand.website;
           return (
-            <Box key={brand.slug} sx={{ position: "relative", boxSizing: "border-box", display: "flex", flexDirection: "column", gap: 1.5, p: 2, border: `1px solid ${BORDER}`, borderRadius: "14px", bgcolor: BRAND.white, boxShadow: `0 1px 2px ${withAlpha(BRAND.ink, 0.04)}`, transition: "all .15s", "&:hover": { borderColor: BRAND.hoverBorder, boxShadow: `0 6px 18px ${withAlpha(BRAND.ink, 0.08)}`, transform: "translateY(-1px)" } }}>
+            <Box key={brand.slug} sx={{ position: "relative", boxSizing: "border-box", display: "flex", flexDirection: "column", gap: 1.5, p: 2, border: `1px solid ${BORDER}`, borderRadius: "14px", bgcolor: BRAND.white, boxShadow: `0 1px 2px ${withAlpha(BRAND.ink, 0.04)}`, transition: "all .15s", "&:hover": { borderColor: NAV.hoverBorder, boxShadow: `0 6px 18px ${withAlpha(BRAND.ink, 0.08)}`, transform: "translateY(-1px)" } }}>
               <Box component="a" href={href} onClick={onClose} {...(external ? { target: "_blank", rel: "noopener" } : {})}
                 aria-label={`${brand.name}: ${text}${external ? " (opens their website)" : ""}`}
                 sx={{ position: "absolute", inset: 0, borderRadius: "14px", zIndex: 0 }} />
@@ -211,7 +212,7 @@ function BrandBar({ type, onClose }: { type: ProductType; onClose: () => void })
                 <BrandLogo brand={brand} w={56} h={48} />
                 <Box sx={{ minWidth: 0, flex: 1 }}>
                   <Box sx={{ fontSize: "0.9rem", fontWeight: 800, color: INK, lineHeight: 1.25 }}>{brand.name}</Box>
-                  <Box sx={{ mt: 0.4, fontSize: "0.74rem", color: BRAND.muted, lineHeight: 1.4, overflow: "hidden", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", textTransform: "capitalize" }} title={text}>
+                  <Box sx={{ mt: 0.4, fontSize: "0.74rem", color: NAV.muted, lineHeight: 1.4, overflow: "hidden", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", textTransform: "capitalize" }} title={text}>
                     {text}
                   </Box>
                 </Box>
@@ -275,7 +276,7 @@ export default function MegaMenu({ group, onClose }: Props) {
         }}
       >
         {/* Level 1: sections of this menu tab */}
-        <Box sx={{ p: 1.5, bgcolor: BRAND.wash, borderRight: `1px solid ${BORDER}` }}>
+        <Box sx={{ p: 1.5, bgcolor: NAV.wash, borderRight: `1px solid ${BORDER}` }}>
           {group.columns.map((c, i) => (
             <MenuRow key={c.header} label={c.header} href={c.href} active={i === colIndex} onEnter={() => setColIndex(i)} onClose={onClose} />
           ))}
@@ -288,7 +289,7 @@ export default function MegaMenu({ group, onClose }: Props) {
             <React.Fragment key={it.label}>
               {it.external && !items[i - 1]?.external && (
                 <Box sx={{ mt: 2.25, pt: 1.75, mx: 1.75, borderTop: `1px solid ${BORDER}` }}>
-                  <Typography sx={{ fontSize: "0.8rem", fontWeight: 600, color: BRAND.muted, textTransform: "capitalize !important", lineHeight: 1.3 }}>
+                  <Typography sx={{ fontSize: "0.8rem", fontWeight: 600, color: NAV.muted, textTransform: "capitalize !important", lineHeight: 1.3 }}>
                     Also in our group
                   </Typography>
                 </Box>
@@ -329,8 +330,8 @@ export default function MegaMenu({ group, onClose }: Props) {
                         color: INK,
                         textDecoration: "none",
                         transition: "all .12s",
-                        "& svg": { fontSize: 15, color: BRAND.faintest, transition: "all .12s" },
-                        "&:hover": { borderColor: BRAND.hoverBorder, bgcolor: SOFT, color: TEAL },
+                        "& svg": { fontSize: 15, color: NAV.faintest, transition: "all .12s" },
+                        "&:hover": { borderColor: NAV.hoverBorder, bgcolor: SOFT, color: TEAL },
                         "&:hover svg": { color: TEAL, transform: "translateX(2px)" },
                         // No page yet: shown for reference, not clickable
                         ...(!s.href && { cursor: "default", pointerEvents: "none", "& svg": { display: "none" } }),

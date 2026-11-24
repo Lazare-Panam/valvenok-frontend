@@ -1,6 +1,7 @@
 "use client";
 
-// About page, redesigned 23 Nov 2026 (teal + logo palette, colours from src/theme/brand.ts):
+// About page, redesigned 23 Nov 2026. Colours: the original fresh palette (soft greens, cream,
+// pale sky and sun, shimmering green text) by request, 24 Nov 2026. Layout:
 //  • Light editorial hero: framed photo on a blueprint grid, badges, stats strip
 //  • Outlined keyword marquee
 //  • Manufacturer logo wall: two rows drifting opposite ways, grey → colour on hover
@@ -21,13 +22,13 @@ import WorkspacePremiumOutlinedIcon from "@mui/icons-material/WorkspacePremiumOu
 import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
 import ScienceOutlinedIcon from "@mui/icons-material/ScienceOutlined";
 import BubbleChartOutlinedIcon from "@mui/icons-material/BubbleChartOutlined";
-import { T, textReset } from "../Landing/modern/homeTokens";
-import { Eyebrow } from "../Landing/modern/HomeSectionHeader";
-import PillButton from "../Landing/modern/HomeButtons";
-import { KF, useInView, Reveal, Blob, Words } from "../Common/LightMotion";
+import { T, textReset } from "../Landing/modern/tokens";
+import { Eyebrow } from "../Landing/modern/SectionHeader";
+import PillButton from "../Landing/modern/Buttons";
+import { KF, L, PASTELS, pastelCard, gradientText, useInView, Reveal, Blob, Words } from "../Common/LightMotion";
 import { ON_SITE } from "../brands/brandsData";
 import { swipeRow } from "../Landing/modern/swipeRow";
-import { AQUA, BRAND, BRAND_GRADIENT, LOGO, LOGO_SOFT_GRADIENT, LOGO_TINT_GRADIENT, withAlpha } from "@/src/theme/brand";
+import { BRAND, mix, withAlpha } from "@/src/theme/brand";
 
 const WRAP = { width: "100%", boxSizing: "border-box", maxWidth: T.maxWidth, mx: "auto", px: { xs: 2, md: 4 } } as const;
 const VALUES_IMG = "https://pblol2.blob.core.windows.net/valvenok-images/compressed-images/fittings-hero.webp";
@@ -39,6 +40,21 @@ const grid = (line: string, size = 24) => ({
   backgroundImage: `linear-gradient(${line} 1px, transparent 1px), linear-gradient(90deg, ${line} 1px, transparent 1px)`,
   backgroundSize: `${size}px ${size}px`,
 });
+
+// The original About palette (before the teal rebrand), kept for this page only.
+const G = {
+  sky: "#8FD9F0", // pale sky accent
+  sun: "#FFD978", // warm sun accent
+  hoverBorder: "#BFE3B4",
+    heroMid: "#F2FAEE",
+  line: withAlpha(T.greenDark, 0.08), // faint grid lines
+  dot: withAlpha(T.greenDark, 0.14), // dot grid
+} as const;
+/** Fresh green → sky gradient for the block behind the hero photo. */
+const FRESH_LIGHT = `linear-gradient(135deg, ${T.green} 0%, ${G.sky} 100%)`;
+/** Pastel pair for item i (mint, sky, sun, lilac, aqua — the Brands page set). */
+const pastel = (i: number) => PASTELS[i % PASTELS.length];
+const TINTS = PASTELS.map((p) => p.tint);
 
 /** Big outlined numbers / words. */
 const outline = (color: string, w = 1.5) => ({ color: "transparent", WebkitTextStroke: `${w}px ${color}` });
@@ -71,11 +87,11 @@ function CountUp({ value, run }: { value: string; run: boolean }) {
   return <>{v}</>;
 }
 
-function Chip({ icon, title, sub, sx, delay = 0 }: { icon: React.ReactNode; title: string; sub: string; sx: object; delay?: number }) {
+function Chip({ icon, title, sub, sx, delay = 0, tone = 0 }: { icon: React.ReactNode; title: string; sub: string; sx: object; delay?: number; tone?: number }) {
   return (
     <Box sx={{ position: "absolute", zIndex: 3, animation: `floaty 6s ease-in-out ${delay}s infinite`, ...sx }}>
       <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, p: 1.25, pr: 2.5, borderRadius: "16px", bgcolor: withAlpha(BRAND.white, 0.94), backdropFilter: "blur(10px)", border: `1px solid ${T.border}`, boxShadow: T.shadowHover }}>
-        <Box sx={{ width: 38, height: 38, borderRadius: "11px", background: BRAND_GRADIENT, color: BRAND.white, display: "grid", placeItems: "center", animation: "pulseRing 2.4s ease-out infinite" }}>{icon}</Box>
+        <Box sx={{ width: 38, height: 38, borderRadius: "11px", bgcolor: pastel(tone).tint, color: pastel(tone).ink, display: "grid", placeItems: "center", animation: "pulseRing 2.4s ease-out infinite" }}>{icon}</Box>
         <Box>
           <Typography sx={{ fontWeight: 800, color: T.ink, lineHeight: 1.2, fontSize: "0.92rem" }}>{title}</Typography>
           <Typography sx={{ fontSize: "0.76rem", color: T.muted }}>{sub}</Typography>
@@ -93,17 +109,18 @@ function SpinRing() {
         <defs>
           <path id="about-ring" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0" />
         </defs>
-        <text fill={LOGO.mid} fontSize="10" fontWeight="700" letterSpacing="1.5">
+        <text fill={T.greenDark} fontSize="10" fontWeight="700" letterSpacing="1.5">
           <textPath href="#about-ring" textLength="272" lengthAdjust="spacing">UK BASED SUPPLIER • SS316 • H₂ READY • </textPath>
         </text>
       </Box>
-      <Box sx={{ position: "absolute", inset: 38, borderRadius: "50%", background: BRAND_GRADIENT, display: "grid", placeItems: "center", fontWeight: 800, color: BRAND.white, fontSize: "0.95rem" }}>UK</Box>
+      <Box sx={{ position: "absolute", inset: 38, borderRadius: "50%", bgcolor: L.mint, display: "grid", placeItems: "center", fontWeight: 800, color: T.greenDark, fontSize: "0.95rem" }}>UK</Box>
     </Box>
   );
 }
 
 // Light, editorial hero (23 Nov 2026): inner pages stay calmer than the homepage's full
-// photo hero. White blueprint grid, framed photo with an offset teal block behind it.
+// photo hero. Cream background with drifting pastel blobs, framed photo with a fresh
+// green block behind it.
 function Hero() {
   const [tilt, setTilt] = React.useState({ x: 0, y: 0 });
   const [ref, on] = useInView<HTMLDivElement>(0.2);
@@ -112,9 +129,11 @@ function Hero() {
     setTilt({ x: ((e.clientY - r.top) / r.height - 0.5) * -8, y: ((e.clientX - r.left) / r.width - 0.5) * 10 });
   };
   return (
-    <Box component="section" sx={{ position: "relative", overflow: "hidden", bgcolor: BRAND.white }}>
-      <Box aria-hidden sx={{ position: "absolute", inset: 0, ...grid(withAlpha(LOGO.top, 0.07)), maskImage: "linear-gradient(180deg, black 40%, transparent 100%)", WebkitMaskImage: "linear-gradient(180deg, black 40%, transparent 100%)" }} />
-      <Box aria-hidden sx={{ position: "absolute", top: -200, right: -160, width: 640, height: 640, borderRadius: "50%", background: `radial-gradient(circle, ${withAlpha(AQUA.mistLight, 0.9)}, transparent 70%)`, pointerEvents: "none" }} />
+    <Box component="section" sx={{ position: "relative", overflow: "hidden", background: `linear-gradient(180deg, ${L.cream} 0%, ${G.heroMid} 60%, ${BRAND.white} 100%)` }}>
+      <Blob color={L.lime} sx={{ top: -140, left: -120 }} />
+      <Blob color={L.sky} dur={22} delay={2} sx={{ top: 40, right: -160 }} />
+      <Blob color={L.sun} dur={26} delay={4} sx={{ bottom: -200, left: "35%", width: 360, height: 360 }} />
+      <Box aria-hidden sx={{ position: "absolute", inset: 0, backgroundImage: `radial-gradient(${G.dot} 1px, transparent 1px)`, backgroundSize: "22px 22px", maskImage: "linear-gradient(180deg, black, transparent 85%)", WebkitMaskImage: "linear-gradient(180deg, black, transparent 85%)", pointerEvents: "none" }} />
 
       <Box sx={{ ...WRAP, position: "relative", pt: { xs: 6, md: 9 }, pb: { xs: 6, md: 8 } }}>
         <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "1.1fr 1fr" }, gap: { xs: 8, md: 10 }, alignItems: "center" }}>
@@ -122,12 +141,12 @@ function Hero() {
             <Box sx={{ animation: "wordIn .7s ease both" }}>
               <Eyebrow>About Valvenok</Eyebrow>
             </Box>
-            <Typography component="h1" sx={{ mt: 3, fontWeight: 800, fontSize: { xs: "2.7rem", sm: "3.4rem", md: "4.4rem" }, lineHeight: 1.02, letterSpacing: "-0.04em", color: LOGO.bottom }}>
+            <Typography component="h1" sx={{ mt: 3, fontWeight: 800, fontSize: { xs: "2.7rem", sm: "3.4rem", md: "4.4rem" }, lineHeight: 1.02, letterSpacing: "-0.04em", color: T.ink }}>
               <Words text="Built for engineers," />
               <Box component="span" sx={{ position: "relative", display: "inline-block" }}>
-                <Words text="by engineers" start={330} sx={{ color: LOGO.top }} />
+                <Words text="by engineers" start={330} sx={gradientText} />
                 <Box component="svg" aria-hidden viewBox="0 0 300 20" preserveAspectRatio="none" sx={{ position: "absolute", left: 0, bottom: { xs: -8, md: -12 }, width: "100%", height: { xs: 12, md: 16 } }}>
-                  <path d="M4 14 C 60 2, 120 18, 180 8 S 270 4, 296 12" fill="none" stroke={AQUA.glowDeep} strokeWidth="5" strokeLinecap="round" strokeDasharray="320" style={{ animation: "draw 1.2s ease 0.9s both" }} />
+                  <path d="M4 14 C 60 2, 120 18, 180 8 S 270 4, 296 12" fill="none" stroke={T.green} strokeWidth="5" strokeLinecap="round" strokeDasharray="320" style={{ animation: "draw 1.2s ease 0.9s both" }} />
                 </Box>
               </Box>
             </Typography>
@@ -148,9 +167,9 @@ function Hero() {
             </Box>
           </Box>
 
-          {/* framed photo, offset teal block behind, badges around it */}
+          {/* framed photo, offset fresh-green block behind, badges around it */}
           <Box onMouseMove={onMove} onMouseLeave={() => setTilt({ x: 0, y: 0 })} sx={{ position: "relative", perspective: "1200px", mx: { xs: 1, md: 0 }, animation: "wordIn 1s ease .3s both" }}>
-            <Box aria-hidden sx={{ position: "absolute", inset: 0, transform: "translate(16px, 16px)", borderRadius: "30px", background: LOGO_SOFT_GRADIENT, "&::after": { content: '""', position: "absolute", inset: 0, borderRadius: "30px", ...grid(withAlpha(BRAND.white, 0.08), 20) } }} />
+            <Box aria-hidden sx={{ position: "absolute", inset: 0, transform: "translate(16px, 16px)", borderRadius: "30px", background: FRESH_LIGHT, "&::after": { content: '""', position: "absolute", inset: 0, borderRadius: "30px", ...grid(withAlpha(BRAND.white, 0.18), 20) } }} />
             <Box
               sx={{
                 position: "relative",
@@ -158,19 +177,19 @@ function Hero() {
                 borderRadius: "30px",
                 overflow: "hidden",
                 border: `6px solid ${BRAND.white}`,
-                boxShadow: `0 30px 70px -20px ${withAlpha(LOGO.bottom, 0.35)}`,
+                boxShadow: `0 30px 70px -20px ${withAlpha(T.greenDark, 0.3)}`,
                 transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
                 transition: "transform .3s ease-out",
               }}
             >
               <Image src={VALUES_IMG} alt="Stainless steel instrumentation fittings" fill priority sizes="(max-width: 900px) 100vw, 45vw" style={{ objectFit: "cover" }} />
-              <Box aria-hidden sx={{ position: "absolute", inset: 0, background: `linear-gradient(160deg, transparent 50%, ${withAlpha(LOGO.mid, 0.25)} 100%)` }} />
+              <Box aria-hidden sx={{ position: "absolute", inset: 0, background: `linear-gradient(160deg, ${withAlpha(BRAND.white, 0.12)} 0%, transparent 40%, ${withAlpha(L.mint, 0.35)} 100%)` }} />
             </Box>
             <SpinRing />
             <Chip icon={<WorkspacePremiumOutlinedIcon fontSize="small" />} title="JOSCAR" sub="Registered Supplier" sx={{ left: { xs: -4, md: -44 }, bottom: { xs: -30, md: 56 } }} />
-            <Chip icon={<GroupsOutlinedIcon fontSize="small" />} title="BVAA" sub="Member" delay={0.6} sx={{ right: { sm: -8, md: -14 }, top: { sm: "40%" }, display: { xs: "none", sm: "block" } }} />
-            <Chip icon={<ScienceOutlinedIcon fontSize="small" />} title="SS316" sub="Primary Material" delay={1.2} sx={{ right: { sm: 24, md: 40 }, bottom: { sm: -34, md: -30 }, display: { xs: "none", sm: "block" } }} />
-            <Chip icon={<BubbleChartOutlinedIcon fontSize="small" />} title="H₂" sub="Hydrogen Ready" delay={1.8} sx={{ left: { md: "18%" }, top: { md: -26 }, display: { xs: "none", md: "block" } }} />
+            <Chip icon={<GroupsOutlinedIcon fontSize="small" />} title="BVAA" sub="Member" delay={0.6} tone={1} sx={{ right: { sm: -8, md: -14 }, top: { sm: "40%" }, display: { xs: "none", sm: "block" } }} />
+            <Chip icon={<ScienceOutlinedIcon fontSize="small" />} title="SS316" sub="Primary Material" delay={1.2} tone={2} sx={{ right: { sm: 24, md: 40 }, bottom: { sm: -34, md: -30 }, display: { xs: "none", sm: "block" } }} />
+            <Chip icon={<BubbleChartOutlinedIcon fontSize="small" />} title="H₂" sub="Hydrogen Ready" delay={1.8} tone={3} sx={{ left: { md: "18%" }, top: { md: -26 }, display: { xs: "none", md: "block" } }} />
           </Box>
         </Box>
 
@@ -186,11 +205,14 @@ function Hero() {
             bgcolor: BRAND.white,
             border: `1px solid ${T.border}`,
             boxShadow: T.shadow,
+            position: "relative",
+            // shimmering green → sky → sun bar along the top (as the original stat cards)
+            "&::before": { content: '""', position: "absolute", left: 0, right: 0, top: 0, height: 4, zIndex: 1, background: `linear-gradient(90deg, ${T.green}, ${G.sky}, ${G.sun}, ${T.green})`, backgroundSize: "200% auto", animation: "shine 3s linear infinite" },
           }}
         >
           {STATS.map((s, i) => (
-            <Box key={s.label} sx={{ position: "relative", p: { xs: 2, md: 2.75 }, borderLeft: { lg: i ? `1px solid ${T.border}` : "none" }, transition: "background .25s", "&:hover": { bgcolor: BRAND.wash }, "&:hover::before": { transform: "scaleX(1)" }, "&::before": { content: '""', position: "absolute", left: 0, right: 0, top: 0, height: 3, background: BRAND_GRADIENT, transform: "scaleX(0)", transformOrigin: "left", transition: "transform .35s ease" } }}>
-              <Typography sx={{ fontWeight: 800, fontSize: { xs: "1.6rem", md: "2rem" }, letterSpacing: "-0.03em", lineHeight: 1.05, color: LOGO.mid }}>
+            <Box key={s.label} sx={{ position: "relative", p: { xs: 2, md: 2.75 }, borderLeft: { lg: i ? `1px solid ${T.border}` : "none" }, background: pastelCard(pastel(i).tint), transition: "filter .25s", "&:hover": { filter: "saturate(1.4)" } }}>
+              <Typography sx={{ fontWeight: 800, fontSize: { xs: "1.6rem", md: "2rem" }, letterSpacing: "-0.03em", lineHeight: 1.05, color: pastel(i).ink }}>
                 <CountUp value={s.value} run={on} />
               </Typography>
               <Typography sx={{ mt: 0.75, fontSize: "0.8rem", lineHeight: 1.4, color: T.body }}>{s.label}</Typography>
@@ -208,7 +230,7 @@ const MARQUEE = ["Valves", "Fittings", "Instrumentation", "UK Support", "SS316",
 function Marquee() {
   const row = [...MARQUEE, ...MARQUEE];
   return (
-    <Box aria-hidden sx={{ overflow: "hidden", py: { xs: 2.5, md: 3.5 }, borderBottom: `1px solid ${T.border}`, bgcolor: BRAND.white }}>
+    <Box aria-hidden sx={{ overflow: "hidden", py: { xs: 2.5, md: 3.5 }, borderTop: `1px solid ${T.border}`, borderBottom: `1px solid ${T.border}`, bgcolor: L.mint }}>
       <Box sx={{ display: "flex", width: "max-content", animation: "marquee 40s linear infinite" }}>
         {row.map((w, i) => (
           <Box
@@ -222,11 +244,11 @@ function Marquee() {
               fontWeight: 800,
               letterSpacing: "-0.04em",
               whiteSpace: "nowrap",
-              ...(i % 2 ? outline(LOGO.mid, 1.5) : { color: LOGO.bottom }),
+              ...(i % 2 ? outline(T.greenDark, 1.5) : { color: T.ink }),
             }}
           >
             {w}
-            <Box component="span" sx={{ width: { xs: 10, md: 14 }, height: { xs: 10, md: 14 }, borderRadius: "50%", background: BRAND_GRADIENT, flexShrink: 0 }} />
+            <Box component="span" sx={{ width: { xs: 10, md: 14 }, height: { xs: 10, md: 14 }, borderRadius: "50%", bgcolor: pastel(i).ink, boxShadow: `0 0 0 4px ${pastel(i).tint}`, flexShrink: 0 }} />
           </Box>
         ))}
       </Box>
@@ -241,13 +263,13 @@ function LogoWall() {
   const rows = [logos.slice(0, half), logos.slice(half)];
   return (
     <Box component="section" sx={{ position: "relative", overflow: "hidden", py: { xs: 8, md: 11 }, bgcolor: BRAND.white }}>
-      <Box aria-hidden sx={{ position: "absolute", inset: 0, ...grid(withAlpha(LOGO.top, 0.06)), maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)", WebkitMaskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)" }} />
+      <Box aria-hidden sx={{ position: "absolute", inset: 0, ...grid(G.line), maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)", WebkitMaskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)" }} />
       <Box sx={{ ...WRAP, position: "relative", textAlign: "center", mb: { xs: 4, md: 6 } }}>
         <Reveal>
           <Eyebrow>Brands We Supply</Eyebrow>
           <Typography component="h2" sx={{ mt: 2, fontWeight: 800, fontSize: { xs: "2.1rem", md: "3.2rem" }, letterSpacing: "-0.035em", lineHeight: 1.05, color: T.ink }}>
             27 manufacturers.{" "}
-            <Box component="span" sx={{ color: LOGO.mid }}>
+            <Box component="span" sx={gradientText}>
               One account.
             </Box>
           </Typography>
@@ -276,7 +298,7 @@ function LogoWall() {
                   border: `1px solid ${T.border}`,
                   boxShadow: T.shadow,
                   transition: "transform .25s, box-shadow .25s, border-color .25s",
-                  "&:hover": { transform: "translateY(-4px)", boxShadow: T.shadowHover, borderColor: withAlpha(LOGO.top, 0.4) },
+                  "&:hover": { transform: "translateY(-4px)", boxShadow: T.shadowHover, borderColor: G.hoverBorder },
                   "& img": { transition: "transform .3s" },
                   "&:hover img": { transform: "scale(1.06)" },
                 }}
@@ -311,9 +333,9 @@ function StoryIntro() {
   return (
     <Box sx={{ width: { md: 560 }, flexShrink: 0 }}>
       <Eyebrow>Our Story</Eyebrow>
-      <Typography component="h2" sx={{ mt: 2, fontWeight: 800, fontSize: { xs: "2.1rem", md: "2.9rem" }, letterSpacing: "-0.035em", lineHeight: 1.05, color: LOGO.bottom }}>
+      <Typography component="h2" sx={{ mt: 2, fontWeight: 800, fontSize: { xs: "2.1rem", md: "2.9rem" }, letterSpacing: "-0.035em", lineHeight: 1.05, color: T.ink }}>
         From a stock problem to a{" "}
-        <Box component="span" sx={{ color: LOGO.top }}>
+        <Box component="span" sx={gradientText}>
           stock solution
         </Box>
       </Typography>
@@ -330,9 +352,9 @@ function StoryIntro() {
         on every quote, backed by JOSCAR registration since 2020 and BVAA membership since 2026.
       </Typography>
       <Box sx={{ mt: 3.5, display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 1.25 }}>
-        {STORY_FACTS.map(({ value, label }) => (
-          <Box key={label} sx={{ p: { xs: 1.25, md: 1.75 }, borderRadius: T.radiusSm, bgcolor: BRAND.white, border: `1px solid ${T.border}`, boxShadow: T.shadow }}>
-            <Box sx={{ fontSize: "1.5rem", fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1, color: LOGO.mid }}>{value}</Box>
+        {STORY_FACTS.map(({ value, label }, i) => (
+          <Box key={label} sx={{ p: { xs: 1.25, md: 1.75 }, borderRadius: T.radiusSm, background: pastelCard(pastel(i).tint), border: `1px solid ${T.border}`, boxShadow: T.shadow }}>
+            <Box sx={{ fontSize: "1.5rem", fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1, color: pastel(i).ink }}>{value}</Box>
             <Box sx={{ mt: 0.75, fontSize: { xs: "0.72rem", md: "0.8rem" }, fontWeight: 500, lineHeight: 1.35, color: T.body }}>{label}</Box>
           </Box>
         ))}
@@ -353,8 +375,8 @@ function MilestoneSlide({ m, i, active }: { m: (typeof MILESTONES)[number]; i: n
           lineHeight: 0.9,
           transition: "all .5s cubic-bezier(.2,.8,.2,1)",
           ...(active
-            ? { background: `linear-gradient(180deg, ${LOGO.top}, ${LOGO.mid})`, WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", WebkitTextStroke: "0px transparent" }
-            : outline(withAlpha(LOGO.mid, 0.35), 1.5)),
+            ? { background: `linear-gradient(180deg, ${mix(pastel(i).ink, BRAND.white, 0.45)} 0%, ${mix(pastel(i).ink, BRAND.white, 0.75)} 100%)`, WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", WebkitTextStroke: `1px ${withAlpha(pastel(i).ink, 0.35)}` }
+            : outline(withAlpha(pastel(i).ink, 0.35), 1.5)),
           transform: active ? "translateY(0)" : "translateY(10px)",
         }}
       >
@@ -365,14 +387,14 @@ function MilestoneSlide({ m, i, active }: { m: (typeof MILESTONES)[number]; i: n
           mt: 2.5,
           p: { xs: 2.5, md: 3 },
           borderRadius: "22px",
-          bgcolor: withAlpha(BRAND.white, active ? 1 : 0.6),
+          background: active ? pastelCard(pastel(i).tint) : withAlpha(BRAND.white, 0.6),
           backdropFilter: "blur(10px)",
-          border: `1px solid ${active ? withAlpha(LOGO.top, 0.35) : T.border}`,
+          border: `1px solid ${active ? withAlpha(pastel(i).ink, 0.25) : T.border}`,
           boxShadow: active ? T.shadowHover : "none",
           transition: "all .5s cubic-bezier(.2,.8,.2,1)",
         }}
       >
-        <Box sx={{ fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.12em", color: LOGO.top }}>
+        <Box sx={{ fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.12em", color: pastel(i).ink }}>
           {String(i + 1).padStart(2, "0")} / {String(MILESTONES.length).padStart(2, "0")}
         </Box>
         <Typography component="h3" sx={{ mt: 1, fontWeight: 700, fontSize: "1.2rem", color: T.ink }}>
@@ -385,7 +407,7 @@ function MilestoneSlide({ m, i, active }: { m: (typeof MILESTONES)[number]; i: n
 }
 
 const STORY_BG = {
-  background: [`radial-gradient(900px 500px at 10% 0%, ${withAlpha(BRAND.white, 0.7)}, transparent 65%)`, LOGO_TINT_GRADIENT].join(", "),
+  background: [`radial-gradient(700px 420px at 8% 10%, ${L.sky}, transparent 70%)`, `radial-gradient(600px 400px at 95% 90%, ${L.lime}, transparent 70%)`, `radial-gradient(500px 360px at 60% 0%, ${L.sun}, transparent 70%)`, `linear-gradient(180deg, ${BRAND.white} 0%, ${L.cream} 100%)`].join(", "),
   color: T.ink,
 } as const;
 
@@ -430,9 +452,9 @@ function Story() {
       {/* Desktop: pinned, slides sideways. The tall outer box is the scroll distance. */}
       <Box ref={outer} component="section" aria-label="Our story" sx={{ display: { xs: "none", md: "block" }, position: "relative", height: `calc(100vh + ${dist}px)`, ...STORY_BG }}>
         <Box sx={{ position: "sticky", top: HEADER, height: `calc(100vh - ${HEADER}px)`, overflow: "hidden", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-          <Box aria-hidden sx={{ position: "absolute", inset: 0, ...grid(withAlpha(LOGO.top, 0.09), 40) }} />
+          <Box aria-hidden sx={{ position: "absolute", inset: 0, ...grid(G.line, 40) }} />
           {/* giant faint year behind everything */}
-          <Typography aria-hidden sx={{ position: "absolute", right: -20, bottom: -60, fontWeight: 800, fontSize: "26rem", lineHeight: 1, letterSpacing: "-0.06em", ...outline(withAlpha(LOGO.mid, 0.1), 2), pointerEvents: "none", transition: "opacity .4s" }}>
+          <Typography aria-hidden sx={{ position: "absolute", right: -20, bottom: -60, fontWeight: 800, fontSize: "26rem", lineHeight: 1, letterSpacing: "-0.06em", ...outline(withAlpha(T.greenDark, 0.08), 2), pointerEvents: "none", transition: "opacity .4s" }}>
             {started ? MILESTONES[active].year : "VNK"}
           </Typography>
           <Box ref={track} component="ol" sx={{ position: "relative", m: 0, pl: "max(32px, calc((100vw - 1536px) / 2 + 32px))", pr: 8, display: "flex", alignItems: "center", gap: 8, width: "max-content", transform: `translateX(${-p * dist}px)`, willChange: "transform" }}>
@@ -446,15 +468,15 @@ function Story() {
           {/* progress rail */}
           <Box sx={{ position: "absolute", left: 0, right: 0, bottom: 32 }}>
             <Box sx={{ ...WRAP, display: "flex", alignItems: "center", gap: 2 }}>
-              <Box sx={{ flex: 1, height: 3, borderRadius: 2, bgcolor: withAlpha(LOGO.mid, 0.15), position: "relative" }}>
-                <Box sx={{ position: "absolute", inset: 0, right: "auto", width: `${p * 100}%`, borderRadius: 2, background: `linear-gradient(90deg, ${LOGO.top}, ${LOGO.mid})` }} />
+              <Box sx={{ flex: 1, height: 3, borderRadius: 2, bgcolor: withAlpha(T.greenDark, 0.12), position: "relative" }}>
+                <Box sx={{ position: "absolute", inset: 0, right: "auto", width: `${p * 100}%`, borderRadius: 2, background: `linear-gradient(90deg, ${PASTELS.map((x) => mix(x.ink, BRAND.white, 0.45)).join(", ")})` }} />
                 {MILESTONES.map((m, i) => {
                   const at = 0.12 + (i * 0.88) / MILESTONES.length;
                   const lit = p >= at;
                   return (
                     <Box key={m.year} sx={{ position: "absolute", left: `${at * 100}%`, top: "50%", transform: "translate(-50%, -50%)", display: "flex", flexDirection: "column", alignItems: "center" }}>
-                      <Box sx={{ width: 12, height: 12, borderRadius: "50%", bgcolor: lit ? LOGO.mid : BRAND.white, border: `2px solid ${lit ? LOGO.mid : withAlpha(LOGO.mid, 0.35)}`, transition: "all .3s", boxShadow: lit ? `0 0 0 5px ${withAlpha(LOGO.top, 0.2)}` : "none" }} />
-                      <Box sx={{ position: "absolute", top: 16, fontSize: "0.72rem", fontWeight: 700, color: lit ? LOGO.bottom : withAlpha(LOGO.bottom, 0.45), transition: "color .3s" }}>{m.year}</Box>
+                      <Box sx={{ width: 12, height: 12, borderRadius: "50%", bgcolor: lit ? pastel(i).ink : BRAND.white, border: `2px solid ${lit ? pastel(i).ink : withAlpha(T.greenDark, 0.3)}`, transition: "all .3s", boxShadow: lit ? `0 0 0 5px ${pastel(i).tint}` : "none" }} />
+                      <Box sx={{ position: "absolute", top: 16, fontSize: "0.72rem", fontWeight: 700, color: lit ? T.greenDeep : withAlpha(T.ink, 0.4), transition: "color .3s" }}>{m.year}</Box>
                     </Box>
                   );
                 })}
@@ -466,18 +488,18 @@ function Story() {
 
       {/* Phones / tablets: a compact rail — line on the left, year chip, short card */}
       <Box component="section" aria-label="Our story" sx={{ display: { xs: "block", md: "none" }, ...STORY_BG, position: "relative", overflow: "hidden", py: 7 }}>
-        <Box aria-hidden sx={{ position: "absolute", inset: 0, ...grid(withAlpha(LOGO.top, 0.09), 28) }} />
+        <Box aria-hidden sx={{ position: "absolute", inset: 0, ...grid(G.line, 28) }} />
         <Box sx={{ ...WRAP, position: "relative" }}>
           <StoryIntro />
           <Box component="ol" sx={{ m: 0, mt: 5, p: 0, listStyle: "none", position: "relative" }}>
-            <Box aria-hidden sx={{ position: "absolute", left: 27, top: 12, bottom: 12, width: 2, borderRadius: 1, background: `linear-gradient(180deg, ${LOGO.top}, ${withAlpha(LOGO.top, 0.15)})` }} />
+            <Box aria-hidden sx={{ position: "absolute", left: 27, top: 12, bottom: 12, width: 2, borderRadius: 1, background: `linear-gradient(180deg, ${PASTELS.map((x) => x.ink).join(", ")})` }} />
             {MILESTONES.map((m, i) => (
               <Box component="li" key={m.year} sx={{ position: "relative", pl: 9, pb: i === MILESTONES.length - 1 ? 0 : 2.5 }}>
-                <Box sx={{ position: "absolute", left: 0, top: 0, width: 56, height: 56, borderRadius: "50%", display: "grid", placeItems: "center", background: BRAND_GRADIENT, border: `2px solid ${BRAND.white}`, boxShadow: `0 0 0 5px ${withAlpha(LOGO.top, 0.18)}`, color: BRAND.white, fontWeight: 800, fontSize: "0.82rem", letterSpacing: "-0.01em" }}>
+                <Box sx={{ position: "absolute", left: 0, top: 0, width: 56, height: 56, borderRadius: "50%", display: "grid", placeItems: "center", bgcolor: pastel(i).ink, border: `2px solid ${BRAND.white}`, boxShadow: `0 0 0 5px ${pastel(i).tint}`, color: BRAND.white, fontWeight: 800, fontSize: "0.82rem", letterSpacing: "-0.01em" }}>
                   {m.year}
                 </Box>
                 <Reveal delay={60}>
-                  <Box sx={{ p: 2.25, borderRadius: "18px", bgcolor: BRAND.white, border: `1px solid ${T.border}`, boxShadow: T.shadow }}>
+                  <Box sx={{ p: 2.25, borderRadius: "18px", background: pastelCard(pastel(i).tint), border: `1px solid ${T.border}`, boxShadow: T.shadow }}>
                     <Typography component="h3" sx={{ fontWeight: 700, fontSize: "1.05rem", color: T.ink }}>
                       {m.title}
                     </Typography>
@@ -512,21 +534,21 @@ function ValueTile({ v, i }: { v: (typeof VALUES)[number]; i: number }) {
         overflow: "hidden",
         p: { xs: 3, md: 3.5 },
         borderRadius: "24px",
-        bgcolor: BRAND.white,
+        background: pastelCard(pastel(i).tint),
         border: `1px solid ${T.border}`,
         boxShadow: T.shadow,
         transition: "transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s, border-color .3s",
-        "&::before": { content: '""', position: "absolute", inset: 0, ...grid(withAlpha(LOGO.top, 0.07), 20), maskImage: "linear-gradient(225deg, black 0%, transparent 55%)", WebkitMaskImage: "linear-gradient(225deg, black 0%, transparent 55%)", pointerEvents: "none" },
-        "&:hover": { transform: "translateY(-6px)", boxShadow: T.shadowHover, borderColor: withAlpha(LOGO.top, 0.4) },
+        "&::before": { content: '""', position: "absolute", inset: 0, ...grid(withAlpha(BRAND.white, 0.7), 20), maskImage: "linear-gradient(225deg, black 0%, transparent 55%)", WebkitMaskImage: "linear-gradient(225deg, black 0%, transparent 55%)", pointerEvents: "none" },
+        "&:hover": { transform: "translateY(-6px)", boxShadow: T.shadowHover, borderColor: G.hoverBorder },
         "&:hover .vt-icon": { transform: "rotate(-8deg) scale(1.08)" },
-        "&:hover .vt-num": { WebkitTextStroke: `1.5px ${LOGO.top}` },
+        "&:hover .vt-num": { WebkitTextStroke: `1.5px ${pastel(i).ink}` },
       }}
     >
-      <Box className="vt-num" aria-hidden sx={{ position: "absolute", right: 20, top: 8, fontSize: "4.5rem", fontWeight: 800, letterSpacing: "-0.05em", ...outline(withAlpha(LOGO.top, 0.3), 1.5), transition: "all .3s" }}>
+      <Box className="vt-num" aria-hidden sx={{ position: "absolute", right: 20, top: 8, fontSize: "4.5rem", fontWeight: 800, letterSpacing: "-0.05em", ...outline(withAlpha(pastel(i).ink, 0.25), 1.5), transition: "all .3s" }}>
         {String(i + 1).padStart(2, "0")}
       </Box>
       <Box sx={{ position: "relative" }}>
-        <Box className="vt-icon" sx={{ width: 56, height: 56, borderRadius: "18px", background: BRAND_GRADIENT, color: BRAND.white, display: "grid", placeItems: "center", boxShadow: `0 10px 24px -10px ${withAlpha(LOGO.mid, 0.7)}`, transition: "transform .35s cubic-bezier(.2,.8,.2,1.4)" }}>
+        <Box className="vt-icon" sx={{ width: 56, height: 56, borderRadius: "18px", bgcolor: BRAND.white, color: pastel(i).ink, display: "grid", placeItems: "center", boxShadow: T.shadow, transition: "transform .35s cubic-bezier(.2,.8,.2,1.4)" }}>
           <Icon />
         </Box>
         <Typography component="h3" sx={{ mt: 2.5, fontWeight: 700, fontSize: "1.18rem", color: T.ink }}>
@@ -546,9 +568,9 @@ function Values() {
         {/* phones: a light heading instead of the photo tile */}
         <Box sx={{ display: { xs: "block", sm: "none" }, mb: 0.5 }}>
           <Eyebrow>What We Stand For</Eyebrow>
-          <Typography component="h2" sx={{ mt: 1.5, fontWeight: 800, fontSize: "2.1rem", letterSpacing: "-0.035em", lineHeight: 1.05, color: LOGO.bottom }}>
+          <Typography component="h2" sx={{ mt: 1.5, fontWeight: 800, fontSize: "2.1rem", letterSpacing: "-0.035em", lineHeight: 1.05, color: T.ink }}>
             Our{" "}
-            <Box component="span" sx={{ color: LOGO.top }}>
+            <Box component="span" sx={gradientText}>
               values
             </Box>
           </Typography>
@@ -558,13 +580,13 @@ function Values() {
           <Reveal from="left">
             <Box sx={{ position: "relative", height: "100%", minHeight: { sm: 360, lg: 560 }, borderRadius: "28px", overflow: "hidden", color: BRAND.white, "&:hover img": { transform: "scale(1.06)" } }}>
               <Image src={VALUES_IMG} alt="Stainless steel instrumentation fittings" fill sizes="(max-width: 1200px) 100vw, 40vw" style={{ objectFit: "cover", transition: "transform 1.2s cubic-bezier(.2,.8,.2,1)" }} />
-              <Box aria-hidden sx={{ position: "absolute", inset: 0, background: `linear-gradient(180deg, ${withAlpha(LOGO.bottom, 0.2)} 0%, ${withAlpha(LOGO.bottom, 0.55)} 45%, ${withAlpha(LOGO.bottom, 0.95)} 100%)` }} />
+              <Box aria-hidden sx={{ position: "absolute", inset: 0, background: `linear-gradient(180deg, ${withAlpha(T.greenDeep, 0.1)} 0%, ${withAlpha(T.greenDeep, 0.5)} 45%, ${withAlpha(T.greenDeep, 0.92)} 100%)` }} />
               <Box aria-hidden sx={{ position: "absolute", right: -120, top: -120, width: 360, height: 360, borderRadius: "50%", background: `repeating-radial-gradient(circle, transparent 0 28px, ${withAlpha(BRAND.white, 0.12)} 28px 29.5px, transparent 29.5px 46px)`, maskImage: "radial-gradient(circle, black 30%, transparent 70%)", WebkitMaskImage: "radial-gradient(circle, black 30%, transparent 70%)" }} />
               <Box sx={{ position: "absolute", left: 0, right: 0, bottom: 0, p: { xs: 3, md: 4.5 } }}>
                 <Eyebrow dark>What We Stand For</Eyebrow>
                 <Typography component="h2" sx={{ mt: 2, fontWeight: 800, fontSize: { xs: "2.4rem", md: "3.4rem" }, letterSpacing: "-0.04em", lineHeight: 1, color: BRAND.white }}>
                   Our{" "}
-                  <Box component="span" sx={{ color: AQUA.mist }}>
+                  <Box component="span" sx={{ color: T.green }}>
                     values
                   </Box>
                 </Typography>
@@ -601,34 +623,36 @@ function Cta() {
             overflow: "hidden",
             borderRadius: "32px",
             p: { xs: 4, md: 7 },
-            background: LOGO_SOFT_GRADIENT,
-            boxShadow: `0 30px 60px -30px ${withAlpha(LOGO.mid, 0.55)}`,
+            background: `linear-gradient(120deg, ${TINTS[0]}, #F6FFF2, ${TINTS[2]}, #FFF8E1, ${TINTS[0]})`,
+            backgroundSize: "300% 300%",
+            animation: "bgShift 14s ease infinite",
+            border: "1px solid #D8EED0",
             display: "grid",
             gridTemplateColumns: { xs: "1fr", md: "1.3fr 1fr" },
             gap: 4,
             alignItems: "center",
           }}
         >
-          <Box aria-hidden sx={{ position: "absolute", inset: 0, ...grid(withAlpha(BRAND.white, 0.04), 32) }} />
-          <Blob color={withAlpha(LOGO.top, 0.35)} sx={{ right: -120, top: -160, width: 360, height: 360 }} />
+          <Blob color={L.lime} sx={{ right: -120, top: -160, width: 360, height: 360 }} />
+          <Blob color={L.sky} dur={20} delay={3} sx={{ left: "40%", bottom: -220, width: 340, height: 340 }} />
           <Box sx={{ position: "relative", zIndex: 1 }}>
-            <Eyebrow dark>Ready to Order?</Eyebrow>
-            <Typography component="h2" sx={{ mt: 2, fontWeight: 800, fontSize: { xs: "2.1rem", md: "2.9rem" }, letterSpacing: "-0.03em", lineHeight: 1.08, color: BRAND.white }}>
+            <Eyebrow>Ready to Order?</Eyebrow>
+            <Typography component="h2" sx={{ mt: 2, fontWeight: 800, fontSize: { xs: "2.1rem", md: "2.9rem" }, letterSpacing: "-0.03em", lineHeight: 1.08, color: T.ink }}>
               Valves. Fittings. Instrumentation.{" "}
-              <Box component="span" sx={{ color: AQUA.mist }}>
+              <Box component="span" sx={gradientText}>
                 UK Support.
               </Box>
             </Typography>
-            <Typography sx={{ mt: 2.5, fontSize: "1.05rem", lineHeight: 1.75, color: withAlpha(BRAND.white, 0.8), maxWidth: 560 }}>
+            <Typography sx={{ mt: 2.5, fontSize: "1.05rem", lineHeight: 1.75, color: T.body, maxWidth: 560 }}>
               Browse our full catalogue of SS316 fittings, valves, and instrumentation components — or use Quick Order if you already know your
               part numbers.
             </Typography>
           </Box>
           <Box sx={{ position: "relative", zIndex: 1, display: "flex", gap: 1.5, flexWrap: "wrap", justifyContent: { md: "flex-end" } }}>
-            <PillButton href="/categories" variant="glow">
+            <PillButton href="/categories">
               Browse Products
             </PillButton>
-            <PillButton href="/quick-order" variant="ghostDark">
+            <PillButton href="/quick-order" variant="secondary">
               Quick Order
             </PillButton>
           </Box>
@@ -644,8 +668,6 @@ export default function AboutModern({ children }: { children?: React.ReactNode }
       sx={{
         ...textReset,
         ...KF,
-        // teal pulse instead of the shared green one
-        "@keyframes pulseRing": { "0%": { boxShadow: `0 0 0 0 ${withAlpha(LOGO.top, 0.45)}` }, "100%": { boxShadow: `0 0 0 14px ${withAlpha(LOGO.top, 0)}` } },
         bgcolor: BRAND.white,
         overflowX: "clip",
         "@media (prefers-reduced-motion: reduce)": { "& *": { animation: "none !important", transition: "none !important" } },
