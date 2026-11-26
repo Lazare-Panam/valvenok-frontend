@@ -70,7 +70,6 @@ function Row({ model }: { model: VF7Model }) {
         <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{model.seat}</TableCell>
         <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{model.leakageRate}</TableCell>
         <TableCell sx={{ py: 1, fontSize: '0.82rem' }}>{model.operator}</TableCell>
-        <TableCell sx={{ py: 1, fontWeight: 700, fontSize: '0.85rem' }}>£{model.priceGbp.toFixed(2)}</TableCell>
         <TableCell sx={{ py: 1 }}>
           <Button size="small" variant="contained"
             onClick={handleAddToCart}
@@ -82,7 +81,7 @@ function Row({ model }: { model: VF7Model }) {
 
       {open && (
         <TableRow>
-          <TableCell colSpan={13} sx={{ p: 0, borderBottom: 'none' }}>
+          <TableCell colSpan={12} sx={{ p: 0, borderBottom: 'none' }}>
             <Collapse in unmountOnExit>
               <Box sx={{ p: 3, bgcolor: alpha(theme.palette.primary.main, 0.02), borderLeft: `4px solid ${theme.palette.primary.main}`, borderBottom: `1px solid ${theme.palette.divider}` }}>
                 <Stack direction={{ xs: 'column', md: 'row' }} spacing={4} alignItems="flex-start">
@@ -107,7 +106,6 @@ function Row({ model }: { model: VF7Model }) {
                       <Spec label="Seat" value={model.seat} />
                       <Spec label="Leakage Rate" value={model.leakageRate} />
                       <Spec label="Operator" value={model.operator} />
-                      <Spec label="Price" value={`£${model.priceGbp.toFixed(2)}`} />
                     </Stack>
                     <Stack direction="row" alignItems="center" gap={2}>
                       <Stack direction="row" alignItems="center" gap={0.5}>
@@ -143,13 +141,17 @@ function Row({ model }: { model: VF7Model }) {
   )
 }
 
-type SortKey = 'modelCode' | 'sizeInches' | 'ratingBar' | 'priceGbp'
+type SortKey = 'modelCode' | 'sizeInches' | 'ratingBar'
+
+// Sizes are strings like '2"', '2.5"', '10"' — parse the numeric part so they
+// sort naturally (2, 2.5, 3 … 24) instead of lexically ('10"' before '2"').
+const parseSize = (s: string) => parseFloat(s.replace(/[^\d.]/g, '')) || 0
 
 export default function VF7Table({ models, isFetching }: { models: VF7Model[]; isFetching?: boolean }) {
   const theme = useTheme()
   const [page, setPage] = useState(0)
   const [rowsPerPage, setRowsPerPage] = useState(50)
-  const [sortKey, setSortKey] = useState<SortKey>('modelCode')
+  const [sortKey, setSortKey] = useState<SortKey>('sizeInches')
   const [sortDir, setSortDir] = useState<'asc' | 'desc'>('asc')
 
   const handleSort = (key: SortKey) => {
@@ -158,7 +160,8 @@ export default function VF7Table({ models, isFetching }: { models: VF7Model[]; i
   }
 
   const sorted = [...models].sort((a, b) => {
-    const av = a[sortKey] ?? '', bv = b[sortKey] ?? ''
+    const av = sortKey === 'sizeInches' ? parseSize(a.sizeInches) : a[sortKey] ?? ''
+    const bv = sortKey === 'sizeInches' ? parseSize(b.sizeInches) : b[sortKey] ?? ''
     if (av < bv) return sortDir === 'asc' ? -1 : 1
     if (av > bv) return sortDir === 'asc' ? 1 : -1
     return 0
@@ -201,7 +204,6 @@ export default function VF7Table({ models, isFetching }: { models: VF7Model[]; i
                 { key: null, label: 'Seat' },
                 { key: null, label: 'Leakage' },
                 { key: null, label: 'Operator' },
-                { key: 'priceGbp' as SortKey, label: 'Price' },
                 { key: null, label: 'Cart' },
               ]).map((h, i) => (
                 <TableCell key={i} sx={headerSx}>
@@ -217,7 +219,7 @@ export default function VF7Table({ models, isFetching }: { models: VF7Model[]; i
           <TableBody>
             {paginated.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={13} align="center" sx={{ py: 6 }}>
+                <TableCell colSpan={12} align="center" sx={{ py: 6 }}>
                   <Typography variant="body2" color="text.secondary">No models found.</Typography>
                 </TableCell>
               </TableRow>
