@@ -177,7 +177,7 @@ function Finder() {
       <Box sx={{ ...wrap, display: "grid", gridTemplateColumns: { xs: "minmax(0,1fr)", md: "0.8fr 1.2fr" }, gap: { xs: 3, md: 7 }, alignItems: "center" }}>
         <Box>
           <Kicker>Actuator finder</Kicker>
-          <H2 id="h2-finder">Not Sure Which Actuator?</H2>
+          <H2 id="h2-finder">Not Sure Which Actuator to Choose?</H2>
           <Lead>Pick what the actuator has to do and the torque your valve needs. We’ll point you to the series that fit.</Lead>
         </Box>
         <Reveal from="right">

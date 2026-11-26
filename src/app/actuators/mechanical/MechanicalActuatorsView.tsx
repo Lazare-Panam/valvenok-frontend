@@ -166,7 +166,7 @@ function Finder() {
       <Box sx={{ ...wrap, display: "grid", gridTemplateColumns: { xs: "minmax(0,1fr)", md: "0.8fr 1.2fr" }, gap: { xs: 3, md: 7 }, alignItems: "center" }}>
         <Box>
           <Kicker>Gear finder</Kicker>
-          <H2 id="h2-finder">Not Sure Which Gear?</H2>
+          <H2 id="h2-finder">Not Sure Which Gear? Guide</H2>
           <Lead>Pick what the gear has to do and the torque your valve needs. We’ll point you to the series that fit.</Lead>
         </Box>
         <Reveal from="right">
