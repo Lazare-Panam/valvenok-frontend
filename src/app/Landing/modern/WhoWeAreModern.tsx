@@ -195,9 +195,10 @@ export default function WhoWeAreModern() {
               We&apos;re{" "}
               <Box component="span" sx={{ fontWeight: 700, color: dark ? BRAND.white : T.ink }}>
                 Valvenok
-              </Box>{" "}
-              — and we&apos;re now also an official authorised distributor of genuine MARS industrial valves, supplying authentic products
-              backed by full manufacturer documentation, certification, and technical support.
+              </Box>
+              , a UK industrial valve supplier based in Bicester. We supply valves, actuators, instrumentation fittings and hydrogen
+              components from 27 manufacturers to procurement teams and process engineers. We&apos;re also an official authorised
+              distributor of genuine MARS industrial valves, backed by full manufacturer documentation and technical support.
             </Typography>
             <Typography sx={{ ...body, mt: 2 }}>
               We work closely with manufacturers to deliver valves that meet demanding industry standards, with documentation and traceability

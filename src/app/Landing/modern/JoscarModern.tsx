@@ -35,7 +35,7 @@ export default function JoscarModern() {
         <Box>
           <Eyebrow>JOSCAR Registered</Eyebrow>
           <Typography component="h2" sx={{ mt: 2, fontWeight: 700, fontSize: { xs: "1.8rem", md: "2.4rem" }, letterSpacing: "-0.03em", lineHeight: 1.15, color: T.ink }}>
-            Why JOSCAR Matters for Your <Box component="span" sx={accentText}>Supply Chain</Box> ?
+            Why JOSCAR Matters for Your <Box component="span" sx={accentText}>Supply Chain?</Box>
           </Typography>
           <Typography sx={{ mt: 2, fontSize: "1.02rem", lineHeight: 1.75, color: T.body }}>
             JOSCAR — the Joint Supply Chain Accreditation Register — is the defence and aerospace industry&apos;s single pre-qualification

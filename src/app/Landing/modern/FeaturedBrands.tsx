@@ -68,7 +68,7 @@ export default function FeaturedBrands() {
       <Box sx={{ maxWidth: T.maxWidth, mx: "auto", px: { xs: 2, md: 4 }, py: { xs: 8, md: 11 } }}>
         <SectionHeader
           eyebrow="Featured Brands"
-          title="Best Sellers"
+          title="Best-Selling Valve, Actuator and Fitting Brands"
           subtitle="UK-based supplier — lead times confirmed on every quotation"
           action={
             <PillButton href="/brands" variant="secondary">

@@ -106,8 +106,9 @@ export default function HeroModern() {
               alt={s.alt}
               fill
               priority={i === 0}
-              // Both slides can be the LCP element as they crossfade, so neither is lazy
-              loading={i === 0 ? undefined : "eager"}
+              // Only the first slide is the LCP image; the others load lazily (they sit in the
+              // viewport at opacity 0, so they still arrive before their turn in the slider)
+              loading={i === 0 ? undefined : "lazy"}
               sizes="100vw"
               quality={80}
               style={{ objectFit: "cover", objectPosition: s.position }}

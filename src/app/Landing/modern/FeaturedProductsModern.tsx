@@ -12,13 +12,14 @@ import { swipeRow } from "./swipeRow";
 export default function FeaturedProductsModern() {
   return (
     <Box component="section" sx={{ ...textReset, width: "100%", boxSizing: "border-box", maxWidth: T.maxWidth, mx: "auto", px: { xs: 2, md: 4 }, py: { xs: 8, md: 11 } }}>
-      <SectionHeader eyebrow="Premium Selection" title="Featured Products" />
+      <SectionHeader eyebrow="Premium Selection" title="Featured Industrial Valves" />
       <Box sx={swipeRow({ sm: "1fr 1fr", lg: "repeat(4, 1fr)" })}>
         {FEATURED_PRODUCTS.map((p) => (
           <Box
             key={p.id}
             component={Link}
             href={p.href}
+            aria-label={p.name}
             sx={{
               display: "flex",
               flexDirection: "column",

@@ -78,28 +78,51 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
-              "@id": "https://www.valvenok.com/#organization",
-              name: "Valvenok",
-              legalName: "Valvenok Ltd",
-              url: "https://www.valvenok.com",
-              logo: "https://pblol2.blob.core.windows.net/valvenok-images/valvenok-new-logo.jpeg",
-              contactPoint: {
-                "@type": "ContactPoint",
-                telephone: "+44-7368 137917",
-                contactType: "sales",
-                email: "sales@valvenok.com",
-                areaServed: "GB",
-              },
-              sameAs: ["https://uk.linkedin.com/company/valvenok-ltd"],
-              // Group sites run by Valvenok Ltd itself
-              subOrganization: GROUP_SITES.filter(
-                (g) => g.operatedByValvenok,
-              ).map((g) => ({
-                "@type": "Organization",
-                name: g.name,
-                url: g.url,
-              })),
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://www.valvenok.com/#organization",
+                  name: "Valvenok",
+                  legalName: "Valvenok Ltd",
+                  url: "https://www.valvenok.com/",
+                  logo: "https://pblol2.blob.core.windows.net/valvenok-images/valvenok-new-logo.jpeg",
+                  description:
+                    "UK supplier of industrial valves, actuators, instrumentation fittings and hydrogen components from 27 manufacturers.",
+                  // Same address as the footer and the homepage map
+                  address: {
+                    "@type": "PostalAddress",
+                    streetAddress: "St. Edburgs Hall, Priory Road",
+                    addressLocality: "Bicester",
+                    postalCode: "OX26 6BL",
+                    addressCountry: "GB",
+                  },
+                  contactPoint: {
+                    "@type": "ContactPoint",
+                    telephone: "+44 7368 137917",
+                    contactType: "sales",
+                    email: "sales@valvenok.com",
+                    areaServed: "GB",
+                    availableLanguage: "en",
+                  },
+                  sameAs: ["https://uk.linkedin.com/company/valvenok-ltd"],
+                  // Group sites run by Valvenok Ltd itself
+                  subOrganization: GROUP_SITES.filter(
+                    (g) => g.operatedByValvenok,
+                  ).map((g) => ({
+                    "@type": "Organization",
+                    name: g.name,
+                    url: g.url,
+                  })),
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://www.valvenok.com/#website",
+                  url: "https://www.valvenok.com/",
+                  name: "Valvenok",
+                  publisher: { "@id": "https://www.valvenok.com/#organization" },
+                  inLanguage: "en-GB",
+                },
+              ],
             }),
           }}
         />

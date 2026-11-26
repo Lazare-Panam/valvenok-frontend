@@ -16,7 +16,7 @@ export default function InsightsModern() {
     <Box component="section" sx={{ ...textReset, width: "100%", boxSizing: "border-box", maxWidth: T.maxWidth, mx: "auto", px: { xs: 2, md: 4 }, py: { xs: 8, md: 11 } }}>
       <SectionHeader
         eyebrow="Engineering Insights"
-        title="Latest From The Team"
+        title="Valve Selection Guides and Technical Articles"
         action={
           <PillButton href="/news" variant="secondary">
             View All Articles
@@ -29,6 +29,7 @@ export default function InsightsModern() {
             key={post.link}
             component={Link}
             href={post.link}
+            aria-label={post.title}
             sx={{
               display: "flex",
               flexDirection: "column",

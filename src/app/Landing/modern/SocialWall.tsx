@@ -160,7 +160,7 @@ export default function SocialWall() {
       <Box sx={{ maxWidth: T.maxWidth, mx: "auto", px: { xs: 2, md: 4 } }}>
         <Eyebrow>Join the conversation</Eyebrow>
         <Typography component="h2" sx={{ mt: 2, fontWeight: 700, letterSpacing: "-0.03em", lineHeight: 1.1, fontSize: { xs: "2rem", md: "2.75rem" }, color: dark ? BRAND.white : T.ink, maxWidth: 560 }}>
-          Stay informed, stay inspired
+          Valve Industry News and Updates
         </Typography>
         <Typography sx={{ mt: 1.5, maxWidth: 560, fontSize: "1.05rem", lineHeight: 1.65, color: dark ? withAlpha(BRAND.white, 0.78) : T.body }}>
           New partnerships, product ranges and technical guides from Valvenok. Follow us to see them first.
