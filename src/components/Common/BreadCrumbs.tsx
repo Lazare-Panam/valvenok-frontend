@@ -86,6 +86,8 @@ const DEFAULT_LABELS: Record<string, string> = {
   login: 'Sign In',
   register: 'Create Account',
   'l-port-vs-t-port-3-way-ball-valve': 'L-Port vs T-Port 3-Way Ball Valves',
+  'safety-relief-valves': 'Safety & Relief Valves',
+  'safety-valve-vs-relief-valve': 'Safety Valve vs Relief Valve',
   about: 'About Us',
   contact: 'Contact Us',
   'tri-clamp-clamps': 'Tri-Clamp Clamps',

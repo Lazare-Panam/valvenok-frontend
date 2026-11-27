@@ -453,7 +453,7 @@ const schema = {
       mainEntityOfPage: URL,
       image: COVER,
       datePublished: "2026-11-04",
-      dateModified: "2026-11-04",
+      dateModified: "2026-11-27",
       author: { "@type": "Organization", name: "Valvenok" },
       publisher: {
         "@type": "Organization",
@@ -584,6 +584,13 @@ export default function LPortVsTPortPage() {
         Whether this off position exists depends on the stop configuration, so
         confirm it at enquiry stage.
       </P>
+      <P>
+        For threaded L-port valves rated to 1,000 psi, see{" "}
+        <A href="https://www.marsvalvenok.com/products/multi-port-ball-valves/three-way-multi-port-ball-valve">
+          Mars Series 38 3-way ball valves
+        </A>
+        .
+      </P>
 
       <H2>T-port flow paths</H2>
       <P>
@@ -599,9 +606,20 @@ export default function LPortVsTPortPage() {
         you never want the line dead-headed during changeover. It is a problem
         if operators expect the valve to isolate.
       </P>
+      <P>
+        Larger flanged lines can use{" "}
+        <A href="https://www.marsvalvenok.com/products/multi-port-ball-valves/three-four-five-way-ball-valve">
+          3-way and 4-way flanged ball valves with L, T or X ports
+        </A>
+        .
+      </P>
 
       <H2>L-port vs T-port at a glance</H2>
       <DataTable {...COMPARE} />
+      <P>
+        Browse the full{" "}
+        <A href="https://www.marsvalvenok.com/products/multi-port-ball-valves">multi-port ball valve range</A>.
+      </P>
 
       <H2>When to use each: diverting, mixing and bypass</H2>
       <H3>Diverting (one inlet, two outlets)</H3>
@@ -609,7 +627,8 @@ export default function LPortVsTPortPage() {
         Flow comes in at C and is sent to either A or B. L-port is the usual
         choice, because the outlet not in use is fully sealed. A T-port works
         too, using positions 3 and 4, and passes flow to both outlets while it
-        moves between them.
+        moves between them. For dedicated diverting duty up to 2,000 psi, see{" "}
+        <A href="https://www.marsvalvenok.com/products/multi-port-ball-valves/diverter-ball-valve">diverter ball valves</A>.
       </P>
       <UL
         items={[
@@ -652,6 +671,17 @@ export default function LPortVsTPortPage() {
         leaves out details. Work through these seven points and you will get a
         like-for-like price first time.
       </P>
+      <P>
+        On instrument and sampling lines,{" "}
+        <A href="/valves/instrumentation-valves/ball-valves">
+          PANAM PBV-3 SS316 3-way instrumentation ball valves
+        </A>{" "}
+        come in L-port and T-port with NPT, BSPT and BSPP ends. See the{" "}
+        <A href="https://www.panamvalve.com/valves/ball-valves/three-way">
+          PANAM three-way ball valve range
+        </A>{" "}
+        for full specifications.
+      </P>
       <Stepper
         title="Seven points for a first-time-right quote"
         steps={SPEC_STEPS}
@@ -686,7 +716,8 @@ export default function LPortVsTPortPage() {
           instrumentation ball valves
         </A>{" "}
         in 2-way and 3-way designs, and the{" "}
-        <A href="/brands/mars-valves">MARS</A> 3-way range.
+        <A href="/valves/mars-valves">Mars ball valves</A>, including the 3-way
+        range.
       </Callout>
 
       <FAQ items={FAQS} />

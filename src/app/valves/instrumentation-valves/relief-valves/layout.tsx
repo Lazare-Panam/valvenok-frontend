@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/src/app/Common/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "RVL & RVH Instrumentation Relief Valves",
+  title: "Instrumentation Relief Valves, 50–15,000 psi",
   description:
-    "RVL low pressure and RVH high pressure relief valves in SS316, SS316L and brass, NPT, BSPT and BSPP threads, with spring ranges up to 15,000 psi.",
+    "RVL low pressure and RVH high pressure SS 316 instrumentation relief valves, plus PRVH-10K and PRVH-15K. NPT, BSPT and BSPP threads, spring ranges 50 to 15,000 psi.",
   path: "/valves/instrumentation-valves/relief-valves",
+  image: "https://pblol2.blob.core.windows.net/panam-images/products/reflief-valves/relief-no-bg.png",
 });
 
 export default function ValvesInstrumentationValvesReliefValvesLayout({

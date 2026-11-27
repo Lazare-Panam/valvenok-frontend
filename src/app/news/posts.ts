@@ -2,6 +2,15 @@
 // cards at the end of each article.
 export const POSTS = [
   {
+    title: "Safety Valve vs Relief Valve: How They Work and How to Choose",
+    desc: "How safety and relief valves work, set pressure, blowdown and the other datasheet terms, sizing and installation basics, and UK rules under PSSR.",
+    thumbnail: "https://pblol2.blob.core.windows.net/panam-images/products/reflief-valves/relief-no-bg.png",
+    author: "Valvenok Team",
+    date: "November 2026",
+    category: "Technical Guide",
+    link: "/news/safety-valve-vs-relief-valve",
+  },
+  {
     title: "Butterfly Valve vs Ball Valve vs Gate Valve: When a Butterfly Valve Wins",
     desc: "Weight, length, cost and shut-off compared, when to use a butterfly valve (and when not to), and five questions to settle before you ask for a quote.",
     thumbnail: "https://pblol2.blob.core.windows.net/valvenok-images/blogs/butterfly-valve-vs-ball-valve-vs-gate-valve.jpg",
