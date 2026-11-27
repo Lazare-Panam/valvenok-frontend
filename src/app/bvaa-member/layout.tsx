@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     url: "https://www.valvenok.com/bvaa-member",
     siteName: "Valvenok",
-    images: [{ url: "https://pblol2.blob.core.windows.net/valvenok-images/certfiicates/bvaa-logo.png", alt: "BVAA member" }],
+    images: [{ url: "https://www.valvenok.com/images/bvaa/valvenok-team-bvaa-plaque.jpg", alt: "The Valvenok team with our BVAA membership plaque" }],
     locale: "en_GB",
     type: "website",
   },
