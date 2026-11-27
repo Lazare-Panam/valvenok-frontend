@@ -98,8 +98,8 @@ const ENTRY: [string, React.ReactNode][] = [
   ['Tel', '+44 7368 137917'],
   ['Email', <span key="e" className="nocap">sales@valvenok.com</span>],
   ['Website', <span key="w" className="nocap">www.valvenok.com</span>],
-  ['Distributor for', 'Panam Valves, Susin, Value Valves, KOSAPLUS, Mars'],
-  ['Stockist for', 'Panam Valves, Mars Valvenok, SPAC Pneumatic UK, Hiflux UK'],
+  ['Distributor for', 'Panam Valves, Susin, Value Valves, KOSAPLUS, Mars, Kronox'],
+  ['Stockist for', 'Panam Valves, Mars Valvenok, SPAC Pneumatic UK, Hiflux UK, Kronox'],
 ];
 
 function RedKicker({ children }: { children: React.ReactNode }) {
